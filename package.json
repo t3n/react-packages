@@ -1,0 +1,29 @@
+{
+  "name": "t3n-react",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-xo-react": "^0.18.0",
+    "eslint-plugin-react": "^7.12.4",
+    "lerna": "^3.10.7",
+    "prettier": "^1.16.1",
+    "xo": "^0.24.0"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "prettier": {
+    "useTabs": false,
+    "singleQuote": true,
+    "bracketSpacing": true
+  },
+  "xo": {
+    "extends": "xo-react",
+    "prettier": true,
+    "rules": {
+      "unicorn/filename-case": 0
+    }
+  }
+}
