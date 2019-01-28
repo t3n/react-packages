@@ -1,4 +1,4 @@
-import colors from './colors';
+// Import colors from './colors';
 
 export const fontFamily = '"adelle-sans", sans-serif';
 // [12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px]

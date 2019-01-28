@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@t3n/styles": "^1.0.0",
+    "clean-tag": "^2.0.2",
+    "polished": "^2.3.3",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

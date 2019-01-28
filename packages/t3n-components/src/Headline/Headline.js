@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import tag from 'clean-tag';
 
 import { textStyle } from 'styled-system';
 
-const font = ({ as, theme }) => textStyle({ textStyle: as, theme });
+const font = ({ is, theme }) => textStyle({ textStyle: is, theme });
 
-const Headline = styled.h1`
+const Headline = styled(tag)`
   ${font}
 `;
 
@@ -16,11 +17,11 @@ const Headline = styled.h1`
 // /* background-size: 1px; */
 
 Headline.propTypes = {
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+  is: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 };
 
 Headline.defaultProps = {
-  as: 'h1'
+  is: 'h1'
 };
 
 export default Headline;

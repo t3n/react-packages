@@ -1,5 +1,15 @@
 import { rem } from 'polished';
 
-const breakpoints = [480, 768, 980, 1440].map(bp => rem(bp));
+export const breakpointExtraSmall = 480;
+export const breakpointSmall = 768;
+export const breakpointMedium = 980;
+export const breakpointLarge = 1440;
 
-export default breakpoints;
+export const breakpoints = [
+  breakpointExtraSmall,
+  breakpointSmall,
+  breakpointMedium,
+  breakpointLarge
+];
+
+export default breakpoints.map(bp => rem(bp));
