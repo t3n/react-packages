@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import { addDecorator } from '@storybook/react';
+import { addDecorator, configure } from '@storybook/react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { configure } from '@storybook/react';
 
 import * as theme from '@t3n/styles';
 
