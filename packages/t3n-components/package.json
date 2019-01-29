@@ -8,9 +8,24 @@
     "polished": "^2.3.3",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
     "styled-components": "^4.1.3",
     "styled-system": "^3.2.1"
   },
-  "main": "src/index.js"
+  "main": "build/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/babel src --out-dir build --source-maps --watch",
+    "build": "./node_modules/.bin/babel src --out-dir build --source-maps"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
 }
