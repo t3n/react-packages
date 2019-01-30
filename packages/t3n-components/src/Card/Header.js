@@ -11,10 +11,12 @@ const backgroundImage = ({ bgImage, bgSize, bgPosition }) => `
 `;
 
 const CardHeader = styled.div`
-  height: 280px;
+  height: 220px;
   ${backgroundColor}
   ${backgroundImage}
 `;
+
+CardHeader.displayName = 'CardHeader';
 
 CardHeader.propTypes = {
   bg: PropTypes.string,

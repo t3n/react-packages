@@ -12,6 +12,8 @@ const Content = styled.div`
   margin: 0 auto;
 `;
 
+Content.displayName = 'Content';
+
 Content.propTypes = {
   wide: PropTypes.bool
 };

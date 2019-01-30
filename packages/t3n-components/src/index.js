@@ -1,5 +1,6 @@
 export { Content } from './Content';
-export { Grid, Item as GridItem } from './Grid';
+export { Grid, Item } from './Grid';
+export { Center } from './Center';
 export { Section } from './Section';
 export { Text } from './Text';
 export { Headline } from './Headline';

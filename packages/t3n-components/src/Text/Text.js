@@ -9,8 +9,10 @@ const Text = styled(tag)`
   ${width}
 `;
 
+Text.displayName = 'Text';
+
 Text.propTypes = {
-  is: PropTypes.oneOf('p', 'span'),
+  is: PropTypes.oneOf(['p', 'span']),
   ...color.propTypes,
   ...space.propTypes,
   ...width.propTypes

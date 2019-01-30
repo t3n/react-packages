@@ -18,6 +18,8 @@ const Headline = styled(tag)`
 //     ${FONT_SIZE * 1.25}rem repeat-x; */
 // /* background-size: 1px; */
 
+Headline.displayName = 'Headline';
+
 Headline.propTypes = {
   is: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 };

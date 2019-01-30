@@ -1,29 +1,44 @@
 import styled from 'styled-components';
-import { space } from 'styled-system';
+import { space, justifyContent, alignItems } from 'styled-system';
 import { stripUnit } from 'polished';
 import PropTypes from 'prop-types';
+import Item from './Item';
 
-const flexDirection = ({ column, reverse }) =>
-  `flex-direction: ${column ? 'column' : 'row'}${reverse ? '-reverse' : ''};`;
+const flexDirection = ({ vertical, reverse }) =>
+  `flex-direction: ${vertical ? 'column' : 'row'}${reverse ? '-reverse' : ''};`;
 
-const indent = ({ theme }) =>
-  space({ mx: [0, stripUnit(theme.space[5]) * -0.5 + 'rem'], theme });
+const indent = ({ noGap, theme }) =>
+  noGap
+    ? space({ mx: 0 })
+    : space({ mx: [0, stripUnit(theme.space[5]) * -0.5 + 'rem'], theme });
 
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${flexDirection}
+  ${justifyContent}
+  ${alignItems}
   ${indent}
+
+  ${Item} {
+    ${({ noGap }) => (noGap ? space({ px: 0 }) : '')}
+  }
 `;
 
+Grid.displayName = 'Grid';
+
 Grid.propTypes = {
-  column: PropTypes.bool,
-  reverse: PropTypes.bool
+  vertical: PropTypes.bool,
+  reverse: PropTypes.bool,
+  noGap: PropTypes.bool,
+  ...justifyContent.propTypes
 };
 
 Grid.defaultProps = {
-  column: false,
-  reverse: false
+  vertical: false,
+  reverse: false,
+  noGap: false,
+  justifyContent: 'flex-start'
 };
 
 export default Grid;
