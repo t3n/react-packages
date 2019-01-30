@@ -12,7 +12,10 @@
     "xo": "^0.24.0"
   },
   "scripts": {
-    "test": "xo"
+    "prepare": "./node_modules/.bin/lerna clean --yes && ./node_modules/.bin/lerna bootstrap --hoist",
+    "test": "xo",
+    "start:components": "./node_modules/.bin/lerna run start --scope @t3n/components --stream",
+    "storybook": "./node_modules/.bin/lerna run storybook --scope @t3n/storybook --stream"
   },
   "prettier": {
     "useTabs": false,

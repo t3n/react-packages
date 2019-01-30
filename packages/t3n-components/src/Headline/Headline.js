@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import tag from 'clean-tag';
-
-import { textStyle } from 'styled-system';
+import { textStyle, space, size, color } from 'styled-system';
 
 const font = ({ is, theme }) => textStyle({ textStyle: is, theme });
 
 const Headline = styled(tag)`
   ${font}
+  ${space}
+  ${size}
+  ${color}
 `;
 
 // /* Display: inline; */
