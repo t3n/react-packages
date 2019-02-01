@@ -1,35 +1,84 @@
+import React from 'react';
 import styled from 'styled-components';
-import { color } from 'styled-system';
+import { space, color } from 'styled-system';
 import PropTypes from 'prop-types';
+import tag from 'clean-tag';
+import { Ratio } from '../Ratio';
+
+const propTypes = {
+  is: PropTypes.oneOf(['div', 'a']),
+  big: PropTypes.string,
+  ratio: Ratio.propTypes.ratio,
+  bg: PropTypes.string,
+  image: PropTypes.string,
+  children: PropTypes.node,
+  ...color.propTypes
+};
+
+const defaultProps = {
+  is: 'div',
+  big: false,
+  ratio: 'auto',
+  color: 'brand.white',
+  bg: 'brand.anthracite',
+  image: '',
+  children: null
+};
+
+export const CardHeaderContent = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CardHeaderContainer = styled(tag)``;
+
+const CardHeader = ({ big, ratio, bg, image, children, ...props }) => (
+  <CardHeaderContainer {...props}>
+    <Ratio ratio={ratio}>
+      {image && <img src={image} />}
+      <CardHeaderContent>{children}</CardHeaderContent>
+    </Ratio>
+  </CardHeaderContainer>
+);
+
+CardHeader.propTypes = { ...propTypes };
+CardHeader.defaultProps = { ...defaultProps };
+
+const padding = ({ big, theme }) =>
+  big ? space({ p: [4, 6], theme }) : space({ p: 4, theme });
 
 const backgroundColor = ({ bg, theme }) => color({ bg, theme });
 
-const backgroundImage = ({ bgImage, bgSize, bgPosition }) => `
-  ${bgImage ? `background-image: url(${bgImage});` : ''}
-  background-size: ${bgSize};
-  background-position: ${bgPosition};
-`;
-
-const CardHeader = styled.div`
-  height: 220px;
+const StyledCardHeader = styled(CardHeader)`
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  ${color}
   ${backgroundColor}
-  ${backgroundImage}
+
+  > ${Ratio} {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+
+    > img:first-child {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    > ${CardHeaderContent} {
+      ${padding}
+    }
+  }
 `;
 
-CardHeader.displayName = 'CardHeader';
+StyledCardHeader.displayName = 'CardHeader';
+StyledCardHeader.propTypes = { ...propTypes };
+StyledCardHeader.defaultProps = { ...defaultProps };
 
-CardHeader.propTypes = {
-  bg: PropTypes.string,
-  bgImage: PropTypes.string,
-  bgSize: PropTypes.string,
-  bgPosition: PropTypes.string
-};
-
-CardHeader.defaultProps = {
-  bg: 'brand.anthracite',
-  bgImage: '',
-  bgSize: 'cover',
-  bgPosition: 'center'
-};
-
-export default CardHeader;
+export default StyledCardHeader;

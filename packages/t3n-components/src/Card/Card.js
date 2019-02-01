@@ -8,7 +8,7 @@ import {
 } from 'styled-system';
 import tag from 'clean-tag';
 import PropTypes from 'prop-types';
-import Header from './Header';
+import Header, { CardHeaderContent } from './Header';
 
 const borderRadius = ({ rounded, theme }) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
@@ -54,6 +54,10 @@ const StyledCard = styled(tag)`
 
   ${Header} {
     ${headerMargin}
+
+    ${CardHeaderContent} {
+    ${padding}
+  }
   }
 `;
 

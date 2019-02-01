@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 import { width, space } from 'styled-system';
 
-const gutter = ({ theme }) => space({ px: [0, 5], theme });
-
 const Item = styled.div`
   ${width}
-  ${gutter}
+  ${space}
 `;
 
 Item.propTypes = {
+  ...space.propTypes,
   ...width.propTypes
 };
 
 Item.defaultProps = {
+  px: [0, 5],
   width: 1
 };
 
