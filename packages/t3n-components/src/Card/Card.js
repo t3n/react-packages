@@ -30,6 +30,15 @@ const headerMargin = ({ big, theme }) =>
     ? space({ mx: [-4, -6], mt: [-4, -6], mb: [4, 6], theme })
     : space({ mx: -4, mt: -4, mb: 4, theme });
 
+const border = ({ dashed, elevate, href }) => {
+  const width = dashed && !elevate && !href ? '2px' : '1px';
+  const style = dashed && !elevate && !href ? 'dashed' : 'solid';
+  const opacity = elevate || href ? '.25' : '.5';
+  const color = `rgba(155,155,155, ${opacity})`;
+
+  return `border: ${width} ${style} ${color}`;
+};
+
 const StyledCard = styled(tag)`
   display: block;
   background-color: white;
@@ -39,8 +48,9 @@ const StyledCard = styled(tag)`
   justify-content: stretch;
   text-decoration: none;
   overflow: hidden;
-  transition: box-shadow .3s ease-out, transform .3s ease-out;
+  transition: box-shadow .15s ease-out, transform .15s ease-out;
   transform: translate3d(0,0,0);
+  ${border};
   ${borderRadius}
   ${width}
   ${padding}
@@ -49,7 +59,7 @@ const StyledCard = styled(tag)`
 
   &:hover {
     ${shadow.hover}
-    ${({ href }) => (href ? `transform: translate3d(0,-4px, 0);` : '')}
+    ${({ href }) => (href ? `transform: translate3d(0,-2px, 0);` : '')}
   }
 
   ${Header} {
@@ -69,6 +79,7 @@ Card.propTypes = {
   rounded: PropTypes.bool,
   big: PropTypes.bool,
   elevate: PropTypes.bool,
+  dashed: PropTypes.bool,
   href: PropTypes.string,
   color: PropTypes.string,
   ...width.propTypes
@@ -78,6 +89,7 @@ Card.defaultProps = {
   rounded: true,
   big: false,
   elevate: false,
+  dashed: false,
   href: '',
   color: 'brand.anthracite',
   // eslint-disable-next-line react/default-props-match-prop-types

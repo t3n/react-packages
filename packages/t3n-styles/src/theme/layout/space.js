@@ -8,13 +8,13 @@ export const spaceExtraLarge = space * 4; // 80px
 
 export const spaces = [
   0,
-  spaceExtraSmall,
-  spaceSmaller,
-  spaceSmall,
-  space,
-  spaceMedium,
-  spaceLarge,
-  spaceExtraLarge
+  spaceExtraSmall, // 5px
+  spaceSmaller, // 10px
+  spaceSmall, // 15px
+  space, // 20px
+  spaceMedium, // 25px
+  spaceLarge, // 50px
+  spaceExtraLarge // 80px
 ];
 
 export default spaces.map(space => space + 'rem');

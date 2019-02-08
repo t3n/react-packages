@@ -8,11 +8,13 @@ import {
 } from '@storybook/addon-viewport';
 import JSXAddon from 'storybook-addon-jsx';
 
-import * as theme from '@t3n/styles';
+import { theme } from '@t3n/styles';
+
+import viewports from '../src/utils/viewports';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Adelle-sans';
+    font-family: ${({ theme }) => theme.fonts.default};
     padding: 0;
     margin: 0;
   }
@@ -23,7 +25,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 configureViewport({
-  viewports: INITIAL_VIEWPORTS
+  viewports: {
+    ...viewports,
+    ...INITIAL_VIEWPORTS
+  },
+  defaultViewport: 'responsive'
 });
 
 setAddon(JSXAddon);

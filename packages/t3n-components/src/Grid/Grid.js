@@ -11,11 +11,11 @@ const indent = ({ noGap, narrow, theme }) =>
   noGap
     ? space({ mx: 0 })
     : narrow
-    ? space({ mx: [0, stripUnit(theme.space[4]) * -0.5 + 'rem'], theme })
-    : space({ mx: [0, stripUnit(theme.space[5]) * -0.5 + 'rem'], theme });
+    ? space({ mx: [0, stripUnit(theme.space[2]) * -1.0 + 'rem'], theme })
+    : space({ mx: [0, stripUnit(theme.space[5]) * -1.0 + 'rem'], theme });
 
 const itemGap = ({ noGap, narrow, theme }) =>
-  noGap ? space({ px: 0 }) : narrow ? space({ px: theme.space[4], theme }) : '';
+  noGap ? space({ px: 0 }) : narrow ? space({ px: theme.space[2], theme }) : '';
 
 const Grid = styled.div`
   display: flex;
@@ -24,6 +24,7 @@ const Grid = styled.div`
   ${justifyContent}
   ${alignItems}
   ${indent}
+  ${space}
 
   ${Item} {
     ${itemGap}
