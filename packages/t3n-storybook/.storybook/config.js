@@ -50,10 +50,18 @@ addDecorator(story => (
 
 setAddon(JSXAddon);
 
-const req = require.context('../src/stories', true, /\.stories\.js$/);
-
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  // Storybook
+  require('../src/stories/storybook/storybook.stories');
+  // Style
+  require('../src/stories/style/colors/colors.stories');
+  require('../src/stories/style/typography/introduction/introduction.stories');
+  require('../src/stories/style/typography/heading/heading.stories');
+  // Layout
+  require('../src/stories/layout/content/content.stories');
+  require('../src/stories/layout/grid/grid.stories');
+  // Components
+  require('../src/stories/components/card/card.stories');
 }
 
 configure(loadStories, module);

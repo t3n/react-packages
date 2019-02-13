@@ -1,12 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { doc } from 'storybook-readme';
 import { ThemeConsumer } from 'styled-components';
 import { parseToRgb } from 'polished';
 import { Card, CardHeader, Heading, Text, Grid, Item } from '@t3n/components';
-import StoryContainer from '../../components/StoryContainer';
+import StoryContainer from '../../../components/StoryContainer';
+import colorsMd from './colors.md';
 
 storiesOf('Style|Colors', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
+  .add('Einleitung', doc(colorsMd))
   .add('Brand', () => (
     <ThemeConsumer>
       {theme => (

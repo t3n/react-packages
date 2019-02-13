@@ -3,8 +3,6 @@ import { boolean, text, number } from '@storybook/addon-knobs';
 const mapPropToKnob = (name = '', value = '', groupId = '') => {
   const propType = typeof value;
 
-  console.log(propType);
-
   switch (propType) {
     case 'boolean':
       return boolean(name, value, groupId);

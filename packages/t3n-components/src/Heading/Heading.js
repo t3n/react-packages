@@ -22,12 +22,17 @@ Heading.displayName = 'Heading';
 
 Heading.propTypes = {
   is: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  ...space.propTypes,
+  ...size.propTypes,
+  ...color.propTypes
 };
 
 Heading.defaultProps = {
   is: 'h1',
-  as: null
+  as: null,
+  // eslint-disable-next-line react/default-props-match-prop-types
+  color: 'brand.anthracite'
 };
 
 export const H1 = ({ is, ...props }) => <Heading is="h1" {...props} />;
