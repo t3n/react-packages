@@ -1,0 +1,53 @@
+stages:
+  - build
+  - test
+  - release
+  - cleanup
+
+variables:
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+.sharedBeforeScript: &sharedBeforeScript
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+
+build:
+  stage: build
+  <<: *sharedBeforeScript
+  script:
+    - npm install
+    - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
+
+layers:
+  stage: test
+  script:
+    - docker history --no-trunc $CONTAINER_RELEASE_IMAGE
+
+feature:
+  stage: release
+  when: manual
+  except:
+    - master
+    - stage
+  <<: *sharedBeforeScript
+  script:
+    - npm install
+    - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
+    - docker push $CONTAINER_RELEASE_IMAGE
+    - docker rmi -f $(docker images --filter=reference="$CONTAINER_RELEASE_IMAGE" -q)
+
+release:
+  stage: release
+  only:
+    - master
+    - stage
+  <<: *sharedBeforeScript
+  script:
+    - docker push $CONTAINER_RELEASE_IMAGE
+
+cleanup:
+  stage: cleanup
+  script:
+    - docker stop $CI_PIPELINE_ID
+    - docker rmi -f $(docker images --filter=reference="$CONTAINER_RELEASE_IMAGE" -q)
+  when: always
