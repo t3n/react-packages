@@ -1,27 +1,39 @@
 import { boolean, text, number } from '@storybook/addon-knobs';
 
-const knobTypes = {
-  string: text,
-  boolean,
-  number
+const mapPropToKnob = (name = '', value = '', groupId = '') => {
+  const propType = typeof value;
+
+  console.log(propType);
+
+  switch (propType) {
+    case 'boolean':
+      return boolean(name, value, groupId);
+    case 'string':
+      return text(name, value, groupId);
+    case 'number':
+      return number(name, value, {}, groupId);
+    default:
+      return value;
+  }
 };
 
 export const knobsFromProps = c => (
   props = {},
   groupId = '',
-  filterProps = []
+  filterPropNames = []
 ) =>
   Object.keys(c.defaultProps)
-    .filter(propName => !filterProps.includes(propName))
+    .filter(propName => !filterPropNames.includes(propName))
     .map(propName => {
       const defaultProp = c.defaultProps[propName];
       const prop = Object.prototype.hasOwnProperty.call(props, propName)
         ? props[propName]
         : defaultProp;
+      const knob = mapPropToKnob(propName, prop, groupId);
 
       return {
         propName,
-        knob: knobTypes[typeof defaultProp](propName, prop, groupId)
+        knob
       };
     })
     .reduce(

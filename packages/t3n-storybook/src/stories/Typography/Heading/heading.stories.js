@@ -5,9 +5,9 @@ import StoryContainer from '../../../components/StoryContainer';
 
 const headings = new Array(6).fill('').map((_, i) => 'h' + (i + 1));
 
-storiesOf('Typography/Heading', module)
+storiesOf('Style|Typography', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Regular', () => (
+  .add('Heading', () => (
     <>
       {headings.map(h => (
         <div key={h}>

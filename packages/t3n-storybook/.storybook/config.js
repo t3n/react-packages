@@ -6,10 +6,9 @@ import {
   configureViewport,
   INITIAL_VIEWPORTS
 } from '@storybook/addon-viewport';
+import { withOptions } from '@storybook/addon-options';
 import JSXAddon from 'storybook-addon-jsx';
-
 import { theme } from '@t3n/styles';
-
 import viewports from '../src/utils/viewports';
 
 const GlobalStyle = createGlobalStyle`
@@ -32,7 +31,12 @@ configureViewport({
   defaultViewport: 'responsive'
 });
 
-setAddon(JSXAddon);
+addDecorator(
+  withOptions({
+    name: 't3n Storybook',
+    hierarchyRootSeparator: /\|/
+  })
+);
 
 addDecorator(checkA11y);
 addDecorator(story => (
@@ -43,6 +47,8 @@ addDecorator(story => (
     </Fragment>
   </ThemeProvider>
 ));
+
+setAddon(JSXAddon);
 
 const req = require.context('../src/stories', true, /\.stories\.js$/);
 

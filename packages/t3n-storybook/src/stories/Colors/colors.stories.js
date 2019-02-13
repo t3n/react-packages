@@ -5,18 +5,18 @@ import { parseToRgb } from 'polished';
 import { Card, CardHeader, Heading, Text, Grid, Item } from '@t3n/components';
 import StoryContainer from '../../components/StoryContainer';
 
-storiesOf('Colors', module)
+storiesOf('Style|Colors', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('All', () => (
+  .add('Brand', () => (
     <ThemeConsumer>
       {theme => (
-        <Grid narrow mb={-5}>
+        <Grid my={-1}>
           {Object.keys(theme.colors.brand).map(name => {
             const value = theme.colors.brand[name];
             const rgb = parseToRgb(theme.colors.brand[name]);
 
             return (
-              <Item key={name} width={[1 / 2, 1 / 3, 1 / 4]} mb={4}>
+              <Item key={name} width={[1, 1 / 3, 1 / 4]} my={1}>
                 <Card>
                   <CardHeader ratio={3 / 2} bg={value} />
                   <Heading is="h3" my={0}>

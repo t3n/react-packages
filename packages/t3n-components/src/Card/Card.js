@@ -14,7 +14,7 @@ const borderRadius = ({ rounded, theme }) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
 const padding = ({ big, theme }) =>
-  big ? space({ p: [4, 6], theme }) : space({ p: 4, theme });
+  big ? space({ p: [3, 6], theme }) : space({ p: 3, theme });
 
 const color = ({ color: c, theme }) => styledColor({ color: c, theme });
 
@@ -27,16 +27,14 @@ const shadow = {
 
 const headerMargin = ({ big, theme }) =>
   big
-    ? space({ mx: [-4, -6], mt: [-4, -6], mb: [4, 6], theme })
-    : space({ mx: -4, mt: -4, mb: 4, theme });
+    ? space({ mx: [-3, -6], mt: [-3, -6], mb: [3, 6], theme })
+    : space({ mx: -3, mt: -3, mb: 3, theme });
 
-const border = ({ dashed, elevate, href }) => {
+const border = ({ dashed, elevate, href, theme }) => {
   const width = dashed && !elevate && !href ? '2px' : '1px';
   const style = dashed && !elevate && !href ? 'dashed' : 'solid';
-  const opacity = elevate || href ? '.25' : '.5';
-  const color = `rgba(155,155,155, ${opacity})`;
 
-  return `border: ${width} ${style} ${color}`;
+  return `border: ${width} ${style} ${theme.colors.background.light}`;
 };
 
 const StyledCard = styled(tag)`

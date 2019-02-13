@@ -7,15 +7,15 @@ import Item from './Item';
 const flexDirection = ({ vertical, reverse }) =>
   `flex-direction: ${vertical ? 'column' : 'row'}${reverse ? '-reverse' : ''};`;
 
-const indent = ({ noGap, narrow, theme }) =>
+const indent = ({ noGap, wide, theme }) =>
   noGap
     ? space({ mx: 0 })
-    : narrow
-    ? space({ mx: [0, stripUnit(theme.space[2]) * -1.0 + 'rem'], theme })
-    : space({ mx: [0, stripUnit(theme.space[5]) * -1.0 + 'rem'], theme });
+    : wide
+    ? space({ mx: [0, stripUnit(theme.space[3]) * -1.0 + 'rem'], theme })
+    : space({ mx: [0, stripUnit(theme.space[1]) * -1.0 + 'rem'], theme });
 
-const itemGap = ({ noGap, narrow, theme }) =>
-  noGap ? space({ px: 0 }) : narrow ? space({ px: theme.space[2], theme }) : '';
+const itemGap = ({ noGap, wide, theme }) =>
+  noGap ? space({ px: 0 }) : wide ? space({ px: theme.space[3], theme }) : '';
 
 const Grid = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ Grid.displayName = 'Grid';
 Grid.propTypes = {
   vertical: PropTypes.bool,
   reverse: PropTypes.bool,
-  narrow: PropTypes.bool,
+  wide: PropTypes.bool,
   noGap: PropTypes.bool,
   ...justifyContent.propTypes
 };
@@ -44,7 +44,7 @@ Grid.propTypes = {
 Grid.defaultProps = {
   vertical: false,
   reverse: false,
-  narrow: false,
+  wide: false,
   noGap: false,
   justifyContent: 'flex-start'
 };

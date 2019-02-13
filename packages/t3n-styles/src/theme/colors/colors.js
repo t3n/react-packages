@@ -69,11 +69,11 @@ export const backgroundLighter = greyLighter;
 export const backgroundHighlight = redLight;
 
 export const backgroundColors = {
-  background,
-  backgroundInverse,
-  backgroundLight,
-  backgroundLighter,
-  backgroundHighlight
+  primary: background,
+  inverse: backgroundInverse,
+  light: backgroundLight,
+  lighter: backgroundLighter,
+  highlight: backgroundHighlight
 };
 
 // $primary-color            : $red-light;

@@ -7,7 +7,7 @@ import { Ratio } from '../Ratio';
 
 const propTypes = {
   is: PropTypes.oneOf(['div', 'a']),
-  big: PropTypes.string,
+  big: PropTypes.bool,
   ratio: Ratio.propTypes.ratio,
   bg: PropTypes.string,
   image: PropTypes.string,
@@ -47,7 +47,7 @@ CardHeader.propTypes = { ...propTypes };
 CardHeader.defaultProps = { ...defaultProps };
 
 const padding = ({ big, theme }) =>
-  big ? space({ p: [4, 6], theme }) : space({ p: 4, theme });
+  big ? space({ p: [3, 6], theme }) : space({ 3: 4, theme });
 
 const backgroundColor = ({ bg, theme }) => color({ bg, theme });
 

@@ -12,7 +12,7 @@ Item.propTypes = {
 };
 
 Item.defaultProps = {
-  px: [0, 5],
+  px: [0, 1],
   width: 1
 };
 
