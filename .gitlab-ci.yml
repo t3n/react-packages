@@ -48,6 +48,5 @@ release:
 cleanup:
   stage: cleanup
   script:
-    - docker stop $CI_PIPELINE_ID
     - docker rmi -f $(docker images --filter=reference="$CONTAINER_RELEASE_IMAGE" -q)
   when: always
