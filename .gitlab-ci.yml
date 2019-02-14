@@ -15,6 +15,7 @@ build:
   stage: build
   <<: *sharedBeforeScript
   script:
+    - npm install lerna -g
     - npm install
     - cd packages/t3n-components && npm run build && cd ../..
     - cd packages/t3n-storybook && npm run build storybook && cd ../..
@@ -33,6 +34,7 @@ feature:
     - stage
   <<: *sharedBeforeScript
   script:
+    - npm install lerna -g
     - npm install
     - cd packages/t3n-components && npm run build && cd ../..
     - cd packages/t3n-storybook && npm run build storybook && cd ../..
