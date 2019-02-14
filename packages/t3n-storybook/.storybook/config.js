@@ -58,6 +58,7 @@ function loadStories() {
   require('../src/stories/style/typography/introduction/introduction.stories');
   require('../src/stories/style/typography/heading/heading.stories');
   // Layout
+  require('../src/stories/layout/breakpoints/breakpoints.stories');
   require('../src/stories/layout/content/content.stories');
   require('../src/stories/layout/grid/grid.stories');
   // Components
