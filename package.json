@@ -13,7 +13,7 @@
   },
   "scripts": {
     "clean": "./node_modules/.bin/lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/build && rm -rf packages/t3n-storybook/storybook-static",
-    "prepare": "./node_modules/.bin/lerna clean --yes && ./node_modules/.bin/lerna bootstrap",
+    "prepare": "./node_modules/.bin/lerna clean --yes && ./node_modules/.bin/lerna bootstrap --hoist",
     "test": "xo",
     "start:components": "./node_modules/.bin/lerna run start --scope @t3n/components --stream",
     "build:components": "./node_modules/.bin/lerna run build --scope @t3n/components --stream",
