@@ -15,7 +15,7 @@ build:
   stage: build
   <<: *sharedBeforeScript
   script:
-    - npm install --verbose
+    - npm install --unsafe-perm
     - cd packages/t3n-components && npm run build && cd ../..
     - cd packages/t3n-storybook && npm run build storybook && cd ../..
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
