@@ -46,6 +46,14 @@ release:
   script:
     - docker push $CONTAINER_RELEASE_IMAGE
 
+deploy_master:
+  only:
+    - master
+  stage: deploy
+  environment: master
+  script:
+    - 'curl -X POST "https://kubr.yeebase.net/yeebase.kubr/webhook/deploy?apikey=RM8vKrnr5XBRLvHKW8Qt7gqO&name=Live"'
+
 cleanup:
   stage: cleanup
   script:
