@@ -18,7 +18,7 @@ build:
     - export SKIP_PREFLIGHT_CHECK=true
     - npm install --unsafe-perm
     - cd packages/t3n-components && npm run build && cd ../..
-    - cd packages/t3n-storybook && npm run build storybook && cd ../..
+    - cd packages/t3n-storybook && npm run build-storybook && cd ../..
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
 
 layers:
@@ -36,7 +36,7 @@ feature:
   script:
     - npm install
     - cd packages/t3n-components && npm run build && cd ../..
-    - cd packages/t3n-storybook && npm run build storybook && cd ../..
+    - cd packages/t3n-storybook && npm run build-storybook && cd ../..
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
     - docker push $CONTAINER_RELEASE_IMAGE
     - docker rmi -f $(docker images --filter=reference="$CONTAINER_RELEASE_IMAGE" -q)
