@@ -1,5 +1,3 @@
-image: node:11-alpine
-
 stages:
   - build
   - test
@@ -17,10 +15,7 @@ build:
   stage: build
   <<: *sharedBeforeScript
   script:
-    - su - node
-    - npm install
-    - cd packages/t3n-components && npm run build && cd ../..
-    - cd packages/t3n-storybook && npm run build-storybook && cd ../..
+    - npm install --unsafe-perm
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
 
 layers:
@@ -36,9 +31,7 @@ feature:
     - stage
   <<: *sharedBeforeScript
   script:
-    - npm install
-    - cd packages/t3n-components && npm run build && cd ../..
-    - cd packages/t3n-storybook && npm run build-storybook && cd ../..
+    - npm install --unsafe-perm
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
     - docker push $CONTAINER_RELEASE_IMAGE
     - docker rmi -f $(docker images --filter=reference="$CONTAINER_RELEASE_IMAGE" -q)
