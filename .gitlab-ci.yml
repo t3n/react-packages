@@ -1,3 +1,5 @@
+image: node:11-alpine
+
 stages:
   - build
   - test
@@ -15,8 +17,8 @@ build:
   stage: build
   <<: *sharedBeforeScript
   script:
-    - export SKIP_PREFLIGHT_CHECK=true
-    - npm install --unsafe-perm
+    - su - node
+    - npm install
     - cd packages/t3n-components && npm run build && cd ../..
     - cd packages/t3n-storybook && npm run build-storybook && cd ../..
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
