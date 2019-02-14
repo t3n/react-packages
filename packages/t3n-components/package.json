@@ -14,6 +14,7 @@
   "main": "build/index.js",
   "module": "src/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "start": "./node_modules/.bin/babel src --out-dir build --source-maps --watch",
     "build": "./node_modules/.bin/babel src --out-dir build --source-maps"
   },

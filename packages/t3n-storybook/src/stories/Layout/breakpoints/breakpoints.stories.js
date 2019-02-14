@@ -22,9 +22,9 @@ storiesOf('Layout|Breakpoints', module).add('Alle Breakpoints', () => (
   <ThemeConsumer>
     {theme =>
       theme.breakpoints.reverse().map(bp => (
-        <div>
-          <Breakpoint width={bp}>{bp}</Breakpoint>
-        </div>
+        <Breakpoint key={bp} width={bp}>
+          {bp}
+        </Breakpoint>
       ))
     }
   </ThemeConsumer>

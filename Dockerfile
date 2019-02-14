@@ -6,9 +6,6 @@ WORKDIR /app
 
 USER node
 
-RUN set -x && \
-    npm install && \
-    cd packages/t3n-components && npm run build && cd ../.. && \
-    cd packages/t3n-storybook && npm run build-storybook
+RUN npm install
 
-CMD ["npx", "http-server", "storybook-static"]
+CMD ["npm", "run", "serve:storybook"]
