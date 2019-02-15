@@ -20,7 +20,7 @@ export const knobsFromProps = c => (
   groupId = '',
   filterPropNames = []
 ) =>
-  Object.keys(c.defaultProps)
+  Object.keys({ ...c.defaultProps, ...props })
     .filter(propName => !filterPropNames.includes(propName))
     .map(propName => {
       const defaultProp = c.defaultProps[propName];

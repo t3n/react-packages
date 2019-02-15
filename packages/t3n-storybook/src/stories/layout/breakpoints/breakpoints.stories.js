@@ -21,7 +21,7 @@ Breakpoint.defaultProps = {
 storiesOf('Layout|Breakpoints', module).add('Alle Breakpoints', () => (
   <ThemeConsumer>
     {theme =>
-      theme.breakpoints.reverse().map(bp => (
+      [...theme.breakpoints].reverse().map(bp => (
         <Breakpoint key={bp} width={bp}>
           {bp}
         </Breakpoint>
