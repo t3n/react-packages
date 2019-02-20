@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { space, color } from 'styled-system';
-import PropTypes from 'prop-types';
+import { space, color, ColorProps } from 'styled-system';
 import tag from 'clean-tag';
-import { Ratio } from '../Ratio';
+import { Ratio, RatioProps } from '../Ratio';
 
-const propTypes = {
-  is: PropTypes.oneOf(['div', 'a']),
-  big: PropTypes.bool,
-  ratio: Ratio.propTypes.ratio,
-  bg: PropTypes.string,
-  image: PropTypes.string,
-  children: PropTypes.node,
-  ...color.propTypes
-};
+interface CardHeaderProps extends ColorProps {
+  is?: 'div' | 'a';
+  big?: boolean;
+  ratio?: RatioProps['ratio'];
+  image?: string;
+  children?: ReactNode;
+}
 
 const defaultProps = {
   is: 'div',
@@ -21,8 +18,7 @@ const defaultProps = {
   ratio: 'auto',
   color: 'brand.white',
   bg: 'brand.anthracite',
-  image: '',
-  children: null
+  image: ''
 };
 
 export const CardHeaderContent = styled.div`
@@ -34,7 +30,14 @@ export const CardHeaderContent = styled.div`
 
 const CardHeaderContainer = styled(tag)``;
 
-const CardHeader = ({ big, ratio, bg, image, children, ...props }) => (
+const CardHeader = ({
+  big,
+  ratio,
+  bg,
+  image,
+  children,
+  ...props
+}: CardHeaderProps) => (
   <CardHeaderContainer {...props}>
     <Ratio ratio={ratio}>
       {image && <img src={image} />}
@@ -43,15 +46,15 @@ const CardHeader = ({ big, ratio, bg, image, children, ...props }) => (
   </CardHeaderContainer>
 );
 
-CardHeader.propTypes = { ...propTypes };
-CardHeader.defaultProps = { ...defaultProps };
+CardHeader.defaultProps = defaultProps;
 
-const padding = ({ big, theme }) =>
+const padding = ({ big, theme }: CardHeaderProps & ThemeProps): string =>
   big ? space({ p: [3, 6], theme }) : space({ 3: 4, theme });
 
-const backgroundColor = ({ bg, theme }) => color({ bg, theme });
+const backgroundColor = ({ bg, theme }: CardHeaderProps & ThemeProps): string =>
+  color({ bg, theme });
 
-const StyledCardHeader = styled(CardHeader)`
+const StyledCardHeader = styled(CardHeader)<CardHeaderProps & ThemeProps>`
   position: relative;
   overflow: hidden;
   display: flex;
@@ -78,7 +81,6 @@ const StyledCardHeader = styled(CardHeader)`
 `;
 
 StyledCardHeader.displayName = 'CardHeader';
-StyledCardHeader.propTypes = { ...propTypes };
-StyledCardHeader.defaultProps = { ...defaultProps };
+StyledCardHeader.defaultProps = defaultProps as CardHeaderProps;
 
 export default StyledCardHeader;

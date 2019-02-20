@@ -7,30 +7,62 @@ import {
   boxShadow as styledBoxShadow
 } from 'styled-system';
 import tag from 'clean-tag';
-import PropTypes from 'prop-types';
 import Header, { CardHeaderContent } from './Header';
 
-const borderRadius = ({ rounded, theme }) =>
-  `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
+interface CardProps {
+  rounded?: boolean;
+  big?: boolean;
+  elevate?: boolean;
+  dashed?: boolean;
+  href?: string | false;
+  color?: string;
+}
 
-const padding = ({ big, theme }) =>
+const borderRadius = ({
+  rounded,
+  theme
+}: {
+  rounded: boolean;
+  theme: Theme;
+}): string => `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
+
+const padding = ({ big, theme }: { big: boolean; theme: Theme }): string =>
   big ? space({ p: [3, 6], theme }) : space({ p: 3, theme });
 
-const color = ({ color: c, theme }) => styledColor({ color: c, theme });
+const color = ({ color: c, theme }: { color: string; theme: any }): string =>
+  styledColor({ color: c, theme });
 
 const shadow = {
-  default: ({ elevate, href, theme }) =>
+  default: ({
+    elevate,
+    href,
+    theme
+  }: {
+    elevate: boolean;
+    href?: string;
+    theme: any;
+  }): string =>
     elevate || href ? styledBoxShadow({ boxShadow: 'elevate', theme }) : '',
-  hover: ({ href, theme }) =>
+  hover: ({ href, theme }: { href?: string; theme: any }): string =>
     href ? styledBoxShadow({ boxShadow: 'elevateHover', theme }) : ''
 };
 
-const headerMargin = ({ big, theme }) =>
+const headerMargin = ({ big, theme }: { big: boolean; theme: any }): string =>
   big
     ? space({ mx: [-3, -6], mt: [-3, -6], mb: [3, 6], theme })
     : space({ mx: -3, mt: -3, mb: 3, theme });
 
-const border = ({ dashed, elevate, href, theme }) => {
+const border = ({
+  dashed,
+  elevate,
+  href,
+  theme
+}: {
+  dashed: boolean;
+  elevate: boolean;
+  href?: string;
+  theme: any;
+}) => {
   const width = dashed && !elevate && !href ? '2px' : '1px';
   const style = dashed && !elevate && !href ? 'dashed' : 'solid';
 
@@ -69,19 +101,9 @@ const StyledCard = styled(tag)`
   }
 `;
 
-const Card = ({ href, ...props }) => (
+const Card = ({ href, ...props }: CardProps) => (
   <StyledCard {...props} href={href || false} is={href ? 'a' : 'div'} />
 );
-
-Card.propTypes = {
-  rounded: PropTypes.bool,
-  big: PropTypes.bool,
-  elevate: PropTypes.bool,
-  dashed: PropTypes.bool,
-  href: PropTypes.string,
-  color: PropTypes.string,
-  ...width.propTypes
-};
 
 Card.defaultProps = {
   rounded: true,
@@ -90,7 +112,6 @@ Card.defaultProps = {
   dashed: false,
   href: '',
   color: 'brand.anthracite',
-  // eslint-disable-next-line react/default-props-match-prop-types
   width: 1
 };
 

@@ -4,29 +4,45 @@
   "private": true,
   "dependencies": {
     "@t3n/styles": "^1.0.0",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.1",
+    "@types/styled-components": "^4.1.10",
+    "@types/styled-system": "^3.2.2",
     "clean-tag": "^2.0.2",
+    "install": "^0.12.2",
+    "npm": "^6.8.0",
     "polished": "^2.3.3",
-    "prop-types": "^15.6.2",
+    "prop-types": "^15.7.2",
     "react": "^16.7.0",
     "styled-components": "^4.1.3",
     "styled-system": "^3.2.1"
   },
   "main": "build/index.js",
-  "module": "src/index.js",
+  "module": "src/index.ts",
   "scripts": {
     "prepare": "npm run build",
-    "start": "./node_modules/.bin/babel src --out-dir build --source-maps --watch",
-    "build": "./node_modules/.bin/babel src --out-dir build --source-maps"
+    "start": "./node_modules/.bin/babel src --out-dir build --extensions \".js,.ts,.tsx\" --source-maps inline --watch",
+    "build": "./node_modules/.bin/babel src --out-dir build --extensions \".js,.ts,.tsx\" --source-maps inline"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3"
   },
   "babel": {
+    "plugins": [
+      "styled-components"
+    ],
     "presets": [
       "@babel/preset-env",
+      "@babel/preset-typescript",
       "@babel/preset-react"
     ]
   }
