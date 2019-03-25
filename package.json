@@ -5,19 +5,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^1.3.0",
-    "eslint-config-xo-react": "^0.18.0",
-    "eslint-config-xo-typescript": "^0.8.0",
-    "eslint-plugin-react": "^7.12.4",
     "lerna": "^3.10.7",
     "prettier": "^1.16.1",
-    "typescript": "^3.3.3",
-    "xo": "^0.24.0"
+    "typescript": "^3.3.3"
   },
   "scripts": {
     "clean": "./node_modules/.bin/lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/build && rm -rf packages/t3n-storybook/storybook-static",
     "prepare": "./node_modules/.bin/lerna clean --yes && ./node_modules/.bin/lerna bootstrap --hoist",
-    "test": "xo",
     "start:components": "./node_modules/.bin/lerna run start --scope @t3n/components --stream",
     "build:components": "./node_modules/.bin/lerna run build --scope @t3n/components --stream",
     "start:storybook": "./node_modules/.bin/lerna run storybook --scope @t3n/storybook --stream",
@@ -28,31 +22,5 @@
     "useTabs": false,
     "singleQuote": true,
     "bracketSpacing": true
-  },
-  "xo": {
-    "extends": [
-      "xo-react",
-      "xo-typescript"
-    ],
-    "extensions": [
-      "ts",
-      "tsx"
-    ],
-    "prettier": true,
-    "rules": {
-      "unicorn/filename-case": 0,
-      "@typescript-eslint/indent": 0,
-      "@typescript-eslint/explicit-function-return-type": 0
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.tsx"
-        ],
-        "rules": {
-          "react/prop-types": "off"
-        }
-      }
-    ]
   }
 }
