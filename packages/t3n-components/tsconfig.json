@@ -1,15 +1,7 @@
 {
+  "extends": "../../tsconfig",
   "compilerOptions": {
-    "outDir": "./build/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "noEmit": true,
-    "strict": true,
-    "esModuleInterop": true
+    "outDir": "./build/"
   },
   "include": ["src"]
 }

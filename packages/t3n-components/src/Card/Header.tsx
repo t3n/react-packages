@@ -2,7 +2,8 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, color, ColorProps } from 'styled-system';
 import tag from 'clean-tag';
-import { Ratio, RatioProps } from '../Ratio';
+import { Ratio } from '../Ratio';
+import { RatioProps } from '../Ratio/Ratio';
 
 interface CardHeaderProps extends ColorProps {
   is?: 'div' | 'a';
