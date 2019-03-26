@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { resolve } = require('path');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
   entry: './index.ts',
@@ -14,13 +16,39 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              forceIsolatedModules: true,
+              useCache: true,
+              useBabel: true,
+              babelCore: '@babel/core',
+              reportFiles: ['src/**/*.{ts,tsx}']
+            }
+          }
+          // {
+          //   loader: 'eslint-loader',
+          //   options: {
+          //     cache: true
+          //   }
+          // }
+        ]
+      },
       {
         enforce: 'pre',
         exclude: /node_modules/,
         test: /\.jsx?$/,
-        use: ['babel-loader', 'source-map-loader']
+        loaders: [
+          'babel-loader',
+          'source-map-loader'
+          // 'eslint-loader'
+        ]
       }
     ]
-  }
+  },
+  plugins: [new WebpackNotifierPlugin({ title: 't3n-components' })]
 };
