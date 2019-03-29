@@ -52,5 +52,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [new WebpackNotifierPlugin({ title: 't3n-components' })]
+  plugins: [new WebpackNotifierPlugin({ title: 't3n-components' })],
+  externals: {
+    'styled-components': {
+      commonjs: 'styled-components',
+      commonjs2: 'styled-components',
+      amd: 'styled-components'
+    }
+  }
 };
