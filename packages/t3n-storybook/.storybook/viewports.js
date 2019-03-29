@@ -4,7 +4,7 @@ import { theme } from '@t3n/styles';
 const xs = {
   name: 'Extra Small',
   styles: {
-    width: stripUnit(theme.breakpoints[0]) - 1 + 'rem',
+    width: `${stripUnit(theme.breakpoints[0]) - 1}rem`,
     height: '100%'
   },
   type: 'mobile'
@@ -13,7 +13,7 @@ const xs = {
 const sm = {
   name: 'Small',
   styles: {
-    width: stripUnit(theme.breakpoints[1]) - 1 + 'rem',
+    width: `${stripUnit(theme.breakpoints[1]) - 1}rem`,
     height: '100%'
   },
   type: 'tablet'
@@ -22,7 +22,7 @@ const sm = {
 const md = {
   name: 'Medium',
   styles: {
-    width: stripUnit(theme.breakpoints[2]) - 1 + 'rem',
+    width: `${stripUnit(theme.breakpoints[2]) - 1}rem`,
     height: '100%'
   },
   type: 'desktop'
@@ -31,7 +31,7 @@ const md = {
 const lg = {
   name: 'Large',
   styles: {
-    width: stripUnit(theme.breakpoints[3]) - 1 + 'rem',
+    width: `${stripUnit(theme.breakpoints[3]) - 1}rem`,
     height: '100%'
   },
   type: 'desktop'

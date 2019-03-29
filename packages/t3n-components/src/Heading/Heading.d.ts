@@ -1,11 +1,12 @@
-/// <reference types="react" />
+import { ReactNode } from 'react';
 import { SpaceProps, SizeProps, ColorProps } from 'styled-system';
 export declare type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-export interface HeadingProps extends SpaceProps, SizeProps, ColorProps, ThemeProps {
+export interface HeadingProps extends SpaceProps, SizeProps, ColorProps {
     is: HeadingElements;
     as?: HeadingElements;
+    children?: ReactNode;
 }
-export interface StyledHeadingProps extends HeadingProps {
+export interface StyledHeadingProps extends HeadingProps, ThemeProps {
     textStyle: HeadingElements;
 }
 declare const Heading: {

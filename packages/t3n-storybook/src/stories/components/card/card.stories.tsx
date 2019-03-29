@@ -27,7 +27,7 @@ storiesOf('Components|Card', module)
     </StoryContainer>
   ))
   // Basic Story
-  .addWithJSX('Basic', () => (
+  .add('Basic', () => (
     <Card {...cardKnobs({}, KNOBS_CATEGORY_CARD)}>
       <Heading is="h2" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
@@ -36,7 +36,7 @@ storiesOf('Components|Card', module)
     </Card>
   ))
   // Link Story
-  .addWithJSX('Link', () => (
+  .add('Link', () => (
     <Card {...cardKnobs({ href: '#' }, KNOBS_CATEGORY_CARD)}>
       <Heading is="h2" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
@@ -45,7 +45,7 @@ storiesOf('Components|Card', module)
     </Card>
   ))
   // Header Story
-  .addWithJSX('Header', () => (
+  .add('Header', () => (
     <Card>
       <CardHeader
         {...headerKnobs(
@@ -65,7 +65,7 @@ storiesOf('Components|Card', module)
     </Card>
   ))
   // Big Story
-  .addWithJSX('Big', () => (
+  .add('Big', () => (
     <Card big>
       <CardHeader
         {...headerKnobs(

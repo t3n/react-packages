@@ -1,5 +1,5 @@
-import { JustifyContentProps } from 'styled-system';
-interface GridProps extends JustifyContentProps, ThemeProps {
+import { JustifyContentProps, SpaceProps } from 'styled-system';
+interface GridProps extends JustifyContentProps, ThemeProps, SpaceProps {
     vertical?: boolean;
     reverse?: boolean;
     wide?: boolean;

@@ -2,11 +2,45 @@
   "name": "@t3n/styles",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/bundle.js",
+  "types": "src/index.d.ts",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "prepare": "npm run build",
+    "check-types": "tsc",
+    "start": "webpack --config ./configs/webpack.config.js --watch",
+    "build": "webpack --config ./configs/webpack.config.js"
+  },
   "dependencies": {
-    "polished": "^2.3.3",
-    "styled-system": "^3.2.1"
+    "@types/lodash": "^4.14.123",
+    "@types/styled-system": "^4.0.0",
+    "lodash": "^4.17.11",
+    "polished": "^3.1.0",
+    "styled-system": "^4.0.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-polished": "^1.1.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.3.4000",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-notifier": "^1.7.0"
+  },
+  "babel": {
+    "plugins": [
+      "polished",
+      "styled-components",
+      "@babel/plugin-transform-runtime"
+    ],
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

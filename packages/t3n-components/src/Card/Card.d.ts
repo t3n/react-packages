@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import { ReactNode } from 'react';
 interface CardProps {
     rounded?: boolean;
     big?: boolean;
@@ -6,6 +6,7 @@ interface CardProps {
     dashed?: boolean;
     href?: string | false;
     color?: string;
+    children?: ReactNode;
 }
 declare const Card: {
     ({ href, ...props }: CardProps): JSX.Element;

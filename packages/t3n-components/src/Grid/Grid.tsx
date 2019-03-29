@@ -3,12 +3,13 @@ import {
   space,
   justifyContent,
   alignItems,
-  JustifyContentProps
+  JustifyContentProps,
+  SpaceProps
 } from 'styled-system';
 import { stripUnit } from 'polished';
 import Item from './Item';
 
-interface GridProps extends JustifyContentProps, ThemeProps {
+interface GridProps extends JustifyContentProps, ThemeProps, SpaceProps {
   vertical?: boolean;
   reverse?: boolean;
   wide?: boolean;

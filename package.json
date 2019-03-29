@@ -16,7 +16,7 @@
     "eslint-plugin-react": "^7.12.4",
     "lerna": "^3.10.7",
     "prettier": "^1.16.1",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.4000"
   },
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/build && rm -rf packages/t3n-storybook/storybook-static",

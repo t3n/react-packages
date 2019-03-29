@@ -6,7 +6,7 @@ module.exports = {
   entry: './index.ts',
   output: {
     filename: 'bundle.js',
-    path: resolve(__dirname, '../build'),
+    path: resolve(__dirname, '../dist'),
     library: '',
     libraryTarget: 'commonjs'
   },
@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: [
           {
@@ -29,28 +29,12 @@ module.exports = {
               useCache: true,
               useBabel: true,
               babelCore: '@babel/core',
-              reportFiles: ['src/**/*.{ts,tsx}']
+              reportFiles: ['src/**/*.ts']
             }
           }
-          // {
-          //   loader: 'eslint-loader',
-          //   options: {
-          //     cache: true
-          //   }
-          // }
-        ]
-      },
-      {
-        enforce: 'pre',
-        exclude: /node_modules/,
-        test: /\.jsx?$/,
-        loaders: [
-          'babel-loader',
-          'source-map-loader'
-          // 'eslint-loader'
         ]
       }
     ]
   },
-  plugins: [new WebpackNotifierPlugin({ title: 't3n-components' })]
+  plugins: [new WebpackNotifierPlugin({ title: 't3n-styles' })]
 };

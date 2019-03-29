@@ -2,13 +2,18 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
+    "moduleResolution": "node",
     "allowJs": true,
     "noEmit": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import tag from 'clean-tag';
 import {
@@ -13,16 +13,13 @@ import { composeTextStyle } from '@t3n/styles';
 
 export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface HeadingProps
-  extends SpaceProps,
-    SizeProps,
-    ColorProps,
-    ThemeProps {
+export interface HeadingProps extends SpaceProps, SizeProps, ColorProps {
   is: HeadingElements;
   as?: HeadingElements;
+  children?: ReactNode;
 }
 
-export interface StyledHeadingProps extends HeadingProps {
+export interface StyledHeadingProps extends HeadingProps, ThemeProps {
   textStyle: HeadingElements;
 }
 

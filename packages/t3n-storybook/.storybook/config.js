@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react';
-import { addDecorator, configure, setAddon } from '@storybook/react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { checkA11y } from '@storybook/addon-a11y';
 import {
-  configureViewport,
-  INITIAL_VIEWPORTS
-} from '@storybook/addon-viewport';
-import { withOptions } from '@storybook/addon-options';
+  addDecorator,
+  configure,
+  setAddon,
+  addParameters
+} from '@storybook/react';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { withA11y } from '@storybook/addon-a11y';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import JSXAddon from 'storybook-addon-jsx';
 import { theme } from '@t3n/styles';
-import viewports from '../src/utils/viewports';
+import viewports from './viewports';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,22 +24,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-configureViewport({
-  viewports: {
-    ...viewports,
-    ...INITIAL_VIEWPORTS
-  },
-  defaultViewport: 'responsive'
+addParameters({
+  viewport: {
+    viewports: {
+      ...viewports,
+      ...INITIAL_VIEWPORTS
+    },
+    defaultViewport: 'responsive'
+  }
 });
 
-addDecorator(
-  withOptions({
-    name: 't3n Storybook',
-    hierarchyRootSeparator: /\|/
-  })
-);
-
-addDecorator(checkA11y);
+addDecorator(withA11y);
 addDecorator(story => (
   <ThemeProvider theme={theme}>
     <Fragment>

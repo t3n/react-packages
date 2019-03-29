@@ -15,10 +15,10 @@ const ItemContent = styled.div`
 
 storiesOf('Layout|Grid', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .addWithJSX('Default', () => (
+  .add('Default', () => (
     <Grid mb={-2}>
-      {new Array(6).fill().map((_, i) =>
-        new Array(i + 1).fill().map((__, j) => {
+      {new Array(6).fill('').map((_, i) =>
+        new Array(i + 1).fill('').map((__, j) => {
           return (
             // eslint-disable-next-line react/no-array-index-key
             <Item key={`${i}${j}`} mb={2} width={1 / (i + 1)}>

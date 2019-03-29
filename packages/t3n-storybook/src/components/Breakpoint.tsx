@@ -1,0 +1,23 @@
+import styled from 'styled-components';
+import { color, space, ColorProps, SpaceProps } from 'styled-system';
+
+export interface BreakpointProps extends ColorProps, SpaceProps {
+  width: string;
+}
+
+const Breakpoint = styled.div<BreakpointProps>`
+  height: 2rem;
+  width: ${({ width }) => width};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${color};
+  ${space};
+`;
+
+Breakpoint.defaultProps = {
+  bg: 'brand.greyLight',
+  mb: 1
+};
+
+export default Breakpoint;

@@ -1,13 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Heading, Text } from '@t3n/components';
+import { HeadingElements } from '@t3n/components/src/Heading/Heading';
 import StoryContainer from '../../../../components/StoryContainer';
 
-const headings = new Array(6).fill('').map((_, i) => 'h' + (i + 1));
+const headings: Array<HeadingElements> = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 storiesOf('Style|Typography', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .addWithJSX(
+  .add(
     'Heading',
     () => (
       <>

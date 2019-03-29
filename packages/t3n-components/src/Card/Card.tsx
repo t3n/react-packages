@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   space,
@@ -16,6 +16,7 @@ interface CardProps {
   dashed?: boolean;
   href?: string | false;
   color?: string;
+  children?: ReactNode;
 }
 
 const borderRadius = ({
