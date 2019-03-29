@@ -9,10 +9,9 @@
     "npm": "^6.8.0",
     "polished": "^3.1.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.5",
     "styled-system": "^4.0.8"
   },
-  "main": "build/bundle.js",
+  "main": "dist/bundle.js",
   "types": "src/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
@@ -31,8 +30,10 @@
     "@types/styled-components": "^4.1.12",
     "@types/styled-system": "^4.0.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.0",
     "eslint-loader": "^2.1.2",
+    "react": "^16.8.5",
     "source-map-loader": "^0.2.4",
     "styled-components": "^4.2.0",
     "typescript": "^3.3.4000",
@@ -41,10 +42,12 @@
     "webpack-notifier": "^1.7.0"
   },
   "peerDependencies": {
+    "react": ">=16.8",
     "styled-components": ">=4"
   },
   "babel": {
     "plugins": [
+      "polished",
       "styled-components",
       "@babel/plugin-transform-runtime"
     ],

@@ -6,7 +6,7 @@ module.exports = {
   entry: './index.ts',
   output: {
     filename: 'bundle.js',
-    path: resolve(__dirname, '../build'),
+    path: resolve(__dirname, '../dist'),
     library: '',
     libraryTarget: 'commonjs'
   },
@@ -54,6 +54,12 @@ module.exports = {
   },
   plugins: [new WebpackNotifierPlugin({ title: 't3n-components' })],
   externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
     'styled-components': {
       commonjs: 'styled-components',
       commonjs2: 'styled-components',

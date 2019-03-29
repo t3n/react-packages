@@ -19,12 +19,12 @@
     "typescript": "^3.3.4000"
   },
   "scripts": {
-    "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/build && rm -rf packages/t3n-storybook/storybook-static",
+    "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/dist && rm -rf packages/t3n-styles/dist && rm -rf packages/t3n-storybook/storybook-static",
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
-    "start:storybook": "lerna run storybook --scope @t3n/storybook --stream",
-    "build:storybook": "lerna run build-storybook --scope @t3n/storybook --stream",
+    "start:storybook": "lerna run start --scope @t3n/storybook --stream",
+    "build:storybook": "lerna run build --scope @t3n/storybook --stream",
     "serve:storybook": "npx http-server packages/t3n-storybook/storybook-static"
   },
   "prettier": {
