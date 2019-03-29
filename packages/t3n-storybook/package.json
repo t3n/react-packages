@@ -34,7 +34,8 @@
     "start": "start-storybook -p 9009 -s public",
     "build": "build-storybook -s public",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "npx http-server storybook-static/"
   },
   "browserslist": [
     ">0.2%",

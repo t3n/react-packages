@@ -25,7 +25,7 @@
     "build:components": "lerna run build --scope @t3n/components --stream",
     "start:storybook": "lerna run start --scope @t3n/storybook --stream",
     "build:storybook": "lerna run build --scope @t3n/storybook --stream",
-    "serve:storybook": "npx http-server packages/t3n-storybook/storybook-static"
+    "serve:storybook": "lerna run serve --scope @t3n/storybook --stream"
   },
   "prettier": {
     "singleQuote": true
