@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   space,
@@ -8,6 +8,7 @@ import {
   SizeWidthProps
 } from 'styled-system';
 import Header, { CardHeaderContent } from './Header';
+import { ThemeProps } from '@t3n/styles';
 
 interface CardProps extends ThemeProps {
   rounded?: boolean;

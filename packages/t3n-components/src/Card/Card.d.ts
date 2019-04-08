@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { SizeWidthProps } from 'styled-system';
+import { ThemeProps } from '@t3n/styles';
 interface CardProps extends ThemeProps {
     rounded?: boolean;
     big?: boolean;

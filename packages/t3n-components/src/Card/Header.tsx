@@ -4,6 +4,7 @@ import { space, color, ColorProps } from 'styled-system';
 import tag from 'clean-tag';
 import { Ratio } from '../Ratio';
 import { RatioProps } from '../Ratio/Ratio';
+import { ThemeProps } from '@t3n/styles';
 
 interface CardHeaderProps extends ColorProps {
   is?: 'div' | 'a';

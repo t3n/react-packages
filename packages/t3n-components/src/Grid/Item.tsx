@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { width, space, SpaceProps, WidthProps } from 'styled-system';
+import { ThemeProps } from '@t3n/styles';
 
 interface ItemProps extends SpaceProps, WidthProps, ThemeProps {}
 

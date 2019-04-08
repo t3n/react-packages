@@ -9,7 +9,7 @@ import {
   SizeProps,
   ColorProps
 } from 'styled-system';
-import { composeTextStyle } from '@t3n/styles';
+import { ThemeProps, composeTextStyle } from '@t3n/styles';
 
 export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

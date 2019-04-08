@@ -1,7 +1,8 @@
 import * as theme from './theme';
 
-export interface Test {
-  type: string;
+export type Theme = typeof theme;
+export interface ThemeProps {
+  theme: Theme;
 }
 
 export { composeTextStyle } from './utils';
