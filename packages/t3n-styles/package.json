@@ -10,9 +10,12 @@
     "prepare": "npm run build",
     "check-types": "tsc",
     "start": "webpack --config ./configs/webpack.config.js --watch",
-    "build": "webpack --config ./configs/webpack.config.js"
+    "build": "webpack --config ./configs/webpack.config.js",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "dependencies": {
+    "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.123",
     "@types/styled-system": "^4.0.0",
     "lodash": "^4.17.11",
@@ -22,12 +25,15 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
+    "babel-jest": "^24.5.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.0",
+    "jest": "^24.5.0",
     "source-map-loader": "^0.2.4",
+    "ts-jest": "^24.0.1",
     "typescript": "^3.3.4000",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
@@ -42,5 +48,22 @@
     "presets": [
       "@babel/preset-env"
     ]
+  },
+  "jest": {
+    "coverageDirectory": "coverage",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx"
+    ],
+    "testEnvironment": "node",
+    "testRegex": [
+      "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   }
 }
