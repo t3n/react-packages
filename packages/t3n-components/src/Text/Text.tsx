@@ -8,7 +8,7 @@ import {
   WidthProps
 } from 'styled-system';
 import tag from 'clean-tag';
-import { composeTextStyle } from '@t3n/styles';
+import { ThemeProps, composeTextStyle } from '@t3n/styles';
 
 interface TextProps extends ColorProps, SpaceProps, WidthProps, ThemeProps {
   is: 'p' | 'span';

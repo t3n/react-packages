@@ -1,5 +1,6 @@
 import { JustifyContentProps, SpaceProps } from 'styled-system';
-interface GridProps extends JustifyContentProps, ThemeProps, SpaceProps {
+import { ThemeProps } from '@t3n/styles';
+interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
     vertical?: boolean;
     reverse?: boolean;
     wide?: boolean;
