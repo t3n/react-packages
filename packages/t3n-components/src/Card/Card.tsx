@@ -33,7 +33,7 @@ const color = ({ color: c, theme }: CardProps): string =>
 const shadow = {
   default: ({ elevate, href, theme }: CardProps): string =>
     elevate || href ? styledBoxShadow({ boxShadow: 'elevate', theme }) : '',
-  hover: ({ href, theme }: { href?: string; theme: any }): string =>
+  hover: ({ href, theme }: CardProps): string =>
     href ? styledBoxShadow({ boxShadow: 'elevateHover', theme }) : ''
 };
 
