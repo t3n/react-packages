@@ -7,5 +7,5 @@ interface Theme {
 declare const composeTextStyle: ({ textStyle, theme }: {
     textStyle: string;
     theme: Theme;
-}) => any;
+}) => any[];
 export default composeTextStyle;
