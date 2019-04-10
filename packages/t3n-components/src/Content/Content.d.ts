@@ -1,3 +1,4 @@
+import { ThemeProps } from '@t3n/styles';
 interface ContentProps extends ThemeProps {
     wide?: boolean;
 }
