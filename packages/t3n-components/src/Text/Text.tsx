@@ -7,17 +7,16 @@ import {
   SpaceProps,
   WidthProps
 } from 'styled-system';
-import tag from 'clean-tag';
 import { ThemeProps, composeTextStyle } from '@t3n/styles';
 
 interface TextProps extends ColorProps, SpaceProps, WidthProps, ThemeProps {
-  is: 'p' | 'span';
+  as?: 'p' | 'span';
 }
 
-const font = ({ theme }: TextProps): string =>
+const font = ({ theme }: TextProps) =>
   composeTextStyle({ textStyle: 'regular', theme });
 
-const Text = styled(tag)<TextProps>`
+const Text = styled.div<TextProps>`
   ${font}
   ${color}
   ${space}
@@ -27,7 +26,7 @@ const Text = styled(tag)<TextProps>`
 Text.displayName = 'Text';
 
 Text.defaultProps = {
-  is: 'p',
+  as: 'p',
   color: 'brand.anthracite',
   width: 1
 };

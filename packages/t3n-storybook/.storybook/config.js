@@ -13,8 +13,9 @@ import { theme } from '@t3n/styles';
 import viewports from './viewports';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  html, body {
     font-family: ${({ theme }) => theme.fonts.default};
+    font-size: 16px;
     padding: 0;
     margin: 0;
   }

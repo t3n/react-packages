@@ -1,5 +1,4 @@
 import { fontSize, fontFamily, lineHeight } from 'styled-system';
-import { merge } from 'lodash';
 
 interface Theme {
   textStyles: {
@@ -26,9 +25,9 @@ const composeTextStyle = ({
     lineHeight
   };
 
-  return Object.keys(styles)
-    .map(propName => system[propName]({ [propName]: styles[propName], theme }))
-    .reduce(merge, {});
+  return Object.keys(styles).map(propName =>
+    system[propName]({ [propName]: styles[propName], theme })
+  );
 };
 
 export default composeTextStyle;

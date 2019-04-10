@@ -1,7 +1,7 @@
 export const textRegular = {
   fontFamily: 'default',
   fontSize: [1],
-  lineHeight: [2, 2, 2, 3]
+  lineHeight: [2, 2, 3]
 };
 
 export const textSmall = {
@@ -42,14 +42,14 @@ export const h4 = {
 
 export const h5 = {
   fontFamily: 'default',
-  fontSize: [2],
-  lineHeight: [2]
+  fontSize: [2, 2, 2, 2, 3],
+  lineHeight: [2, 2, 2, 2, 1]
 };
 
 export const h6 = {
   fontFamily: 'default',
-  fontSize: [1],
-  lineHeight: [2, 2, 1]
+  fontSize: [2],
+  lineHeight: [2]
 };
 
 const textStyles = {
