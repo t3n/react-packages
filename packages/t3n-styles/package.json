@@ -7,7 +7,6 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "prepare": "npm run build",
     "check-types": "tsc",
     "start": "webpack --config ./configs/webpack.config.js --watch",
     "build": "webpack --config ./configs/webpack.config.js",

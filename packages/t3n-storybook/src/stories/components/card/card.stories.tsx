@@ -29,7 +29,7 @@ storiesOf('Components|Card', module)
   // Basic Story
   .add('Basic', () => (
     <Card {...cardKnobs({}, KNOBS_CATEGORY_CARD)}>
-      <Heading is="h2" mt={0}>
+      <Heading as="h2" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
       </Heading>
       <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
@@ -38,7 +38,7 @@ storiesOf('Components|Card', module)
   // Link Story
   .add('Link', () => (
     <Card {...cardKnobs({ href: '#' }, KNOBS_CATEGORY_CARD)}>
-      <Heading is="h2" mt={0}>
+      <Heading as="h2" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
       </Heading>
       <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
@@ -58,7 +58,7 @@ storiesOf('Components|Card', module)
           ['children', 'is']
         )}
       />
-      <Heading is="h2" as="h5" mt={0}>
+      <Heading as="h2" renderAs="h5" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
       </Heading>
       <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
@@ -78,7 +78,7 @@ storiesOf('Components|Card', module)
           ['children', 'is']
         )}
       />
-      <Heading is="h2" mt={0}>
+      <Heading as="h2" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
       </Heading>
       <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>

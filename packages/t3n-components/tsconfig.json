@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "allowJs": false,
+    "isolatedModules": false,
     "declaration": true
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
