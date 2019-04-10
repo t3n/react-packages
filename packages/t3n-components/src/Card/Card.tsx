@@ -7,6 +7,7 @@ import {
   boxShadow as styledBoxShadow,
   SizeWidthProps
 } from 'styled-system';
+import { ThemeProps } from '@t3n/styles';
 import Header, { CardHeaderContent } from './Header';
 
 interface CardProps extends ThemeProps {
@@ -32,7 +33,7 @@ const color = ({ color: c, theme }: CardProps): string =>
 const shadow = {
   default: ({ elevate, href, theme }: CardProps): string =>
     elevate || href ? styledBoxShadow({ boxShadow: 'elevate', theme }) : '',
-  hover: ({ href, theme }: { href?: string; theme: Theme }): string =>
+  hover: ({ href, theme }: { href?: string; theme: any }): string =>
     href ? styledBoxShadow({ boxShadow: 'elevateHover', theme }) : ''
 };
 
