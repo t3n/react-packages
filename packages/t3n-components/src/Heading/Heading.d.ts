@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
 import { SpaceProps, SizeProps } from 'styled-system';
-import { ThemeProps } from '@t3n/styles';
 export declare type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-export interface HeadingProps extends SpaceProps, SizeProps, ThemeProps {
+export interface HeadingProps extends SpaceProps, SizeProps {
     as?: HeadingElements;
     renderAs?: HeadingElements;
     color?: string;

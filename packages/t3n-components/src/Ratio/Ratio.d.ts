@@ -5,5 +5,5 @@ export interface RatioProps extends ThemeProps {
     is: string;
     children?: ReactNode;
 }
-declare const Ratio: import("styled-components").StyledComponent<any, any, RatioProps, string | number | symbol>;
+declare const Ratio: import("styled-components").StyledComponent<any, any, object & RatioProps, string | number | symbol>;
 export default Ratio;

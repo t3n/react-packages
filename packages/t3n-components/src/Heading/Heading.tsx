@@ -5,14 +5,14 @@ import { ThemeProps, composeTextStyle } from '@t3n/styles';
 
 export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface HeadingProps extends SpaceProps, SizeProps, ThemeProps {
+export interface HeadingProps extends SpaceProps, SizeProps {
   as?: HeadingElements;
   renderAs?: HeadingElements;
   color?: string;
   children?: ReactNode;
 }
 
-const font = ({ as, renderAs, theme }: HeadingProps) =>
+const font = ({ as, renderAs, theme }: HeadingProps & ThemeProps) =>
   composeTextStyle({ textStyle: renderAs || as || 'h1', theme });
 
 const Heading = styled.h1<HeadingProps>`
