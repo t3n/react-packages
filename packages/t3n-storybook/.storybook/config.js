@@ -53,6 +53,7 @@ function loadStories() {
   // Style
   require('../src/stories/style/colors/colors.stories');
   require('../src/stories/style/typography/introduction/introduction.stories');
+  require('../src/stories/style/typography/text/text.stories');
   require('../src/stories/style/typography/heading/heading.stories');
   // Layout
   require('../src/stories/layout/breakpoints/breakpoints.stories');
