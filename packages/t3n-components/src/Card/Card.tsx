@@ -7,8 +7,8 @@ import {
   boxShadow as styledBoxShadow,
   SizeWidthProps
 } from 'styled-system';
-import Header, { CardHeaderContent } from './Header';
 import { ThemeProps } from '@t3n/styles';
+import Header, { CardHeaderContent } from './Header';
 
 interface CardProps extends ThemeProps {
   rounded?: boolean;
@@ -43,10 +43,10 @@ const headerMargin = ({ big, theme }: CardProps): string =>
     : space({ mx: -3, mt: -3, mb: 3, theme });
 
 const border = ({ dashed, elevate, href, theme }: CardProps) => {
-  const width = dashed && !elevate && !href ? '2px' : '1px';
+  const borderWidth = dashed && !elevate && !href ? '2px' : '1px';
   const style = dashed && !elevate && !href ? 'dashed' : 'solid';
 
-  return `border: ${width} ${style} ${theme.colors.background.light}`;
+  return `border: ${borderWidth} ${style} ${theme.colors.background.light}`;
 };
 
 const Card = styled.div.attrs(({ href }: CardProps) => ({
