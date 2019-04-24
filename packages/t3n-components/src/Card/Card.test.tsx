@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  render,
-  fireEvent,
-  cleanup,
-  waitForElement
-} from 'react-testing-library';
+import { render, cleanup } from 'react-testing-library';
 import { ThemeProvider } from 'styled-components';
 
 import Card from './Card';
@@ -25,7 +20,7 @@ describe('Card component', () => {
 
   it('renders', () => {
     const text = 'This is the content';
-    const { getByText, getByTestId } = render(
+    const { getByText } = render(
       <ThemeProvider theme={theme}>
         <Card>{text}</Card>
       </ThemeProvider>

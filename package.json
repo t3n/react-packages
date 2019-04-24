@@ -25,6 +25,8 @@
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
+    "start:styles": "lerna run start --scope @t3n/styles --stream",
+    "build:styles": "lerna run build --scope @t3n/styles --stream",
     "start:storybook": "lerna run start --scope @t3n/storybook --stream",
     "build:storybook": "lerna run build --scope @t3n/storybook --stream",
     "serve:storybook": "lerna run serve --scope @t3n/storybook --stream"
