@@ -1,3 +1,3 @@
 const lineHeights = [1.25, 1.333, 1.5, 1.666];
 
-export default lineHeights.map(val => val + 'em');
+export default lineHeights.map(val => `${val}em`);
