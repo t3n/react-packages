@@ -1,15 +1,14 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import tag from 'clean-tag';
 import { ThemeProps } from '@t3n/styles';
 
 export interface RatioProps extends ThemeProps {
-  ratio: 'auto' | number;
-  is: string;
+  ratio?: 'auto' | number;
+  as?: keyof JSX.IntrinsicElements;
   children?: ReactNode;
 }
 
-const Ratio = styled(tag)<RatioProps>`
+const Ratio = styled.div<RatioProps>`
   ${({ ratio }: RatioProps) =>
     ratio === 'auto'
       ? ''
@@ -31,8 +30,8 @@ const Ratio = styled(tag)<RatioProps>`
 `;
 
 Ratio.defaultProps = {
-  ratio: 16 / 9,
-  is: 'div'
+  ratio: 16 / 9
 };
+Ratio.displayName = 'Ratio';
 
 export default Ratio;

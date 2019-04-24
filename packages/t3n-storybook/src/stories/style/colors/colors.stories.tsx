@@ -23,7 +23,7 @@ storiesOf('Style|Colors', module)
                 <Item key={name} width={[1, 1 / 3, 1 / 4]} my={1}>
                   <Card>
                     <CardHeader ratio={3 / 2} bg={value} />
-                    <Heading is="h3" my={0}>
+                    <Heading as="h3" my={0}>
                       {name}
                     </Heading>
                     <Text mb={0}>

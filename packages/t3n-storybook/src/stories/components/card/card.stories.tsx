@@ -58,7 +58,7 @@ storiesOf('Components|Card', module)
           ['children', 'is']
         )}
       />
-      <Heading as="h2" renderAs="h5" mt={0}>
+      <Heading as="h2" styleAs="h5" mt={0}>
         {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
       </Heading>
       <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>

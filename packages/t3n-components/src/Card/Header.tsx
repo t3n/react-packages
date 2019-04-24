@@ -1,27 +1,19 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, color, ColorProps } from 'styled-system';
-import tag from 'clean-tag';
 import { Ratio } from '../Ratio';
 import { RatioProps } from '../Ratio/Ratio';
 import { ThemeProps } from '@t3n/styles';
 
-interface CardHeaderProps extends ColorProps {
-  is?: 'div' | 'a';
+interface CardHeaderProps extends ThemeProps {
+  as?: 'div' | 'a';
   big?: boolean;
   ratio?: RatioProps['ratio'];
+  bg?: ColorProps['bg'];
+  color?: string;
   image?: string;
   children?: ReactNode;
 }
-
-const defaultProps = {
-  is: 'div',
-  big: false,
-  ratio: 'auto',
-  color: 'brand.white',
-  bg: 'brand.anthracite',
-  image: ''
-};
 
 export const CardHeaderContent = styled.div`
   position: relative;
@@ -30,7 +22,7 @@ export const CardHeaderContent = styled.div`
   flex-direction: column;
 `;
 
-const CardHeaderContainer = styled(tag)``;
+const CardHeaderContainer = styled.div``;
 
 const CardHeader = ({
   big,
@@ -48,21 +40,15 @@ const CardHeader = ({
   </CardHeaderContainer>
 );
 
-CardHeader.defaultProps = defaultProps;
-
-const padding = ({ big, theme }: CardHeaderProps & ThemeProps): string =>
+const padding = ({ big, theme }: CardHeaderProps): string =>
   big ? space({ p: [3, 6], theme }) : space({ 3: 4, theme });
 
-const backgroundColor = ({ bg, theme }: CardHeaderProps & ThemeProps): string =>
-  color({ bg, theme });
-
-const StyledCardHeader = styled(CardHeader)<CardHeaderProps & ThemeProps>`
+const StyledCardHeader = styled(CardHeader)<CardHeaderProps>`
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: stretch;
   ${color}
-  ${backgroundColor}
 
   > ${Ratio} {
     width: 100%;
@@ -82,7 +68,10 @@ const StyledCardHeader = styled(CardHeader)<CardHeaderProps & ThemeProps>`
   }
 `;
 
+StyledCardHeader.defaultProps = {
+  bg: 'brand.anthracite'
+};
+
 StyledCardHeader.displayName = 'CardHeader';
-StyledCardHeader.defaultProps = defaultProps as CardHeaderProps;
 
 export default StyledCardHeader;

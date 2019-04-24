@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   space,
@@ -16,8 +16,8 @@ interface CardProps extends ThemeProps {
   elevate?: boolean;
   dashed?: boolean;
   href?: string | false;
-  color?: string;
-  width?: SizeWidthProps['size'];
+  color: string;
+  width: SizeWidthProps['size'];
   children?: ReactNode;
 }
 
@@ -49,7 +49,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps) => {
   return `border: ${width} ${style} ${theme.colors.background.light}`;
 };
 
-const Card = styled.div.attrs(({ href }: CardProps) => ({
+const StyledCard = styled.div.attrs(({ href }: CardProps) => ({
   href: href || false,
   as: href ? 'a' : 'div'
 }))<CardProps>`
@@ -85,14 +85,20 @@ const Card = styled.div.attrs(({ href }: CardProps) => ({
   }
 `;
 
-Card.defaultProps = {
-  rounded: true,
-  big: false,
-  elevate: false,
-  dashed: false,
-  href: '',
-  color: 'brand.anthracite',
-  width: 1
-};
+class Card extends React.PureComponent<Omit<CardProps, 'theme'>> {
+  static defaultProps = {
+    rounded: true,
+    big: false,
+    elevate: false,
+    dashed: false,
+    href: '',
+    color: 'brand.anthracite',
+    width: 1
+  };
+
+  render() {
+    return <StyledCard {...this.props} />;
+  }
+}
 
 export default Card;
