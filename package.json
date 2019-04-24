@@ -38,10 +38,38 @@
     "parser": "@typescript-eslint/parser",
     "extends": [
       "airbnb",
+      "plugin:jest/recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended",
       "prettier/@typescript-eslint",
       "prettier/react"
-    ]
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
+    },
+    "rules": {
+      "no-nested-ternary": 0,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/prefer-default-export": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".jsx",
+            "tsx"
+          ]
+        }
+      ]
+    }
   }
 }

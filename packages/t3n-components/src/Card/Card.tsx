@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   space,
@@ -7,6 +7,7 @@ import {
   boxShadow as styledBoxShadow,
   SizeWidthProps
 } from 'styled-system';
+
 import { ThemeProps } from '@t3n/styles';
 import Header, { CardHeaderContent } from './Header';
 
@@ -16,28 +17,28 @@ interface CardProps extends ThemeProps {
   elevate?: boolean;
   dashed?: boolean;
   href?: string | false;
-  color: string;
-  width: SizeWidthProps['size'];
+  color?: string;
+  width?: SizeWidthProps['size'];
   children?: ReactNode;
 }
 
-const borderRadius = ({ rounded, theme }: CardProps): string =>
+const borderRadius = ({ rounded, theme }: CardProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
-const padding = ({ big, theme }: CardProps): string =>
+const padding = ({ big, theme }: CardProps) =>
   big ? space({ p: [3, 6], theme }) : space({ p: 3, theme });
 
-const color = ({ color: c, theme }: CardProps): string =>
+const color = ({ color: c, theme }: CardProps) =>
   styledColor({ color: c, theme });
 
 const shadow = {
-  default: ({ elevate, href, theme }: CardProps): string =>
+  default: ({ elevate, href, theme }: CardProps) =>
     elevate || href ? styledBoxShadow({ boxShadow: 'elevate', theme }) : '',
-  hover: ({ href, theme }: CardProps): string =>
+  hover: ({ href, theme }: CardProps) =>
     href ? styledBoxShadow({ boxShadow: 'elevateHover', theme }) : ''
 };
 
-const headerMargin = ({ big, theme }: CardProps): string =>
+const headerMargin = ({ big, theme }: CardProps) =>
   big
     ? space({ mx: [-3, -6], mt: [-3, -6], mb: [3, 6], theme })
     : space({ mx: -3, mt: -3, mb: 3, theme });
@@ -49,7 +50,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps) => {
   return `border: ${borderWidth} ${style} ${theme.colors.background.light}`;
 };
 
-const StyledCard = styled.div.attrs(({ href }: CardProps) => ({
+const Card = styled.div.attrs(({ href }: CardProps) => ({
   href: href || false,
   as: href ? 'a' : 'div'
 }))<CardProps>`
@@ -85,20 +86,16 @@ const StyledCard = styled.div.attrs(({ href }: CardProps) => ({
   }
 `;
 
-class Card extends React.PureComponent<Omit<CardProps, 'theme'>> {
-  static defaultProps = {
-    rounded: true,
-    big: false,
-    elevate: false,
-    dashed: false,
-    href: '',
-    color: 'brand.anthracite',
-    width: 1
-  };
+Card.displayName = 'Card';
 
-  render() {
-    return <StyledCard {...this.props} />;
-  }
-}
+Card.defaultProps = {
+  rounded: true,
+  big: false,
+  elevate: false,
+  dashed: false,
+  href: '',
+  color: 'brand.anthracite',
+  width: 1
+};
 
 export default Card;

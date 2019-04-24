@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, color, ColorProps } from 'styled-system';
+
+import { ThemeProps } from '@t3n/styles';
 import { Ratio } from '../Ratio';
 import { RatioProps } from '../Ratio/Ratio';
-import { ThemeProps } from '@t3n/styles';
 
 interface CardHeaderProps extends ThemeProps {
   as?: 'div' | 'a';
@@ -25,8 +26,10 @@ export const CardHeaderContent = styled.div`
 const CardHeaderContainer = styled.div``;
 
 const CardHeader = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   big,
   ratio,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   bg,
   image,
   children,
@@ -34,7 +37,7 @@ const CardHeader = ({
 }: CardHeaderProps) => (
   <CardHeaderContainer {...props}>
     <Ratio ratio={ratio}>
-      {image && <img src={image} />}
+      {image && <img src={image} alt="" />}
       <CardHeaderContent>{children}</CardHeaderContent>
     </Ratio>
   </CardHeaderContainer>

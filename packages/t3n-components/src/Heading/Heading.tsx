@@ -28,21 +28,27 @@ Heading.defaultProps = {
   color: 'brand.anthracite'
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const H1 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h1" {...props} />
 );
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const H2 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h2" {...props} />
 );
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const H3 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h3" {...props} />
 );
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const H4 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h4" {...props} />
 );
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const H5 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h5" {...props} />
 );
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const H6 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h6" {...props} />
 );

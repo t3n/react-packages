@@ -7,8 +7,9 @@ import {
   SpaceProps
 } from 'styled-system';
 import { stripUnit } from 'polished';
-import Item from './Item';
+
 import { ThemeProps } from '@t3n/styles';
+import Item from './Item';
 
 interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
   vertical?: boolean;
@@ -20,7 +21,7 @@ interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
 const flexDirection = ({ vertical, reverse }: GridProps) =>
   `flex-direction: ${vertical ? 'column' : 'row'}${reverse ? '-reverse' : ''};`;
 
-const indent = ({ noGap, wide, theme }: GridProps): string =>
+const indent = ({ noGap, wide, theme }: GridProps) =>
   noGap
     ? space({ mx: 0 })
     : wide
