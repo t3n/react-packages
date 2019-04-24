@@ -4,7 +4,7 @@ import { Heading, Text } from '@t3n/components';
 import { HeadingElements } from '@t3n/components/src/Heading/Heading';
 import StoryContainer from '../../../../components/StoryContainer';
 
-const headings: Array<HeadingElements> = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+const headings: HeadingElements[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 storiesOf('Style|Typography', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
