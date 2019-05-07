@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SizeWidthProps } from 'styled-system';
+import { SizeProps } from 'styled-system';
 import { ThemeProps } from '@t3n/styles';
 interface CardProps extends ThemeProps {
     rounded?: boolean;
@@ -8,7 +8,7 @@ interface CardProps extends ThemeProps {
     dashed?: boolean;
     href?: string | false;
     color?: string;
-    width?: SizeWidthProps['size'];
+    width?: SizeProps['size'];
     children?: ReactNode;
 }
 declare const Card: import("styled-components").StyledComponent<"div", any, CardProps, never>;

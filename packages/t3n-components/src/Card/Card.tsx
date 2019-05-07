@@ -5,7 +5,7 @@ import {
   width,
   color as styledColor,
   boxShadow as styledBoxShadow,
-  SizeWidthProps
+  SizeProps
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/styles';
@@ -18,7 +18,7 @@ interface CardProps extends ThemeProps {
   dashed?: boolean;
   href?: string | false;
   color?: string;
-  width?: SizeWidthProps['size'];
+  width?: SizeProps['size'];
   children?: ReactNode;
 }
 
