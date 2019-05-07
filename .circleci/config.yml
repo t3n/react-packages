@@ -1,0 +1,70 @@
+version: 2.1
+
+aliases:
+  - &workspace_root ~/workspace
+
+  - &attach_workspace
+     at: *workspace_root
+
+  - &persist_to_workspace
+    root: .
+    paths:
+      - packages
+      - lerna.json
+      - package-lock.json
+      - package.json
+      - tsconfig.json
+
+  - &save_js_packages
+    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-styles/package-lock.json" }}
+    paths:
+      - /root/.npm
+
+  - &restore_js_packages
+    keys: 
+      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-styles/package-lock.json" }}
+      - js-packages-v1-{{ .Branch }}-
+      - js-packages-v1-
+
+jobs:
+  checkout_and_build:
+    docker:
+      - image: quay.io/yeebase/ci-build:7.2
+    environment:
+      COMPOSER_CACHE_DIR: /composer/cache-dir
+    steps:
+      - checkout
+
+      - run: |
+          mkdir -p ~/.ssh
+          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+      - run: |
+          cd app
+          npm install
+          npm run prepare
+          cd "/root/project/app/packages/t3n-styles"
+          npm run build
+          cd "/root/project/app/packages/t3n-components"
+          npm run build
+          cd "/root/project/app/packages/t3n-storybook"
+          npm run build
+
+      - persist_to_workspace: *persist_to_workspace
+
+  # lint:
+  #   working_directory: *workspace_root
+  #   docker:
+  #     - image: quay.io/yeebase/ci-build:7.2
+  #   steps:
+  #     - attach_workspace: *attach_workspace
+  #     - run: cd app && bin/phpcs
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - checkout_and_build
+      # - lint:
+      #     requires:
+      #       - checkout_and_build
