@@ -30,8 +30,6 @@ jobs:
   checkout_and_build:
     docker:
       - image: quay.io/yeebase/ci-build:7.2
-    environment:
-      COMPOSER_CACHE_DIR: /composer/cache-dir
     steps:
       - checkout
 
@@ -40,20 +38,19 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
       - run: |
-          cd app
           npm install
           npm run prepare
 
       - run: |
-          cd "app/packages/t3n-styles"
+          cd "packages/t3n-styles"
           npm run build
       
       - run: |
-          cd "app/packages/t3n-components"
+          cd "packages/t3n-components"
           npm run build
       
       - run: |
-          cd "app/packages/t3n-storybook"
+          cd "packages/t3n-storybook"
           npm run build
 
       - persist_to_workspace: *persist_to_workspace
