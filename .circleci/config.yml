@@ -43,11 +43,17 @@ jobs:
           cd app
           npm install
           npm run prepare
-          cd "/root/project/app/packages/t3n-styles"
+
+      - run: |
+          cd "app/packages/t3n-styles"
           npm run build
-          cd "/root/project/app/packages/t3n-components"
+      
+      - run: |
+          cd "app/packages/t3n-components"
           npm run build
-          cd "/root/project/app/packages/t3n-storybook"
+      
+      - run: |
+          cd "app/packages/t3n-storybook"
           npm run build
 
       - persist_to_workspace: *persist_to_workspace
