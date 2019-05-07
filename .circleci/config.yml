@@ -9,6 +9,7 @@ aliases:
   - &persist_to_workspace
     root: .
     paths:
+      - node_modules
       - packages
       - lerna.json
       - package-lock.json
