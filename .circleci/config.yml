@@ -39,19 +39,15 @@ jobs:
 
       - run: |
           npm install
-          npm run prepare
 
       - run: |
-          cd "packages/t3n-styles"
-          npm run build
+          npm run build:styles
       
       - run: |
-          cd "packages/t3n-components"
-          npm run build
+          npm run build:components
       
       - run: |
-          cd "packages/t3n-storybook"
-          npm run build
+          npm run build:storybook
 
       - persist_to_workspace: *persist_to_workspace
 
