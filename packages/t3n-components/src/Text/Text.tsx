@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   color,
@@ -11,14 +12,28 @@ import { ThemeProps, composeTextStyle } from '@t3n/styles';
 
 interface TextProps extends ColorProps, SpaceProps, WidthProps, ThemeProps {
   as?: 'p' | 'span';
+  bold?: boolean;
+  italic?: boolean;
+  inline?: boolean;
+  small?: boolean;
+  children: ReactNode;
 }
 
-const font = ({ theme }: TextProps) =>
-  composeTextStyle({ textStyle: 'regular', theme });
+const font = ({ small, theme }: TextProps) =>
+  composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
 
-const Text = styled.div<TextProps>`
+const fontWeight = ({ bold }: TextProps) => (bold ? 'font-weight: bold;' : '');
+
+const fontStyle = ({ italic }: TextProps) =>
+  italic ? 'font-style: italic;' : '';
+
+const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
+  as: as || (inline ? 'span' : 'p')
+}))<TextProps>`
   ${font}
   ${color}
+  ${fontWeight}
+  ${fontStyle}
   ${space}
   ${width}
 `;
@@ -26,7 +41,6 @@ const Text = styled.div<TextProps>`
 Text.displayName = 'Text';
 
 Text.defaultProps = {
-  as: 'p',
   color: 'brand.anthracite',
   width: 1
 };

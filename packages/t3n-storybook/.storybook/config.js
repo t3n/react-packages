@@ -60,6 +60,7 @@ function loadStories() {
   require('../src/stories/layout/content/content.stories');
   require('../src/stories/layout/grid/grid.stories');
   // Components
+  require('../src/stories/components/button/button.stories');
   require('../src/stories/components/card/card.stories');
 }
 

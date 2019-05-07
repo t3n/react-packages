@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { space, color, ColorProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/styles';
-import { Ratio } from '../Ratio';
-import { RatioProps } from '../Ratio/Ratio';
+import { Ratio, RatioProps } from '../Ratio';
 
 interface CardHeaderProps extends ThemeProps {
   as?: 'div' | 'a';
@@ -26,11 +25,9 @@ export const CardHeaderContent = styled.div`
 const CardHeaderContainer = styled.div``;
 
 const CardHeader = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  big,
+  big, // eslint-disable-line @typescript-eslint/no-unused-vars
   ratio,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  bg,
+  bg, // eslint-disable-line @typescript-eslint/no-unused-vars
   image,
   children,
   ...props
@@ -74,7 +71,6 @@ const StyledCardHeader = styled(CardHeader)<CardHeaderProps>`
 StyledCardHeader.defaultProps = {
   bg: 'brand.anthracite'
 };
-
 StyledCardHeader.displayName = 'CardHeader';
 
 export default StyledCardHeader;

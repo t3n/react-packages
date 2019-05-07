@@ -1,1 +1,1 @@
-export { default as Ratio } from './Ratio';
+export { default as Ratio, RatioProps } from './Ratio';

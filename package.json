@@ -36,6 +36,11 @@
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "extends": [
       "airbnb",
       "plugin:jest/recommended",
@@ -63,6 +68,14 @@
       "import/prefer-default-export": 0,
       "no-console": 0,
       "no-nested-ternary": 0,
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "vars": "all",
+          "args": "after-used",
+          "ignoreRestSiblings": true
+        }
+      ],
       "react/jsx-filename-extension": [
         1,
         {
@@ -73,5 +86,8 @@
         }
       ]
     }
-  }
+  },
+  "eslintIgnore": [
+    "*.d.ts"
+  ]
 }

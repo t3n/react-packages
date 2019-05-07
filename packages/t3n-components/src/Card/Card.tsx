@@ -90,10 +90,6 @@ Card.displayName = 'Card';
 
 Card.defaultProps = {
   rounded: true,
-  big: false,
-  elevate: false,
-  dashed: false,
-  href: '',
   color: 'brand.anthracite',
   width: 1
 };

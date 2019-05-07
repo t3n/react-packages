@@ -5,6 +5,6 @@ export interface ThemeProps {
   theme: Theme;
 }
 
-export { composeTextStyle } from './utils';
+export { composeTextStyle, composeButtonStyle } from './utils';
 
 export { theme };
