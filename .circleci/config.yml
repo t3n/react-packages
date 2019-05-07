@@ -50,20 +50,22 @@ jobs:
           npm run build:storybook
 
       - persist_to_workspace: *persist_to_workspace
-
-  # lint:
-  #   working_directory: *workspace_root
-  #   docker:
-  #     - image: quay.io/yeebase/ci-build:7.2
-  #   steps:
-  #     - attach_workspace: *attach_workspace
-  #     - run: cd app && bin/phpcs
+  
+  lint: 
+    working_directory: *workspace_root
+    docker:
+      - image: quay.io/yeebase/ci-build:7.2
+    steps:
+      - attach_workspace: *attach_workspace
+      - run: npm run lint:styles
+      - run: npm run lint:components
+      - run: npm run lint:storybook
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - checkout_and_build
-      # - lint:
-      #     requires:
-      #       - checkout_and_build
+      - lint:
+          requires:
+            - checkout_and_build

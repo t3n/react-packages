@@ -25,11 +25,14 @@
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
+    "lint:components": "eslint './packages/t3n-components/src/**'",
     "start:styles": "lerna run start --scope @t3n/styles --stream",
     "build:styles": "lerna run build --scope @t3n/styles --stream",
+    "lint:styles": "eslint './packages/t3n-styles/src/**'",
     "start:storybook": "lerna run start --scope @t3n/storybook --stream",
     "build:storybook": "lerna run build --scope @t3n/storybook --stream",
-    "serve:storybook": "lerna run serve --scope @t3n/storybook --stream"
+    "serve:storybook": "lerna run serve --scope @t3n/storybook --stream",
+    "lint:storybook": "eslint './packages/t3n-storybook/src/**'"
   },
   "prettier": {
     "singleQuote": true
@@ -88,6 +91,9 @@
     }
   },
   "eslintIgnore": [
-    "*.d.ts"
+    "*.d.ts",
+    "*.md",
+    "build/",
+    "dist/"
   ]
 }
