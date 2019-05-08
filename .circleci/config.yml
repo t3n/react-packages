@@ -27,6 +27,10 @@ aliases:
       - js-packages-v1-{{ .Branch }}-
       - js-packages-v1-
 
+orbs:
+  docker-image: t3n/docker-image@1.0
+  kubr: t3n/kubr@1.0
+
 jobs:
   checkout_and_build:
     docker:
