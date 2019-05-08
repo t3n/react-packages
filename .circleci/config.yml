@@ -35,10 +35,6 @@ jobs:
       - checkout
 
       - run: |
-          mkdir -p ~/.ssh
-          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-
-      - run: |
           npm install --unsafe-perm
 
       - run: |
@@ -62,11 +58,62 @@ jobs:
       - run: npm run lint:components
       - run: npm run lint:storybook
 
+  docker_build_and_push:
+    working_directory: *workspace_root
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - attach_workspace: *attach_workspace
+      - setup_remote_docker
+      - docker-image/gcr-build-and-push:
+          image: storybook
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - checkout_and_build
       - lint:
+          requires:
+            - checkout_and_build
+      - docker_build_and_push:
+          filters:
+            branches:
+              only:
+                - master
+          context: google
+          requires:
+            - lint
+      - kubr/deploy:
+          deployment: Live
+          filters:
+            branches:
+              only:
+                - master
+          context: kubr
+          requires:
+            - docker_build_and_push
+            
+  build_and_push_feature:
+    jobs:
+      - push_feature:
+          type: approval
+          filters:
+            branches:
+              only:
+                - /feature.*/
+      - checkout_and_build:
+          filters:
+            branches:
+              only:
+                - /feature.*/
+          requires:
+            - push_feature
+      - docker_build_and_push:
+          filters:
+            branches:
+              only:
+                - /feature.*/
+          context: google
           requires:
             - checkout_and_build
