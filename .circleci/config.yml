@@ -9,12 +9,7 @@ aliases:
   - &persist_to_workspace
     root: .
     paths:
-      - node_modules
-      - packages
-      - lerna.json
-      - package-lock.json
-      - package.json
-      - tsconfig.json
+      - .
 
   - &save_js_packages
     key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-styles/package-lock.json" }}
