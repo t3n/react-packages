@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ColorProps, SpaceProps, WidthProps } from 'styled-system';
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 interface TextProps extends ColorProps, SpaceProps, WidthProps, ThemeProps {
     as?: 'p' | 'span';
     bold?: boolean;

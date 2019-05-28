@@ -8,7 +8,7 @@ import {
   SizeProps
 } from 'styled-system';
 
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 import Header, { CardHeaderContent } from './Header';
 
 interface CardProps extends ThemeProps {

@@ -8,7 +8,7 @@ import {
 } from 'styled-system';
 import { stripUnit } from 'polished';
 
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 import Item from './Item';
 
 interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
