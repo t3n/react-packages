@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, size, color, SpaceProps, SizeProps } from 'styled-system';
-import { ThemeProps, composeTextStyle } from '@t3n/styles';
+import { ThemeProps, composeTextStyle } from '@t3n/theme';
 
 export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

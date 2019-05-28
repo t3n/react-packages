@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
-import { ThemeProps, composeButtonStyle, composeTextStyle } from '@t3n/styles';
+import { ThemeProps, composeButtonStyle, composeTextStyle } from '@t3n/theme';
 
 // import { Text } from '../Text';
 

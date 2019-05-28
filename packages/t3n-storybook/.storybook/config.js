@@ -9,7 +9,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 // import JSXAddon from 'storybook-addon-jsx';
-import { theme } from '@t3n/styles';
+import { theme } from '@t3n/theme';
 import viewports from './viewports';
 
 const GlobalStyle = createGlobalStyle`

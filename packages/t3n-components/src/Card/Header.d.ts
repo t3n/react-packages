@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ColorProps } from 'styled-system';
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 import { RatioProps } from '../Ratio';
 interface CardHeaderProps extends ThemeProps {
     as?: 'div' | 'a';

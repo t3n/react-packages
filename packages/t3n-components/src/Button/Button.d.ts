@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 export interface ButtonProps extends ThemeProps {
     as?: 'div' | 'span' | 'a' | 'button';
     rounded?: boolean;

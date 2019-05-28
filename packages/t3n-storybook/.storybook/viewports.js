@@ -1,5 +1,5 @@
 import { stripUnit } from 'polished';
-import { theme } from '@t3n/styles';
+import { theme } from '@t3n/theme';
 
 const xs = {
   name: 'Extra Small',

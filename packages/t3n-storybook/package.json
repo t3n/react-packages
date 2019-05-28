@@ -11,7 +11,7 @@
     "@storybook/addons": "^5.1.0-alpha.17",
     "@storybook/react": "^5.1.0-alpha.17",
     "@t3n/components": "^1.0.0",
-    "@t3n/styles": "^1.0.0",
+    "@t3n/theme": "^1.0.0",
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.1",
     "@types/storybook-readme": "^4.0.0",

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 
 export interface RatioProps extends ThemeProps {
   ratio?: 'auto' | number;

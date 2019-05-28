@@ -1,5 +1,5 @@
 declare module 'clean-tag';
-declare module '@t3n/styles';
+declare module '@t3n/theme';
 
 interface Theme {
   [propName: string]: any;

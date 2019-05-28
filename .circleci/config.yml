@@ -12,13 +12,13 @@ aliases:
       - .
 
   - &save_js_packages
-    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-styles/package-lock.json" }}
+    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-theme/package-lock.json" }}
     paths:
       - /root/.npm
 
   - &restore_js_packages
     keys: 
-      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-styles/package-lock.json" }}
+      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-theme/package-lock.json" }}
       - js-packages-v1-{{ .Branch }}-
       - js-packages-v1-
 
@@ -37,7 +37,7 @@ jobs:
           npm install --unsafe-perm
 
       - run: |
-          npm run build:styles
+          npm run build:theme
       
       - run: |
           npm run build:components
@@ -53,7 +53,7 @@ jobs:
       - image: quay.io/yeebase/ci-build:7.2
     steps:
       - attach_workspace: *attach_workspace
-      - run: npm run lint:styles
+      - run: npm run lint:theme
       - run: npm run lint:components
       - run: npm run lint:storybook
 

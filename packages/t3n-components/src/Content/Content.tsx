@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { maxWidth as styledMaxWidth, space } from 'styled-system';
 import { rem } from 'polished';
-import { ThemeProps } from '@t3n/styles';
+import { ThemeProps } from '@t3n/theme';
 
 interface ContentProps extends ThemeProps {
   wide?: boolean;
