@@ -15,6 +15,10 @@ const theme = {
   }
 };
 
+it('should test', () => {
+  expect(true).toBe(true);
+});
+
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('Card component', () => {
   afterEach(cleanup);

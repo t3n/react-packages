@@ -65,6 +65,14 @@ jobs:
       - run: npm run lint:components
       - run: npm run lint:storybook
 
+  test: 
+    working_directory: *workspace_root
+    docker:
+      - image: quay.io/yeebase/ci-build:7.2
+    steps:
+      - attach_workspace: *attach_workspace
+      - run: npm run test
+
   docker_build_and_push:
     working_directory: *workspace_root
     docker:
@@ -85,7 +93,10 @@ workflows:
             - checkout_and_build
       - lint:
           requires:
-            - checkout_and_build
+            - prettier
+      - test:
+          requires:
+            - lint
       - docker_build_and_push:
           filters:
             branches:
@@ -93,7 +104,7 @@ workflows:
                 - master
           context: google
           requires:
-            - lint
+            - test
       - kubr/deploy:
           deployment: Live
           filters:
