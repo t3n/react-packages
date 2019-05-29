@@ -36,7 +36,8 @@
     "serve:storybook": "lerna run serve --scope @t3n/storybook --stream",
     "test:storybook": "lerna run test --scope @t3n/storybook --stream",
     "lint:storybook": "eslint './packages/t3n-storybook/src/**'",
-    "prettier:check": "prettier -c 'packages/**/*.{ts,tsx,js,jsx}'"
+    "prettier:check": "prettier -c 'packages/**/*.{ts,tsx,js,jsx}'",
+    "test": "jest"
   },
   "prettier": {
     "singleQuote": true
