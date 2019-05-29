@@ -1,3 +1,4 @@
 *.d.ts
 dist/
 build/
+storybook-static/
