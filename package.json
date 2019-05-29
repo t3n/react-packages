@@ -16,7 +16,9 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "husky": "^2.3.0",
     "lerna": "^3.10.7",
+    "lint-staged": "^8.1.7",
     "prettier": "^1.16.1",
     "typescript": "^3.5.0-dev.20190413"
   },
@@ -95,5 +97,26 @@
     "*.md",
     "build/",
     "dist/"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{md,html}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.{js,jsx,ts,tsx}": [
+        "prettier --write",
+        "eslint --fix",
+        "git add"
+      ],
+      "ignore": [
+        "**/*.d.ts"
+      ]
+    }
+  }
 }
