@@ -46,6 +46,14 @@ jobs:
           npm run build:storybook
 
       - persist_to_workspace: *persist_to_workspace
+
+  prettier:
+    working_directory: *workspace_root
+    docker:
+      - image: quay.io/yeebase/ci-build:7.2
+    steps:
+      - attach_workspace: *attach_workspace
+      - run: npm run prettier:check
   
   lint: 
     working_directory: *workspace_root
@@ -72,6 +80,9 @@ workflows:
   build_and_test:
     jobs:
       - checkout_and_build
+      - prettier:
+          requires:
+            - checkout_and_build
       - lint:
           requires:
             - checkout_and_build
