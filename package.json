@@ -16,7 +16,9 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "husky": "^2.3.0",
     "lerna": "^3.10.7",
+    "lint-staged": "^8.1.7",
     "prettier": "^1.16.1",
     "typescript": "^3.5.0-dev.20190413"
   },
@@ -25,14 +27,18 @@
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
+    "test:components": "lerna run test --scope @t3n/components --stream",
     "lint:components": "eslint './packages/t3n-components/src/**'",
     "start:theme": "lerna run start --scope @t3n/theme --stream",
     "build:theme": "lerna run build --scope @t3n/theme --stream",
+    "test:theme": "lerna run test --scope @t3n/theme --stream",
     "lint:theme": "eslint './packages/t3n-theme/src/**'",
     "start:storybook": "lerna run start --scope @t3n/storybook --stream",
     "build:storybook": "lerna run build --scope @t3n/storybook --stream",
     "serve:storybook": "lerna run serve --scope @t3n/storybook --stream",
-    "lint:storybook": "eslint './packages/t3n-storybook/src/**'"
+    "test:storybook": "lerna run test --scope @t3n/storybook --stream",
+    "lint:storybook": "eslint './packages/t3n-storybook/src/**'",
+    "pre-commit": "jest -o && lint-staged"
   },
   "prettier": {
     "singleQuote": true
@@ -95,5 +101,32 @@
     "*.md",
     "build/",
     "dist/"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{md,html}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.{js,jsx,ts,tsx}": [
+        "prettier --write",
+        "eslint --fix",
+        "git add"
+      ],
+      "ignore": [
+        "**/*.d.ts"
+      ]
+    }
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/packages/t3n-theme/package.json",
+      "<rootDir>/packages/t3n-components/package.json"
+    ]
+  }
 }
