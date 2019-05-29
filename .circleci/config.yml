@@ -94,6 +94,9 @@ workflows:
       - lint:
           requires:
             - checkout_and_build
+      - test:
+          requires:
+            - checkout_and_build
       - docker_build_and_push:
           filters:
             branches:
