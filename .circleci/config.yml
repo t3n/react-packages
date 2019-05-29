@@ -93,10 +93,10 @@ workflows:
             - checkout_and_build
       - lint:
           requires:
-            - lint
+            - prettier
       - test:
           requires:
-            - test
+            - lint
       - docker_build_and_push:
           filters:
             branches:
