@@ -67,6 +67,7 @@
     ]
   },
   "jest": {
+    "displayName": "components",
     "coverageDirectory": "coverage",
     "moduleFileExtensions": [
       "js",
