@@ -103,7 +103,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run test --scope @t3n/theme --stream -- -- -o && lint-staged"
+      "pre-commit": "npm run test:theme -- -- -- -o && npm run test:components -- -- -- -o && lint-staged"
     }
   },
   "lint-staged": {
