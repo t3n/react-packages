@@ -1,0 +1,4 @@
+*.d.ts
+*.md
+build/
+dist/

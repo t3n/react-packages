@@ -23,6 +23,9 @@
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/dist && rm -rf packages/t3n-theme/dist && rm -rf packages/t3n-storybook/storybook-static",
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
+    "start": "lerna run start --parallel",
+    "build": "npm run build:theme && npm run build:components && npm run build:storybook",
+    "test": "jest",
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
     "test:components": "lerna run test --scope @t3n/components --stream",
@@ -36,71 +39,9 @@
     "serve:storybook": "lerna run serve --scope @t3n/storybook --stream",
     "test:storybook": "lerna run test --scope @t3n/storybook --stream",
     "lint:storybook": "eslint './packages/t3n-storybook/src/**'",
-    "prettier:check": "prettier -c 'packages/**/*.{ts,tsx,js,jsx}'",
-    "test": "jest"
+    "prettier:format": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
+    "prettier:check": "prettier --check 'packages/**/*.{ts,tsx,js,jsx}'"
   },
-  "prettier": {
-    "singleQuote": true
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "extends": [
-      "airbnb",
-      "plugin:jest/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-      "prettier/@typescript-eslint",
-      "prettier/react"
-    ],
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "extensions": [
-            ".js",
-            ".jsx",
-            ".ts",
-            ".tsx"
-          ]
-        }
-      }
-    },
-    "rules": {
-      "@typescript-eslint/explicit-function-return-type": 0,
-      "@typescript-eslint/no-explicit-any": 0,
-      "import/no-extraneous-dependencies": 0,
-      "import/prefer-default-export": 0,
-      "no-console": 0,
-      "no-nested-ternary": 0,
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        {
-          "vars": "all",
-          "args": "after-used",
-          "ignoreRestSiblings": true
-        }
-      ],
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [
-            ".jsx",
-            "tsx"
-          ]
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "*.d.ts",
-    "*.md",
-    "build/",
-    "dist/"
-  ],
   "jest": {
     "projects": [
       "<rootDir>/packages/t3n-theme/package.json",
