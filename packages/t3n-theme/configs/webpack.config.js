@@ -36,5 +36,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new WebpackNotifierPlugin({ title: 't3n-styles' })]
+  plugins: [new WebpackNotifierPlugin({ title: 't3n-theme' })]
 };

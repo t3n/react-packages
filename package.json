@@ -4,6 +4,10 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t3n/react-packages"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
@@ -18,7 +22,7 @@
     "eslint-plugin-react": "^7.12.4",
     "lerna": "^3.10.7",
     "prettier": "^1.16.1",
-    "typescript": "^3.5.0-dev.20190413"
+    "typescript": "^3.5.1"
   },
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/dist && rm -rf packages/t3n-theme/dist && rm -rf packages/t3n-storybook/storybook-static",

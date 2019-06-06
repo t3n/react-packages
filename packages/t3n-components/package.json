@@ -9,7 +9,7 @@
     "npm": "^6.8.0",
     "polished": "^3.1.0",
     "prop-types": "^15.7.2",
-    "styled-components": "^4.2.0",
+    "styled-components": "^4.3.0",
     "styled-system": "^4.0.8"
   },
   "main": "dist/bundle.js",
@@ -30,8 +30,8 @@
     "@types/jest": "^24.0.11",
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.1",
-    "@types/styled-components": "^4.1.14",
-    "@types/styled-system": "^4.1.0",
+    "@types/styled-components": "^4.1.16",
+    "@types/styled-system": "^4.2.1",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-polished": "^1.1.0",
@@ -46,7 +46,7 @@
     "react-testing-library": "^6.0.3",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.1",
-    "typescript": "^3.5.0-dev.20190413",
+    "typescript": "^3.5.1",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-notifier": "^1.7.0"
