@@ -17,8 +17,8 @@
     "@types/storybook-readme": "^4.0.0",
     "@types/storybook__addon-knobs": "^4.0.5",
     "@types/storybook__react": "^4.0.1",
-    "@types/styled-components": "^4.1.14",
-    "@types/styled-system": "^4.1.0",
+    "@types/styled-components": "^4.1.16",
+    "@types/styled-system": "^4.2.1",
     "polished": "^3.1.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
@@ -26,7 +26,7 @@
     "react-storybook-addon-chapters": "^3.1.2",
     "storybook-addon-jsx": "^7.1.0",
     "storybook-readme": "^5.0.1",
-    "styled-components": "^4.2.0",
+    "styled-components": "^4.3.0",
     "styled-system": "^4.0.8"
   },
   "scripts": {
@@ -51,7 +51,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
-    "typescript": "^3.5.0-dev.20190413",
+    "typescript": "^3.5.1",
     "webpack-notifier": "^1.7.0"
   },
   "babel": {
