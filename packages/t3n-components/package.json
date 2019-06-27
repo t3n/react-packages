@@ -85,6 +85,13 @@
     },
     "setupFiles": [
       "<rootDir>/setupFile.js"
-    ]
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    }
   }
 }

@@ -32,23 +32,13 @@ module.exports = {
               reportFiles: ['src/**/*.{ts,tsx}']
             }
           }
-          // {
-          //   loader: 'eslint-loader',
-          //   options: {
-          //     cache: true
-          //   }
-          // }
         ]
       },
       {
         enforce: 'pre',
         exclude: [/node_modules/, /\.test\.jsx?$/],
         test: /\.jsx?$/,
-        loaders: [
-          'babel-loader',
-          'source-map-loader'
-          // 'eslint-loader'
-        ]
+        loaders: ['babel-loader', 'source-map-loader']
       }
     ]
   },

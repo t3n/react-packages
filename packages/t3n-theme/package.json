@@ -64,6 +64,13 @@
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
     }
   }
 }
