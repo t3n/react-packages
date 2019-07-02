@@ -30,7 +30,7 @@ export declare const backgroundColors: {
 };
 export declare const textPrimary = "#2a2a2a";
 export declare const textSecondary = "#e8e8e8";
-export declare const textInverse = "#2a2a2a";
+export declare const textInverse = "#fff";
 export declare const textHighlight = "#f9423a";
 export declare const textColors: {
     primary: string;
