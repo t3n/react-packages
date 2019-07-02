@@ -20,12 +20,12 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "lerna": "^3.10.7",
+    "lerna": "^3.15.0",
     "prettier": "^1.16.1",
     "typescript": "^3.5.1"
   },
   "scripts": {
-    "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/dist && rm -rf packages/t3n-theme/dist && rm -rf packages/t3n-storybook/storybook-static",
+    "clean": "lerna clean --yes && rm -rf node_modules && lerna run clean --parallel",
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:components && npm run build:storybook",

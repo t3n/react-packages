@@ -1,6 +1,7 @@
 {
   "name": "@t3n/storybook",
   "version": "0.1.0",
+  "author": "Philip Plagge <sayhi@itscursedphil.com>",
   "private": true,
   "dependencies": {
     "@storybook/addon-a11y": "^5.1.1",
@@ -10,8 +11,8 @@
     "@storybook/addon-viewport": "^5.1.1",
     "@storybook/addons": "^5.1.1",
     "@storybook/react": "^5.1.1",
-    "@t3n/components": "^1.0.0",
-    "@t3n/theme": "^1.0.0",
+    "@t3n/components": "^0.1.0",
+    "@t3n/theme": "^0.1.0",
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.1",
     "@types/storybook-readme": "^5.0.3",
@@ -30,7 +31,8 @@
     "styled-system": "^4.0.8"
   },
   "scripts": {
-    "start": "start-storybook -p 9009 -s public",
+    "clean": "rm -rf storybook-static && rm -rf .awcache",
+    "start": "start-storybook -p 9009 -s public --debug-webpack",
     "build": "build-storybook -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -43,14 +45,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
+    "@t3n/configs": "^0.1.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
-    "babel-plugin-styled-components": "^1.10.0",
     "typescript": "^3.5.1",
     "webpack-notifier": "^1.7.0"
   }
