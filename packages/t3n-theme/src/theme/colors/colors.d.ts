@@ -1,20 +1,42 @@
-export declare const redLight = "#f9423a";
-export declare const red = "#d7322b";
+export declare const red = "#f9423a";
 export declare const black = "#000";
-export declare const anthracite = "#2a2a2a";
-export declare const grey = "#9b9b9b";
-export declare const greyLight = "#e8e8e8";
-export declare const greyLighter = "#f4f4f4";
+export declare const grey42 = "#2a2a2a";
+export declare const grey155 = "#9b9b9b";
+export declare const grey232 = "#e8e8e8";
+export declare const grey244 = "#f4f4f4";
 export declare const white = "#fff";
 export declare const brandColors: {
-    redLight: string;
     red: string;
     black: string;
-    anthracite: string;
-    grey: string;
-    greyLight: string;
-    greyLighter: string;
     white: string;
+};
+export declare const shadesColors: {
+    black: string;
+    grey42: string;
+    grey155: string;
+    grey232: string;
+    grey244: string;
+    white: string;
+};
+export declare const backgroundPrimary = "#fff";
+export declare const backgroundSecondary = "#f4f4f4";
+export declare const backgroundInverse = "#2a2a2a";
+export declare const backgroundHighlight = "#f9423a";
+export declare const backgroundColors: {
+    primary: string;
+    secondary: string;
+    inverse: string;
+    highlight: string;
+};
+export declare const textPrimary = "#2a2a2a";
+export declare const textSecondary = "#e8e8e8";
+export declare const textInverse = "#2a2a2a";
+export declare const textHighlight = "#f9423a";
+export declare const textColors: {
+    primary: string;
+    secondary: string;
+    inverse: string;
+    highlight: string;
 };
 export declare const comment = "#f9423a";
 export declare const podcast = "#f9423a";
@@ -23,7 +45,7 @@ export declare const twitter = "#5bc6f8";
 export declare const facebook = "#6175b5";
 export declare const google = "#d44132";
 export declare const flipboard = "#f9261a";
-export declare const pocket = "#EC4259";
+export declare const pocket = "#ec4259";
 export declare const instagram = "#d448c5";
 export declare const linkedin = "#008cc9";
 export declare const whatsapp = "#64d448";
@@ -46,34 +68,37 @@ export declare const success = "#34e88f";
 export declare const notice = "#9b9b9b";
 export declare const warn = "#fbbe35";
 export declare const error = "#ff7e00";
-export declare const utilColors: {
+export declare const feedbackColors: {
     success: string;
     notice: string;
     warn: string;
     error: string;
 };
-export declare const background = "#fff";
-export declare const backgroundInverse = "#2a2a2a";
-export declare const backgroundLight = "#e8e8e8";
-export declare const backgroundLighter = "#f4f4f4";
-export declare const backgroundHighlight = "#f9423a";
-export declare const backgroundColors: {
-    primary: string;
-    inverse: string;
-    light: string;
-    lighter: string;
-    highlight: string;
-};
 declare const colors: {
     brand: {
-        redLight: string;
         red: string;
         black: string;
-        anthracite: string;
-        grey: string;
-        greyLight: string;
-        greyLighter: string;
         white: string;
+    };
+    shades: {
+        black: string;
+        grey42: string;
+        grey155: string;
+        grey232: string;
+        grey244: string;
+        white: string;
+    };
+    background: {
+        primary: string;
+        secondary: string;
+        inverse: string;
+        highlight: string;
+    };
+    text: {
+        primary: string;
+        secondary: string;
+        inverse: string;
+        highlight: string;
     };
     social: {
         comment: string;
@@ -89,18 +114,11 @@ declare const colors: {
         whatsapp: string;
         xing: string;
     };
-    util: {
+    feedback: {
         success: string;
         notice: string;
         warn: string;
         error: string;
-    };
-    background: {
-        primary: string;
-        inverse: string;
-        light: string;
-        lighter: string;
-        highlight: string;
     };
 };
 export default colors;

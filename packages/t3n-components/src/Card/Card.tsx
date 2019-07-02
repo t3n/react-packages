@@ -47,7 +47,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps) => {
   const borderWidth = dashed && !elevate && !href ? '2px' : '1px';
   const style = dashed && !elevate && !href ? 'dashed' : 'solid';
 
-  return `border: ${borderWidth} ${style} ${theme.colors.background.secondary}`;
+  return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
 const Card = styled.div.attrs(({ href }: CardProps) => ({
