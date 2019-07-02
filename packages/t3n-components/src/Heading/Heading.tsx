@@ -25,7 +25,7 @@ const Heading = styled.h1<HeadingProps>`
 Heading.displayName = 'Heading';
 
 Heading.defaultProps = {
-  color: 'brand.anthracite'
+  color: 'text.primary'
 };
 
 export const H1 = ({ as, ...props }: HeadingProps) => (
