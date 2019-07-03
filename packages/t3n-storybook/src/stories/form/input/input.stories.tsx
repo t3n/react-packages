@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { Input } from '@t3n/components';
@@ -8,10 +8,9 @@ import StoryContainer from '../../../components/StoryContainer';
 storiesOf('Form|Input', module).add('Simple Input', () => (
   <StoryContainer>
     <Input
-      defaultValue="45234"
       type="text"
-      placeholder="Password"
-      fixedPlaceholder="Enter:"
+      placeholder="Firstname Lastname"
+      fixedPlaceholder="Name:"
       onChange={e => {
         console.log(e.currentTarget.value);
       }}
