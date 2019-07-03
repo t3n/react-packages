@@ -7,3 +7,4 @@ export { Heading, H1, H2, H3, H4, H5, H6 } from './Heading';
 export { Button } from './Button';
 export { Card, CardHeader } from './Card';
 export { Ratio } from './Ratio';
+export { Input } from './Input';

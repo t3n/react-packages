@@ -18,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     padding: 0;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   * {
@@ -62,6 +64,8 @@ function loadStories() {
   // Components
   require('../src/stories/components/button/button.stories');
   require('../src/stories/components/card/card.stories');
+  // Form
+  require('../src/stories/form/input/input.stories');
 }
 
 configure(loadStories, module);

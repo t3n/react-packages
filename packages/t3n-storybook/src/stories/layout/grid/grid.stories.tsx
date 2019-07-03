@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import { space } from 'styled-system';
 
 import { Grid, Item } from '@t3n/components';
+import { ThemeProps } from '@t3n/theme';
 
 import StoryContainer from '../../../components/StoryContainer';
 
 const ItemContent = styled.div`
-  background-color: ${({ theme }) => theme.colors.brand.greyLight};
-  ${({ theme }) => space({ p: 2, theme })};
+  background-color: ${({ theme }: ThemeProps) =>
+    theme.colors.background.secondary};
+  ${({ theme }: ThemeProps) => space({ p: 2, theme })};
   text-align: center;
 `;
 
