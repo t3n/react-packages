@@ -2,7 +2,7 @@ import React from 'react';
 import { WidthProps } from 'styled-system';
 export declare type InputTypes = 'text' | 'email' | 'password';
 export declare type InputStates = 'disabled' | 'invalid';
-interface InputProps extends WidthProps {
+export interface InputProps extends WidthProps {
     type: InputTypes;
     value?: string;
     defaultValue?: string;

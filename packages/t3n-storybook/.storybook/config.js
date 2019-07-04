@@ -66,6 +66,7 @@ function loadStories() {
   require('../src/stories/components/card/card.stories');
   // Form
   require('../src/stories/form/input/input.stories');
+  require('../src/stories/form/inputGroup/inputGroup.stories');
 }
 
 configure(loadStories, module);

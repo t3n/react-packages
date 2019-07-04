@@ -8,3 +8,4 @@ export { Button } from './Button';
 export { Card, CardHeader } from './Card';
 export { Ratio } from './Ratio';
 export { Input } from './Input';
+export { InputGroup } from './InputGroup';

@@ -1,6 +1,3 @@
-import { color } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
 
-import { ThemeProps } from '..';
-
-export const getThemeColor = (c: string) => ({ theme }: ThemeProps) =>
-  color({ color: c, theme });
+export const getThemeColor = (c: string) => themeGet(`colors.${c}`);

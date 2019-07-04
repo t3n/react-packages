@@ -8,7 +8,7 @@ import { Text } from '../Text';
 export type InputTypes = 'text' | 'email' | 'password';
 export type InputStates = 'disabled' | 'invalid';
 
-interface InputProps extends WidthProps {
+export interface InputProps extends WidthProps {
   type: InputTypes;
   value?: string;
   defaultValue?: string;
@@ -42,7 +42,7 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   ${padding};
 
   ::placeholder {
-    color: ${getThemeColor('shades.grey232')};
+    color: ${getThemeColor('text.secondary')};
   }
 `;
 
@@ -110,18 +110,15 @@ const Input = ({
 }: InputProps) => {
   const inputEl = useRef<HTMLInputElement>(null);
 
-  const [controlledValue, setControlledValue] = useState(() => {
-    console.log('Initialize');
-
-    return defaultValue || value || '';
-  });
+  const [controlledValue, setControlledValue] = useState(
+    defaultValue || value || ''
+  );
   const [isInitialized, setIsInitialized] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const [revealPassword, setRevealPassword] = useState(false);
 
   useEffect(() => {
     if (typeof value !== 'undefined' && isInitialized) {
-      console.log('Set value');
       setIsInitialized(true);
       setControlledValue(value);
     }
