@@ -8,7 +8,6 @@ import StoryContainer from '../../../components/StoryContainer';
 import intro from './introduction.md';
 import colorsMd from './colors.md';
 
-
 storiesOf('Visual Identity|Colors', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(intro))
@@ -62,4 +61,3 @@ storiesOf('Visual Identity|Colors', module)
     </ThemeConsumer>
   ))
   .add('Druckfarben', doc(colorsMd));
-

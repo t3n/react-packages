@@ -6,7 +6,6 @@ import { Button, Text } from '@t3n/components';
 import StoryContainer from '../../../components/StoryContainer';
 import buttonMD from './button.md';
 
-
 storiesOf('Components|Button', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(buttonMD))

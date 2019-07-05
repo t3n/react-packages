@@ -11,4 +11,3 @@ storiesOf('Visual Identity|Iconografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(icons))
   .add('Library', doc(library));
-  
