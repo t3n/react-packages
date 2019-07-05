@@ -50,11 +50,16 @@ addDecorator(story => (
 function loadStories() {
   // Storybook
   require('../src/stories/storybook/storybook.stories');
+  // Brand
+  require('../src/stories/brand/brand.stories');
   // Style
+  require('../src/stories/style/logo/logo.stories');
   require('../src/stories/style/colors/colors.stories');
   require('../src/stories/style/typography/introduction/introduction.stories');
-  require('../src/stories/style/typography/text/text.stories');
+  require('../src/stories/style/typography/fonts/fonts.stories');
   require('../src/stories/style/typography/heading/heading.stories');
+  require('../src/stories/style/typography/text/text.stories');
+  require('../src/stories/style/icons/icons.stories');
   // Layout
   require('../src/stories/layout/breakpoints/breakpoints.stories');
   require('../src/stories/layout/content/content.stories');

@@ -13,7 +13,5 @@ import editor from './editor.md';
 storiesOf('Storybook|Info', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(introduction))
-  .add('Zum Storybook', doc(storybook))
-  .add('Unsere Designsprache', doc(designLanguage))
   .add('Zur Nutzung', doc(usage))
   .add('Der Editor', doc(editor));

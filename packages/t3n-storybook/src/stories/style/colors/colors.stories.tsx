@@ -5,12 +5,14 @@ import { ThemeConsumer } from 'styled-components';
 import { parseToRgb } from 'polished';
 import { Card, CardHeader, Heading, Text, Grid, Item } from '@t3n/components';
 import StoryContainer from '../../../components/StoryContainer';
+import intro from './introduction.md';
 import colorsMd from './colors.md';
 
-storiesOf('Style|Colors', module)
+
+storiesOf('Visual Identity|Colors', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Einleitung', doc(colorsMd))
-  .add('Brand', () => (
+  .add('Einleitung', doc(intro))
+  .add('Brand Colors', () => (
     <ThemeConsumer>
       {theme => {
         return (
@@ -58,4 +60,6 @@ storiesOf('Style|Colors', module)
         );
       }}
     </ThemeConsumer>
-  ));
+  ))
+  .add('Druckfarben', doc(colorsMd));
+
