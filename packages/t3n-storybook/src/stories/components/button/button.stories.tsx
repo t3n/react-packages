@@ -15,6 +15,7 @@ storiesOf('Components|Button', module)
       <Button href="http://www.google.de" onClick={() => null} target="_blank">
         Click me
       </Button>
+      <br />
       <Button
         color="dark"
         href="http://www.google.de"
@@ -23,6 +24,7 @@ storiesOf('Components|Button', module)
       >
         Click me
       </Button>
+      <br />
       <Button
         secondary
         href="http://www.google.de"
