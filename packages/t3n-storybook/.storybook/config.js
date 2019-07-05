@@ -59,6 +59,7 @@ function loadStories() {
   require('../src/stories/layout/breakpoints/breakpoints.stories');
   require('../src/stories/layout/content/content.stories');
   require('../src/stories/layout/grid/grid.stories');
+  require('../src/stories/layout/section/section.stories');
   // Components
   require('../src/stories/components/button/button.stories');
   require('../src/stories/components/card/card.stories');

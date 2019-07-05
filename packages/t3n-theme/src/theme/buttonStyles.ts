@@ -3,24 +3,24 @@ const buttonStyles = {
     light: {
       regular: {
         default: {
-          color: 'brand.anthracite',
-          bg: 'background.lighter',
+          color: 'text.primary',
+          bg: 'background.secondary',
           borderColor: 'transparent'
         },
         hover: {
-          color: 'brand.white',
+          color: 'text.inverse',
           bg: 'background.highlight',
           borderColor: 'transparent'
         }
       },
       inverse: {
         default: {
-          color: 'brand.anthracite',
+          color: 'text.primary',
           bg: 'background.primary',
           borderColor: 'transparent'
         },
         hover: {
-          color: 'brand.white',
+          color: 'text.inverse',
           bg: 'background.highlight',
           borderColor: 'transparent'
         }
@@ -29,24 +29,24 @@ const buttonStyles = {
     dark: {
       regular: {
         default: {
-          color: 'brand.white',
+          color: 'text.inverse',
           bg: 'background.inverse',
           borderColor: 'transparent'
         },
         hover: {
-          color: 'brand.white',
+          color: 'text.inverse',
           bg: 'background.highlight',
           borderColor: 'transparent'
         }
       },
       inverse: {
         default: {
-          color: 'brand.white',
+          color: 'text.inverse',
           bg: 'brand.black',
           borderColor: 'transparent'
         },
         hover: {
-          color: 'brand.white',
+          color: 'text.inverse',
           bg: 'background.highlight',
           borderColor: 'transparent'
         }
@@ -56,26 +56,26 @@ const buttonStyles = {
   secondary: {
     regular: {
       default: {
-        color: 'brand.anthracite',
+        color: 'text.primary',
         bg: 'transparent',
-        borderColor: 'brand.anthracite'
+        borderColor: 'text.primary'
       },
       hover: {
-        color: 'brand.white',
+        color: 'text.inverse',
         bg: 'background.inverse',
-        borderColor: 'brand.anthracite'
+        borderColor: 'text.primary'
       }
     },
     inverse: {
       default: {
-        color: 'brand.white',
+        color: 'text.inverse',
         bg: 'transparent',
-        borderColor: 'brand.white'
+        borderColor: 'text.inverse'
       },
       hover: {
-        color: 'brand.anthracite',
+        color: 'text.primary',
         bg: 'background.primary',
-        borderColor: 'brand.white'
+        borderColor: 'text.inverse'
       }
     }
   }

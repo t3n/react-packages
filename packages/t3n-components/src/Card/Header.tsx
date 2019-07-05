@@ -69,7 +69,7 @@ const StyledCardHeader = styled(CardHeader)<CardHeaderProps>`
 `;
 
 StyledCardHeader.defaultProps = {
-  bg: 'brand.anthracite'
+  bg: 'background.inverse'
 };
 StyledCardHeader.displayName = 'CardHeader';
 
