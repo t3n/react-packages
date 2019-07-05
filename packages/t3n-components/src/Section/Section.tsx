@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ThemeProps, theme } from '@t3n/theme';
+import { ThemeProps } from '@t3n/theme';
 import { space, SpaceProps } from 'styled-system';
 import Content from '../Content/Content';
 
@@ -16,7 +16,7 @@ const SectionOuter = styled.div<SectionProps>`
     variant = 'primary',
     theme
   }: SectionProps & ThemeProps) => theme.colors.background[variant]};
-  color: ${({ variant = 'primary' }: SectionProps & ThemeProps) => {
+  color: ${({ variant = 'primary', theme }: SectionProps & ThemeProps) => {
     switch (variant) {
       case 'inverse':
       case 'highlight':
