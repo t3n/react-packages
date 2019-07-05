@@ -16,7 +16,7 @@ const Breakpoint = styled.div<BreakpointProps>`
 `;
 
 Breakpoint.defaultProps = {
-  bg: 'brand.greyLight',
+  bg: 'background.secondary',
   mb: 1
 };
 
