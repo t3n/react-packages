@@ -2,7 +2,7 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "build/lib",
-    "lib": ["es5", "es6", "es7", "es2017"]
+    "lib": ["es5", "es6", "es7", "es2017", "dom"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build", "scripts"]
