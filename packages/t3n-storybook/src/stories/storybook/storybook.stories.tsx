@@ -5,8 +5,6 @@ import { doc } from 'storybook-readme';
 import StoryContainer from '../../components/StoryContainer';
 
 import introduction from './introduction.md';
-import storybook from './storybook.md';
-import designLanguage from './designLanguage.md';
 import usage from './usage.md';
 import editor from './editor.md';
 
