@@ -1,10 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import { doc } from 'storybook-readme';
 
 import { Card, CardHeader, Heading, Text, Grid, Item } from '@t3n/components';
+
 import StoryContainer from '../../../components/StoryContainer';
 import { knobsFromProps } from '../../../utils/knobs';
+import cardMD from './card.md';
 
 const KNOBS_CATEGORY_CARD = 'Card';
 const KNOBS_CATEGORY_HEADER = 'Header';
@@ -18,6 +21,7 @@ const copyText =
   'The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.';
 
 storiesOf('Components|Card', module)
+  .add('Einleitung', doc(cardMD))
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryContainer>
