@@ -9,7 +9,7 @@ export type InputTypes = 'text' | 'email' | 'password';
 export type InputStates = 'disabled' | 'invalid';
 
 export interface InputProps extends WidthProps {
-  type: InputTypes;
+  type?: InputTypes;
   value?: string;
   defaultValue?: string;
   state?: InputStates;
@@ -18,7 +18,7 @@ export interface InputProps extends WidthProps {
   name?: string;
   id?: string;
   className?: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 interface NativeInputProps
@@ -136,12 +136,12 @@ const Input = ({
 
     if (inputEl.current) inputEl.current.value = '';
 
-    onChange(event as React.ChangeEvent<HTMLInputElement>);
+    if (onChange) onChange(event as React.ChangeEvent<HTMLInputElement>);
   };
 
   const handleNativeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setControlledValue(e.currentTarget.value);
-    onChange(e);
+    if (onChange) onChange(e);
   };
 
   const handleNativeInputFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -164,6 +164,8 @@ const Input = ({
 
   const inputType = type === 'password' && revealPassword ? 'text' : type;
 
+  const inputValue = value !== undefined ? value : controlledValue;
+
   return (
     <StyledInput
       type={inputType}
@@ -177,7 +179,7 @@ const Input = ({
         <FixedPlaceholder>{fixedPlaceholder}</FixedPlaceholder>
       )}
       <StyledNativeInput
-        value={value || controlledValue}
+        value={inputValue}
         ref={inputEl}
         type={inputType}
         disabled={state === 'disabled'}
@@ -188,7 +190,7 @@ const Input = ({
         onBlur={handleNativeInputBlur}
         {...props}
       />
-      {(type === 'password' || controlledValue) && (
+      {(type === 'password' || inputValue) && (
         <Button onClick={handleButtonPress}>
           {type === 'password' && revealPassword
             ? '🙈'
@@ -202,6 +204,7 @@ const Input = ({
 };
 
 Input.defaultProps = {
+  type: 'text',
   width: '100%'
 };
 
