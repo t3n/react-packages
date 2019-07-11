@@ -5,7 +5,7 @@ import { Text, H6 } from '@t3n/components';
 
 import StoryContainer from '../../../../components/StoryContainer';
 
-storiesOf('Style|Typography', module)
+storiesOf('Visual Identity|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Text', () => (
     <div>
