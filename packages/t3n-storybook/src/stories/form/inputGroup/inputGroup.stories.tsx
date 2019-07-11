@@ -22,9 +22,6 @@ storiesOf('Form|InputGroup', module)
         )}
         label={text('label', 'Label')}
         placeholder={text('placeholder', 'Text eingeben...')}
-        onChange={e => {
-          console.log(e.currentTarget.value);
-        }}
       />
     </StoryContainer>
   ));
