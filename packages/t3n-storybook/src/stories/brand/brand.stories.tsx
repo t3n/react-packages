@@ -8,4 +8,8 @@ import brand from './brand.md';
 
 storiesOf('Brand|Info', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Brand', doc(brand));
+  .add('Brand', doc(brand), {
+    options: {
+      showPanel: false
+    }
+  });

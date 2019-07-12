@@ -10,6 +10,18 @@ import kooperationen from './kooperationen.md';
 
 storiesOf('Visual Identity|Logo', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Einleitung', doc(logo))
-  .add('Farben', doc(farben))
-  .add('Kooperationen', doc(kooperationen));
+  .add('Einleitung', doc(logo), {
+    options: {
+      showPanel: false
+    }
+  })
+  .add('Farben', doc(farben), {
+    options: {
+      showPanel: false
+    }
+  })
+  .add('Kooperationen', doc(kooperationen), {
+    options: {
+      showPanel: false
+    }
+  });

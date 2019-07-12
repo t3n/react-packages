@@ -8,4 +8,8 @@ import fonts from './fonts.md';
 
 storiesOf('Visual Identity|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Fonts', doc(fonts));
+  .add('Fonts', doc(fonts), {
+    options: {
+      showPanel: false
+    }
+  });

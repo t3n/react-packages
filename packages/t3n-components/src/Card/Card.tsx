@@ -9,7 +9,7 @@ import {
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
-import Header, { CardHeaderContent } from './Header';
+import { CardHeader, CardHeaderContent } from '../CardHeader';
 
 interface CardProps extends ThemeProps {
   rounded?: boolean;
@@ -77,7 +77,7 @@ const Card = styled.div.attrs(({ href }: CardProps) => ({
       href ? `transform: translate3d(0,-2px, 0);` : ''}
   }
 
-  ${Header} {
+  ${CardHeader} {
     ${headerMargin}
 
     ${CardHeaderContent} {

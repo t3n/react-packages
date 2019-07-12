@@ -23,5 +23,9 @@ storiesOf('Visual Identity|Typografie', module)
         ))}
       </>
     ),
-    { skip: 1 }
+    {
+      options: {
+        showPanel: false
+      }
+    }
   );
