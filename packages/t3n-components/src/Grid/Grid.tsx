@@ -9,7 +9,7 @@ import {
 import { stripUnit } from 'polished';
 
 import { ThemeProps } from '@t3n/theme';
-import Item from './Item';
+import { GridItem } from '../GridItem';
 
 interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
   vertical?: boolean;
@@ -46,7 +46,7 @@ const Grid = styled.div<GridProps>`
   ${indent}
   ${space}
 
-  ${Item} {
+  ${GridItem} {
     ${itemGap}
   }
 `;

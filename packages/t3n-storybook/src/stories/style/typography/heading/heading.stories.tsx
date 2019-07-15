@@ -6,10 +6,10 @@ import StoryContainer from '../../../../components/StoryContainer';
 
 const headings: HeadingElements[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-storiesOf('Style|Typography', module)
+storiesOf('Visual Identity|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add(
-    'Heading',
+    'Headlines',
     () => (
       <>
         {headings.map(h => (
@@ -23,5 +23,9 @@ storiesOf('Style|Typography', module)
         ))}
       </>
     ),
-    { skip: 1 }
+    {
+      options: {
+        showPanel: false
+      }
+    }
   );

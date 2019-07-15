@@ -1,9 +1,13 @@
 export { Content } from './Content';
-export { Grid, Item } from './Grid';
+export { Grid } from './Grid';
+export { GridItem } from './GridItem';
 export { Center } from './Center';
 export { Section } from './Section';
 export { Text } from './Text';
 export { Heading, H1, H2, H3, H4, H5, H6 } from './Heading';
 export { Button } from './Button';
-export { Card, CardHeader } from './Card';
+export { Card } from './Card';
+export { CardHeader } from './CardHeader';
 export { Ratio } from './Ratio';
+export { Input } from './Input';
+export { InputGroup } from './InputGroup';

@@ -9,7 +9,7 @@ import {
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
-import Header, { CardHeaderContent } from './Header';
+import { CardHeader, CardHeaderContent } from '../CardHeader';
 
 interface CardProps extends ThemeProps {
   rounded?: boolean;
@@ -47,7 +47,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps) => {
   const borderWidth = dashed && !elevate && !href ? '2px' : '1px';
   const style = dashed && !elevate && !href ? 'dashed' : 'solid';
 
-  return `border: ${borderWidth} ${style} ${theme.colors.background.light}`;
+  return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
 const Card = styled.div.attrs(({ href }: CardProps) => ({
@@ -77,7 +77,7 @@ const Card = styled.div.attrs(({ href }: CardProps) => ({
       href ? `transform: translate3d(0,-2px, 0);` : ''}
   }
 
-  ${Header} {
+  ${CardHeader} {
     ${headerMargin}
 
     ${CardHeaderContent} {
@@ -90,7 +90,7 @@ Card.displayName = 'Card';
 
 Card.defaultProps = {
   rounded: true,
-  color: 'brand.anthracite',
+  color: 'text.primary',
   width: 1
 };
 

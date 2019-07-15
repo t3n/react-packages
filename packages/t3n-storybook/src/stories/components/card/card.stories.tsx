@@ -2,7 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import { Card, CardHeader, Heading, Text, Grid, Item } from '@t3n/components';
+import {
+  Card,
+  CardHeader,
+  Heading,
+  Text,
+  Grid,
+  GridItem
+} from '@t3n/components';
+
+import CardReadme from '@t3n/components/src/Card/CARD.md';
 import StoryContainer from '../../../components/StoryContainer';
 import { knobsFromProps } from '../../../utils/knobs';
 
@@ -17,70 +26,115 @@ const headlineText = 'Lorem ipsum dolor sit amet';
 const copyText =
   'The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.';
 
-storiesOf('Components|Card', module)
+storiesOf('Components|Content/Card', module)
+  .addParameters({
+    readme: {
+      sidebar: CardReadme
+    }
+  })
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryContainer>
       <Grid noGap justifyContent="center">
-        <Item width={[1, 2 / 3, 1 / 2]}>{story()}</Item>
+        <GridItem width={[1, 2 / 3, 1 / 2]}>{story()}</GridItem>
       </Grid>
     </StoryContainer>
   ))
   // Basic Story
-  .add('Basic', () => (
-    <Card {...cardKnobs({}, KNOBS_CATEGORY_CARD)}>
-      <Heading as="h2" mt={0}>
-        {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
-      </Heading>
-      <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
-    </Card>
-  ))
+  .add(
+    'Basic',
+    () => (
+      <Card {...cardKnobs({}, KNOBS_CATEGORY_CARD)}>
+        <Heading as="h2" mt={0}>
+          {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
+        </Heading>
+        <Text my={0}>
+          {text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}
+        </Text>
+      </Card>
+    ),
+    {
+      options: {
+        showPanel: true
+      }
+    }
+  )
   // Link Story
-  .add('Link', () => (
-    <Card {...cardKnobs({ href: '#' }, KNOBS_CATEGORY_CARD)}>
-      <Heading as="h2" mt={0}>
-        {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
-      </Heading>
-      <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
-    </Card>
-  ))
+  .add(
+    'Link',
+    () => (
+      <Card {...cardKnobs({ href: '#' }, KNOBS_CATEGORY_CARD)}>
+        <Heading as="h2" mt={0}>
+          {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
+        </Heading>
+        <Text my={0}>
+          {text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}
+        </Text>
+      </Card>
+    ),
+    {
+      options: {
+        showPanel: true
+      }
+    }
+  )
   // Header Story
-  .add('Header', () => (
-    <Card>
-      <CardHeader
-        {...headerKnobs(
-          {
-            ratio: 16 / 9,
-            image:
-              'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
-          },
-          KNOBS_CATEGORY_HEADER,
-          ['children', 'is']
-        )}
-      />
-      <Heading as="h2" styleAs="h5" mt={0}>
-        {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
-      </Heading>
-      <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
-    </Card>
-  ))
+  .add(
+    'Header',
+    () => (
+      <Card>
+        <CardHeader
+          {...headerKnobs(
+            {
+              ratio: 16 / 9,
+              image:
+                'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+            },
+            KNOBS_CATEGORY_HEADER,
+            ['children', 'is']
+          )}
+        />
+        <Heading as="h2" styleAs="h5" mt={0}>
+          {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
+        </Heading>
+        <Text my={0}>
+          {text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}
+        </Text>
+      </Card>
+    ),
+    {
+      options: {
+        showPanel: true
+      }
+    }
+  )
   // Big Story
-  .add('Big', () => (
-    <Card big>
-      <CardHeader
-        {...headerKnobs(
-          {
-            ratio: 16 / 9,
-            image:
-              'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
-          },
-          KNOBS_CATEGORY_HEADER,
-          ['children', 'is']
-        )}
-      />
-      <Heading as="h2" mt={0}>
-        {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
-      </Heading>
-      <Text my={0}>{text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}</Text>
-    </Card>
-  ));
+  .add(
+    'Big',
+    () => (
+      <Card big>
+        <CardHeader
+          {...headerKnobs(
+            {
+              ratio: 16 / 9,
+              image:
+                'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+            },
+            KNOBS_CATEGORY_HEADER,
+            ['children', 'is']
+          )}
+        />
+        <Heading as="h2" mt={0}>
+          {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
+        </Heading>
+        <Text my={0}>
+          {text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}
+        </Text>
+      </Card>
+    ),
+    {
+      options: {
+        showPanel: true
+      }
+    }
+  );

@@ -6,6 +6,10 @@ import StoryContainer from '../../../../components/StoryContainer';
 
 import typography from './typography.md';
 
-storiesOf('Style|Typography', module)
+storiesOf('Visual Identity|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Einleitung', doc(typography));
+  .add('Einleitung', doc(typography), {
+    options: {
+      showPanel: false
+    }
+  });

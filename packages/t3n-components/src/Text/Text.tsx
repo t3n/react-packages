@@ -41,7 +41,6 @@ const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
 Text.displayName = 'Text';
 
 Text.defaultProps = {
-  color: 'brand.anthracite',
   width: 1
 };
 
