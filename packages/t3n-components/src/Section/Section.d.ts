@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
+export declare type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 interface SectionProps {
-    variant?: 'primary' | 'secondary' | 'inverse' | 'highlight';
+    variant?: SectionVariants;
     wide?: boolean;
     children: ReactNode;
     innerGap?: SpaceProps['py'];

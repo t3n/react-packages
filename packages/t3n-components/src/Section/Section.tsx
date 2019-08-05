@@ -4,8 +4,10 @@ import { ThemeProps } from '@t3n/theme';
 import { space, SpaceProps } from 'styled-system';
 import Content from '../Content/Content';
 
+export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
+
 interface SectionProps {
-  variant?: 'primary' | 'secondary' | 'inverse' | 'highlight';
+  variant?: SectionVariants;
   wide?: boolean;
   children: ReactNode;
   innerGap?: SpaceProps['py'];

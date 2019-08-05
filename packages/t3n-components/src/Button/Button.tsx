@@ -6,12 +6,15 @@ import { ThemeProps, composeButtonStyle, composeTextStyle } from '@t3n/theme';
 
 // import { Text } from '../Text';
 
+export type ButtonColors = 'light' | 'dark';
+export type ButtonAsType = 'div' | 'span' | 'a' | 'button';
+
 export interface ButtonProps extends ThemeProps {
-  as?: 'div' | 'span' | 'a' | 'button';
+  as?: ButtonAsType;
   rounded?: boolean;
   icon?: ReactNode; // TODO: Implement icon
   secondary?: boolean;
-  color?: 'light' | 'dark';
+  color?: ButtonColors;
   inverse?: boolean;
   small?: boolean;
   wide?: boolean;
@@ -48,17 +51,5 @@ const Button = styled.a.attrs(() => ({
 
   ${composeButtonStyle}
 `;
-
-// const Button = ({
-//   small,
-//   children,
-//   ...buttonProps
-// }: Omit<ButtonProps, 'theme'>) => (
-//   <StyledButton {...buttonProps}>
-//     <Text inline small={small}>
-//       {children}
-//     </Text>
-//   </StyledButton>
-// );
 
 export default Button;
