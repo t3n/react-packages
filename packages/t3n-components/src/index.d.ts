@@ -11,3 +11,4 @@ export { CardHeader } from './CardHeader';
 export { Ratio } from './Ratio';
 export { Input } from './Input';
 export { InputGroup } from './InputGroup';
+export { PageHeader } from './PageHeader';
