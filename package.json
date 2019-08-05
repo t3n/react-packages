@@ -44,7 +44,8 @@
     "test:storybook": "lerna run test --scope @t3n/storybook --stream",
     "lint:storybook": "eslint './packages/t3n-storybook/src/**'",
     "prettier:format": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
-    "prettier:check": "prettier --check 'packages/**/*.{ts,tsx,js,jsx}'"
+    "prettier:check": "prettier --check 'packages/**/*.{ts,tsx,js,jsx}'",
+    "upgrade-interactive": "npm-check --update packages/t3n-components && npm-check --update packages/t3n-theme npm-check --update packages/t3n-storybook"
   },
   "jest": {
     "projects": [

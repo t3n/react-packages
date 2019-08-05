@@ -48,14 +48,24 @@ function loadStories() {
   require('../src/stories/style/icons/icons.stories');
   // Design System
   require('../src/stories/system/breakpoints/breakpoints.stories');
-  // Components
-  require('../src/stories/components/content/content.stories');
+
+  /**
+   * Components
+   */
+
+  // Layout-Components
+  require('../src/stories/components/page/header.stories');
   require('../src/stories/components/section/section.stories');
   require('../src/stories/components/grid/grid.stories');
+
+  // Content-Components
+  require('../src/stories/components/content/content.stories');
+
   require('../src/stories/components/button/button.stories');
+  require('../src/stories/components/card/card.stories');
+
   require('../src/stories/components/input/input.stories');
   require('../src/stories/components/inputGroup/inputGroup.stories');
-  require('../src/stories/components/card/card.stories');
 }
 
 configure(loadStories, module);
