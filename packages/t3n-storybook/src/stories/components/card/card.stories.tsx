@@ -5,10 +5,12 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import {
   Card,
   CardHeader,
+  CardSplitContent,
   Heading,
   Text,
   Grid,
-  GridItem
+  GridItem,
+  Logo
 } from '@t3n/components';
 
 import CardReadme from '@t3n/components/src/Card/CARD.md';
@@ -136,5 +138,22 @@ storiesOf('Components|Content/Card', module)
       options: {
         showPanel: true
       }
+    }
+  )
+  .add(
+    'Split',
+    () => (
+      <Card splitted>
+        <CardSplitContent bgColor="highlight">
+          <Logo height="40" />
+        </CardSplitContent>
+        <CardSplitContent>
+          <Heading as="h3">Melde dich jetzt an!</Heading>
+          <Text>Erstelle dir jetzt einen Account bei t3n.de</Text>
+        </CardSplitContent>
+      </Card>
+    ),
+    {
+      options: { showPanel: true }
     }
   );
