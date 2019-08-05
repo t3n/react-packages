@@ -1,4 +1,4 @@
-export const spaces = new Array(10).fill(0).map((val, i) => i * 0.5);
+export const spaces = new Array<number>(10).fill(0).map((val, i) => i * 0.5);
 
 export default spaces.map(space => `${space}rem`);
 
