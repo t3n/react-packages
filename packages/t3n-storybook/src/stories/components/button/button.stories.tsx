@@ -55,7 +55,7 @@ storiesOf('Components|Inputs/Button', module)
         {colors.map(color => {
           return (
             <Fragment>
-              <h3>Buttons in der Farbe "{color}"</h3>
+              <h3>Buttons in der Farbe {color}</h3>
               <Grid mb={4}>
                 <GridItem width="33">
                   <Button
