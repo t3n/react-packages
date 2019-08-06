@@ -1,5 +1,7 @@
 *.d.ts
 *.md
 *.svg
+*.png
+*.jpg
 build/
 dist/

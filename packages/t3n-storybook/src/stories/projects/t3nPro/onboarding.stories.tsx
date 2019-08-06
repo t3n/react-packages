@@ -43,7 +43,7 @@ storiesOf('Projekte|t3nPro/Onboarding', module)
           <GridItem width={[1, 2 / 3, 1 / 2]}>
             <Card elevate splitted>
               <CardSplitContent bgColor="secondary">
-                <img width="100%" src={products} />
+                <img width="100%" src={products} alt="t3n Pro" />
                 <Text bold>Jetzt gratis lesen</Text>
                 <Heading as="h4" mt={0}>
                   Das Pro für digitale Pioniere_
