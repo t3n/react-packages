@@ -22,6 +22,7 @@ interface PageHeaderWrapperProps
 
 const PageHeadderWrapper = styled.div<PageHeaderWrapperProps>`
   position: fixed;
+  z-index: 20;
   top: 0;
   left: 0;
   right: 0;
@@ -31,7 +32,7 @@ const PageHeadderWrapper = styled.div<PageHeaderWrapperProps>`
   ${color}
 `;
 
-interface PageHeaderProps {
+export interface PageHeaderProps {
   logoVariant?: 'default';
 }
 

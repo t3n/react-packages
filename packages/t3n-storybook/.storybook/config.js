@@ -55,6 +55,8 @@ function loadStories() {
 
   // Layout-Components
   require('../src/stories/components/page/header.stories');
+  require('../src/stories/components/page/layout.stories');
+
   require('../src/stories/components/section/section.stories');
   require('../src/stories/components/grid/grid.stories');
 
@@ -73,6 +75,7 @@ function loadStories() {
 
   // t3nPro
   require('../src/stories/projects/t3nPro/onboarding.stories');
+  require('../src/stories/projects/t3nPro/landingpage.stories');
 }
 
 configure(loadStories, module);

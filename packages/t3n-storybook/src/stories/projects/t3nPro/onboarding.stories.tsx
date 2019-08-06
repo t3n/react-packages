@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import {
-  PageHeader,
   CardSplitContent,
   Card,
   Grid,
@@ -11,7 +10,8 @@ import {
   Heading,
   Text,
   InputGroup,
-  Button
+  Button,
+  PageLayout
 } from '@t3n/components';
 import { layout, LayoutProps, FlexboxProps, flexbox } from 'styled-system';
 import styled from 'styled-components';
@@ -32,8 +32,7 @@ storiesOf('Projekte|t3nPro/Onboarding', module)
   })
   .addDecorator(withKnobs)
   .add('Login', () => (
-    <Fragment>
-      <PageHeader />
+    <PageLayout showHeader>
       <ContentWrapper
         height="100vh"
         justifyItems="center"
@@ -76,5 +75,5 @@ storiesOf('Projekte|t3nPro/Onboarding', module)
           </GridItem>
         </Grid>
       </ContentWrapper>
-    </Fragment>
+    </PageLayout>
   ));
