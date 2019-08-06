@@ -61,7 +61,7 @@ storiesOf('Projekte|t3nPro/Onboarding', module)
               </CardSplitContent>
               <CardSplitContent>
                 <Heading mt={0} pt={0} as="h4">
-                  Los geht's
+                  {"Los geht's"}
                 </Heading>
                 <Text>
                   Bitte gib deine E-Mail-Adresse ein, um dich zu registrieren
