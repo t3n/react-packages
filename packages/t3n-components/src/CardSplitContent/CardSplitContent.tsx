@@ -6,14 +6,17 @@ import {
   layout,
   LayoutProps,
   color,
-  ColorProps
+  ColorProps,
+  size,
+  WidthProps
 } from 'styled-system';
 import { ThemeBackgroundColors } from '@t3n/theme/src/theme/colors/colors';
 
-const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps>`
+const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
   ${space}
   ${layout}
   ${color}
+  ${size}
 `;
 
 interface CardSplitContentProps {
@@ -29,7 +32,7 @@ const CardSplitContent: React.FC<CardSplitContentProps> = ({
     : 'background.primary';
 
   return (
-    <Wrapper width={1 / 2} p={3} backgroundColor={backgroundColor}>
+    <Wrapper width={[1, 1, 1 / 2]} p={3} backgroundColor={backgroundColor}>
       {children}
     </Wrapper>
   );

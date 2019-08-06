@@ -40,7 +40,7 @@ storiesOf('Projekte|t3nPro/Onboarding', module)
         alignContent="center"
       >
         <Grid noGap alignItems="center" height="100vh" justifyContent="center">
-          <GridItem width={[1, 2 / 3, 1 / 2]}>
+          <GridItem width={[4 / 5, 4 / 5, 2 / 3]}>
             <Card elevate splitted>
               <CardSplitContent bgColor="secondary">
                 <img width="100%" src={products} alt="t3n Pro" />

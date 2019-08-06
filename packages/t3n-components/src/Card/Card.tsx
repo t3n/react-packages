@@ -63,6 +63,7 @@ const Card = styled.div.attrs(({ href }: CardProps) => ({
   background-color: white;
   display: flex;
   flex-direction: ${({ splitted }) => (splitted ? 'row' : 'column')};
+  flex-wrap: ${({ splitted }) => (splitted ? 'wrap' : 'nowrap')};
   justify-content: flex-start;
   justify-content: stretch;
   text-decoration: none;
