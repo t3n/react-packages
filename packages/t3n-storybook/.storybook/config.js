@@ -66,6 +66,13 @@ function loadStories() {
 
   require('../src/stories/components/input/input.stories');
   require('../src/stories/components/inputGroup/inputGroup.stories');
+
+  /**
+   * Projects
+   */
+
+  // t3nPro
+  require('../src/stories/projects/t3nPro/onboarding.stories');
 }
 
 configure(loadStories, module);

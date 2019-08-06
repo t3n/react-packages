@@ -6,12 +6,12 @@ export type LogoVariant = 'default';
 interface LogoProps {
   height?: string;
   width?: string;
-  variant: LogoVariant;
+  variant?: LogoVariant;
 }
 
 const Logo: React.FC<LogoProps> = ({ variant, ...rest }) => {
   // todo check for other variants
-  if (variant === 'default') {
+  if (variant && variant === 'default') {
     return <DefaultLogo {...rest} />;
   }
 

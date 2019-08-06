@@ -6,6 +6,7 @@ interface CardProps extends ThemeProps {
     big?: boolean;
     elevate?: boolean;
     dashed?: boolean;
+    splitted?: boolean;
     href?: string | false;
     color?: string;
     width?: SizeProps['size'];

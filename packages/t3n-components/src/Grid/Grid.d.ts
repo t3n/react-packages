@@ -1,6 +1,6 @@
-import { JustifyContentProps, SpaceProps } from 'styled-system';
+import { JustifyContentProps, SpaceProps, AlignItemsProps, HeightProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
-interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
+interface GridProps extends ThemeProps, JustifyContentProps, AlignItemsProps, HeightProps, SpaceProps {
     vertical?: boolean;
     reverse?: boolean;
     wide?: boolean;

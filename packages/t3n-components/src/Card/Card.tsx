@@ -16,6 +16,7 @@ interface CardProps extends ThemeProps {
   big?: boolean;
   elevate?: boolean;
   dashed?: boolean;
+  splitted?: boolean;
   href?: string | false;
   color?: string;
   width?: SizeProps['size'];
@@ -25,8 +26,12 @@ interface CardProps extends ThemeProps {
 const borderRadius = ({ rounded, theme }: CardProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
-const padding = ({ big, theme }: CardProps) =>
-  big ? space({ p: [3, 6], theme }) : space({ p: 3, theme });
+const padding = ({ big, splitted, theme }: CardProps) =>
+  big
+    ? space({ p: [3, 6], theme })
+    : splitted
+    ? space({ p: 0, theme })
+    : space({ p: 3, theme });
 
 const color = ({ color: c, theme }: CardProps) =>
   styledColor({ color: c, theme });
@@ -57,13 +62,12 @@ const Card = styled.div.attrs(({ href }: CardProps) => ({
   display: block;
   background-color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ splitted }) => (splitted ? 'row' : 'column')};
   justify-content: flex-start;
   justify-content: stretch;
   text-decoration: none;
   overflow: hidden;
   transition: box-shadow .15s ease-out, transform .15s ease-out;
-  transform: translate3d(0,0,0);
   ${border};
   ${borderRadius}
   ${width}
