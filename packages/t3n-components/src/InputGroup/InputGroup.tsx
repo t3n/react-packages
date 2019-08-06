@@ -1,12 +1,20 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { space } from 'styled-system';
+import {
+  space,
+  margin,
+  MarginTopProps,
+  MarginBottomProps
+} from 'styled-system';
 
 import { getThemeColor, ThemeProps } from '@t3n/theme';
 import Input, { InputProps } from '../Input/Input';
 
-interface BaseInputGroupProps extends InputProps {
+interface BaseInputGroupProps
+  extends InputProps,
+    MarginTopProps,
+    MarginBottomProps {
   label: string;
   labelSecondary?: string;
   labelEndContent?: ReactNode;
@@ -25,8 +33,9 @@ const StyledBaseInputGroupLabelEnd = styled.span`
   margin-left: auto;
 `;
 
-const StyledBaseInputGroup = styled.label`
+const StyledBaseInputGroup = styled.label<MarginTopProps | MarginBottomProps>`
   display: block;
+  ${margin}
 
   > div:first-child {
     width: 100%;
@@ -41,9 +50,15 @@ const BaseInputGroup = ({
   id,
   labelSecondary,
   labelEndContent,
+  marginBottom,
+  marginTop,
   ...inputProps
 }: BaseInputGroupProps) => (
-  <StyledBaseInputGroup htmlFor={id}>
+  <StyledBaseInputGroup
+    htmlFor={id}
+    marginBottom={marginBottom}
+    marginTop={marginTop}
+  >
     <div>
       <StyledBaseInputGroupLabel>{label}</StyledBaseInputGroupLabel>
       {labelSecondary && (
@@ -80,5 +95,10 @@ const InputGroup = ({ type, required, ...props }: InputGroupProps) => (
     {...props}
   />
 );
+
+InputGroup.defaultProps = {
+  marginTop: 3,
+  marginBottom: 3
+};
 
 export default InputGroup;

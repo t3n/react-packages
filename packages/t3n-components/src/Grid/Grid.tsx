@@ -4,14 +4,22 @@ import {
   justifyContent,
   alignItems,
   JustifyContentProps,
-  SpaceProps
+  SpaceProps,
+  AlignItemsProps,
+  HeightProps,
+  layout
 } from 'styled-system';
 import { stripUnit } from 'polished';
 
 import { ThemeProps } from '@t3n/theme';
 import { GridItem } from '../GridItem';
 
-interface GridProps extends ThemeProps, JustifyContentProps, SpaceProps {
+interface GridProps
+  extends ThemeProps,
+    JustifyContentProps,
+    AlignItemsProps,
+    HeightProps,
+    SpaceProps {
   vertical?: boolean;
   reverse?: boolean;
   wide?: boolean;
@@ -45,6 +53,7 @@ const Grid = styled.div<GridProps>`
   ${alignItems}
   ${indent}
   ${space}
+  ${layout}
 
   ${GridItem} {
     ${itemGap}
