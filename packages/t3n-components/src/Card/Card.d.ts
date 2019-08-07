@@ -4,6 +4,7 @@ import { ThemeProps } from '@t3n/theme';
 interface CardProps extends ThemeProps {
     rounded?: boolean;
     big?: boolean;
+    stretch?: boolean;
     elevate?: boolean;
     dashed?: boolean;
     splitted?: boolean;

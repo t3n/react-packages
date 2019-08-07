@@ -14,6 +14,7 @@ import { CardHeader, CardHeaderContent } from '../CardHeader';
 interface CardProps extends ThemeProps {
   rounded?: boolean;
   big?: boolean;
+  stretch?: boolean;
   elevate?: boolean;
   dashed?: boolean;
   splitted?: boolean;
@@ -64,6 +65,7 @@ const Card = styled.div.attrs(({ href }: CardProps) => ({
   display: flex;
   flex-direction: ${({ splitted }) => (splitted ? 'row' : 'column')};
   flex-wrap: ${({ splitted }) => (splitted ? 'wrap' : 'nowrap')};
+  height: ${({ stretch }) => (stretch ? '100%' : 'auto')};
   justify-content: flex-start;
   justify-content: stretch;
   text-decoration: none;

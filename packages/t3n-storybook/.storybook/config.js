@@ -1,13 +1,18 @@
+import { AlignItemsProps } from 'styled-system';
 import React, { Fragment } from 'react';
 import { addDecorator, configure, addParameters } from '@storybook/react';
 import { addReadme } from 'storybook-readme';
 import { ThemeProvider } from 'styled-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 import { theme } from '@t3n/theme';
 import viewports from './viewports';
 import GlobalStyle from './GlobalStyle';
+
+const client = new ApolloClient({ uri: 'https://api.t3n.de' });
 
 addParameters({
   options: {
@@ -26,10 +31,10 @@ addDecorator(addReadme);
 addDecorator(withA11y);
 addDecorator(story => (
   <ThemeProvider theme={theme}>
-    <Fragment>
+    <ApolloProvider client={client}>
       <GlobalStyle />
       {story()}
-    </Fragment>
+    </ApolloProvider>
   </ThemeProvider>
 ));
 
@@ -65,6 +70,7 @@ function loadStories() {
 
   require('../src/stories/components/button/button.stories');
   require('../src/stories/components/card/card.stories');
+  require('../src/stories/components/card/newsCard.stories');
 
   require('../src/stories/components/input/input.stories');
   require('../src/stories/components/inputGroup/inputGroup.stories');
