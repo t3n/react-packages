@@ -17,6 +17,7 @@ interface NewsCardProps {
     avatar: string;
   };
   publishedAt: Date;
+  url: string;
 }
 
 const CardFooter = styled.div`
@@ -34,9 +35,10 @@ const NewsCard = ({
   title,
   type,
   author,
-  publishedAt
+  publishedAt,
+  url
 }: NewsCardProps) => (
-  <Card stretch>
+  <Card href={url} stretch>
     {type === 'HERO' && <CardHeader ratio={16 / 9} image={imageUrl} />}
     <div style={{ flex: 1 }}>
       <Heading styleAs="h5" as="h2" mt={0} mb={7}>

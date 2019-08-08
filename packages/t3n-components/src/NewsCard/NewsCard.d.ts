@@ -10,6 +10,7 @@ interface NewsCardProps {
         avatar: string;
     };
     publishedAt: Date;
+    url: string;
 }
-declare const NewsCard: ({ imageUrl, title, type, author, publishedAt }: NewsCardProps) => JSX.Element;
+declare const NewsCard: ({ imageUrl, title, type, author, publishedAt, url }: NewsCardProps) => JSX.Element;
 export default NewsCard;

@@ -18,6 +18,7 @@ const RECENT_NEWS = gql`
         teaser
         type
         date
+        url
         imageUrl
         author {
           identifier
@@ -59,6 +60,7 @@ const NewsCardWithData = () => {
         {data.article.recentNews.map(news => (
           <GridItem width={[1, 1, 1 / 3]} mb={3}>
             <NewsCard
+              url={news.url}
               key={news.identifier}
               type={select(
                 'Darstellung',

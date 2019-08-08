@@ -7,7 +7,7 @@
 // ====================================================
 
 export interface recentNews_article_recentNews_author {
-  __typename: 'User';
+  __typename: "User";
   identifier: string;
   firstName: string | null;
   lastName: string | null;
@@ -15,18 +15,19 @@ export interface recentNews_article_recentNews_author {
 }
 
 export interface recentNews_article_recentNews {
-  __typename: 'NewsArticle';
+  __typename: "NewsArticle";
   identifier: string;
   title: string;
   teaser: string;
   type: string;
   date: string;
+  url: string;
   imageUrl: string;
   author: recentNews_article_recentNews_author;
 }
 
 export interface recentNews_article {
-  __typename: 'Article';
+  __typename: "Article";
   recentNews: recentNews_article_recentNews[] | null;
 }
 
