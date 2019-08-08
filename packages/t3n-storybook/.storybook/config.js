@@ -12,11 +12,14 @@ import { theme } from '@t3n/theme';
 import viewports from './viewports';
 import GlobalStyle from './GlobalStyle';
 
+import storyBookTheme from './theme';
+
 const client = new ApolloClient({ uri: 'https://api.t3n.de' });
 
 addParameters({
   options: {
-    panelPosition: 'right'
+    panelPosition: 'right',
+    theme: storyBookTheme
   },
   viewport: {
     viewports: {

@@ -11,6 +11,7 @@
     "@storybook/addon-viewport": "^5.1.1",
     "@storybook/addons": "^5.1.1",
     "@storybook/react": "^5.1.1",
+    "@storybook/theming": "^5.1.10",
     "@t3n/components": "^1.0.0",
     "@t3n/theme": "^1.0.0",
     "@types/graphql": "^14.2.3",
