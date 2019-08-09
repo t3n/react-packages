@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ThemeProps } from '@t3n/theme';
 import { Card } from '../Card';
 import { CardHeader } from '../CardHeader';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
+import { Badge } from '../Badge';
 
 export type ArticleCardStyle = 'HERO' | 'AUTHOR-CARD';
 
@@ -32,11 +32,6 @@ const Author = styled.div`
   align-items: center;
 `;
 
-const TypeBadge = styled(Text)`
-  background-color: ${({ theme }: ThemeProps) =>
-    theme.colors.background.highlight};
-`;
-
 const ArticleCard = ({
   imageUrl,
   title,
@@ -48,13 +43,15 @@ const ArticleCard = ({
 }: ArticleCardProps) => (
   <Card href={url} stretch>
     {type === 'AUTHOR-CARD' && (
-      <TypeBadge small as="span">
-        {articleType}
-      </TypeBadge>
+      <div>
+        <Badge bgColor="highlight" small>
+          {articleType}
+        </Badge>
+      </div>
     )}
     {type === 'HERO' && <CardHeader ratio={16 / 9} image={imageUrl} />}
     <div style={{ flex: 1 }}>
-      <Heading styleAs="h5" as="h2" mt={0} mb={7}>
+      <Heading styleAs="h5" as="h2" mt={type === 'AUTHOR-CARD' ? 1 : 0} mb={7}>
         {title}
       </Heading>
     </div>

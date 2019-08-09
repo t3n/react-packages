@@ -15,7 +15,7 @@ const background = ({ bgColor, theme }: BadgeProps) => `
   `;
 
 const padding = ({ theme, small }: BadgeProps) =>
-  space({ p: small ? '2px' : 0, theme });
+  space({ p: small ? '0 2px' : 0, theme });
 
 const fontSize = ({ small, theme }: BadgeProps) =>
   typography({ fontSize: small ? 0 : 1, theme });
