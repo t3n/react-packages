@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, number } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import { NewsCard, Grid, GridItem, Text, Content } from '@t3n/components';
+import { ArticleCard, Grid, GridItem, Text, Content } from '@t3n/components';
 
 import CardReadme from '@t3n/components/src/Card/CARD.md';
 import StoryContainer from '../../../components/StoryContainer';
@@ -31,7 +31,7 @@ const RECENT_NEWS = gql`
   }
 `;
 
-const NewsCardWithData = () => {
+const ArticleCardWithData = () => {
   const { data, loading } = useQuery<recentNews, recentNewsVariables>(
     RECENT_NEWS,
     {
@@ -59,9 +59,10 @@ const NewsCardWithData = () => {
       <Grid wide justifyContent="center">
         {data.article.recentNews.map(news => (
           <GridItem width={[1, 1, 1 / 3]} mb={3}>
-            <NewsCard
+            <ArticleCard
               url={news.url}
               key={news.identifier}
+              articleType={news.type}
               type={select(
                 'Darstellung',
                 { Hero: 'HERO', Author: 'AUTHOR-CARD' },
@@ -101,7 +102,7 @@ storiesOf('Components|Content/NewsCards', module)
     () => {
       return (
         <div>
-          <NewsCardWithData />
+          <ArticleCardWithData />
         </div>
       );
     },

@@ -15,4 +15,4 @@ export { InputGroup } from './InputGroup';
 export { PageHeader } from './PageHeader';
 export { PageLayout } from './PageLayout';
 export { Logo } from './Logo';
-export { NewsCard } from './NewsCard';
+export { ArticleCard } from './ArticleCard';
