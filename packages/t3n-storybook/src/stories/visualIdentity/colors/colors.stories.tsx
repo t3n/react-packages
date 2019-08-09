@@ -64,10 +64,7 @@ storiesOf('Visual Identity|Colors', module)
     () => (
       <ThemeConsumer>
         {theme => {
-          const categories = Object.keys(theme.colors);
-
-          console.log(categories);
-          return categories.map(name => (
+          return Object.keys(theme.colors).map(name => (
             <Section>
               <Heading as="h2">
                 {name.charAt(0).toUpperCase() + name.slice(1)}

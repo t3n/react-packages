@@ -46,43 +46,34 @@ function loadStories() {
   require('../src/stories/storybook/storybook.stories');
   // Brand
   require('../src/stories/brand/brand.stories');
-  // Style
-  require('../src/stories/style/logo/logo.stories');
-  require('../src/stories/style/colors/colors.stories');
-  require('../src/stories/style/typography/introduction/introduction.stories');
-  require('../src/stories/style/typography/fonts/fonts.stories');
-  require('../src/stories/style/typography/heading/heading.stories');
-  require('../src/stories/style/typography/text/text.stories');
-  require('../src/stories/style/icons/icons.stories');
-  // Design System
-  require('../src/stories/system/breakpoints/breakpoints.stories');
 
-  /**
-   * Components
-   */
+  // VisualIdentity
+  require('../src/stories/visualIdentity/logo/logo.stories');
+  require('../src/stories/visualIdentity/colors/colors.stories');
+  require('../src/stories/visualIdentity/typography/introduction/introduction.stories');
+  require('../src/stories/visualIdentity/typography/fonts/fonts.stories');
+  require('../src/stories/visualIdentity/typography/heading/heading.stories');
+  require('../src/stories/visualIdentity/typography/text/text.stories');
+  require('../src/stories/visualIdentity/icons/icons.stories');
 
-  // Layout-Components
-  require('../src/stories/components/page/header.stories');
-  require('../src/stories/components/page/layout.stories');
+  // Layout
+  require('../src/stories/layout/breakpoints/breakpoints.stories');
 
-  require('../src/stories/components/section/section.stories');
-  require('../src/stories/components/grid/grid.stories');
+  // Components - Layout
+  require('../src/stories/components/layout/page.stories');
+  require('../src/stories/components/layout/content.stories');
+  require('../src/stories/components/layout/grid.stories');
+  require('../src/stories/components/layout/section.stories');
 
-  // Content-Components
-  require('../src/stories/components/content/content.stories');
+  // Components - Inputs
+  require('../src/stories/components/inputs/button.stories');
+  require('../src/stories/components/inputs/input.stories');
+  require('../src/stories/components/inputs/inputGroup.stories');
 
+  // Components - Content
   require('../src/stories/components/content/badge.stories');
-
-  require('../src/stories/components/button/button.stories');
-  require('../src/stories/components/card/card.stories');
-  require('../src/stories/components/card/newsCard.stories');
-
-  require('../src/stories/components/input/input.stories');
-  require('../src/stories/components/inputGroup/inputGroup.stories');
-
-  /**
-   * Projects
-   */
+  require('../src/stories/components/content/card.stories');
+  require('../src/stories/components/content/newsCard.stories');
 
   // t3nPro
   require('../src/stories/projects/t3nPro/onboarding.stories');
