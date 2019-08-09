@@ -71,6 +71,8 @@ function loadStories() {
   // Content-Components
   require('../src/stories/components/content/content.stories');
 
+  require('../src/stories/components/content/badge.stories');
+
   require('../src/stories/components/button/button.stories');
   require('../src/stories/components/card/card.stories');
   require('../src/stories/components/card/newsCard.stories');
