@@ -4,10 +4,10 @@ import {
   LayoutProps,
   layout,
   BorderRadiusProps,
-  borderRadius
+  borderRadius,
+  space
 } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
-import { space } from '@t3n/theme/src/theme';
 
 const backgroundAnimation = ({ theme }: ThemeProps) => keyframes`
   0% {
