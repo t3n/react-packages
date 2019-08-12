@@ -22,7 +22,7 @@
     "eslint-plugin-react": "^7.12.4",
     "lerna": "^3.10.7",
     "prettier": "^1.16.1",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules && rm -rf packages/t3n-components/dist && rm -rf packages/t3n-theme/dist && rm -rf packages/t3n-storybook/storybook-static",
