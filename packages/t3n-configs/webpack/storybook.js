@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const WebpackNotifierPlugin = require('webpack-notifier');
 
-const { NODE_ENV } = process.env;
-const isProd = NODE_ENV === 'production';
+// const { NODE_ENV } = process.env;
+// const isProd = NODE_ENV === 'production';
 
 module.exports = ({ config }) => {
-  config.devtool = isProd ? 'source-map' : 'eval-source-map';
+  config.devtool = 'source-map';
 
   config.module.rules.push({
     test: /\.(ts|tsx)$/,

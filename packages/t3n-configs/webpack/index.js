@@ -20,7 +20,7 @@ module.exports = ({ title = '', dirname = '' }) => {
       nodeEnv: NODE_ENV || (isProd ? 'production' : 'development')
     },
     context: resolve(dirname || __dirname),
-    devtool: isProd ? 'source-map' : 'eval-source-map',
+    devtool: 'source-map',
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
     },
