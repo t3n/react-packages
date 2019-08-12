@@ -17,3 +17,4 @@ export { PageLayout } from './PageLayout';
 export { Logo } from './Logo';
 export { ArticleCard } from './ArticleCard';
 export { Badge } from './Badge';
+export { LoadingIndicator } from './LoadingIndicator';

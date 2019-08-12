@@ -73,7 +73,8 @@ function loadStories() {
   // Components - Content
   require('../src/stories/components/content/badge.stories');
   require('../src/stories/components/content/card.stories');
-  require('../src/stories/components/content/newsCard.stories');
+  require('../src/stories/components/content/articleCard.stories');
+  require('../src/stories/components/content/loadingIndicator.stories');
 
   // t3nPro
   require('../src/stories/projects/t3nPro/onboarding.stories');
