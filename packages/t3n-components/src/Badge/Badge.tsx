@@ -12,7 +12,7 @@ interface BadgeProps extends ThemeProps {
 
 const background = ({ bgColor, theme }: BadgeProps) => `
   background-color:  ${theme.colors.background[bgColor]};
-  `;
+`;
 
 const padding = ({ theme, small }: BadgeProps) =>
   space({ p: small ? '0 2px' : 0, theme });

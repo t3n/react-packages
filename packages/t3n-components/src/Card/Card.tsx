@@ -57,7 +57,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps) => {
 };
 
 const Card = styled.div.attrs(({ href }: CardProps) => ({
-  href: href || false,
+  href,
   as: href ? 'a' : 'div'
 }))<CardProps>`
   display: block;

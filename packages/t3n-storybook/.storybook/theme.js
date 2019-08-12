@@ -9,7 +9,7 @@ export default create({
   brandImage: logo,
 
   appBg: theme.colors.background.secondary,
-  appContentBg: 'fff',
+  appContentBg: '#fff',
 
   textColor: theme.colors.text.primary
 });
