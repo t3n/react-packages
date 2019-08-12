@@ -17,21 +17,14 @@ import { layout, LayoutProps, FlexboxProps, flexbox } from 'styled-system';
 import styled from 'styled-components';
 import products from './products.png';
 
-import Readme from './t3nPro_Onboarding.md';
-
 const ContentWrapper = styled.div<LayoutProps | FlexboxProps>`
   ${layout}
   ${flexbox}
 `;
 
-storiesOf('Projekte|t3nPro/Onboarding', module)
-  .addParameters({
-    readme: {
-      sidebar: Readme
-    }
-  })
+storiesOf('Projekte|SSO', module)
   .addDecorator(withKnobs)
-  .add('Login', () => (
+  .add('Registrierung', () => (
     <PageLayout showHeader>
       <ContentWrapper
         height="100vh"

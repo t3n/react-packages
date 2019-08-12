@@ -2,15 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 
-import SectionReadme from '@t3n/components/src/Section/SECTION.md';
 import { Heading, Text, Section } from '@t3n/components';
 
 storiesOf('Components|Layout/Section', module)
-  .addParameters({
-    readme: {
-      sidebar: SectionReadme
-    }
-  })
   .addDecorator(withKnobs)
   .add(
     'Default',

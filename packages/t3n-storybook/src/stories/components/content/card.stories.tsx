@@ -13,7 +13,6 @@ import {
   Logo
 } from '@t3n/components';
 
-import CardReadme from '@t3n/components/src/Card/CARD.md';
 import StoryContainer from '../../../components/StoryContainer';
 import { knobsFromProps } from '../../../utils/knobs';
 
@@ -29,11 +28,6 @@ const copyText =
   'The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.';
 
 storiesOf('Components|Content/Card', module)
-  .addParameters({
-    readme: {
-      sidebar: CardReadme
-    }
-  })
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryContainer>

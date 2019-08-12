@@ -6,7 +6,6 @@ import { space } from 'styled-system';
 import { Grid, GridItem } from '@t3n/components';
 import { ThemeProps } from '@t3n/theme';
 
-import GridReadme from '@t3n/components/src/Grid/GRID.md';
 import StoryContainer from '../../../components/StoryContainer';
 
 const GridItemContent = styled.div`
@@ -17,11 +16,6 @@ const GridItemContent = styled.div`
 `;
 
 storiesOf('Components|Layout/Grid', module)
-  .addParameters({
-    readme: {
-      sidebar: GridReadme
-    }
-  })
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add(
     'Default',

@@ -18,7 +18,6 @@ import {
   NewsCard
 } from '@t3n/components';
 
-import CardReadme from '@t3n/components/src/Card/CARD.md';
 import { NewsCardType } from '@t3n/components/src/NewsCard/NewsCard';
 import StoryContainer from '../../../components/StoryContainer';
 import { recentNews, recentNewsVariables } from './__generated__/recentNews';
@@ -102,11 +101,6 @@ const ArticleCardWithData = ({
 };
 
 storiesOf('Components|Content/ArticleCard', module)
-  .addParameters({
-    readme: {
-      sidebar: CardReadme
-    }
-  })
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryContainer>
