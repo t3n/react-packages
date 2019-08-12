@@ -4,7 +4,6 @@ import { withKnobs, select, number, text } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { ArticleCard, Grid, GridItem, Text, Content } from '@t3n/components';
-import { NewsCard } from '@t3n/data-components';
 
 import CardReadme from '@t3n/components/src/Card/CARD.md';
 import StoryContainer from '../../../components/StoryContainer';
@@ -203,7 +202,7 @@ storiesOf('Components|Content/ArticleCard', module)
     }
   )
   .add('News-Kachel', () => {
-    return <NewsCard identifier="123" />;
+    return <p>todo</p>;
   })
   .add(
     'Recent-News',
