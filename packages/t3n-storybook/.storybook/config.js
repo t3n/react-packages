@@ -64,6 +64,8 @@ function loadStories() {
   require('../src/stories/components/layout/content.stories');
   require('../src/stories/components/layout/grid.stories');
   require('../src/stories/components/layout/section.stories');
+  require('../src/stories/components/layout/avatar.stories');
+  require('../src/stories/components/layout/image.stories');
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories');

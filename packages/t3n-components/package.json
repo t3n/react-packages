@@ -9,6 +9,7 @@
     "npm": "^6.10.3",
     "polished": "^3.1.0",
     "prop-types": "^15.7.2",
+    "react-imgix": "^8.6.4",
     "styled-components": "^4.3.0",
     "styled-system": "^5.0.21"
   },
