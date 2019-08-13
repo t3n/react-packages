@@ -1,11 +1,24 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, number, text } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  number,
+  text,
+  select,
+  boolean
+} from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import { ArticleCard, Grid, GridItem, Text, Content } from '@t3n/components';
+import {
+  Grid,
+  GridItem,
+  Content,
+  AuthorCard,
+  HeroCard,
+  NewsCard
+} from '@t3n/components';
 
-import CardReadme from '@t3n/components/src/Card/CARD.md';
+import { NewsCardType } from '@t3n/components/src/NewsCard/NewsCard';
 import StoryContainer from '../../../components/StoryContainer';
 import { recentNews, recentNewsVariables } from './__generated__/recentNews';
 
@@ -19,6 +32,7 @@ const RECENT_NEWS = gql`
         type
         date
         url
+        date
         imageUrl
         author {
           identifier
@@ -31,66 +45,62 @@ const RECENT_NEWS = gql`
   }
 `;
 
-const ArticleCardWithData = () => {
+const ArticleCardWithData = ({
+  limit,
+  fakeLoading
+}: {
+  limit: number;
+  fakeLoading: boolean;
+}) => {
+  const type: NewsCardType = select(
+    'Darstellung als',
+    { 'Hero-Card': 'HERO', 'Author-Card': 'AUTHOR' },
+    'HERO'
+  );
+
   const { data, loading } = useQuery<recentNews, recentNewsVariables>(
     RECENT_NEWS,
     {
       variables: {
-        limit: number('Anzahl der Kacheln', 6, {
-          min: 1,
-          max: 10,
-          range: false,
-          step: 1
-        })
+        limit
       }
     }
   );
 
-  if (loading) {
-    return (
-      <div>
-        <Text>Lade News ...</Text>
-      </div>
-    );
-  }
-
-  if (data && data.article && data.article.recentNews) {
-    return (
-      <Grid wide justifyContent="center">
-        {data.article.recentNews.map(news => (
-          <GridItem width={[1, 1, 1 / 3]} mb={3}>
-            <ArticleCard
-              url={news.url}
-              key={news.identifier}
-              articleType={news.type}
-              type={select(
-                'Darstellung',
-                { Hero: 'HERO', Author: 'AUTHOR-CARD' },
-                'HERO'
-              )}
-              title={news.title}
-              teaser={news.teaser}
-              imageUrl={news.imageUrl}
-              publishedAt={new Date(news.date)}
-              author={{
-                name: `${news.author.firstName} ${news.author.lastName}`,
-                avatar: news.author.avatarUrl || ''
-              }}
-            />
-          </GridItem>
-        ))}
-      </Grid>
-    );
-  }
-  return <p>Es konnten leider keine aktuellen News geladen werden</p>;
+  return (
+    <Grid wide justifyContent="center">
+      {loading || fakeLoading
+        ? new Array(limit).fill(null).map((el, idx) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <GridItem key={idx} width={[1, 1, 1 / 3]} mb={3}>
+              <NewsCard loading type={type} />
+            </GridItem>
+          ))
+        : data &&
+          data.article &&
+          data.article.recentNews &&
+          data.article.recentNews.map(news => (
+            <GridItem key={news.identifier} width={[1, 1, 1 / 3]} mb={3}>
+              <NewsCard
+                news={{
+                  ...news,
+                  author: {
+                    name: `${news.author.firstName || ''} ${news.author
+                      .lastName || ''}`,
+                    avatar: news.author.avatarUrl || ''
+                  },
+                  publishedAt: new Date(news.date)
+                }}
+                loading={false}
+                type={type}
+              />
+            </GridItem>
+          ))}
+    </Grid>
+  );
 };
 
 storiesOf('Components|Content/ArticleCard', module)
-  .addParameters({
-    readme: {
-      sidebar: CardReadme
-    }
-  })
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryContainer>
@@ -103,25 +113,8 @@ storiesOf('Components|Content/ArticleCard', module)
       return (
         <Grid justifyContent="center">
           <GridItem width={1 / 3}>
-            <ArticleCard
-              type={select(
-                'Darstellung',
-                { Hero: 'HERO', Author: 'AUTHOR-CARD' },
-                'HERO'
-              )}
-              author={{
-                name: text('Author', 'Andreas Floemer'),
-                avatar: text(
-                  'Author-Avatar',
-                  'https://storage.googleapis.com/t3n-de/neos/bc7fce93490239419c6588eef4913653b89a8af2/afr_t3n.jpg'
-                )
-              }}
-              articleType={text('Artikel-Typ', 'News')}
-              publishedAt={
-                new Date(
-                  text('Veröffentlicht am ', 'Sat, 10 Aug 2019 07:00:04 GMT')
-                )
-              }
+            <HeroCard
+              author={text('Author', 'Andreas Floemer')}
               url={text(
                 'URL',
                 'https://t3n.de/news/pixel-4-4-xl-geruechte-ausstattung-design-1186571/'
@@ -130,14 +123,15 @@ storiesOf('Components|Content/ArticleCard', module)
                 'Artikel-Bild',
                 'https://t3n.de/news/wp-content/uploads/2019/08/pixel-4-render-phone-designer.jpg'
               )}
-              teaser={text(
-                'Teaser',
-                'Mit dem Pixel 4 will Google Innovationen vorantreiben und seine Smartphone-Familie weiter in die obere Liga schieben. Über die neue Generation ist mittlerweile vieles bekannt. Wir fassen zusammen.'
-              )}
               title={text(
                 'Titel',
                 'Google Pixel 4 und 4 XL: So sehen sie aus, das steckt wohl drin'
               )}
+              publishedAt={
+                new Date(
+                  text('Veröffentlicht am ', 'Sat, 10 Aug 2019 07:00:04 GMT')
+                )
+              }
             />
           </GridItem>
         </Grid>
@@ -155,12 +149,7 @@ storiesOf('Components|Content/ArticleCard', module)
       return (
         <Grid justifyContent="center">
           <GridItem width={1 / 3}>
-            <ArticleCard
-              type={select(
-                'Darstellung',
-                { Hero: 'HERO', Author: 'AUTHOR-CARD' },
-                'AUTHOR-CARD'
-              )}
+            <AuthorCard
               author={{
                 name: text('Author', 'Andreas Floemer'),
                 avatar: text(
@@ -168,28 +157,15 @@ storiesOf('Components|Content/ArticleCard', module)
                   'https://storage.googleapis.com/t3n-de/neos/bc7fce93490239419c6588eef4913653b89a8af2/afr_t3n.jpg'
                 )
               }}
-              articleType={text('Artikel-Typ', 'News')}
-              publishedAt={
-                new Date(
-                  text('Veröffentlicht am ', 'Sat, 10 Aug 2019 07:00:04 GMT')
-                )
-              }
               url={text(
                 'URL',
                 'https://t3n.de/news/pixel-4-4-xl-geruechte-ausstattung-design-1186571/'
-              )}
-              imageUrl={text(
-                'Artikel-Bild',
-                'https://t3n.de/news/wp-content/uploads/2019/08/pixel-4-render-phone-designer.jpg'
-              )}
-              teaser={text(
-                'Teaser',
-                'Mit dem Pixel 4 will Google Innovationen vorantreiben und seine Smartphone-Familie weiter in die obere Liga schieben. Über die neue Generation ist mittlerweile vieles bekannt. Wir fassen zusammen.'
               )}
               title={text(
                 'Titel',
                 'Google Pixel 4 und 4 XL: So sehen sie aus, das steckt wohl drin'
               )}
+              articleType={text('Artikel-Typ', 'News')}
             />
           </GridItem>
         </Grid>
@@ -201,15 +177,20 @@ storiesOf('Components|Content/ArticleCard', module)
       }
     }
   )
-  .add('News-Kachel', () => {
-    return <p>todo</p>;
-  })
   .add(
     'Recent-News',
     () => {
+      const limit = number('Anzahl der Kacheln', 6, {
+        min: 1,
+        max: 10,
+        range: false,
+        step: 1
+      });
+      const fakeLoading = boolean('Fake ladestatus', false);
+
       return (
         <div>
-          <ArticleCardWithData />
+          <ArticleCardWithData limit={limit} fakeLoading={fakeLoading} />
         </div>
       );
     },

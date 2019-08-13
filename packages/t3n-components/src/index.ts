@@ -20,3 +20,6 @@ export { ArticleCard } from './ArticleCard';
 export { Avatar } from './Avatar';
 export { Badge } from './Badge';
 export { LoadingIndicator } from './LoadingIndicator';
+export { AuthorCard } from './AuthorCard';
+export { HeroCard } from './HeroCard';
+export { NewsCard } from './NewsCard';

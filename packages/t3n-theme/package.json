@@ -1,15 +1,15 @@
 {
   "name": "@t3n/theme",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "author": "Philip Plagge <sayhi@itscursedphil.com>",
   "description": "",
   "main": "dist/bundle.js",
   "types": "src/index.d.ts",
-  "author": "",
-  "license": "ISC",
   "scripts": {
+    "clean": "rm -rf dist && rm -rf .awcache",
     "check-types": "tsc",
-    "start": "webpack --config ./configs/webpack.config.js --watch",
-    "build": "webpack --config ./configs/webpack.config.js",
+    "start": "webpack --watch",
+    "build": "NODE_ENV=production webpack",
     "test": "jest",
     "test-watch": "jest --watch"
   },
@@ -23,31 +23,10 @@
     "styled-system": "^5.0.21"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
-    "babel-jest": "^24.5.0",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-polished": "^1.1.0",
-    "babel-plugin-styled-components": "^1.10.0",
+    "@t3n/configs": "^0.1.0",
     "jest": "^24.5.0",
-    "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.1",
-    "typescript": "^3.5.3",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
-    "webpack-notifier": "^1.7.0"
-  },
-  "babel": {
-    "plugins": [
-      "polished",
-      "styled-components",
-      "@babel/plugin-transform-runtime"
-    ],
-    "presets": [
-      "@babel/preset-env"
-    ]
+    "typescript": "^3.5.3"
   },
   "jest": {
     "displayName": "theme",
@@ -65,6 +44,13 @@
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
     }
   }
 }

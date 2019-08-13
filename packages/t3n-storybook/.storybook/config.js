@@ -78,8 +78,10 @@ function loadStories() {
   require('../src/stories/components/content/articleCard.stories');
   require('../src/stories/components/content/loadingIndicator.stories');
 
+  // SSO
+  require('../src/stories/projects/sso/onboarding.stories');
+
   // t3nPro
-  require('../src/stories/projects/t3nPro/onboarding.stories');
   require('../src/stories/projects/t3nPro/landingpage.stories');
 }
 

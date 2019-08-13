@@ -1,20 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { Badge, Heading, Grid, GridItem } from '@t3n/components';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import BadgeReadme from '@t3n/components/src/Badge/Badge.md';
 
 import { ThemeConsumer } from 'styled-components';
 import { ThemeBackgroundColors } from '@t3n/theme/src/theme/colors/colors';
 import StoryContainer from '../../../components/StoryContainer';
 
 storiesOf('Components|Content/Badge', module)
-  .addParameters({
-    readme: {
-      sidebar: BadgeReadme
-    }
-  })
   .addDecorator(withKnobs)
   .add(
     'Badges',
@@ -29,7 +23,7 @@ storiesOf('Components|Content/Badge', module)
             const badgeText = text('Badge Text', 'Ratgeber');
 
             return (
-              <Fragment>
+              <>
                 <Heading as="h3">Kleine Badges</Heading>
                 <Grid wide>
                   {colors.map(c => (
@@ -73,7 +67,7 @@ storiesOf('Components|Content/Badge', module)
                     </GridItem>
                   ))}
                 </Grid>
-              </Fragment>
+              </>
             );
           }}
         </ThemeConsumer>

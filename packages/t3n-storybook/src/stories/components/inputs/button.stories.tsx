@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ButtonReadme from '@t3n/components/src/Button/BUTTON.md';
 import { Button, Grid, GridItem, Section } from '@t3n/components';
 import { ButtonColors, ButtonAsType } from '@t3n/components/src/Button/Button';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
@@ -13,11 +12,6 @@ const asType: ButtonAsType[] = ['div', 'span', 'a', 'button'];
 
 storiesOf('Components|Inputs/Button', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .addParameters({
-    readme: {
-      sidebar: ButtonReadme
-    }
-  })
   .addDecorator(withKnobs)
   .add(
     'Editor',
@@ -54,7 +48,7 @@ storiesOf('Components|Inputs/Button', module)
       <div>
         {colors.map(color => {
           return (
-            <Fragment>
+            <>
               <h3>Buttons in der Farbe {color}</h3>
               <Grid mb={4}>
                 <GridItem width="33">
@@ -102,7 +96,7 @@ storiesOf('Components|Inputs/Button', module)
                   </Button>
                 </GridItem>
               </Grid>
-            </Fragment>
+            </>
           );
         })}
       </div>

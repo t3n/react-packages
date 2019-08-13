@@ -14,14 +14,7 @@ import {
   CardHeader
 } from '@t3n/components';
 
-import Readme from './t3nPro_Onboarding.md';
-
 storiesOf('Projekte|t3nPro', module)
-  .addParameters({
-    readme: {
-      sidebar: Readme
-    }
-  })
   .addDecorator(withKnobs)
   .add('Landingpage', () => (
     <PageLayout showHeader>
