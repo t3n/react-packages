@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
-import { color, themeGet } from 'styled-system';
+import { color } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
 import { ThemeProps } from '../index';
 
 interface ButtonProps extends ThemeProps {

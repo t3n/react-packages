@@ -1,11 +1,13 @@
 import { ReactNode } from 'react';
 import { ThemeProps } from '@t3n/theme';
+export declare type ButtonColors = 'light' | 'dark';
+export declare type ButtonAsType = 'div' | 'span' | 'a' | 'button';
 export interface ButtonProps extends ThemeProps {
-    as?: 'div' | 'span' | 'a' | 'button';
+    as?: ButtonAsType;
     rounded?: boolean;
     icon?: ReactNode;
     secondary?: boolean;
-    color?: 'light' | 'dark';
+    color?: ButtonColors;
     inverse?: boolean;
     small?: boolean;
     wide?: boolean;

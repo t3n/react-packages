@@ -22,6 +22,7 @@ export declare const backgroundPrimary = "#fff";
 export declare const backgroundSecondary = "#f4f4f4";
 export declare const backgroundInverse = "#2a2a2a";
 export declare const backgroundHighlight = "#f9423a";
+export declare type ThemeBackgroundColors = 'primary' | 'secondary' | 'inverse' | 'highlight';
 export declare const backgroundColors: {
     primary: string;
     secondary: string;

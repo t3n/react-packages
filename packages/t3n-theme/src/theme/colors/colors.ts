@@ -30,6 +30,12 @@ export const backgroundSecondary = grey244;
 export const backgroundInverse = grey42;
 export const backgroundHighlight = red;
 
+export type ThemeBackgroundColors =
+  | 'primary'
+  | 'secondary'
+  | 'inverse'
+  | 'highlight';
+
 export const backgroundColors = {
   primary: backgroundPrimary,
   secondary: backgroundSecondary,
