@@ -1,8 +1,4 @@
 {
   "extends": "../../tsconfig",
-  "compilerOptions": {
-    "isolatedModules": false,
-    "declaration": true
-  },
   "include": ["src/**/*"]
 }

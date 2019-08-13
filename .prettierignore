@@ -2,3 +2,4 @@
 dist/
 build/
 storybook-static/
+__generated__

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Button, Grid, GridItem, Section } from '@t3n/components';
@@ -48,7 +48,7 @@ storiesOf('Components|Inputs/Button', module)
       <div>
         {colors.map(color => {
           return (
-            <Fragment>
+            <>
               <h3>Buttons in der Farbe {color}</h3>
               <Grid mb={4}>
                 <GridItem width="33">
@@ -96,7 +96,7 @@ storiesOf('Components|Inputs/Button', module)
                   </Button>
                 </GridItem>
               </Grid>
-            </Fragment>
+            </>
           );
         })}
       </div>
