@@ -6,8 +6,6 @@
   "dependencies": {
     "@t3n/theme": "^0.1.0",
     "clean-tag": "^3.1.1",
-    "install": "^0.13.0",
-    "npm": "^6.10.3",
     "polished": "^3.1.0",
     "styled-components": "^4.3.0",
     "styled-system": "^5.0.21"
@@ -36,7 +34,7 @@
     "jsdom-global": "^3.0.2",
     "react": "^16.9.0",
     "react-test-renderer": "^16.9.0",
-    "react-testing-library": "^6.0.3",
+    "react-testing-library": "^8.0.1",
     "ts-jest": "^24.0.1",
     "typescript": "^3.5.3"
   },
