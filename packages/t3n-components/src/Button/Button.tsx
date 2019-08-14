@@ -16,6 +16,7 @@ export interface ButtonProps extends ThemeProps {
   secondary?: boolean;
   color?: ButtonColors;
   inverse?: boolean;
+  disabled?: boolean;
   small?: boolean;
   wide?: boolean;
   children?: ReactNode;
@@ -34,7 +35,8 @@ const width = ({ wide }: ButtonProps) => `
   width: ${wide ? '100%' : 'auto'};
 `;
 
-const Button = styled.a.attrs(() => ({
+const Button = styled.a.attrs(({ as, disabled }: ButtonProps) => ({
+  disabled: as === 'button' ? disabled : null,
   role: 'button'
 }))<ButtonProps>`
   display: inline-flex;

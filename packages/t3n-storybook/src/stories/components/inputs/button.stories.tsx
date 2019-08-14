@@ -10,7 +10,7 @@ import StoryContainer from '../../../components/StoryContainer';
 const colors: ButtonColors[] = ['light', 'dark'];
 const asType: ButtonAsType[] = ['div', 'span', 'a', 'button'];
 
-storiesOf('Components|Inputs/Button', module)
+storiesOf('Components|Inputs/Buttons', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .addDecorator(withKnobs)
   .add(

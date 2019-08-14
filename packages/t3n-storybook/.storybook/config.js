@@ -68,7 +68,9 @@ function loadStories() {
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories');
   require('../src/stories/components/inputs/input.stories');
-  require('../src/stories/components/inputs/inputGroup.stories');
+
+  // Form
+  require('../src/stories/components/form/form.stories');
 
   // Components - Content
   require('../src/stories/components/content/badge.stories');
