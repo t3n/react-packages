@@ -23,7 +23,9 @@
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.16",
     "@types/styled-system": "^5.0.1",
+    "@types/yup": "^0.26.22",
     "apollo-boost": "^0.4.4",
+    "formik": "^2.0.1-rc.12",
     "graphql": "^14.4.2",
     "polished": "^3.1.0",
     "react": "^16.9.0",
@@ -33,7 +35,8 @@
     "storybook-addon-jsx": "^7.1.2",
     "storybook-readme": "^5.0.3",
     "styled-components": "^4.3.0",
-    "styled-system": "^5.0.21"
+    "styled-system": "^5.0.21",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "clean": "rm -rf storybook-static && rm -rf .awcache",

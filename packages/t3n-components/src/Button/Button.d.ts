@@ -9,11 +9,10 @@ export interface ButtonProps extends ThemeProps {
     secondary?: boolean;
     color?: ButtonColors;
     inverse?: boolean;
+    disabled?: boolean;
     small?: boolean;
     wide?: boolean;
     children?: ReactNode;
 }
-declare const Button: import("styled-components").StyledComponent<"a", any, {
-    role: "button";
-} & ButtonProps, "role">;
+declare const Button: import("styled-components").StyledComponent<"a", any, ButtonProps, never>;
 export default Button;
