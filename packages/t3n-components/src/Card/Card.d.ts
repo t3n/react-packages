@@ -16,5 +16,5 @@ interface CardProps extends ThemeProps {
 declare const Card: import("styled-components").StyledComponent<"div", any, {
     href: string | false | undefined;
     as: string;
-} & CardProps, "as" | "href">;
+} & CardProps, "href" | "as">;
 export default Card;

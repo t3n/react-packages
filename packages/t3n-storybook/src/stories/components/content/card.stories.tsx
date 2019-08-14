@@ -10,7 +10,8 @@ import {
   Text,
   Grid,
   GridItem,
-  Logo
+  Logo,
+  H3
 } from '@t3n/components';
 
 import StoryContainer from '../../../components/StoryContainer';
@@ -120,6 +121,36 @@ storiesOf('Components|Content/Card', module)
             ['children', 'is']
           )}
         />
+        <Heading as="h2" mt={0}>
+          {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
+        </Heading>
+        <Text my={0}>
+          {text('Paragraph', copyText, KNOBS_CATEGORY_CONTENT)}
+        </Text>
+      </Card>
+    ),
+    {
+      options: {
+        showPanel: true
+      }
+    }
+  )
+  // Big Story
+  .add(
+    'Big with Header-Content',
+    () => (
+      <Card big>
+        <CardHeader
+          {...headerKnobs(
+            {
+              ratio: 16 / 9
+            },
+            KNOBS_CATEGORY_HEADER,
+            ['children', 'is']
+          )}
+        >
+          <H3>Content</H3>
+        </CardHeader>
         <Heading as="h2" mt={0}>
           {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
         </Heading>

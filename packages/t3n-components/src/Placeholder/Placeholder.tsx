@@ -23,13 +23,11 @@ const backgroundAnimation = ({ theme }: ThemeProps) => keyframes`
   }
 `;
 
-const LoadingIndicator = styled.div<
-  SpaceProps | LayoutProps | BorderRadiusProps
->`
+const Placeholder = styled.div<SpaceProps | LayoutProps | BorderRadiusProps>`
   animation: ${backgroundAnimation} 2s linear infinite;
   ${layout};
   ${space};
   ${borderRadius}
 `;
 
-export default LoadingIndicator;
+export default Placeholder;

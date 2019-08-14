@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { Content, LoadingIndicator } from '@t3n/components';
+import { Content, Placeholder } from '@t3n/components';
 import StoryContainer from '../../../components/StoryContainer';
 
 storiesOf('Components|Content/Loading Indicator', module)
@@ -13,5 +13,5 @@ storiesOf('Components|Content/Loading Indicator', module)
     </StoryContainer>
   ))
   .add('Default', () => {
-    return <LoadingIndicator height="2rem" p={2} />;
+    return <Placeholder height="2rem" p={2} />;
   });

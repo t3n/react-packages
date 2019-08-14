@@ -59,28 +59,29 @@ function loadStories() {
   require('../src/stories/designSystem/colors/colors.stories');
   require('../src/stories/designSystem/space/space.stories');
 
-  // Components - Layout
-  require('../src/stories/components/typography/fonts/fonts.stories');
+  // Components - Typography
   require('../src/stories/components/typography/heading/heading.stories');
   require('../src/stories/components/typography/text/text.stories');
+  require('../src/stories/components/typography/punchline/punchline.stories');
 
-  require('../src/stories/components/layout/section.stories');
-  require('../src/stories/components/layout/grid.stories');
+  // Components - Layout
   require('../src/stories/components/layout/content.stories');
-  require('../src/stories/components/layout/pageHeader.stories');
+  require('../src/stories/components/layout/center.stories');
+  require('../src/stories/components/layout/grid.stories');
   require('../src/stories/components/layout/page.stories');
+  require('../src/stories/components/layout/pageHeader.stories');
+  require('../src/stories/components/layout/ratio.stories');
+  require('../src/stories/components/layout/section.stories');
 
   // Components - Content
   require('../src/stories/components/content/authorArticleCard.stories');
   require('../src/stories/components/content/avatar.stories');
   require('../src/stories/components/content/badge.stories');
-
   require('../src/stories/components/content/card.stories');
   require('../src/stories/components/content/heroArticleCard.stories');
-  require('../src/stories/components/content/newsCard.stories');
-
   require('../src/stories/components/content/image.stories');
-  require('../src/stories/components/content/loadingIndicator.stories');
+  require('../src/stories/components/content/newsCard.stories');
+  require('../src/stories/components/content/placeholder.stories');
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories');

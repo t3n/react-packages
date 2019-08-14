@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../Card';
-import { LoadingIndicator } from '../LoadingIndicator';
+import { Placeholder } from '../Placeholder';
 import { CardHeader } from '../CardHeader';
 import { HeroCard } from '../HeroCard';
 import { AuthorCard } from '../AuthorCard';
@@ -27,21 +27,21 @@ interface NewsCardProps {
 const LoadingHeroCard = () => (
   <Card>
     <CardHeader>
-      <LoadingIndicator />
+      <Placeholder />
     </CardHeader>
-    <LoadingIndicator height="1.5rem" mb={3} />
-    <LoadingIndicator height="1.5rem" width="75%" />
+    <Placeholder height="1.5rem" mb={3} />
+    <Placeholder height="1.5rem" width="75%" />
   </Card>
 );
 
 const LoadingAuthorCard = () => (
   <Card>
     <div>
-      <LoadingIndicator height="1rem" width="30%" />
+      <Placeholder height="1rem" width="30%" />
     </div>
-    <LoadingIndicator height="1.5rem" mt={1} mb={1} />
-    <LoadingIndicator height="1.5rem" mt={1} mb={7} width="75%" />
-    <LoadingIndicator height="1.5rem" width="30%" />
+    <Placeholder height="1.5rem" mt={1} mb={1} />
+    <Placeholder height="1.5rem" mt={1} mb={7} width="75%" />
+    <Placeholder height="1.5rem" width="30%" />
   </Card>
 );
 

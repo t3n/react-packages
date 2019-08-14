@@ -1,14 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { doc } from 'storybook-readme';
-
+import { Text } from '@t3n/components';
 import StoryContainer from '../../../../components/StoryContainer';
 
-import fonts from './fonts.md';
-
-storiesOf('Components|Typografie', module)
+storiesOf('Components|Typografie/Punchline', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Fonts', doc(fonts), {
+  .add('Default', () => <Text>todo</Text>, {
     options: {
       showPanel: false
     }
