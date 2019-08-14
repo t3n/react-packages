@@ -31,7 +31,7 @@ module.exports = ({ config }) => {
   };
 
   config.resolve.extensions.push('.ts', '.tsx');
-  config.plugins.push(new WebpackNotifierPlugin({ title: 't3n-storybook' }));
+  config.plugins.push(new WebpackNotifierPlugin({ title: '@t3n/storybook' }));
 
   return config;
 };

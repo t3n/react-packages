@@ -36,26 +36,26 @@
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
     "test:components": "lerna run test --scope @t3n/components --stream",
-    "lint:components": "eslint './packages/t3n-components/src/**'",
+    "lint:components": "eslint './packages/components/src/**'",
     "start:theme": "lerna run start --scope @t3n/theme --stream",
     "build:theme": "lerna run build --scope @t3n/theme --stream",
     "test:theme": "lerna run test --scope @t3n/theme --stream",
-    "lint:theme": "eslint './packages/t3n-theme/src/**'",
+    "lint:theme": "eslint './packages/theme/src/**'",
     "start:storybook": "lerna run start --scope @t3n/storybook --stream",
     "build:storybook": "lerna run build --scope @t3n/storybook --stream",
     "serve:storybook": "lerna run serve --scope @t3n/storybook --stream",
     "test:storybook": "lerna run test --scope @t3n/storybook --stream",
-    "lint:storybook": "eslint './packages/t3n-storybook/src/**'",
+    "lint:storybook": "eslint './packages/storybook/src/**'",
     "prettier:format": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
     "prettier:check": "prettier --check 'packages/**/*.{ts,tsx,js,jsx}'",
-    "upgrade-interactive": "npm-check --update && npm-check --update packages/t3n-components && npm-check --update packages/t3n-theme && npm-check --update packages/t3n-storybook && npm-check --update packages/t3n-configs",
+    "upgrade-interactive": "npm-check --update && npm-check --update packages/components && npm-check --update packages/theme && npm-check --update packages/storybook && npm-check --update packages/configs",
     "codegen:watch": "npx apollo client:codegen --target=typescript --watch",
     "codegen:build": "npx apollo client:codegen --target=typescript"
   },
   "jest": {
     "projects": [
-      "<rootDir>/packages/t3n-theme/package.json",
-      "<rootDir>/packages/t3n-components/package.json"
+      "<rootDir>/packages/theme/package.json",
+      "<rootDir>/packages/components/package.json"
     ]
   },
   "dependencies": {}

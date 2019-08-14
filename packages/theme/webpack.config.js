@@ -2,7 +2,7 @@
 const configure = require('@t3n/configs/webpack');
 
 module.exports = {
-  ...configure({ title: 't3n-theme', dirname: __dirname }),
+  ...configure({ title: '@t3n/theme', dirname: __dirname }),
   externals: {
     react: {
       root: 'React',
