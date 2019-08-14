@@ -3,7 +3,7 @@ import { ThemeConsumer } from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import Breakpoint from '../../../components/Breakpoint';
 
-storiesOf('Layout|Breakpoints', module).add(
+storiesOf('Design System|Breakpoints', module).add(
   'Alle Breakpoints',
   () => (
     <ThemeConsumer>

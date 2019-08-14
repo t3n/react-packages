@@ -52,7 +52,7 @@ const ColorCard = ({ name, value, rgb }: ColorCardProps) => (
   </Card>
 );
 
-storiesOf('Visual Identity|Colors', module)
+storiesOf('Design System|Colors', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(intro), {
     options: {

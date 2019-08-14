@@ -1,4 +1,5 @@
-import { AlignItemsProps } from 'styled-system';
+import { text } from '@storybook/addon-knobs';
+import { AlignItemsProps, space, typography } from 'styled-system';
 import React, { Fragment } from 'react';
 import { addDecorator, configure, addParameters } from '@storybook/react';
 import { addReadme } from 'storybook-readme';
@@ -46,26 +47,40 @@ function loadStories() {
   require('../src/stories/storybook/storybook.stories');
   // Brand
   require('../src/stories/brand/brand.stories');
+  require('../src/stories/brand/logo/logo.stories');
+  require('../src/stories/brand/typography/introduction/introduction.stories');
+  require('../src/stories/brand/typography/fonts/fonts.stories');
+  require('../src/stories/brand/typography/heading/heading.stories');
+  require('../src/stories/brand/typography/text/text.stories');
+  require('../src/stories/brand/icons/icons.stories');
 
-  // VisualIdentity
-  require('../src/stories/visualIdentity/logo/logo.stories');
-  require('../src/stories/visualIdentity/colors/colors.stories');
-  require('../src/stories/visualIdentity/typography/introduction/introduction.stories');
-  require('../src/stories/visualIdentity/typography/fonts/fonts.stories');
-  require('../src/stories/visualIdentity/typography/heading/heading.stories');
-  require('../src/stories/visualIdentity/typography/text/text.stories');
-  require('../src/stories/visualIdentity/icons/icons.stories');
-
-  // Layout
-  require('../src/stories/layout/breakpoints/breakpoints.stories');
+  // Design-System
+  require('../src/stories/designSystem/breakpoints/breakpoints.stories');
+  require('../src/stories/designSystem/colors/colors.stories');
+  require('../src/stories/designSystem/space/space.stories');
 
   // Components - Layout
-  require('../src/stories/components/layout/page.stories');
-  require('../src/stories/components/layout/content.stories');
-  require('../src/stories/components/layout/grid.stories');
+  require('../src/stories/components/typography/fonts/fonts.stories');
+  require('../src/stories/components/typography/heading/heading.stories');
+  require('../src/stories/components/typography/text/text.stories');
+
   require('../src/stories/components/layout/section.stories');
-  require('../src/stories/components/layout/avatar.stories');
-  require('../src/stories/components/layout/image.stories');
+  require('../src/stories/components/layout/grid.stories');
+  require('../src/stories/components/layout/content.stories');
+  require('../src/stories/components/layout/pageHeader.stories');
+  require('../src/stories/components/layout/page.stories');
+
+  // Components - Content
+  require('../src/stories/components/content/authorArticleCard.stories');
+  require('../src/stories/components/content/avatar.stories');
+  require('../src/stories/components/content/badge.stories');
+
+  require('../src/stories/components/content/card.stories');
+  require('../src/stories/components/content/heroArticleCard.stories');
+  require('../src/stories/components/content/newsCard.stories');
+
+  require('../src/stories/components/content/image.stories');
+  require('../src/stories/components/content/loadingIndicator.stories');
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories');
@@ -73,12 +88,6 @@ function loadStories() {
 
   // Form
   require('../src/stories/components/form/form.stories');
-
-  // Components - Content
-  require('../src/stories/components/content/badge.stories');
-  require('../src/stories/components/content/card.stories');
-  require('../src/stories/components/content/articleCard.stories');
-  require('../src/stories/components/content/loadingIndicator.stories');
 
   // SSO
   require('../src/stories/projects/sso/onboarding.stories');

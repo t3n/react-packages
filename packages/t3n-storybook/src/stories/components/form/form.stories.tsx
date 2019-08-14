@@ -70,7 +70,7 @@ storiesOf('Components|Form/Formulare', module)
             }: FormikProps<RegisterValues>) => {
               return (
                 <Card splitted>
-                  <CardSplitContent bgColor="secondary">
+                  <CardSplitContent variant="secondary">
                     <>
                       <Heading styleAs="h4">Beispiel-Formular</Heading>
                       <Text>

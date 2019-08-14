@@ -9,6 +9,8 @@ declare module '*.md' {
   export default content;
 }
 
+declare module 'react-imgix';
+
 declare module '*.svg' {
   import React = require('react');
   export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;

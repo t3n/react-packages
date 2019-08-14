@@ -40,7 +40,7 @@
   },
   "scripts": {
     "clean": "rm -rf storybook-static && rm -rf .awcache",
-    "start": "start-storybook -p 9009 -s public --debug-webpack",
+    "start": "start-storybook -p 9009 -s public --quiet",
     "build": "build-storybook -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

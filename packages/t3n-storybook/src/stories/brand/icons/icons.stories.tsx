@@ -7,7 +7,7 @@ import StoryContainer from '../../../components/StoryContainer';
 import icons from './icons.md';
 import library from './library.md';
 
-storiesOf('Visual Identity|Iconografie', module)
+storiesOf('Brand|Iconografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(icons), {
     options: {

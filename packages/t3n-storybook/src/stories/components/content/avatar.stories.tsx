@@ -23,7 +23,7 @@ storiesOf('Components|Content/Avatar', module)
             'Image URL',
             'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
           )}
-          label={text('Label', 'Test')}
+          label={text('Label', '')}
           textColor={select('Textfarbe', options, 'black')}
         />
       </div>
@@ -33,4 +33,17 @@ storiesOf('Components|Content/Avatar', module)
         showPanel: true
       }
     }
-  );
+  )
+  .add('Mit Text', () => (
+    <div>
+      <Avatar
+        size={text('Größe', '40')}
+        src={text(
+          'Image URL',
+          'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
+        )}
+        label={text('Label', 'John Doe')}
+        textColor={select('Textfarbe', options, 'black')}
+      />
+    </div>
+  ));

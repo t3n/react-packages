@@ -34,7 +34,7 @@ storiesOf('Projekte|SSO', module)
         <Grid noGap alignItems="center" height="100vh" justifyContent="center">
           <GridItem width={[4 / 5, 4 / 5, 2 / 3]}>
             <Card elevate splitted>
-              <CardSplitContent bgColor="secondary">
+              <CardSplitContent variant="secondary">
                 <img width="100%" src={products} alt="t3n Pro" />
                 <Text bold>Jetzt gratis lesen</Text>
                 <Heading as="h4" mt={0}>

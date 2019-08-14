@@ -8,7 +8,7 @@ import logo from './logo.md';
 import farben from './farben.md';
 import kooperationen from './kooperationen.md';
 
-storiesOf('Visual Identity|Logo', module)
+storiesOf('Brand|Logo', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Einleitung', doc(logo), {
     options: {

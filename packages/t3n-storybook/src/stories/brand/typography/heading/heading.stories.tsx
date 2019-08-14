@@ -6,7 +6,7 @@ import StoryContainer from '../../../../components/StoryContainer';
 
 const headings: HeadingElements[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-storiesOf('Visual Identity|Typografie', module)
+storiesOf('Brand|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add(
     'Headlines',

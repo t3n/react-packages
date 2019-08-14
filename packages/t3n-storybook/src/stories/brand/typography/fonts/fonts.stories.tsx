@@ -6,7 +6,7 @@ import StoryContainer from '../../../../components/StoryContainer';
 
 import fonts from './fonts.md';
 
-storiesOf('Visual Identity|Typografie', module)
+storiesOf('Brand|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
   .add('Fonts', doc(fonts), {
     options: {

@@ -38,7 +38,7 @@ storiesOf('Components|Content/Card', module)
   ))
   // Basic Story
   .add(
-    'Basic',
+    'Default',
     () => (
       <Card {...cardKnobs({}, KNOBS_CATEGORY_CARD)}>
         <Heading as="h2" mt={0}>
@@ -138,7 +138,7 @@ storiesOf('Components|Content/Card', module)
     'Split',
     () => (
       <Card splitted>
-        <CardSplitContent bgColor="highlight">
+        <CardSplitContent variant="secondary">
           <Logo height="40" />
         </CardSplitContent>
         <CardSplitContent>

@@ -1,14 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Imgix from 'react-imgix';
-import {
-  space,
-  color as styledColor,
-  TextColorProps,
-  color
-} from 'styled-system';
+import { space, color as styledColor, TextColorProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
-import Image from '../Image/Image';
 
 interface AvatarImageProps {
   src: string;

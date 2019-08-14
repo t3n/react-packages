@@ -5,13 +5,13 @@ import { getColorForBackground } from '@t3n/theme/src/utils/color';
 import { space, typography } from 'styled-system';
 
 interface BadgeProps extends ThemeProps {
-  bgColor: ThemeBackgroundColors;
+  variant?: ThemeBackgroundColors;
   small?: boolean;
   rounded?: boolean;
 }
 
-const background = ({ bgColor, theme }: BadgeProps) => `
-  background-color:  ${theme.colors.background[bgColor]};
+const background = ({ variant = 'highlight', theme }: BadgeProps) => `
+  background-color:  ${theme.colors.background[variant]};
 `;
 
 const padding = ({ theme, small }: BadgeProps) =>
@@ -25,16 +25,11 @@ const borderRadius = ({ rounded, theme }: BadgeProps) =>
 
 const Badge = styled.span<BadgeProps>`
   font-weight: bold;
-  color: ${props => getColorForBackground(props.bgColor)};
+  color: ${props => getColorForBackground(props.variant || 'highlight')};
   ${background};
   ${padding};
   ${fontSize};
   ${borderRadius};
 `;
-
-Badge.defaultProps = {
-  small: false,
-  rounded: false
-};
 
 export default Badge;

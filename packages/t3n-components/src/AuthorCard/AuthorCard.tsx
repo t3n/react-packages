@@ -22,7 +22,7 @@ const Author = styled.div`
 const AuthorCard = ({ title, articleType, author, url }: AuthorCardProps) => (
   <Card href={url} stretch>
     <div>
-      <Badge bgColor="highlight" small>
+      <Badge variant="highlight" small>
         {articleType}
       </Badge>
     </div>

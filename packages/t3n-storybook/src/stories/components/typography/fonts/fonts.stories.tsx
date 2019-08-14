@@ -4,11 +4,11 @@ import { doc } from 'storybook-readme';
 
 import StoryContainer from '../../../../components/StoryContainer';
 
-import typography from './typography.md';
+import fonts from './fonts.md';
 
-storiesOf('Visual Identity|Typografie', module)
+storiesOf('Components|Typografie', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Einleitung', doc(typography), {
+  .add('Fonts', doc(fonts), {
     options: {
       showPanel: false
     }

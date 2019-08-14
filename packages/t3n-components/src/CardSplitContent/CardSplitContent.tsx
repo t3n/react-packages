@@ -20,15 +20,15 @@ const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
 `;
 
 interface CardSplitContentProps {
-  bgColor?: ThemeBackgroundColors;
+  variant?: ThemeBackgroundColors;
 }
 
 const CardSplitContent: React.FC<CardSplitContentProps> = ({
   children,
-  bgColor
+  variant
 }) => {
-  const backgroundColor = bgColor
-    ? `background.${bgColor}`
+  const backgroundColor = variant
+    ? `background.${variant}`
     : 'background.primary';
 
   return (
