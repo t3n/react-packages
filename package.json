@@ -57,5 +57,6 @@
       "<rootDir>/packages/t3n-theme/package.json",
       "<rootDir>/packages/t3n-components/package.json"
     ]
-  }
+  },
+  "dependencies": {}
 }
