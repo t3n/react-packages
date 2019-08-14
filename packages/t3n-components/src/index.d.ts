@@ -10,7 +10,7 @@ export { Card } from './Card';
 export { CardHeader } from './CardHeader';
 export { CardSplitContent } from './CardSplitContent';
 export { Ratio } from './Ratio';
-export { Image } from './Image/_index';
+export { Image } from './Image/index';
 export { Input } from './Input';
 export { InputGroup } from './InputGroup';
 export { PageHeader } from './PageHeader';
