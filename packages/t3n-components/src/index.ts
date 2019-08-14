@@ -16,7 +16,6 @@ export { InputGroup } from './InputGroup';
 export { PageHeader } from './PageHeader';
 export { PageLayout } from './PageLayout';
 export { Logo } from './Logo';
-export { ArticleCard } from './ArticleCard';
 export { Avatar } from './Avatar';
 export { Badge } from './Badge';
 export { LoadingIndicator } from './LoadingIndicator';

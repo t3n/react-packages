@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, number } from '@storybook/addon-knobs';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
 
 import { Image } from '@t3n/components';
 import StoryContainer from '../../../components/StoryContainer';
