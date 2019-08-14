@@ -17,7 +17,7 @@ build:
   <<: *sharedBeforeScript
   script:
     - npm install --unsafe-perm
-    - ls -lha packages/t3n-storybook/
+    - ls -lha packages/storybook/
     - docker build --pull -t $CONTAINER_RELEASE_IMAGE .
 
 layers:

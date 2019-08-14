@@ -22,6 +22,6 @@ The monorepo is structured into 3 packages:
 
 First, install all dependencies by running `npm install`.
 
-Before starting development the first time, you need to run `npm run build` from the main package. This will run the build script of each package in the correct order, as **t3n-storybook** depends on **t3n-components**, which itself depends on **t3n-theme**.
+Before starting development the first time, you need to run `npm run build` from the main package. This will run the build script of each package in the correct order, as **@t3n/storybook** depends on **@t3n/components**, which itself depends on **@t3n/theme**.
 
 After, you can run `npm run start` to start storybook and watch file changes in all packages.

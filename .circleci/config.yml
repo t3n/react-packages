@@ -12,13 +12,13 @@ aliases:
       - .
 
   - &save_js_packages
-    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-theme/package-lock.json" }}
+    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/configs/package-lock.json" }}-{{ checksum "/root/project/app/packages/components/package-lock.json" }}-{{ checksum "/root/project/app/packages/storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/theme/package-lock.json" }}
     paths:
       - /root/.npm
 
   - &restore_js_packages
     keys:
-      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-components/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/t3n-theme/package-lock.json" }}
+      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/configs/package-lock.json" }}-{{ checksum "/root/project/app/packages/components/package-lock.json" }}-{{ checksum "/root/project/app/packages/storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/theme/package-lock.json" }}
       - js-packages-v1-{{ .Branch }}-
       - js-packages-v1-
 
