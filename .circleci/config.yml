@@ -87,10 +87,10 @@ workflows:
             - checkout_and_build
       - lint:
           requires:
-            - prettier
+            - checkout_and_build
       - test:
           requires:
-            - lint
+            - checkout_and_build
       - docker_build_and_push:
           filters:
             branches:
@@ -98,6 +98,8 @@ workflows:
                 - master
           context: google
           requires:
+            - prettier
+            - lint
             - test
       - kubr/deploy:
           deployment: Live

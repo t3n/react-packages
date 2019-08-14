@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { Badge, Heading, Grid, GridItem } from '@t3n/components';
@@ -23,7 +23,7 @@ storiesOf('Components|Content/Badge', module)
             const badgeText = text('Badge Text', 'Ratgeber');
 
             return (
-              <Fragment>
+              <>
                 <Heading as="h3">Kleine Badges</Heading>
                 <Grid wide>
                   {colors.map(c => (
@@ -67,7 +67,7 @@ storiesOf('Components|Content/Badge', module)
                     </GridItem>
                   ))}
                 </Grid>
-              </Fragment>
+              </>
             );
           }}
         </ThemeConsumer>

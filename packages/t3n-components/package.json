@@ -1,70 +1,46 @@
 {
   "name": "@t3n/components",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "author": "Philip Plagge <sayhi@itscursedphil.com>",
   "private": true,
   "dependencies": {
-    "@t3n/theme": "^1.0.0",
+    "@t3n/theme": "^0.1.0",
     "clean-tag": "^3.1.1",
-    "install": "^0.13.0",
-    "npm": "^6.10.3",
     "polished": "^3.1.0",
-    "prop-types": "^15.7.2",
     "styled-components": "^4.3.0",
     "styled-system": "^5.0.21"
   },
   "main": "dist/bundle.js",
   "types": "src/index.d.ts",
   "scripts": {
+    "clean": "rm -rf dist && rm -rf .awcache",
     "check-types": "tsc",
-    "start": "webpack --config ./configs/webpack.config.js --watch",
-    "build": "webpack --config ./configs/webpack.config.js",
+    "start": "webpack --watch",
+    "build": "NODE_ENV=production webpack",
     "test": "jest",
     "test-watch": "jest --watch"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
+    "@t3n/configs": "^0.1.0",
+    "@testing-library/react": "^9.1.1",
     "@types/jest": "^24.0.17",
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.4",
     "@types/styled-components": "^4.1.16",
     "@types/styled-system": "^5.0.1",
     "babel-jest": "^24.5.0",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-polished": "^1.1.0",
-    "babel-plugin-styled-components": "^1.10.0",
-    "eslint-loader": "^2.1.2",
     "jest": "^24.5.0",
     "jest-dom": "^4.0.0",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
     "react": "^16.9.0",
     "react-test-renderer": "^16.9.0",
-    "react-testing-library": "^6.0.3",
-    "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.1",
-    "typescript": "^3.5.3",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
-    "webpack-notifier": "^1.7.0"
+    "typescript": "^3.5.3"
   },
   "peerDependencies": {
     "react": ">=16.8",
     "styled-components": ">=4"
-  },
-  "babel": {
-    "plugins": [
-      "polished",
-      "styled-components",
-      "@babel/plugin-transform-runtime"
-    ],
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
   },
   "jest": {
     "displayName": "components",
@@ -85,6 +61,13 @@
     },
     "setupFiles": [
       "<rootDir>/setupFile.js"
-    ]
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    }
   }
 }
