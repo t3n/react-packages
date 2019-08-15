@@ -8,19 +8,30 @@ import {
   Heading,
   Grid,
   GridItem,
-  Button
+  Button,
+  H5
 } from '@t3n/components';
 import { Formik, FormikProps, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import StoryContainer from '../../../components/StoryContainer';
+import styled from 'styled-components';
+import { ThemeProps } from '@t3n/theme';
+import { space, color } from 'styled-system';
 import { FormInput } from '../../../components/FormField';
+import StoryContainer from '../../../components/StoryContainer';
 
 interface RegisterValues {
   email: string;
   firstName: string;
   lastName: string;
   password: string;
+  passwordComfirm: string;
 }
+
+const DebugValues = styled.pre<ThemeProps>`
+  overflow: hidden;
+  ${space({ p: 2 })};
+  ${color({ bg: '#e8e8e8' })}
+`;
 
 storiesOf('Components|Form/Formulare', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
@@ -30,20 +41,32 @@ storiesOf('Components|Form/Formulare', module)
       { setSubmitting }: FormikHelpers<RegisterValues>
     ) => {
       setTimeout(() => {
-        console.log('sad');
         // eslint-disable-next-line no-alert
         alert(
           `Registrierungs-Formular wurde abgeschickt mit den folgenden Werten:
               ${JSON.stringify(values, null, 2)}`
         );
         setSubmitting(false);
-      }, 500);
+      }, 300);
     };
 
     const registerFormValidation = Yup.object().shape({
       email: Yup.string()
-        .email()
-        .required('Bitte geben eine E-Mail-Adresse an')
+        .email('Bitte gib eine gültige E-Mail-Adresse an')
+        .required('Bitte geben eine E-Mail-Adresse an'),
+      lastName: Yup.string()
+        .required()
+        .min(3, 'Bitte gib mindestens drei Zeichen ein'),
+      firstName: Yup.string()
+        .required('Bitte gib einen Vornamen ein')
+        .min(3, 'Bitte gib mindestens drei Zeichen ein'),
+      password: Yup.string()
+        .required()
+        .min(8, 'Dein Passwort muss mindestens acht Zeichen lang sein'),
+      passwordComfirm: Yup.string().oneOf(
+        [Yup.ref('password')],
+        'Die Passwörter stimmen nicht überein'
+      )
     });
 
     return (
@@ -54,7 +77,8 @@ storiesOf('Components|Form/Formulare', module)
               email: '',
               lastName: '',
               firstName: '',
-              password: ''
+              password: '',
+              passwordComfirm: ''
             }}
             validationSchema={registerFormValidation}
             isInitialValid={false}
@@ -79,12 +103,19 @@ storiesOf('Components|Form/Formulare', module)
                         benötigt werden könnten
                       </Text>
 
-                      <Heading as="h5">Formular-Daten</Heading>
-                      <pre>{JSON.stringify(values, null, 2)}</pre>
-                      <Heading as="h5">Formular-Error</Heading>
-                      <pre>{JSON.stringify(errors, null, 2)}</pre>
-                      <Heading as="h5">Touched</Heading>
-                      <pre>{JSON.stringify(touched, null, 2)}</pre>
+                      <H5>Debug-Daten</H5>
+                      <p>Values:</p>
+                      <DebugValues>
+                        {JSON.stringify(values, null, 2)}
+                      </DebugValues>
+                      <p>Errors:</p>
+                      <DebugValues>
+                        {JSON.stringify(errors, null, 2)}
+                      </DebugValues>
+                      <p>Touched:</p>
+                      <DebugValues>
+                        {JSON.stringify(touched, null, 2)}
+                      </DebugValues>
                       <Button secondary onClick={handleReset}>
                         Formular zurücksetzen
                       </Button>
@@ -100,7 +131,7 @@ storiesOf('Components|Form/Formulare', module)
                         <FormInput name="email" label="E-Mail" />
                         <FormInput name="password" label="Passwort" />
                         <FormInput
-                          name="repeatPassword"
+                          name="passwordComfirm"
                           label="Passwort wiederholen"
                         />
                         <Button
