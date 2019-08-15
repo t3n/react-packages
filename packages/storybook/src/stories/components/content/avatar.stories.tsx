@@ -32,7 +32,9 @@ const UserAvatar = () => {
   }
 
   const {
-    viewer: { firstName, lastName, avatarUrl }
+    viewer: {
+      me: { firstName, lastName, avatarUrl }
+    }
   } = data;
 
   return (
