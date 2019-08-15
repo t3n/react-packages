@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Imgix from 'react-imgix';
 import { space, color as styledColor, TextColorProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
 
 interface AvatarImageProps {
   src: string;
@@ -33,17 +32,35 @@ const StyledAvatarImage = styled(AvatarImage)<{ src: string }>`
   box-sizing: border-box;
 `;
 
-interface AvatarProps extends AvatarImageProps {
+interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
   label?: string;
   textColor?: TextColorProps['color'];
 }
 
-const Avatar = ({ label, className, ...rest }: AvatarProps) => {
+const StyledAvatar = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
+  ${({ theme }) => space({ pl: 1, theme })}
+  ${({ textColor, theme }) => styledColor({ color: textColor, theme })}
+`;
+
+const Avatar: React.FC<AvatarProps> = ({
+  label,
+  textColor,
+  children,
+  ...rest
+}) => {
   return (
-    <div className={className}>
+    <StyledAvatar>
       <StyledAvatarImage {...rest} />
-      <span>{label}</span>
-    </div>
+      {label && label.length > 0 && (
+        <AvatarLabel textColor={textColor}>{label}</AvatarLabel>
+      )}
+      {children}
+    </StyledAvatar>
   );
 };
 
@@ -51,17 +68,4 @@ Avatar.defaultProps = {
   label: ''
 };
 
-const paddingLeft = ({ theme }: ThemeProps) => space({ pl: 1, theme });
-
-const StyledAvatar = styled(Avatar)<AvatarProps>`
-  display: flex;
-  align-items: center;
-
-  span {
-    ${paddingLeft};
-    ${({ textColor, theme }: AvatarProps & ThemeProps) =>
-      styledColor({ color: textColor, theme })}
-  }
-`;
-
-export default StyledAvatar;
+export default Avatar;
