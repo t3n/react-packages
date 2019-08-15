@@ -27,7 +27,10 @@ const composeButtonStyle = ({
     : theme.buttonStyles.primary[colorProp];
 
   const buttonStyles = base[inverse ? 'inverse' : 'regular'];
-  const borderColor = themeGet(`colors.${buttonStyles.default.borderColor}`)({
+  const borderColor = themeGet(
+    `colors.${buttonStyles.default.borderColor}`,
+    'rgba(0,0,0,0)'
+  )({
     theme
   });
 
