@@ -6,8 +6,12 @@ import { addReadme } from 'storybook-readme';
 import { ThemeProvider } from 'styled-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import ApolloClient from 'apollo-boost';
+
 import { ApolloProvider } from '@apollo/react-hooks';
+
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
 
 import { theme } from '@t3n/theme';
 import viewports from './viewports';
@@ -15,7 +19,13 @@ import GlobalStyle from './GlobalStyle';
 
 import storyBookTheme from './theme';
 
-const client = new ApolloClient({ uri: 'https://api.t3n.de' });
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: 'https://api.t3n.de',
+    credentials: 'same-origin'
+  })
+});
 
 addParameters({
   options: {

@@ -4,7 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import { Avatar, Text, Center, PageLayout } from '@t3n/components';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 import StoryContainer from '../../../components/StoryContainer';
 
 const options = {

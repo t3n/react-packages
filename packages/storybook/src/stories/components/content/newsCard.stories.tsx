@@ -8,7 +8,7 @@ import {
   text
 } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 import { Grid, GridItem, Content, NewsCard } from '@t3n/components';
 
 import { NewsCardType } from '@t3n/components/src/NewsCard/NewsCard';
