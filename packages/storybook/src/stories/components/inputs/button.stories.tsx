@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Button, Grid, GridItem, Section } from '@t3n/components';
+import { Button, LinkButton, Grid, GridItem, Section } from '@t3n/components';
 import { ButtonColors } from '@t3n/components/src/Button/Button';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { SectionVariants } from '@t3n/components/src/Section/Section';
@@ -73,6 +73,19 @@ storiesOf('Components|Inputs/Button', module)
           );
         })}
       </div>
+    ),
+    {
+      options: {
+        showPanel: true
+      }
+    }
+  )
+  .add(
+    'Link',
+    () => (
+      <LinkButton href="https://www.t3n.de" target="_blank">
+        Weiter zu t3n.de
+      </LinkButton>
     ),
     {
       options: {

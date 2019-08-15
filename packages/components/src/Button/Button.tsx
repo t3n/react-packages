@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
 
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
@@ -35,7 +35,7 @@ const width = ({ wide }: ButtonProps) => `
 const cursor = ({ disabled }: ButtonProps) =>
   `cursor: ${disabled ? 'cursor' : 'pointer'};`;
 
-const Button = styled.button<ButtonProps>`
+export const buttonStyles = css`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +50,10 @@ const Button = styled.button<ButtonProps>`
   ${cursor}
 
   ${composeButtonStyle}
+`;
+
+const Button = styled.button<ButtonProps>`
+  ${buttonStyles}
 `;
 
 export default Button;
