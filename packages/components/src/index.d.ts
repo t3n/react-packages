@@ -14,6 +14,7 @@ export { HeroCard } from './HeroCard';
 export { Image } from './Image/index';
 export { Input } from './Input';
 export { InputGroup } from './InputGroup';
+export { LinkButton } from './LinkButton';
 export { Logo } from './Logo';
 export { NewsCard } from './NewsCard';
 export { PageHeader } from './PageHeader';

@@ -1,30 +1,27 @@
 import { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
 
-import { ThemeProps, composeButtonStyle, composeTextStyle } from '@t3n/theme';
-
-// import { Text } from '../Text';
+import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export type ButtonColors = 'light' | 'dark';
-export type ButtonAsType = 'div' | 'span' | 'a' | 'button';
 
-export interface ButtonProps extends ThemeProps {
-  as?: ButtonAsType;
+export interface ButtonProps {
   rounded?: boolean;
   icon?: ReactNode; // TODO: Implement icon
   secondary?: boolean;
   color?: ButtonColors;
   inverse?: boolean;
-  disabled?: boolean;
   small?: boolean;
   wide?: boolean;
+  disabled?: boolean;
   children?: ReactNode;
 }
 
-const padding = ({ theme }: ButtonProps) => space({ px: 2, theme });
+const padding = ({ theme }: ButtonProps & ThemeProps) =>
+  space({ px: 2, theme });
 
-const textStyle = ({ small, theme }: ButtonProps) =>
+const textStyle = ({ small, theme }: ButtonProps & ThemeProps) =>
   composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
 
 const borderRadius = ({ rounded }: ButtonProps) => `
@@ -35,23 +32,28 @@ const width = ({ wide }: ButtonProps) => `
   width: ${wide ? '100%' : 'auto'};
 `;
 
-const Button = styled.a.attrs(({ as, disabled }: ButtonProps) => ({
-  disabled: as === 'button' ? disabled : null,
-  role: 'button'
-}))<ButtonProps>`
+const cursor = ({ disabled }: ButtonProps) =>
+  `cursor: ${disabled ? 'cursor' : 'pointer'};`;
+
+export const buttonStyles = css`
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  cursor: pointer;
   transition: all .1s ease-out;
   height: 38px;
+  border: none;
   ${width}
   ${padding}
   ${borderRadius}
   ${textStyle}
+  ${cursor}
 
   ${composeButtonStyle}
+`;
+
+const Button = styled.button<ButtonProps>`
+  ${buttonStyles}
 `;
 
 export default Button;

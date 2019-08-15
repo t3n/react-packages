@@ -5,24 +5,24 @@ const buttonStyles = {
         default: {
           color: 'text.primary',
           bg: 'background.secondary',
-          borderColor: 'transparent'
+          borderColor: ''
         },
         hover: {
           color: 'text.inverse',
           bg: 'background.highlight',
-          borderColor: 'transparent'
+          borderColor: ''
         }
       },
       inverse: {
         default: {
           color: 'text.primary',
           bg: 'background.primary',
-          borderColor: 'transparent'
+          borderColor: ''
         },
         hover: {
           color: 'text.inverse',
           bg: 'background.highlight',
-          borderColor: 'transparent'
+          borderColor: ''
         }
       }
     },
@@ -31,24 +31,24 @@ const buttonStyles = {
         default: {
           color: 'text.inverse',
           bg: 'background.inverse',
-          borderColor: 'transparent'
+          borderColor: ''
         },
         hover: {
           color: 'text.inverse',
           bg: 'background.highlight',
-          borderColor: 'transparent'
+          borderColor: ''
         }
       },
       inverse: {
         default: {
           color: 'text.inverse',
           bg: 'brand.black',
-          borderColor: 'transparent'
+          borderColor: ''
         },
         hover: {
           color: 'text.inverse',
           bg: 'background.highlight',
-          borderColor: 'transparent'
+          borderColor: ''
         }
       }
     }

@@ -31,12 +31,7 @@ storiesOf('Projekte|t3nPro', module)
               <li>Quartalsweise Kündbar</li>
             </ul>
             <Text bold>ab 9,90 EUR/Monat</Text>
-            <Button
-              color="dark"
-              href="/?path=/story/projekte-t3npro-onboarding--login"
-            >
-              Jetzt starten
-            </Button>
+            <Button color="dark">Jetzt starten</Button>
           </GridItem>
           <GridItem width={[1, 1 / 2]}>Bild</GridItem>
         </Grid>
