@@ -1,7 +1,10 @@
 {
   "name": "@t3n/theme",
   "version": "0.1.0",
-  "author": "Philip Plagge <sayhi@itscursedphil.com>",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/t3n/react-packages.git"
+  },
   "description": "",
   "main": "dist/bundle.js",
   "types": "src/index.d.ts",

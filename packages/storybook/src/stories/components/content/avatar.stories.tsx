@@ -27,7 +27,7 @@ const AVATAR_QUERY = gql`
 const UserAvatar = () => {
   const { data, loading } = useQuery(AVATAR_QUERY);
 
-  if (loading || !data.viewer) {
+  if (loading || !data.viewer || !data.viewer.me) {
     return <p>Anmelden</p>;
   }
 

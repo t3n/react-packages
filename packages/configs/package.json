@@ -1,10 +1,9 @@
 {
   "name": "@t3n/configs",
   "version": "0.1.0",
-  "author": "Philip Plagge <sayhi@itscursedphil.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/t3n/react-packages.git"
+    "url": "ssh://git@github.com/t3n/react-packages.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"

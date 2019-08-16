@@ -22,7 +22,7 @@ import storyBookTheme from './theme';
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'https://api.t3n.de',
+    uri: process.env.NODE_ENV === "production" ? 'https://api.t3n.de' : 'https://api.stage.t3n.de' ,
     credentials: 'include'
   })
 });
@@ -101,10 +101,8 @@ function loadStories() {
   require('../src/stories/components/form/form.stories');
 
   // SSO
+  require('../src/stories/projects/sso/login.stories');
   require('../src/stories/projects/sso/onboarding.stories');
-
-  // t3nPro
-  require('../src/stories/projects/t3nPro/landingpage.stories');
 }
 
 configure(loadStories, module);
