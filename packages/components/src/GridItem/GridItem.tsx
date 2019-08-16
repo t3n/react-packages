@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { width, space, SpaceProps, WidthProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
 
-interface ItemProps extends SpaceProps, WidthProps, ThemeProps {}
+interface ItemProps extends SpaceProps, WidthProps {}
 
 const Item = styled.div<ItemProps>`
   ${width}

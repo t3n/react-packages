@@ -126,13 +126,14 @@ storiesOf('Components|Form/Formulare', module)
                     <>
                       <Heading styleAs="h4">Registrierung</Heading>
                       <form onSubmit={handleSubmit}>
-                        <FormInput name="firstName" label="Vorname" />
+                        <FormInput name="firstName" label="Vorname" required />
                         <FormInput name="lastName" label="Nachname" />
-                        <FormInput name="email" label="E-Mail" />
-                        <FormInput name="password" label="Passwort" />
+                        <FormInput name="email" label="E-Mail" required />
+                        <FormInput name="password" label="Passwort" required />
                         <FormInput
                           name="passwordComfirm"
                           label="Passwort wiederholen"
+                          required
                         />
                         <Button
                           as="button"

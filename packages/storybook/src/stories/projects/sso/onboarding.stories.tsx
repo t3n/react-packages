@@ -9,7 +9,8 @@ import {
   GridItem,
   Heading,
   Text,
-  InputGroup,
+  FormGroup,
+  Input,
   Button,
   PageLayout
 } from '@t3n/components';
@@ -59,7 +60,9 @@ storiesOf('Projekte|SSO', module)
                   Bitte gib deine E-Mail-Adresse ein, um dich zu registrieren
                   oder anzumelden.
                 </Text>
-                <InputGroup label="E-Mail-Adresse" />
+                <FormGroup label="E-Mail-Adresse" required>
+                  <Input type="email" required />
+                </FormGroup>
                 <Button wide color="dark">
                   Bestätigen
                 </Button>

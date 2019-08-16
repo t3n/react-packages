@@ -1,3 +1,2 @@
-export declare const spaces: number[];
-declare const _default: string[];
-export default _default;
+declare const spaces: number[];
+export default spaces;
