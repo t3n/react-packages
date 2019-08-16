@@ -2,7 +2,7 @@ import React from 'react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import { storiesOf } from '@storybook/react';
-import { InputGroup } from '@t3n/components';
+import { FormGroup, Input } from '@t3n/components';
 
 import StoryContainer from '../../../components/StoryContainer';
 
@@ -12,19 +12,21 @@ storiesOf('Components|Inputs/InputGroup', module)
     'Simple InputGroup',
     () => (
       <StoryContainer>
-        <InputGroup
-          type={select(
-            'type',
-            {
-              text: 'text',
-              email: 'email',
-              password: 'password'
-            },
-            'text'
-          )}
-          label={text('label', 'Label')}
-          placeholder={text('placeholder', 'Text eingeben...')}
-        />
+        <FormGroup label={text('label', 'Label', 'FormGroup')}>
+          <Input
+            type={select(
+              'type',
+              {
+                text: 'text',
+                email: 'email',
+                password: 'password'
+              },
+              'text',
+              'Input'
+            )}
+            placeholder={text('placeholder', 'Text eingeben...', 'Input')}
+          />
+        </FormGroup>
       </StoryContainer>
     ),
     {

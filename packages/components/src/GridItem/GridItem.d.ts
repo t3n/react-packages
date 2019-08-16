@@ -1,6 +1,5 @@
 import { SpaceProps, WidthProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
-interface ItemProps extends SpaceProps, WidthProps, ThemeProps {
+interface ItemProps extends SpaceProps, WidthProps {
 }
 declare const Item: import("styled-components").StyledComponent<"div", any, ItemProps, never>;
 export default Item;

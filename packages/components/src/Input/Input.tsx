@@ -6,19 +6,16 @@ import { ThemeProps, getThemeColor } from '@t3n/theme';
 import { Text } from '../Text';
 
 export type InputTypes = 'text' | 'email' | 'password';
-export type InputStates = 'disabled' | 'invalid';
 
-export interface InputProps extends WidthProps {
+export interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'width'>,
+    WidthProps {
   type?: InputTypes;
   value?: string;
   defaultValue?: string;
-  state?: InputStates;
-  placeholder?: string;
+  error?: boolean;
   fixedPlaceholder?: string;
-  name?: string;
-  id?: string;
   className?: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 interface NativeInputProps
@@ -46,28 +43,30 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   }
 `;
 
-interface StyledInputProps extends Omit<InputProps, 'onChange'>, ThemeProps {
+interface StyledInputProps extends InputProps {
   isFocused: boolean;
 }
 
 const border = css`
   border: 1px solid
-    ${({ isFocused, state, theme }: StyledInputProps) =>
-      state === 'invalid'
+    ${({ isFocused, error, disabled, theme }: StyledInputProps & ThemeProps) =>
+      error
         ? theme.colors.feedback.error
-        : isFocused && !state
+        : disabled
+        ? theme.colors.shades.grey244
+        : isFocused
         ? theme.colors.shades.grey42
         : theme.colors.shades.grey232};
 `;
 
 const StyledInput = styled.div<StyledInputProps>`
   position: relative;
-  ${styledWidth};
   display: flex;
   align-items: center;
   background-color: ${getThemeColor('background.primary')};
-  ${border}
   border-radius: 4px;
+  ${styledWidth};
+  ${border}
 `;
 
 const FixedPlaceholder = styled(Text).attrs(() => ({
@@ -99,13 +98,14 @@ const Input = ({
   type,
   value,
   defaultValue,
-  state,
+  disabled,
+  error,
   fixedPlaceholder,
   width,
-  name,
-  id,
   className,
   onChange,
+  onFocus,
+  onBlur,
   ...props
 }: InputProps) => {
   const inputEl = useRef<HTMLInputElement>(null);
@@ -144,14 +144,16 @@ const Input = ({
     if (onChange) onChange(e);
   };
 
-  const handleNativeInputFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNativeInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.stopPropagation();
     setFocused(true);
+    if (onFocus) onFocus(e);
   };
 
-  const handleNativeInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNativeInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.stopPropagation();
     setFocused(false);
+    if (onBlur) onBlur(e);
   };
 
   const handleButtonPress = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -169,7 +171,8 @@ const Input = ({
   return (
     <StyledInput
       type={inputType}
-      state={state}
+      disabled={disabled}
+      error={error}
       width={width}
       className={className}
       isFocused={isFocused}
@@ -182,9 +185,7 @@ const Input = ({
         value={inputValue}
         ref={inputEl}
         type={inputType}
-        disabled={state === 'disabled'}
-        name={name}
-        id={id}
+        disabled={disabled}
         onChange={handleNativeInputChange}
         onFocus={handleNativeInputFocus}
         onBlur={handleNativeInputBlur}

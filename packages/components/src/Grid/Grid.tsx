@@ -9,7 +9,6 @@ import {
   HeightProps,
   layout
 } from 'styled-system';
-import { stripUnit } from 'polished';
 
 import { ThemeProps } from '@t3n/theme';
 import { GridItem } from '../GridItem';
@@ -34,16 +33,16 @@ const indent = ({ noGap, wide, theme }: GridProps) =>
     ? space({ mx: 0 })
     : wide
     ? space({
-        mx: [0, `${Number(stripUnit(theme.space[3])) * -1.0}rem`],
+        mx: [0, -3],
         theme
       })
     : space({
-        mx: [0, `${Number(stripUnit(theme.space[1])) * -1.0}rem`],
+        mx: [0, -1],
         theme
       });
 
 const itemGap = ({ noGap, wide, theme }: GridProps): string =>
-  noGap ? space({ px: 0 }) : wide ? space({ px: theme.space[3], theme }) : '';
+  noGap ? space({ px: 0, theme }) : wide ? space({ px: 3, theme }) : '';
 
 const Grid = styled.div<GridProps>`
   display: flex;

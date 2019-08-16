@@ -1,26 +1,34 @@
 import React from 'react';
 import { useField } from 'formik';
-import { InputGroup } from '@t3n/components';
+import { FormGroup, Input, PasswordLostLabel } from '@t3n/components';
 
 interface FormInputProps {
   name: string;
   label: string;
+  required?: boolean;
 }
 
-const FormInput = ({ name, label }: FormInputProps) => {
+const FormInput = ({ name, label, required }: FormInputProps) => {
   const [input, meta] = useField(name);
 
   // todo wrap meta stuff
 
   return (
     <>
-      <InputGroup
+      <FormGroup
         label={label}
-        name={input.name}
-        value={input.value}
-        {...input}
-      />
-      {meta.error && meta.touched ? <p>{meta.error}</p> : null}
+        errorMessage={
+          input.value && meta.touched && meta.error ? meta.error : ''
+        }
+        required={required}
+        labelEndContent={name === 'password' && <PasswordLostLabel />}
+      >
+        <Input
+          name={input.name}
+          error={!!(input.value && meta.touched && meta.error)}
+          {...input}
+        />
+      </FormGroup>
     </>
   );
 };
