@@ -5,7 +5,6 @@
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
-  "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.0.0",
     "@storybook/addon-a11y": "^5.1.1",
