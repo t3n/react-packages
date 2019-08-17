@@ -1,6 +1,7 @@
 {
   "name": "@t3n/components",
   "version": "0.0.2",
+  "description": "t3n react components",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"

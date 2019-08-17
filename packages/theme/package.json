@@ -5,7 +5,7 @@
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
-  "description": "",
+  "description": "t3n theme configuration to use with @t3n/components",
   "main": "dist/bundle.js",
   "types": "src/index.d.ts",
   "scripts": {
