@@ -19,8 +19,6 @@ const FormInput = ({
 }: FormInputProps) => {
   const [input, meta] = useField(name);
 
-  // todo wrap meta stuff
-
   return (
     <>
       <FormGroup

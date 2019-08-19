@@ -1,21 +1,22 @@
-import { ReactNode } from 'react';
+import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
+import { PulseLoader } from 'react-spinners';
 
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export type ButtonColors = 'light' | 'dark';
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<any> {
   rounded?: boolean;
   icon?: ReactNode; // TODO: Implement icon
   secondary?: boolean;
   color?: ButtonColors;
   inverse?: boolean;
+  loading?: boolean;
   small?: boolean;
   wide?: boolean;
   disabled?: boolean;
-  children?: ReactNode;
 }
 
 const padding = ({ theme }: ButtonProps & ThemeProps) =>
@@ -52,8 +53,28 @@ export const buttonStyles = css`
   ${composeButtonStyle}
 `;
 
-const Button = styled.button<ButtonProps>`
+const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
   ${buttonStyles}
+
+  > div div {
+    background-color: ${(props: ThemeProps) => props.theme.colors.text.primary};
+    margin-top: 7px;
+  }
+
+  &:hover {
+    > div div {
+      background-color: ${(props: ThemeProps) =>
+        props.theme.colors.text.inverse};
+    }
+  }
 `;
+
+const Button: React.FC<ButtonProps> = ({ children, loading, ...rest }) => {
+  return (
+    <StyledButton {...rest}>
+      {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
+    </StyledButton>
+  );
+};
 
 export default Button;
