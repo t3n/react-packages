@@ -26,5 +26,8 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.2.3",
     "webpack-notifier": "^1.7.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

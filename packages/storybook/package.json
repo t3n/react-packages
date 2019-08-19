@@ -65,5 +65,8 @@
     "babel-loader": "^8.0.5",
     "typescript": "^3.5.3",
     "webpack-notifier": "^1.7.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
