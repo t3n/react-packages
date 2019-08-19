@@ -6,7 +6,7 @@ interface Props {
   href?: string;
 }
 
-const PasswordLostLabel = ({ href }: Props) => (
+export const PasswordLostLabel = ({ href }: Props) => (
   <Link
     href={href || 'https://t3n.de/account/lostpassword'}
     title="Passwort vergessen?"
@@ -15,5 +15,3 @@ const PasswordLostLabel = ({ href }: Props) => (
     Passwort vergessen?
   </Link>
 );
-
-export default PasswordLostLabel;

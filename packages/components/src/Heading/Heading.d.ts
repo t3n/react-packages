@@ -7,11 +7,10 @@ export interface HeadingProps extends SpaceProps, SizeProps {
     color?: string;
     children?: ReactNode;
 }
-declare const Heading: import("styled-components").StyledComponent<"h1", any, HeadingProps, never>;
+export declare const Heading: import("styled-components").StyledComponent<"h1", any, HeadingProps, never>;
 export declare const H1: ({ as, ...props }: HeadingProps) => JSX.Element;
 export declare const H2: ({ as, ...props }: HeadingProps) => JSX.Element;
 export declare const H3: ({ as, ...props }: HeadingProps) => JSX.Element;
 export declare const H4: ({ as, ...props }: HeadingProps) => JSX.Element;
 export declare const H5: ({ as, ...props }: HeadingProps) => JSX.Element;
 export declare const H6: ({ as, ...props }: HeadingProps) => JSX.Element;
-export default Heading;

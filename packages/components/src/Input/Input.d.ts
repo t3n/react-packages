@@ -9,11 +9,10 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
     fixedPlaceholder?: string;
     className?: string;
 }
-declare const Input: {
+export declare const Input: {
     ({ type, value, defaultValue, disabled, error, fixedPlaceholder, width, className, onChange, onFocus, onBlur, ...props }: InputProps): JSX.Element;
     defaultProps: {
         type: string;
         width: string;
     };
 };
-export default Input;

@@ -45,7 +45,7 @@ const LoadingAuthorCard = () => (
   </Card>
 );
 
-const NewsCard = ({ loading, type, news }: NewsCardProps) => {
+export const NewsCard = ({ loading, type, news }: NewsCardProps) => {
   if (!loading && !news) {
     return <p>Keine Daten</p>;
   }
@@ -80,5 +80,3 @@ const NewsCard = ({ loading, type, news }: NewsCardProps) => {
 NewsCard.defaultProps = {
   loading: true
 };
-
-export default NewsCard;

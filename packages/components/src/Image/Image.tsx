@@ -14,7 +14,12 @@ interface ImageProps {
   };
 }
 
-const Image = ({ width, height, src, processConfiguration }: ImageProps) => {
+export const Image = ({
+  width,
+  height,
+  src,
+  processConfiguration
+}: ImageProps) => {
   return (
     <Imgix
       src={src}
@@ -36,5 +41,3 @@ Image.defaultProps = {
   width: '150',
   height: 'auto'
 };
-
-export default Image;

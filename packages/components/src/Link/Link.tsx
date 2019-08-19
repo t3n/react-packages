@@ -38,7 +38,7 @@ const underlineDefault = ({ underline = 'none' }: LinkProps) =>
 const underlineHover = ({ underline = 'none' }: LinkProps) =>
   `text-decoration: ${underline === 'none' ? 'none' : 'underline'}`;
 
-const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
+export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
   ${textColor('default')};
   ${underlineDefault};
 
@@ -58,5 +58,3 @@ const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
     ${underlineHover};
   }
 `;
-
-export default Link;

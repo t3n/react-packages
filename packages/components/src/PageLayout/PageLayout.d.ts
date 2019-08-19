@@ -4,5 +4,5 @@ interface PageLayoutProps extends PageHeaderProps {
     showHeader: boolean;
     headerContent?: JSX.Element;
 }
-declare const PageLayout: React.FC<PageLayoutProps>;
-export default PageLayout;
+export declare const PageLayout: React.FC<PageLayoutProps>;
+export {};

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
-import Card from './Card';
+import { Card } from './Card';
 
 const theme = {
   colors: {

@@ -47,7 +47,7 @@ const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
   ${({ textColor, theme }) => styledColor({ color: textColor, theme })}
 `;
 
-const Avatar: React.FC<AvatarProps> = ({
+export const Avatar: React.FC<AvatarProps> = ({
   label,
   textColor,
   children,
@@ -67,5 +67,3 @@ const Avatar: React.FC<AvatarProps> = ({
 Avatar.defaultProps = {
   label: ''
 };
-
-export default Avatar;

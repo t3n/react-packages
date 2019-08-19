@@ -10,11 +10,11 @@ interface ImageProps {
         aspectRatio?: string;
     };
 }
-declare const Image: {
+export declare const Image: {
     ({ width, height, src, processConfiguration }: ImageProps): JSX.Element;
     defaultProps: {
         width: string;
         height: string;
     };
 };
-export default Image;
+export {};

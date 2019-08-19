@@ -69,12 +69,14 @@ const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ children, loading, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  loading,
+  ...rest
+}) => {
   return (
     <StyledButton {...rest}>
       {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
     </StyledButton>
   );
 };
-
-export default Button;

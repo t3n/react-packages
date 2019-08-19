@@ -5,5 +5,5 @@ interface LogoProps {
     width?: string;
     variant?: LogoVariant;
 }
-declare const Logo: React.FC<LogoProps>;
-export default Logo;
+export declare const Logo: React.FC<LogoProps>;
+export {};

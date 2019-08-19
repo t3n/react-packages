@@ -36,7 +36,7 @@ export interface PageHeaderProps {
   logoVariant?: 'default';
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ children }) => {
+export const PageHeader: React.FC<PageHeaderProps> = ({ children }) => {
   return (
     <PageHeadderWrapper
       height="3.5rem"
@@ -53,5 +53,3 @@ const PageHeader: React.FC<PageHeaderProps> = ({ children }) => {
     </PageHeadderWrapper>
   );
 };
-
-export default PageHeader;

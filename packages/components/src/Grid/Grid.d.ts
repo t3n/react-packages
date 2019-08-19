@@ -6,5 +6,5 @@ interface GridProps extends ThemeProps, JustifyContentProps, AlignItemsProps, He
     wide?: boolean;
     noGap?: boolean;
 }
-declare const Grid: import("styled-components").StyledComponent<"div", any, GridProps, never>;
-export default Grid;
+export declare const Grid: import("styled-components").StyledComponent<"div", any, GridProps, never>;
+export {};

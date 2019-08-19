@@ -8,5 +8,5 @@ interface AuthorCardProps {
     };
     url: string;
 }
-declare const AuthorCard: ({ title, articleType, author, url }: AuthorCardProps) => JSX.Element;
-export default AuthorCard;
+export declare const AuthorCard: ({ title, articleType, author, url }: AuthorCardProps) => JSX.Element;
+export {};

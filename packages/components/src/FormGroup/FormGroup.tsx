@@ -53,7 +53,7 @@ const StyledFormGroup = styled.label<Omit<FormGroupProps, 'label'>>`
   }
 `;
 
-const FormGroup = ({
+export const FormGroup = ({
   label,
   labelSecondary,
   labelEndContent,
@@ -83,5 +83,3 @@ const FormGroup = ({
 FormGroup.defaultProps = {
   my: 3
 };
-
-export default FormGroup;

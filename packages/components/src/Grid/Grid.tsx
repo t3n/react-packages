@@ -44,7 +44,7 @@ const indent = ({ noGap, wide, theme }: GridProps) =>
 const itemGap = ({ noGap, wide, theme }: GridProps): string =>
   noGap ? space({ px: 0, theme }) : wide ? space({ px: 3, theme }) : '';
 
-const Grid = styled.div<GridProps>`
+export const Grid = styled.div<GridProps>`
   display: flex;
   flex-wrap: wrap;
   ${flexDirection}
@@ -68,5 +68,3 @@ Grid.defaultProps = {
   noGap: false,
   justifyContent: 'flex-start'
 };
-
-export default Grid;

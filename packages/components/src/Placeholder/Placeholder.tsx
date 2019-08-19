@@ -23,11 +23,11 @@ const backgroundAnimation = ({ theme }: ThemeProps) => keyframes`
   }
 `;
 
-const Placeholder = styled.div<SpaceProps | LayoutProps | BorderRadiusProps>`
+export const Placeholder = styled.div<
+  SpaceProps | LayoutProps | BorderRadiusProps
+>`
   animation: ${backgroundAnimation} 2s linear infinite;
   ${layout};
   ${space};
   ${borderRadius}
 `;
-
-export default Placeholder;

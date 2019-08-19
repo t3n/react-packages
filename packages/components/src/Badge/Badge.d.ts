@@ -5,5 +5,5 @@ interface BadgeProps extends ThemeProps {
     small?: boolean;
     rounded?: boolean;
 }
-declare const Badge: import("styled-components").StyledComponent<"span", any, BadgeProps, never>;
-export default Badge;
+export declare const Badge: import("styled-components").StyledComponent<"span", any, BadgeProps, never>;
+export {};

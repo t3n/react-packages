@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { ThemeProps } from '@t3n/theme';
 import { space, SpaceProps } from 'styled-system';
-import Content from '../Content/Content';
+import { Content } from '../Content/Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
@@ -32,7 +32,12 @@ const SectionOuter = styled.div<SectionProps>`
     space({ py: innerGap, theme })}
 `;
 
-const Section = ({ variant, wide, children, innerGap }: SectionProps) => (
+export const Section = ({
+  variant,
+  wide,
+  children,
+  innerGap
+}: SectionProps) => (
   <SectionOuter variant={variant} innerGap={innerGap}>
     <Content wide={wide}>{children}</Content>
   </SectionOuter>
@@ -43,5 +48,3 @@ Section.displayName = 'Section';
 Section.defaultProps = {
   innerGap: 5
 };
-
-export default Section;

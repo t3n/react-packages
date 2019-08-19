@@ -6,5 +6,4 @@ export interface RatioProps extends ThemeProps, BackgroundColorProps {
     as?: keyof JSX.IntrinsicElements;
     children?: ReactNode;
 }
-declare const Ratio: import("styled-components").StyledComponent<"div", any, RatioProps, never>;
-export default Ratio;
+export declare const Ratio: import("styled-components").StyledComponent<"div", any, RatioProps, never>;

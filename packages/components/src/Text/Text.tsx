@@ -35,7 +35,7 @@ const textColor = ({
 }: TextProps & ThemeProps) =>
   color({ color: secondary ? 'text.secondary' : colorProp, theme });
 
-const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
+export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
   as: as || (inline ? 'span' : 'p')
 }))<TextProps>`
   ${font}
@@ -51,5 +51,3 @@ Text.displayName = 'Text';
 Text.defaultProps = {
   width: 1
 };
-
-export default Text;
