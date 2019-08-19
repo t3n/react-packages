@@ -1,6 +1,6 @@
 {
   "name": "@t3n/configs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "t3n javascript configuration wrapper",
   "repository": {
     "type": "git",
