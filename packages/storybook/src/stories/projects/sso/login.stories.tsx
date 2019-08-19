@@ -186,7 +186,7 @@ const WelcomeScreen: React.FC = () => {
     <Card>
       <div style={{ textAlign: 'center' }}>
         <Center maxWidth="80px">
-          <Avatar src={data.viewer.me.avatarUrl || ''} size="80" />
+          <Avatar src={data.viewer.me.avatarUrl || ''} size={80} />
         </Center>
         <H3 mt={5}>Aktuelles auf t3n.de</H3>
         <Grid wide justifyContent="center">
