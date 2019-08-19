@@ -126,7 +126,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - checkout_and_build
+      - checkout_and_build:
+          filters:
+            tags:
+              ignore: /.*/
       - prettier:
           requires:
             - checkout_and_build
