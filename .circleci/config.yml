@@ -34,7 +34,7 @@ jobs:
       - checkout
 
       - run: |
-          npm install --unsafe-perm
+          npm ci --unsafe-perm
 
       - run: |
           npm run build
