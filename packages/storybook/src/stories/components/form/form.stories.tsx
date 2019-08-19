@@ -149,7 +149,6 @@ storiesOf('Components|Form/Formulare', module)
                           required
                         />
                         <Button
-                          as="button"
                           type="submit"
                           disabled={!isValid || isSubmitting}
                         >

@@ -30,6 +30,7 @@ storiesOf('Components|Inputs/Button', module)
           small={boolean('Kleine Schrift', false, 'Button')}
           color={select<ButtonColors>('Farbe', colors, 'light', 'Button')}
           disabled={boolean('Gesperrt?', false, 'Button')}
+          loading={boolean('Lade-Status?', true, 'Button')}
         >
           {text('Text', 'Button Test', 'Button')}
         </Button>
@@ -50,21 +51,28 @@ storiesOf('Components|Inputs/Button', module)
             <>
               <h3>Buttons in der Farbe {color}</h3>
               <Grid mb={4}>
-                <GridItem width="33">
+                <GridItem width={1 / 3} padding={2}>
                   <Button color={color}>Default</Button>
                 </GridItem>
-                <GridItem width="33">
+                <GridItem width={1 / 3} padding={2}>
                   <Button color={color} rounded={false} secondary>
                     Sekundärer Button
                   </Button>
                 </GridItem>
-                <GridItem width="33">
+                <GridItem width={1 / 3} padding={2}>
                   <Button color={color} rounded>
                     Abgerundet
                   </Button>
                 </GridItem>
-                <GridItem width="33">
+              </Grid>
+              <Grid mb={4}>
+                <GridItem width={1 / 3} padding={2}>
                   <Button color={color} inverse>
+                    Invertiert
+                  </Button>
+                </GridItem>
+                <GridItem width={1 / 3} padding={2}>
+                  <Button color={color} loading inverse>
                     Invertiert
                   </Button>
                 </GridItem>
