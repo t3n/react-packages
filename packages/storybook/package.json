@@ -51,7 +51,7 @@
     "build": "build-storybook -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "npx http-server storybook-static/"
+    "serve": "npx http-server -p 8080 storybook-static/"
   },
   "browserslist": [
     ">0.2%",
