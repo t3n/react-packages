@@ -94,7 +94,7 @@ const Button = styled.button.attrs(() => ({
   line-height: 1rem;
 `;
 
-const Input = ({
+export const Input = ({
   type,
   value,
   defaultValue,
@@ -208,5 +208,3 @@ Input.defaultProps = {
   type: 'text',
   width: '100%'
 };
-
-export default Input;

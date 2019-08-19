@@ -19,7 +19,12 @@ const Author = styled.div`
   align-items: center;
 `;
 
-const AuthorCard = ({ title, articleType, author, url }: AuthorCardProps) => (
+export const AuthorCard = ({
+  title,
+  articleType,
+  author,
+  url
+}: AuthorCardProps) => (
   <Card href={url} stretch>
     <div>
       <Badge variant="highlight" small>
@@ -44,5 +49,3 @@ const AuthorCard = ({ title, articleType, author, url }: AuthorCardProps) => (
     </Author>
   </Card>
 );
-
-export default AuthorCard;

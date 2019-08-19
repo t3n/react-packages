@@ -56,7 +56,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps) => {
   return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
-const Card = styled.div.attrs(({ href }: CardProps) => ({
+export const Card = styled.div.attrs(({ href }: CardProps) => ({
   href,
   as: href ? 'a' : 'div'
 }))<CardProps>`
@@ -100,5 +100,3 @@ Card.defaultProps = {
   color: 'text.primary',
   width: 1
 };
-
-export default Card;

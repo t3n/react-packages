@@ -8,7 +8,7 @@ interface PageLayoutProps extends PageHeaderProps {
   headerContent?: JSX.Element;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({
+export const PageLayout: React.FC<PageLayoutProps> = ({
   showHeader,
   headerContent,
   logoVariant,
@@ -25,5 +25,3 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     </>
   );
 };
-
-export default PageLayout;

@@ -8,10 +8,10 @@ interface FormGroupProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pi
     errorMessage?: string;
     children: ReactNode;
 }
-declare const FormGroup: {
+export declare const FormGroup: {
     ({ label, labelSecondary, labelEndContent, required, errorMessage, children, ...props }: FormGroupProps): JSX.Element;
     defaultProps: {
         my: number;
     };
 };
-export default FormGroup;
+export {};

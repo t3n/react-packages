@@ -1,2 +1,2 @@
-export { default as FormGroup } from './FormGroup';
-export { default as PasswordLostLabel } from './PasswordLostLabel';
+export * from './FormGroup';
+export * from './PasswordLostLabel';

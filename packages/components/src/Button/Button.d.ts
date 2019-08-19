@@ -13,5 +13,4 @@ export interface ButtonProps extends ButtonHTMLAttributes<any> {
     disabled?: boolean;
 }
 export declare const buttonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ButtonProps & ThemeProps, any>>;
-declare const Button: React.FC<ButtonProps>;
-export default Button;
+export declare const Button: React.FC<ButtonProps>;

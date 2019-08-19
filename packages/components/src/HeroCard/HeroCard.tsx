@@ -18,7 +18,7 @@ const CardFooter = styled.div`
   justify-content: space-between;
 `;
 
-const HeroCard = ({
+export const HeroCard = ({
   title,
   imageUrl,
   publishedAt,
@@ -48,5 +48,3 @@ const HeroCard = ({
     </CardFooter>
   </Card>
 );
-
-export default HeroCard;

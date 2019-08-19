@@ -3,14 +3,12 @@ import { width, space, SpaceProps, WidthProps } from 'styled-system';
 
 interface ItemProps extends SpaceProps, WidthProps {}
 
-const Item = styled.div<ItemProps>`
+export const GridItem = styled.div<ItemProps>`
   ${width}
   ${space}
 `;
 
-Item.defaultProps = {
+GridItem.defaultProps = {
   px: [0, 1],
   width: 1
 };
-
-export default Item;

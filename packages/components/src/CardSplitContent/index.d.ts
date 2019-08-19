@@ -1,1 +1,1 @@
-export { default as CardSplitContent } from './CardSplitContent';
+export * from './CardSplitContent';

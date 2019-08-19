@@ -6,5 +6,5 @@ interface HeroCardProps {
     url: string;
     publishedAt: Date;
 }
-declare const HeroCard: ({ title, imageUrl, publishedAt, author, url }: HeroCardProps) => JSX.Element;
-export default HeroCard;
+export declare const HeroCard: ({ title, imageUrl, publishedAt, author, url }: HeroCardProps) => JSX.Element;
+export {};

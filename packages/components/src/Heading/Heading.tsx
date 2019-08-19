@@ -15,7 +15,7 @@ export interface HeadingProps extends SpaceProps, SizeProps {
 const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>
   composeTextStyle({ textStyle: styleAs || as || 'h1', theme });
 
-const Heading = styled.h1<HeadingProps>`
+export const Heading = styled.h1<HeadingProps>`
   ${font}
   ${space}
   ${size}
@@ -42,5 +42,3 @@ export const H5 = ({ as, ...props }: HeadingProps) => (
 export const H6 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h6" {...props} />
 );
-
-export default Heading;

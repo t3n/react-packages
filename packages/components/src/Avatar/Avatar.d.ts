@@ -9,5 +9,5 @@ interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
     label?: string;
     textColor?: TextColorProps['color'];
 }
-declare const Avatar: React.FC<AvatarProps>;
-export default Avatar;
+export declare const Avatar: React.FC<AvatarProps>;
+export {};

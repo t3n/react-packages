@@ -2,5 +2,5 @@
 interface Props {
     href?: string;
 }
-declare const PasswordLostLabel: ({ href }: Props) => JSX.Element;
-export default PasswordLostLabel;
+export declare const PasswordLostLabel: ({ href }: Props) => JSX.Element;
+export {};

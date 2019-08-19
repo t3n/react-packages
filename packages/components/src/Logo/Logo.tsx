@@ -9,7 +9,7 @@ interface LogoProps {
   variant?: LogoVariant;
 }
 
-const Logo: React.FC<LogoProps> = ({ variant, ...rest }) => {
+export const Logo: React.FC<LogoProps> = ({ variant, ...rest }) => {
   // todo check for other variants
   if (variant && variant === 'default') {
     return <DefaultLogo {...rest} />;
@@ -17,5 +17,3 @@ const Logo: React.FC<LogoProps> = ({ variant, ...rest }) => {
 
   return <DefaultLogo {...rest} />;
 };
-
-export default Logo;

@@ -14,7 +14,7 @@ export interface ContentProps extends ThemeProps, PaddingProps {
 const maxWidth = ({ wide, theme }: ContentProps): string =>
   wide ? '100%' : styledMaxWidth({ maxWidth: [rem(1150)], theme });
 
-const Content = styled.div<ContentProps>`
+export const Content = styled.div<ContentProps>`
   width: 100%;
   margin: 0 auto;
   ${maxWidth};
@@ -27,5 +27,3 @@ Content.defaultProps = {
   wide: false,
   px: [2]
 };
-
-export default Content;

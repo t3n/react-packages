@@ -1,1 +1,1 @@
-export { default as GridItem } from './GridItem';
+export * from './GridItem';

@@ -9,7 +9,7 @@ interface TextProps extends ColorProps, SpaceProps, WidthProps {
     secondary?: boolean;
     children: ReactNode;
 }
-declare const Text: import("styled-components").StyledComponent<"p", any, {
+export declare const Text: import("styled-components").StyledComponent<"p", any, {
     as: "p" | "span";
 } & TextProps, "as">;
-export default Text;
+export {};

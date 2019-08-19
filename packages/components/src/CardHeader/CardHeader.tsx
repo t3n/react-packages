@@ -24,7 +24,7 @@ export const CardHeaderContent = styled.div`
 
 const CardHeaderContainer = styled.div``;
 
-const CardHeader = ({
+const CardHeaderComponent = ({
   big, // eslint-disable-line @typescript-eslint/no-unused-vars
   ratio,
   bg, // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -43,7 +43,7 @@ const CardHeader = ({
 const padding = ({ big, theme }: CardHeaderProps): string =>
   big ? space({ p: [3, 6], theme }) : space({ 3: 4, theme });
 
-const StyledCardHeader = styled(CardHeader)<CardHeaderProps>`
+export const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`
   position: relative;
   overflow: hidden;
   display: flex;
@@ -68,9 +68,7 @@ const StyledCardHeader = styled(CardHeader)<CardHeaderProps>`
   }
 `;
 
-StyledCardHeader.defaultProps = {
+CardHeader.defaultProps = {
   bg: 'background.secondary'
 };
-StyledCardHeader.displayName = 'CardHeader';
-
-export default StyledCardHeader;
+CardHeader.displayName = 'CardHeader';

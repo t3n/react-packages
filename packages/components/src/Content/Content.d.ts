@@ -3,5 +3,4 @@ import { ThemeProps } from '@t3n/theme';
 export interface ContentProps extends ThemeProps, PaddingProps {
     wide?: boolean;
 }
-declare const Content: import("styled-components").StyledComponent<"div", any, ContentProps, never>;
-export default Content;
+export declare const Content: import("styled-components").StyledComponent<"div", any, ContentProps, never>;

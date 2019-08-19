@@ -13,8 +13,8 @@ interface CardProps extends ThemeProps {
     width?: SizeProps['size'];
     children?: ReactNode;
 }
-declare const Card: import("styled-components").StyledComponent<"div", any, {
+export declare const Card: import("styled-components").StyledComponent<"div", any, {
     href: string | false | undefined;
     as: string;
 } & CardProps, "href" | "as">;
-export default Card;
+export {};
