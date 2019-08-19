@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import {
@@ -9,7 +9,11 @@ import {
   Heading,
   Text,
   Button,
-  PageLayout
+  PageLayout,
+  Center,
+  Avatar,
+  NewsCard,
+  H3
 } from '@t3n/components';
 import { layout, LayoutProps, FlexboxProps, flexbox } from 'styled-system';
 import styled from 'styled-components';
@@ -22,6 +26,7 @@ import products from './products.png';
 import { current_user } from './__generated__/current_user';
 import { FormInput } from '../../../components/FormField';
 import { loginVariables, login } from './__generated__/login';
+import { recentNews, recentNewsVariables } from './__generated__/recentNews';
 
 const ContentWrapper = styled.div<LayoutProps | FlexboxProps>`
   ${layout}
@@ -36,6 +41,29 @@ const CURRENT_USER = gql`
         firstName
         lastName
         avatarUrl
+      }
+    }
+  }
+`;
+
+const RECENT_NEWS = gql`
+  query recentNews($limit: Int!) {
+    article {
+      recentNews(limit: $limit) {
+        identifier
+        title
+        teaser
+        type
+        date
+        url
+        date
+        imageUrl
+        author {
+          identifier
+          firstName
+          lastName
+          avatarUrl
+        }
       }
     }
   }
@@ -78,20 +106,31 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const [loginMutation] = useMutation<login, loginVariables>(LOGIN_MUTATION);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cookies, setCookie] = useCookies();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const onSumbit = ({ email, password }: LoginValues) => {
-    loginMutation({ variables: { email, password } }).then(res => {
-      if (res && res.data) {
-        const {
-          sso: {
-            login: { cookie, value }
-          }
-        } = res.data;
+    setIsSubmitting(true);
+    loginMutation({ variables: { email, password } })
+      .then(res => {
+        if (res && res.data) {
+          const {
+            sso: {
+              login: { cookie, value }
+            }
+          } = res.data;
 
-        setCookie(cookie, value);
-        onSuccess();
-      }
-    });
+          setCookie(cookie, value, { domain: '.t3n.de' });
+          onSuccess();
+          setIsSubmitting(false);
+        }
+      })
+      .catch(() => {
+        setFormErrors([
+          'Login nicht erfolgreich. Bitte überprüfe deine E-Mail-Adresse und dein Passwort'
+        ]);
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -105,16 +144,82 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
       })}
       initialValues={{ email: '', password: '' }}
     >
-      {({ handleSubmit, isValid, isSubmitting }) => (
-        <form onSubmit={handleSubmit}>
-          <FormInput name="email" label="E-Mail" type="text" />
-          <FormInput name="password" type="password" label="Passwort" />
-          <Button type="submit" disabled={!isValid || isSubmitting}>
-            Anmelden
-          </Button>
-        </form>
+      {({ handleSubmit, isValid }) => (
+        <>
+          {formErrors.map(error => (
+            <Text color="feedback.error">{error}</Text>
+          ))}
+          <form onSubmit={handleSubmit}>
+            <FormInput name="email" required label="E-Mail" type="text" />
+            <FormInput
+              name="password"
+              required
+              type="password"
+              label="Passwort"
+            />
+            <Button
+              loading={isSubmitting}
+              type="submit"
+              disabled={!isValid || isSubmitting}
+            >
+              Anmelden
+            </Button>
+          </form>
+        </>
       )}
     </Formik>
+  );
+};
+
+const WelcomeScreen: React.FC = () => {
+  const { data, loading } = useQuery<current_user>(CURRENT_USER);
+  const { data: newsData, loading: newsLoading } = useQuery<
+    recentNews,
+    recentNewsVariables
+  >(RECENT_NEWS, { variables: { limit: 6 } });
+
+  if (loading || !data || !data.viewer || !data.viewer.me) {
+    return <Card>Lade</Card>;
+  }
+
+  return (
+    <Card>
+      <div style={{ textAlign: 'center' }}>
+        <Center maxWidth="80px">
+          <Avatar src={data.viewer.me.avatarUrl || ''} size="80" />
+        </Center>
+        <H3 mt={5}>Aktuelles auf t3n.de</H3>
+        <Grid wide justifyContent="center">
+          {newsLoading
+            ? new Array(6).fill('').map((el, idx) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <GridItem key={idx} width={[1, 1, 1 / 3]} mb={3}>
+                  <NewsCard type="HERO" loading />
+                </GridItem>
+              ))
+            : newsData &&
+              newsData.article &&
+              newsData.article.recentNews &&
+              newsData.article.recentNews.map(news => (
+                <GridItem key={news.identifier} width={[1, 1, 1 / 3]} mb={3}>
+                  <NewsCard
+                    type="HERO"
+                    news={{
+                      ...news,
+                      author: {
+                        name: `${news.author.firstName || ''} ${news.author
+                          .lastName || ''}`,
+                        avatar: news.author.avatarUrl || ''
+                      },
+                      publishedAt: new Date(news.date)
+                    }}
+                    loading={false}
+                  />
+                </GridItem>
+              ))}
+        </Grid>
+      </div>
+    </Card>
   );
 };
 
@@ -122,20 +227,15 @@ const LoginWrapper = () => {
   const { loading, isLoggedIn, refetch } = useIsLoggedIn();
 
   const onSuccess = () => {
-    console.log('success');
     refetch();
   };
 
   if (loading) {
-    return <p>lade</p>;
+    return <p>Lade</p>;
   }
 
   if (isLoggedIn) {
-    return (
-      <Card>
-        <h1>Willkommen zurück</h1>
-      </Card>
-    );
+    return <WelcomeScreen />;
   }
 
   return (
