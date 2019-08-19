@@ -86,7 +86,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd"
-      - run: npm login --registry=https://npm.pkg.github.com --scope=@t3n
+      - run: git config user.email "circleci@t3n.de"
+      - run: git config user.name "CircleCI Bot"
+      - run: echo "//npm.pkg.github.com/:_authToken=$GITHUB_NPM_TOKEN" > ~/.npmrc
       - run: ./node_modules/.bin/lerna publish patch --no-verify-access --yes
 
   publishMinor:
@@ -98,7 +100,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd"
-      - run: npm login --registry=https://npm.pkg.github.com --scope=@t3n
+      - run: git config user.email "circleci@t3n.de"
+      - run: git config user.name "CircleCI Bot"
+      - run: echo "//npm.pkg.github.com/:_authToken=$GITHUB_NPM_TOKEN" > ~/.npmrc
       - run: ./node_modules/.bin/lerna publish minor --no-verify-access --yes
 
   publishMajor:
@@ -110,7 +114,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd"
-      - run: npm login --registry=https://npm.pkg.github.com --scope=@t3n
+      - run: git config user.email "circleci@t3n.de"
+      - run: git config user.name "CircleCI Bot"
+      - run: echo "//npm.pkg.github.com/:_authToken=$GITHUB_NPM_TOKEN" > ~/.npmrc
       - run: ./node_modules/.bin/lerna publish major --no-verify-access --yes
 
 workflows:
