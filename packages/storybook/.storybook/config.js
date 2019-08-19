@@ -22,7 +22,10 @@ import storyBookTheme from './theme';
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: process.env.NODE_ENV === "production" ? 'https://api.t3n.de' : 'https://api.stage.t3n.de' ,
+    uri:
+      process.env.NODE_ENV === 'production'
+        ? 'https://api.t3n.de'
+        : 'https://api.stage.t3n.de',
     credentials: 'include'
   })
 });
