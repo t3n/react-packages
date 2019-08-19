@@ -99,6 +99,7 @@ function loadStories() {
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories');
   require('../src/stories/components/inputs/input.stories');
+  require('../src/stories/components/inputs/link.stories');
 
   // Form
   require('../src/stories/components/form/form.stories');

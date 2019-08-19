@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ColorProps, SpaceProps, WidthProps } from 'styled-system';
-interface TextProps extends ColorProps, SpaceProps, WidthProps {
+export interface TextProps extends ColorProps, SpaceProps, WidthProps {
     as?: 'p' | 'span';
     bold?: boolean;
     italic?: boolean;

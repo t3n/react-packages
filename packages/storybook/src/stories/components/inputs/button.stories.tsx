@@ -1,10 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { Button, LinkButton, Grid, GridItem, Section } from '@t3n/components';
 import { ButtonColors } from '@t3n/components/src/Button/Button';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { SectionVariants } from '@t3n/components/src/Section/Section';
+
 import StoryContainer from '../../../components/StoryContainer';
 
 const colors: ButtonColors[] = ['light', 'dark'];

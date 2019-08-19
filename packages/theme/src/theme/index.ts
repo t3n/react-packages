@@ -8,3 +8,4 @@ export { default as fonts } from './font/fonts';
 export { default as textStyles } from './font/textStyles';
 export { default as shadows } from './shadows';
 export { default as buttonStyles } from './buttonStyles';
+export { default as linkStyles } from './linkStyles';

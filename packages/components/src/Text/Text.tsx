@@ -10,7 +10,7 @@ import {
 } from 'styled-system';
 import { ThemeProps, composeTextStyle } from '@t3n/theme';
 
-interface TextProps extends ColorProps, SpaceProps, WidthProps {
+export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   as?: 'p' | 'span';
   bold?: boolean;
   italic?: boolean;
