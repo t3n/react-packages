@@ -12,4 +12,3 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
 export declare const Text: import("styled-components").StyledComponent<"p", any, {
     as: "p" | "span";
 } & TextProps, "as">;
-export {};

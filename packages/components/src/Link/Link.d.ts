@@ -11,9 +11,8 @@ export interface LinkProps extends TextColorProps, Omit<React.AnchorHTMLAttribut
     focusColor?: TextColorProps['color'];
     children: ReactNode;
 }
-declare const Link: import("styled-components").StyledComponent<"p", any, {
+export declare const Link: import("styled-components").StyledComponent<"p", any, {
     as: "p" | "span";
 } & TextProps & {
     as: string;
 } & LinkProps, "as">;
-export default Link;
