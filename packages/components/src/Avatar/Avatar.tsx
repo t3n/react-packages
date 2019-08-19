@@ -5,7 +5,7 @@ import { space, color as styledColor, TextColorProps } from 'styled-system';
 
 interface AvatarImageProps {
   src: string;
-  size?: string;
+  size?: number;
   className?: string;
 }
 

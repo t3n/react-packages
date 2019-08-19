@@ -2,7 +2,7 @@ import React from 'react';
 import { TextColorProps } from 'styled-system';
 interface AvatarImageProps {
     src: string;
-    size?: string;
+    size?: number;
     className?: string;
 }
 interface AvatarProps extends Omit<AvatarImageProps, 'className'> {

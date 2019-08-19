@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, number } from '@storybook/addon-knobs';
 
 import { Avatar, Text, Center, PageLayout } from '@t3n/components';
 import { useQuery } from '@apollo/react-hooks';
@@ -38,7 +38,7 @@ const UserAvatar = () => {
   } = data;
 
   return (
-    <Avatar label={`${firstName} ${lastName}`} src={avatarUrl} size="40" />
+    <Avatar label={`${firstName} ${lastName}`} src={avatarUrl} size={40} />
   );
 };
 
@@ -50,7 +50,7 @@ storiesOf('Components|Content/Avatar', module)
     () => (
       <div>
         <Avatar
-          size={text('Größe', '40')}
+          size={number('Größe', 40)}
           src={text(
             'Image URL',
             'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
@@ -71,7 +71,7 @@ storiesOf('Components|Content/Avatar', module)
     () => (
       <div>
         <Avatar
-          size={text('Größe', '40')}
+          size={number('Größe', 40)}
           src={text(
             'Image URL',
             'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
