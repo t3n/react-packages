@@ -4,7 +4,7 @@ import { color, TextColorProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import Text, { TextProps } from '../Text/Text';
+import { Text, TextProps } from '../Text/Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 export type LinkUnderlineType = 'none' | 'hover' | 'always';
