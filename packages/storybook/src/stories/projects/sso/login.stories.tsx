@@ -230,11 +230,7 @@ const LoginWrapper = () => {
     refetch();
   };
 
-  if (loading) {
-    return <p>Lade</p>;
-  }
-
-  if (isLoggedIn) {
+  if (!loading && isLoggedIn) {
     return <WelcomeScreen />;
   }
 

@@ -130,17 +130,25 @@ storiesOf('Components|Form/Formulare', module)
                           type="text"
                           name="firstName"
                           label="Vorname"
+                          required
                         />
                         <FormInput
                           type="text"
                           name="lastName"
                           label="Nachname"
+                          required
                         />
-                        <FormInput type="text" name="email" label="E-Mail" />
+                        <FormInput
+                          type="text"
+                          name="email"
+                          required
+                          label="E-Mail"
+                        />
                         <FormInput
                           type="password"
                           name="password"
                           label="Passwort"
+                          required
                         />
                         <FormInput
                           type="password"

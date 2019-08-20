@@ -31,7 +31,7 @@ storiesOf('Components|Inputs/Button', module)
           small={boolean('Kleine Schrift', false, 'Button')}
           color={select<ButtonColors>('Farbe', colors, 'light', 'Button')}
           disabled={boolean('Gesperrt?', false, 'Button')}
-          loading={boolean('Lade-Status?', true, 'Button')}
+          loading={boolean('Lade-Status?', false, 'Button')}
         >
           {text('Text', 'Button Test', 'Button')}
         </Button>
