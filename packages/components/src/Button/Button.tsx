@@ -25,8 +25,8 @@ const padding = ({ theme }: ButtonProps & ThemeProps) =>
 const textStyle = ({ small, theme }: ButtonProps & ThemeProps) =>
   composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
 
-const borderRadius = ({ rounded }: ButtonProps) => `
-  border-radius: ${rounded ? '50%' : '4px'};
+const borderRadius = ({ rounded, theme }: ButtonProps & ThemeProps) => `
+  border-radius: ${rounded ? '50%' : theme.border.radii[1]};
 `;
 
 const width = ({ wide }: ButtonProps) => `

@@ -64,7 +64,7 @@ const StyledInput = styled.div<StyledInputProps>`
   display: flex;
   align-items: center;
   background-color: ${getThemeColor('background.primary')};
-  border-radius: 4px;
+  border-radius: ${props => props.theme.border.radii[1]};
   ${styledWidth};
   ${border}
 `;
