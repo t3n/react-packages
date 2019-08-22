@@ -12,7 +12,6 @@
     "polished": "^3.1.0",
     "react-imgix": "^8.6.4",
     "react-spinners": "^0.6.0",
-    "styled-components": "^4.3.0",
     "styled-system": "^5.0.21"
   },
   "main": "dist/bundle.js",
@@ -38,7 +37,6 @@
     "jest-dom": "^4.0.0",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
-    "react": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^24.0.1",
     "typescript": "^3.5.3"
