@@ -1,7 +1,7 @@
 import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
-import { PulseLoader } from 'react-spinners';
+// import { PulseLoader } from 'react-spinners';
 
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
 
@@ -69,14 +69,18 @@ const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
   }
 `;
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  loading,
-  ...rest
-}) => {
-  return (
-    <StyledButton {...rest}>
-      {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
-    </StyledButton>
-  );
-};
+// export const Button: React.FC<ButtonProps> = ({
+//   children,
+//   loading,
+//   ...rest
+// }) => {
+//   return (
+//     <StyledButton {...rest}>
+//       {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
+//     </StyledButton>
+//   );
+// };
+
+export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
+  <StyledButton {...rest}>{children}</StyledButton>
+);

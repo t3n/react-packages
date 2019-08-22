@@ -8,7 +8,8 @@ import {
   SpaceProps,
   WidthProps
 } from 'styled-system';
-import { ThemeProps, composeTextStyle } from '@t3n/theme';
+// import { ThemeProps, composeTextStyle } from '@t3n/theme';
+import { ThemeProps } from '@t3n/theme';
 
 export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   as?: 'p' | 'span';
@@ -20,8 +21,8 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   children: ReactNode;
 }
 
-const font = ({ small, theme }: TextProps & ThemeProps) =>
-  composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
+// const font = ({ small, theme }: TextProps & ThemeProps) =>
+//   composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
 
 const fontWeight = ({ bold }: TextProps) => (bold ? 'font-weight: bold;' : '');
 
@@ -38,7 +39,7 @@ const textColor = ({
 export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
   as: as || (inline ? 'span' : 'p')
 }))<TextProps>`
-  ${font}
+  text-decoration: underline;
   ${textColor}
   ${fontWeight}
   ${fontStyle}

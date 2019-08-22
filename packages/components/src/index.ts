@@ -25,3 +25,5 @@ export { Placeholder } from './Placeholder';
 export { Ratio } from './Ratio';
 export { Section } from './Section';
 export { Text } from './Text';
+// export { ThemeProvider } from './ThemeProvider';
+// export { ServerStyleSheet } from 'styled-components';
