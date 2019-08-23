@@ -28,7 +28,7 @@ module.exports = ({ title = '', dirname = '' }) => {
       rules: [
         {
           test: /\.svg$/,
-          use: ['@svgr/webpack', 'file-loader']
+          use: ['@svgr/webpack']
         },
         {
           test: /\.tsx?$/,

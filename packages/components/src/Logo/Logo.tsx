@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as DefaultLogo } from './DefaultLogo.svg';
+import DefaultLogo from './DefaultLogo.svg';
 
 export type LogoVariant = 'default';
 
