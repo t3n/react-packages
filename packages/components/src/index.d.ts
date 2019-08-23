@@ -8,6 +8,7 @@ export { CardSplitContent } from './CardSplitContent';
 export { Center } from './Center';
 export { Content } from './Content';
 export { FormGroup } from './FormGroup';
+export { GlobalStyle } from './GlobalStyle';
 export { Grid } from './Grid';
 export { GridItem } from './GridItem';
 export { Heading, H1, H2, H3, H4, H5, H6 } from './Heading';
