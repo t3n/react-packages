@@ -1,5 +1,7 @@
 const spaces = new Array<number>(10).fill(0).map((val, i) => i * 8);
 
+export type ThemeSpaces = number[];
+
 export default spaces;
 
 // $gap                      : 1.25rem;

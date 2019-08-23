@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { ThemeBackgroundColors } from '@t3n/theme/src/theme/colors/colors';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 import { ThemeProps } from '@t3n/theme';
 import { getColorForBackground } from '@t3n/theme/src/utils/color';
 import { space, typography } from 'styled-system';
 
 interface BadgeProps extends ThemeProps {
-  variant?: ThemeBackgroundColors;
+  variant?: ThemeBackgroundColor;
   small?: boolean;
   rounded?: boolean;
 }

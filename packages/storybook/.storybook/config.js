@@ -58,19 +58,12 @@ addDecorator(story => (
 function loadStories() {
   // Storybook
   require('../src/stories/storybook/storybook.stories');
-  // Brand
-  require('../src/stories/brand/brand.stories');
-  require('../src/stories/brand/logo/logo.stories');
-  require('../src/stories/brand/typography/introduction/introduction.stories');
-  require('../src/stories/brand/typography/fonts/fonts.stories');
-  require('../src/stories/brand/typography/heading/heading.stories');
-  require('../src/stories/brand/typography/text/text.stories');
-  require('../src/stories/brand/icons/icons.stories');
 
   // Design-System
   require('../src/stories/designSystem/breakpoints/breakpoints.stories');
   require('../src/stories/designSystem/colors/colors.stories');
   require('../src/stories/designSystem/space/space.stories');
+  require('../src/stories/designSystem/theme/theme.stories');
 
   // Components - Typography
   require('../src/stories/components/typography/heading/heading.stories');

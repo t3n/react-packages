@@ -5,7 +5,7 @@ import { Badge, Heading, Grid, GridItem } from '@t3n/components';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import { ThemeConsumer } from 'styled-components';
-import { ThemeBackgroundColors } from '@t3n/theme/src/theme/colors/colors';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 import StoryContainer from '../../../components/StoryContainer';
 
 storiesOf('Components|Content/Badge', module)
@@ -18,7 +18,7 @@ storiesOf('Components|Content/Badge', module)
           {theme => {
             const colors = Object.keys(
               theme.colors.background
-            ) as ThemeBackgroundColors[];
+            ) as ThemeBackgroundColor[];
 
             return (
               <Badge
@@ -47,7 +47,7 @@ storiesOf('Components|Content/Badge', module)
           {theme => {
             const colors = Object.keys(
               theme.colors.background
-            ) as ThemeBackgroundColors[];
+            ) as ThemeBackgroundColor[];
 
             const badgeText = text('Badge Text', 'Ratgeber');
 

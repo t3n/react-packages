@@ -1,3 +1,9 @@
+export interface ThemeTextStyle {
+  fontFamily: string;
+  fontSize: number[];
+  lineHeight: number[];
+}
+
 export const textRegular = {
   fontFamily: 'default',
   fontSize: [1],
@@ -51,6 +57,18 @@ export const h6 = {
   fontSize: [2],
   lineHeight: [2]
 };
+
+export interface ThemeTextStyles {
+  regular: ThemeTextStyle;
+  small: ThemeTextStyle;
+  big: ThemeTextStyle;
+  h1: ThemeTextStyle;
+  h2: ThemeTextStyle;
+  h3: ThemeTextStyle;
+  h4: ThemeTextStyle;
+  h5: ThemeTextStyle;
+  h6: ThemeTextStyle;
+}
 
 const textStyles = {
   regular: textRegular,
