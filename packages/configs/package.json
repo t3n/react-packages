@@ -1,6 +1,6 @@
 {
   "name": "@t3n/configs",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "t3n javascript configuration wrapper",
   "repository": {
     "type": "git",
@@ -9,7 +9,6 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {},
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
@@ -27,9 +26,9 @@
     "file-loader": "^4.2.0",
     "source-map-loader": "^0.2.4",
     "url-loader": "^2.1.0",
+    "webpack": "^4.29.3",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.2.3",
-    "webpack-notifier": "^1.7.0",
-    "webpack": "^4.29.3"
+    "webpack-notifier": "^1.7.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@t3n/storybook",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "t3n.de storybook",
   "repository": {
     "type": "git",
@@ -16,8 +16,8 @@
     "@storybook/addons": "^5.1.1",
     "@storybook/react": "^5.1.1",
     "@storybook/theming": "^5.1.10",
-    "@t3n/components": "^0.0.16",
-    "@t3n/theme": "^0.0.16",
+    "@t3n/components": "^0.0.17",
+    "@t3n/theme": "^0.0.17",
     "@types/graphql": "^14.2.3",
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.4",
@@ -60,7 +60,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@t3n/configs": "^0.0.16",
+    "@t3n/configs": "^0.0.17",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "typescript": "^3.5.3",
