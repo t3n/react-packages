@@ -2,7 +2,7 @@ const border = {
   radii: [0, 4].map(n => `${n}px`)
 };
 
-export interface ThemeBorderInterface {
+export interface ThemeBorder {
   radii: string[];
 }
 

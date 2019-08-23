@@ -1,7 +1,7 @@
 declare const border: {
     radii: string[];
 };
-export interface ThemeBorderInterface {
+export interface ThemeBorder {
     radii: string[];
 }
 export default border;
