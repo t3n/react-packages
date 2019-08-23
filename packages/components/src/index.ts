@@ -12,6 +12,7 @@ export { Grid } from './Grid';
 export { GridItem } from './GridItem';
 export { Heading, H1, H2, H3, H4, H5, H6 } from './Heading';
 export { HeroCard } from './HeroCard';
+export { JobCard } from './JobCard';
 export { Image } from './Image/index';
 export { Input } from './Input';
 export { Link } from './Link';
