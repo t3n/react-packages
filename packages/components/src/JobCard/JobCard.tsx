@@ -40,20 +40,15 @@ const LoadingJobCard = () => (
 const LoadingJobListItem = () => (
   <Card>
     <div style={{ display: 'flex' }}>
-      <Placeholder height="80px" width="80px" mr={2} />
-      <div>
-        <Placeholder height="1.25rem" width="8rem" mb={0} mt={1} />
-        <Placeholder height="0.875rem" mb={2} mt={1} />
-        <Placeholder height="0.5rem" mb={2} mt={1} />
+      <Placeholder height="80px" width="80px" />
+      <div style={{ marginLeft: '10px' }}>
+        <Placeholder height="1.25rem" width="20rem" mb={0} mt={1} />
+        <Placeholder height="1rem" width="7rem" mb={2} mt={1} />
+        <Placeholder height="0.875rem" width="5rem" mt={1} mb={1} />
       </div>
     </div>
   </Card>
 );
-
-const CardDetails = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
 
 const BorderImage = styled(Image)`
   border: 2px solid ${props => props.theme.colors.shades.grey232};
@@ -75,8 +70,8 @@ const JobCardItem = ({
       </Text>
     </div>
 
-    <CardDetails>
-      <BorderImage alt="Job Logo" src={imageUrl} width="80" height="80" />
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <BorderImage alt={companyName} src={imageUrl} width="80" height="80" />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Text width="auto" inline bold small>
           {companyName}
@@ -85,7 +80,7 @@ const JobCardItem = ({
           {postCode} {city}
         </Text>
       </div>
-    </CardDetails>
+    </div>
   </Card>
 );
 
@@ -99,7 +94,7 @@ const JobListItem = ({
 }: Job) => (
   <Card href={url} stretch rounded={false} elevate={false}>
     <div style={{ display: 'flex' }}>
-      <BorderImage alt="Job Logo" src={imageUrl} width="80" height="80" />
+      <BorderImage alt={companyName} src={imageUrl} width="80" height="80" />
       <div>
         <Text width="auto" bold mt={0} mb={0}>
           {title}
