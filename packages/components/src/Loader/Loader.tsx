@@ -9,15 +9,10 @@ interface LoaderWrapperProps {
   bg?: ColorProps['bg'];
 }
 
-const backgroundColor = ({
-  bg,
-  backgroundColor,
-  theme
-}: LoaderWrapperProps & ThemeProps) =>
+const backgroundColor = ({ bg, theme }: LoaderWrapperProps & ThemeProps) =>
   color({ bg: bg || backgroundColor, theme });
 
 const LoaderWrapper = styled.div<LoaderWrapperProps>`
-  
   width: 3rem;
   text-align: center;
 
