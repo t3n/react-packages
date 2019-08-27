@@ -16,18 +16,15 @@ storiesOf('Components|Content/Loader', module)
     'Default',
     () => (
       <Loader
-        bg={select(
+        backgroundColor={select(
           'Farbe',
           {
-            black: 'shades.black',
-            grey42: 'shades.grey42',
-            grey155: 'shades.grey155',
-            grey232: 'shades.grey232',
-            grey244: 'shades.grey244',
-            white: 'shades.white',
-            red: 'brand.red'
+            Primary: 'primary',
+            Secondary: 'secondary',
+            Inverse: 'inverse',
+            Highlight: 'highlight'
           },
-          'shades.grey155'
+          'secondary'
         )}
       />
     ),

@@ -1,13 +1,13 @@
 /// <reference types="react" />
-import { ColorProps } from 'styled-system';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 interface LoaderWrapperProps {
-    backgroundColor?: ColorProps['backgroundColor'];
-    bg?: ColorProps['bg'];
+    backgroundColor?: ThemeBackgroundColor;
+    bg?: ThemeBackgroundColor;
 }
 export declare const Loader: {
     (props: LoaderWrapperProps): JSX.Element;
     defaultProps: {
-        bg: string;
+        backgroundColor: string;
     };
 };
 export {};

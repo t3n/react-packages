@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, ColorProps } from 'styled-system';
+import { color } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors'
 
-interface LoaderWrapperProps {
-  backgroundColor?: ColorProps['backgroundColor'];
-  bg?: ColorProps['bg'];
+interface LoaderWrapperProps  {
+  backgroundColor?: ThemeBackgroundColor;
+  bg?: ThemeBackgroundColor;
 }
 
-const backgroundColor = ({ bg, theme }: LoaderWrapperProps & ThemeProps) =>
-  color({ bg: bg || backgroundColor, theme });
+const backgroundColor = ({ backgroundColor, bg, theme }: LoaderWrapperProps & ThemeProps) =>
+  color({ backgroundColor:'background.' + (backgroundColor || bg), theme });
 
 const LoaderWrapper = styled.div<LoaderWrapperProps>`
   width: 3rem;
@@ -72,5 +73,5 @@ export const Loader = (props: LoaderWrapperProps) => {
 };
 
 Loader.defaultProps = {
-  bg: 'shades.grey42'
+  backgroundColor: 'secondary'
 };
