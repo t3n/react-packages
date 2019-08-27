@@ -1,13 +1,6 @@
 import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  compose,
-  space,
-  margin,
-  width,
-  MarginProps,
-  WidthProps
-} from 'styled-system';
+import { space, margin, width, MarginProps, WidthProps } from 'styled-system';
 // import { PulseLoader } from 'react-spinners';
 
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';

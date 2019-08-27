@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { ThemeProps, theme, getColorForBackground } from '@t3n/theme';
+import { ThemeProps, getColorForBackground } from '@t3n/theme';
 import {
   ThemeBackgroundColor,
   ThemeTextColor
@@ -12,8 +12,8 @@ interface GlobalStyleProps extends ThemeProps {
 
 const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   html, body {
-    font-family: ${({ theme }: ThemeProps) => theme.fonts.default};
-    background: ${({ backgroundColor }) =>
+    font-family: ${({ theme }) => theme.fonts.default};
+    background: ${({ backgroundColor, theme }) =>
       theme.colors.background[backgroundColor]};
     color: ${({ backgroundColor, color }) =>
       color || getColorForBackground(backgroundColor)};
