@@ -9,7 +9,12 @@ storiesOf('Components|Layout/Page', module)
   .add(
     'Default',
     () => (
-      <PageLayout showHeader={boolean('Mit Header', true)}>Content</PageLayout>
+      <PageLayout
+        noContentPadding={boolean('Kein Abstand zum Header', false)}
+        showHeader={boolean('Mit Header', true)}
+      >
+        Content
+      </PageLayout>
     ),
     {
       options: {

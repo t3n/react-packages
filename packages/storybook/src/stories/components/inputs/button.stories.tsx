@@ -1,6 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  boolean,
+  number
+} from '@storybook/addon-knobs';
 
 import { Button, LinkButton, Grid, GridItem, Section } from '@t3n/components';
 import { ButtonColors } from '@t3n/components/src/Button/Button';
@@ -26,7 +32,12 @@ storiesOf('Components|Inputs/Button', module)
       >
         <Button
           inverse={boolean('Invertiert?', false, 'Button')}
-          wide={boolean('Volle breite?', false, 'Button')}
+          width={number(
+            'Breite',
+            0.3,
+            { range: true, min: 0, max: 1, step: 0.1 },
+            'Button'
+          )}
           secondary={boolean('Als "Secondary"?', false, 'Button')}
           small={boolean('Kleine Schrift', false, 'Button')}
           color={select<ButtonColors>('Farbe', colors, 'light', 'Button')}
