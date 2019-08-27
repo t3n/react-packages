@@ -21,7 +21,6 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       {showHeader && (
         <PageHeader logoVariant={logoVariant}>{headerContent}</PageHeader>
       )}
-      <Content wide px={0} pt={showHeader ? '3.5rem' : 0}>
       <Content
         wide
         px={0}
