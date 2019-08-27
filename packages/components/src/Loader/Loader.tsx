@@ -11,11 +11,11 @@ interface LoaderWrapperProps {
 }
 
 const backgroundColor = ({
-  backgroundColor,
+  backgroundColor: backgroundColorProps,
   bg,
   theme
 }: LoaderWrapperProps & ThemeProps) =>
-  color({ backgroundColor: `background.${backgroundColor || bg}`, theme });
+  color({ backgroundColor: `background.${backgroundColorProps || bg}`, theme });
 
 const LoaderWrapper = styled.div<LoaderWrapperProps>`
   width: 3rem;
