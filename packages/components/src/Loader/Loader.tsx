@@ -3,15 +3,19 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
-import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors'
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
-interface LoaderWrapperProps  {
+interface LoaderWrapperProps {
   backgroundColor?: ThemeBackgroundColor;
   bg?: ThemeBackgroundColor;
 }
 
-const backgroundColor = ({ backgroundColor, bg, theme }: LoaderWrapperProps & ThemeProps) =>
-  color({ backgroundColor:'background.' + (backgroundColor || bg), theme });
+const backgroundColor = ({
+  backgroundColor,
+  bg,
+  theme
+}: LoaderWrapperProps & ThemeProps) =>
+  color({ backgroundColor: `background.${backgroundColor || bg}`, theme });
 
 const LoaderWrapper = styled.div<LoaderWrapperProps>`
   width: 3rem;
