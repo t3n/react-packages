@@ -1,13 +1,23 @@
 import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { space } from 'styled-system';
+import {
+  compose,
+  space,
+  margin,
+  width,
+  MarginProps,
+  WidthProps
+} from 'styled-system';
 // import { PulseLoader } from 'react-spinners';
 
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export type ButtonColors = 'light' | 'dark';
 
-export interface ButtonProps extends ButtonHTMLAttributes<any> {
+export interface ButtonProps
+  extends ButtonHTMLAttributes<any>,
+    MarginProps,
+    WidthProps {
   rounded?: boolean;
   icon?: ReactNode; // TODO: Implement icon
   secondary?: boolean;
@@ -15,7 +25,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<any> {
   inverse?: boolean;
   loading?: boolean;
   small?: boolean;
-  wide?: boolean;
   disabled?: boolean;
 }
 
@@ -29,10 +38,6 @@ const borderRadius = ({ rounded, theme }: ButtonProps & ThemeProps) => `
   border-radius: ${rounded ? '50%' : theme.border.radii[1]};
 `;
 
-const width = ({ wide }: ButtonProps) => `
-  width: ${wide ? '100%' : 'auto'};
-`;
-
 const cursor = ({ disabled }: ButtonProps) =>
   `cursor: ${disabled ? 'cursor' : 'pointer'};`;
 
@@ -44,11 +49,12 @@ export const buttonStyles = css`
   transition: all .1s ease-out;
   height: 38px;
   border: none;
-  ${width}
   ${padding}
   ${borderRadius}
   ${textStyle}
   ${cursor}
+  ${width}
+  ${margin}
 
   ${composeButtonStyle}
 `;

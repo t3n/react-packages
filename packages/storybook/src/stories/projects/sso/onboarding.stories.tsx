@@ -63,9 +63,7 @@ storiesOf('Projekte|SSO', module)
                 <FormGroup label="E-Mail-Adresse" required>
                   <Input type="email" required />
                 </FormGroup>
-                <Button wide color="dark">
-                  Bestätigen
-                </Button>
+                <Button color="dark">Bestätigen</Button>
               </CardSplitContent>
             </Card>
           </GridItem>
