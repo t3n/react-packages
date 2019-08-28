@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { color, TextColorProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -38,7 +38,7 @@ const underlineDefault = ({ underline = 'none' }: LinkProps) =>
 const underlineHover = ({ underline = 'none' }: LinkProps) =>
   `text-decoration: ${underline === 'none' ? 'none' : 'underline'}`;
 
-export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
+export const linkStyle = css`
   ${textColor('default')};
   ${underlineDefault};
 
@@ -57,4 +57,8 @@ export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
     ${textColor('focus')};
     ${underlineHover};
   }
+`;
+
+export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
+  ${linkStyle};
 `;

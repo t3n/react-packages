@@ -1,21 +1,19 @@
-import { text } from '@storybook/addon-knobs';
-import { AlignItemsProps, space, typography } from 'styled-system';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { addDecorator, configure, addParameters } from '@storybook/react';
 import { addReadme } from 'storybook-readme';
 import { ThemeProvider } from 'styled-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-
 import { ApolloProvider } from '@apollo/react-hooks';
-
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 
+import { GlobalStyle } from '@t3n/components';
 import { theme } from '@t3n/theme';
+
 import viewports from './viewports';
-import GlobalStyle from './GlobalStyle';
+import StorybookGlobalStyle from './GlobalStyle';
 
 import storyBookTheme from './theme';
 
@@ -50,6 +48,7 @@ addDecorator(story => (
   <ThemeProvider theme={theme}>
     <ApolloProvider client={client}>
       <GlobalStyle />
+      <StorybookGlobalStyle />
       {story()}
     </ApolloProvider>
   </ThemeProvider>
@@ -58,19 +57,12 @@ addDecorator(story => (
 function loadStories() {
   // Storybook
   require('../src/stories/storybook/storybook.stories');
-  // Brand
-  require('../src/stories/brand/brand.stories');
-  require('../src/stories/brand/logo/logo.stories');
-  require('../src/stories/brand/typography/introduction/introduction.stories');
-  require('../src/stories/brand/typography/fonts/fonts.stories');
-  require('../src/stories/brand/typography/heading/heading.stories');
-  require('../src/stories/brand/typography/text/text.stories');
-  require('../src/stories/brand/icons/icons.stories');
 
   // Design-System
   require('../src/stories/designSystem/breakpoints/breakpoints.stories');
   require('../src/stories/designSystem/colors/colors.stories');
   require('../src/stories/designSystem/space/space.stories');
+  require('../src/stories/designSystem/theme/theme.stories');
 
   // Components - Typography
   require('../src/stories/components/typography/heading/heading.stories');
@@ -95,6 +87,7 @@ function loadStories() {
   require('../src/stories/components/content/image.stories');
   require('../src/stories/components/content/newsCard.stories');
   require('../src/stories/components/content/jobCard.stories');
+  require('../src/stories/components/content/loader.stories');
   require('../src/stories/components/content/placeholder.stories');
 
   // Components - Inputs

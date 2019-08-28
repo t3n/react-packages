@@ -9,11 +9,36 @@ export const grey232 = '#e8e8e8';
 export const grey244 = '#f4f4f4';
 export const white = '#fff';
 
+export type ThemeBrandColor = 'red' | 'black' | 'white';
+
+export interface ThemeBrandColors {
+  red: string;
+  black: string;
+  white: string;
+}
+
 export const brandColors = {
   red,
   black,
   white
 };
+
+export type ThemeShadeColor =
+  | 'black'
+  | 'grey42'
+  | 'grey155'
+  | 'grey232'
+  | 'grey244'
+  | 'white';
+
+export interface ThemeShadeColors {
+  black: string;
+  grey42: string;
+  grey155: string;
+  grey232: string;
+  grey244: string;
+  white: string;
+}
 
 export const shadesColors = {
   black,
@@ -30,11 +55,18 @@ export const backgroundSecondary = grey244;
 export const backgroundInverse = grey42;
 export const backgroundHighlight = red;
 
-export type ThemeBackgroundColors =
+export type ThemeBackgroundColor =
   | 'primary'
   | 'secondary'
   | 'inverse'
   | 'highlight';
+
+export interface ThemeBackgroundColors {
+  primary: string;
+  secondary: string;
+  inverse: string;
+  highlight: string;
+}
 
 export const backgroundColors = {
   primary: backgroundPrimary,
@@ -48,6 +80,15 @@ export const textPrimary = grey42;
 export const textSecondary = grey232;
 export const textInverse = white;
 export const textHighlight = red;
+
+export type ThemeTextColor = 'primary' | 'secondary' | 'inverse' | 'highlight';
+
+export interface ThemeTextColors {
+  primary: string;
+  secondary: string;
+  inverse: string;
+  highlight: string;
+}
 
 export const textColors = {
   primary: textPrimary,
@@ -70,6 +111,35 @@ export const linkedin = '#008cc9';
 export const whatsapp = '#64d448';
 export const xing = '#338383';
 
+export type ThemeSocialColor =
+  | 'comment'
+  | 'podcast'
+  | 'mail'
+  | 'twitter'
+  | 'facebook'
+  | 'google'
+  | 'flipboard'
+  | 'pocket'
+  | 'instagram'
+  | 'linkedin'
+  | 'whatsapp'
+  | 'xing';
+
+export interface ThemeSocialColors {
+  comment: string;
+  podcast: string;
+  mail: string;
+  twitter: string;
+  facebook: string;
+  google: string;
+  flipboard: string;
+  pocket: string;
+  instagram: string;
+  linkedin: string;
+  whatsapp: string;
+  xing: string;
+}
+
 export const socialColors = {
   comment,
   podcast,
@@ -90,6 +160,15 @@ export const success = '#34e88f';
 export const notice = grey155;
 export const warn = '#fbbe35';
 export const error = '#ff7e00';
+
+export type ThemeFeedbackColor = 'success' | 'notice' | 'warn' | 'error';
+
+export interface ThemeFeedbackColors {
+  success: string;
+  notice: string;
+  warn: string;
+  error: string;
+}
 
 export const feedbackColors = {
   success,
@@ -115,6 +194,15 @@ export const feedbackColors = {
 
 // $link-color               : $font-color-mute;
 // $tag-color                : $font-color-mute;
+
+export interface ThemeColors {
+  brand: ThemeBrandColors;
+  shades: ThemeShadeColors;
+  background: ThemeBackgroundColors;
+  text: ThemeTextColors;
+  social: ThemeSocialColors;
+  feedback: ThemeFeedbackColors;
+}
 
 const colors = {
   brand: brandColors,

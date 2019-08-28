@@ -1,13 +1,16 @@
 import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { space } from 'styled-system';
-import { PulseLoader } from 'react-spinners';
+import { space, margin, width, MarginProps, WidthProps } from 'styled-system';
+// import { PulseLoader } from 'react-spinners';
 
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export type ButtonColors = 'light' | 'dark';
 
-export interface ButtonProps extends ButtonHTMLAttributes<any> {
+export interface ButtonProps
+  extends ButtonHTMLAttributes<any>,
+    MarginProps,
+    WidthProps {
   rounded?: boolean;
   icon?: ReactNode; // TODO: Implement icon
   secondary?: boolean;
@@ -15,7 +18,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<any> {
   inverse?: boolean;
   loading?: boolean;
   small?: boolean;
-  wide?: boolean;
   disabled?: boolean;
 }
 
@@ -25,12 +27,8 @@ const padding = ({ theme }: ButtonProps & ThemeProps) =>
 const textStyle = ({ small, theme }: ButtonProps & ThemeProps) =>
   composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
 
-const borderRadius = ({ rounded }: ButtonProps) => `
-  border-radius: ${rounded ? '50%' : '4px'};
-`;
-
-const width = ({ wide }: ButtonProps) => `
-  width: ${wide ? '100%' : 'auto'};
+const borderRadius = ({ rounded, theme }: ButtonProps & ThemeProps) => `
+  border-radius: ${rounded ? '50%' : theme.border.radii[1]};
 `;
 
 const cursor = ({ disabled }: ButtonProps) =>
@@ -44,11 +42,12 @@ export const buttonStyles = css`
   transition: all .1s ease-out;
   height: 38px;
   border: none;
-  ${width}
   ${padding}
   ${borderRadius}
   ${textStyle}
   ${cursor}
+  ${width}
+  ${margin}
 
   ${composeButtonStyle}
 `;
@@ -69,14 +68,18 @@ const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
   }
 `;
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  loading,
-  ...rest
-}) => {
-  return (
-    <StyledButton {...rest}>
-      {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
-    </StyledButton>
-  );
-};
+// export const Button: React.FC<ButtonProps> = ({
+//   children,
+//   loading,
+//   ...rest
+// }) => {
+//   return (
+//     <StyledButton {...rest}>
+//       {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
+//     </StyledButton>
+//   );
+// };
+
+export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
+  <StyledButton {...rest}>{children}</StyledButton>
+);

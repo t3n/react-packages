@@ -1,3 +1,33 @@
+export interface ThemeButtonStyle {
+  default: {
+    color: string;
+    bg: string;
+    borderColor: string;
+  };
+  hover: {
+    color: string;
+    bg: string;
+    borderColor: string;
+  };
+}
+
+export interface ThemeButtonStyles {
+  primary: {
+    light: {
+      regular: ThemeButtonStyle;
+      inverse: ThemeButtonStyle;
+    };
+    dark: {
+      regular: ThemeButtonStyle;
+      inverse: ThemeButtonStyle;
+    };
+  };
+  secondary: {
+    regular: ThemeButtonStyle;
+    inverse: ThemeButtonStyle;
+  };
+}
+
 const buttonStyles = {
   primary: {
     light: {

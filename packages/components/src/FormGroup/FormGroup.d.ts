@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { MarginProps } from 'styled-system';
-interface FormGroupProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'> {
+export interface FormGroupProps extends React.LabelHTMLAttributes<HTMLLabelElement>, Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'> {
     label: string;
     labelSecondary?: string;
     labelEndContent?: ReactNode;
@@ -14,4 +14,3 @@ export declare const FormGroup: {
         my: number;
     };
 };
-export {};

@@ -1,3 +1,14 @@
+export interface ThemeLinkStyle {
+    default: string;
+    hover: string;
+    focus: string;
+}
+export interface ThemeLinkStyles {
+    primary: ThemeLinkStyle;
+    secondary: ThemeLinkStyle;
+    highlight: ThemeLinkStyle;
+    inverse: ThemeLinkStyle;
+}
 declare const linkStyles: {
     primary: {
         default: string;

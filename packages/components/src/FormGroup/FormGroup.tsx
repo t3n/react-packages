@@ -6,7 +6,7 @@ import { space, margin, MarginProps } from 'styled-system';
 import { getThemeColor, ThemeProps } from '@t3n/theme';
 import { Text } from '../Text';
 
-interface FormGroupProps
+export interface FormGroupProps
   extends React.LabelHTMLAttributes<HTMLLabelElement>,
     Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'> {
   label: string;

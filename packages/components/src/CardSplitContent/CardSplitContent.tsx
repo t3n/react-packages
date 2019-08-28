@@ -10,7 +10,7 @@ import {
   size,
   WidthProps
 } from 'styled-system';
-import { ThemeBackgroundColors } from '@t3n/theme/src/theme/colors/colors';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
   ${space}
@@ -20,7 +20,7 @@ const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
 `;
 
 interface CardSplitContentProps {
-  variant?: ThemeBackgroundColors;
+  variant?: ThemeBackgroundColor;
 }
 
 export const CardSplitContent: React.FC<CardSplitContentProps> = ({

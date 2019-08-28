@@ -14,8 +14,6 @@ import {
 } from '@t3n/components';
 import { RgbColor, RgbaColor } from 'polished/lib/types/color';
 import StoryContainer from '../../../components/StoryContainer';
-import intro from './introduction.md';
-import colorsMd from './colors.md';
 
 interface ColorCardProps {
   name: string;
@@ -54,13 +52,8 @@ const ColorCard = ({ name, value, rgb }: ColorCardProps) => (
 
 storiesOf('Design System|Colors', module)
   .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add('Einleitung', doc(intro), {
-    options: {
-      showPanel: false
-    }
-  })
   .add(
-    'Online Farben',
+    'ColorGroups',
     () => (
       <ThemeConsumer>
         {theme => {
@@ -97,9 +90,4 @@ storiesOf('Design System|Colors', module)
         showPanel: false
       }
     }
-  )
-  .add('Druckfarben', doc(colorsMd), {
-    options: {
-      showPanel: false
-    }
-  });
+  );
