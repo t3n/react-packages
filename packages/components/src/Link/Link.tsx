@@ -1,17 +1,15 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { color, TextColorProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Text, TextProps } from '../Text/Text';
+import { textStyle, TextProps } from '../Text/Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 export type LinkUnderlineType = 'none' | 'hover' | 'always';
 
-export interface LinkProps
-  extends TextColorProps,
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
+export interface LinkProps extends TextColorProps {
   variant?: LinkVariantType;
   underline?: LinkUnderlineType;
   small?: TextProps['small'];
@@ -59,6 +57,7 @@ export const linkStyle = css`
   }
 `;
 
-export const Link = styled(Text).attrs(() => ({ as: 'a' }))<LinkProps>`
+export const Link = styled.a<LinkProps>`
+  ${textStyle};
   ${linkStyle};
 `;
