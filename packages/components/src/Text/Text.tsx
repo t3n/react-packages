@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   color,
   space,
@@ -35,9 +35,7 @@ const textColor = ({
 }: TextProps & ThemeProps) =>
   color({ color: secondary ? 'text.secondary' : colorProp, theme });
 
-export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
-  as: as || (inline ? 'span' : 'p')
-}))<TextProps>`
+export const textStyle = css<TextProps>`
   ${font}
   ${textColor}
   ${fontWeight}
@@ -46,7 +44,11 @@ export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
   ${width}
 `;
 
-Text.displayName = 'Text';
+export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
+  as: as || (inline ? 'span' : 'p')
+}))<TextProps>`
+  ${textStyle}
+`;
 
 Text.defaultProps = {
   width: 1
