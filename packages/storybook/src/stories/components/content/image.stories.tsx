@@ -24,7 +24,7 @@ storiesOf('Components|Content/Image', module)
             'Bild-URL',
             'https://assets.t3n.sc/news/wp-content/uploads/2019/08/tier-e-scooter-hero.jpg'
           )}
-          alt="Image Alt-Text"
+          alt={text('Alt-Text', '')}
           width={text('Breite', '')}
           height={text('Höhe', '')}
           processConfiguration={{

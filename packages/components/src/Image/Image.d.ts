@@ -4,6 +4,7 @@ interface ImageProps {
     src: string;
     width?: string;
     height?: string;
+    className?: string;
     processConfiguration?: {
         fit?: 'crop';
         quality?: number;
@@ -11,10 +12,11 @@ interface ImageProps {
     };
 }
 export declare const Image: {
-    ({ width, height, src, processConfiguration }: ImageProps): JSX.Element;
+    ({ width, height, src, alt, processConfiguration, className }: ImageProps): JSX.Element;
     defaultProps: {
         width: string;
         height: string;
+        className: {};
     };
 };
 export {};

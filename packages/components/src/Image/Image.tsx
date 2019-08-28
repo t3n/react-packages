@@ -6,6 +6,7 @@ interface ImageProps {
   src: string;
   width?: string;
   height?: string;
+  className?: string;
 
   processConfiguration?: {
     fit?: 'crop';
@@ -18,7 +19,9 @@ export const Image = ({
   width,
   height,
   src,
-  processConfiguration
+  alt,
+  processConfiguration,
+  className
 }: ImageProps) => {
   return (
     <Imgix
@@ -33,11 +36,16 @@ export const Image = ({
       disableSrcSet
       width={width}
       height={height}
+      htmlAttributes={{
+        alt
+      }}
+      className={className}
     />
   );
 };
 
 Image.defaultProps = {
   width: '150',
-  height: 'auto'
+  height: 'auto',
+  className: {}
 };
