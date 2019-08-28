@@ -17,6 +17,7 @@ export { Image } from './Image/index';
 export { Input } from './Input';
 export { Link } from './Link';
 export { LinkButton } from './LinkButton';
+export { Loader } from './Loader';
 export { PasswordLostLabel } from './FormGroup';
 export { Logo } from './Logo';
 export { NewsCard } from './NewsCard';
