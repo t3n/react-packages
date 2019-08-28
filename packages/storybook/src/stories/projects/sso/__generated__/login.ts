@@ -9,7 +9,7 @@
 export interface login_sso_login {
   __typename: "LoginSuccess";
   cookie: string;
-  value: string;
+  sessionId: string;
 }
 
 export interface login_sso {

@@ -87,7 +87,7 @@ const LOGIN_MUTATION = gql`
     sso {
       login(email: $email, password: $password) {
         cookie
-        value
+        sessionId
       }
     }
   }
@@ -116,11 +116,11 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
         if (res && res.data) {
           const {
             sso: {
-              login: { cookie, value }
+              login: { cookie, sessionId }
             }
           } = res.data;
 
-          setCookie(cookie, value, { domain: '.t3n.de' });
+          setCookie(cookie, sessionId, { domain: '.t3n.de' });
           onSuccess();
           setIsSubmitting(false);
         }
