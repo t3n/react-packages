@@ -28,3 +28,4 @@ export { Placeholder } from './Placeholder';
 export { Ratio } from './Ratio';
 export { Section } from './Section';
 export { Text } from './Text';
+export { TitleCard } from './TitleCard';

@@ -87,6 +87,7 @@ function loadStories() {
   require('../src/stories/components/content/image.stories');
   require('../src/stories/components/content/newsCard.stories');
   require('../src/stories/components/content/jobCard.stories');
+  require('../src/stories/components/content/titleCard.stories');
   require('../src/stories/components/content/loader.stories');
   require('../src/stories/components/content/placeholder.stories');
 

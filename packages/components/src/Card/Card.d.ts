@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { SizeProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
-interface CardProps extends ThemeProps {
+export interface CardProps {
     rounded?: boolean;
     big?: boolean;
     stretch?: boolean;
@@ -17,4 +16,3 @@ export declare const Card: import("styled-components").StyledComponent<"div", an
     href: string | false | undefined;
     as: string;
 } & CardProps, "href" | "as">;
-export {};
