@@ -19,7 +19,7 @@ storiesOf('Components|Content/JobCard', module)
       const type: JobCardType = select(
         'Darstellung',
         { 'Job-Card': 'CARD', 'Job-List': 'LIST' },
-        'LIST'
+        'CARD'
       );
       const loading = boolean('Ladestatus', false);
       const p = [type === 'CARD' ? 1 : 0, type === 'CARD' ? 1 : 0, 0];

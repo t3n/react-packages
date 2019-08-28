@@ -26,10 +26,10 @@ interface JobCardProps {
 const LoadingJobCard = () => (
   <Card>
     <Placeholder height="1rem" mb={1} mt={1} />
-    <Placeholder height="1rem" width="75%" mb={3} />
+    <Placeholder height="1rem" width="3/4" mb={3} />
     <div style={{ display: 'flex', width: '100%' }}>
-      <Placeholder height="80px" width="80px" />
-      <div style={{ marginLeft: '10px' }}>
+      <Placeholder height="5rem" width="5rem" />
+      <div style={{ marginLeft: '0.625rem' }}>
         <Placeholder height="0.875rem" width="5rem" mb={1} />
         <Placeholder height="0.875rem" width="4.5rem" />
       </div>
@@ -40,8 +40,8 @@ const LoadingJobCard = () => (
 const LoadingJobListItem = () => (
   <Card>
     <div style={{ display: 'flex' }}>
-      <Placeholder height="80px" width="80px" />
-      <div style={{ marginLeft: '10px' }}>
+      <Placeholder height="5rem" width="5rem" />
+      <div style={{ marginLeft: '0.625rem' }}>
         <Placeholder height="1.25rem" width="20rem" mb={0} mt={1} />
         <Placeholder height="1rem" width="7rem" mb={2} mt={1} />
         <Placeholder height="0.875rem" width="5rem" mt={1} mb={1} />
@@ -51,8 +51,8 @@ const LoadingJobListItem = () => (
 );
 
 const BorderImage = styled(Image)`
-  border: 2px solid ${props => props.theme.colors.shades.grey232};
-  margin-right: 10px;
+  border: 0.125rem solid ${props => props.theme.colors.shades.grey232};
+  margin-right: 0.625rem;
 `;
 
 const JobCardItem = ({
@@ -103,7 +103,7 @@ const JobListItem = ({
           {companyName}
         </Text>
         <Text width="auto" small mt={1} mb={0} color="shades.grey155">
-          {/* TODO: Add location icon before city */}
+          {/* TODO: Add location icon instead of postcode */}
           {postCode} {city}
         </Text>
       </div>
