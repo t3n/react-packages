@@ -75,6 +75,7 @@ function loadStories() {
   require('../src/stories/components/layout/grid.stories');
   require('../src/stories/components/layout/page.stories');
   require('../src/stories/components/layout/pageHeader.stories');
+  require('../src/stories/components/layout/pageFooter.stories');
   require('../src/stories/components/layout/ratio.stories');
   require('../src/stories/components/layout/section.stories');
 

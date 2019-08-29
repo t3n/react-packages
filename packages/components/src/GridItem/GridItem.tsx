@@ -1,11 +1,19 @@
 import styled from 'styled-components';
-import { width, space, SpaceProps, WidthProps } from 'styled-system';
+import {
+  width,
+  space,
+  order,
+  OrderProps,
+  SpaceProps,
+  WidthProps
+} from 'styled-system';
 
-interface ItemProps extends SpaceProps, WidthProps {}
+interface ItemProps extends SpaceProps, WidthProps, OrderProps {}
 
 export const GridItem = styled.div<ItemProps>`
   ${width}
   ${space}
+  ${order}
 `;
 
 GridItem.defaultProps = {

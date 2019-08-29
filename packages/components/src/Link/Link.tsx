@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { color, TextColorProps } from 'styled-system';
+import { color, TextColorProps, SpaceProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -9,7 +9,7 @@ import { textStyle, TextProps } from '../Text/Text';
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 export type LinkUnderlineType = 'none' | 'hover' | 'always';
 
-export interface LinkProps extends TextColorProps {
+export interface LinkProps extends TextColorProps, SpaceProps {
   variant?: LinkVariantType;
   underline?: LinkUnderlineType;
   small?: TextProps['small'];
