@@ -2,8 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { Content, TitleCard } from '@t3n/components';
+import { theme } from '@t3n/theme';
 
+import { HeadingElements } from '@t3n/components/src/Heading';
 import StoryContainer from '../../../components/StoryContainer';
+// import console = require('console');
 
 storiesOf('Components|Content/TitleCard', module)
   .addDecorator(withKnobs)
@@ -15,14 +18,14 @@ storiesOf('Components|Content/TitleCard', module)
   .add(
     'Default',
     () => {
+      const headlineTags = Object.keys(theme.textStyles).filter(
+        item => item && item.charAt(0) === 'h'
+      ) as HeadingElements[];
+
       return (
         <TitleCard
           title={text('Title', 'Default Title')}
-          titleAs={select(
-            'Title Tag',
-            { h1: 'h1', h2: 'h2', h3: 'h3', h4: 'h4', h5: 'h5', h6: 'h6' },
-            'h3'
-          )}
+          titleAs={select('Title Tag', headlineTags, 'h3')}
         >
           {text(
             'Content',
