@@ -11,7 +11,7 @@ import {
 import { ThemeProps } from '@t3n/theme';
 import { CardHeader, CardHeaderContent } from '../CardHeader';
 
-interface CardProps extends ThemeProps {
+export interface CardProps {
   rounded?: boolean;
   big?: boolean;
   stretch?: boolean;
@@ -24,32 +24,32 @@ interface CardProps extends ThemeProps {
   children?: ReactNode;
 }
 
-const borderRadius = ({ rounded, theme }: CardProps) =>
+const borderRadius = ({ rounded, theme }: CardProps & ThemeProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
-const padding = ({ big, splitted, theme }: CardProps) =>
+const padding = ({ big, splitted, theme }: CardProps & ThemeProps) =>
   big
     ? space({ p: [3, 6], theme })
     : splitted
     ? space({ p: 0, theme })
     : space({ p: 3, theme });
 
-const color = ({ color: c, theme }: CardProps) =>
+const color = ({ color: c, theme }: CardProps & ThemeProps) =>
   styledColor({ color: c, theme });
 
 const shadow = {
-  default: ({ elevate, href, theme }: CardProps) =>
+  default: ({ elevate, href, theme }: CardProps & ThemeProps) =>
     elevate || href ? styledBoxShadow({ boxShadow: 'elevate', theme }) : '',
-  hover: ({ href, theme }: CardProps) =>
+  hover: ({ href, theme }: CardProps & ThemeProps) =>
     href ? styledBoxShadow({ boxShadow: 'elevateHover', theme }) : ''
 };
 
-const headerMargin = ({ big, theme }: CardProps) =>
+const headerMargin = ({ big, theme }: CardProps & ThemeProps) =>
   big
     ? space({ mx: [-3, -6], mt: [-3, -6], mb: [3, 6], theme })
     : space({ mx: -3, mt: -3, mb: 3, theme });
 
-const border = ({ dashed, elevate, href, theme }: CardProps) => {
+const border = ({ dashed, elevate, href, theme }: CardProps & ThemeProps) => {
   const borderWidth = dashed && !elevate && !href ? '2px' : '1px';
   const style = dashed && !elevate && !href ? 'dashed' : 'solid';
 
