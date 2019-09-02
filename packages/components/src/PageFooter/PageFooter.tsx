@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 import styled from 'styled-components';
 import {
@@ -14,7 +16,7 @@ import {
   textAlign,
   justifyContent
 } from 'styled-system';
-import { ThemeProps, theme } from '@t3n/theme';
+import { ThemeProps } from '@t3n/theme';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 import { Link } from '../Link';
