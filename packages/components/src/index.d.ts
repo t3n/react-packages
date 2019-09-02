@@ -24,6 +24,7 @@ export { PasswordLostLabel } from './FormGroup';
 export { Logo } from './Logo';
 export { NewsCard } from './NewsCard';
 export { PageHeader } from './PageHeader';
+export { PageFooter } from './PageFooter';
 export { PageLayout } from './PageLayout';
 export { Placeholder } from './Placeholder';
 export { Ratio } from './Ratio';

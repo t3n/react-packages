@@ -2,6 +2,7 @@ import React from 'react';
 import { PageHeader } from '../PageHeader';
 import { PageHeaderProps } from '../PageHeader/PageHeader';
 import { Content } from '../Content';
+import { PageFooter } from '../PageFooter';
 
 interface PageLayoutProps extends PageHeaderProps {
   showHeader: boolean;
@@ -28,6 +29,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       >
         {children}
       </Content>
+      <PageFooter contactLink="mailto:support@t3n.de">Test</PageFooter>
     </>
   );
 };
