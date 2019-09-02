@@ -4,19 +4,22 @@ import {
   space,
   color,
   layout,
-  typography,
+  border,
   BackgroundColorProps,
   SpaceProps,
   TypographyProps,
   FlexboxProps,
   LayoutProps,
-  flexbox
+  flexbox,
+  textAlign,
+  justifyContent
 } from 'styled-system';
 import { ThemeProps, theme } from '@t3n/theme';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 import { Link } from '../Link';
 import { Text } from '../Text';
+import { Box } from '../Box';
 
 interface PageFooterWrapperProps
   extends ThemeProps,
@@ -37,11 +40,6 @@ const FooterWrapper = styled.div<SpaceProps>`
   ${({ theme }) => color({ theme, bg: 'black' })};
 `;
 
-const ProjectFooterWrapper = styled.div<PageFooterWrapperProps>`
-  ${color}
-  ${space}
-`;
-
 const FooterLink = styled(Link).attrs(() => ({
   variant: 'inverse',
   underline: 'hover',
@@ -54,20 +52,37 @@ const FooterLink = styled(Link).attrs(() => ({
     ${({ theme }) => color({ theme, color: 'text.inverse' })};
   }
   ${({ theme }) => flexbox({ theme })}
-  ${({ theme }) => space({ theme, mx: [1] })}
+  ${({ theme }) =>
+    space({ theme, px: [1], my: ['0.25rem', 0] })}
 
   &:last-child {
-    ${({ theme }) => space({ theme, mr: [1, 1, 1, 0] })}
+    ${({ theme }) => space({ theme, pr: [1, 1, 1, 0] })}
   }
 `;
 
-const ContentContainer = styled.div<TypographyProps>`
-  ${typography}
+const FooterLinks = styled.div`
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  ${() =>
+    justifyContent({
+      justifyContent: ['center', 'center', 'center', 'flex-end']
+    })}
+
+  ${() => space({ my: [1, 0] })}
+
+  > a {
+    ${() => layout({ width: [1 / 2, 'auto'] })}
+    flex-shrink:0;
+
+    &:nth-child(odd) {
+      ${() => textAlign({ textAlign: ['right', 'left  '] })}
+    }
+  }
 `;
 
 const FooterBottom = styled.div`
-  ${({ theme }) => space({ theme, px: 3, py: [2, 2, 2, 0] })}
+  ${({ theme }) => space({ theme, px: 3, py: [3, 3, 3, 0] })}
   ${({ theme }) =>
     layout({
       theme,
@@ -77,6 +92,8 @@ const FooterBottom = styled.div`
   align-items: stretch;
   justify-content: center;
   flex-direction: column;
+  ${({ theme }: ThemeProps) =>
+    border({ theme, borderTop: '1px solid', borderColor: 'shades.grey44' })}
 `;
 
 export interface PageFooterProps {
@@ -90,24 +107,25 @@ export const PageFooter: React.FC<PageFooterProps> = ({
   return (
     <FooterWrapper>
       {children && (
-        <ProjectFooterWrapper bg="shades.black" color="text.inverse" p={3}>
+        <Box bg="shades.black" color="text.inverse" p={3}>
           {children}
-        </ProjectFooterWrapper>
+        </Box>
       )}
       <FooterBottom>
         <Grid justifyContent="space-between" alignItems="center">
           <GridItem width={[1, 1, 1, 1 / 3]} order={[1, 1, 1, 0]}>
-            <ContentContainer
-              textAlign={['center', 'center', 'center', 'left']}
+            <Text
+              color="shades.grey155"
+              small
+              m={0}
+              align={['center', 'center', 'center', 'left']}
             >
-              <Text color="shades.grey155" small my="0">
-                © yeebase media GmbH 2005-{CopyrightYear}
-              </Text>
-            </ContentContainer>
+              © yeebase media GmbH 2005-{CopyrightYear}
+            </Text>
           </GridItem>
 
           <GridItem width={[1, 1, 1, 1 / 3]}>
-            <ContentContainer textAlign="center">
+            <Text align="center" m={0}>
               <Link href="#" title="Facebook" mx={1}>
                 🍏
               </Link>
@@ -126,29 +144,20 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               <Link href="#" title="Whatsapp" mx={1}>
                 🍒
               </Link>
-            </ContentContainer>
+            </Text>
           </GridItem>
 
           <GridItem width={[1, 1, 1, 1 / 3]} my={[1, 1, 1, 0]}>
-            <ContentContainer
-              textAlign={['center', 'center', 'center', 'right']}
-            >
-              <FooterLink href={contactLink} textAlign={['right', 'left']}>
-                Kontakt
-              </FooterLink>
-              <FooterLink href="https://t3n.de/agb/" textAlign="left">
-                AGB
-              </FooterLink>
-              <FooterLink
-                href="https://t3n.de/datenschutz/"
-                textAlign={['right', 'left']}
-              >
+            <FooterLinks>
+              <FooterLink href={contactLink}>Kontakt</FooterLink>
+              <FooterLink href="https://t3n.de/agb/">AGB</FooterLink>
+              <FooterLink href="https://t3n.de/datenschutz/">
                 Datenschutz
               </FooterLink>
-              <FooterLink href="https://t3n.de/impressum/" textAlign="left">
+              <FooterLink href="https://t3n.de/impressum/">
                 Impressum
               </FooterLink>
-            </ContentContainer>
+            </FooterLinks>
           </GridItem>
         </Grid>
       </FooterBottom>
