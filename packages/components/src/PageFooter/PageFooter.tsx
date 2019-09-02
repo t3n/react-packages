@@ -34,11 +34,7 @@ interface PageFooterWrapperProps
 const CopyrightYear = new Date().getFullYear();
 
 const FooterWrapper = styled.div<SpaceProps>`
-  position: absolute;
-  z-index: 20;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   ${({ theme }) => color({ theme, bg: 'black' })};
 `;
 

@@ -4,13 +4,13 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { PageLayout } from '@t3n/components';
 
-storiesOf('Components|Layout/Page', module)
+storiesOf('Components|Layout/PageLayout', module)
   .addDecorator(withKnobs)
   .add(
     'Default',
     () => (
       <PageLayout
-        noContentPadding={boolean('Kein Abstand zum Header', false)}
+        noContentPadding={boolean('Kein Inhaltsabstand', false)}
         showHeader={boolean('Mit Header', true)}
       >
         Content
