@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ColorProps, SpaceProps, WidthProps } from 'styled-system';
+import { ColorProps, SpaceProps, WidthProps, TextAlignProps } from 'styled-system';
 export interface TextProps extends ColorProps, SpaceProps, WidthProps {
     as?: 'p' | 'span';
     bold?: boolean;
@@ -7,6 +7,7 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
     inline?: boolean;
     small?: boolean;
     secondary?: boolean;
+    align?: TextAlignProps['textAlign'];
     children: ReactNode;
 }
 export declare const textStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<TextProps, any>>;

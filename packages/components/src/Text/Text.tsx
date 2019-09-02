@@ -4,9 +4,11 @@ import {
   color,
   space,
   width,
+  textAlign,
   ColorProps,
   SpaceProps,
-  WidthProps
+  WidthProps,
+  TextAlignProps
 } from 'styled-system';
 import { ThemeProps, composeTextStyle } from '@t3n/theme';
 
@@ -17,6 +19,7 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   inline?: boolean;
   small?: boolean;
   secondary?: boolean;
+  align?: TextAlignProps['textAlign'];
   children: ReactNode;
 }
 
@@ -35,6 +38,9 @@ const textColor = ({
 }: TextProps & ThemeProps) =>
   color({ color: secondary ? 'text.secondary' : colorProp, theme });
 
+const align = ({ align: alignProp, theme }: TextProps & ThemeProps) =>
+  textAlign({ textAlign: alignProp, theme });
+
 export const textStyle = css<TextProps>`
   ${font}
   ${textColor}
@@ -42,6 +48,7 @@ export const textStyle = css<TextProps>`
   ${fontStyle}
   ${space}
   ${width}
+  ${align}
 `;
 
 export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
