@@ -16,9 +16,9 @@ export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface HeadingProps extends SpaceProps, SizeProps {
   as?: HeadingElements;
   styleAs?: HeadingElements;
-  children?: ReactNode;
   color?: string;
   align?: TextAlignProps['textAlign'];
+  children?: ReactNode;
 }
 
 const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>
@@ -27,12 +27,15 @@ const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>
 const align = ({ align: alignProp, theme }: HeadingProps & ThemeProps) =>
   textAlign({ textAlign: alignProp, theme });
 
+const textColor = ({ color: colorProp, theme }: HeadingProps & ThemeProps) =>
+  color({ color: colorProp, theme });
+
 export const Heading = styled.h1<HeadingProps>`
   ${font}
   ${space}
   ${size}
-  ${color}
   ${align}
+  ${textColor}
 `;
 
 Heading.displayName = 'Heading';
