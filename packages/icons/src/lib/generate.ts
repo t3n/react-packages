@@ -11,6 +11,7 @@ interface MaterialIconsConfig {
   renameRules: {
     [key: string]: string;
   };
+  ignoreFolders: string[];
   include: string[];
 }
 
@@ -40,8 +41,6 @@ const MATERIAL_ICONS_FOLDER_PATH = path.resolve(
   '../../../../node_modules/material-design-icons'
 );
 const INDEX_FILE_PATH = path.join(COMPONENTS_FOLDER_PATH, 'index.ts');
-
-const MATERIAL_ICONS_IGNORE_FOLDER_NAMES = ['iconfont', 'sprites'];
 
 const capitalizeString = (str: string) =>
   str
@@ -148,7 +147,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
   const categoryNames = dirs
     .filter(
       dirPath =>
-        !MATERIAL_ICONS_IGNORE_FOLDER_NAMES.filter(
+        !(materialIconsConfig as MaterialIconsConfig).ignoreFolders.filter(
           categoryName => dirPath.indexOf(categoryName) > -1
         ).length
     )
@@ -161,7 +160,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
       );
       return files.filter(
         filePath =>
-          !!materialIconsConfig.include.find(
+          !!(materialIconsConfig as MaterialIconsConfig).include.find(
             name => filePath.indexOf(`ic_${name}_24px.svg`) > -1
           )
       );

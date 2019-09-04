@@ -2,6 +2,7 @@
   "renameRules": {
     "3dRotation": "ThreeDRotation"
   },
+  "ignoreFolders": ["iconfont", "sprites"],
   "include": [
     "accessibility",
     "announcement",
