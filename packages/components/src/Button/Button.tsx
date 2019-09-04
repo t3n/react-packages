@@ -1,9 +1,8 @@
 import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { space, margin, width, MarginProps, WidthProps } from 'styled-system';
-// import { PulseLoader } from 'react-spinners';
-
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
+import { Loader } from '../Loader';
 
 export type ButtonColors = 'light' | 'dark';
 
@@ -49,37 +48,18 @@ export const buttonStyles = css`
   ${width}
   ${margin}
 
-  ${composeButtonStyle}
+  ${props => composeButtonStyle({ ...props, loaderComponent: Loader })}
 `;
 
 const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
   ${buttonStyles}
-
-  > div div {
-    background-color: ${(props: ThemeProps) => props.theme.colors.text.primary};
-    margin-top: 7px;
-  }
-
-  &:hover {
-    > div div {
-      background-color: ${(props: ThemeProps) =>
-        props.theme.colors.text.inverse};
-    }
-  }
 `;
 
-// export const Button: React.FC<ButtonProps> = ({
-//   children,
-//   loading,
-//   ...rest
-// }) => {
-//   return (
-//     <StyledButton {...rest}>
-//       {loading ? <PulseLoader size={10} margin=".25rem" /> : children}
-//     </StyledButton>
-//   );
-// };
-
-export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
-  <StyledButton {...rest}>{children}</StyledButton>
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  loading,
+  inverse,
+  ...rest
+}) => (
+  <StyledButton {...rest}>{loading ? <Loader small /> : children}</StyledButton>
 );

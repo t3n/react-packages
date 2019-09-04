@@ -12,6 +12,7 @@ import { Button, LinkButton, Grid, GridItem, Section } from '@t3n/components';
 import { ButtonColors } from '@t3n/components/src/Button/Button';
 import { SectionVariants } from '@t3n/components/src/Section/Section';
 
+import { theme } from '@t3n/theme';
 import StoryContainer from '../../../components/StoryContainer';
 
 const colors: ButtonColors[] = ['light', 'dark'];
@@ -25,7 +26,7 @@ storiesOf('Components|Inputs/Button', module)
       <Section
         variant={select<SectionVariants>(
           'Section Farbe',
-          ['highlight', 'inverse', 'primary', 'secondary'],
+          Object.keys(theme.colors.background) as SectionVariants[],
           'primary',
           'Section'
         )}
@@ -103,7 +104,7 @@ storiesOf('Components|Inputs/Button', module)
   .add(
     'Link',
     () => (
-      <LinkButton href="https://www.t3n.de" target="_blank">
+      <LinkButton href="https://t3n.de" target="_blank">
         Weiter zu t3n.de
       </LinkButton>
     ),
