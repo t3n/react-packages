@@ -1,0 +1,39 @@
+{
+  "name": "@t3n/icons",
+  "version": "0.1.1",
+  "description": "t3n.de react icons",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/t3n/react-packages.git"
+  },
+  "main": "dist/bundle.js",
+  "dependencies": {
+    "@types/prettier": "^1.18.2"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "start:generate": "ts-node-dev --respawn --transpile-only src/lib/generate.ts",
+    "generate": "ts-node-dev --transpile-only src/lib/generate.ts"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "devDependencies": {
+    "@svgr/core": "^4.3.2",
+    "@svgr/plugin-jsx": "^4.3.2",
+    "@svgr/plugin-prettier": "^4.3.2",
+    "@svgr/plugin-svgo": "^4.3.1",
+    "@t3n/configs": "^0.1.0",
+    "@types/fs-extra": "^8.0.0",
+    "@types/node": "^12.7.3",
+    "@types/react": "^16.9.1",
+    "chalk": "^2.4.2",
+    "fs-extra": "^8.1.0",
+    "material-design-icons": "^3.0.1",
+    "prettier": "^1.18.2",
+    "ts-node-dev": "^1.0.0-pre.42"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
