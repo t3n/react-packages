@@ -8,9 +8,7 @@
   },
   "main": "dist/bundle.js",
   "types": "src/components/index.d.ts",
-  "dependencies": {
-    "@types/prettier": "^1.18.2"
-  },
+  "dependencies": {},
   "scripts": {
     "clean": "rm -rf dist && rm -rf .awcache && rm -rf src/components",
     "check-types": "tsc",
@@ -30,6 +28,7 @@
     "@t3n/configs": "^0.1.0",
     "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.3",
+    "@types/prettier": "^1.18.2",
     "@types/react": "^16.9.1",
     "chalk": "^2.4.2",
     "fs-extra": "^8.1.0",
