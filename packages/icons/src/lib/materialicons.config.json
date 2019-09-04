@@ -1,0 +1,12 @@
+{
+  "renameRules": {
+    "3dRotation": "ThreeDRotation"
+  },
+  "include": [
+    "accessibility",
+    "announcement",
+    "print",
+    "play_arrow",
+    "border_all"
+  ]
+}

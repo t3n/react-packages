@@ -11,7 +11,10 @@
     "@types/prettier": "^1.18.2"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack",
+    "clean": "rm -rf dist && rm -rf .awcache && rm -rf src/components",
+    "check-types": "tsc",
+    "start": "webpack --watch",
+    "build": "npm run generate && NODE_ENV=production webpack",
     "start:generate": "ts-node-dev --respawn --transpile-only src/lib/generate.ts",
     "generate": "ts-node-dev --transpile-only src/lib/generate.ts"
   },

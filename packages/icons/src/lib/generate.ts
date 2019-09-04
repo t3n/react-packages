@@ -5,6 +5,29 @@ import prettier from 'prettier';
 import svgr from '@svgr/core';
 
 import template from './template';
+import materialIconsConfig from './materialicons.config.json';
+
+interface MaterialIconsConfig {
+  renameRules: {
+    [key: string]: string;
+  };
+  include: string[];
+}
+
+interface IconComponent {
+  name: string;
+  path: string;
+  reactComponent: string;
+}
+
+interface IconComponents {
+  [any: string]: IconComponent;
+}
+
+interface FolderContents {
+  dirs: string[];
+  files: string[];
+}
 
 const SVG_FOLDER_PATH = path.resolve(__dirname, '../svg');
 const COMPONENTS_FOLDER_PATH = path.resolve(__dirname, '../components');
@@ -20,30 +43,11 @@ const INDEX_FILE_PATH = path.join(COMPONENTS_FOLDER_PATH, 'index.ts');
 
 const MATERIAL_ICONS_IGNORE_FOLDER_NAMES = ['iconfont', 'sprites'];
 
-const MATERIAL_ICONS_RENAME_RULES: { [key: string]: string } = {
-  '3dRotation': 'ThreeDRotation'
-};
-
-interface IconComponent {
-  name: string;
-  path: string;
-  reactComponent: string;
-}
-
-interface IconComponents {
-  [any: string]: IconComponent;
-}
-
 const capitalizeString = (str: string) =>
   str
     .split('')
     .map((char, i) => (i === 0 ? char.toUpperCase() : char))
     .join('');
-
-interface FolderContents {
-  dirs: string[];
-  files: string[];
-}
 
 const readDirectoryContents = async (dir: string): Promise<FolderContents> => {
   const childNames: string[] = await fs.readdir(dir);
@@ -155,7 +159,12 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
       const { files } = await readDirectoryContents(
         path.resolve(MATERIAL_ICONS_FOLDER_PATH, categoryName, 'svg/production')
       );
-      return files.filter(filePath => /24px.svg$/.test(filePath));
+      return files.filter(
+        filePath =>
+          !!materialIconsConfig.include.find(
+            name => filePath.indexOf(`ic_${name}_24px.svg`) > -1
+          )
+      );
     })
   );
   const svgFiles = categoryFiles.reduce(
@@ -169,7 +178,10 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
         generateComponentName(svgPath)
           .replace('Ic', '')
           .replace('24px', '')
-      ].map(name => MATERIAL_ICONS_RENAME_RULES[name] || name)[0];
+      ].map(
+        name =>
+          (materialIconsConfig as MaterialIconsConfig).renameRules[name] || name
+      )[0];
 
       console.log(
         `Generating ${chalk.black.bgWhite(
@@ -207,11 +219,15 @@ const createIndexFile = async (components: IconComponents) => {
     )
   ]
     .map(component => {
+      const namePrefix = capitalizeString(
+        component.path.split('/').reverse()[1]
+      );
       const indexEntryPath = component.path
         .replace(COMPONENTS_FOLDER_PATH, '')
         .replace('.tsx', '');
 
-      return `export { default as ${component.name} } from '.${indexEntryPath}';`;
+      return `export { default as ${namePrefix +
+        component.name} } from '.${indexEntryPath}';`;
     })
     .join('\n');
 
