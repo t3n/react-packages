@@ -4,7 +4,7 @@ aliases:
   - &workspace_root ~/workspace
 
   - &attach_workspace
-     at: *workspace_root
+    at: *workspace_root
 
   - &persist_to_workspace
     root: .
@@ -12,13 +12,13 @@ aliases:
       - .
 
   - &save_js_packages
-    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/configs/package-lock.json" }}-{{ checksum "/root/project/app/packages/components/package-lock.json" }}-{{ checksum "/root/project/app/packages/storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/theme/package-lock.json" }}
+    key: js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/configs/package-lock.json" }}-{{ checksum "/root/project/app/packages/components/package-lock.json" }}-{{ checksum "/root/project/app/packages/storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/theme/package-lock.json" }}-{{ checksum "/root/project/app/packages/icons/package-lock.json" }}
     paths:
       - /root/.npm
 
   - &restore_js_packages
     keys:
-      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/configs/package-lock.json" }}-{{ checksum "/root/project/app/packages/components/package-lock.json" }}-{{ checksum "/root/project/app/packages/storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/theme/package-lock.json" }}
+      - js-packages-v1-{{ .Branch }}-{{ checksum "/root/project/app/package-lock.json" }}-{{ checksum "/root/project/app/packages/configs/package-lock.json" }}-{{ checksum "/root/project/app/packages/components/package-lock.json" }}-{{ checksum "/root/project/app/packages/storybook/package-lock.json" }}-{{ checksum "/root/project/app/packages/theme/package-lock.json" }}-{{ checksum "/root/project/app/packages/icons/package-lock.json" }}
       - js-packages-v1-{{ .Branch }}-
       - js-packages-v1-
 
@@ -56,6 +56,7 @@ jobs:
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run lint:theme
+      - run: npm run lint:icons
       - run: npm run lint:components
       - run: npm run lint:storybook
 
