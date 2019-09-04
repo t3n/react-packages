@@ -1,12 +1,13 @@
 {
   "name": "@t3n/icons",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "t3n.de react icons",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
   "main": "dist/bundle.js",
+  "types": "src/components/index.d.ts",
   "dependencies": {
     "@types/prettier": "^1.18.2"
   },
