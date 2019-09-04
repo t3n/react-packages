@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color } from 'styled-system';
+import { color, size, SizeProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
-interface LoaderWrapperProps {
+interface LoaderWrapperProps extends SizeProps {
   backgroundColor?: ThemeBackgroundColor;
   bg?: ThemeBackgroundColor;
+  small?: boolean;
 }
 
 const backgroundColor = ({
@@ -17,13 +18,15 @@ const backgroundColor = ({
 }: LoaderWrapperProps & ThemeProps) =>
   color({ backgroundColor: `background.${backgroundColorProps || bg}`, theme });
 
+const loaderSize = ({ small }: LoaderWrapperProps & ThemeProps) =>
+  size({ size: small ? '0.75rem' : '1rem' });
+
 const LoaderWrapper = styled.div<LoaderWrapperProps>`
-  width: 3rem;
+  display: inline-block;
   text-align: center;
 
   > div {
-    width: 1rem;
-    height: 1rem;
+    ${loaderSize}
     ${backgroundColor}
 
     border-radius: 100%;
@@ -66,15 +69,13 @@ const LoaderWrapper = styled.div<LoaderWrapperProps>`
   }
 `;
 
-export const Loader = (props: LoaderWrapperProps) => {
-  return (
-    <LoaderWrapper {...props}>
-      <div />
-      <div />
-      <div />
-    </LoaderWrapper>
-  );
-};
+export const Loader = styled((props: LoaderWrapperProps) => (
+  <LoaderWrapper {...props}>
+    <div />
+    <div />
+    <div />
+  </LoaderWrapper>
+))``;
 
 Loader.defaultProps = {
   backgroundColor: 'secondary'

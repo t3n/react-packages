@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import { Content, Loader } from '@t3n/components';
 
 import StoryContainer from '../../../components/StoryContainer';
@@ -16,6 +16,7 @@ storiesOf('Components|Content/Loader', module)
     'Default',
     () => (
       <Loader
+        small={boolean('small', false)}
         backgroundColor={select(
           'Farbe',
           {
@@ -24,7 +25,7 @@ storiesOf('Components|Content/Loader', module)
             Inverse: 'inverse',
             Highlight: 'highlight'
           },
-          'secondary'
+          'inverse'
         )}
       />
     ),
