@@ -5,6 +5,8 @@ import { color, size, SizeProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
+export type LoaderVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
+
 interface LoaderWrapperProps extends SizeProps {
   backgroundColor?: ThemeBackgroundColor;
   bg?: ThemeBackgroundColor;
