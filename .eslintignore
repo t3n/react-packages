@@ -3,5 +3,6 @@
 *.svg
 *.png
 *.jpg
+*.json
 build/
 dist/

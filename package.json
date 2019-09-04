@@ -32,7 +32,7 @@
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
     "test": "jest",
-    "lint": "npm run lint:theme && npm run lint:components && npm run lint:storybook",
+    "lint": "npm run lint:theme && npm run lint:icons && npm run lint:components && npm run lint:storybook",
     "start:components": "lerna run start --scope @t3n/components --stream",
     "build:components": "lerna run build --scope @t3n/components --stream",
     "test:components": "lerna run test --scope @t3n/components --stream",

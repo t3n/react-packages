@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { space, color, compose } from 'styled-system';
 import { Logo } from '../Logo';
 
-const PageHeadderWrapper = styled.div`
+const PageHeaderWrapper = styled.div`
   position: fixed;
   z-index: 20;
   top: 0;
@@ -36,9 +36,9 @@ export interface PageHeaderProps {
 
 export const PageHeader: React.FC<PageHeaderProps> = ({ children }) => {
   return (
-    <PageHeadderWrapper>
+    <PageHeaderWrapper>
       <Logo />
       {children}
-    </PageHeadderWrapper>
+    </PageHeaderWrapper>
   );
 };

@@ -6,8 +6,8 @@
   "include": [
     "accessibility",
     "announcement",
-    "print",
+    "border_all",
     "play_arrow",
-    "border_all"
+    "print"
   ]
 }
