@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, StyledComponent } from 'styled-components';
 import { color } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import { ThemeProps } from '../index';
@@ -7,6 +7,7 @@ interface ButtonProps extends ThemeProps {
   secondary?: boolean;
   color?: 'light' | 'dark';
   inverse?: boolean;
+  loaderComponent?: StyledComponent<(props: any) => JSX.Element, any>;
 }
 
 const border = (borderColor: string) =>
@@ -20,7 +21,8 @@ const composeButtonStyle = ({
   theme,
   secondary,
   color: colorProp = 'light',
-  inverse
+  inverse,
+  loaderComponent
 }: ButtonProps) => {
   const base = secondary
     ? theme.buttonStyles.secondary
@@ -52,6 +54,16 @@ const composeButtonStyle = ({
         })}
       ${() => border(borderColor)}
     }
+
+    ${loaderComponent
+      ? css`
+          ${loaderComponent} {
+            > div {
+              ${() => color({ bg: buttonStyles.default.color, theme })}
+            }
+          }
+        `
+      : ''}
   `;
 };
 
