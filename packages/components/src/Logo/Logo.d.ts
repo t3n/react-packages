@@ -1,9 +1,7 @@
 import React from 'react';
 export declare type LogoVariant = 'default';
-interface LogoProps {
-    height?: string;
-    width?: string;
+interface LogoProps extends React.SVGAttributes<SVGElement> {
     variant?: LogoVariant;
 }
-export declare const Logo: React.FC<LogoProps>;
+export declare const Logo: import("styled-components").StyledComponent<({ variant, ...props }: any) => JSX.Element, any, LogoProps, never>;
 export {};

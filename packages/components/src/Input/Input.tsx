@@ -56,7 +56,7 @@ const border = css`
         ? theme.colors.shades.grey244
         : isFocused
         ? theme.colors.shades.grey42
-        : theme.colors.shades.grey232};
+        : theme.colors.shades.grey155};
 `;
 
 const StyledInput = styled.div<StyledInputProps>`

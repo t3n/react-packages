@@ -1,35 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  space,
-  color,
-  layout,
-  BackgroundColorProps,
-  SpaceProps,
-  FlexboxProps,
-  LayoutProps,
-  flexbox
-} from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
+import { space, color, compose } from 'styled-system';
 import { Logo } from '../Logo';
 
-interface PageHeaderWrapperProps
-  extends ThemeProps,
-    LayoutProps,
-    SpaceProps,
-    FlexboxProps,
-    BackgroundColorProps {}
-
-const PageHeadderWrapper = styled.div<PageHeaderWrapperProps>`
+const PageHeaderWrapper = styled.div`
   position: fixed;
   z-index: 20;
   top: 0;
   left: 0;
-  right: 0;
-  ${flexbox}
-  ${space}
-  ${layout}
-  ${color}
+  width: 100%;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ${({ theme }) =>
+    compose(
+      color,
+      space
+    )({
+      theme,
+      color: 'text.inverse',
+      bg: 'background.highlight',
+      px: [3]
+    })}
+
+  ${Logo} {
+    width: auto;
+    height: 2.5rem;
+  }
 `;
 
 export interface PageHeaderProps {
@@ -38,18 +36,9 @@ export interface PageHeaderProps {
 
 export const PageHeader: React.FC<PageHeaderProps> = ({ children }) => {
   return (
-    <PageHeadderWrapper
-      height="3.5rem"
-      pr={3}
-      pl={3}
-      color="text.inverse"
-      bg="background.highlight"
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-    >
-      <Logo height="40" variant="default" />
+    <PageHeaderWrapper>
+      <Logo />
       {children}
-    </PageHeadderWrapper>
+    </PageHeaderWrapper>
   );
 };
