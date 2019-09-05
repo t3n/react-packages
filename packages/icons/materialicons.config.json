@@ -1,0 +1,7 @@
+{
+  "renameRules": {
+    "3dRotation": "ThreeDRotation"
+  },
+  "ignoreFolders": ["iconfont", "sprites"],
+  "include": ["visibility", "visibility_off", "check", "clear"]
+}

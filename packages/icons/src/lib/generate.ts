@@ -5,7 +5,7 @@ import prettier from 'prettier';
 import svgr from '@svgr/core';
 
 import template from './template';
-import materialIconsConfig from './materialicons.config.json';
+import materialIconsConfig from '../../materialicons.config.json';
 
 interface MaterialIconsConfig {
   renameRules: {
