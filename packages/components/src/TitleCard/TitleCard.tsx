@@ -15,7 +15,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({
 }) => {
   return (
     <Card {...props}>
-      <Heading as={titleAs} styleAs="h3" mt={0} mb={3}>
+      <Heading as={titleAs || 'h3'} styleAs="h3" mt={0} mb={3}>
         {title}
       </Heading>
       {children}
