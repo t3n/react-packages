@@ -13,9 +13,9 @@
     "clean": "rm -rf dist && rm -rf .awcache && rm -rf src/components",
     "check-types": "tsc",
     "start": "webpack --watch",
-    "build": "npm run generate && NODE_ENV=production webpack",
+    "build": "npm run clean && npm run generate && NODE_ENV=production webpack",
     "start:generate": "ts-node-dev --respawn --transpile-only src/lib/generate.ts",
-    "generate": "ts-node-dev --transpile-only src/lib/generate.ts"
+    "generate": "ts-node-dev src/lib/generate.ts"
   },
   "peerDependencies": {
     "react": ">=16.8"
@@ -34,7 +34,8 @@
     "fs-extra": "^8.1.0",
     "material-design-icons": "^3.0.1",
     "prettier": "^1.18.2",
-    "ts-node-dev": "^1.0.0-pre.42"
+    "ts-node-dev": "^1.0.0-pre.42",
+    "typescript": "^3.5.3"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

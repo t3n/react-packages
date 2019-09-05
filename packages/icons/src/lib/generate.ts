@@ -211,6 +211,15 @@ const writeComponents = async (components: IconComponents) => {
   );
 };
 
+const getComponentPrefix = (filePath: string) =>
+  capitalizeString(filePath.split('/').reverse()[1]);
+
+const prefixComponentName = (componentName: string, prefix: string) =>
+  prefix + componentName;
+
+const getPrefixedComponentName = (component: IconComponent) =>
+  prefixComponentName(component.name, getComponentPrefix(component.path));
+
 const createIndexFile = async (components: IconComponents) => {
   const index = [
     ...Object.values(components).sort((a, b) =>
@@ -218,15 +227,14 @@ const createIndexFile = async (components: IconComponents) => {
     )
   ]
     .map(component => {
-      const namePrefix = capitalizeString(
-        component.path.split('/').reverse()[1]
-      );
       const indexEntryPath = component.path
         .replace(COMPONENTS_FOLDER_PATH, '')
         .replace('.tsx', '');
 
-      return `export { default as ${namePrefix +
-        component.name} } from '.${indexEntryPath}';`;
+      return `export { default as ${prefixComponentName(
+        component.name,
+        getComponentPrefix(component.path)
+      )} } from '.${indexEntryPath}';`;
     })
     .join('\n');
 
@@ -248,14 +256,16 @@ const generate = async () => {
     const components: IconComponents = {};
 
     [...iconComponents, ...materialIconComponents].forEach(component => {
-      if (components[component.name])
+      const prefixedComponentName = getPrefixedComponentName(component);
+
+      if (components[prefixedComponentName])
         console.warn(
           `${chalk.black.bgYellow('Warning:')} Component ${chalk.black.bgWhite(
-            component.name
+            prefixedComponentName
           )} already exists!`
         );
 
-      components[component.name] = component;
+      components[prefixedComponentName] = component;
     });
 
     await writeComponents(components);
