@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { doc } from 'storybook-readme';
 import { ThemeConsumer } from 'styled-components';
 import { parseToRgb } from 'polished';
 import {

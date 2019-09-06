@@ -1,10 +1,6 @@
 import { boolean, text, number } from '@storybook/addon-knobs';
 
-const mapPropToKnob = (
-  name: string = '',
-  value: any = '',
-  groupId: string = ''
-) => {
+const mapPropToKnob = (name = '', value: any = '', groupId = '') => {
   const propType = typeof value;
 
   switch (propType) {
@@ -21,7 +17,7 @@ const mapPropToKnob = (
 
 export const knobsFromProps = (c: any) => (
   props: any = {},
-  groupId: string = '',
+  groupId = '',
   filterPropNames: string[] = []
 ) =>
   Object.keys({ ...c.defaultProps, ...props })
