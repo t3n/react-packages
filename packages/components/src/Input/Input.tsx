@@ -118,11 +118,11 @@ export const Input = ({
   const [revealPassword, setRevealPassword] = useState(false);
 
   useEffect(() => {
-    if (typeof value !== 'undefined' && isInitialized) {
+    if (typeof value !== 'undefined' && !isInitialized) {
       setIsInitialized(true);
       setControlledValue(value);
     }
-  }, [value]);
+  }, [value, isInitialized]);
 
   const focusNativeInputEl = () => {
     if (inputEl.current) inputEl.current.focus();
