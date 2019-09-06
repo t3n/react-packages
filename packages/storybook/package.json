@@ -63,7 +63,7 @@
     "@t3n/configs": "^0.1.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
-    "typescript": "^3.5.3",
+    "typescript": "^3.6.2",
     "webpack-notifier": "^1.7.0"
   },
   "publishConfig": {

@@ -2,8 +2,8 @@ module.exports = {
   client: {
     includes: ['./packages/**/*.tsx'], // array of glob patterns
     service: {
-      name: 'github',
-      url: 'https://api.t3n.de/'
+      name: 't3n-api',
+      url: 'https://api.stage.t3n.de/'
     }
   }
 };
