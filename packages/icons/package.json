@@ -1,6 +1,6 @@
 {
   "name": "@t3n/icons",
-  "version": "0.0.1",
+  "version": "0.1.4",
   "description": "t3n.de react icons",
   "repository": {
     "type": "git",
@@ -8,7 +8,6 @@
   },
   "main": "dist/bundle.js",
   "types": "src/components/index.d.ts",
-  "dependencies": {},
   "scripts": {
     "clean": "rm -rf dist && rm -rf .awcache && rm -rf src/components",
     "check-types": "tsc",
@@ -25,7 +24,7 @@
     "@svgr/plugin-jsx": "^4.3.2",
     "@svgr/plugin-prettier": "^4.3.2",
     "@svgr/plugin-svgo": "^4.3.1",
-    "@t3n/configs": "^0.1.0",
+    "@t3n/configs": "^0.1.4",
     "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.3",
     "@types/prettier": "^1.18.2",
