@@ -77,7 +77,7 @@ export const backgroundColors = {
 
 // TEXT
 export const textPrimary = grey42;
-export const textSecondary = grey232;
+export const textSecondary = grey155;
 export const textInverse = white;
 export const textHighlight = red;
 

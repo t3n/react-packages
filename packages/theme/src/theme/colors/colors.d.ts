@@ -51,7 +51,7 @@ export declare const backgroundColors: {
     highlight: string;
 };
 export declare const textPrimary = "#2a2a2a";
-export declare const textSecondary = "#e8e8e8";
+export declare const textSecondary = "#9b9b9b";
 export declare const textInverse = "#fff";
 export declare const textHighlight = "#f9423a";
 export declare type ThemeTextColor = 'primary' | 'secondary' | 'inverse' | 'highlight';

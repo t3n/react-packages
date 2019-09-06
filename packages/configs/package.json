@@ -22,7 +22,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.0",
-    "eslint-loader": "^2.1.2",
+    "eslint-loader": "^3.0.0",
     "file-loader": "^4.2.0",
     "source-map-loader": "^0.2.4",
     "url-loader": "^2.1.0",
