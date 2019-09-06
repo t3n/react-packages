@@ -59,7 +59,7 @@ const FooterLink = styled(Link).attrs(() => ({
   }
 
   &:nth-child(odd) {
-    ${() => textAlign({ textAlign: ['right', 'left  '] })}
+    ${() => textAlign({ textAlign: ['right', 'left'] })}
   }
 `;
 
