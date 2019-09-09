@@ -3,5 +3,11 @@
     "3dRotation": "ThreeDRotation"
   },
   "ignoreFolders": ["iconfont", "sprites"],
-  "include": ["visibility", "visibility_off", "check", "clear"]
+  "include": [
+    "check",
+    "clear",
+    "keyboard_arrow_down",
+    "visibility",
+    "visibility_off"
+  ]
 }
