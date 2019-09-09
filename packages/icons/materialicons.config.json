@@ -6,7 +6,6 @@
   "include": [
     "check",
     "clear",
-    "house",
     "keyboard_arrow_down",
     "keyboard_arrow_up",
     "room",
