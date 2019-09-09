@@ -51,7 +51,7 @@
     "lint:storybook": "eslint './packages/storybook/src/**'",
     "prettier:format": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
     "prettier:check": "prettier --check 'packages/**/*.{ts,tsx,js,jsx}'",
-    "upgrade-interactive": "npm-check --update && npm-check --update packages/components && npm-check --update packages/theme && npm-check --update packages/storybook && npm-check --update packages/configs",
+    "upgrade-interactive": "npm-check --update && npm-check --update packages/components && npm-check --update packages/theme && npm-check --update packages/storybook && npm-check --update packages/configs && npm-check --update packages/icons",
     "codegen:watch": "npx apollo client:codegen --target=typescript --watch",
     "codegen:build": "npx apollo client:codegen --target=typescript"
   },
