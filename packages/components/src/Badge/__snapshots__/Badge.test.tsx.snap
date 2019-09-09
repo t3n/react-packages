@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge matches snapshot 1`] = `
+.c0 {
+  font-weight: bold;
+  background-color: #f9423a;
+  padding: 0;
+  font-size: 1rem;
+  border-radius: 0;
+}
+
+<span
+  class="c0"
+>
+  text
+</span>
+`;

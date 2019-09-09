@@ -1,35 +1,20 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
 
 import { Card } from './Card';
+import { renderWithTheme } from '../helper/renderWithTheme';
 
-const theme = {
-  colors: {
-    background: {
-      light: '#fff'
-    }
-  },
-  border: {
-    radii: [0, '4px']
-  }
-};
+test('Default Card matches snapshot', () => {
+  const { container } = renderWithTheme(<Card>Default Card</Card>, {});
 
-it('should test', () => {
-  expect(true).toBe(true);
+  expect(container.firstChild).toMatchSnapshot();
 });
 
-// eslint-disable-next-line jest/no-disabled-tests
-describe.skip('Card component', () => {
-  afterEach(cleanup);
+test('Big Card matches snapshot', () => {
+  const { container } = renderWithTheme(<Card big>Big card</Card>, {});
+  expect(container.firstChild).toMatchSnapshot();
+});
 
-  it('renders', () => {
-    const text = 'This is the content';
-    const { getByText } = render(
-      <ThemeProvider theme={theme}>
-        <Card>{text}</Card>
-      </ThemeProvider>
-    );
-    expect(getByText(text)).toBeTruthy();
-  });
+test('Dashed Card matches snapshot', () => {
+  const { container } = renderWithTheme(<Card dashed>Dashed card</Card>, {});
+  expect(container.firstChild).toMatchSnapshot();
 });

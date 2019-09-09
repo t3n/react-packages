@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar matches snapshot and renders label 1`] = `
+.c1 {
+  border-radius: 50%;
+  border: 2px solid white;
+  box-sizing: border-box;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  padding-left: 8px;
+}
+
+<div
+  class="c0"
+>
+  <img
+    class="c1"
+    height="40"
+    src=""
+    width="40"
+  />
+  <span
+    class="c2"
+  >
+    Some author
+  </span>
+</div>
+`;
+
+exports[`Avatar renders without label 1`] = `
+.c1 {
+  border-radius: 50%;
+  border: 2px solid white;
+  box-sizing: border-box;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div
+  class="c0"
+>
+  <img
+    class="c1"
+    height="40"
+    src=""
+    width="40"
+  />
+  
+</div>
+`;
