@@ -33,6 +33,7 @@ jobs:
     steps:
       - checkout
 
+      - run: echo "//npm.pkg.github.com/:_authToken=$GITHUB_NPM_TOKEN" > ~/.npmrc
       - run: |
           npm ci --unsafe-perm
 
