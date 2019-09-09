@@ -5,7 +5,6 @@ storybook-static/
 build/
 dist/
 
-.npmrc
 /.pnp
 .pnp.js
 
