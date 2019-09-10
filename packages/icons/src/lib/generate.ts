@@ -158,6 +158,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
       const { files } = await readDirectoryContents(
         path.resolve(MATERIAL_ICONS_FOLDER_PATH, categoryName, 'svg/production')
       );
+
       return files.filter(
         filePath =>
           !!(materialIconsConfig as MaterialIconsConfig).include.find(
@@ -170,6 +171,14 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
     (allFiles, files) => [...allFiles, ...files],
     []
   );
+
+  (materialIconsConfig as MaterialIconsConfig).include.forEach(iconName => {
+    if (!svgFiles.find(svgPath => svgPath.indexOf(iconName) > -1))
+      throw new Error(
+        `Material icon with name ${chalk.black.bgWhite(iconName)} not found!`
+      );
+  });
+
   return Promise.all(
     svgFiles.map(async svgPath => {
       const svg = await fs.readFile(svgPath, 'utf8');
