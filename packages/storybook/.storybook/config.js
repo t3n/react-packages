@@ -70,6 +70,7 @@ function loadStories() {
   require('../src/stories/components/typography/punchline/punchline.stories');
 
   // Components - Layout
+  require('../src/stories/components/layout/globalStyle.stories');
   require('../src/stories/components/layout/content.stories');
   require('../src/stories/components/layout/center.stories');
   require('../src/stories/components/layout/grid.stories');
