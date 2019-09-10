@@ -1,33 +1,52 @@
 import { createGlobalStyle } from 'styled-components';
-import { ThemeProps, getColorForBackground } from '@t3n/theme';
-import {
-  ThemeBackgroundColor,
-  ThemeTextColor
-} from '@t3n/theme/src/theme/colors/colors';
+import { variant } from 'styled-system';
+import { ThemeProps } from '@t3n/theme';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
+
+type BackgroundColor = ThemeBackgroundColor | ThemeBackgroundColor[];
 
 interface GlobalStyleProps extends ThemeProps {
-  backgroundColor?: ThemeBackgroundColor;
-  bg?: ThemeBackgroundColor;
-  color?: ThemeTextColor;
+  variant?: BackgroundColor;
 }
 
 const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   html, body {
     font-family: ${({ theme }) => theme.fonts.default};
-    background: ${({ backgroundColor = 'primary', bg = 'primary', theme }) =>
-      theme.colors.background[backgroundColor || bg]};
-    color: ${({ backgroundColor = 'primary', bg = 'primary', color }) =>
-      color || getColorForBackground(backgroundColor || bg)};
     font-size: 16px;
     padding: 0;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    ${variant({
+      variants: {
+        primary: {
+          bg: 'background.primary',
+          color: 'text.primary'
+        },
+        secondary: {
+          bg: 'background.secondary',
+          color: 'text.primary'
+        },
+        highlight: {
+          bg: 'background.highlight',
+          color: 'text.inverse'
+        },
+        inverse: {
+          bg: 'background.inverse',
+          color: 'text.inverse'
+        }
+      }
+    })}
   }
 
   * {
     box-sizing: border-box;
   }
 `;
+
+GlobalStyle.defaultProps = {
+  variant: 'primary'
+};
 
 export default GlobalStyle;
