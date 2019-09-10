@@ -6,7 +6,6 @@ interface CheckboxProps extends ColorProps {
     disabled?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     label?: string;
-    feedback?: boolean;
     feedbackColor?: ThemeFeedbackColor;
 }
 export declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor }: CheckboxProps) => JSX.Element;
