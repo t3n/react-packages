@@ -56,7 +56,3 @@ export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
 }))<TextProps>`
   ${textStyle}
 `;
-
-Text.defaultProps = {
-  width: 1
-};
