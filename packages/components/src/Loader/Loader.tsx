@@ -21,7 +21,7 @@ const backgroundColor = ({
   color({ backgroundColor: `background.${backgroundColorProps || bg}`, theme });
 
 const loaderSize = ({ small }: LoaderWrapperProps & ThemeProps) =>
-  size({ size: small ? '0.75rem' : '1rem' });
+  size({ size: small ? '0.5rem' : '1rem' });
 
 const LoaderWrapper = styled.div<LoaderWrapperProps>`
   display: inline-block;
