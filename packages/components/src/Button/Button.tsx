@@ -39,7 +39,7 @@ export const buttonStyles = css`
   align-items: center;
   text-decoration: none;
   transition: all .1s ease-out;
-  height: 38px;
+  height: 2.5rem;
   border: none;
   ${padding}
   ${borderRadius}
