@@ -32,7 +32,7 @@ const padding = ({ big, splitted, theme }: CardProps & ThemeProps) =>
     ? space({ p: [3, 6], theme })
     : splitted
     ? space({ p: 0, theme })
-    : space({ p: 3, theme });
+    : space({ p: [2, 3], theme });
 
 const color = ({ color: c, theme }: CardProps & ThemeProps) =>
   styledColor({ color: c, theme });
