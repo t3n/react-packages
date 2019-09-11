@@ -13,7 +13,7 @@ export const textRegular = {
 export const textSmall = {
   fontFamily: 'default',
   fontSize: [0],
-  lineHeight: [1]
+  lineHeight: [2]
 };
 
 export const textBig = {
