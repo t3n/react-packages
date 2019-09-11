@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { space, margin, MarginProps } from 'styled-system';
 
 import { getThemeColor, ThemeProps } from '@t3n/theme';
+import { Box } from '../Box';
 import { Text } from '../Text';
 
 export interface FormGroupProps
@@ -30,27 +31,10 @@ const LabelEnd = styled.span`
   margin-left: auto;
 `;
 
-const ErrorMessage = styled(Text).attrs(() => ({
-  inline: true,
-  color: 'feedback.error',
-  small: true
-}))`
-  position: absolute;
-  left: 0;
-  bottom: -2rem;
-  ${({ theme }: ThemeProps) => space({ px: 1, theme })};
-`;
-
 const StyledFormGroup = styled.label<Omit<FormGroupProps, 'label'>>`
   display: block;
   position: relative;
   ${margin}
-
-  > div:first-child {
-    width: 100%;
-    display: flex;
-    ${({ theme }: ThemeProps) => space({ mb: 1 }, theme)}
-  }
 `;
 
 export const FormGroup = ({
@@ -63,7 +47,7 @@ export const FormGroup = ({
   ...props
 }: FormGroupProps) => (
   <StyledFormGroup {...props}>
-    <div>
+    <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>
       {labelSecondary && (
         <Text inline secondary>
@@ -74,9 +58,13 @@ export const FormGroup = ({
         <LabelSecondary>(optional)</LabelSecondary>
       )}
       {labelEndContent && <LabelEnd>{labelEndContent}</LabelEnd>}
-    </div>
+    </Box>
     {children}
-    {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+    {errorMessage && (
+      <Text small color="feedback.error" mt="0.25rem" mb={0}>
+        {errorMessage}
+      </Text>
+    )}
   </StyledFormGroup>
 );
 
