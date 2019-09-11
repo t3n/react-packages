@@ -21,7 +21,7 @@ const PageHeaderWrapper = styled.div`
       theme,
       color: 'text.inverse',
       bg: 'background.highlight',
-      px: [3]
+      px: [2, 3]
     })}
 
   ${Logo} {

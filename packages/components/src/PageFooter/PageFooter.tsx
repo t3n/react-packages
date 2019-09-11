@@ -89,12 +89,12 @@ export const PageFooter: React.FC<PageFooterProps> = ({
   return (
     <Box width="100%" bg="black">
       {children && (
-        <Box bg="shades.black" color="text.inverse" p={3}>
+        <Box bg="shades.black" color="text.inverse" px={[2, 3]} py={3}>
           {children}
         </Box>
       )}
       <FooterBottom
-        px={3}
+        px={[2, 3]}
         py={[3, 3, 3, 0]}
         height={['auto', 'auto', 'auto', '2.5rem']}
         borderTop="1px solid"
