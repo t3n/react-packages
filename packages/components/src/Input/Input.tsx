@@ -1,8 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { space, width as styledWidth, WidthProps } from 'styled-system';
+import {
+  space,
+  width as styledWidth,
+  WidthProps,
+  size,
+  position
+} from 'styled-system';
 
 import { ThemeProps, getThemeColor } from '@t3n/theme';
+import {
+  MaterialClear,
+  MaterialVisibility,
+  MaterialVisibilityOff
+} from '@t3n/icons';
 import { Text } from '../Text';
 
 export type InputTypes = 'text' | 'email' | 'password';
@@ -18,55 +29,54 @@ export interface InputProps
   className?: string;
 }
 
-interface NativeInputProps
-  extends Omit<InputProps, 'fixedPlaceholder' | 'width'>,
-    ThemeProps {}
-
-const padding = ({ theme }: ThemeProps) => space({ pl: 1, pr: 5, theme });
-
-const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
-  NativeInputProps
->`
-  width: 100%;
-  height: 40px;
-  color: ${getThemeColor('text.primary')};
-  background-color: transparent;
-  font-family: ${({ theme }: NativeInputProps) => theme.fonts.default};
-  font-size: 1rem;
-  line-height: 40px;
-  border: none;
-  outline: 0;
-  ${padding};
-
-  ::placeholder {
-    color: ${getThemeColor('text.secondary')};
-  }
+const StyledInput = styled.div<InputProps>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  ${styledWidth};
 `;
 
-interface StyledInputProps extends InputProps {
+interface StyledNativeInputProps extends InputProps {
   isFocused: boolean;
 }
 
+const padding = ({ theme }: ThemeProps) => space({ pl: 1, pr: 5, theme });
+
 const border = css`
   border: 1px solid
-    ${({ isFocused, error, disabled, theme }: StyledInputProps & ThemeProps) =>
+    ${({
+      isFocused,
+      error,
+      disabled,
+      theme
+    }: StyledNativeInputProps & ThemeProps) =>
       error
         ? theme.colors.feedback.error
         : disabled
         ? theme.colors.shades.grey244
         : isFocused
         ? theme.colors.shades.grey42
-        : theme.colors.shades.grey155};
+        : theme.colors.shades.grey232};
 `;
 
-const StyledInput = styled.div<StyledInputProps>`
-  position: relative;
-  display: flex;
-  align-items: center;
+const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
+  StyledNativeInputProps
+>`
+  width: 100%;
+  height: 40px;
+  font-family: ${({ theme }) => theme.fonts.default};
+  font-size: 1rem;
+  line-height: 40px;
+  color: ${getThemeColor('text.primary')};
   background-color: ${getThemeColor('background.primary')};
   border-radius: ${props => props.theme.border.radii[1]};
-  ${styledWidth};
+  outline: 0;
   ${border}
+  ${padding};
+
+  ::placeholder {
+    color: ${getThemeColor('shades.grey232')};
+  }
 `;
 
 const FixedPlaceholder = styled(Text).attrs(() => ({
@@ -82,16 +92,13 @@ const Button = styled.button.attrs(() => ({
   type: 'button'
 }))`
   position: absolute;
-  top: 50%;
-  right: 1rem;
-  height: 1.5rem;
-  width: 1.5rem;
+  padding: 0;
   margin-top: -0.75rem;
   background: transparent;
   border: none;
   outline: 0;
-  font-size: 1.5rem;
-  line-height: 1rem;
+  ${({ theme }) => size({ theme, width: 3, height: 3 })}
+  ${({ theme }) => position({ theme, top: '50%', right: 1 })}
 `;
 
 export const Input = ({
@@ -175,7 +182,6 @@ export const Input = ({
       error={error}
       width={width}
       className={className}
-      isFocused={isFocused}
       onClick={focusNativeInputEl}
     >
       {fixedPlaceholder && (
@@ -186,6 +192,7 @@ export const Input = ({
         ref={inputEl}
         type={inputType}
         disabled={disabled}
+        isFocused={isFocused}
         onChange={handleNativeInputChange}
         onFocus={handleNativeInputFocus}
         onBlur={handleNativeInputBlur}
@@ -193,11 +200,13 @@ export const Input = ({
       />
       {(type === 'password' || inputValue) && (
         <Button onClick={handleButtonPress}>
-          {type === 'password' && revealPassword
-            ? '🙈'
-            : type === 'password'
-            ? '🐵'
-            : '✖️'}
+          {type === 'password' && revealPassword ? (
+            <MaterialVisibilityOff width="1.5rem" height="1.5rem" />
+          ) : type === 'password' ? (
+            <MaterialVisibility width="1.5rem" height="1.5rem" />
+          ) : (
+            <MaterialClear width="1.5rem" height="1.5rem" />
+          )}
         </Button>
       )}
     </StyledInput>
