@@ -54,6 +54,8 @@ export const buttonStyles = css`
   ${width}
   ${margin}
 
+  /* We have to provide a value for every breakpoint because of specificity
+     of line-height from textStyle */
   ${({ theme }) => lineHeight({ theme, lineHeight: [2, 2, 2, 2] })}
   ${props => composeButtonStyle({ ...props, loaderComponent: Loader })}
 `;
