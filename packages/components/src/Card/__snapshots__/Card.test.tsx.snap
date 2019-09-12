@@ -34,6 +34,7 @@ exports[`Big Card matches snapshot 1`] = `
   width: 100%;
   padding: 24px;
   color: #2a2a2a;
+  margin-bottom: 16px;
 }
 
 .c0 .c2 {
@@ -111,6 +112,7 @@ exports[`Dashed Card matches snapshot 1`] = `
   width: 100%;
   padding: 16px;
   color: #2a2a2a;
+  margin-bottom: 16px;
 }
 
 .c0 .c2 {
@@ -179,6 +181,7 @@ exports[`Default Card matches snapshot 1`] = `
   width: 100%;
   padding: 16px;
   color: #2a2a2a;
+  margin-bottom: 16px;
 }
 
 .c0 .c2 {
