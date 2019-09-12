@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { SizeProps } from 'styled-system';
-export interface CardProps {
+import { SizeProps, MarginProps } from 'styled-system';
+export interface CardProps extends MarginProps {
     rounded?: boolean;
     big?: boolean;
     stretch?: boolean;

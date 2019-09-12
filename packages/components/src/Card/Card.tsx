@@ -5,13 +5,14 @@ import {
   width,
   color as styledColor,
   boxShadow as styledBoxShadow,
-  SizeProps
+  SizeProps,
+  MarginProps
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 import { CardHeader, CardHeaderContent } from '../CardHeader';
 
-export interface CardProps {
+export interface CardProps extends MarginProps {
   rounded?: boolean;
   big?: boolean;
   stretch?: boolean;
@@ -77,6 +78,7 @@ export const Card = styled.div.attrs(({ href }: CardProps) => ({
   ${padding}
   ${color}
   ${shadow.default}
+  ${space}
 
   &:hover {
     ${shadow.hover}
@@ -98,5 +100,6 @@ Card.displayName = 'Card';
 Card.defaultProps = {
   rounded: true,
   color: 'text.primary',
-  width: 1
+  width: 1,
+  mb: 2
 };
