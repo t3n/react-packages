@@ -32,7 +32,7 @@ exports[`Author Card matches snapshot 1`] = `
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   width: 100%;
-  padding: 24px;
+  padding: 16px;
   color: #2a2a2a;
   box-shadow: 0 2px 10px rgba(0,0,0,.15);
 }
@@ -52,7 +52,7 @@ exports[`Author Card matches snapshot 1`] = `
 }
 
 .c0 .c5 .c4 {
-  padding: 24px;
+  padding: 16px;
 }
 
 .c1 {
@@ -80,6 +80,18 @@ exports[`Author Card matches snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+@media screen and (min-width:30rem) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width:30rem) {
+  .c0 .c5 .c4 {
+    padding: 24px;
+  }
 }
 
 @media screen and (min-width:30rem) {
