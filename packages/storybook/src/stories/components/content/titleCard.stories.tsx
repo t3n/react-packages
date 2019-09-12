@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { Content, TitleCard } from '@t3n/components';
 import { theme } from '@t3n/theme';
 
@@ -26,6 +26,7 @@ storiesOf('Components|Content/TitleCard', module)
         <TitleCard
           title={text('Title', 'Default Title')}
           titleAs={select('Title Tag', headlineTags, 'h3')}
+          centerTitle={boolean('Titel zentrieren?', false)}
         >
           {text(
             'Content',

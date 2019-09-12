@@ -1,6 +1,13 @@
 import React, { ReactNode, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { space, margin, width, MarginProps, WidthProps } from 'styled-system';
+import {
+  space,
+  margin,
+  width,
+  lineHeight,
+  MarginProps,
+  WidthProps
+} from 'styled-system';
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
 import { Loader } from '../Loader';
 
@@ -21,7 +28,7 @@ export interface ButtonProps
 }
 
 const padding = ({ theme }: ButtonProps & ThemeProps) =>
-  space({ px: 2, theme });
+  space({ px: 2, py: 1, theme });
 
 const textStyle = ({ small, theme }: ButtonProps & ThemeProps) =>
   composeTextStyle({ textStyle: small ? 'small' : 'regular', theme });
@@ -39,7 +46,6 @@ export const buttonStyles = css`
   align-items: center;
   text-decoration: none;
   transition: all .1s ease-out;
-  height: 2.5rem;
   border: none;
   ${padding}
   ${borderRadius}
@@ -48,6 +54,9 @@ export const buttonStyles = css`
   ${width}
   ${margin}
 
+  /* We have to provide a value for every breakpoint because of specificity
+     of line-height from textStyle */
+  ${({ theme }) => lineHeight({ theme, lineHeight: [2, 2, 2, 2] })}
   ${props => composeButtonStyle({ ...props, loaderComponent: Loader })}
 `;
 

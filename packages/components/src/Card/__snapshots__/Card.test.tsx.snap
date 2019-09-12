@@ -34,6 +34,7 @@ exports[`Big Card matches snapshot 1`] = `
   width: 100%;
   padding: 24px;
   color: #2a2a2a;
+  margin-bottom: 16px;
 }
 
 .c0 .c2 {
@@ -109,8 +110,9 @@ exports[`Dashed Card matches snapshot 1`] = `
   border: 2px dashed #e8e8e8;
   border-radius: 4px;
   width: 100%;
-  padding: 24px;
+  padding: 16px;
   color: #2a2a2a;
+  margin-bottom: 16px;
 }
 
 .c0 .c2 {
@@ -121,7 +123,19 @@ exports[`Dashed Card matches snapshot 1`] = `
 }
 
 .c0 .c2 .c1 {
-  padding: 24px;
+  padding: 16px;
+}
+
+@media screen and (min-width:30rem) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width:30rem) {
+  .c0 .c2 .c1 {
+    padding: 24px;
+  }
 }
 
 <div
@@ -165,8 +179,9 @@ exports[`Default Card matches snapshot 1`] = `
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   width: 100%;
-  padding: 24px;
+  padding: 16px;
   color: #2a2a2a;
+  margin-bottom: 16px;
 }
 
 .c0 .c2 {
@@ -177,7 +192,19 @@ exports[`Default Card matches snapshot 1`] = `
 }
 
 .c0 .c2 .c1 {
-  padding: 24px;
+  padding: 16px;
+}
+
+@media screen and (min-width:30rem) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width:30rem) {
+  .c0 .c2 .c1 {
+    padding: 24px;
+  }
 }
 
 <div
