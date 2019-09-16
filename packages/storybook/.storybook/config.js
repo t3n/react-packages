@@ -73,6 +73,7 @@ function loadStories() {
   require('../src/stories/components/layout/globalStyle.stories');
   require('../src/stories/components/layout/content.stories');
   require('../src/stories/components/layout/center.stories');
+  require('../src/stories/components/layout/divider.stories');
   require('../src/stories/components/layout/grid.stories');
   require('../src/stories/components/layout/pageLayout.stories');
   require('../src/stories/components/layout/pageHeader.stories');
