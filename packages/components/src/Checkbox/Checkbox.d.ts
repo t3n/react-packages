@@ -10,6 +10,7 @@ interface StyledCheckboxProps extends ColorProps {
 export interface CheckboxProps extends StyledCheckboxProps {
     name: string;
     checked: boolean;
+    value: any;
 }
-export declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor, name }: CheckboxProps) => JSX.Element;
+export declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor, name, value }: CheckboxProps) => JSX.Element;
 export {};

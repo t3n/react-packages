@@ -18,6 +18,7 @@ interface StyledCheckboxProps extends ColorProps {
 export interface CheckboxProps extends StyledCheckboxProps {
   name: string;
   checked: boolean;
+  value: any;
 }
 
 const CheckboxContainer = styled(Box)<StyledCheckboxProps>`
@@ -54,7 +55,9 @@ const StyledCheckbox = styled(Box)<StyledCheckboxProps>`
     })};
 `;
 
-const StyledMaterialCheck = styled(MaterialCheck)<Omit<CheckboxProps, 'name'>>`
+const StyledMaterialCheck = styled(MaterialCheck)<
+  Omit<CheckboxProps, 'name' | 'value'>
+>`
   position: absolute;
   top: -1px;
   left: -1px;
@@ -80,7 +83,8 @@ const PlainCheckbox = ({
   onChange,
   disabled,
   feedbackColor,
-  name
+  name,
+  value
 }: CheckboxProps) => {
   return (
     <CheckboxContainer>
@@ -89,6 +93,7 @@ const PlainCheckbox = ({
         onChange={onChange}
         disabled={disabled}
         name={name}
+        value={value}
       />
       <StyledCheckbox feedbackColor={feedbackColor}>
         <StyledMaterialCheck checked={checked} />
@@ -103,7 +108,8 @@ export const Checkbox = ({
   label,
   disabled,
   feedbackColor,
-  name
+  name,
+  value
 }: CheckboxProps) => {
   return (
     <>
@@ -114,6 +120,7 @@ export const Checkbox = ({
           onChange={onChange}
           feedbackColor={feedbackColor}
           name={name}
+          value={value}
         />
         <Text small inline>
           {label}
