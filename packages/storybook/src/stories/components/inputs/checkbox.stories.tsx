@@ -24,6 +24,7 @@ const CheckboxStory = () => {
         disabled={boolean('disable', false)}
         feedbackColor={showFeedback ? feedbackColor : undefined}
         checked={checked}
+        value="true"
         name={text('Name', 'Name checkbox')}
         onChange={() => {
           setChecked(!checked);

@@ -61,7 +61,7 @@ const StyledMaterialCheck = styled(MaterialCheck)<
   position: absolute;
   top: -1px;
   left: -1px;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.1s ease-in-out;
   pointer-events: none;
   opacity: ${({ checked }) => (checked ? 1 : 0)};
   transform: scale(${({ checked }) => (checked ? 1 : 0)});
