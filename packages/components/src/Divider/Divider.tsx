@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BackgroundColorProps, variant } from 'styled-system';
+import { BackgroundColorProps, variant, SizeProps } from 'styled-system';
 import { theme } from '@t3n/theme';
-import { Box, BoxProps } from '../Box/Box';
+import { Box } from '../Box/Box';
 
 export type DividerVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
-interface DividerProps extends Pick<BoxProps, 'width'>, BackgroundColorProps {}
+interface DividerProps extends SizeProps, BackgroundColorProps {}
 
 const bgVariants = Object.keys(theme.colors.text).reduce(
   (colors, colorName) => ({
@@ -33,10 +33,11 @@ const StyledBox = styled(Box)`
 `;
 
 export const Divider = (props: DividerProps) => {
-  return <StyledBox {...props} as="hr" height="2px" />;
+  return <StyledBox {...props} as="hr" />;
 };
 
 Divider.defaultProps = {
   backgroundColor: 'secondary',
-  width: 1
+  width: 1,
+  height: '2px'
 };
