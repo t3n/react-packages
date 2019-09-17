@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/t3n/react-packages.svg?style=svg&circle-token=5b76fc109fe1caf940564b1a692600c7d4a72a3e)](https://circleci.com/gh/t3n/react-packages)
-
 # t3n/react-packages
 
 This monorepo hosts packages necessary for development and documentation of react components in the t3n domain.
@@ -14,9 +12,10 @@ This monorepo hosts packages necessary for development and documentation of reac
 
 The monorepo is structured into 3 packages:
 
-- @t3n/theme:
-- @t3n/components:
-- @t3n/storybook:
+- @t3n/theme
+- @t3n/components
+- @t3n/storybook
+- @t3n/icons
 
 ## Development
 
