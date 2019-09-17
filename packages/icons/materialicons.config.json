@@ -6,10 +6,11 @@
   "include": [
     "check",
     "clear",
+    "info",
     "keyboard_arrow_down",
     "keyboard_arrow_up",
     "room",
-    "visibility",
-    "visibility_off"
+    "visibility_off",
+    "visibility"
   ]
 }
