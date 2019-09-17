@@ -56,7 +56,7 @@ addDecorator(story => (
 
 function loadStories() {
   // Storybook
-  require('../src/stories/storybook/storybook.stories');
+  // require('../src/stories/storybook/storybook.stories');
 
   // Design-System
   require('../src/stories/designSystem/breakpoints/breakpoints.stories');
