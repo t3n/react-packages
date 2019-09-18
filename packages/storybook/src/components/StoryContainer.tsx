@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { space, color } from 'styled-system';
 
@@ -16,9 +17,14 @@ const backgroundColor = css`
       : theme.colors.background.primary};
 `;
 
-export default styled.div<StoryContainerProps>`
-  min-height: 100vh;
+const StoryContainer = styled.div<StoryContainerProps>`
   ${padding}
   ${backgroundColor}
   ${color}
 `;
+
+export default StoryContainer;
+
+export const storyContainerDecorator = (story: any) => (
+  <StoryContainer>{story()}</StoryContainer>
+);

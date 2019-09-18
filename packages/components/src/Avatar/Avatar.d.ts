@@ -5,7 +5,7 @@ interface AvatarImageProps {
     size?: number;
     className?: string;
 }
-interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
+export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
     label?: string;
     textColor?: TextColorProps['color'];
 }
