@@ -1,6 +1,5 @@
 import React from 'react';
 import { addDecorator, configure, addParameters } from '@storybook/react';
-import { addReadme } from 'storybook-readme';
 import { ThemeProvider } from 'styled-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
@@ -42,7 +41,6 @@ addParameters({
   }
 });
 
-addDecorator(addReadme);
 addDecorator(withA11y);
 addDecorator(story => (
   <ThemeProvider theme={theme}>
@@ -57,6 +55,7 @@ addDecorator(story => (
 function loadStories() {
   // Storybook
   // require('../src/stories/storybook/storybook.stories');
+  require('../src/stories/storybook/introduction.story.mdx');
 
   // Design-System
   require('../src/stories/designSystem/breakpoints/breakpoints.stories');
