@@ -4,5 +4,6 @@
 *.png
 *.jpg
 *.json
+*.mdx
 build/
 dist/
