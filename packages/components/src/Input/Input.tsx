@@ -56,7 +56,7 @@ const border = css`
         ? theme.colors.shades.grey244
         : isFocused
         ? theme.colors.shades.grey42
-        : theme.colors.shades.grey232};
+        : theme.colors.shades.grey143};
 `;
 
 const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
@@ -75,7 +75,7 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   ${padding};
 
   ::placeholder {
-    color: ${getThemeColor('shades.grey232')};
+    color: ${getThemeColor('shades.grey204')};
   }
 `;
 

@@ -103,7 +103,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
         <Grid justifyContent="space-between" alignItems="center">
           <GridItem width={[1, 1, 1, 1 / 3]} order={[1, 1, 1, 0]}>
             <Text
-              color="shades.grey155"
+              color="shades.grey143"
               small
               m={0}
               align={['center', 'center', 'center', 'left']}

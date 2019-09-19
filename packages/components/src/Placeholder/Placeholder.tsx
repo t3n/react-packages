@@ -11,7 +11,7 @@ import { ThemeProps } from '@t3n/theme';
 
 const backgroundAnimation = ({ theme }: ThemeProps) => keyframes`
   0% {
-    background-color: ${theme.colors.shades.grey232}
+    background-color: ${theme.colors.shades.grey204}
   }
 
   50% {
@@ -19,7 +19,7 @@ const backgroundAnimation = ({ theme }: ThemeProps) => keyframes`
   }
 
   100% {
-    background-color: ${theme.colors.shades.grey232}
+    background-color: ${theme.colors.shades.grey204}
   }
 `;
 
