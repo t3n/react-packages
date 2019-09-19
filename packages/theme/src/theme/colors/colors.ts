@@ -157,9 +157,9 @@ export const socialColors = {
 
 // FEEDBACK
 export const success = '#34e88f';
-export const notice = grey143;
-export const warn = '#fbbe35';
-export const error = '#ff7e00';
+export const notice = '#5bd6ff';
+export const warn = '#ffef4f';
+export const error = red;
 
 export type ThemeFeedbackColor = 'success' | 'notice' | 'warn' | 'error';
 

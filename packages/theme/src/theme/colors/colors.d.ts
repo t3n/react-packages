@@ -109,9 +109,9 @@ export declare const socialColors: {
     xing: string;
 };
 export declare const success = "#34e88f";
-export declare const notice = "#8F8F8F";
-export declare const warn = "#fbbe35";
-export declare const error = "#ff7e00";
+export declare const notice = "#5bd6ff";
+export declare const warn = "#ffef4f";
+export declare const error = "#f9423a";
 export declare type ThemeFeedbackColor = 'success' | 'notice' | 'warn' | 'error';
 export interface ThemeFeedbackColors {
     success: string;
