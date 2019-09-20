@@ -47,7 +47,7 @@ export const FormGroup = ({
   ...props
 }: FormGroupProps) => (
   <StyledFormGroup {...props}>
-    <Box width={1} display="flex" mb={1}>
+    <Box width={1} display="flex" mb="0.25rem">
       <Label>{label}</Label>
       {labelSecondary && (
         <Text inline secondary>
