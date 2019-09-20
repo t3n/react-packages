@@ -44,7 +44,7 @@ const StyledCheckbox = styled(Box)<StyledCheckboxProps>`
   height: 1rem;
   border-radius: 2px;
   pointer-events: none;
-  ${({ theme }) => color({ theme, bg: 'shades.grey232' })};
+  ${({ theme }) => color({ theme, bg: 'shades.grey204' })};
   ${({ feedbackColor, theme }: StyledCheckboxProps & ThemeProps) =>
     border({
       theme,
@@ -75,7 +75,7 @@ const StyledLabel = styled.label<StyledCheckboxProps>`
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   ${({ disabled, theme }) =>
-    color({ theme, color: disabled ? 'shades.grey155' : 'black' })}
+    color({ theme, color: disabled ? 'shades.grey143' : 'black' })}
 `;
 
 const PlainCheckbox = ({
