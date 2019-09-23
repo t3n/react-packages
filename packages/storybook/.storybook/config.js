@@ -102,10 +102,7 @@ const loadStories = () => [
   require('../src/stories/components/inputs/link.stories'),
 
   // Form
-  require('../src/stories/components/form/form.stories'),
-
-  // SSO
-  require('../src/stories/projects/sso/sso.stories')
+  require('../src/stories/components/form/form.stories')
 ];
 
 configure(loadStories, module);
