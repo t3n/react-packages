@@ -1,14 +1,14 @@
 {
   "name": "@t3n/components",
-  "version": "0.1.15",
+  "version": "0.2.0",
   "description": "t3n react components",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
   "dependencies": {
-    "@t3n/icons": "^0.1.13",
-    "@t3n/theme": "^0.1.9",
+    "@t3n/icons": "^0.2.0",
+    "@t3n/theme": "^0.2.0",
     "clean-tag": "^3.1.1",
     "polished": "^3.1.0",
     "react-imgix": "^8.6.4",
@@ -27,7 +27,7 @@
     "test-watch": "jest --watch"
   },
   "devDependencies": {
-    "@t3n/configs": "^0.1.8",
+    "@t3n/configs": "^0.2.0",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.1",
     "@types/jest": "^24.0.17",
