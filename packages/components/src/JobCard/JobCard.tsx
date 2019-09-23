@@ -51,7 +51,7 @@ const LoadingJobListItem = () => (
 );
 
 const BorderImage = styled(Image)`
-  border: 0.125rem solid ${props => props.theme.colors.shades.grey232};
+  border: 0.125rem solid ${props => props.theme.colors.shades.grey204};
   margin-right: 0.625rem;
 `;
 
@@ -102,7 +102,7 @@ const JobListItem = ({
         <Text width="auto" mt={0} mb={0}>
           {companyName}
         </Text>
-        <Text width="auto" small mt={1} mb={0} color="shades.grey155">
+        <Text width="auto" small mt={1} mb={0} color="shades.grey143">
           {/* TODO: Add location icon instead of postcode */}
           {postCode} {city}
         </Text>

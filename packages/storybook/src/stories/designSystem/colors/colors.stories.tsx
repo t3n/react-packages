@@ -71,7 +71,7 @@ export const groups = () => (
                 const rgb = parseToRgb(theme.colors[name][colorName]);
 
                 return (
-                  <GridItem key={name} width={[1, 1 / 4, 1 / 5]} my={1}>
+                  <GridItem key={name} width={[1, 1 / 4]}>
                     <ColorCard
                       key={name}
                       name={colorName}

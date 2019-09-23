@@ -29,7 +29,7 @@ exports[`Big Card matches snapshot 1`] = `
   -webkit-transition: box-shadow .15s ease-out,-webkit-transform .15s ease-out;
   -webkit-transition: box-shadow .15s ease-out,transform .15s ease-out;
   transition: box-shadow .15s ease-out,transform .15s ease-out;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   width: 100%;
   padding: 24px;
@@ -107,7 +107,7 @@ exports[`Dashed Card matches snapshot 1`] = `
   -webkit-transition: box-shadow .15s ease-out,-webkit-transform .15s ease-out;
   -webkit-transition: box-shadow .15s ease-out,transform .15s ease-out;
   transition: box-shadow .15s ease-out,transform .15s ease-out;
-  border: 2px dashed #e8e8e8;
+  border: 2px dashed #cccccc;
   border-radius: 4px;
   width: 100%;
   padding: 16px;
@@ -176,7 +176,7 @@ exports[`Default Card matches snapshot 1`] = `
   -webkit-transition: box-shadow .15s ease-out,-webkit-transform .15s ease-out;
   -webkit-transition: box-shadow .15s ease-out,transform .15s ease-out;
   transition: box-shadow .15s ease-out,transform .15s ease-out;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   width: 100%;
   padding: 16px;

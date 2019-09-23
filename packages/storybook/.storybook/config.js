@@ -80,22 +80,23 @@ const loadStories = () => [
   require('../src/stories/components/layout/section.stories'),
 
   // Components - Content
+  // require('../src/stories/components/content/alert.stories'),
   require('../src/stories/components/content/authorArticleCard.stories'),
   require('../src/stories/components/content/avatar.stories'),
   require('../src/stories/components/content/badge.stories'),
   require('../src/stories/components/content/card.stories'),
   require('../src/stories/components/content/heroArticleCard.stories'),
   require('../src/stories/components/content/image.stories'),
-  require('../src/stories/components/content/newsCard.stories'),
   require('../src/stories/components/content/jobCard.stories'),
-  require('../src/stories/components/content/titleCard.stories'),
   require('../src/stories/components/content/loader.stories'),
+  require('../src/stories/components/content/newsCard.stories'),
   require('../src/stories/components/content/placeholder.stories'),
+  require('../src/stories/components/content/titleCard.stories'),
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories'),
-  require('../src/stories/components/inputs/input.stories'),
   require('../src/stories/components/inputs/checkbox.stories'),
+  require('../src/stories/components/inputs/input.stories'),
   require('../src/stories/components/inputs/link.stories'),
 
   // Form
