@@ -29,7 +29,7 @@ exports[`Author Card matches snapshot 1`] = `
   -webkit-transition: box-shadow .15s ease-out,-webkit-transform .15s ease-out;
   -webkit-transition: box-shadow .15s ease-out,transform .15s ease-out;
   transition: box-shadow .15s ease-out,transform .15s ease-out;
-  border: 1px solid #cccccc;
+  border: 1px solid #e8e8e8;
   border-radius: 4px;
   width: 100%;
   padding: 16px;

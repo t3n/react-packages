@@ -3,6 +3,7 @@ export declare const black = "#000";
 export declare const grey42 = "#2a2a2a";
 export declare const grey143 = "#8F8F8F";
 export declare const grey204 = "#cccccc";
+export declare const grey232 = "#e8e8e8";
 export declare const grey244 = "#f4f4f4";
 export declare const white = "#fff";
 export declare type ThemeBrandColor = 'red' | 'black' | 'white';
@@ -16,12 +17,13 @@ export declare const brandColors: {
     black: string;
     white: string;
 };
-export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey143' | 'grey204' | 'grey244' | 'white';
+export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey143' | 'grey204' | 'grey232' | 'grey244' | 'white';
 export interface ThemeShadeColors {
     black: string;
     grey42: string;
     grey143: string;
     grey204: string;
+    grey232: string;
     grey244: string;
     white: string;
 }
@@ -30,6 +32,7 @@ export declare const shadesColors: {
     grey42: string;
     grey143: string;
     grey204: string;
+    grey232: string;
     grey244: string;
     white: string;
 };
@@ -144,6 +147,7 @@ declare const colors: {
         grey42: string;
         grey143: string;
         grey204: string;
+        grey232: string;
         grey244: string;
         white: string;
     };
