@@ -68,18 +68,19 @@ const loadStories = () => [
   require('../src/stories/components/typography/punchline/punchline.stories'),
 
   // Components - Layout
-  require('../src/stories/components/layout/globalStyle.stories'),
   require('../src/stories/components/layout/content.stories'),
   require('../src/stories/components/layout/center.stories'),
   require('../src/stories/components/layout/divider.stories'),
+  // require('../src/stories/components/layout/globalStyle.stories'),
   require('../src/stories/components/layout/grid.stories'),
-  require('../src/stories/components/layout/pageLayout.stories'),
-  require('../src/stories/components/layout/pageHeader.stories'),
   require('../src/stories/components/layout/pageFooter.stories'),
+  require('../src/stories/components/layout/pageHeader.stories'),
+  require('../src/stories/components/layout/pageLayout.stories'),
   require('../src/stories/components/layout/ratio.stories'),
   require('../src/stories/components/layout/section.stories'),
 
   // Components - Content
+  // require('../src/stories/components/content/alert.stories'),
   require('../src/stories/components/content/authorArticleCard.stories'),
   require('../src/stories/components/content/avatar.stories'),
   require('../src/stories/components/content/badge.stories'),
@@ -91,6 +92,7 @@ const loadStories = () => [
   require('../src/stories/components/content/titleCard.stories'),
   require('../src/stories/components/content/loader.stories'),
   require('../src/stories/components/content/placeholder.stories'),
+  // require('../src/stories/components/content/titleCard.stories'),
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories'),

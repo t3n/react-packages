@@ -1,18 +1,20 @@
 {
   "name": "@t3n/components",
-  "version": "0.1.13",
+  "version": "0.1.15",
   "description": "t3n react components",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
   "dependencies": {
-    "@t3n/icons": "^0.1.12",
-    "@t3n/theme": "^0.1.8",
+    "@t3n/icons": "^0.1.13",
+    "@t3n/theme": "^0.1.9",
     "clean-tag": "^3.1.1",
     "polished": "^3.1.0",
     "react-imgix": "^8.6.4",
-    "styled-system": "^5.0.21"
+    "react-spring": "^8.0.27",
+    "styled-system": "^5.0.21",
+    "toasted-notes": "^3.0.0"
   },
   "main": "dist/bundle.js",
   "types": "src/index.d.ts",
@@ -25,7 +27,7 @@
     "test-watch": "jest --watch"
   },
   "devDependencies": {
-    "@t3n/configs": "^0.1.7",
+    "@t3n/configs": "^0.1.8",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.1",
     "@types/jest": "^24.0.17",

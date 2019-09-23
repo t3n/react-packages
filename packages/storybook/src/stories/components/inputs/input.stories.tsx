@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input } from '@t3n/components';
+import { Input, FormGroup } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -19,4 +19,28 @@ export const simple = () => (
       console.log(e.currentTarget.value);
     }}
   />
+);
+
+export const formGroup = () => (
+  <>
+    <FormGroup label="Vorname">
+      <Input
+        type="text"
+        placeholder="Johannes"
+        onChange={e => {
+          console.log(e.currentTarget.value);
+        }}
+      />
+    </FormGroup>
+    <FormGroup label="Vorname" errorMessage="Dies ist eine Error-Message">
+      <Input
+        type="text"
+        placeholder="Johannes"
+        error
+        onChange={e => {
+          console.log(e.currentTarget.value);
+        }}
+      />
+    </FormGroup>
+  </>
 );

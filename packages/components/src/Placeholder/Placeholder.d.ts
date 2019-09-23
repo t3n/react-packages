@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { SpaceProps, LayoutProps, BorderRadiusProps } from 'styled-system';
 export interface PlaceholderProps extends SpaceProps, LayoutProps, BorderRadiusProps {
 }
