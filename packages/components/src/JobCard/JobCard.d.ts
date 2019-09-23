@@ -1,6 +1,6 @@
 /// <reference types="react" />
 export declare type JobCardType = 'CARD' | 'LIST';
-interface Job {
+export interface Job {
     title: string;
     url: string;
     imageUrl: string;
@@ -8,10 +8,9 @@ interface Job {
     postCode: string;
     city: string;
 }
-interface JobCardProps {
+export interface JobCardProps {
     loading: boolean;
     type: JobCardType;
     job?: Job;
 }
 export declare const JobCard: ({ job, loading, type }: JobCardProps) => JSX.Element | null;
-export {};

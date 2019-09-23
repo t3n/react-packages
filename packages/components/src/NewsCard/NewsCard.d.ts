@@ -1,6 +1,6 @@
 /// <reference types="react" />
 export declare type NewsCardType = 'HERO' | 'AUTHOR';
-interface NewsCardProps {
+export interface NewsCardProps {
     loading: boolean;
     type: NewsCardType;
     news?: {
@@ -21,4 +21,3 @@ export declare const NewsCard: {
         loading: boolean;
     };
 };
-export {};

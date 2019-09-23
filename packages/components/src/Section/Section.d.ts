@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
 export declare type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
-interface SectionProps {
+export interface SectionProps {
     variant?: SectionVariants;
     wide?: boolean;
     children: ReactNode;
@@ -14,4 +14,3 @@ export declare const Section: {
         innerGap: number;
     };
 };
-export {};

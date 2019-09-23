@@ -8,9 +8,9 @@ import {
   WidthProps
 } from 'styled-system';
 
-interface ItemProps extends SpaceProps, WidthProps, OrderProps {}
+export interface GridItemProps extends SpaceProps, WidthProps, OrderProps {}
 
-export const GridItem = styled.div<ItemProps>`
+export const GridItem = styled.div<GridItemProps>`
   ${width}
   ${space}
   ${order}

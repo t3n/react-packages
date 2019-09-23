@@ -4,7 +4,7 @@ import { Card } from '../Card';
 import { Badge } from '../Badge';
 import { Heading } from '../Heading';
 
-interface AuthorCardProps {
+export interface AuthorCardProps {
   title: string;
   articleType: string;
   author: {

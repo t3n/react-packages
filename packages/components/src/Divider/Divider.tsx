@@ -6,7 +6,7 @@ import { Box } from '../Box/Box';
 
 export type DividerVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
-interface DividerProps extends SizeProps, BackgroundColorProps {}
+export interface DividerProps extends SizeProps, BackgroundColorProps {}
 
 const bgVariants = Object.keys(theme.colors.text).reduce(
   (colors, colorName) => ({

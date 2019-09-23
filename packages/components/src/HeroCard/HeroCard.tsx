@@ -5,7 +5,7 @@ import { CardHeader } from '../CardHeader';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 
-interface HeroCardProps {
+export interface HeroCardProps {
   title: string;
   imageUrl: string;
   author: string;

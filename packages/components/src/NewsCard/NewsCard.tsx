@@ -7,7 +7,7 @@ import { AuthorCard } from '../AuthorCard';
 
 export type NewsCardType = 'HERO' | 'AUTHOR';
 
-interface NewsCardProps {
+export interface NewsCardProps {
   loading: boolean;
   type: NewsCardType;
 

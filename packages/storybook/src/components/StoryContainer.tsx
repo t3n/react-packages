@@ -16,9 +16,10 @@ const backgroundColor = css`
       : theme.colors.background.primary};
 `;
 
-export default styled.div<StoryContainerProps>`
-  min-height: 100vh;
+const StoryContainer = styled.div<StoryContainerProps>`
   ${padding}
   ${backgroundColor}
   ${color}
 `;
+
+export default StoryContainer;

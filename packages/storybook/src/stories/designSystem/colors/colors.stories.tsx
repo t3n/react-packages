@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { ThemeConsumer } from 'styled-components';
 import { parseToRgb } from 'polished';
 import {
@@ -12,7 +11,10 @@ import {
   Section
 } from '@t3n/components';
 import { RgbColor, RgbaColor } from 'polished/lib/types/color';
-import StoryContainer from '../../../components/StoryContainer';
+
+export default {
+  title: 'Design System|Colors'
+};
 
 interface ColorCardProps {
   name: string;
@@ -49,44 +51,44 @@ const ColorCard = ({ name, value, rgb }: ColorCardProps) => (
   </Card>
 );
 
-storiesOf('Design System|Colors', module)
-  .addDecorator(story => <StoryContainer>{story()}</StoryContainer>)
-  .add(
-    'ColorGroups',
-    () => (
-      <ThemeConsumer>
-        {theme => {
-          return Object.keys(theme.colors).map(name => (
-            <Section>
-              <Heading as="h2">
-                {name.charAt(0).toUpperCase() + name.slice(1)}
-              </Heading>
+export const groups = () => (
+  <ThemeConsumer>
+    {theme => {
+      return Object.keys(theme.colors).map((name, i) => {
+        const headingProps: any = {};
 
-              <Grid my={-1}>
-                {Object.keys(theme.colors[name]).map(colorName => {
-                  const value = theme.colors[name][colorName];
-                  const rgb = parseToRgb(theme.colors[name][colorName]);
+        if (i === 0) headingProps.mt = 0;
 
-                  return (
-                    <GridItem key={name} width={[1, 1 / 4]}>
-                      <ColorCard
-                        key={name}
-                        name={colorName}
-                        rgb={rgb}
-                        value={value}
-                      />
-                    </GridItem>
-                  );
-                })}
-              </Grid>
-            </Section>
-          ));
-        }}
-      </ThemeConsumer>
-    ),
-    {
-      options: {
-        showPanel: false
-      }
-    }
-  );
+        return (
+          <Section>
+            <Heading as="h2" {...headingProps}>
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </Heading>
+
+            <Grid my={-1}>
+              {Object.keys(theme.colors[name]).map(colorName => {
+                const value = theme.colors[name][colorName];
+                const rgb = parseToRgb(theme.colors[name][colorName]);
+
+                return (
+                  <GridItem key={name} width={[1, 1 / 4]}>
+                    <ColorCard
+                      key={name}
+                      name={colorName}
+                      rgb={rgb}
+                      value={value}
+                    />
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </Section>
+        );
+      });
+    }}
+  </ThemeConsumer>
+);
+
+groups.story = {
+  name: 'Gruppen'
+};

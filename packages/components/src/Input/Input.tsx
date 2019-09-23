@@ -101,6 +101,7 @@ const Button = styled.button.attrs(() => ({
   ${({ theme }) => position({ theme, top: '50%', right: 1 })}
 `;
 
+// TODO: Fix fixedPlaceholder position!
 export const Input = ({
   type,
   value,

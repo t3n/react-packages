@@ -7,7 +7,7 @@ import { Placeholder } from '../Placeholder';
 
 export type JobCardType = 'CARD' | 'LIST';
 
-interface Job {
+export interface Job {
   title: string;
   url: string;
   imageUrl: string;
@@ -16,7 +16,7 @@ interface Job {
   city: string;
 }
 
-interface JobCardProps {
+export interface JobCardProps {
   loading: boolean;
   type: JobCardType;
 

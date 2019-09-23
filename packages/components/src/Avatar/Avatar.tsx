@@ -32,7 +32,7 @@ const StyledAvatarImage = styled(AvatarImage)<{ src: string }>`
   box-sizing: border-box;
 `;
 
-interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
+export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
   label?: string;
   textColor?: TextColorProps['color'];
 }

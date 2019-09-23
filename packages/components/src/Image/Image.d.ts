@@ -1,5 +1,5 @@
 /// <reference types="react" />
-interface ImageProps {
+export interface ImageProps {
     alt: string;
     src: string;
     width?: string;
@@ -19,4 +19,3 @@ export declare const Image: {
         className: {};
     };
 };
-export {};

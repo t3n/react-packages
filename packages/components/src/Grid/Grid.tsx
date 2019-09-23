@@ -13,9 +13,8 @@ import {
 import { ThemeProps } from '@t3n/theme';
 import { GridItem } from '../GridItem';
 
-interface GridProps
-  extends ThemeProps,
-    JustifyContentProps,
+export interface GridProps
+  extends JustifyContentProps,
     AlignItemsProps,
     HeightProps,
     SpaceProps {
@@ -28,7 +27,7 @@ interface GridProps
 const flexDirection = ({ vertical, reverse }: GridProps) =>
   `flex-direction: ${vertical ? 'column' : 'row'}${reverse ? '-reverse' : ''};`;
 
-const indent = ({ noGap, wide, theme }: GridProps) =>
+const indent = ({ noGap, wide, theme }: GridProps & ThemeProps) =>
   noGap
     ? space({ mx: 0 })
     : wide
@@ -41,7 +40,7 @@ const indent = ({ noGap, wide, theme }: GridProps) =>
         theme
       });
 
-const itemGap = ({ noGap, wide, theme }: GridProps): string =>
+const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string =>
   noGap ? space({ px: 0, theme }) : wide ? space({ px: 3, theme }) : '';
 
 export const Grid = styled.div<GridProps>`

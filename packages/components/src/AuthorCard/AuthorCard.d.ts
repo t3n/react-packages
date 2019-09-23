@@ -1,5 +1,5 @@
 /// <reference types="react" />
-interface AuthorCardProps {
+export interface AuthorCardProps {
     title: string;
     articleType: string;
     author: {
@@ -9,4 +9,3 @@ interface AuthorCardProps {
     url: string;
 }
 export declare const AuthorCard: ({ title, articleType, author, url }: AuthorCardProps) => JSX.Element;
-export {};
