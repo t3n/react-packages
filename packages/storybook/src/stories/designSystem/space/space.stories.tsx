@@ -30,7 +30,7 @@ export const spaces = () => (
     {(theme: Theme) => (
       <Grid>
         {theme.space.map((s: number) => (
-          <GridItem width={1}>
+          <GridItem width={1} key={s}>
             <Wrapper>
               <SpaceBox width={s} bg={theme.colors.background.highlight} />
               {s} px
