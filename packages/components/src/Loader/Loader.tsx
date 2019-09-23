@@ -7,7 +7,7 @@ import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 export type LoaderVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
-interface LoaderWrapperProps extends SizeProps {
+export interface LoaderProps extends SizeProps {
   backgroundColor?: ThemeBackgroundColor;
   bg?: ThemeBackgroundColor;
   small?: boolean;
@@ -17,13 +17,13 @@ const backgroundColor = ({
   backgroundColor: backgroundColorProps,
   bg,
   theme
-}: LoaderWrapperProps & ThemeProps) =>
+}: LoaderProps & ThemeProps) =>
   color({ backgroundColor: `background.${backgroundColorProps || bg}`, theme });
 
-const loaderSize = ({ small }: LoaderWrapperProps & ThemeProps) =>
+const loaderSize = ({ small }: LoaderProps & ThemeProps) =>
   size({ size: small ? '0.5rem' : '1rem' });
 
-const LoaderWrapper = styled.div<LoaderWrapperProps>`
+const LoaderWrapper = styled.div<LoaderProps>`
   display: inline-block;
   text-align: center;
 
@@ -71,7 +71,7 @@ const LoaderWrapper = styled.div<LoaderWrapperProps>`
   }
 `;
 
-export const Loader = styled((props: LoaderWrapperProps) => (
+export const Loader = styled((props: LoaderProps) => (
   <LoaderWrapper {...props}>
     <div />
     <div />

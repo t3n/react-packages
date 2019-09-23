@@ -1,5 +1,5 @@
 /// <reference types="react" />
-interface HeroCardProps {
+export interface HeroCardProps {
     title: string;
     imageUrl: string;
     author: string;
@@ -7,4 +7,3 @@ interface HeroCardProps {
     publishedAt: Date;
 }
 export declare const HeroCard: ({ title, imageUrl, publishedAt, author, url }: HeroCardProps) => JSX.Element;
-export {};

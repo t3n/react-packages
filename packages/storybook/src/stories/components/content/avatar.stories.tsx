@@ -1,21 +1,17 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withKnobs, text, select, number } from '@storybook/addon-knobs';
 
 import { Avatar, Text, Center, PageLayout } from '@t3n/components';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { storyContainerDecorator } from '../../../components/StoryContainer';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: Avatar,
   title: 'Components|Content/Avatar',
-  decorators: [storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator]
 };
-
-// addDecorator(story => <StoryContainer>{story()}</StoryContainer>);
-addDecorator(withKnobs);
 
 const options = {
   White: 'white',

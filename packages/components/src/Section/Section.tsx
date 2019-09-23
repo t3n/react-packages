@@ -6,7 +6,7 @@ import { Content } from '../Content/Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
-interface SectionProps {
+export interface SectionProps {
   variant?: SectionVariants;
   wide?: boolean;
   children: ReactNode;

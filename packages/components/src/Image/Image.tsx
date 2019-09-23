@@ -1,7 +1,7 @@
 import React from 'react';
 import Imgix from 'react-imgix';
 
-interface ImageProps {
+export interface ImageProps {
   alt: string;
   src: string;
   width?: string;

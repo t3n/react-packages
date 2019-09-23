@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { space, color } from 'styled-system';
 
@@ -24,7 +23,3 @@ const StoryContainer = styled.div<StoryContainerProps>`
 `;
 
 export default StoryContainer;
-
-export const storyContainerDecorator = (story: any) => (
-  <StoryContainer>{story()}</StoryContainer>
-);

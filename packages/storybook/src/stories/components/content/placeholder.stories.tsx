@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Placeholder } from '@t3n/components';
-import { storyContainerDecorator } from '../../../components/StoryContainer';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components|Content/Loading Indicator',

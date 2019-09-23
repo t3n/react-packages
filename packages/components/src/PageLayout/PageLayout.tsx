@@ -5,7 +5,7 @@ import { PageHeaderProps } from '../PageHeader/PageHeader';
 import { Content } from '../Content';
 import { PageFooter } from '../PageFooter';
 
-interface PageLayoutProps extends PageHeaderProps {
+export interface PageLayoutProps extends PageHeaderProps {
   showHeader?: boolean;
   noContentPadding?: boolean;
   headerContent?: JSX.Element;

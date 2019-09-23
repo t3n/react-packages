@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
+import { layout, LayoutProps, FlexboxProps, flexbox } from 'styled-system';
+import styled from 'styled-components';
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import { useCookies } from 'react-cookie';
 
 import {
   CardSplitContent,
@@ -15,18 +21,16 @@ import {
   NewsCard,
   H3
 } from '@t3n/components';
-import { layout, LayoutProps, FlexboxProps, flexbox } from 'styled-system';
-import styled from 'styled-components';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import { useCookies } from 'react-cookie';
+
 import products from './products.png';
 import { current_user } from './__generated__/current_user';
-import { FormInput } from '../../../components/FormField';
 import { loginVariables, login } from './__generated__/login';
 import { recentNews, recentNewsVariables } from './__generated__/recentNews';
+import { FormInput } from '../../../components/FormField';
+
+export default {
+  title: 'Projekte|SSO'
+};
 
 const ContentWrapper = styled.div<LayoutProps | FlexboxProps>`
   ${layout}
@@ -256,24 +260,18 @@ const LoginWrapper = () => {
   );
 };
 
-storiesOf('Projekte|SSO', module).add(
-  'Login',
-  () => (
-    <PageLayout showHeader>
-      <ContentWrapper
-        height="100vh"
-        justifyItems="center"
-        alignContent="center"
-      >
-        <Grid noGap alignItems="center" height="100vh" justifyContent="center">
-          <GridItem width={[4 / 5, 4 / 5, 2 / 3]}>
-            <LoginWrapper />
-          </GridItem>
-        </Grid>
-      </ContentWrapper>
-    </PageLayout>
-  ),
-  {
-    options: { showPanel: false }
-  }
+export const loginStory = () => (
+  <PageLayout showHeader>
+    <ContentWrapper height="100vh" justifyItems="center" alignContent="center">
+      <Grid noGap alignItems="center" height="100vh" justifyContent="center">
+        <GridItem width={[4 / 5, 4 / 5, 2 / 3]}>
+          <LoginWrapper />
+        </GridItem>
+      </Grid>
+    </ContentWrapper>
+  </PageLayout>
 );
+
+loginStory.story = {
+  name: 'Login'
+};

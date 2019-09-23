@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import {
   withKnobs,
   number,
@@ -9,11 +8,18 @@ import {
 } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import { Grid, GridItem, Content, NewsCard } from '@t3n/components';
 
+import { Grid, GridItem, NewsCard } from '@t3n/components';
 import { NewsCardType } from '@t3n/components/src/NewsCard/NewsCard';
-import StoryContainer from '../../../components/StoryContainer';
+
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 import { recentNews, recentNewsVariables } from './__generated__/recentNews';
+
+export default {
+  title: 'Components|Content/NewsCard',
+  component: NewsCard,
+  decorators: [withKnobs, storyContainerContentDecorator]
+};
 
 const RECENT_NEWS = gql`
   query recentNews($limit: Int!) {
@@ -93,168 +99,148 @@ const ArticleCardWithData = ({
   );
 };
 
-storiesOf('Components|Content/NewsCard', module)
-  .addDecorator(withKnobs)
-  .addDecorator(story => (
-    <StoryContainer>
-      <Content>{story()} </Content>
-    </StoryContainer>
-  ))
-  .add(
-    'Default',
-    () => {
-      const news = {
-        title: text(
-          'Titel',
-          'Mediamarkt und Saturn: US-Managerin DiMotta soll Wachstum bringen',
-          'news'
-        ),
-        author: {
-          name: text('Author-Name', 'Tobias Weidemann', 'news'),
-          avatar: text(
-            'Author Avatar-URL',
-            'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
-            'news'
-          )
-        },
-        publishedAt: new Date(
-          text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
-        ),
-        imageUrl: text(
-          'Bild-URL',
-          'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
-          'news'
-        ),
-        url: text(
-          'Url',
-          'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
-          'news'
-        ),
-        type: text('Artikel-Typ', 'Ratgeber', 'news')
-      };
-
-      return (
-        <Grid justifyContent="center">
-          <GridItem width={1 / 3}>
-            <NewsCard
-              loading={boolean('Fake Lade-Status', false, 'card')}
-              type={select('Darstellung', ['AUTHOR', 'HERO'], 'HERO', 'card')}
-              news={news}
-            />{' '}
-          </GridItem>
-        </Grid>
-      );
+export const defaultStory = () => {
+  const news = {
+    title: text(
+      'Titel',
+      'Mediamarkt und Saturn: US-Managerin DiMotta soll Wachstum bringen',
+      'news'
+    ),
+    author: {
+      name: text('Author-Name', 'Tobias Weidemann', 'news'),
+      avatar: text(
+        'Author Avatar-URL',
+        'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
+        'news'
+      )
     },
-    {
-      options: {
-        showPanel: true
-      }
-    }
-  )
-  .add('Hero-Layout', () => {
-    const news = {
-      title: text(
-        'Titel',
-        'Mediamarkt und Saturn: US-Managerin DiMotta soll Wachstum bringen',
-        'news'
-      ),
-      author: {
-        name: text('Author-Name', 'Tobias Weidemann', 'news'),
-        avatar: text(
-          'Author Avatar-URL',
-          'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
-          'news'
-        )
-      },
-      publishedAt: new Date(
-        text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
-      ),
-      imageUrl: text(
-        'Bild-URL',
-        'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
-        'news'
-      ),
-      url: text(
-        'Url',
-        'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
-        'news'
-      ),
-      type: text('Artikel-Typ', 'Ratgeber', 'news')
-    };
+    publishedAt: new Date(
+      text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
+    ),
+    imageUrl: text(
+      'Bild-URL',
+      'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
+      'news'
+    ),
+    url: text(
+      'Url',
+      'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
+      'news'
+    ),
+    type: text('Artikel-Typ', 'Ratgeber', 'news')
+  };
 
-    return (
-      <Grid justifyContent="center">
-        <GridItem width={1 / 3}>
-          <NewsCard type="HERO" news={news} />{' '}
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <NewsCard loading={false} type="HERO" news={news} />{' '}
-        </GridItem>
-      </Grid>
-    );
-  })
-  .add('Author-Layout', () => {
-    const news = {
-      title: text(
-        'Titel',
-        'Mediamarkt und Saturn: US-Managerin DiMotta soll Wachstum bringen',
-        'news'
-      ),
-      author: {
-        name: text('Author-Name', 'Tobias Weidemann', 'news'),
-        avatar: text(
-          'Author Avatar-URL',
-          'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
-          'news'
-        )
-      },
-      publishedAt: new Date(
-        text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
-      ),
-      imageUrl: text(
-        'Bild-URL',
-        'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
-        'news'
-      ),
-      url: text(
-        'Url',
-        'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
-        'news'
-      ),
-      type: text('Artikel-Typ', 'Ratgeber', 'news')
-    };
-
-    return (
-      <Grid justifyContent="center">
-        <GridItem width={1 / 3}>
-          <NewsCard type="AUTHOR" news={news} />{' '}
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <NewsCard loading={false} type="AUTHOR" news={news} />{' '}
-        </GridItem>
-      </Grid>
-    );
-  })
-  .add(
-    'Live-Daten',
-    () => {
-      const limit = number('Anzahl der Kacheln', 6, {
-        min: 1,
-        max: 10,
-        range: false,
-        step: 1
-      });
-      const fakeLoading = boolean('Fake ladestatus', false);
-
-      return (
-        <div>
-          <ArticleCardWithData limit={limit} fakeLoading={fakeLoading} />
-        </div>
-      );
-    },
-    {
-      options: {
-        showPanel: true
-      }
-    }
+  return (
+    <NewsCard
+      loading={boolean('Fake Lade-Status', false, 'card')}
+      type={select('Darstellung', ['AUTHOR', 'HERO'], 'HERO', 'card')}
+      news={news}
+    />
   );
+};
+
+defaultStory.story = {
+  name: 'Default'
+};
+
+export const heroLayout = () => {
+  const news = {
+    title: text(
+      'Titel',
+      'Mediamarkt und Saturn: US-Managerin DiMotta soll Wachstum bringen',
+      'news'
+    ),
+    author: {
+      name: text('Author-Name', 'Tobias Weidemann', 'news'),
+      avatar: text(
+        'Author Avatar-URL',
+        'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
+        'news'
+      )
+    },
+    publishedAt: new Date(
+      text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
+    ),
+    imageUrl: text(
+      'Bild-URL',
+      'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
+      'news'
+    ),
+    url: text(
+      'Url',
+      'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
+      'news'
+    ),
+    type: text('Artikel-Typ', 'Ratgeber', 'news')
+  };
+
+  return (
+    <Grid justifyContent="center">
+      <GridItem width={1 / 3}>
+        <NewsCard type="HERO" news={news} />{' '}
+      </GridItem>
+      <GridItem width={1 / 3}>
+        <NewsCard loading={false} type="HERO" news={news} />{' '}
+      </GridItem>
+    </Grid>
+  );
+};
+
+export const authorLayout = () => {
+  const news = {
+    title: text(
+      'Titel',
+      'Mediamarkt und Saturn: US-Managerin DiMotta soll Wachstum bringen',
+      'news'
+    ),
+    author: {
+      name: text('Author-Name', 'Tobias Weidemann', 'news'),
+      avatar: text(
+        'Author Avatar-URL',
+        'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
+        'news'
+      )
+    },
+    publishedAt: new Date(
+      text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
+    ),
+    imageUrl: text(
+      'Bild-URL',
+      'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
+      'news'
+    ),
+    url: text(
+      'Url',
+      'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
+      'news'
+    ),
+    type: text('Artikel-Typ', 'Ratgeber', 'news')
+  };
+
+  return (
+    <Grid justifyContent="center">
+      <GridItem width={1 / 3}>
+        <NewsCard type="AUTHOR" news={news} />{' '}
+      </GridItem>
+      <GridItem width={1 / 3}>
+        <NewsCard loading={false} type="AUTHOR" news={news} />{' '}
+      </GridItem>
+    </Grid>
+  );
+};
+
+export const liveData = () => {
+  const limit = number('Anzahl der Kacheln', 6, {
+    min: 1,
+    max: 10,
+    range: false,
+    step: 1
+  });
+  const fakeLoading = boolean('Fake ladestatus', false);
+
+  return <ArticleCardWithData limit={limit} fakeLoading={fakeLoading} />;
+};
+
+liveData.story = {
+  name: 'Live-Daten'
+};
