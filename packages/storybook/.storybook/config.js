@@ -65,38 +65,39 @@ function loadStories() {
 
   // Components - Typography
   require('../src/stories/components/typography/heading/heading.stories');
-  require('../src/stories/components/typography/text/text.stories');
   require('../src/stories/components/typography/punchline/punchline.stories');
+  require('../src/stories/components/typography/text/text.stories');
 
   // Components - Layout
-  require('../src/stories/components/layout/globalStyle.stories');
-  require('../src/stories/components/layout/content.stories');
   require('../src/stories/components/layout/center.stories');
+  require('../src/stories/components/layout/content.stories');
   require('../src/stories/components/layout/divider.stories');
+  require('../src/stories/components/layout/globalStyle.stories');
   require('../src/stories/components/layout/grid.stories');
-  require('../src/stories/components/layout/pageLayout.stories');
-  require('../src/stories/components/layout/pageHeader.stories');
   require('../src/stories/components/layout/pageFooter.stories');
+  require('../src/stories/components/layout/pageHeader.stories');
+  require('../src/stories/components/layout/pageLayout.stories');
   require('../src/stories/components/layout/ratio.stories');
   require('../src/stories/components/layout/section.stories');
 
   // Components - Content
+  require('../src/stories/components/content/alert.stories');
   require('../src/stories/components/content/authorArticleCard.stories');
   require('../src/stories/components/content/avatar.stories');
   require('../src/stories/components/content/badge.stories');
   require('../src/stories/components/content/card.stories');
   require('../src/stories/components/content/heroArticleCard.stories');
   require('../src/stories/components/content/image.stories');
-  require('../src/stories/components/content/newsCard.stories');
   require('../src/stories/components/content/jobCard.stories');
-  require('../src/stories/components/content/titleCard.stories');
   require('../src/stories/components/content/loader.stories');
+  require('../src/stories/components/content/newsCard.stories');
   require('../src/stories/components/content/placeholder.stories');
+  require('../src/stories/components/content/titleCard.stories');
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories');
-  require('../src/stories/components/inputs/input.stories');
   require('../src/stories/components/inputs/checkbox.stories');
+  require('../src/stories/components/inputs/input.stories');
   require('../src/stories/components/inputs/link.stories');
 
   // Form
