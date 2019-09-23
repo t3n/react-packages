@@ -6,6 +6,7 @@ export const black = '#000';
 export const grey42 = '#2a2a2a';
 export const grey143 = '#8F8F8F';
 export const grey204 = '#cccccc';
+export const grey232 = '#e8e8e8';
 export const grey244 = '#f4f4f4';
 export const white = '#fff';
 
@@ -28,6 +29,7 @@ export type ThemeShadeColor =
   | 'grey42'
   | 'grey143'
   | 'grey204'
+  | 'grey232'
   | 'grey244'
   | 'white';
 
@@ -36,6 +38,7 @@ export interface ThemeShadeColors {
   grey42: string;
   grey143: string;
   grey204: string;
+  grey232: string;
   grey244: string;
   white: string;
 }
@@ -45,6 +48,7 @@ export const shadesColors = {
   grey42,
   grey143,
   grey204,
+  grey232,
   grey244,
   white
 };
