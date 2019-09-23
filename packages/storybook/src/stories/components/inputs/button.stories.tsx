@@ -54,7 +54,7 @@ export const variants = () => (
   <div>
     {colors.map(color => {
       return (
-        <>
+        <div key={color}>
           <h3>Buttons in der Farbe {color}</h3>
           <Grid mb={4}>
             <GridItem width={1 / 3} padding={2}>
@@ -83,7 +83,7 @@ export const variants = () => (
               </Button>
             </GridItem>
           </Grid>
-        </>
+        </div>
       );
     })}
   </div>
