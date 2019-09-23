@@ -60,7 +60,7 @@ export const groups = () => (
         if (i === 0) headingProps.mt = 0;
 
         return (
-          <Section>
+          <Section key={name}>
             <Heading as="h2" {...headingProps}>
               {name.charAt(0).toUpperCase() + name.slice(1)}
             </Heading>
@@ -71,9 +71,9 @@ export const groups = () => (
                 const rgb = parseToRgb(theme.colors[name][colorName]);
 
                 return (
-                  <GridItem key={name} width={[1, 1 / 4]}>
+                  <GridItem key={colorName} width={[1, 1 / 3]}>
                     <ColorCard
-                      key={name}
+                      key={colorName}
                       name={colorName}
                       rgb={rgb}
                       value={value}
