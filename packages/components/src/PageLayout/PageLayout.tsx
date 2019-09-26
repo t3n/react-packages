@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useScrollYPosition } from 'react-use-scroll-position';
 import { PageHeader } from '../PageHeader';
 import { PageHeaderProps } from '../PageHeader/PageHeader';
 import { Content } from '../Content';
@@ -8,6 +9,7 @@ import { PageFooter } from '../PageFooter';
 export interface PageLayoutProps extends PageHeaderProps {
   showHeader?: boolean;
   noContentPadding?: boolean;
+  initialTransparent?: boolean;
   headerContent?: JSX.Element;
   footerContent?: JSX.Element;
 }
@@ -31,23 +33,45 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   showHeader = true,
   noContentPadding,
   headerContent,
-  logoVariant,
+  initialTransparent = false,
   footerContent,
   children
 }) => {
+  const y = useScrollYPosition();
+  const [transparentHeader, setTransparentHeader] = useState(
+    initialTransparent
+  );
+
+  useEffect(() => {
+    // if the header is initial transparent we need to track the scroll position
+    if (initialTransparent) {
+      if (y > 20 && transparentHeader) {
+        setTransparentHeader(false);
+      } else if (y < 20 && !transparentHeader) {
+        setTransparentHeader(true);
+      }
+    }
+  }, [initialTransparent, y, transparentHeader]);
+
   return (
     <PageLayoutContainer>
       {showHeader && (
-        <PageHeader logoVariant={logoVariant}>{headerContent}</PageHeader>
+        <PageHeader transparent={transparentHeader}>{headerContent}</PageHeader>
       )}
-      <Content
-        wide
-        px={0}
-        pt={showHeader ? (noContentPadding ? 7 : 9) : noContentPadding ? 0 : 2}
-        pb={noContentPadding ? 0 : 2}
-      >
-        {children}
-      </Content>
+      {initialTransparent ? (
+        children
+      ) : (
+        <Content
+          wide
+          px={0}
+          pt={
+            showHeader ? (noContentPadding ? 7 : 9) : noContentPadding ? 0 : 2
+          }
+          pb={noContentPadding ? 0 : 2}
+        >
+          {children}
+        </Content>
+      )}
       <PageFooter contactLink="mailto:support@t3n.de">
         {footerContent}
       </PageFooter>

@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { space, color, compose } from 'styled-system';
+import { ThemeProps } from '@t3n/theme';
 import { Logo } from '../Logo';
 
-const PageHeaderWrapper = styled.div`
+export interface PageHeaderProps {
+  transparent?: boolean;
+}
+
+const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
   position: fixed;
   z-index: 20;
   top: 0;
@@ -13,15 +18,15 @@ const PageHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${({ theme }) =>
+  ${({ theme, transparent }) =>
     compose(
       color,
       space
     )({
       theme,
       color: 'text.inverse',
-      bg: 'background.highlight',
-      px: [2, 3]
+      bg: transparent ? 'transparent' : 'background.highlight',
+      px: [2, 2, 2, 2, 7]
     })}
 
   ${Logo} {
@@ -30,13 +35,12 @@ const PageHeaderWrapper = styled.div`
   }
 `;
 
-export interface PageHeaderProps {
-  logoVariant?: 'default';
-}
-
-export const PageHeader: React.FC<PageHeaderProps> = ({ children }) => {
+export const PageHeader: React.FC<PageHeaderProps> = ({
+  transparent,
+  children
+}) => {
   return (
-    <PageHeaderWrapper>
+    <PageHeaderWrapper transparent={transparent}>
       <Logo />
       {children}
     </PageHeaderWrapper>
