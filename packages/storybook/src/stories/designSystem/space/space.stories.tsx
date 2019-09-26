@@ -29,11 +29,15 @@ export const spaces = () => (
   <ThemeConsumer>
     {(theme: Theme) => (
       <Grid>
-        {theme.space.map((s: number) => (
+        {theme.space.map((s: number, idx: number) => (
           <GridItem width={1} key={s}>
             <Wrapper>
-              <SpaceBox width={s} bg={theme.colors.background.highlight} />
-              {s} px
+              <SpaceBox
+                width={s}
+                color="shades.white"
+                bg={theme.colors.background.highlight}
+              />
+              {idx} / {s} px
             </Wrapper>
           </GridItem>
         ))}
