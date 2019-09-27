@@ -1,7 +1,16 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-import { PageLayout, Section, Text, H1, Avatar, Box } from '@t3n/components';
+import {
+  PageLayout,
+  Section,
+  Text,
+  H1,
+  Avatar,
+  Box,
+  VisualSection,
+  Content
+} from '@t3n/components';
 import styled from 'styled-components';
 
 export default {
@@ -55,9 +64,13 @@ export const withTransparentHeader = () => {
         <Avatar src="https://storage.googleapis.com/t3n-de/pioneers/ee08e42d57b7c75290f40f8d9a56489b8db91cd6/Thelen_Frank_Portrait_03%20-%20Lena%20He%C3%9Fbru%CC%88gge.jpg" />
       }
     >
-      <FeatureSection>
-        <H1 color="shades.white">Some Headline</H1>
-      </FeatureSection>
+      <VisualSection variant="highlight">
+        <Content>
+          <H1 mb={8} color="shades.white">
+            Some Headline
+          </H1>
+        </Content>
+      </VisualSection>
       <Section variant="primary">
         <Text my={9}>Dummy Section</Text>
       </Section>
