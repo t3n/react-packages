@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { ThemeProps } from '@t3n/theme';
 import { space, SpaceProps } from 'styled-system';
-import { LayoutPixel } from '@t3n/icons';
 import { Content } from '../Content/Content';
 
 export type VisualSectionVariants = 'primary' | 'highlight';
@@ -36,7 +35,6 @@ export const VisualSection: React.FC<VisualSectionProps> = ({
   children
 }) => (
   <VisualSectionOuter variant={variant} innerGap={innerGap}>
-    <LayoutPixel />
     <Content wide>{children}</Content>
   </VisualSectionOuter>
 );
