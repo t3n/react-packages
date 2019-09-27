@@ -35,3 +35,4 @@ export { Section } from './Section';
 export { Text } from './Text';
 export { TitleCard } from './TitleCard';
 export { Toast, useToast } from './Toast';
+export { VisualSection } from './VisualSection';
