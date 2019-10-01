@@ -37,7 +37,7 @@ export const TagList: React.FC<TagListProps> = ({
 }) => {
   const [collapsed, setCollapsed] = useState(initialCollapsed || true);
 
-  if (tags.length < collapseAfter) {
+  if (tags.length <= collapseAfter) {
     return (
       <StyledTagList>
         {tags.map((tag, idx) => (
