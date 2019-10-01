@@ -72,6 +72,9 @@ exports[`TagList matches snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
