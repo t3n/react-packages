@@ -40,6 +40,9 @@ jobs:
       - run: |
           npm run build
 
+      - run: |
+          npx bundlesize
+
       - persist_to_workspace: *persist_to_workspace
 
   prettier:

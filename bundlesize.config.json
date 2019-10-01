@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "path": "./packages/components/dist/*.js",
+      "maxSize": "200 kB"
+    },
+    {
+      "path": "./packages/icons/dist/*.js",
+      "maxSize": "20 kB"
+    },
+    {
+      "path": "./packages/theme/dist/*.js",
+      "maxSize": "50 kB"
+    }
+  ]
+}
