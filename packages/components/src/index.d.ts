@@ -32,6 +32,7 @@ export { PasswordLostLabel } from './FormGroup';
 export { Placeholder } from './Placeholder';
 export { Ratio } from './Ratio';
 export { Section } from './Section';
+export { Tag } from './Tag';
 export { Text } from './Text';
 export { TitleCard } from './TitleCard';
 export { Toast, useToast } from './Toast';
