@@ -7,11 +7,9 @@ import {
   Text,
   H1,
   Avatar,
-  Box,
   VisualSection,
   Content
 } from '@t3n/components';
-import styled from 'styled-components';
 
 export default {
   title: 'Components|Layout/PageLayout',
@@ -34,26 +32,9 @@ defaultStory.story = {
   name: 'Default'
 };
 
-const FeatureSection = styled.div`
-  background-image: url('https://storage.googleapis.com/t3n-de/pioneers/4e6400c95fea8c09e98157eaa11109062ab7fc18/t3n_pn_hero_transparent_B.png');
-  background-color: #f9423a;
-  min-height: 20rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-`;
-
 export const withTransparentHeader = () => {
   const noContentPadding = boolean('Kein Inhaltsabstand', false);
   const showHeader = boolean('Mit Header', true);
-
-  const HeaderContent = styled.div`
-    display: flex;
-    width: 100%;
-    margin-left: 40px;
-    justify-content: space-between;
-  `;
 
   return (
     <PageLayout
