@@ -12,6 +12,7 @@ export interface TagListProps {
 
 const StyledTagList = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 `;
 
