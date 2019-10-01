@@ -2,15 +2,15 @@
   "files": [
     {
       "path": "./packages/components/dist/*.js",
-      "maxSize": "500 kB"
+      "maxSize": "200 kB"
     },
     {
       "path": "./packages/icons/dist/*.js",
-      "maxSize": "50 kB"
+      "maxSize": "20 kB"
     },
     {
       "path": "./packages/theme/dist/*.js",
-      "maxSize": "100 kB"
+      "maxSize": "50 kB"
     }
   ]
 }
