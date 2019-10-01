@@ -25,6 +25,7 @@ exports[`TagList matches snapshot 1`] = `
 .c1 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #2a2a2a;
 }
 
 .c2 {
@@ -53,6 +54,7 @@ exports[`TagList matches snapshot 1`] = `
 .c2 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #2a2a2a;
 }
 
 .c2:hover {
