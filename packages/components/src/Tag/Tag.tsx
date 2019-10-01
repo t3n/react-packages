@@ -1,13 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-  variant,
-  padding,
-  color,
-  MarginProps,
-  margin,
-  typography
-} from 'styled-system';
+import { variant, padding, color, MarginProps, margin } from 'styled-system';
 import { Theme, composeTextStyle } from '@t3n/theme';
 
 export type TagColorVariant = 'primary' | 'secondary' | 'inverse';
@@ -59,6 +52,10 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
 
   svg {
     ${({ theme }) => margin({ theme, mt: '4px', ml: 1 })}
+    fill: ${({ theme, variant: variantStyle }: StyledTagProps) =>
+      variantStyle === 'inverse'
+        ? theme.colors.text.inverse
+        : theme.colors.text.primary}
   }
 
   ${({ theme, clickable }: StyledTagProps) =>
