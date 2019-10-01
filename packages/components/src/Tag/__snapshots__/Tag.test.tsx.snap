@@ -25,6 +25,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 .c0 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #2a2a2a;
 }
 
 .c1 {
@@ -51,6 +52,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 .c1 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #2a2a2a;
 }
 
 .c2 {
@@ -77,6 +79,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 .c2 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #fff;
 }
 
 .c3 {
@@ -103,6 +106,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 .c3 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #2a2a2a;
 }
 
 .c4 {
@@ -129,6 +133,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 .c4 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #2a2a2a;
 }
 
 .c5 {
@@ -155,6 +160,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 .c5 svg {
   margin-top: 4px;
   margin-left: 8px;
+  fill: #fff;
 }
 
 @media screen and (min-width:30rem) {
