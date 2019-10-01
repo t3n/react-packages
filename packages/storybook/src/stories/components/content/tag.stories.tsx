@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tag, Button, Box } from '@t3n/components';
 import { MaterialClear } from '@t3n/icons';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { TagColorVariant } from '@t3n/components/src/Tag';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -10,19 +10,35 @@ const variants: TagColorVariant[] = ['primary', 'secondary', 'inverse'];
 export const defaultStory = () => {
   return variants.map(variant => (
     <Box m={4} key={variant}>
-      <Tag colorVariant={variant}>Text</Tag>
+      <Tag colorVariant={variant}>Some tag</Tag>
     </Box>
   ));
 };
 
 defaultStory.story = {
-  name: 'Einzelner Tag'
+  name: 'Tag'
+};
+
+export const smallTags = () => {
+  return variants.map(variant => (
+    <Box m={4} key={variant}>
+      <Tag colorVariant={variant} small>
+        Small Tag
+      </Tag>
+    </Box>
+  ));
+};
+
+smallTags.story = {
+  name: 'Kleine Tags'
 };
 
 export const linkedTags = () => {
+  const smallTag = boolean('Kleine Tags', false);
+
   return variants.map(variant => (
     <Box m={4} key={variant}>
-      <Tag link="#" colorVariant={variant}>
+      <Tag link="#" colorVariant={variant} small={smallTag}>
         Text
       </Tag>
     </Box>
@@ -37,6 +53,8 @@ const ClicakbleTagList: React.FC = () => {
   const defaultTags = ['Google', 'Facebook', 'Amazon', 'Twitter'];
   const [tags, setTags] = useState(defaultTags);
 
+  const smallTag = boolean('Kleine Tags', false);
+
   const removeTag = (tag: string) => {
     const filteredTags = tags.filter(t => t !== tag);
     setTags(filteredTags);
@@ -47,14 +65,16 @@ const ClicakbleTagList: React.FC = () => {
       {tags.map(tag => (
         <Tag
           key={tag}
-          mr={2}
+          m={1}
           colorVariant="secondary"
           onClick={() => removeTag(tag)}
           icon={<MaterialClear />}
+          small={smallTag}
         >
           {tag}
         </Tag>
       ))}
+      <br /> <br />
       <Button color="dark" onClick={() => setTags(defaultTags)}>
         Reset
       </Button>

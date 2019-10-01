@@ -1,13 +1,21 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { variant, padding, color, MarginProps, margin } from 'styled-system';
-import { Theme } from '@t3n/theme';
+import {
+  variant,
+  padding,
+  color,
+  MarginProps,
+  margin,
+  typography
+} from 'styled-system';
+import { Theme, composeTextStyle } from '@t3n/theme';
 
 export type TagColorVariant = 'primary' | 'secondary' | 'inverse';
 
 export interface TagProps extends MarginProps {
-  colorVariant: TagColorVariant;
+  colorVariant?: TagColorVariant;
   link?: string;
+  small?: boolean;
   icon?: JSX.Element;
   onClick?: () => void;
 }
@@ -16,6 +24,7 @@ interface StyledTagProps {
   theme: Theme;
   variant: TagColorVariant;
   link?: string;
+  small: boolean;
   clickable: boolean;
 }
 
@@ -26,8 +35,10 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
   align-items: center;
   border-radius: 30px;
   ${margin};
-
-  ${({ theme }) => padding({ theme, px: 2, py: 1 })}
+  ${({ theme, small }: StyledTagProps) =>
+    composeTextStyle({ theme, textStyle: small ? 'small' : 'regular' })}
+  ${({ theme, small }: StyledTagProps) =>
+    padding({ theme, px: small ? 1 : 2, py: small ? '2px' : '4px' })}
 
   ${variant({
     variants: {
@@ -71,6 +82,7 @@ export const Tag: React.FC<TagProps> = ({
   colorVariant,
   onClick,
   icon,
+  small,
   ...rest
 }) => {
   return (
@@ -78,8 +90,9 @@ export const Tag: React.FC<TagProps> = ({
       as={link ? 'a' : 'div'}
       link={link}
       clickable={!!link || !!onClick}
-      variant={colorVariant}
+      variant={colorVariant || 'secondary'}
       onClick={onClick}
+      small={small || false}
       {...rest}
     >
       {children}
