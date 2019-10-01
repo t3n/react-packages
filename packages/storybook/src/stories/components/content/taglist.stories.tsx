@@ -13,13 +13,9 @@ export const defaultStory = () => {
     'Laravel'
   ];
 
-  const tags = tagValues.map(label => (
-    <Tag colorVariant="inverse" m={1}>
-      {label}
-    </Tag>
-  ));
+  const tags = tagValues.map(label => <Tag mr={1}>{label}</Tag>);
 
-  return <TagList colorVariant="inverse" collapseAfter={3} tags={tags} />;
+  return <TagList collapseAfter={3} tags={tags} />;
 };
 
 defaultStory.story = {
