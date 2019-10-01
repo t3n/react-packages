@@ -5,7 +5,12 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { TagColorVariant } from '@t3n/components/src/Tag';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
-const variants: TagColorVariant[] = ['primary', 'secondary', 'inverse'];
+const variants: TagColorVariant[] = [
+  'primary',
+  'secondary',
+  'inverse',
+  'black'
+];
 
 export const defaultStory = () => {
   return variants.map(variant => (
