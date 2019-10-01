@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagList matches snapshot 1`] = `
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 30px;
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #f4f4f4;
+  color: #2a2a2a;
+}
+
+.c1 svg {
+  margin-top: 4px;
+  margin-left: 8px;
+  fill: #2a2a2a;
+}
+
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 30px;
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #f4f4f4;
+  color: #2a2a2a;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2 svg {
+  margin-top: 4px;
+  margin-left: 8px;
+  fill: #2a2a2a;
+}
+
+.c2:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #f9423a;
+}
+
+.c2:hover svg {
+  fill: #fff;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+}
+
+.c3:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.c3 svg {
+  margin: 0 auto;
+}
+
+@media screen and (min-width:30rem) {
+  .c1 {
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c1 {
+    line-height: 1.666em;
+  }
+}
+
+@media screen and (min-width:30rem) {
+  .c2 {
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c2 {
+    line-height: 1.666em;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    foo
+  </div>
+  <div
+    class="c1"
+  >
+    bar
+  </div>
+  <div
+    aria-label="Mehr Tags"
+    class="c2 c3"
+  >
+    <svg
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+      />
+    </svg>
+  </div>
+</div>
+`;
