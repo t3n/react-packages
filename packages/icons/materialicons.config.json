@@ -4,6 +4,8 @@
   },
   "ignoreFolders": ["iconfont", "sprites"],
   "include": [
+    "arrow_forward",
+    "arrow_back",
     "check",
     "clear",
     "info",
