@@ -28,7 +28,7 @@ test('TagList has no toggle if there are not enough items', () => {
   const { queryByLabelText } = renderWithTheme(
     <>
       <TagList
-        collapseAfter={5}
+        collapseAfter={3}
         tags={tagLabels.map(tag => (
           <Tag>{tag}</Tag>
         ))}
