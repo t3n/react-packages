@@ -10,6 +10,7 @@ test('Tag Variants matches snapshot', () => {
       <Tag colorVariant="primary">primary tag</Tag>
       <Tag colorVariant="secondary">secondary tag</Tag>
       <Tag colorVariant="inverse">inverse tag</Tag>
+      <Tag colorVariant="black">black tag</Tag>
       <Tag colorVariant="primary" small>
         small primary tag
       </Tag>
@@ -18,6 +19,9 @@ test('Tag Variants matches snapshot', () => {
       </Tag>
       <Tag colorVariant="inverse" small>
         small inverse tag
+      </Tag>
+      <Tag colorVariant="black" small>
+        small black tag
       </Tag>
     </>,
     {}
