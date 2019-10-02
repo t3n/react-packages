@@ -4,11 +4,12 @@ export declare type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'hig
 export interface SectionProps {
     variant?: SectionVariants;
     wide?: boolean;
+    small?: boolean;
     children: ReactNode;
     innerGap?: SpaceProps['py'];
 }
 export declare const Section: {
-    ({ variant, wide, children, innerGap }: SectionProps): JSX.Element;
+    ({ variant, wide, small, children, innerGap }: SectionProps): JSX.Element;
     displayName: string;
     defaultProps: {
         innerGap: number;
