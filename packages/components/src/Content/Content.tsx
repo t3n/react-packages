@@ -30,5 +30,6 @@ Content.displayName = 'Content';
 
 Content.defaultProps = {
   wide: false,
+  small: false,
   px: [2]
 };
