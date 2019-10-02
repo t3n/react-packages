@@ -9,6 +9,7 @@ export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 export interface SectionProps {
   variant?: SectionVariants;
   wide?: boolean;
+  small?: boolean;
   children: ReactNode;
   innerGap?: SpaceProps['py'];
 }
@@ -35,11 +36,14 @@ const SectionOuter = styled.div<SectionProps>`
 export const Section = ({
   variant,
   wide,
+  small,
   children,
   innerGap
 }: SectionProps) => (
   <SectionOuter variant={variant} innerGap={innerGap}>
-    <Content wide={wide}>{children}</Content>
+    <Content wide={wide} small={small}>
+      {children}
+    </Content>
   </SectionOuter>
 );
 
