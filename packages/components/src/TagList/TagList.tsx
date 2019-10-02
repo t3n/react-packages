@@ -1,7 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
+import { margin } from 'styled-system';
+import { ThemeProps } from '@t3n/theme';
 import { Tag, TagColorVariant } from '../Tag/Tag';
+import { Box } from '../Box';
 
 export interface TagListProps {
   tags: JSX.Element[];
@@ -20,6 +23,7 @@ const StyledArrowButton = styled(Tag)`
   height: 2rem;
   width: 2rem;
   padding: 0;
+  ${({ theme }: ThemeProps) => margin({ theme, mb: 1 })}
 
   &:hover {
     transform: scale(1.3);
@@ -43,7 +47,9 @@ export const TagList: React.FC<TagListProps> = ({
       <StyledTagList>
         {tags.map((tag, idx) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Fragment key={idx}>{tag}</Fragment>
+          <Box display="inline-block" key={idx} mb={1}>
+            {tag}
+          </Box>
         ))}
       </StyledTagList>
     );
@@ -54,7 +60,9 @@ export const TagList: React.FC<TagListProps> = ({
       <StyledTagList>
         {tags.slice(0, collapseAfter).map((tag, idx) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Fragment key={idx}>{tag}</Fragment>
+          <Box display="inline-block" key={idx} mb={1}>
+            {tag}
+          </Box>
         ))}
         <StyledArrowButton
           aria-label="Mehr Tags"
@@ -71,7 +79,9 @@ export const TagList: React.FC<TagListProps> = ({
     <StyledTagList>
       {tags.map((tag, idx) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Fragment key={idx}>{tag}</Fragment>
+        <Box display="inline-block" key={idx} mb={1}>
+          {tag}
+        </Box>
       ))}{' '}
       <StyledArrowButton
         aria-label="Weniger Tags"
