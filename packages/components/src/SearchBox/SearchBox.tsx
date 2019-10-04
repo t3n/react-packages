@@ -5,7 +5,8 @@ import AutoSuggest, {
   OnSuggestionsClearRequested,
   GetSuggestionValue,
   RenderSuggestionsContainerParams,
-  OnSuggestionSelected
+  OnSuggestionSelected,
+  SuggestionSelectedEventData
 } from 'react-autosuggest';
 import styled from 'styled-components';
 
@@ -145,7 +146,7 @@ function SearchBox<T>({
     containerProps
   }: RenderSuggestionsContainerParams) => {
     return (
-      term.length > 0 &&
+      term.length > 3 &&
       suggestions.length > 0 && (
         <SuggestionContainer {...containerProps}>
           {children}
@@ -161,6 +162,14 @@ function SearchBox<T>({
     );
   };
 
+  const handleSuggestionSelected = (
+    event: React.FormEvent<any>,
+    data: SuggestionSelectedEventData<T>
+  ) => {
+    setTerm('');
+    onSelect(event, data);
+  };
+
   return (
     <Wrapper width={width}>
       <InputWrapper>
@@ -172,7 +181,7 @@ function SearchBox<T>({
           shouldRenderSuggestions={() => term.length >= 3}
           onSuggestionsFetchRequested={debounced}
           onSuggestionsClearRequested={handleSuggestionClearRequested}
-          onSuggestionSelected={onSelect}
+          onSuggestionSelected={handleSuggestionSelected}
           renderSuggestion={(suggestion, params) => (
             <SuggestionItem>
               {renderSuggestion(suggestion, params)}
