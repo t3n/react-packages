@@ -1,6 +1,6 @@
 {
   "name": "@t3n/theme",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
@@ -26,7 +26,7 @@
     "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "@t3n/configs": "^0.2.0",
+    "@t3n/configs": "^0.2.1",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
