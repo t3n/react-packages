@@ -44,7 +44,7 @@ export const AuthorCard = ({
         width={40}
         style={{ marginRight: '1rem', borderRadius: '50%' }}
         alt={author.name}
-      />{' '}
+      />
       {author.name}
     </Author>
   </Card>
