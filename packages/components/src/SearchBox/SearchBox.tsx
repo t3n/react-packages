@@ -29,8 +29,8 @@ const IconWrapper = styled.div`
 
   svg {
     fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
   }
 `;
 
@@ -190,7 +190,7 @@ function SearchBox<T>({
           <Loader small />
         ) : (
           <>
-            {term && term.length === 0 ? (
+            {!term || term.length === 0 ? (
               <T3nLoupe />
             ) : (
               <MaterialClear onClick={() => setTerm('')} />
