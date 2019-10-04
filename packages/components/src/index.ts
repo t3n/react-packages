@@ -31,6 +31,7 @@ export { PageLayout } from './PageLayout';
 export { PasswordLostLabel } from './FormGroup';
 export { Placeholder } from './Placeholder';
 export { Ratio } from './Ratio';
+export { SearchBox } from './SearchBox';
 export { Section } from './Section';
 export { Tag } from './Tag';
 export { TagList } from './TagList';
