@@ -146,7 +146,7 @@ function SearchBox<T>({
     containerProps
   }: RenderSuggestionsContainerParams) => {
     return (
-      term.length > 3 &&
+      term.length >= 3 &&
       suggestions.length > 0 && (
         <SuggestionContainer {...containerProps}>
           {children}
