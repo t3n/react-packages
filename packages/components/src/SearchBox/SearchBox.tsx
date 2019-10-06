@@ -157,7 +157,7 @@ function SearchBox<T>({
             </SuggestionItem>
           )}
           {suggestions !== null && suggestions.length === 0 && !isLoading && (
-            <Text p={[1, 2]} m={0}>
+            <Text color="text.primary" p={[1, 2]} m={0}>
               Keine Treffer gefunden
             </Text>
           )}
