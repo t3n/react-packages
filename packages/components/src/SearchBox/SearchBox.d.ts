@@ -5,7 +5,7 @@ export interface SearchBoxProps<S> extends WidthProps {
     placeholder: string;
     isLoading: boolean;
     showMoreLink: boolean;
-    suggestions: S[];
+    suggestions: S[] | null;
     getSuggestionValue: GetSuggestionValue<S>;
     handleSuggestionFetchRequested: SuggestionsFetchRequested;
     handleSuggestionClearRequested: OnSuggestionsClearRequested;
@@ -17,6 +17,7 @@ declare namespace SearchBox {
     var defaultProps: {
         isLoading: boolean;
         showMoreLink: boolean;
+        suggestions: null;
         placeholder: string;
     };
 }
