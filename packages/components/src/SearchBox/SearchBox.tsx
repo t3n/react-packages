@@ -110,7 +110,7 @@ export interface SearchBoxProps<S> extends WidthProps {
   placeholder: string;
   isLoading: boolean;
   showMoreLink: boolean;
-  suggestions: S[];
+  suggestions: S[] | null;
   getSuggestionValue: GetSuggestionValue<S>;
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
@@ -131,7 +131,7 @@ function SearchBox<T>({
   handleSuggestionClearRequested
 }: SearchBoxProps<T>) {
   const [term, setTerm] = useState('');
-  const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 200);
+  const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
 
   const handleOnChange = (
     event: FormEvent<any>,
@@ -146,16 +146,20 @@ function SearchBox<T>({
     containerProps
   }: RenderSuggestionsContainerParams) => {
     return (
-      term.length >= 3 &&
-      suggestions.length > 0 && (
+      term.length >= 3 && (
         <SuggestionContainer {...containerProps}>
           {children}
-          {showMoreLink && (
+          {showMoreLink && suggestions && suggestions.length > 0 && (
             <SuggestionItem>
               <Text m={0}>
                 {`Alle Ergebnisse für "${query}"`} <MaterialArrowForward />
               </Text>
             </SuggestionItem>
+          )}
+          {suggestions !== null && suggestions.length === 0 && !isLoading && (
+            <Text p={[1, 2]} m={0}>
+              Keine Treffer gefunden
+            </Text>
           )}
         </SuggestionContainer>
       )
@@ -177,7 +181,7 @@ function SearchBox<T>({
           alwaysRenderSuggestions
           renderSuggestionsContainer={renderSuggestionContainer}
           getSuggestionValue={getSuggestionValue}
-          suggestions={suggestions}
+          suggestions={suggestions === null ? [] : suggestions}
           shouldRenderSuggestions={() => term.length >= 3}
           onSuggestionsFetchRequested={debounced}
           onSuggestionsClearRequested={handleSuggestionClearRequested}
@@ -214,6 +218,7 @@ function SearchBox<T>({
 SearchBox.defaultProps = {
   isLoading: true,
   showMoreLink: true,
+  suggestions: null,
   placeholder: 'Suche nach Pionieren'
 };
 

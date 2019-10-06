@@ -48,7 +48,7 @@ const SearchBoxWithData: React.FC<{
   width: any;
   initialSuggestions: TSuggestion[];
 }> = ({ isLoading, width }) => {
-  const [suggestions, setSuggestions] = useState<TSuggestion[]>([]);
+  const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
   const [loading, setLoading] = useState(isLoading);
 
   const handleSuggestionChange = (r: SuggestionsFetchRequestedParams) => {
@@ -75,7 +75,7 @@ const SearchBoxWithData: React.FC<{
       width={width}
       onSelect={onSelect}
       handleSuggestionFetchRequested={handleSuggestionChange}
-      handleSuggestionClearRequested={() => setSuggestions([])}
+      handleSuggestionClearRequested={() => setSuggestions(null)}
       getSuggestionValue={s => s.title}
       suggestions={suggestions}
       renderSuggestion={s => <div>{s.title}</div>}
@@ -99,6 +99,43 @@ export const loadingStory = () => {
 
 loadingStory.story = {
   name: 'Ladend'
+};
+
+const SearchBoxWithNoData: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
+
+  const handleSuggestionChange = (r: SuggestionsFetchRequestedParams) => {
+    if (r.reason === 'input-changed' && r.value.length > 2) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setSuggestions([]);
+      }, 1000);
+    }
+  };
+
+  return (
+    <SearchBox<TSuggestion>
+      width="auto"
+      onSelect={() => {}}
+      handleSuggestionFetchRequested={handleSuggestionChange}
+      handleSuggestionClearRequested={() => setSuggestions(null)}
+      getSuggestionValue={s => s.title}
+      suggestions={suggestions}
+      renderSuggestion={s => <div>{s.title}</div>}
+      isLoading={loading}
+      placeholder={placeholderText}
+    />
+  );
+};
+
+export const noResults = () => {
+  return <SearchBoxWithNoData />;
+};
+
+noResults.story = {
+  name: 'Ohne Treffer'
 };
 
 export const inHeaderStory = () => {
