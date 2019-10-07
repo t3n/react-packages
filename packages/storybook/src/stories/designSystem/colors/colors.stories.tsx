@@ -42,7 +42,7 @@ const ColorCard = ({ name, value, rgb }: ColorCardProps) => (
               justifyContent: 'space-between'
             }}
           >
-            <strong style={{ flex: 1 }}>{colorName[0].toUpperCase()}:</strong>{' '}
+            <strong style={{ flex: 1 }}>{colorName[0].toUpperCase()}:</strong>
             <span style={{ flex: 4 }}>{colorValue}</span>
             <br />
           </span>

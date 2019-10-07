@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { withKnobs } from '@storybook/addon-knobs';
-import { PageHeader } from '@t3n/components';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { PageHeader, Section, Box } from '@t3n/components';
 
 const StoryWrapper = styled.div`
   position: relative;
@@ -20,7 +20,14 @@ export default {
   ]
 };
 
-export const defaultStory = () => <PageHeader />;
+export const defaultStory = () => (
+  <>
+    <PageHeader transparent={boolean('Transparenter Hintergrund', false)} />
+    <Section variant="secondary">
+      <Box pt={6}>Content</Box>
+    </Section>
+  </>
+);
 
 defaultStory.story = {
   name: 'Default'

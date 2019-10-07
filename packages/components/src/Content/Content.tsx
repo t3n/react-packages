@@ -9,10 +9,15 @@ import { ThemeProps } from '@t3n/theme';
 
 export interface ContentProps extends ThemeProps, PaddingProps {
   wide?: boolean;
+  small?: boolean;
 }
 
-const maxWidth = ({ wide, theme }: ContentProps): string =>
-  wide ? 'max-width: 100%' : styledMaxWidth({ maxWidth: [rem(1150)], theme });
+const maxWidth = ({ wide, small, theme }: ContentProps): string =>
+  wide
+    ? 'max-width: 100%'
+    : small
+    ? styledMaxWidth({ maxWidth: [rem(770)], theme })
+    : styledMaxWidth({ maxWidth: [rem(1150)], theme });
 
 export const Content = styled.div<ContentProps>`
   width: 100%;
@@ -25,5 +30,6 @@ Content.displayName = 'Content';
 
 Content.defaultProps = {
   wide: false,
+  small: false,
   px: [2]
 };

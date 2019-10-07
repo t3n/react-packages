@@ -4,11 +4,16 @@
   },
   "ignoreFolders": ["iconfont", "sprites"],
   "include": [
+    "arrow_back",
+    "arrow_forward",
     "check",
     "clear",
+    "home",
     "info",
     "keyboard_arrow_down",
     "keyboard_arrow_up",
+    "local_offer",
+    "people",
     "room",
     "visibility_off",
     "visibility"

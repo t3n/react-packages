@@ -177,10 +177,10 @@ export const heroLayout = () => {
   return (
     <Grid justifyContent="center">
       <GridItem width={1 / 3}>
-        <NewsCard type="HERO" news={news} />{' '}
+        <NewsCard type="HERO" news={news} />
       </GridItem>
       <GridItem width={1 / 3}>
-        <NewsCard loading={false} type="HERO" news={news} />{' '}
+        <NewsCard loading={false} type="HERO" news={news} />
       </GridItem>
     </Grid>
   );
@@ -220,10 +220,10 @@ export const authorLayout = () => {
   return (
     <Grid justifyContent="center">
       <GridItem width={1 / 3}>
-        <NewsCard type="AUTHOR" news={news} />{' '}
+        <NewsCard type="AUTHOR" news={news} />
       </GridItem>
       <GridItem width={1 / 3}>
-        <NewsCard loading={false} type="AUTHOR" news={news} />{' '}
+        <NewsCard loading={false} type="AUTHOR" news={news} />
       </GridItem>
     </Grid>
   );
