@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import styled from 'styled-components';
-import { color, space, border, ColorProps } from 'styled-system';
+import { space, border, variant, ColorProps } from 'styled-system';
 import { MaterialCheck } from '@t3n/icons';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { ThemeProps } from '@t3n/theme';
@@ -13,6 +13,7 @@ interface StyledCheckboxProps extends ColorProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   feedbackColor?: ThemeFeedbackColor;
+  colorScheme: 'light' | 'dark';
 }
 
 export interface CheckboxProps extends StyledCheckboxProps {
@@ -21,7 +22,7 @@ export interface CheckboxProps extends StyledCheckboxProps {
   value: any;
 }
 
-const CheckboxContainer = styled(Box)<StyledCheckboxProps>`
+const CheckboxContainer = styled(Box)<Omit<StyledCheckboxProps, 'colorScheme'>>`
   position: relative;
   display: inline-block;
   ${() => space({ mr: 2 })}
@@ -36,7 +37,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
-const StyledCheckbox = styled(Box)<StyledCheckboxProps>`
+const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
   line-height: 1;
@@ -44,28 +45,92 @@ const StyledCheckbox = styled(Box)<StyledCheckboxProps>`
   height: 1rem;
   border-radius: 2px;
   pointer-events: none;
-  ${({ theme }) => color({ theme, bg: 'shades.grey204' })};
-  ${({ feedbackColor, theme }: StyledCheckboxProps & ThemeProps) =>
-    border({
-      theme,
-      border: '1px solid',
-      borderColor: feedbackColor
-        ? theme.colors.feedback[feedbackColor]
-        : theme.colors.shades.grey42
-    })};
+  transition: all 0.1s ease-in-out;
+
+  ${({ theme, checked, disabled, feedbackColor }) =>
+    variant({
+      prop: 'colorScheme',
+      variants: {
+        light: {
+          bg:
+            checked && disabled
+              ? 'shades.grey143'
+              : checked && feedbackColor
+              ? 'shades.white'
+              : checked
+              ? 'shades.grey42'
+              : 'shades.white',
+          border: '1px solid',
+          borderColor: feedbackColor
+            ? theme.colors.feedback[feedbackColor]
+            : checked && disabled
+            ? theme.colors.shades.grey143
+            : checked
+            ? theme.colors.shades.grey42
+            : theme.colors.shades.grey143
+        },
+        dark: {
+          bg:
+            checked && disabled
+              ? 'shades.grey143'
+              : checked && feedbackColor
+              ? 'shades.grey44'
+              : checked
+              ? 'shades.white'
+              : 'shades.grey44',
+          border: '1px solid',
+          borderColor: feedbackColor
+            ? theme.colors.feedback[feedbackColor]
+            : checked && disabled
+            ? theme.colors.shades.grey143
+            : checked
+            ? theme.colors.shades.white
+            : theme.colors.shades.grey242
+        }
+      }
+    })}
+
+  &:focus,
+  &:active {
+    ${({ theme }: StyledCheckboxProps & ThemeProps) =>
+      border({
+        theme,
+        border: '1px solid',
+        borderColor: theme.colors.shades.grey42
+      })};
+  }
 `;
 
-const StyledMaterialCheck = styled(MaterialCheck)<
-  Omit<CheckboxProps, 'name' | 'value'>
+const StyledIcon = styled.span<
+  Omit<CheckboxProps, 'name' | 'value'> & ThemeProps
 >`
   position: absolute;
   top: -1px;
   left: -1px;
   transition: all 0.1s ease-in-out;
   pointer-events: none;
-  opacity: ${({ checked }) => (checked ? 1 : 0)};
-  transform: scale(${({ checked }) => (checked ? 1 : 0)});
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  transform: scale(${({ checked }) => (checked ? 1 : 0)});
+  opacity: ${({ checked }) => (checked ? 1 : 0)};
+
+  svg {
+    ${({ theme, feedbackColor }) =>
+      variant({
+        prop: 'colorScheme',
+        variants: {
+          light: {
+            fill: feedbackColor
+              ? theme.colors.feedback[feedbackColor]
+              : theme.colors.shades.white
+          },
+          dark: {
+            fill: feedbackColor
+              ? theme.colors.feedback[feedbackColor]
+              : theme.colors.shades.grey44
+          }
+        }
+      })}
+  }
 `;
 
 const StyledLabel = styled.label<StyledCheckboxProps>`
@@ -74,8 +139,19 @@ const StyledLabel = styled.label<StyledCheckboxProps>`
   line-height: 1;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  ${({ disabled, theme }) =>
-    color({ theme, color: disabled ? 'shades.grey143' : 'black' })}
+
+  ${({ disabled }) =>
+    variant({
+      prop: 'colorScheme',
+      variants: {
+        light: {
+          color: disabled ? 'shades.grey143' : 'black'
+        },
+        dark: {
+          color: disabled ? 'shades.grey143' : 'white'
+        }
+      }
+    })}
 `;
 
 const PlainCheckbox = ({
@@ -84,6 +160,7 @@ const PlainCheckbox = ({
   disabled,
   feedbackColor,
   name,
+  colorScheme,
   value
 }: CheckboxProps) => {
   return (
@@ -95,8 +172,19 @@ const PlainCheckbox = ({
         name={name}
         value={value}
       />
-      <StyledCheckbox feedbackColor={feedbackColor}>
-        <StyledMaterialCheck checked={checked} />
+      <StyledCheckbox
+        colorScheme={colorScheme}
+        checked={checked}
+        disabled={disabled}
+        feedbackColor={feedbackColor}
+      >
+        <StyledIcon
+          colorScheme={colorScheme}
+          checked={checked}
+          feedbackColor={feedbackColor}
+        >
+          <MaterialCheck />
+        </StyledIcon>
       </StyledCheckbox>
     </CheckboxContainer>
   );
@@ -109,12 +197,14 @@ export const Checkbox = ({
   disabled,
   feedbackColor,
   name,
-  value
+  value,
+  colorScheme
 }: CheckboxProps) => {
   return (
     <>
-      <StyledLabel>
+      <StyledLabel disabled={disabled} colorScheme={colorScheme}>
         <PlainCheckbox
+          colorScheme={colorScheme}
           checked={checked}
           disabled={disabled}
           onChange={onChange}
