@@ -237,7 +237,7 @@ function SearchBox<S>({
           getSectionSuggestions={(section: GroupedSuggestions<S>) =>
             section.suggestions
           }
-          shouldRenderSuggestions={() => term.length >= 3}
+          shouldRenderSuggestions={() => term.length >= 2}
           renderSectionTitle={(section: GroupedSuggestions<S>) => (
             <Box px={[2]} py={[1]} bg="shades.grey232">
               <Text m={0} bold>
