@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import styled from 'styled-components';
 import { space, border, variant, ColorProps } from 'styled-system';
@@ -8,12 +7,17 @@ import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
 
-interface StyledCheckboxProps extends ColorProps {
+type VariantType = 'light' | 'dark';
+
+export interface VariantProps {
+  variant?: VariantType;
+}
+
+export interface StyledCheckboxProps extends ColorProps, VariantProps {
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   feedbackColor?: ThemeFeedbackColor;
-  colorScheme: 'light' | 'dark';
 }
 
 export interface CheckboxProps extends StyledCheckboxProps {
@@ -22,7 +26,7 @@ export interface CheckboxProps extends StyledCheckboxProps {
   value: any;
 }
 
-const CheckboxContainer = styled(Box)<Omit<StyledCheckboxProps, 'colorScheme'>>`
+const CheckboxContainer = styled(Box)<StyledCheckboxProps>`
   position: relative;
   display: inline-block;
   ${() => space({ mr: 2 })}
@@ -49,7 +53,6 @@ const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
 
   ${({ theme, checked, disabled, feedbackColor }) =>
     variant({
-      prop: 'colorScheme',
       variants: {
         light: {
           bg:
@@ -116,7 +119,6 @@ const StyledIcon = styled.span<
   svg {
     ${({ theme, feedbackColor }) =>
       variant({
-        prop: 'colorScheme',
         variants: {
           light: {
             fill: feedbackColor
@@ -142,7 +144,6 @@ const StyledLabel = styled.label<StyledCheckboxProps>`
 
   ${({ disabled }) =>
     variant({
-      prop: 'colorScheme',
       variants: {
         light: {
           color: disabled ? 'shades.grey143' : 'black'
@@ -160,7 +161,7 @@ const PlainCheckbox = ({
   disabled,
   feedbackColor,
   name,
-  colorScheme,
+  variant: variantProp,
   value
 }: CheckboxProps) => {
   return (
@@ -173,13 +174,13 @@ const PlainCheckbox = ({
         value={value}
       />
       <StyledCheckbox
-        colorScheme={colorScheme}
+        variant={variantProp}
         checked={checked}
         disabled={disabled}
         feedbackColor={feedbackColor}
       >
         <StyledIcon
-          colorScheme={colorScheme}
+          variant={variantProp}
           checked={checked}
           feedbackColor={feedbackColor}
         >
@@ -198,13 +199,13 @@ export const Checkbox = ({
   feedbackColor,
   name,
   value,
-  colorScheme
+  variant: variantProp
 }: CheckboxProps) => {
   return (
     <>
-      <StyledLabel disabled={disabled} colorScheme={colorScheme}>
+      <StyledLabel disabled={disabled} variant={variantProp}>
         <PlainCheckbox
-          colorScheme={colorScheme}
+          variant={variantProp}
           checked={checked}
           disabled={disabled}
           onChange={onChange}

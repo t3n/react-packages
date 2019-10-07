@@ -24,12 +24,16 @@ const CheckboxComponent: React.FC = () => {
   const name = text('Name', 'Name checkbox');
   const disabled = boolean('disable', false);
   const label = text('Label', 'Label placeholder');
-  const sectionVariant = select('Section', ['primary', 'inverse'], 'primary');
+  const checkboxVariant = select(
+    'Variante Checkbox',
+    ['light', 'dark'],
+    'light'
+  );
 
   return (
-    <Section variant={sectionVariant}>
+    <Section variant={checkboxVariant === 'light' ? 'primary' : 'inverse'}>
       <Checkbox
-        colorScheme={sectionVariant === 'primary' ? 'light' : 'dark'}
+        variant={checkboxVariant}
         disabled={disabled}
         feedbackColor={showFeedback ? feedbackColor : undefined}
         checked={checked}
