@@ -5,7 +5,8 @@ import { stripUnit } from 'polished';
 import Breakpoint from '../../../components/Breakpoint';
 
 export default {
-  title: 'Design System|Breakpoints'
+  title: 'Design System|Breakpoints',
+  parameters: { docs: { page: null } }
 };
 
 export const allBreakpoints = () => (

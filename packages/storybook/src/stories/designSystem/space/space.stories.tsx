@@ -9,7 +9,8 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Design System|Space',
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
+  parameters: { docs: { page: null } }
 };
 
 const SpaceBox = styled.div<WidthProps & ColorProps>`
