@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { SearchBox, PageHeader, Avatar } from '@t3n/components';
+import { SearchBox, PageHeader, Avatar, Section } from '@t3n/components';
 import { withKnobs } from '@storybook/addon-knobs';
 import {
   SuggestionsFetchRequestedParams,
   SuggestionSelectedEventData
 } from 'react-autosuggest';
-import { GroupedSuggestions } from '@t3n/components/src/SearchBox';
+import {
+  GroupedSuggestions,
+  SearchBoxVariantType
+} from '@t3n/components/src/SearchBox';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 const placeholderText = 'Suche nach digitialen Pionieren, News und mehr';
@@ -67,8 +70,9 @@ const categorizedSuggestions: GroupedSuggestions<TSuggestion>[] = [
 const SearchBoxWithData: React.FC<{
   isLoading: boolean;
   width: any;
+  variant: SearchBoxVariantType;
   initialSuggestions: TSuggestion[];
-}> = ({ isLoading, width }) => {
+}> = ({ isLoading, width, variant }) => {
   const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
   const [loading, setLoading] = useState(isLoading);
 
@@ -94,6 +98,7 @@ const SearchBoxWithData: React.FC<{
   return (
     <SearchBox<TSuggestion>
       width={width}
+      variant={variant}
       onSelect={onSelect}
       handleSuggestionFetchRequested={handleSuggestionChange}
       handleSuggestionClearRequested={() => setSuggestions(null)}
@@ -107,11 +112,41 @@ const SearchBoxWithData: React.FC<{
 };
 
 export const defaultStory = () => (
-  <SearchBoxWithData width="auto" initialSuggestions={[]} isLoading={false} />
+  <SearchBoxWithData
+    variant="red"
+    width="auto"
+    initialSuggestions={[]}
+    isLoading={false}
+  />
 );
 
 defaultStory.story = {
   name: 'Default'
+};
+
+export const lightStory = () => (
+  <>
+    <Section variant="secondary">
+      <SearchBoxWithData
+        variant="light"
+        width="auto"
+        initialSuggestions={[]}
+        isLoading={false}
+      />
+    </Section>
+    <Section variant="highlight">
+      <SearchBoxWithData
+        variant="light"
+        width="auto"
+        initialSuggestions={[]}
+        isLoading={false}
+      />
+    </Section>
+  </>
+);
+
+lightStory.story = {
+  name: 'Helle Variante'
 };
 
 export const loadingStory = () => {
@@ -203,6 +238,7 @@ export const inHeaderStory = () => {
   return (
     <PageHeader>
       <SearchBoxWithData
+        variant="red"
         initialSuggestions={[]}
         isLoading={false}
         width={[0.3, 0.5, 0.7]}
