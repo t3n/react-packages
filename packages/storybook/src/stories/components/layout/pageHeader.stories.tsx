@@ -1,12 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { PageHeader, Section, Box } from '@t3n/components';
 
+const StoryWrapper = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  z-index: 1;
+`;
+
 export default {
   title: 'Components|Layout/PageHeader',
   component: PageHeader,
-  decorators: [withKnobs]
+  decorators: [
+    withKnobs,
+    (story: any) => <StoryWrapper>{story()}</StoryWrapper>
+  ]
 };
 
 export const defaultStory = () => (
