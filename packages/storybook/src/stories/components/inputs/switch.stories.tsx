@@ -29,7 +29,7 @@ const SwitchComponent: React.FC = () => {
           setChecked(!checked);
         }}
         label={label}
-        colorScheme={sectionVariant === 'primary' ? 'light' : 'dark'}
+        variant={sectionVariant === 'primary' ? 'light' : 'dark'}
       />
     </Section>
   );

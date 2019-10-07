@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import styled from 'styled-components';
 import { size, space, border, variant, ColorProps } from 'styled-system';
@@ -7,13 +6,13 @@ import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
 
-type colorSchemeType = 'light' | 'dark';
+type VariantType = 'light' | 'dark';
 
-interface ColorSchemeProps {
-  colorScheme: colorSchemeType;
+interface VariantProps {
+  variant?: VariantType;
 }
 
-interface StyledSwitchProps extends ColorProps, ColorSchemeProps {
+interface StyledSwitchProps extends ColorProps, VariantProps {
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
@@ -26,13 +25,13 @@ export interface SwitchProps extends StyledSwitchProps {
   value: any;
 }
 
-const SwitchContainer = styled(Box)<Omit<StyledSwitchProps, 'colorScheme'>>`
+const SwitchContainer = styled(Box)<StyledSwitchProps>`
   position: relative;
   display: inline-block;
   ${() => space({ ml: 2 })}
 `;
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<SwitchProps>`
   position: absolute;
   width: 2.5rem;
   height: 1.5rem;
@@ -53,7 +52,6 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
 
   ${({ checked, disabled }) =>
     variant({
-      prop: 'colorScheme',
       variants: {
         light: {
           bg: disabled
@@ -109,7 +107,6 @@ const StyledSwitchToggle = styled.div<
   ${({ theme }) => size({ theme, size: '1.5rem' })}
   ${({ checked, disabled }) =>
     variant({
-      prop: 'colorScheme',
       variants: {
         light: {
           border: '2px solid',
@@ -143,7 +140,6 @@ const StyledSwitchToggle = styled.div<
 
   ${() =>
     variant({
-      prop: 'colorScheme',
       variants: {
         light: {
           bg: 'shades.white'
@@ -163,7 +159,6 @@ const StyledLabel = styled.label<StyledSwitchProps>`
 
   ${({ disabled }) =>
     variant({
-      prop: 'colorScheme',
       variants: {
         light: {
           color: disabled ? 'shades.grey155' : 'black'
@@ -180,7 +175,7 @@ const PlainSwitch = ({
   onChange,
   disabled,
   name,
-  colorScheme,
+  variant: variantProp,
   value
 }: SwitchProps) => {
   return (
@@ -192,13 +187,9 @@ const PlainSwitch = ({
         name={name}
         value={value}
       />
-      <StyledSwitch
-        colorScheme={colorScheme}
-        checked={checked}
-        disabled={disabled}
-      >
+      <StyledSwitch variant={variantProp} checked={checked} disabled={disabled}>
         <StyledSwitchToggle
-          colorScheme={colorScheme}
+          variant={variantProp}
           checked={checked}
           disabled={disabled}
         />
@@ -212,18 +203,18 @@ export const Switch: React.FC<SwitchProps> = ({
   onChange,
   label,
   disabled,
+  variant: variantProp,
   name,
-  value,
-  colorScheme
+  value
 }) => {
   return (
     <>
-      <StyledLabel colorScheme={colorScheme} disabled={disabled}>
+      <StyledLabel variant={variantProp} disabled={disabled}>
         <Text small inline>
           {label}
         </Text>
         <PlainSwitch
-          colorScheme={colorScheme}
+          variant={variantProp}
           checked={checked}
           disabled={disabled}
           onChange={onChange}
