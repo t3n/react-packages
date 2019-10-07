@@ -16,10 +16,10 @@ const SwitchComponent: React.FC = () => {
   const disabled = boolean('disable', false);
   const name = text('Name', 'Name switch-element');
   const label = text('Label', 'Label placeholder');
-  const sectionVariant = select('Section', ['primary', 'inverse'], 'primary');
+  const switchVariant = select('Variante Switch', ['light', 'dark'], 'light');
 
   return (
-    <Section variant={sectionVariant}>
+    <Section variant={switchVariant === 'light' ? 'primary' : 'inverse'}>
       <Switch
         disabled={disabled}
         checked={checked}
@@ -29,7 +29,7 @@ const SwitchComponent: React.FC = () => {
           setChecked(!checked);
         }}
         label={label}
-        variant={sectionVariant === 'primary' ? 'light' : 'dark'}
+        variant={switchVariant}
       />
     </Section>
   );
