@@ -5,6 +5,7 @@ import {
   SuggestionsFetchRequestedParams,
   SuggestionSelectedEventData
 } from 'react-autosuggest';
+import { GroupedSuggestions } from '@t3n/components/src/SearchBox';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 const placeholderText = 'Suche nach digitialen Pionieren, News und mehr';
@@ -14,6 +15,11 @@ export default {
   title: 'Components|Content/SearchBox',
   decorators: [withKnobs, storyContainerDecorator]
 };
+
+interface SuggestionCategory {
+  title: string;
+  suggestions: TSuggestion[];
+}
 
 interface TSuggestion {
   title: string;
@@ -40,6 +46,21 @@ const allSuggestions: TSuggestion[] = [
     description: 'Some description content',
     url: '/news',
     value: '3'
+  }
+];
+
+const categorizedSuggestions: GroupedSuggestions<TSuggestion>[] = [
+  {
+    title: 'Pioniere',
+    suggestions: allSuggestions
+  },
+  {
+    title: 'Interessen',
+    suggestions: allSuggestions
+  },
+  {
+    title: 'Tools',
+    suggestions: allSuggestions
   }
 ];
 
@@ -136,6 +157,46 @@ export const noResults = () => {
 
 noResults.story = {
   name: 'Ohne Treffer'
+};
+
+const SearchBoxWithCategorizedData: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState<
+    GroupedSuggestions<TSuggestion>[] | null
+  >(null);
+
+  const handleSuggestionChange = (r: SuggestionsFetchRequestedParams) => {
+    if (r.reason === 'input-changed' && r.value.length > 2) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setSuggestions(categorizedSuggestions);
+      }, 1000);
+    }
+  };
+
+  return (
+    <SearchBox<TSuggestion>
+      width="auto"
+      multiSection
+      onSelect={() => {}}
+      handleSuggestionFetchRequested={handleSuggestionChange}
+      handleSuggestionClearRequested={() => setSuggestions(null)}
+      getSuggestionValue={s => s.title}
+      suggestions={suggestions}
+      renderSuggestion={s => <div>{s.title}</div>}
+      isLoading={loading}
+      placeholder={placeholderText}
+    />
+  );
+};
+
+export const withCategorizedData = () => {
+  return <SearchBoxWithCategorizedData />;
+};
+
+withCategorizedData.story = {
+  name: 'Ergebnisse in Kategorien'
 };
 
 export const inHeaderStory = () => {

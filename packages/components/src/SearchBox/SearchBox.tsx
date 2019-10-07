@@ -17,6 +17,7 @@ import { MaterialClear, T3nLoupe, MaterialArrowForward } from '@t3n/icons';
 import { useDebouncedCallback } from 'use-debounce';
 import { Loader } from '../Loader';
 import { Text } from '../Text';
+import { Box } from '../Box';
 
 const IconWrapper = styled.div`
   width: 25px;
@@ -106,11 +107,17 @@ const SuggestionItem = styled.div`
   }
 `;
 
+export interface GroupedSuggestions<S> {
+  title: string;
+  suggestions: S[];
+}
+
 export interface SearchBoxProps<S> extends WidthProps {
   placeholder: string;
   isLoading: boolean;
+  multiSection?: boolean;
   showMoreLink: boolean;
-  suggestions: S[] | null;
+  suggestions: GroupedSuggestions<S>[] | S[] | null;
   getSuggestionValue: GetSuggestionValue<S>;
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
@@ -118,9 +125,10 @@ export interface SearchBoxProps<S> extends WidthProps {
   onSelect: OnSuggestionSelected<S>;
 }
 
-function SearchBox<T>({
+function SearchBox<S>({
   width,
   placeholder,
+  multiSection,
   isLoading,
   showMoreLink,
   renderSuggestion,
@@ -129,7 +137,7 @@ function SearchBox<T>({
   getSuggestionValue,
   handleSuggestionFetchRequested,
   handleSuggestionClearRequested
-}: SearchBoxProps<T>) {
+}: SearchBoxProps<S>) {
   const [term, setTerm] = useState('');
   const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
 
@@ -151,7 +159,7 @@ function SearchBox<T>({
           {children}
           {showMoreLink && suggestions && suggestions.length > 0 && (
             <SuggestionItem>
-              <Text m={0}>
+              <Text m={0} align="center">
                 {`Alle Ergebnisse für "${query}"`} <MaterialArrowForward />
               </Text>
             </SuggestionItem>
@@ -168,7 +176,7 @@ function SearchBox<T>({
 
   const handleSuggestionSelected = (
     event: React.FormEvent<any>,
-    data: SuggestionSelectedEventData<T>
+    data: SuggestionSelectedEventData<S>
   ) => {
     setTerm('');
     onSelect(event, data);
@@ -177,12 +185,22 @@ function SearchBox<T>({
   return (
     <Wrapper width={width}>
       <InputWrapper>
-        <AutoSuggest
-          alwaysRenderSuggestions
+        <AutoSuggest<S>
+          multiSection={multiSection}
           renderSuggestionsContainer={renderSuggestionContainer}
           getSuggestionValue={getSuggestionValue}
-          suggestions={suggestions === null ? [] : suggestions}
+          suggestions={suggestions === null ? [] : (suggestions as S[])}
+          getSectionSuggestions={(section: GroupedSuggestions<S>) =>
+            section.suggestions
+          }
           shouldRenderSuggestions={() => term.length >= 3}
+          renderSectionTitle={(section: GroupedSuggestions<S>) => (
+            <Box px={[2]} py={[1]} bg="shades.grey232">
+              <Text m={0} bold>
+                {section.title}
+              </Text>
+            </Box>
+          )}
           onSuggestionsFetchRequested={debounced}
           onSuggestionsClearRequested={handleSuggestionClearRequested}
           onSuggestionSelected={handleSuggestionSelected}

@@ -1,18 +1,23 @@
 /// <reference types="react" />
 import { RenderSuggestion, SuggestionsFetchRequested, OnSuggestionsClearRequested, GetSuggestionValue, OnSuggestionSelected } from 'react-autosuggest';
 import { WidthProps } from 'styled-system';
+export interface GroupedSuggestions<S> {
+    title: string;
+    suggestions: S[];
+}
 export interface SearchBoxProps<S> extends WidthProps {
     placeholder: string;
     isLoading: boolean;
+    multiSection?: boolean;
     showMoreLink: boolean;
-    suggestions: S[] | null;
+    suggestions: GroupedSuggestions<S>[] | S[] | null;
     getSuggestionValue: GetSuggestionValue<S>;
     handleSuggestionFetchRequested: SuggestionsFetchRequested;
     handleSuggestionClearRequested: OnSuggestionsClearRequested;
     renderSuggestion: RenderSuggestion<S>;
     onSelect: OnSuggestionSelected<S>;
 }
-declare function SearchBox<T>({ width, placeholder, isLoading, showMoreLink, renderSuggestion, suggestions, onSelect, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested }: SearchBoxProps<T>): JSX.Element;
+declare function SearchBox<S>({ width, placeholder, multiSection, isLoading, showMoreLink, renderSuggestion, suggestions, onSelect, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested }: SearchBoxProps<S>): JSX.Element;
 declare namespace SearchBox {
     var defaultProps: {
         isLoading: boolean;
