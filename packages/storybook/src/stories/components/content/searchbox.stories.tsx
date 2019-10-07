@@ -150,7 +150,14 @@ lightStory.story = {
 };
 
 export const loadingStory = () => {
-  return <SearchBoxWithData initialSuggestions={[]} width="auto" isLoading />;
+  return (
+    <SearchBoxWithData
+      variant="red"
+      initialSuggestions={[]}
+      width="auto"
+      isLoading
+    />
+  );
 };
 
 loadingStory.story = {
