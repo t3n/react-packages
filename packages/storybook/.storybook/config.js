@@ -88,6 +88,7 @@ const loadStories = () => [
   require('../src/stories/components/content/badge.stories'),
   require('../src/stories/components/content/card.stories'),
   require('../src/stories/components/content/heroArticleCard.stories'),
+  require('../src/stories/components/content/icon.stories'),
   require('../src/stories/components/content/image.stories'),
   require('../src/stories/components/content/jobCard.stories'),
   require('../src/stories/components/content/loader.stories'),
