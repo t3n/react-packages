@@ -13,8 +13,9 @@ export default {
   decorators: [withKnobs, storyContainerContentDecorator]
 };
 
-const CheckboxComponent: React.FC = () => {
+export const DefaultStory = () => {
   const [checked, setChecked] = useState(false);
+
   const showFeedback = boolean('Zeige Feedback', false);
   const feedbackColor = select(
     'Feedback',
@@ -48,4 +49,6 @@ const CheckboxComponent: React.FC = () => {
   );
 };
 
-export const simple = () => <CheckboxComponent />;
+DefaultStory.story = {
+  name: 'Default'
+};
