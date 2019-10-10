@@ -6,7 +6,8 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Design System|Theme',
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
+  parameters: { docs: { page: null } }
 };
 
 export const themeConfiguration = () => (
