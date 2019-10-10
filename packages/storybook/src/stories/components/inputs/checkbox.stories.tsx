@@ -3,18 +3,17 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import { theme } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
-import { Checkbox } from '@t3n/components';
+import { Checkbox, Section } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components|Inputs/Checkbox',
   component: Checkbox,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerDecorator]
 };
 
-export const simple = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export const DefaultStory = () => {
   const [checked, setChecked] = useState(false);
 
   const showFeedback = boolean('Zeige Feedback', false);
@@ -23,18 +22,33 @@ export const simple = () => {
     Object.keys(theme.colors.feedback) as ThemeFeedbackColor[],
     'success'
   );
+  const name = text('Name', 'Name checkbox');
+  const disabled = boolean('disable', false);
+  const label = text('Label', 'Label placeholder');
+  const checkboxVariant = select(
+    'Variante Checkbox',
+    ['light', 'dark'],
+    'light'
+  );
 
   return (
-    <Checkbox
-      disabled={boolean('disable', false)}
-      feedbackColor={showFeedback ? feedbackColor : undefined}
-      checked={checked}
-      value="true"
-      name={text('Name', 'Name checkbox')}
-      onChange={() => {
-        setChecked(!checked);
-      }}
-      label={text('Label', 'Label placeholder')}
-    />
+    <Section variant={checkboxVariant === 'light' ? 'primary' : 'inverse'}>
+      <Checkbox
+        variant={checkboxVariant}
+        disabled={disabled}
+        feedbackColor={showFeedback ? feedbackColor : undefined}
+        checked={checked}
+        value="true"
+        name={name}
+        onChange={() => {
+          setChecked(!checked);
+        }}
+        label={label}
+      />
+    </Section>
   );
+};
+
+DefaultStory.story = {
+  name: 'Default'
 };
