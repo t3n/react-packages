@@ -5,12 +5,12 @@ import { theme } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { Checkbox, Section } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components|Inputs/Checkbox',
   component: Checkbox,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerDecorator]
 };
 
 export const DefaultStory = () => {

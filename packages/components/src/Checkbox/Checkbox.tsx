@@ -25,6 +25,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
   width: 100%;
   height: 100%;
   opacity: 0;
+  margin: 0;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
@@ -34,7 +35,6 @@ const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   width: 1rem;
   height: 1rem;
   border-radius: 2px;
-  vertical-align: middle;
   transition: all 0.1s ease-in-out;
   ${({ theme }) => space({ mr: 1, theme })}
 
@@ -97,6 +97,7 @@ const StyledIcon = styled.span<
   position: absolute;
   top: -1px;
   left: -1px;
+  line-height: 0;
   transition: all 0.1s ease-in-out;
   pointer-events: none;
   transform: scale(${({ checked }) => (checked ? 1 : 0)});
@@ -124,6 +125,8 @@ const StyledIcon = styled.span<
 const StyledLabel = styled.label<
   Omit<CheckboxProps, 'name' | 'value' | 'checked'>
 >`
+  display: inline-flex;
+  align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${({ disabled }) =>
@@ -137,11 +140,6 @@ const StyledLabel = styled.label<
         }
       }
     })}
-
-  ${Text} {
-    line-height: 0;
-    vertical-align: middle;
-  }
 `;
 
 const PlainCheckbox = ({
