@@ -1,8 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { system, WidthProps, HeightProps, ColorProps } from 'styled-system';
+import {
+  system,
+  space,
+  WidthProps,
+  HeightProps,
+  ColorProps,
+  MarginProps
+} from 'styled-system';
 
-export interface BaseIconProps extends React.SVGProps<SVGSVGElement> {
+export interface BaseIconProps
+  extends React.SVGProps<SVGSVGElement>,
+    MarginProps {
   component: React.FunctionComponent<React.SVGProps<SVGElement>>;
 }
 
@@ -10,6 +19,18 @@ const BaseIcon = ({
   component: IconComponent,
   width,
   height,
+  m,
+  margin,
+  mt,
+  marginTop,
+  mb,
+  marginBottom,
+  ml,
+  marginLeft,
+  mr,
+  marginRight,
+  my,
+  mx,
   ...props
 }: BaseIconProps) => (
   <IconComponent width={undefined} height={undefined} {...props} />
@@ -31,6 +52,7 @@ export const Icon = styled(BaseIcon)<IconProps>`
     width: true,
     height: true
   })}
+  ${space}
 `;
 
 Icon.defaultProps = {
