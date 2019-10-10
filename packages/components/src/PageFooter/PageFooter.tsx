@@ -17,7 +17,8 @@ import {
   SocialXing,
   SocialLinkedin,
   SocialInstagram,
-  SocialWhatsapp
+  SocialWhatsapp,
+  SocialGithub
 } from '@t3n/icons';
 
 import { Grid } from '../Grid';
@@ -130,6 +131,9 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               </SocialLink>
               <SocialLink href="#" title="Whatsapp" mx={1}>
                 <SocialWhatsapp fill="white" />
+              </SocialLink>
+              <SocialLink href="#" title="GitHub" mx={1}>
+                <SocialGithub fill="white" />
               </SocialLink>
             </SocialLinks>
           </GridItem>

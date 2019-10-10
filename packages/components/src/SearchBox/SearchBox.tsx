@@ -11,14 +11,15 @@ import AutoSuggest, {
 import styled from 'styled-components';
 
 import { darken } from 'polished';
-import { ThemeProps, composeTextStyle } from '@t3n/theme';
-import { space, WidthProps, layout } from 'styled-system';
+import { ThemeProps, composeTextStyle, theme as t3nTheme } from '@t3n/theme';
+import { space, WidthProps, layout, variant } from 'styled-system';
 import { MaterialClear, T3nLoupe, MaterialArrowForward } from '@t3n/icons';
 import { useDebouncedCallback } from 'use-debounce';
 import { Loader } from '../Loader';
 import { Text } from '../Text';
+import { Box } from '../Box';
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   width: 25px;
   display: flex;
   align-items: center;
@@ -29,25 +30,53 @@ const IconWrapper = styled.div`
   }
 
   svg {
-    fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+    ${variant({
+      variants: {
+        red: {
+          fill: 'text.inverse'
+        },
+        light: {
+          fill: 'text.primary'
+        }
+      }
+    })};
     width: 23px;
     height: 23px;
   }
 `;
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   flex-grow: 2;
 
   input {
     background-color: transparent;
     border: none;
-    color: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
     width: 100%;
     line-height: 40px;
     height: 40px;
 
+    ${variant({
+      variants: {
+        red: {
+          color: 'text.inverse'
+        },
+        light: {
+          color: 'text.primary'
+        }
+      }
+    })};
+
     &::placeholder {
-      color: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+      ${variant({
+        variants: {
+          red: {
+            color: 'text.inverse'
+          },
+          light: {
+            color: 'text.primary'
+          }
+        }
+      })};
     }
 
     ${({ theme }) => composeTextStyle({ textStyle: 'regular', theme })};
@@ -59,9 +88,20 @@ const InputWrapper = styled.div`
   }
 `;
 
-const Wrapper = styled.div<WidthProps & ThemeProps>`
-  background-color: ${({ theme }: ThemeProps) =>
-    darken(0.17, theme.colors.brand.red)};
+const Wrapper = styled.div<
+  { variant: SearchBoxVariantType } & WidthProps & ThemeProps
+>`
+  ${variant({
+    variants: {
+      red: {
+        color: 'text.primary',
+        bg: darken(0.17, t3nTheme.colors.brand.red)
+      },
+      light: {
+        bg: 'shades.white'
+      }
+    }
+  })};
 
   position: relative;
   border-radius: ${({ theme }: ThemeProps) => `${theme.border.radii[1]}`};
@@ -80,6 +120,7 @@ const SuggestionContainer = styled.div`
   position: absolute;
   left: 0;
   right: 0;
+  z-index: 200;
 
   .react-autosuggest__suggestion--highlighted {
     background-color: ${({ theme }: ThemeProps) =>
@@ -106,11 +147,20 @@ const SuggestionItem = styled.div`
   }
 `;
 
+export interface GroupedSuggestions<S> {
+  title: string;
+  suggestions: S[];
+}
+
+export type SearchBoxVariantType = 'red' | 'light';
+
 export interface SearchBoxProps<S> extends WidthProps {
+  variant: SearchBoxVariantType;
   placeholder: string;
   isLoading: boolean;
+  multiSection?: boolean;
   showMoreLink: boolean;
-  suggestions: S[] | null;
+  suggestions: GroupedSuggestions<S>[] | S[] | null;
   getSuggestionValue: GetSuggestionValue<S>;
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
@@ -118,9 +168,11 @@ export interface SearchBoxProps<S> extends WidthProps {
   onSelect: OnSuggestionSelected<S>;
 }
 
-function SearchBox<T>({
+function SearchBox<S>({
+  variant: variantProp,
   width,
   placeholder,
+  multiSection,
   isLoading,
   showMoreLink,
   renderSuggestion,
@@ -129,7 +181,7 @@ function SearchBox<T>({
   getSuggestionValue,
   handleSuggestionFetchRequested,
   handleSuggestionClearRequested
-}: SearchBoxProps<T>) {
+}: SearchBoxProps<S>) {
   const [term, setTerm] = useState('');
   const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
 
@@ -151,7 +203,7 @@ function SearchBox<T>({
           {children}
           {showMoreLink && suggestions && suggestions.length > 0 && (
             <SuggestionItem>
-              <Text m={0}>
+              <Text m={0} align="center">
                 {`Alle Ergebnisse für "${query}"`} <MaterialArrowForward />
               </Text>
             </SuggestionItem>
@@ -168,21 +220,31 @@ function SearchBox<T>({
 
   const handleSuggestionSelected = (
     event: React.FormEvent<any>,
-    data: SuggestionSelectedEventData<T>
+    data: SuggestionSelectedEventData<S>
   ) => {
     setTerm('');
     onSelect(event, data);
   };
 
   return (
-    <Wrapper width={width}>
-      <InputWrapper>
-        <AutoSuggest
-          alwaysRenderSuggestions
+    <Wrapper variant={variantProp} width={width}>
+      <InputWrapper variant={variantProp}>
+        <AutoSuggest<S>
+          multiSection={multiSection}
           renderSuggestionsContainer={renderSuggestionContainer}
           getSuggestionValue={getSuggestionValue}
-          suggestions={suggestions === null ? [] : suggestions}
-          shouldRenderSuggestions={() => term.length >= 3}
+          suggestions={suggestions === null ? [] : (suggestions as S[])}
+          getSectionSuggestions={(section: GroupedSuggestions<S>) =>
+            section.suggestions
+          }
+          shouldRenderSuggestions={() => term.length >= 2}
+          renderSectionTitle={(section: GroupedSuggestions<S>) => (
+            <Box px={[2]} py={[1]} bg="shades.grey232">
+              <Text m={0} bold>
+                {section.title}
+              </Text>
+            </Box>
+          )}
           onSuggestionsFetchRequested={debounced}
           onSuggestionsClearRequested={handleSuggestionClearRequested}
           onSuggestionSelected={handleSuggestionSelected}
@@ -198,9 +260,12 @@ function SearchBox<T>({
           }}
         />
       </InputWrapper>
-      <IconWrapper>
+      <IconWrapper variant={variantProp}>
         {isLoading ? (
-          <Loader small />
+          <Loader
+            backgroundColor={variantProp === 'red' ? 'primary' : 'inverse'}
+            small
+          />
         ) : (
           <>
             {!term || term.length === 0 ? (
@@ -219,6 +284,7 @@ SearchBox.defaultProps = {
   isLoading: true,
   showMoreLink: true,
   suggestions: null,
+  variant: 'red',
   placeholder: 'Suche nach Pionieren'
 };
 

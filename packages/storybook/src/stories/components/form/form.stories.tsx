@@ -21,7 +21,8 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components|Form/Formulare',
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
+  parameters: { docs: { page: null } }
 };
 
 interface RegisterValues {
