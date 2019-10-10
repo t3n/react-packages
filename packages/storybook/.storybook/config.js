@@ -94,6 +94,9 @@ const loadStories = () => [
   require('../src/stories/components/content/loader.stories'),
   require('../src/stories/components/content/newsCard.stories'),
   require('../src/stories/components/content/placeholder.stories'),
+  require('../src/stories/components/content/searchbox.stories'),
+  require('../src/stories/components/content/tag.stories'),
+  require('../src/stories/components/content/taglist.stories'),
   require('../src/stories/components/content/titleCard.stories'),
 
   // Components - Inputs
