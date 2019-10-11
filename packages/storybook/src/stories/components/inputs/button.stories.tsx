@@ -11,6 +11,7 @@ import { theme } from '@t3n/theme';
 import { Button, LinkButton, Grid, GridItem, Section } from '@t3n/components';
 import { ButtonColors } from '@t3n/components/src/Button/Button';
 import { SectionVariants } from '@t3n/components/src/Section/Section';
+import { MaterialCheck } from '@t3n/icons';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -22,7 +23,7 @@ export default {
 
 const colors: ButtonColors[] = ['light', 'dark'];
 
-export const editor = () => (
+export const defaultStory = () => (
   <Section
     variant={select<SectionVariants>(
       'Section Farbe',
@@ -49,6 +50,10 @@ export const editor = () => (
     </Button>
   </Section>
 );
+
+defaultStory.story = {
+  name: 'Default'
+};
 
 export const variants = () => (
   <div>
@@ -94,3 +99,5 @@ export const link = () => (
     Weiter zu t3n.de
   </LinkButton>
 );
+
+export const icon = () => <Button iconLeft={MaterialCheck}>Check</Button>;

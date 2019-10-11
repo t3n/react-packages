@@ -1,10 +1,11 @@
-import React, { ReactNode, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 export declare type ButtonColors = 'light' | 'dark';
 export interface ButtonProps extends ButtonHTMLAttributes<any>, MarginProps, WidthProps {
     rounded?: boolean;
-    icon?: ReactNode;
+    iconLeft?: React.FunctionComponent<React.SVGProps<SVGElement>>;
+    iconRight?: React.FunctionComponent<React.SVGProps<SVGElement>>;
     secondary?: boolean;
     color?: ButtonColors;
     inverse?: boolean;

@@ -1,5 +1,5 @@
 import { css, StyledComponent } from 'styled-components';
-import { color } from 'styled-system';
+import { color, system } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import { ThemeProps } from '../index';
 
@@ -7,6 +7,7 @@ interface ButtonProps extends ThemeProps {
   secondary?: boolean;
   color?: 'light' | 'dark';
   inverse?: boolean;
+  iconComponent?: StyledComponent<(props: any) => JSX.Element, any>;
   loaderComponent?: StyledComponent<(props: any) => JSX.Element, any>;
 }
 
@@ -22,6 +23,7 @@ const composeButtonStyle = ({
   secondary,
   color: colorProp = 'light',
   inverse,
+  iconComponent,
   loaderComponent
 }: ButtonProps) => {
   const base = secondary
@@ -45,6 +47,22 @@ const composeButtonStyle = ({
       })}
     ${() => border(borderColor)}
 
+    ${
+      iconComponent
+        ? css`
+            ${iconComponent} {
+              ${system({
+                fill: {
+                  property: 'fill',
+                  scale: 'colors'
+                }
+              })}
+              fill: ${themeGet(`colors.${buttonStyles.default.color}`)};
+            }
+          `
+        : ''
+    }
+
     &:hover, &:focus {
       ${() =>
         color({
@@ -53,17 +71,29 @@ const composeButtonStyle = ({
           theme
         })}
       ${() => border(borderColor)}
+
+      ${
+        iconComponent
+          ? css`
+              ${iconComponent} {
+                fill: ${themeGet(`colors.${buttonStyles.hover.color}`)};
+              }
+            `
+          : ''
+      }
     }
 
-    ${loaderComponent
-      ? css`
-          ${loaderComponent} {
-            > div {
-              ${() => color({ bg: buttonStyles.default.color, theme })}
+    ${
+      loaderComponent
+        ? css`
+            ${loaderComponent} {
+              > div {
+                ${() => color({ bg: buttonStyles.default.color, theme })}
+              }
             }
-          }
-        `
-      : ''}
+          `
+        : ''
+    }
   `;
 };
 
