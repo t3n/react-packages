@@ -198,3 +198,7 @@ export const Switch: React.FC<SwitchProps> = ({
     </StyledLabel>
   );
 };
+
+Switch.defaultProps = {
+  variant: 'light'
+};
