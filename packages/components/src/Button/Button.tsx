@@ -1,4 +1,4 @@
-import React, { ReactNode, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import {
   space,
@@ -9,7 +9,9 @@ import {
   WidthProps
 } from 'styled-system';
 import { composeButtonStyle, composeTextStyle, ThemeProps } from '@t3n/theme';
+
 import { Loader } from '../Loader';
+import { Icon } from '../Icon';
 
 export type ButtonColors = 'light' | 'dark';
 
@@ -18,7 +20,8 @@ export interface ButtonProps
     MarginProps,
     WidthProps {
   rounded?: boolean;
-  icon?: ReactNode; // TODO: Implement icon
+  iconLeft?: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  iconRight?: React.FunctionComponent<React.SVGProps<SVGElement>>;
   secondary?: boolean;
   color?: ButtonColors;
   inverse?: boolean;
@@ -57,7 +60,16 @@ export const buttonStyles = css`
   /* We have to provide a value for every breakpoint because of specificity
      of line-height from textStyle */
   ${({ theme }) => lineHeight({ theme, lineHeight: [2, 2, 2, 2] })}
-  ${props => composeButtonStyle({ ...props, loaderComponent: Loader })}
+  ${props =>
+    composeButtonStyle({
+      ...props,
+      iconComponent: Icon,
+      loaderComponent: Loader
+    })}
+
+  ${Icon} {
+    transition: fill .1s ease-in-out;
+  }
 `;
 
 const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
@@ -68,7 +80,23 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   loading,
   inverse,
+  iconLeft,
+  iconRight,
   ...rest
 }) => (
-  <StyledButton {...rest}>{loading ? <Loader small /> : children}</StyledButton>
+  <StyledButton {...rest}>
+    {loading ? (
+      <Loader small />
+    ) : (
+      <>
+        {iconLeft && (
+          <Icon component={iconLeft} mr={1} width="auto" height="1.5rem" />
+        )}
+        {children}
+        {iconRight && (
+          <Icon component={iconRight} ml={1} width="auto" height="1.5rem" />
+        )}
+      </>
+    )}
+  </StyledButton>
 );
