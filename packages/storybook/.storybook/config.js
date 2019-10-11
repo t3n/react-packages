@@ -103,6 +103,7 @@ const loadStories = () => [
   require('../src/stories/components/inputs/button.stories'),
   require('../src/stories/components/inputs/checkbox.stories'),
   require('../src/stories/components/inputs/input.stories'),
+  require('../src/stories/components/inputs/switch.stories'),
   require('../src/stories/components/inputs/link.stories'),
 
   // Form

@@ -9,6 +9,7 @@ export { CardHeader } from './CardHeader';
 export { CardSplitContent } from './CardSplitContent';
 export { Center } from './Center';
 export { Checkbox } from './Checkbox';
+export { Switch } from './Switch';
 export { Content } from './Content';
 export { Divider } from './Divider';
 export { FormGroup } from './FormGroup';
