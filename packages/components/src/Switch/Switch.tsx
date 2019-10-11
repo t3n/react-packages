@@ -1,54 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-import { size, space, border, variant, ColorProps } from 'styled-system';
+import { space, border, variant, MarginProps } from 'styled-system';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
-import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
 
-type VariantType = 'light' | 'dark';
+export type VariantType = 'light' | 'dark';
 
-interface VariantProps {
-  variant?: VariantType;
-}
-
-interface StyledSwitchProps extends ColorProps, VariantProps {
-  disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+export interface SwitchProps extends MarginProps {
   label?: string;
-  feedbackColor?: ThemeFeedbackColor;
-}
-
-export interface SwitchProps extends StyledSwitchProps {
   name: string;
-  checked: boolean;
   value: any;
+  checked: boolean;
+  disabled?: boolean;
+  variant?: VariantType;
+  feedbackColor?: ThemeFeedbackColor;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-
-const SwitchContainer = styled(Box)<StyledSwitchProps>`
-  position: relative;
-  display: inline-block;
-  ${() => space({ ml: 2 })}
-`;
-
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<SwitchProps>`
-  position: absolute;
-  width: 2.5rem;
-  height: 1.5rem;
-  opacity: 0;
-  ${() => space({ my: 0, mr: 2, ml: 0 })}
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-`;
 
 const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
-  line-height: 1;
   width: 2.5rem;
   height: 1.5rem;
-  border-radius: 20px;
-  pointer-events: none;
+  border-radius: 0.75rem;
   transition: all 0.1s ease-in-out;
+  ${({ theme }) => space({ ml: 2, theme })}
 
   ${({ checked, disabled }) =>
     variant({
@@ -92,7 +69,7 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
 
   &:focus,
   &:active {
-    ${({ theme }: StyledSwitchProps & ThemeProps) =>
+    ${({ theme }) =>
       border({
         theme,
         border: '2px solid',
@@ -101,14 +78,21 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
   }
 `;
 
-const StyledSwitchToggle = styled.div<
-  Omit<SwitchProps, 'name' | 'value'> & ThemeProps
->`
-  ${({ theme }) => size({ theme, size: '1.5rem' })}
+const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: -2px;
+  left: -2px;
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+  transform: translateX(${({ checked }) => (checked ? '1rem' : 0)});
+
   ${({ checked, disabled }) =>
     variant({
       variants: {
         light: {
+          bg: 'shades.white',
           border: '2px solid',
           borderColor: disabled
             ? 'shades.grey232'
@@ -119,6 +103,7 @@ const StyledSwitchToggle = styled.div<
             : 'shades.grey204'
         },
         dark: {
+          bg: 'shades.grey42',
           border: '2px solid',
           borderColor: disabled
             ? 'shades.black'
@@ -130,32 +115,23 @@ const StyledSwitchToggle = styled.div<
         }
       }
     })}
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-  top: -2px;
-  left: ${({ checked }) => (checked ? '14px' : '-2px')};
-  transition: all 0.15s ease-in-out;
-  pointer-events: none;
-
-  ${() =>
-    variant({
-      variants: {
-        light: {
-          bg: 'shades.white'
-        },
-        dark: {
-          bg: 'shades.grey42'
-        }
-      }
-    })}
 `;
 
-const StyledLabel = styled.label<StyledSwitchProps>`
+const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<SwitchProps>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  cursor: inherit;
+`;
+
+const StyledLabel = styled.label<
+  Omit<SwitchProps, 'name' | 'value' | 'checked'>
+>`
   display: inline-flex;
   align-items: center;
-  line-height: 1;
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${({ disabled }) =>
     variant({
@@ -179,7 +155,12 @@ const PlainSwitch = ({
   value
 }: SwitchProps) => {
   return (
-    <SwitchContainer>
+    <StyledSwitch variant={variantProp} checked={checked} disabled={disabled}>
+      <StyledSwitchToggle
+        variant={variantProp}
+        checked={checked}
+        disabled={disabled}
+      />
       <HiddenCheckbox
         checked={checked}
         onChange={onChange}
@@ -187,14 +168,7 @@ const PlainSwitch = ({
         name={name}
         value={value}
       />
-      <StyledSwitch variant={variantProp} checked={checked} disabled={disabled}>
-        <StyledSwitchToggle
-          variant={variantProp}
-          checked={checked}
-          disabled={disabled}
-        />
-      </StyledSwitch>
-    </SwitchContainer>
+    </StyledSwitch>
   );
 };
 
@@ -205,23 +179,22 @@ export const Switch: React.FC<SwitchProps> = ({
   disabled,
   variant: variantProp,
   name,
-  value
+  value,
+  ...marginProps
 }) => {
   return (
-    <>
-      <StyledLabel variant={variantProp} disabled={disabled}>
-        <Text small inline>
-          {label}
-        </Text>
-        <PlainSwitch
-          variant={variantProp}
-          checked={checked}
-          disabled={disabled}
-          onChange={onChange}
-          name={name}
-          value={value}
-        />
-      </StyledLabel>
-    </>
+    <StyledLabel variant={variantProp} disabled={disabled} {...marginProps}>
+      <Text small inline>
+        {label}
+      </Text>
+      <PlainSwitch
+        variant={variantProp}
+        checked={checked}
+        disabled={disabled}
+        onChange={onChange}
+        name={name}
+        value={value}
+      />
+    </StyledLabel>
   );
 };

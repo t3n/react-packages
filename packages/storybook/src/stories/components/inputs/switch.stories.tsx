@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+
 import { Switch, Section } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components|Inputs/Switch',
   component: Switch,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerDecorator]
 };
 
-const SwitchComponent: React.FC = () => {
+export const DefaultStory = () => {
   const [checked, setChecked] = useState(false);
+
   const disabled = boolean('disable', false);
   const name = text('Name', 'Name switch-element');
   const label = text('Label', 'Label placeholder');
@@ -35,4 +36,6 @@ const SwitchComponent: React.FC = () => {
   );
 };
 
-export const simple = () => <SwitchComponent />;
+DefaultStory.story = {
+  name: 'Default'
+};
