@@ -1,6 +1,6 @@
 {
   "name": "@t3n/components",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "t3n react components",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@t3n/icons": "^0.2.4",
-    "@t3n/theme": "^0.2.2",
+    "@t3n/theme": "^0.2.3",
     "@types/react-autosuggest": "^9.3.11",
     "clean-tag": "^3.1.1",
     "polished": "^3.4.1",
