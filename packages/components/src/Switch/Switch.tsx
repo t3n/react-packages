@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space, border, variant, MarginProps } from 'styled-system';
+import { space, variant, MarginProps } from 'styled-system';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
@@ -66,16 +66,6 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
         }
       }
     })}
-
-  &:focus,
-  &:active {
-    ${({ theme }) =>
-      border({
-        theme,
-        border: '2px solid',
-        borderColor: 'shades.grey42'
-      })};
-  }
 `;
 
 const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
