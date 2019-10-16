@@ -35,6 +35,7 @@ export { Placeholder } from './Placeholder';
 export { Ratio } from './Ratio';
 export { SearchBox } from './SearchBox';
 export { Section } from './Section';
+export { SocialButton, socialNetworksConfig } from './SocialButton';
 export { Tag } from './Tag';
 export { TagList } from './TagList';
 export { Text } from './Text';
