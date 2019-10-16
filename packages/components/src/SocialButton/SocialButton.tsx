@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { color } from 'styled-system';
 
 import {
@@ -20,6 +20,7 @@ import {
 import { getThemeColor } from '@t3n/theme';
 
 import { Button } from '../Button';
+import { LinkButton } from '../LinkButton';
 import { Icon } from '../Icon';
 
 export type SocialNetworkType =
@@ -107,14 +108,7 @@ export const socialNetworksConfig: SocialNetworksProps = {
   }
 };
 
-const StyledSocialButton = styled(Button).attrs(
-  ({ network, textBefore }: SocialButtonProps) => ({
-    iconLeft: socialNetworksConfig[network].icon,
-    children: `${textBefore ? `${textBefore} ` : ''}${
-      socialNetworksConfig[network].name
-    }`
-  })
-)<SocialButtonProps>`
+const socialButtonStyle = css<SocialButtonProps>`
   &:hover,
   &:focus {
     ${({ network, theme }) => color({ bg: `social.${network}`, theme })}
@@ -131,6 +125,28 @@ const StyledSocialButton = styled(Button).attrs(
         ? `transform: scale(${socialNetworksConfig[network].iconScale});`
         : ''}
   }
+`;
+
+const mapSocialButtonAttributes = ({
+  network,
+  textBefore
+}: SocialButtonProps) => ({
+  iconLeft: socialNetworksConfig[network].icon,
+  children: `${textBefore ? `${textBefore} ` : ''}${
+    socialNetworksConfig[network].name
+  }`
+});
+
+const StyledSocialButton = styled(Button).attrs(mapSocialButtonAttributes)<
+  SocialButtonProps
+>`
+  ${socialButtonStyle}
+`;
+
+const StyledSocialLinkButton = styled(LinkButton).attrs(
+  mapSocialButtonAttributes
+)<SocialButtonProps>`
+  ${socialButtonStyle}
 `;
 
 export const SocialButton = (props: SocialButtonProps) => (
