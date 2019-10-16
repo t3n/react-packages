@@ -8,13 +8,12 @@ import { RadioButton, Section } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/Radio-Button',
+  title: 'Components|Inputs/RadioButton',
   component: RadioButton,
   decorators: [withKnobs, storyContainerDecorator]
 };
 
 export const DefaultStory = () => {
-  // const [checked, setChecked] = useState(false);
   const [activeButtonIndex, setActiveButtonIndex] = useState(-1);
 
   const showFeedback = boolean('Zeige Feedback', false);
