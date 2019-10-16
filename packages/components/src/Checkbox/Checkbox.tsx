@@ -115,7 +115,7 @@ const StyledIcon = styled.span<
           dark: {
             fill: feedbackColor
               ? theme.colors.feedback[feedbackColor]
-              : theme.colors.shades.grey44
+              : theme.colors.shades.grey42
           }
         }
       })}
@@ -204,4 +204,8 @@ export const Checkbox = ({
       )}
     </StyledLabel>
   );
+};
+
+Checkbox.defaultProps = {
+  variant: 'light'
 };
