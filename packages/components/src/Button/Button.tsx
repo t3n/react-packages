@@ -107,8 +107,8 @@ export const buttonStyles = css`
       }
     }
 
-    ${Icon} {
-      fill: white !important;
+    ${Icon}${Icon} {
+      fill: white;
     }
   }
 
