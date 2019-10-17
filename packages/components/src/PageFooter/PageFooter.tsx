@@ -114,25 +114,45 @@ export const PageFooter: React.FC<PageFooterProps> = ({
           </GridItem>
           <GridItem width={[1, 1, 1, 1 / 3]} mb={[1, 1, 1, 0]}>
             <SocialLinks>
-              <SocialLink href="#" title="Facebook" mx={1}>
+              <SocialLink
+                href="https://www.facebook.com/t3nMagazin"
+                title="Facebook"
+                mx={1}
+              >
                 <SocialFacebook fill="white" />
               </SocialLink>
-              <SocialLink href="#" title="Twitter" mx={1}>
+              <SocialLink href="https://twitter.com/t3n" title="Twitter" mx={1}>
                 <SocialTwitter fill="white" />
               </SocialLink>
-              <SocialLink href="#" title="Xing" mx={1}>
+              <SocialLink
+                href="https://www.xing.com/news/pages/t3n-magazin-67"
+                title="Xing"
+                mx={1}
+              >
                 <SocialXing fill="white" />
               </SocialLink>
-              <SocialLink href="#" title="LinkedIn" mx={1}>
+              <SocialLink
+                href="https://www.linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
+                title="LinkedIn"
+                mx={1}
+              >
                 <SocialLinkedin fill="white" />
               </SocialLink>
-              <SocialLink href="#" title="Instagram" mx={1}>
+              <SocialLink
+                href="https://www.instagram.com/t3n_magazin/"
+                title="Instagram"
+                mx={1}
+              >
                 <SocialInstagram fill="white" />
               </SocialLink>
-              <SocialLink href="#" title="Whatsapp" mx={1}>
+              <SocialLink
+                href="https://t3n.de/social-media/#Die_hei%C3%9Festen_News_in_deinem_Messenger"
+                title="Whatsapp"
+                mx={1}
+              >
                 <SocialWhatsapp fill="white" />
               </SocialLink>
-              <SocialLink href="#" title="GitHub" mx={1}>
+              <SocialLink href="https://github.com/t3n" title="GitHub" mx={1}>
                 <SocialGithub fill="white" />
               </SocialLink>
             </SocialLinks>
