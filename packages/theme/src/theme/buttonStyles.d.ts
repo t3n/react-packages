@@ -1,88 +1,22 @@
+export interface ThemeButtonColorSet {
+    color: string;
+    bg: string;
+    borderColor: string;
+}
 export interface ThemeButtonStyle {
-    default: {
-        color: string;
-        bg: string;
-        borderColor: string;
-    };
-    hover: {
-        color: string;
-        bg: string;
-        borderColor: string;
-    };
+    default: ThemeButtonColorSet;
+    hover: ThemeButtonColorSet;
 }
 export interface ThemeButtonStyles {
-    primary: {
-        light: {
-            regular: ThemeButtonStyle;
-            inverse: ThemeButtonStyle;
-        };
-        dark: {
-            regular: ThemeButtonStyle;
-            inverse: ThemeButtonStyle;
-        };
-    };
-    secondary: {
-        regular: ThemeButtonStyle;
+    color: {
+        default: ThemeButtonStyle;
         inverse: ThemeButtonStyle;
+        highlight: ThemeButtonStyle;
     };
 }
 declare const buttonStyles: {
-    primary: {
-        light: {
-            regular: {
-                default: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-                hover: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-            };
-            inverse: {
-                default: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-                hover: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-            };
-        };
-        dark: {
-            regular: {
-                default: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-                hover: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-            };
-            inverse: {
-                default: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-                hover: {
-                    color: string;
-                    bg: string;
-                    borderColor: string;
-                };
-            };
-        };
-    };
-    secondary: {
-        regular: {
+    color: {
+        default: {
             default: {
                 color: string;
                 bg: string;
@@ -95,6 +29,18 @@ declare const buttonStyles: {
             };
         };
         inverse: {
+            default: {
+                color: string;
+                bg: string;
+                borderColor: string;
+            };
+            hover: {
+                color: string;
+                bg: string;
+                borderColor: string;
+            };
+        };
+        highlight: {
             default: {
                 color: string;
                 bg: string;

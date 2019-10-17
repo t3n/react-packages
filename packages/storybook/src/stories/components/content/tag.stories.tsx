@@ -80,9 +80,7 @@ const ClicakbleTagList: React.FC = () => {
         </Tag>
       ))}
       <br /> <br />
-      <Button color="dark" onClick={() => setTags(defaultTags)}>
-        Reset
-      </Button>
+      <Button onClick={() => setTags(defaultTags)}>Reset</Button>
     </>
   );
 };
