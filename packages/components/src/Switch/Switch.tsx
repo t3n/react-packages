@@ -165,24 +165,34 @@ const PlainSwitch = ({
 };
 
 export const Switch: React.FC<SwitchProps> = ({
+  checked,
+  onChange,
   label,
   disabled,
   variant: variantProp,
+  name,
+  value,
   width: widthProp,
-  margin: marginProp,
-  ...switchProps
+  ...marginProps
 }) => {
   return (
     <StyledLabel
       variant={variantProp}
       disabled={disabled}
       width={widthProp}
-      margin={marginProp}
+      {...marginProps}
     >
       <Text small inline>
         {label}
       </Text>
-      <PlainSwitch variant={variantProp} disabled={disabled} {...switchProps} />
+      <PlainSwitch
+        variant={variantProp}
+        checked={checked}
+        disabled={disabled}
+        onChange={onChange}
+        name={name}
+        value={value}
+      />
     </StyledLabel>
   );
 };
