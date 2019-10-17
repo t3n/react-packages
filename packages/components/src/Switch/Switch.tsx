@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space, variant, MarginProps } from 'styled-system';
+import { space, variant, MarginProps, WidthProps, width } from 'styled-system';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
 
 export type VariantType = 'light' | 'dark';
 
-export interface SwitchProps extends MarginProps {
+export interface SwitchProps extends MarginProps, WidthProps {
   label?: string;
   name: string;
   value: any;
@@ -120,8 +120,10 @@ const StyledLabel = styled.label<
   Omit<SwitchProps, 'name' | 'value' | 'checked'>
 >`
   display: inline-flex;
+  justify-content: space-between;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  ${width};
 
   ${({ disabled }) =>
     variant({
@@ -170,10 +172,16 @@ export const Switch: React.FC<SwitchProps> = ({
   variant: variantProp,
   name,
   value,
+  width: widthProp,
   ...marginProps
 }) => {
   return (
-    <StyledLabel variant={variantProp} disabled={disabled} {...marginProps}>
+    <StyledLabel
+      variant={variantProp}
+      disabled={disabled}
+      width={widthProp}
+      {...marginProps}
+    >
       <Text small inline>
         {label}
       </Text>
