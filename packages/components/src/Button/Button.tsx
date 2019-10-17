@@ -106,6 +106,10 @@ export const buttonStyles = css`
         background-color: white;
       }
     }
+
+    ${Icon} {
+      fill: white !important;
+    }
   }
 
   &:disabled {
