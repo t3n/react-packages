@@ -1,8 +1,8 @@
 import React from 'react';
-import { MarginProps } from 'styled-system';
+import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 export declare type VariantType = 'light' | 'dark';
-export interface SwitchProps extends MarginProps {
+export interface SwitchProps extends MarginProps, WidthProps {
     label?: string;
     name: string;
     value: any;
