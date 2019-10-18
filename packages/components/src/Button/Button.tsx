@@ -69,16 +69,17 @@ export const buttonStyles = css`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.05s ease-in-out;
   border: 2px solid;
   ${width};
   ${margin};
 
   ${({ theme }: ThemeProps) => `border-radius: ${theme.border.radii[1]}`};
-  ${({ theme }) => space({ px: 2, py: 1, theme })}
+  ${({ theme, size }) =>
+    space({ px: 2, py: size && size === 'small' ? '4px' : 1, theme })}
   ${({ theme, size }: ButtonProps & ThemeProps) =>
     composeTextStyle({
-      textStyle: size || 'regular',
+      textStyle: size === 'big' ? 'big' : 'regular',
       theme
     })};
 
@@ -94,7 +95,7 @@ export const buttonStyles = css`
       variants: buildColorVariants(variantProp, 'default', theme)
     })}
 
-  &:hover, &:focus {
+  &:hover :not(:disabled), &:focus :not(:disabled) {
     ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
       variant({
         prop: 'color',
@@ -110,11 +111,6 @@ export const buttonStyles = css`
     ${Icon}${Icon} {
       fill: white;
     }
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: no-drop;
   }
 
   ${Loader} {
@@ -153,6 +149,20 @@ export const buttonStyles = css`
           : theme.colors.text.inverse
       }`};
   }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: no-drop;
+
+    ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
+      color &&
+      color === 'highlight' &&
+      variantProp === 'primary' &&
+      css`
+        color: ${theme.colors.text.highlight};
+      `}
+  }
+
 `;
 
 const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
