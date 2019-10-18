@@ -1,48 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, size, SizeProps } from 'styled-system';
+import { color, size, BackgroundColorProps } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
-
-export type LoaderVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
-
-export interface LoaderProps extends SizeProps {
-  backgroundColor?: ThemeBackgroundColor;
-  bg?: ThemeBackgroundColor;
+export interface LoaderProps {
   small?: boolean;
+  color?: BackgroundColorProps['bg'];
 }
 
-const backgroundColor = ({
-  backgroundColor: backgroundColorProps,
-  bg,
-  theme
-}: LoaderProps & ThemeProps) =>
-  color({ backgroundColor: `background.${backgroundColorProps || bg}`, theme });
-
-const loaderSize = ({ small }: LoaderProps & ThemeProps) =>
-  size({ size: small ? '0.5rem' : '1rem' });
-
-const LoaderWrapper = styled.div<LoaderProps>`
-  display: inline-block;
+const LoaderWrapper = styled.div<
+  LoaderProps & { bg: BackgroundColorProps['bg'] }
+>`
+  display: inline-flex;
   text-align: center;
 
   > div {
-    ${loaderSize}
-    ${backgroundColor}
+    ${color};
+    ${({ small }) => size({ size: small ? '0.5rem' : '1rem' })};
 
     border-radius: 100%;
     display: inline-block;
-    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   }
 
   > div:nth-child(1) {
-    -webkit-animation-delay: -0.3s;
     animation-delay: -0.3s;
   }
   > div:nth-child(2) {
-    -webkit-animation-delay: -0.15s;
     animation-delay: -0.15s;
   }
 
@@ -71,8 +54,8 @@ const LoaderWrapper = styled.div<LoaderProps>`
   }
 `;
 
-export const Loader = styled((props: LoaderProps) => (
-  <LoaderWrapper {...props}>
+export const Loader = styled(({ small, color: bg }: LoaderProps) => (
+  <LoaderWrapper small={small} bg={bg}>
     <div />
     <div />
     <div />
@@ -80,5 +63,5 @@ export const Loader = styled((props: LoaderProps) => (
 ))``;
 
 Loader.defaultProps = {
-  backgroundColor: 'secondary'
+  color: 'background.secondary'
 };
