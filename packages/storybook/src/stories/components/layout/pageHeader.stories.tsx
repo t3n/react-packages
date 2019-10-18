@@ -39,7 +39,7 @@ defaultStory.story = {
   name: 'Mit Usermenü'
 };
 
-export const linkedLogo = () => <PageHeader link="https://t3n.de" />;
+export const linkedLogo = () => <PageHeader logoHref="https://t3n.de" />;
 
 linkedLogo.story = {
   name: 'Verlinktes Logo'
