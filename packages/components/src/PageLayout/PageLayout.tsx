@@ -65,7 +65,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
           wide
           px={0}
           pt={
-            showHeader ? (noContentPadding ? 8 : 10) : noContentPadding ? 0 : 3
+            showHeader ? (noContentPadding ? 8 : 9) : noContentPadding ? 0 : 3
           }
           pb={noContentPadding ? 0 : 3}
         >
