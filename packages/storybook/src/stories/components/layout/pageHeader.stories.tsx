@@ -38,3 +38,9 @@ export const displayUserMenu = () => <PageHeader />;
 defaultStory.story = {
   name: 'Mit Usermenü'
 };
+
+export const linkedLogo = () => <PageHeader link="https://t3n.de" />;
+
+linkedLogo.story = {
+  name: 'Verlinktes Logo'
+};
