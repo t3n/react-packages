@@ -29,7 +29,7 @@ export const HeroCard = ({
     <CardHeader ratio={16 / 9} image={imageUrl} />
 
     <div style={{ flex: 1 }}>
-      <Heading styleAs="h5" as="h2" mt={0} mb={7}>
+      <Heading styleAs="h5" as="h2" mt={0} mb={8}>
         {title}
       </Heading>
     </div>

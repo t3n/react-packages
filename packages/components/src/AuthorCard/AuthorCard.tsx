@@ -33,7 +33,7 @@ export const AuthorCard = ({
     </div>
 
     <div style={{ flex: 1 }}>
-      <Heading styleAs="h5" as="h2" mt={1} mb={7}>
+      <Heading styleAs="h5" as="h2" mt={2} mb={8}>
         {title}
       </Heading>
     </div>

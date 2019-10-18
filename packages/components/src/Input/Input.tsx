@@ -40,7 +40,7 @@ interface StyledNativeInputProps extends InputProps {
   isFocused: boolean;
 }
 
-const padding = ({ theme }: ThemeProps) => space({ pl: 1, pr: 5, theme });
+const padding = ({ theme }: ThemeProps) => space({ pl: 2, pr: 6, theme });
 
 const border = css`
   border: 1px solid
@@ -85,7 +85,7 @@ const FixedPlaceholder = styled(Text).attrs(() => ({
   white-space: nowrap;
   line-height: 1rem;
   flex: 0;
-  ${({ theme }: ThemeProps) => space({ ml: [1], mr: ['-4px'], theme })};
+  ${({ theme }: ThemeProps) => space({ ml: [2], mr: ['-4px'], theme })};
 `;
 
 const Button = styled.button.attrs(() => ({

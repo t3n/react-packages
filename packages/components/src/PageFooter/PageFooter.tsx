@@ -52,11 +52,10 @@ const FooterLink = styled(Link).attrs(() => ({
     ${({ theme }) => color({ theme, color: 'text.inverse' })};
   }
   ${({ theme }) => flexbox({ theme })}
-  ${({ theme }) =>
-    space({ theme, px: [1], my: ['0.25rem', 0] })}
+  ${({ theme }) => space({ theme, px: [2], my: [1, 0] })}
 
   &:last-child {
-    ${({ theme }) => space({ theme, pr: [1, 1, 1, 0] })}
+    ${({ theme }) => space({ theme, pr: [2, 2, 2, 0] })}
   }
 
   &:nth-child(odd) {
@@ -90,13 +89,13 @@ export const PageFooter: React.FC<PageFooterProps> = ({
   return (
     <Box width="100%" bg="black">
       {children && (
-        <Box bg="shades.black" color="text.inverse" p={[2, 3]}>
+        <Box bg="shades.black" color="text.inverse" p={[3, 4]}>
           {children}
         </Box>
       )}
       <FooterBottom
-        px={[2, 3]}
-        py={[2, 3, 3, 0]}
+        px={[3, 4]}
+        py={[3, 4, 4, 0]}
         height={['auto', 'auto', 'auto', '2.5rem']}
         borderTop="1px solid"
         borderColor="shades.grey44"
@@ -112,7 +111,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               © yeebase media GmbH 2005-{new Date().getFullYear()}
             </Text>
           </GridItem>
-          <GridItem width={[1, 1, 1, 1 / 3]} mb={[1, 1, 1, 0]}>
+          <GridItem width={[1, 1, 1, 1 / 3]} mb={[2, 2, 2, 0]}>
             <SocialLinks>
               <SocialLink
                 href="https://www.facebook.com/t3nMagazin"
@@ -121,46 +120,46 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               >
                 <SocialFacebook fill="white" />
               </SocialLink>
-              <SocialLink href="https://twitter.com/t3n" title="Twitter" mx={1}>
+              <SocialLink href="https://twitter.com/t3n" title="Twitter" mx={2}>
                 <SocialTwitter fill="white" />
               </SocialLink>
               <SocialLink
                 href="https://www.xing.com/news/pages/t3n-magazin-67"
                 title="Xing"
-                mx={1}
+                mx={2}
               >
                 <SocialXing fill="white" />
               </SocialLink>
               <SocialLink
                 href="https://www.linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
                 title="LinkedIn"
-                mx={1}
+                mx={2}
               >
                 <SocialLinkedin fill="white" />
               </SocialLink>
               <SocialLink
                 href="https://www.instagram.com/t3n_magazin/"
                 title="Instagram"
-                mx={1}
+                mx={2}
               >
                 <SocialInstagram fill="white" />
               </SocialLink>
               <SocialLink
                 href="https://t3n.de/social-media/#Die_hei%C3%9Festen_News_in_deinem_Messenger"
                 title="Whatsapp"
-                mx={1}
+                mx={2}
               >
                 <SocialWhatsapp fill="white" />
               </SocialLink>
-              <SocialLink href="https://github.com/t3n" title="GitHub" mx={1}>
+              <SocialLink href="https://github.com/t3n" title="GitHub" mx={2}>
                 <SocialGithub fill="white" />
               </SocialLink>
             </SocialLinks>
           </GridItem>
-          <GridItem width={[1, 1, 1, 1 / 3]} my={[1, 1, 1, 0]}>
+          <GridItem width={[1, 1, 1, 1 / 3]} my={[2, 2, 2, 0]}>
             <FooterLinks
               justifyContent={['center', 'center', 'center', 'flex-end']}
-              my={[1, 0]}
+              my={[2, 0]}
             >
               <FooterLink href={contactLink}>Kontakt</FooterLink>
               <FooterLink href="https://t3n.de/agb/">AGB</FooterLink>

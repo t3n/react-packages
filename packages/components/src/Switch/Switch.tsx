@@ -25,7 +25,7 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
   height: 1.5rem;
   border-radius: 0.75rem;
   transition: all 0.1s ease-in-out;
-  ${({ theme }) => space({ ml: 2, theme })}
+  ${({ theme }) => space({ ml: 3, theme })}
 
   ${({ checked, disabled }) =>
     variant({

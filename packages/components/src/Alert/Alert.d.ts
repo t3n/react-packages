@@ -1,7 +1,7 @@
 import React from 'react';
 import { SpaceProps } from 'styled-system';
 export declare type AlertStatus = 'success' | 'notice' | 'warning' | 'error';
-interface AlertProps extends SpaceProps {
+export interface AlertProps extends SpaceProps {
     status: AlertStatus;
 }
 declare const AlertText: React.FC;

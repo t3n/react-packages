@@ -43,7 +43,7 @@ const StyledAvatar = styled.div`
 `;
 
 const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
-  ${({ theme }) => space({ pl: 1, theme })}
+  ${({ theme }) => space({ pl: 2, theme })}
   ${({ textColor, theme }) => styledColor({ color: textColor, theme })}
 `;
 

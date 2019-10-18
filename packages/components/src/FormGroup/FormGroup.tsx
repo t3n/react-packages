@@ -47,7 +47,7 @@ export const FormGroup = ({
   ...props
 }: FormGroupProps) => (
   <StyledFormGroup {...props}>
-    <Box width={1} display="flex" mb="0.25rem">
+    <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>
       {labelSecondary && (
         <Text inline secondary>
@@ -61,7 +61,7 @@ export const FormGroup = ({
     </Box>
     {children}
     {errorMessage && (
-      <Text small color="feedback.error" mt="0.25rem" mb={0}>
+      <Text small color="feedback.error" mt={1} mb={0}>
         {errorMessage}
       </Text>
     )}
@@ -69,5 +69,5 @@ export const FormGroup = ({
 );
 
 FormGroup.defaultProps = {
-  my: 3
+  my: 4
 };

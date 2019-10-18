@@ -7,7 +7,7 @@ import { Text } from '../Text';
 
 export type AlertStatus = 'success' | 'notice' | 'warning' | 'error';
 
-interface AlertProps extends SpaceProps {
+export interface AlertProps extends SpaceProps {
   status: AlertStatus;
 }
 
@@ -47,7 +47,7 @@ const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
       display="flex"
       alignItems="center"
       status={status}
-      p={2}
+      p={3}
       {...rest}
     >
       {children}

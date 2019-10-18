@@ -25,12 +25,12 @@ const StyledIcon = styled(MaterialClear)<
 
 const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
   return (
-    <Box m="0.25rem">
+    <Box m={1}>
       <Alert status={status}>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <AlertText>{text}</AlertText>
           {isClosable && (
-            <StyledIcon ml={2} status={status} onClick={() => onClose()} />
+            <StyledIcon ml={3} status={status} onClick={() => onClose()} />
           )}
         </Box>
       </Alert>

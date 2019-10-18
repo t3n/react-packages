@@ -32,7 +32,7 @@ export const CardSplitContent: React.FC<CardSplitContentProps> = ({
     : 'background.primary';
 
   return (
-    <Wrapper width={[1, 1, 1 / 2]} p={3} backgroundColor={backgroundColor}>
+    <Wrapper width={[1, 1, 1 / 2]} p={4} backgroundColor={backgroundColor}>
       {children}
     </Wrapper>
   );
