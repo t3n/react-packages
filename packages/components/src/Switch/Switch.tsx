@@ -182,9 +182,7 @@ export const Switch: React.FC<SwitchProps> = ({
       width={widthProp}
       {...marginProps}
     >
-      <Text small inline>
-        {label}
-      </Text>
+      <Text inline>{label}</Text>
       <PlainSwitch
         variant={variantProp}
         checked={checked}
