@@ -85,7 +85,7 @@ const FixedPlaceholder = styled(Text).attrs(() => ({
   white-space: nowrap;
   line-height: 1rem;
   flex: 0;
-  ${({ theme }: ThemeProps) => space({ ml: [2], mr: ['-4px'], theme })};
+  ${({ theme }: ThemeProps) => space({ ml: [2], mr: [-1], theme })};
 `;
 
 const Button = styled.button.attrs(() => ({
