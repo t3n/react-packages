@@ -19,9 +19,9 @@ export const TitleCard: React.FC<TitleCardProps> = ({
     <Card {...props}>
       <Heading
         as={titleAs || 'h3'}
-        styleAs="h3"
+        styleAs="h4"
         mt={0}
-        mb={3}
+        mb={4}
         align={centerTitle ? 'center' : 'left'}
       >
         {title}

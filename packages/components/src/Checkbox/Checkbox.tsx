@@ -36,7 +36,7 @@ const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   height: 1rem;
   border-radius: 2px;
   transition: all 0.1s ease-in-out;
-  ${({ theme }) => space({ mr: 1, theme })}
+  ${({ theme }) => space({ mr: 2, theme })}
 
   ${({ theme, checked, disabled, feedbackColor }) =>
     variant({

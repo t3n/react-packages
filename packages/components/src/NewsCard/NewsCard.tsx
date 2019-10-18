@@ -29,8 +29,8 @@ const LoadingHeroCard = () => (
     <CardHeader>
       <Placeholder />
     </CardHeader>
-    <Placeholder height="1.5rem" mb={3} />
-    <Placeholder height="1.5rem" width="75%" />
+    <Placeholder height="1.5rem" mb={4} />
+    <Placeholder height="1.5rem" width={3 / 4} />
   </Card>
 );
 
@@ -39,8 +39,8 @@ const LoadingAuthorCard = () => (
     <div>
       <Placeholder height="1rem" width="30%" />
     </div>
-    <Placeholder height="1.5rem" mt={1} mb={1} />
-    <Placeholder height="1.5rem" mt={1} mb={7} width="75%" />
+    <Placeholder height="1.5rem" mt={1} mb={2} />
+    <Placeholder height="1.5rem" mt={1} mb={8} width={3 / 4} />
     <Placeholder height="1.5rem" width="30%" />
   </Card>
 );

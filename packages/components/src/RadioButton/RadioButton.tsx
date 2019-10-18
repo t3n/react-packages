@@ -39,7 +39,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
   height: 1rem;
   border-radius: 50%;
   transition: all 0.1s ease-in-out;
-  ${({ theme }) => space({ mr: 1, theme })}
+  ${({ theme }) => space({ mr: 2, theme })}
 
   ${({ theme, checked, disabled, feedbackColor }) =>
     variant({
@@ -128,7 +128,7 @@ const StyledLabel = styled.label<
   display: flex;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  ${({ theme }) => space({ mb: 1, theme })}
+  ${({ theme }) => space({ mb: 2, theme })}
 
   ${({ disabled }) =>
     variant({

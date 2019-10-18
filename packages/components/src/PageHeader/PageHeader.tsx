@@ -27,7 +27,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
       theme,
       color: 'text.inverse',
       bg: transparent ? 'transparent' : 'background.highlight',
-      px: [2, 2, 2, 2, 7]
+      px: [3, 3, 3, 3, 8]
     })}
 
   ${Logo} {

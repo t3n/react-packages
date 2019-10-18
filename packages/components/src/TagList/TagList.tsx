@@ -23,7 +23,7 @@ const StyledArrowButton = styled(Tag)`
   height: 2rem;
   width: 2rem;
   padding: 0;
-  ${({ theme }: ThemeProps) => margin({ theme, mb: 1 })}
+  ${({ theme }: ThemeProps) => margin({ theme, mb: 2 })}
 
   &:hover {
     transform: scale(1.3);
@@ -47,7 +47,7 @@ export const TagList: React.FC<TagListProps> = ({
       <StyledTagList>
         {tags.map((tag, idx) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Box display="inline-block" key={idx} mb={1}>
+          <Box display="inline-block" key={idx} mb={2}>
             {tag}
           </Box>
         ))}
@@ -60,7 +60,7 @@ export const TagList: React.FC<TagListProps> = ({
       <StyledTagList>
         {tags.slice(0, collapseAfter).map((tag, idx) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Box display="inline-block" key={idx} mb={1}>
+          <Box display="inline-block" key={idx} mb={2}>
             {tag}
           </Box>
         ))}
@@ -79,7 +79,7 @@ export const TagList: React.FC<TagListProps> = ({
     <StyledTagList>
       {tags.map((tag, idx) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Box display="inline-block" key={idx} mb={1}>
+        <Box display="inline-block" key={idx} mb={2}>
           {tag}
         </Box>
       ))}{' '}

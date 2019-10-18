@@ -76,7 +76,7 @@ export const buttonStyles = css`
 
   ${({ theme }: ThemeProps) => `border-radius: ${theme.border.radii[1]}`};
   ${({ theme, size }) =>
-    space({ px: 2, py: size && size === 'small' ? '4px' : 1, theme })}
+    space({ px: 3, py: size && size === 'small' ? 1 : 2, theme })}
   ${({ theme, size }: ButtonProps & ThemeProps) =>
     composeTextStyle({
       textStyle: size === 'big' ? 'big' : 'regular',
@@ -185,7 +185,7 @@ export const Button: React.FC<ButtonProps> = ({
         {iconLeft && (
           <Icon
             component={iconLeft}
-            mr={1}
+            mr={2}
             width="auto"
             height={
               size === 'big'
@@ -198,7 +198,7 @@ export const Button: React.FC<ButtonProps> = ({
         )}
         {children}
         {iconRight && (
-          <Icon component={iconRight} ml={1} width="auto" height="1.5rem" />
+          <Icon component={iconRight} ml={2} width="auto" height="1.5rem" />
         )}
       </>
     )}

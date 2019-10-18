@@ -32,16 +32,16 @@ const indent = ({ noGap, wide, theme }: GridProps & ThemeProps) =>
     ? space({ mx: 0 })
     : wide
     ? space({
-        mx: [0, -3],
+        mx: [0, -4],
         theme
       })
     : space({
-        mx: [0, -1],
+        mx: [0, -2],
         theme
       });
 
 const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string =>
-  noGap ? space({ px: 0, theme }) : wide ? space({ px: 3, theme }) : '';
+  noGap ? space({ px: 0, theme }) : wide ? space({ px: 4, theme }) : '';
 
 export const Grid = styled.div<GridProps>`
   display: flex;
