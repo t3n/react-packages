@@ -9,6 +9,7 @@ import { PageFooter } from '../PageFooter';
 export interface PageLayoutProps extends PageHeaderProps {
   showHeader?: boolean;
   noContentPadding?: boolean;
+  logoHref?: string;
   initialTransparent?: boolean;
   headerContent?: JSX.Element;
   footerContent?: JSX.Element;
@@ -31,6 +32,7 @@ const PageLayoutContainer = styled.div`
 
 export const PageLayout: React.FC<PageLayoutProps> = ({
   showHeader = true,
+  logoHref,
   noContentPadding,
   headerContent,
   initialTransparent = false,
@@ -56,7 +58,9 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   return (
     <PageLayoutContainer>
       {showHeader && (
-        <PageHeader transparent={transparentHeader}>{headerContent}</PageHeader>
+        <PageHeader logoHref={logoHref} transparent={transparentHeader}>
+          {headerContent}
+        </PageHeader>
       )}
       {initialTransparent ? (
         children
