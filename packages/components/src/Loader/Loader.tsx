@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, size, BackgroundColorProps } from 'styled-system';
+import { color, size, BackgroundColorProps, space, MarginProps } from 'styled-system';
 
-export interface LoaderProps {
+export interface LoaderProps extends MarginProps {
   small?: boolean;
   color?: BackgroundColorProps['bg'];
 }
 
-const LoaderWrapper = styled.div<
+const LoaderWrapper = styled.span<
   LoaderProps & { bg: BackgroundColorProps['bg'] }
 >`
   display: inline-flex;
   text-align: center;
+  ${space}
 
   > div {
     ${color};
@@ -54,8 +55,8 @@ const LoaderWrapper = styled.div<
   }
 `;
 
-export const Loader = styled(({ small, color: bg }: LoaderProps) => (
-  <LoaderWrapper small={small} bg={bg}>
+export const Loader = styled(({ small, color: bg, ...marginProps }: LoaderProps) => (
+  <LoaderWrapper small={small} bg={bg}, {...marginProps}>
     <div />
     <div />
     <div />

@@ -179,7 +179,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => (
   <StyledButton size={size} {...rest}>
     {loading ? (
-      <Loader small />
+      <Loader small my={2} />
     ) : (
       <>
         {iconLeft && (
