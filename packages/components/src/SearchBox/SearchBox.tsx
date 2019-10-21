@@ -23,7 +23,7 @@ const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   width: 25px;
   display: flex;
   align-items: center;
-  ${({ theme }) => space({ theme, ml: 2 })}
+  ${({ theme }) => space({ theme, ml: 3 })}
 
   &:hover {
     cursor: pointer;
@@ -135,7 +135,7 @@ const SuggestionContainer = styled.div`
 `;
 
 const SuggestionItem = styled.div`
-  ${({ theme }) => space({ theme, p: [1, 2] })}
+  ${({ theme }) => space({ theme, p: [2, 3] })}
   color: ${({ theme }: ThemeProps) => theme.colors.text.primary};
   border-bottom: 1px solid ${({ theme }: ThemeProps) =>
     theme.colors.shades.grey244};
@@ -209,7 +209,7 @@ function SearchBox<S>({
             </SuggestionItem>
           )}
           {suggestions !== null && suggestions.length === 0 && !isLoading && (
-            <Text color="text.primary" p={[1, 2]} m={0}>
+            <Text color="text.primary" p={[2, 3]} m={0}>
               Keine Treffer gefunden
             </Text>
           )}
@@ -239,7 +239,7 @@ function SearchBox<S>({
           }
           shouldRenderSuggestions={() => term.length >= 2}
           renderSectionTitle={(section: GroupedSuggestions<S>) => (
-            <Box px={[2]} py={[1]} bg="shades.grey232">
+            <Box px={[3]} py={[2]} bg="shades.grey232">
               <Text m={0} bold>
                 {section.title}
               </Text>
@@ -263,7 +263,11 @@ function SearchBox<S>({
       <IconWrapper variant={variantProp}>
         {isLoading ? (
           <Loader
-            backgroundColor={variantProp === 'red' ? 'primary' : 'inverse'}
+            color={
+              variantProp === 'red'
+                ? 'background.primary'
+                : 'background.inverse'
+            }
             small
           />
         ) : (

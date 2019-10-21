@@ -9,7 +9,7 @@ export default {
   decorators: [storyContainerDecorator]
 };
 
-export const defaultStory = () => <Placeholder height="2rem" p={2} />;
+export const defaultStory = () => <Placeholder height="2rem" p={3} />;
 
 defaultStory.story = {
   name: 'Default'

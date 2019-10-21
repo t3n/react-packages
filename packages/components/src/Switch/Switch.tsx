@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space, border, variant, MarginProps } from 'styled-system';
+import { space, variant, MarginProps, WidthProps, width } from 'styled-system';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
 
 export type VariantType = 'light' | 'dark';
 
-export interface SwitchProps extends MarginProps {
+export interface SwitchProps extends MarginProps, WidthProps {
   label?: string;
   name: string;
   value: any;
@@ -21,11 +21,12 @@ export interface SwitchProps extends MarginProps {
 const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
+  min-width: 2.5rem;
   width: 2.5rem;
   height: 1.5rem;
   border-radius: 0.75rem;
   transition: all 0.1s ease-in-out;
-  ${({ theme }) => space({ ml: 2, theme })}
+  ${({ theme }) => space({ ml: 3, theme })}
 
   ${({ checked, disabled }) =>
     variant({
@@ -66,16 +67,6 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
         }
       }
     })}
-
-  &:focus,
-  &:active {
-    ${({ theme }) =>
-      border({
-        theme,
-        border: '2px solid',
-        borderColor: 'shades.grey42'
-      })};
-  }
 `;
 
 const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
@@ -130,8 +121,10 @@ const StyledLabel = styled.label<
   Omit<SwitchProps, 'name' | 'value' | 'checked'>
 >`
   display: inline-flex;
+  justify-content: space-between;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  ${width};
 
   ${({ disabled }) =>
     variant({
@@ -180,13 +173,17 @@ export const Switch: React.FC<SwitchProps> = ({
   variant: variantProp,
   name,
   value,
+  width: widthProp,
   ...marginProps
 }) => {
   return (
-    <StyledLabel variant={variantProp} disabled={disabled} {...marginProps}>
-      <Text small inline>
-        {label}
-      </Text>
+    <StyledLabel
+      variant={variantProp}
+      disabled={disabled}
+      width={widthProp}
+      {...marginProps}
+    >
+      <Text inline>{label}</Text>
       <PlainSwitch
         variant={variantProp}
         checked={checked}

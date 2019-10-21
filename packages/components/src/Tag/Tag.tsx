@@ -31,7 +31,7 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
   ${({ theme, small }: StyledTagProps) =>
     composeTextStyle({ theme, textStyle: small ? 'small' : 'regular' })}
   ${({ theme, small }: StyledTagProps) =>
-    padding({ theme, px: small ? 1 : 2, py: small ? '2px' : '4px' })}
+    padding({ theme, px: small ? 2 : 3, py: small ? '2px' : 1 })}
 
   ${variant({
     variants: {
@@ -55,7 +55,7 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
   })}
 
   svg {
-    ${({ theme }) => margin({ theme, mt: '4px', ml: 1 })}
+    ${({ theme }) => margin({ theme, mt: 1, ml: 2 })}
     fill: ${({ theme, variant: variantStyle }: StyledTagProps) =>
       variantStyle === 'inverse' || variantStyle === 'black'
         ? theme.colors.text.inverse

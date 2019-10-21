@@ -32,6 +32,7 @@ export { PageHeader } from './PageHeader';
 export { PageLayout } from './PageLayout';
 export { PasswordLostLabel } from './FormGroup';
 export { Placeholder } from './Placeholder';
+export { RadioButton } from './RadioButton';
 export { Ratio } from './Ratio';
 export { SearchBox } from './SearchBox';
 export { Section } from './Section';

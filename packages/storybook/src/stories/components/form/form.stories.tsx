@@ -116,7 +116,7 @@ export const register = () => {
                     <DebugValues>
                       {JSON.stringify(touched, null, 2)}
                     </DebugValues>
-                    <Button secondary onClick={handleReset}>
+                    <Button variant="secondary" onClick={handleReset}>
                       Formular zurücksetzen
                     </Button>
                   </>

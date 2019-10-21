@@ -31,7 +31,6 @@ export interface ThemeProps {
 
 export {
   composeTextStyle,
-  composeButtonStyle,
   getThemeColor,
   getColorForBackground
 } from './utils';

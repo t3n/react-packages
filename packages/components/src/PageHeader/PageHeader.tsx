@@ -6,6 +6,7 @@ import { Logo } from '../Logo';
 
 export interface PageHeaderProps {
   transparent?: boolean;
+  logoHref?: string;
 }
 
 const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
@@ -26,7 +27,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
       theme,
       color: 'text.inverse',
       bg: transparent ? 'transparent' : 'background.highlight',
-      px: [2, 2, 2, 2, 7]
+      px: [3, 3, 3, 3, 8]
     })}
 
   ${Logo} {
@@ -37,11 +38,18 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
   transparent,
+  logoHref,
   children
 }) => {
   return (
     <PageHeaderWrapper transparent={transparent}>
-      <Logo />
+      {logoHref ? (
+        <a style={{ display: 'flex' }} href={logoHref}>
+          <Logo />
+        </a>
+      ) : (
+        <Logo />
+      )}
       {children}
     </PageHeaderWrapper>
   );

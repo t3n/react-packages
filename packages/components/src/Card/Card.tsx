@@ -30,10 +30,10 @@ const borderRadius = ({ rounded, theme }: CardProps & ThemeProps) =>
 
 const padding = ({ big, splitted, theme }: CardProps & ThemeProps) =>
   big
-    ? space({ p: [3, 6], theme })
+    ? space({ p: [4, 7], theme })
     : splitted
     ? space({ p: 0, theme })
-    : space({ p: [2, 3], theme });
+    : space({ p: [3, 4], theme });
 
 const color = ({ color: c, theme }: CardProps & ThemeProps) =>
   styledColor({ color: c, theme });
@@ -47,8 +47,8 @@ const shadow = {
 
 const headerMargin = ({ big, theme }: CardProps & ThemeProps) =>
   big
-    ? space({ mx: [-3, -6], mt: [-3, -6], mb: [3, 6], theme })
-    : space({ mx: -3, mt: -3, mb: 3, theme });
+    ? space({ mx: [-4, -7], mt: [-4, -7], mb: [4, 7], theme })
+    : space({ mx: -4, mt: -4, mb: 4, theme });
 
 const border = ({ dashed, elevate, href, theme }: CardProps & ThemeProps) => {
   const borderWidth = dashed && !elevate && !href ? '2px' : '1px';
@@ -101,5 +101,5 @@ Card.defaultProps = {
   rounded: true,
   color: 'text.primary',
   width: 1,
-  mb: 2
+  mb: 3
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { space, border, variant } from 'styled-system';
-import { MaterialCheck } from '@t3n/icons';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text/Text';
@@ -9,7 +8,7 @@ import { Box } from '../Box/Box';
 
 type VariantType = 'light' | 'dark';
 
-export interface CheckboxProps {
+export interface RadioButtonProps {
   name: string;
   value: any;
   checked: boolean;
@@ -20,7 +19,9 @@ export interface CheckboxProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
+const HiddenRadioButton = styled.input.attrs({ type: 'radio' })<
+  RadioButtonProps
+>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -29,12 +30,14 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
-const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
-  display: inline-block;
+const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 1rem;
   height: 1rem;
-  border-radius: 2px;
+  border-radius: 50%;
   transition: all 0.1s ease-in-out;
   ${({ theme }) => space({ mr: 2, theme })}
 
@@ -91,43 +94,41 @@ const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   }
 `;
 
-const StyledIcon = styled.span<
-  Omit<CheckboxProps, 'name' | 'value'> & ThemeProps
+const StyledRadioDot = styled.span<
+  Omit<RadioButtonProps, 'name' | 'value'> & ThemeProps
 >`
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  line-height: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   transition: all 0.1s ease-in-out;
   pointer-events: none;
   transform: scale(${({ checked }) => (checked ? 1 : 0)});
   opacity: ${({ checked }) => (checked ? 1 : 0)};
 
-  svg {
-    ${({ theme, feedbackColor }) =>
-      variant({
-        variants: {
-          light: {
-            fill: feedbackColor
-              ? theme.colors.feedback[feedbackColor]
-              : theme.colors.shades.white
-          },
-          dark: {
-            fill: feedbackColor
-              ? theme.colors.feedback[feedbackColor]
-              : theme.colors.shades.grey42
-          }
+  ${({ theme, feedbackColor }) =>
+    variant({
+      variants: {
+        light: {
+          background: feedbackColor
+            ? theme.colors.feedback[feedbackColor]
+            : theme.colors.shades.white
+        },
+        dark: {
+          background: feedbackColor
+            ? theme.colors.feedback[feedbackColor]
+            : theme.colors.shades.grey42
         }
-      })}
-  }
+      }
+    })}
 `;
 
 const StyledLabel = styled.label<
-  Omit<CheckboxProps, 'name' | 'value' | 'checked'>
+  Omit<RadioButtonProps, 'name' | 'value' | 'checked'>
 >`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  ${({ theme }) => space({ mb: 2, theme })}
 
   ${({ disabled }) =>
     variant({
@@ -142,7 +143,7 @@ const StyledLabel = styled.label<
     })}
 `;
 
-const PlainCheckbox = ({
+const PlainRadioButton = ({
   checked,
   onChange,
   disabled,
@@ -150,33 +151,31 @@ const PlainCheckbox = ({
   name,
   variant: variantProp,
   value
-}: CheckboxProps) => {
+}: RadioButtonProps) => {
   return (
-    <StyledCheckbox
+    <StyledRadioButton
       variant={variantProp}
       checked={checked}
       disabled={disabled}
       feedbackColor={feedbackColor}
     >
-      <StyledIcon
+      <StyledRadioDot
         variant={variantProp}
         checked={checked}
         feedbackColor={feedbackColor}
-      >
-        <MaterialCheck />
-      </StyledIcon>
-      <HiddenCheckbox
+      />
+      <HiddenRadioButton
         checked={checked}
         onChange={onChange}
         disabled={disabled}
         name={name}
         value={value}
       />
-    </StyledCheckbox>
+    </StyledRadioButton>
   );
 };
 
-export const Checkbox = ({
+export const RadioButton = ({
   checked,
   onChange,
   label,
@@ -185,10 +184,10 @@ export const Checkbox = ({
   name,
   value,
   variant: variantProp
-}: CheckboxProps) => {
+}: RadioButtonProps) => {
   return (
     <StyledLabel disabled={disabled} variant={variantProp}>
-      <PlainCheckbox
+      <PlainRadioButton
         variant={variantProp}
         checked={checked}
         disabled={disabled}
@@ -206,6 +205,6 @@ export const Checkbox = ({
   );
 };
 
-Checkbox.defaultProps = {
+RadioButton.defaultProps = {
   variant: 'light'
 };

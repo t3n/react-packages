@@ -14,7 +14,7 @@ const background = ({
   variant = 'highlight',
   theme
 }: BadgeProps & ThemeProps) => `
-  background-color:  ${theme.colors.background[variant]};
+  background-color: ${theme.colors.background[variant]};
 `;
 
 const padding = ({ theme, small }: BadgeProps & ThemeProps) =>

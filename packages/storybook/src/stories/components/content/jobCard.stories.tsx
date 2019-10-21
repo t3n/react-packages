@@ -18,7 +18,7 @@ export const defaultStory = () => {
     'CARD'
   );
   const loading = boolean('Ladestatus', false);
-  const p = [type === 'CARD' ? 1 : 0, type === 'CARD' ? 1 : 0, 0];
+  const p = [type === 'CARD' ? 2 : 0, type === 'CARD' ? 2 : 0, 0];
 
   const job = {
     companyName: text('Firmennanme', 'PB3C GmbH'),
@@ -37,13 +37,13 @@ export const defaultStory = () => {
 
   return (
     <Grid justifyContent="center">
-      <GridItem width={[1, 1, type === 'CARD' ? 1 / 3 : 1]} pt={p} pb={p}>
+      <GridItem width={[1, 1, type === 'CARD' ? 1 / 3 : 1]} py={p}>
         <JobCard job={job} loading={loading} type={type} />
       </GridItem>
-      <GridItem width={[1, 1, type === 'CARD' ? 1 / 3 : 1]} pt={p} pb={p}>
+      <GridItem width={[1, 1, type === 'CARD' ? 1 / 3 : 1]} py={p}>
         <JobCard job={job} loading={loading} type={type} />
       </GridItem>
-      <GridItem width={[1, 1, type === 'CARD' ? 1 / 3 : 1]} pt={p} pb={p}>
+      <GridItem width={[1, 1, type === 'CARD' ? 1 / 3 : 1]} py={p}>
         <JobCard job={job} loading={loading} type={type} />
       </GridItem>
     </Grid>

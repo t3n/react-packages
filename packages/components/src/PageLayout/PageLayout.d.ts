@@ -3,6 +3,7 @@ import { PageHeaderProps } from '../PageHeader/PageHeader';
 export interface PageLayoutProps extends PageHeaderProps {
     showHeader?: boolean;
     noContentPadding?: boolean;
+    logoHref?: string;
     initialTransparent?: boolean;
     headerContent?: JSX.Element;
     footerContent?: JSX.Element;

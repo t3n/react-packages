@@ -19,18 +19,17 @@ export interface Job {
 export interface JobCardProps {
   loading: boolean;
   type: JobCardType;
-
   job?: Job;
 }
 
 const LoadingJobCard = () => (
   <Card>
-    <Placeholder height="1rem" mb={1} mt={1} />
-    <Placeholder height="1rem" width="3/4" mb={3} />
+    <Placeholder height="1rem" mb={2} mt={2} />
+    <Placeholder height="1rem" width={3 / 4} mb={4} />
     <div style={{ display: 'flex', width: '100%' }}>
       <Placeholder height="5rem" width="5rem" />
       <div style={{ marginLeft: '0.625rem' }}>
-        <Placeholder height="0.875rem" width="5rem" mb={1} />
+        <Placeholder height="0.875rem" width="5rem" mb={2} />
         <Placeholder height="0.875rem" width="4.5rem" />
       </div>
     </div>
@@ -42,9 +41,9 @@ const LoadingJobListItem = () => (
     <div style={{ display: 'flex' }}>
       <Placeholder height="5rem" width="5rem" />
       <div style={{ marginLeft: '0.625rem' }}>
-        <Placeholder height="1.25rem" width="20rem" mb={0} mt={1} />
-        <Placeholder height="1rem" width="7rem" mb={2} mt={1} />
-        <Placeholder height="0.875rem" width="5rem" mt={1} mb={1} />
+        <Placeholder height="1.25rem" width="20rem" mb={0} mt={2} />
+        <Placeholder height="1rem" width="7rem" mb={2} mt={2} />
+        <Placeholder height="0.875rem" width="5rem" mt={1} mb={2} />
       </div>
     </div>
   </Card>
@@ -65,7 +64,7 @@ const JobCardItem = ({
 }: Job) => (
   <Card href={url} stretch>
     <div style={{ flex: 1 }}>
-      <Text width="auto" bold mt={0} mb={3}>
+      <Text width="auto" bold mt={0} mb={4}>
         {title}
       </Text>
     </div>
@@ -102,7 +101,7 @@ const JobListItem = ({
         <Text width="auto" mt={0} mb={0}>
           {companyName}
         </Text>
-        <Text width="auto" small mt={1} mb={0} color="shades.grey143">
+        <Text width="auto" small mt={2} mb={0} color="shades.grey143">
           {/* TODO: Add location icon instead of postcode */}
           {postCode} {city}
         </Text>

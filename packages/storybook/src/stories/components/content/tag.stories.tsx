@@ -14,7 +14,7 @@ const variants: TagColorVariant[] = [
 
 export const defaultStory = () => {
   return variants.map(variant => (
-    <Box m={4} key={variant}>
+    <Box m={5} key={variant}>
       <Tag colorVariant={variant}>Some tag</Tag>
     </Box>
   ));
@@ -26,7 +26,7 @@ defaultStory.story = {
 
 export const smallTags = () => {
   return variants.map(variant => (
-    <Box m={4} key={variant}>
+    <Box m={5} key={variant}>
       <Tag colorVariant={variant} small>
         Small Tag
       </Tag>
@@ -42,7 +42,7 @@ export const linkedTags = () => {
   const smallTag = boolean('Kleine Tags', false);
 
   return variants.map(variant => (
-    <Box m={4} key={variant}>
+    <Box m={5} key={variant}>
       <Tag link="#" colorVariant={variant} small={smallTag}>
         Text
       </Tag>
@@ -70,7 +70,7 @@ const ClicakbleTagList: React.FC = () => {
       {tags.map(tag => (
         <Tag
           key={tag}
-          m={1}
+          m={2}
           colorVariant="secondary"
           onClick={() => removeTag(tag)}
           icon={<MaterialClear />}
@@ -80,9 +80,7 @@ const ClicakbleTagList: React.FC = () => {
         </Tag>
       ))}
       <br /> <br />
-      <Button color="dark" onClick={() => setTags(defaultTags)}>
-        Reset
-      </Button>
+      <Button onClick={() => setTags(defaultTags)}>Reset</Button>
     </>
   );
 };

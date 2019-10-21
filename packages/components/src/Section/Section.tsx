@@ -50,5 +50,5 @@ export const Section = ({
 Section.displayName = 'Section';
 
 Section.defaultProps = {
-  innerGap: 5
+  innerGap: 6
 };

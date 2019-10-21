@@ -17,6 +17,6 @@ export const GridItem = styled.div<GridItemProps>`
 `;
 
 GridItem.defaultProps = {
-  px: [0, 1],
+  px: [0, 2],
   width: 1
 };

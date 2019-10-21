@@ -41,7 +41,7 @@ const CardHeaderComponent = ({
 );
 
 const padding = ({ big, theme }: CardHeaderProps): string =>
-  big ? space({ p: [3, 6], theme }) : space({ 3: 4, theme });
+  big ? space({ p: [4, 7], theme }) : space({ 3: 5, theme });
 
 export const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`
   position: relative;

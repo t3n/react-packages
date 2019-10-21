@@ -71,7 +71,7 @@ const ArticleCardWithData = ({
       {loading || fakeLoading
         ? new Array(limit).fill(null).map((el, idx) => (
             // eslint-disable-next-line react/no-array-index-key
-            <GridItem key={idx} width={[1, 1, 1 / 3]} mb={3}>
+            <GridItem key={idx} width={[1, 1, 1 / 3]} mb={4}>
               <NewsCard loading type={type} />
             </GridItem>
           ))
@@ -79,7 +79,7 @@ const ArticleCardWithData = ({
           data.article &&
           data.article.recentNews &&
           data.article.recentNews.map(news => (
-            <GridItem key={news.identifier} width={[1, 1, 1 / 3]} mb={3}>
+            <GridItem key={news.identifier} width={[1, 1, 1 / 3]} mb={4}>
               <NewsCard
                 news={{
                   ...news,

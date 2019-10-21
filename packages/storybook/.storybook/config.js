@@ -82,7 +82,7 @@ const loadStories = () => [
   require('../src/stories/components/layout/section.stories'),
 
   // Components - Content
-  // require('../src/stories/components/content/alert.stories'),
+  require('../src/stories/components/content/alert.stories'),
   require('../src/stories/components/content/authorArticleCard.stories'),
   require('../src/stories/components/content/avatar.stories'),
   require('../src/stories/components/content/badge.stories'),

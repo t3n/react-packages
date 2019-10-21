@@ -19,7 +19,7 @@ export const defaultStory = () => {
   ];
 
   const tags = tagValues.map(label => (
-    <Tag colorVariant={colorVariant} mr={1}>
+    <Tag colorVariant={colorVariant} mr={2}>
       {label}
     </Tag>
   ));
