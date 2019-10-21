@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, size, BackgroundColorProps, space, MarginProps } from 'styled-system';
+import {
+  color,
+  size,
+  BackgroundColorProps,
+  space,
+  MarginProps
+} from 'styled-system';
 
 export interface LoaderProps extends MarginProps {
   small?: boolean;
@@ -30,17 +36,6 @@ const LoaderWrapper = styled.span<
     animation-delay: -0.15s;
   }
 
-  @-webkit-keyframes sk-bouncedelay {
-    0%,
-    80%,
-    100% {
-      -webkit-transform: scale(0);
-    }
-    40% {
-      -webkit-transform: scale(1);
-    }
-  }
-
   @keyframes sk-bouncedelay {
     0%,
     80%,
@@ -55,13 +50,15 @@ const LoaderWrapper = styled.span<
   }
 `;
 
-export const Loader = styled(({ small, color: bg, ...marginProps }: LoaderProps) => (
-  <LoaderWrapper small={small} bg={bg}, {...marginProps}>
-    <div />
-    <div />
-    <div />
-  </LoaderWrapper>
-))``;
+export const Loader = styled(
+  ({ small, color: bg, ...marginProps }: LoaderProps) => (
+    <LoaderWrapper small={small} bg={bg} {...marginProps}>
+      <div />
+      <div />
+      <div />
+    </LoaderWrapper>
+  )
+)``;
 
 Loader.defaultProps = {
   color: 'background.secondary'
