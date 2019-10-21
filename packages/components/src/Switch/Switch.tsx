@@ -21,6 +21,7 @@ export interface SwitchProps extends MarginProps, WidthProps {
 const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
+  min-width: 2.5rem;
   width: 2.5rem;
   height: 1.5rem;
   border-radius: 0.75rem;
