@@ -101,6 +101,7 @@ const loadStories = () => [
 
   // Components - Inputs
   require('../src/stories/components/inputs/button.stories'),
+  require('../src/stories/components/inputs/socialButton.stories'),
   require('../src/stories/components/inputs/checkbox.stories'),
   require('../src/stories/components/inputs/input.stories'),
   require('../src/stories/components/inputs/switch.stories'),

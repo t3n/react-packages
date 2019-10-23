@@ -103,60 +103,72 @@ export const textColors = {
 
 // SOCIAL
 export const comment = red;
-export const podcast = red;
-export const mail = grey143;
-export const twitter = '#5bc6f8';
+export const email = grey143;
 export const facebook = '#6175b5';
-export const google = '#d44132';
 export const flipboard = '#f9261a';
-export const pocket = '#ec4259';
+export const github = '#24292e';
+export const google = '#d44132';
 export const instagram = '#d448c5';
 export const linkedin = '#008cc9';
+export const pocket = '#ec4259';
+export const podcast = red;
+export const slack = '#611f69';
+export const twitter = '#5bc6f8';
 export const whatsapp = '#64d448';
 export const xing = '#338383';
+export const youtube = '#ff0000';
 
 export type ThemeSocialColor =
   | 'comment'
-  | 'podcast'
-  | 'mail'
-  | 'twitter'
+  | 'email'
   | 'facebook'
-  | 'google'
   | 'flipboard'
-  | 'pocket'
+  | 'github'
+  | 'google'
   | 'instagram'
   | 'linkedin'
+  | 'pocket'
+  | 'podcast'
+  | 'slack'
+  | 'twitter'
   | 'whatsapp'
-  | 'xing';
+  | 'xing'
+  | 'youtube';
 
 export interface ThemeSocialColors {
   comment: string;
-  podcast: string;
-  mail: string;
-  twitter: string;
+  email: string;
   facebook: string;
-  google: string;
   flipboard: string;
-  pocket: string;
+  github: string;
+  google: string;
   instagram: string;
   linkedin: string;
+  pocket: string;
+  podcast: string;
+  slack: string;
+  twitter: string;
   whatsapp: string;
   xing: string;
+  youtube: string;
 }
 
 export const socialColors = {
   comment,
-  podcast,
-  mail,
-  twitter,
+  email,
   facebook,
-  google,
   flipboard,
-  pocket,
+  github,
+  google,
   instagram,
   linkedin,
+  pocket,
+  podcast,
+  slack,
+  twitter,
   whatsapp,
-  xing
+  xing,
+  youtube
 };
 
 // FEEDBACK
