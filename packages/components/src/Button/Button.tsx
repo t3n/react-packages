@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import {
   space,
@@ -14,12 +14,14 @@ import { composeTextStyle, ThemeProps, Theme } from '@t3n/theme';
 import { Loader } from '../Loader';
 import { Icon } from '../Icon';
 
+export type ButtonAsType = 'button' | 'a';
 export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<any>,
+    Omit<AnchorHTMLAttributes<any>, 'type'>,
     MarginProps,
     WidthProps {
   variant?: ButtonVariant;
@@ -31,6 +33,8 @@ export interface ButtonProps
 
   loading?: boolean;
   disabled?: boolean;
+
+  as?: ButtonAsType;
 }
 
 const buildColorVariants = (
@@ -175,9 +179,11 @@ export const Button: React.FC<ButtonProps> = ({
   iconLeft,
   iconRight,
   size,
+  href,
+  as,
   ...rest
 }) => (
-  <StyledButton size={size} {...rest}>
+  <StyledButton href={href} as={href ? 'a' : as} size={size} {...rest}>
     {loading ? (
       <Loader small my={2} />
     ) : (

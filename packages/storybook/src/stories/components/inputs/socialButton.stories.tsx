@@ -24,6 +24,8 @@ export const defaultStory = () => {
 
   return (
     <SocialButton
+      href="https://www.t3n.de"
+      target="_blank"
       network={selectedNetwork as SocialNetworkType}
       textBefore={text('Text vor Label', '')}
     />

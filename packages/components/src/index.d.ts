@@ -23,7 +23,6 @@ export { Image } from './Image';
 export { Input } from './Input';
 export { JobCard } from './JobCard';
 export { Link } from './Link';
-export { LinkButton } from './LinkButton';
 export { Loader } from './Loader';
 export { Logo } from './Logo';
 export { NewsCard } from './NewsCard';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { color } from 'styled-system';
+import { border, color } from 'styled-system';
 
 import {
   SocialEmail,
@@ -20,7 +20,6 @@ import {
 import { getThemeColor } from '@t3n/theme';
 
 import { Button } from '../Button';
-import { LinkButton } from '../LinkButton';
 import { Icon } from '../Icon';
 
 export type SocialNetworkType =
@@ -109,6 +108,11 @@ export const socialNetworksConfig: SocialNetworksProps = {
 };
 
 const socialButtonStyle = css<SocialButtonProps>`
+  ${({ theme }) =>
+    color({ color: 'text.primary', bg: 'background.secondary', theme })}
+  ${({ theme }) =>
+    border({ borderColor: 'background.secondary', theme })}
+
   &:hover,
   &:focus {
     ${({ network, theme }) => color({ bg: `social.${network}`, theme })}
@@ -137,18 +141,8 @@ const mapSocialButtonAttributes = ({
   }`
 });
 
-const StyledSocialButton = styled(Button).attrs(mapSocialButtonAttributes)<
+export const SocialButton = styled(Button).attrs(mapSocialButtonAttributes)<
   SocialButtonProps
 >`
   ${socialButtonStyle}
 `;
-
-const StyledSocialLinkButton = styled(LinkButton).attrs(
-  mapSocialButtonAttributes
-)<SocialButtonProps>`
-  ${socialButtonStyle}
-`;
-
-export const SocialButton = (props: SocialButtonProps) => (
-  <StyledSocialButton {...props} />
-);
