@@ -9,13 +9,13 @@ import {
 } from 'styled-system';
 import { textStyle, TextProps } from '../Text/Text';
 
-export type VariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
+export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 
 export interface LinkProps extends TextColorProps, SpaceProps {
   small?: TextProps['small'];
   disabled?: boolean;
   children: ReactNode;
-  variant?: VariantType;
+  variant?: LinkVariantType;
 }
 
 export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
