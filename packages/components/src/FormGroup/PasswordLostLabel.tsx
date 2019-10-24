@@ -10,7 +10,7 @@ export const PasswordLostLabel = ({ href }: Props) => (
   <Link
     href={href || 'https://t3n.de/account/lostpassword'}
     title="Passwort vergessen?"
-    underline="always"
+    small
   >
     Passwort vergessen?
   </Link>

@@ -23,7 +23,7 @@ import {
 
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
-import { Link } from '../Link';
+import { Link, createLinkStyle } from '../Link';
 import { Text } from '../Text';
 import { Box } from '../Box';
 
@@ -35,15 +35,34 @@ const FooterLinks = styled(Box)`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+
+  ${Link} {
+    ${createLinkStyle({
+      default: {
+        color: 'text.inverse',
+        underlineColor: 'transparent'
+      },
+      hover: {
+        color: 'text.inverse',
+        underlineColor: 'text.inverse'
+      },
+      focus: {
+        color: 'text.inverse',
+        underlineColor: 'text.inverse'
+      },
+      visited: {
+        color: 'text.inverse',
+        underlineColor: 'transparent'
+      }
+    })}
+  }
 `;
 
 const FooterLink = styled(Link).attrs(() => ({
   variant: 'inverse',
-  underline: 'hover',
   small: true
 }))`
   flex-shrink: 0;
-  ${() => layout({ width: [1 / 2, 'auto'] })}
 
   &:hover,
   &:active,
@@ -52,14 +71,10 @@ const FooterLink = styled(Link).attrs(() => ({
     ${({ theme }) => color({ theme, color: 'text.inverse' })};
   }
   ${({ theme }) => flexbox({ theme })}
-  ${({ theme }) => space({ theme, px: [2], my: [1, 0] })}
+  ${({ theme }) => space({ theme, mx: [2], my: [1, 0] })}
 
   &:last-child {
-    ${({ theme }) => space({ theme, pr: [2, 2, 2, 0] })}
-  }
-
-  &:nth-child(odd) {
-    ${() => textAlign({ textAlign: ['right', 'left'] })}
+    ${({ theme }) => space({ theme, mr: [2, 2, 2, 0] })}
   }
 `;
 
@@ -76,6 +91,20 @@ const SocialLinks = styled(Box)`
   justify-content: center;
   align-items: center;
   line-height: 0;
+
+  ${Link} {
+    &:after {
+      display: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:visited {
+      &:after {
+        display: none;
+      }
+    }
+  }
 `;
 
 const SocialLink = styled(Link)`
@@ -95,7 +124,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
       )}
       <FooterBottom
         px={[3, 4]}
-        py={[3, 4, 4, 0]}
+        py={[4, 4, 4, 0]}
         height={['auto', 'auto', 'auto', '2.5rem']}
         borderTop="1px solid"
         borderColor="shades.grey44"
@@ -161,14 +190,22 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               justifyContent={['center', 'center', 'center', 'flex-end']}
               my={[2, 0]}
             >
-              <FooterLink href={contactLink}>Kontakt</FooterLink>
-              <FooterLink href="https://t3n.de/agb/">AGB</FooterLink>
-              <FooterLink href="https://t3n.de/datenschutz/">
-                Datenschutz
-              </FooterLink>
-              <FooterLink href="https://t3n.de/impressum/">
-                Impressum
-              </FooterLink>
+              <Text as="span" width={[0.4, 'auto']} align={['right', 'left']}>
+                <FooterLink href={contactLink}>Kontakt</FooterLink>
+              </Text>
+              <Text as="span" width={[0.4, 'auto']}>
+                <FooterLink href="https://t3n.de/agb/">AGB</FooterLink>
+              </Text>
+              <Text as="span" width={[0.4, 'auto']} align={['right', 'left']}>
+                <FooterLink href="https://t3n.de/datenschutz/">
+                  Datenschutz
+                </FooterLink>
+              </Text>
+              <Text as="span" width={[0.4, 'auto']}>
+                <FooterLink href="https://t3n.de/impressum/">
+                  Impressum
+                </FooterLink>
+              </Text>
             </FooterLinks>
           </GridItem>
         </Grid>
