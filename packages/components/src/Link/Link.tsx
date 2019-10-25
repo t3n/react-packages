@@ -1,12 +1,11 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  variant,
-  color,
-  TextColorProps,
-  BackgroundColorProps,
-  SpaceProps
-} from 'styled-system';
+import { color, TextColorProps, SpaceProps } from 'styled-system';
+import btoa from 'btoa';
+
+import { ThemeProps, hexToRgb, getThemeColor } from '@t3n/theme';
+import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
+
 import { textStyle, TextProps } from '../Text/Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
@@ -20,184 +19,79 @@ export interface LinkProps extends TextColorProps, SpaceProps {
 
 export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
 
-export interface LinkStateStyle extends TextColorProps {
-  underlineColor: BackgroundColorProps['bg'];
-}
+const underline = (rgbColor: string) =>
+  `background-image: url('data:image/svg+xml;base64,${btoa(
+    `<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="${rgbColor}"><rect x="0" y="0" width="1" height="1" /></g></svg>`
+  )}');`;
 
-export interface LinkStyle {
-  default: LinkStateStyle;
-  hover: LinkStateStyle;
-  focus: LinkStateStyle;
-  visited: LinkStateStyle;
-}
+const underlineColor = (value: string) => ({ theme }: ThemeProps) => {
+  const c = getThemeColor(value)({ theme }) || value;
 
-export const createLinkStyle = (linkStyleConfig: LinkStyle) => css`
+  if (/^rgb/.test(c)) return c;
+  if (/^#/.test(c)) return hexToRgb(c);
+
+  return 'rgb(255,255,255)';
+};
+
+export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<LinkProps>`
   ${({ theme }) => color({ color: linkStyleConfig.default.color, theme })}
-
-  &:after {
-    ${({ theme }) =>
-      color({
-        bg: linkStyleConfig.default.underlineColor,
-        theme
-      })}
-  }
+  ${({ theme, disabled }) =>
+    disabled
+      ? ''
+      : underline(
+          underlineColor(linkStyleConfig.default.underlineColor)({ theme })
+        )}
 
   &:hover {
     ${({ theme }) => color({ color: linkStyleConfig.hover.color, theme })}
-
-    &:after {
-      ${({ theme }) =>
-        color({
-          bg: linkStyleConfig.hover.underlineColor,
-          theme
-        })}
-    }
+    ${({ theme }: ThemeProps) =>
+      underline(
+        underlineColor(linkStyleConfig.hover.underlineColor)({ theme })
+      )}
   }
 
   &:focus {
     ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
-
-    &:after {
-      ${({ theme }) =>
-        color({
-          bg: linkStyleConfig.focus.underlineColor,
-          theme
-        })}
-    }
+    ${({ theme }: ThemeProps) =>
+      underline(
+        underlineColor(linkStyleConfig.focus.underlineColor)({ theme })
+      )}
   }
 
   &:visited {
     ${({ theme }) => color({ color: linkStyleConfig.visited.color, theme })}
-
-    &:after {
-      ${({ theme }) =>
-        color({
-          bg: linkStyleConfig.visited.underlineColor,
-          theme
-        })}
-    }
+    ${({ theme }: ThemeProps) =>
+      underline(
+        underlineColor(linkStyleConfig.visited.underlineColor)({ theme })
+      )}
   }
 `;
 
 export const linkStyle = css<LinkProps>`
   text-decoration: none;
-  position: relative;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  pointer-events: ${({ disabled }) => disabled && 'none'};
-  opacity: ${({ disabled }) => disabled && '0.5'};
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  background-repeat: repeat-x;
+  background-size: 1px 1px;
+  background-position: 0 100%;
+  ${textStyle}
 
-  ${() =>
-    variant({
-      variants: {
-        primary: {
-          color: 'text.primary'
-        },
-        secondary: {
-          color: 'text.primary'
-        },
-        inverse: {
-          color: 'text.inverse'
-        },
-        highlight: {
-          color: 'text.inverse'
-        }
-      }
-    })}
-
-  &::after {
-    display: ${({ disabled }) => disabled && 'none'};
-    position: absolute;
-    left: 0;
-    top: calc(50% + 9px);
-    height: 1px;
-    width: 100%;
-    content: ' ';
-
-    ${({ theme }) =>
-      variant({
-        variants: {
-          primary: {
-            background: theme.colors.text.secondary
-          },
-          secondary: {
-            background: theme.colors.text.primary
-          },
-          inverse: {
-            background: theme.colors.shades.grey143
-          },
-          highlight: {
-            background: theme.colors.text.inverse
-          }
-        }
-      })}
-  }
-
-  &:hover {
-    &::after {
-      ${({ theme }) =>
-        variant({
-          variants: {
-            primary: {
-              background: theme.colors.background.highlight
-            },
-            secondary: {
-              background: theme.colors.background.highlight
-            },
-            inverse: {
-              background: theme.colors.background.highlight
-            },
-            highlight: {
-              background: theme.colors.background.inverse
-            }
-          }
-        })}
+  ${({ variant: variantProp, theme }) => {
+    switch (variantProp) {
+      case 'secondary':
+        return createLinkStyle(theme.linkStyles.secondary);
+      case 'inverse':
+        return createLinkStyle(theme.linkStyles.inverse);
+      case 'highlight':
+        return createLinkStyle(theme.linkStyles.highlight);
+      default:
+        return createLinkStyle(theme.linkStyles.primary);
     }
-  }
-
-  &:focus {
-    ${() =>
-      variant({
-        variants: {
-          primary: {
-            color: 'text.highlight'
-          },
-          secondary: {
-            color: 'text.highlight'
-          },
-          inverse: {
-            color: 'text.highlight'
-          },
-          highlight: {
-            color: 'text.primary'
-          }
-        }
-      })}
-
-    &::after {
-      ${({ theme }) =>
-        variant({
-          variants: {
-            primary: {
-              background: theme.colors.background.highlight
-            },
-            secondary: {
-              background: theme.colors.background.highlight
-            },
-            inverse: {
-              background: theme.colors.background.highlight
-            },
-            highlight: {
-              background: theme.colors.background.inverse
-            }
-          }
-        })}
-    }
-  }
+  }}
 `;
 
 export const Link = styled.a<LinkProps>`
-  ${linkStyle};
-  ${textStyle};
+  ${linkStyle}
 `;
 
 Link.defaultProps = {

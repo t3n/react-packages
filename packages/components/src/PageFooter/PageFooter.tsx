@@ -35,47 +35,32 @@ const FooterLinks = styled(Box)`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-
-  ${Link} {
-    ${createLinkStyle({
-      default: {
-        color: 'text.inverse',
-        underlineColor: 'transparent'
-      },
-      hover: {
-        color: 'text.inverse',
-        underlineColor: 'text.inverse'
-      },
-      focus: {
-        color: 'text.inverse',
-        underlineColor: 'text.inverse'
-      },
-      visited: {
-        color: 'text.inverse',
-        underlineColor: 'transparent'
-      }
-    })}
-  }
 `;
 
 const FooterLink = styled(Link).attrs(() => ({
-  variant: 'inverse',
   small: true
 }))`
   flex-shrink: 0;
-
-  &:hover,
-  &:active,
-  &:focus,
-  &:visited {
-    ${({ theme }) => color({ theme, color: 'text.inverse' })};
-  }
   ${({ theme }) => flexbox({ theme })}
-  ${({ theme }) => space({ theme, mx: [2], my: [1, 0] })}
 
-  &:last-child {
-    ${({ theme }) => space({ theme, mr: [2, 2, 2, 0] })}
-  }
+  ${createLinkStyle({
+    default: {
+      color: 'text.inverse',
+      underlineColor: 'rgba(0,0,0,0)'
+    },
+    hover: {
+      color: 'text.inverse',
+      underlineColor: 'text.inverse'
+    },
+    focus: {
+      color: 'text.inverse',
+      underlineColor: 'text.inverse'
+    },
+    visited: {
+      color: 'text.inverse',
+      underlineColor: 'rgba(0,0,0,0)'
+    }
+  })}
 `;
 
 const FooterBottom = styled(Box)<BorderProps>`
@@ -93,17 +78,24 @@ const SocialLinks = styled(Box)`
   line-height: 0;
 
   ${Link} {
-    &:after {
-      display: none;
-    }
-
-    &:hover,
-    &:focus,
-    &:visited {
-      &:after {
-        display: none;
+    ${createLinkStyle({
+      default: {
+        color: 'text.inverse',
+        underlineColor: 'rgba(0,0,0,0)'
+      },
+      hover: {
+        color: 'text.inverse',
+        underlineColor: 'rgba(0,0,0,0)'
+      },
+      focus: {
+        color: 'text.inverse',
+        underlineColor: 'rgba(0,0,0,0)'
+      },
+      visited: {
+        color: 'text.inverse',
+        underlineColor: 'rgba(0,0,0,0)'
       }
-    }
+    })}
   }
 `;
 
@@ -190,18 +182,36 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               justifyContent={['center', 'center', 'center', 'flex-end']}
               my={[2, 0]}
             >
-              <Text as="span" width={[0.4, 'auto']} align={['right', 'left']}>
+              <Text
+                as="span"
+                width={[0.4, 'auto']}
+                align={['right', 'left']}
+                mx={[2]}
+                my={[1, 0]}
+              >
                 <FooterLink href={contactLink}>Kontakt</FooterLink>
               </Text>
-              <Text as="span" width={[0.4, 'auto']}>
+              <Text as="span" width={[0.4, 'auto']} mx={[2]} my={[1, 0]}>
                 <FooterLink href="https://t3n.de/agb/">AGB</FooterLink>
               </Text>
-              <Text as="span" width={[0.4, 'auto']} align={['right', 'left']}>
+              <Text
+                as="span"
+                width={[0.4, 'auto']}
+                align={['right', 'left']}
+                mx={[2]}
+                my={[1, 0]}
+              >
                 <FooterLink href="https://t3n.de/datenschutz/">
                   Datenschutz
                 </FooterLink>
               </Text>
-              <Text as="span" width={[0.4, 'auto']}>
+              <Text
+                as="span"
+                width={[0.4, 'auto']}
+                my={[1, 0]}
+                mr={[2, 2, 2, 0]}
+                ml={2}
+              >
                 <FooterLink href="https://t3n.de/impressum/">
                   Impressum
                 </FooterLink>

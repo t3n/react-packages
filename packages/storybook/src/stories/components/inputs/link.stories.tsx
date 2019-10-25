@@ -16,9 +16,10 @@ export const defaultStory = () => {
     'primary'
   );
   const disabled = boolean('disable', false);
+  const small = boolean('small', false);
   return (
     <Section variant={linkVariant}>
-      <Link disabled={disabled} variant={linkVariant} href="/">
+      <Link disabled={disabled} small={small} variant={linkVariant} href="/">
         Default
       </Link>
     </Section>
