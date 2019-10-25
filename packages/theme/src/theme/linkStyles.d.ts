@@ -1,34 +1,23 @@
-export interface ThemeLinkStyle {
-    default: string;
-    hover: string;
-    focus: string;
+import { TextColorProps } from 'styled-system';
+export interface LinkStateStyle extends TextColorProps {
+    underlineColor: string;
+}
+export interface LinkStyle {
+    default: LinkStateStyle;
+    hover: LinkStateStyle;
+    focus: LinkStateStyle;
+    visited: LinkStateStyle;
 }
 export interface ThemeLinkStyles {
-    primary: ThemeLinkStyle;
-    secondary: ThemeLinkStyle;
-    highlight: ThemeLinkStyle;
-    inverse: ThemeLinkStyle;
+    primary: LinkStyle;
+    secondary: LinkStyle;
+    inverse: LinkStyle;
+    highlight: LinkStyle;
 }
 declare const linkStyles: {
-    primary: {
-        default: string;
-        hover: string;
-        focus: string;
-    };
-    secondary: {
-        default: string;
-        hover: string;
-        focus: string;
-    };
-    highlight: {
-        default: string;
-        hover: string;
-        focus: string;
-    };
-    inverse: {
-        default: string;
-        hover: string;
-        focus: string;
-    };
+    primary: LinkStyle;
+    secondary: LinkStyle;
+    highlight: LinkStyle;
+    inverse: LinkStyle;
 };
 export default linkStyles;

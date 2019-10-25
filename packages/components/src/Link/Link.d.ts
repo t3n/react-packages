@@ -1,16 +1,15 @@
 import { ReactNode } from 'react';
 import { TextColorProps, SpaceProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
+import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
 import { TextProps } from '../Text/Text';
 export declare type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
-export declare type LinkUnderlineType = 'none' | 'hover' | 'always';
 export interface LinkProps extends TextColorProps, SpaceProps {
-    variant?: LinkVariantType;
-    underline?: LinkUnderlineType;
     small?: TextProps['small'];
-    hoverColor?: TextColorProps['color'];
-    focusColor?: TextColorProps['color'];
+    disabled?: boolean;
     children: ReactNode;
+    variant?: LinkVariantType;
 }
-export declare const linkStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<LinkProps & ThemeProps, any>>;
+export declare type LinkState = 'default' | 'hover' | 'focus' | 'visited';
+export declare const createLinkStyle: (linkStyleConfig: LinkStyle) => import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<LinkProps, any>>;
+export declare const linkStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<LinkProps, any>>;
 export declare const Link: import("styled-components").StyledComponent<"a", any, LinkProps, never>;

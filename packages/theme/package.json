@@ -21,6 +21,7 @@
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.141",
     "@types/styled-system": "^5.1.2",
+    "hex-rgb": "^4.1.0",
     "lodash": "^4.17.15",
     "polished": "^3.4.1",
     "styled-system": "^5.1.2"
