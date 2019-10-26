@@ -1,63 +1,99 @@
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { color, TextColorProps, SpaceProps } from 'styled-system';
+import btoa from 'btoa';
 
-import { ThemeProps } from '@t3n/theme';
+import { ThemeProps, hexToRgb, getThemeColor } from '@t3n/theme';
+import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
 
 import { textStyle, TextProps } from '../Text/Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
-export type LinkUnderlineType = 'none' | 'hover' | 'always';
 
 export interface LinkProps extends TextColorProps, SpaceProps {
-  variant?: LinkVariantType;
-  underline?: LinkUnderlineType;
   small?: TextProps['small'];
-  hoverColor?: TextColorProps['color'];
-  focusColor?: TextColorProps['color'];
+  disabled?: boolean;
   children: ReactNode;
+  variant?: LinkVariantType;
 }
 
-type LinkStateType = 'default' | 'hover' | 'focus';
+export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
 
-const textColor = (state: LinkStateType) => ({
-  variant = 'primary',
-  color: colorProp,
-  theme
-}: LinkProps & ThemeProps) =>
-  color({
-    color: colorProp || theme.linkStyles[variant][state],
-    theme
-  });
+const underline = (rgbColor: string) =>
+  `background-image: url('data:image/svg+xml;base64,${btoa(
+    `<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="${rgbColor}"><rect x="0" y="0" width="1" height="1" /></g></svg>`
+  )}');`;
 
-const underlineDefault = ({ underline = 'none' }: LinkProps) =>
-  `text-decoration: ${underline === 'always' ? 'underline' : 'none'}`;
+const underlineColor = (value: string) => ({ theme }: ThemeProps) => {
+  const c = getThemeColor(value)({ theme }) || value;
 
-const underlineHover = ({ underline = 'none' }: LinkProps) =>
-  `text-decoration: ${underline === 'none' ? 'none' : 'underline'}`;
+  if (/^rgb/.test(c)) return c;
+  if (/^#/.test(c)) return hexToRgb(c);
 
-export const linkStyle = css`
-  ${textColor('default')};
-  ${underlineDefault};
+  return 'rgb(255,255,255)';
+};
 
-  &:active,
-  &:visited {
-    ${textColor('default')};
-    ${underlineDefault};
-  }
+export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<LinkProps>`
+  ${({ theme }) => color({ color: linkStyleConfig.default.color, theme })}
+  ${({ theme, disabled }) =>
+    disabled
+      ? ''
+      : underline(
+          underlineColor(linkStyleConfig.default.underlineColor)({ theme })
+        )}
 
   &:hover {
-    ${textColor('hover')};
-    ${underlineHover};
+    ${({ theme }) => color({ color: linkStyleConfig.hover.color, theme })}
+    ${({ theme }: ThemeProps) =>
+      underline(
+        underlineColor(linkStyleConfig.hover.underlineColor)({ theme })
+      )}
   }
 
   &:focus {
-    ${textColor('focus')};
-    ${underlineHover};
+    ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
+    ${({ theme }: ThemeProps) =>
+      underline(
+        underlineColor(linkStyleConfig.focus.underlineColor)({ theme })
+      )}
+  }
+
+  &:visited {
+    ${({ theme }) => color({ color: linkStyleConfig.visited.color, theme })}
+    ${({ theme }: ThemeProps) =>
+      underline(
+        underlineColor(linkStyleConfig.visited.underlineColor)({ theme })
+      )}
   }
 `;
 
-export const Link = styled.a<LinkProps>`
-  ${textStyle};
-  ${linkStyle};
+export const linkStyle = css<LinkProps>`
+  text-decoration: none;
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  background-repeat: repeat-x;
+  background-size: 1px 1px;
+  background-position: 0 100%;
+  ${textStyle}
+
+  ${({ variant: variantProp, theme }) => {
+    switch (variantProp) {
+      case 'secondary':
+        return createLinkStyle(theme.linkStyles.secondary);
+      case 'inverse':
+        return createLinkStyle(theme.linkStyles.inverse);
+      case 'highlight':
+        return createLinkStyle(theme.linkStyles.highlight);
+      default:
+        return createLinkStyle(theme.linkStyles.primary);
+    }
+  }}
 `;
+
+export const Link = styled.a<LinkProps>`
+  ${linkStyle}
+`;
+
+Link.defaultProps = {
+  variant: 'primary'
+};
