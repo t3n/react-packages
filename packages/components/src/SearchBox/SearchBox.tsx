@@ -229,36 +229,58 @@ function SearchBox<S>({
   return (
     <Wrapper variant={variantProp} width={width}>
       <InputWrapper variant={variantProp}>
-        <AutoSuggest<S>
-          multiSection={multiSection}
-          renderSuggestionsContainer={renderSuggestionContainer}
-          getSuggestionValue={getSuggestionValue}
-          suggestions={suggestions === null ? [] : (suggestions as S[])}
-          getSectionSuggestions={(section: GroupedSuggestions<S>) =>
-            section.suggestions
-          }
-          shouldRenderSuggestions={() => term.length >= 2}
-          renderSectionTitle={(section: GroupedSuggestions<S>) => (
-            <Box px={[3]} py={[2]} bg="shades.grey232">
-              <Text m={0} bold>
-                {section.title}
-              </Text>
-            </Box>
-          )}
-          onSuggestionsFetchRequested={debounced}
-          onSuggestionsClearRequested={handleSuggestionClearRequested}
-          onSuggestionSelected={handleSuggestionSelected}
-          renderSuggestion={(suggestion, params) => (
-            <SuggestionItem>
-              {renderSuggestion(suggestion, params)}
-            </SuggestionItem>
-          )}
-          inputProps={{
-            value: term,
-            onChange: handleOnChange,
-            placeholder
-          }}
-        />
+        {multiSection ? (
+          <AutoSuggest<S>
+            multiSection
+            renderSuggestionsContainer={renderSuggestionContainer}
+            getSuggestionValue={getSuggestionValue}
+            suggestions={suggestions === null ? [] : (suggestions as S[])}
+            getSectionSuggestions={(section: GroupedSuggestions<S>) =>
+              section.suggestions
+            }
+            shouldRenderSuggestions={() => term.length >= 2}
+            renderSectionTitle={(section: GroupedSuggestions<S>) => (
+              <Box px={[3]} py={[2]} bg="shades.grey232">
+                <Text m={0} bold>
+                  {section.title}
+                </Text>
+              </Box>
+            )}
+            onSuggestionsFetchRequested={debounced}
+            onSuggestionsClearRequested={handleSuggestionClearRequested}
+            onSuggestionSelected={handleSuggestionSelected}
+            renderSuggestion={(suggestion, params) => (
+              <SuggestionItem>
+                {renderSuggestion(suggestion, params)}
+              </SuggestionItem>
+            )}
+            inputProps={{
+              value: term,
+              onChange: handleOnChange,
+              placeholder
+            }}
+          />
+        ) : (
+          <AutoSuggest<S>
+            renderSuggestionsContainer={renderSuggestionContainer}
+            getSuggestionValue={getSuggestionValue}
+            suggestions={suggestions === null ? [] : (suggestions as S[])}
+            shouldRenderSuggestions={() => term.length >= 2}
+            onSuggestionsFetchRequested={debounced}
+            onSuggestionsClearRequested={handleSuggestionClearRequested}
+            onSuggestionSelected={handleSuggestionSelected}
+            renderSuggestion={(suggestion, params) => (
+              <SuggestionItem>
+                {renderSuggestion(suggestion, params)}
+              </SuggestionItem>
+            )}
+            inputProps={{
+              value: term,
+              onChange: handleOnChange,
+              placeholder
+            }}
+          />
+        )}
       </InputWrapper>
       <IconWrapper variant={variantProp}>
         {isLoading ? (
