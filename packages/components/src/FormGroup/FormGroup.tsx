@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, margin, MarginProps } from 'styled-system';
 
-import { getThemeColor, ThemeProps } from '@t3n/theme';
+import { ThemeProps } from '@t3n/theme';
 import { Box } from '../Box';
 import { Text } from '../Text';
 
@@ -13,7 +13,6 @@ export interface FormGroupProps
   label: string;
   labelSecondary?: string;
   labelEndContent?: ReactNode;
-  required?: boolean;
   errorMessage?: string;
   children: ReactNode;
 }
@@ -21,10 +20,6 @@ export interface FormGroupProps
 const Label = styled.span`
   display: inline-block;
   ${({ theme }: ThemeProps) => space({ mr: 1, theme })};
-`;
-
-const LabelSecondary = styled.span`
-  color: ${getThemeColor('text.secondary')};
 `;
 
 const LabelEnd = styled.span`
@@ -41,7 +36,6 @@ export const FormGroup = ({
   label,
   labelSecondary,
   labelEndContent,
-  required,
   errorMessage,
   children,
   ...props
@@ -53,9 +47,6 @@ export const FormGroup = ({
         <Text inline secondary>
           {labelSecondary}
         </Text>
-      )}
-      {!labelSecondary && !required && (
-        <LabelSecondary>(optional)</LabelSecondary>
       )}
       {labelEndContent && <LabelEnd>{labelEndContent}</LabelEnd>}
     </Box>

@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@styled-system/theme-get": "^5.1.2",
-    "@types/jest": "^24.0.18",
-    "@types/lodash": "^4.14.141",
+    "@types/jest": "^24.0.20",
+    "@types/lodash": "^4.14.144",
     "@types/styled-system": "^5.1.2",
     "hex-rgb": "^4.1.0",
     "lodash": "^4.17.15",

@@ -1,15 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styled from 'styled-components';
-import {
-  space,
-  color,
-  layout,
-  border,
-  flexbox,
-  textAlign,
-  BorderProps
-} from 'styled-system';
+import { border, flexbox, BorderProps } from 'styled-system';
 
 import {
   SocialFacebook,

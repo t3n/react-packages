@@ -14,18 +14,18 @@ import {
   MaterialVisibility,
   MaterialVisibilityOff
 } from '@t3n/icons';
-import { Text } from '../Text';
+import { Icon } from '../Icon';
 
 export type InputTypes = 'text' | 'email' | 'password';
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'width'>,
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'width' | 'value'>,
     WidthProps {
   type?: InputTypes;
-  value?: string;
+  onReset?: () => void;
+  isFocused: boolean;
   defaultValue?: string;
   error?: boolean;
-  fixedPlaceholder?: string;
   className?: string;
 }
 
@@ -74,18 +74,10 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   ${border}
   ${padding};
 
-  ::placeholder {
+  ::placeholder,
+  :disabled {
     color: ${getThemeColor('shades.grey204')};
   }
-`;
-
-const FixedPlaceholder = styled(Text).attrs(() => ({
-  as: 'span'
-}))`
-  white-space: nowrap;
-  line-height: 1rem;
-  flex: 0;
-  ${({ theme }: ThemeProps) => space({ ml: [2], mr: [-1], theme })};
 `;
 
 const Button = styled.button.attrs(() => ({
@@ -99,122 +91,122 @@ const Button = styled.button.attrs(() => ({
   outline: 0;
   ${({ theme }) => size({ theme, width: 3, height: 3 })}
   ${({ theme }) => position({ theme, top: '50%', right: 1 })}
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-// TODO: Fix fixedPlaceholder position!
 export const Input = ({
-  type,
-  value,
-  defaultValue,
   disabled,
+  type,
   error,
-  fixedPlaceholder,
   width,
   className,
-  onChange,
   onFocus,
   onBlur,
+  onChange,
+  onReset,
+  isFocused,
+  defaultValue,
   ...props
 }: InputProps) => {
-  const inputEl = useRef<HTMLInputElement>(null);
-
-  const [controlledValue, setControlledValue] = useState(
-    defaultValue || value || ''
-  );
-  const [isInitialized, setIsInitialized] = useState(false);
-  const [isFocused, setFocused] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState(defaultValue || '');
+  const [focused, setFocused] = useState(isFocused);
   const [revealPassword, setRevealPassword] = useState(false);
 
-  useEffect(() => {
-    if (typeof value !== 'undefined' && !isInitialized) {
-      setIsInitialized(true);
-      setControlledValue(value);
-    }
-  }, [value, isInitialized]);
+  const inputType = type === 'password' && revealPassword ? 'text' : type;
 
-  const focusNativeInputEl = () => {
-    if (inputEl.current) inputEl.current.focus();
-  };
-
-  const resetValue = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    setControlledValue('');
-
-    const event = Object.create(e);
-    event.target = inputEl.current;
-
-    if (inputEl.current) inputEl.current.value = '';
-
-    if (onChange) onChange(event as React.ChangeEvent<HTMLInputElement>);
-  };
-
-  const handleNativeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setControlledValue(e.currentTarget.value);
-    if (onChange) onChange(e);
-  };
-
-  const handleNativeInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.stopPropagation();
     setFocused(true);
     if (onFocus) onFocus(e);
   };
 
-  const handleNativeInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.stopPropagation();
     setFocused(false);
     if (onBlur) onBlur(e);
   };
 
-  const handleButtonPress = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    if (type === 'password') {
-      setRevealPassword(!revealPassword);
-    } else {
-      resetValue(e);
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    setValue(e.target.value);
+    if (onChange) onChange(e);
+  };
+
+  const handleReset = () => {
+    setValue('');
+    if (ref !== null && ref.current !== null) {
+      ref.current.focus();
+    }
+    if (onReset) onReset();
+  };
+
+  const handleRevealPassord = () => {
+    setRevealPassword(!revealPassword);
+    if (ref !== null && ref.current !== null) {
+      ref.current.focus();
     }
   };
 
-  const inputType = type === 'password' && revealPassword ? 'text' : type;
-
-  const inputValue = value !== undefined ? value : controlledValue;
+  useEffect(() => {
+    if (focused && ref !== null && ref.current !== null) {
+      ref.current.focus();
+      if (type !== 'email') {
+        // E-Mail type does not support selectionStart
+        ref.current.selectionStart = ref.current.value.length;
+      }
+    }
+  }, [focused, type]);
 
   return (
     <StyledInput
-      type={inputType}
       disabled={disabled}
-      error={error}
       width={width}
       className={className}
-      onClick={focusNativeInputEl}
+      isFocused={focused}
     >
-      {fixedPlaceholder && (
-        <FixedPlaceholder>{fixedPlaceholder}</FixedPlaceholder>
-      )}
       <StyledNativeInput
-        value={inputValue}
-        ref={inputEl}
+        error={error}
         type={inputType}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleOnChange}
+        isFocused={focused}
         disabled={disabled}
-        isFocused={isFocused}
-        onChange={handleNativeInputChange}
-        onFocus={handleNativeInputFocus}
-        onBlur={handleNativeInputBlur}
+        value={value}
+        ref={ref}
         {...props}
       />
-      {(type === 'password' || inputValue) && (
-        <Button onClick={handleButtonPress}>
-          {type === 'password' && revealPassword ? (
-            <MaterialVisibilityOff width="1.5rem" height="1.5rem" />
-          ) : type === 'password' ? (
-            <MaterialVisibility width="1.5rem" height="1.5rem" />
-          ) : (
-            <MaterialClear width="1.5rem" height="1.5rem" />
-          )}
-        </Button>
-      )}
+      {value.length > 0 ? (
+        type && type === 'password' ? (
+          <Button tabIndex={-1} onClick={handleRevealPassord}>
+            <Icon
+              component={
+                revealPassword ? MaterialVisibilityOff : MaterialVisibility
+              }
+              fill={focused ? 'text.primary' : 'shades.grey204'}
+            />
+          </Button>
+        ) : (
+          <Button tabIndex={-1} onClick={handleReset}>
+            <Icon
+              component={MaterialClear}
+              width="1.5rem"
+              height="1.5rem"
+              fill={focused ? 'text.primary' : 'shades.grey204'}
+            />
+          </Button>
+        )
+      ) : null}
     </StyledInput>
   );
 };
 
 Input.defaultProps = {
   type: 'text',
+  isFocused: false,
   width: '100%'
 };

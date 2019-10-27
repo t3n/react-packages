@@ -13,11 +13,11 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
     "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@svgr/webpack": "^4.3.3",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
@@ -26,9 +26,9 @@
     "eslint-loader": "^3.0.2",
     "file-loader": "^4.2.0",
     "source-map-loader": "^0.2.4",
-    "url-loader": "^2.1.0",
+    "url-loader": "^2.2.0",
     "webpack": "^4.41.0",
-    "webpack-bundle-analyzer": "^3.5.2",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.9",
     "webpack-notifier": "^1.8.0"
   }
