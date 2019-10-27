@@ -74,7 +74,8 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   ${border}
   ${padding};
 
-  ::placeholder {
+  ::placeholder,
+  :disabled {
     color: ${getThemeColor('shades.grey204')};
   }
 `;
