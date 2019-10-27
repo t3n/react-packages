@@ -7,16 +7,10 @@ import { InputTypes } from '@t3n/components/src/Input/Input';
 interface FormInputProps {
   name: string;
   label: string;
-  required?: boolean;
   type: InputTypes;
 }
 
-const FormInput = ({
-  name,
-  label,
-  required = false,
-  type = 'text'
-}: FormInputProps) => {
+const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
   const [input, meta] = useField(name);
 
   // workaround until this is released
@@ -24,14 +18,13 @@ const FormInput = ({
   const { value, name: fieldName, ...rest }: any = input;
   const { touched, error }: any = meta;
 
-  const hasErrors = !!(value && touched && error);
+  const hasErrors = !!(touched && error);
 
   return (
     <>
       <FormGroup
         label={label}
-        errorMessage={input.value && touched && error ? error : ''}
-        required={required}
+        errorMessage={touched && error ? error : ''}
         labelEndContent={name === 'password' && <PasswordLostLabel />}
       >
         <Input name={fieldName} error={hasErrors} type={type} {...rest} />

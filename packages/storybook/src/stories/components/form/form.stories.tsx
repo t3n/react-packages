@@ -126,35 +126,18 @@ export const register = () => {
                   <>
                     <Heading styleAs="h4">Registrierung</Heading>
                     <form onSubmit={handleSubmit}>
-                      <FormInput
-                        type="text"
-                        name="firstName"
-                        label="Vorname"
-                        required
-                      />
-                      <FormInput
-                        type="text"
-                        name="lastName"
-                        label="Nachname"
-                        required
-                      />
-                      <FormInput
-                        type="text"
-                        name="email"
-                        required
-                        label="E-Mail"
-                      />
+                      <FormInput type="text" name="firstName" label="Vorname" />
+                      <FormInput type="text" name="lastName" label="Nachname" />
+                      <FormInput type="text" name="email" label="E-Mail" />
                       <FormInput
                         type="password"
                         name="password"
                         label="Passwort"
-                        required
                       />
                       <FormInput
                         type="password"
                         name="passwordConfirm"
                         label="Passwort wiederholen"
-                        required
                       />
                       <Button type="submit" disabled={!isValid || isSubmitting}>
                         {isValid && !isSubmitting

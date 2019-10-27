@@ -72,7 +72,7 @@ const AsToastStory = () => {
             Error
           </option>
         </select>
-        <Input value={text} onChange={e => setText(e.target.value)} />
+        <Input defaultValue={text} onChange={e => setText(e.target.value)} />
       </Box>
 
       <Text>Wo soll der Toast angezeigt werden?</Text>

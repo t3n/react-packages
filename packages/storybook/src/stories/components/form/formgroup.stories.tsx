@@ -24,11 +24,7 @@ defaultStory.story = {
 
 export const errorState = () => (
   <Box width={[1, 1, 0.5]}>
-    <FormGroup
-      width={0.5}
-      label="Vorname"
-      errorMessage="Dies ist eine Fehlermeldung"
-    >
+    <FormGroup label="Vorname" errorMessage="Dies ist eine Fehlermeldung">
       <Input error />
     </FormGroup>
   </Box>
@@ -41,13 +37,12 @@ errorState.story = {
 export const labelVariants = () => (
   <Box width={[1, 1, 0.5]}>
     <Text bold>Secondary Label</Text>
-    <FormGroup width={0.5} label="Vorname" labelSecondary="(optional)">
+    <FormGroup label="Vorname" labelSecondary="(optional)">
       <Input />
     </FormGroup>
 
     <Text bold>Hinteres Label</Text>
     <FormGroup
-      width={0.5}
       label="Vorname"
       labelEndContent={
         <Link variant="secondary" href="/">
