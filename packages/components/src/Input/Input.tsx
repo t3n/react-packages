@@ -23,7 +23,7 @@ export interface InputProps
     WidthProps {
   type?: InputTypes;
   onReset?: () => void;
-  isFocused: boolean;
+  isFocused?: boolean;
   defaultValue?: string;
   error?: boolean;
   className?: string;
@@ -113,7 +113,7 @@ export const Input = ({
 }: InputProps) => {
   const ref = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState(defaultValue || '');
-  const [focused, setFocused] = useState(isFocused);
+  const [focused, setFocused] = useState(isFocused || false);
   const [revealPassword, setRevealPassword] = useState(false);
 
   const inputType = type === 'password' && revealPassword ? 'text' : type;
