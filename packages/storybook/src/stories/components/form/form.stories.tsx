@@ -59,13 +59,13 @@ export const register = () => {
       .email('Bitte gib eine gültige E-Mail-Adresse an')
       .required('Bitte geben eine E-Mail-Adresse an'),
     lastName: Yup.string()
-      .required()
+      .required('Bitte gib einen Nachnamen an')
       .min(3, 'Bitte gib mindestens drei Zeichen ein'),
     firstName: Yup.string()
       .required('Bitte gib einen Vornamen ein')
       .min(3, 'Bitte gib mindestens drei Zeichen ein'),
     password: Yup.string()
-      .required()
+      .required('Bitte gib ein Passwort an')
       .min(8, 'Dein Passwort muss mindestens acht Zeichen lang sein'),
     passwordComfirm: Yup.string().oneOf(
       [Yup.ref('password')],

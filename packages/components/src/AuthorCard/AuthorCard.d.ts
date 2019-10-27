@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface AuthorCardProps {
     title: string;
     articleType: string;

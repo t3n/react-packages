@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { BackgroundColorProps, SizeProps } from 'styled-system';
 export declare type DividerVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 export interface DividerProps extends SizeProps, BackgroundColorProps {
