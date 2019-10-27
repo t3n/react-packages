@@ -19,22 +19,22 @@ const FormInput = ({
 }: FormInputProps) => {
   const [input, meta] = useField(name);
 
+  // workaround until this is released
+  // https://github.com/jaredpalmer/formik/commit/7b0752a73ad1676ed88e92ca49f2e7341cce4413
+  const { value, name: fieldName, ...rest }: any = input;
+  const { touched, error }: any = meta;
+
+  const hasErrors = !!(value && touched && error);
+
   return (
     <>
       <FormGroup
         label={label}
-        errorMessage={
-          input.value && meta.touched && meta.error ? meta.error : ''
-        }
+        errorMessage={input.value && touched && error ? error : ''}
         required={required}
         labelEndContent={name === 'password' && <PasswordLostLabel />}
       >
-        <Input
-          name={input.name}
-          type={type}
-          error={!!(input.value && meta.touched && meta.error)}
-          {...input}
-        />
+        <Input name={fieldName} error={hasErrors} type={type} {...rest} />
       </FormGroup>
     </>
   );

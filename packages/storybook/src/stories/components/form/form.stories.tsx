@@ -152,7 +152,7 @@ export const register = () => {
                       />
                       <FormInput
                         type="password"
-                        name="passwordComfirm"
+                        name="passwordConfirm"
                         label="Passwort wiederholen"
                         required
                       />
