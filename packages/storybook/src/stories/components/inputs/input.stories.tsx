@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 
-import { Input, Text, FormGroup } from '@t3n/components';
+import { Input, Text } from '@t3n/components';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
