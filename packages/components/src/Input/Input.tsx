@@ -179,25 +179,27 @@ export const Input = ({
         ref={ref}
         {...props}
       />
-      {value.length > 0 && type && type === 'password' ? (
-        <Button tabIndex={-1} onClick={handleRevealPassord}>
-          <Icon
-            component={
-              revealPassword ? MaterialVisibilityOff : MaterialVisibility
-            }
-            fill={focused ? 'text.primary' : 'shades.grey204'}
-          />
-        </Button>
-      ) : (
-        <Button tabIndex={-1} onClick={handleReset}>
-          <Icon
-            component={MaterialClear}
-            width="1.5rem"
-            height="1.5rem"
-            fill={focused ? 'text.primary' : 'shades.grey204'}
-          />
-        </Button>
-      )}
+      {value.length > 0 ? (
+        type && type === 'password' ? (
+          <Button tabIndex={-1} onClick={handleRevealPassord}>
+            <Icon
+              component={
+                revealPassword ? MaterialVisibilityOff : MaterialVisibility
+              }
+              fill={focused ? 'text.primary' : 'shades.grey204'}
+            />
+          </Button>
+        ) : (
+          <Button tabIndex={-1} onClick={handleReset}>
+            <Icon
+              component={MaterialClear}
+              width="1.5rem"
+              height="1.5rem"
+              fill={focused ? 'text.primary' : 'shades.grey204'}
+            />
+          </Button>
+        )
+      ) : null}
     </StyledInput>
   );
 };
