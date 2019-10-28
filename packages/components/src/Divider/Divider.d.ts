@@ -1,12 +1,7 @@
-import { BackgroundColorProps, SizeProps } from 'styled-system';
+import React from 'react';
+import { WidthProps } from 'styled-system';
 export declare type DividerVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
-export interface DividerProps extends SizeProps, BackgroundColorProps {
+export interface DividerProps extends WidthProps {
+    variant?: DividerVariants;
 }
-export declare const Divider: {
-    (props: DividerProps): JSX.Element;
-    defaultProps: {
-        backgroundColor: string;
-        width: number;
-        height: string;
-    };
-};
+export declare const Divider: React.FC<DividerProps>;

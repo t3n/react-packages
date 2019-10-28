@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, select, number } from '@storybook/addon-knobs';
+import { withKnobs, select, text, number } from '@storybook/addon-knobs';
 import { Divider } from '@t3n/components';
 import { DividerVariants } from '@t3n/components/src/Divider/Divider';
 
@@ -20,18 +20,14 @@ export const defaultStory = () => (
       max: 1,
       step: 0.1
     })}
-    height={`${number('Höhe', 2, {
-      range: true,
-      min: 1,
-      max: 5,
-      step: 1
-    })}px`}
-    backgroundColor={select<DividerVariants>(
+    variant={select<DividerVariants>(
       'Farbe',
-      Object.keys(theme.colors.background) as DividerVariants[],
+      Object.keys(theme.colors.text) as DividerVariants[],
       'secondary'
     )}
-  />
+  >
+    {text('Divider Text', 'oder')}
+  </Divider>
 );
 
 defaultStory.story = {
