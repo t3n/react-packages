@@ -111,11 +111,19 @@ const socialButtonStyle = css<SocialButtonProps>`
   ${({ theme }) =>
     color({ color: 'text.primary', bg: 'background.secondary', theme })}
   ${({ theme }) =>
-    border({ borderColor: 'background.secondary', theme })}
+    border({
+      borderColor: 'background.secondary',
+      theme
+    })}
 
-  &:hover,
-  &:focus {
+  &:hover :not(:disabled),
+  &:focus :not(:disabled) {
     ${({ network, theme }) => color({ bg: `social.${network}`, theme })}
+    ${({ network, theme }) =>
+      border({
+        borderColor: `social.${network}`,
+        theme
+      })}
 
     ${Icon} {
       fill: ${getThemeColor(`text.inverse`)};
