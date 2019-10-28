@@ -117,7 +117,7 @@ const socialButtonStyle = css<SocialButtonProps>`
     })}
 
   &:hover :not(:disabled),
-  &:focus  &:focus :not(:disabled) {
+  &:focus &:focus :not(:disabled) {
     ${({ network, theme }) => color({ bg: `social.${network}`, theme })}
     ${({ network, theme }) =>
       border({
