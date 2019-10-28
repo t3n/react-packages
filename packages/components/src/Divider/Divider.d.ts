@@ -1,7 +1,9 @@
 import React from 'react';
-import { WidthProps } from 'styled-system';
-export declare type DividerVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
-export interface DividerProps extends WidthProps {
+import { WidthProps, MarginProps } from 'styled-system';
+export declare type DividerVariants = 'primary' | 'inverse';
+export interface DividerProps extends WidthProps, MarginProps {
     variant?: DividerVariants;
+    iconComponent?: React.FunctionComponent<React.SVGProps<SVGElement>>;
+    children?: string;
 }
 export declare const Divider: React.FC<DividerProps>;

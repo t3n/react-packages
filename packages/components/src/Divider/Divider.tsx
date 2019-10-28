@@ -1,64 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variant, WidthProps } from 'styled-system';
-import { theme } from '@t3n/theme';
+import { variant, WidthProps, MarginProps } from 'styled-system';
+import { getThemeColor } from '@t3n/theme';
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
+import { Icon } from '../Icon';
 
-export type DividerVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
+export type DividerVariants = 'primary' | 'inverse';
 
-export interface DividerProps extends WidthProps {
+export interface DividerProps extends WidthProps, MarginProps {
   variant?: DividerVariants;
+  iconComponent?: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  children?: string;
 }
 
-const StyledBox = styled(Box)<DividerProps>`
-  ${() =>
-    variant({
-      variants: {
-        primary: {
-          color: theme.colors.text.primary
-        },
-        secondary: {
-          color: theme.colors.text.secondary
-        },
-        inverse: {
-          color: theme.colors.text.inverse
-        },
-        highlight: {
-          color: theme.colors.text.highlight
-        }
+const StyledBox = styled(Box)<Omit<DividerProps, 'children'>>`
+  ${variant({
+    variants: {
+      primary: {
+        color: 'text.primary'
+      },
+      inverse: {
+        color: 'text.inverse'
       }
-    })}
+    }
+  })}
 `;
 
 const StyledLine = styled.span<Pick<DividerProps, 'variant'>>`
   height: 1px;
-  background: black;
   flex-grow: 1;
+  opacity: 0.6;
 
-  ${() =>
-    variant({
-      variants: {
-        primary: {
-          bg: theme.colors.text.primary
-        },
-        secondary: {
-          bg: theme.colors.text.secondary
-        },
-        inverse: {
-          bg: theme.colors.text.inverse
-        },
-        highlight: {
-          bg: theme.colors.text.highlight
-        }
+  ${variant({
+    variants: {
+      primary: {
+        bg: 'text.primary'
+      },
+      inverse: {
+        bg: 'text.inverse'
       }
-    })}
+    }
+  })}
+`;
+
+const StyledIcon = styled(Icon)<Pick<DividerProps, 'variant'>>`
+  fill: ${({ theme, variant: variantProp }) =>
+    getThemeColor(variantProp === 'inverse' ? 'text.inverse' : 'text.primary')({
+      theme
+    })};
 `;
 
 export const Divider: React.FC<DividerProps> = ({
   children,
   variant: variantProp,
-  width
+  width,
+  iconComponent
 }) => {
   return (
     <StyledBox
@@ -66,14 +63,17 @@ export const Divider: React.FC<DividerProps> = ({
       alignItems="center"
       width={width}
       variant={variantProp}
+      my={4}
     >
       <StyledLine variant={variantProp} />
-      {children && (
+      {children ? (
         <Text small mx={2} my={0}>
           {children}
         </Text>
-      )}
-      {children && <StyledLine variant={variantProp} />}
+      ) : iconComponent ? (
+        <StyledIcon variant={variantProp} component={iconComponent} mx={2} />
+      ) : null}
+      {(children || iconComponent) && <StyledLine variant={variantProp} />}
     </StyledBox>
   );
 };
