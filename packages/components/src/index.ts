@@ -1,3 +1,4 @@
+export { Accordion } from './Accordion';
 export { AuthorCard } from './AuthorCard';
 export { Alert, AlertText } from './Alert';
 export { Avatar } from './Avatar';
