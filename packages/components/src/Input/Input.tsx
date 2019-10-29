@@ -76,7 +76,7 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
 
   ::placeholder,
   :disabled {
-    color: ${getThemeColor('shades.grey204')};
+    opacity: 0.6;
   }
 `;
 
@@ -180,7 +180,7 @@ export const Input = ({
         ref={ref}
         {...props}
       />
-      {value.length > 0 ? (
+      {(value.length && !disabled) > 0 ? (
         type && type === 'password' ? (
           <Button tabIndex={-1} onClick={handleRevealPassord}>
             <Icon
