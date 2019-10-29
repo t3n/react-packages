@@ -74,6 +74,7 @@ export const linkStyle = css<LinkProps>`
   background-repeat: repeat-x;
   background-size: 1px 1px;
   background-position: 0 100%;
+  cursor: pointer;
   ${textStyle}
 
   ${({ variant: variantProp, theme }) => {
