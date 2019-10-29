@@ -195,7 +195,9 @@ variants.story = {
 export const loading = () => (
   <>
     <Section variant="primary">
-      <Button loading>Klick mich</Button>
+      <Button loading onClick={e => alert('sdf')}>
+        Klick mich
+      </Button>
       <Button variant="secondary" loading ml={3}>
         Klick mich
       </Button>
@@ -236,10 +238,18 @@ export const disabled = () => (
       <Button variant="secondary" disabled ml={3}>
         Klick mich
       </Button>
+      <Button disabled loading ml={3}>
+        Klick mich
+      </Button>
     </Section>
     <Section variant="secondary">
-      <Button disabled>Klick mich</Button>
+      <Button variant="secondary" disabled>
+        Klick mich
+      </Button>
       <Button variant="secondary" disabled ml={3}>
+        Klick mich
+      </Button>
+      <Button variant="secondary" disabled loading ml={3}>
         Klick mich
       </Button>
     </Section>
@@ -250,12 +260,18 @@ export const disabled = () => (
       <Button variant="secondary" color="inverse" disabled ml={3}>
         Klick mich
       </Button>
+      <Button color="inverse" loading disabled ml={3}>
+        Klick mich
+      </Button>
     </Section>
     <Section variant="highlight">
       <Button color="highlight" disabled>
         Klick mich
       </Button>
       <Button variant="secondary" color="highlight" disabled ml={3}>
+        Klick mich
+      </Button>
+      <Button color="highlight" loading disabled ml={3}>
         Klick mich
       </Button>
     </Section>
