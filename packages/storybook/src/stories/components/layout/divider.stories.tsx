@@ -26,7 +26,7 @@ export const defaultStory = () => (
       'primary'
     )}
   >
-    {text('Divider Text', 'oder')}
+    {text('Divider Text', '')}
   </Divider>
 );
 
