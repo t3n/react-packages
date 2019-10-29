@@ -3,15 +3,18 @@ import styled from 'styled-components';
 import {
   system,
   space,
+  position,
   WidthProps,
   HeightProps,
   ColorProps,
-  MarginProps
+  MarginProps,
+  PositionProps
 } from 'styled-system';
 
 export interface BaseIconProps
   extends React.SVGProps<SVGSVGElement>,
-    MarginProps {
+    MarginProps,
+    PositionProps {
   component: React.FunctionComponent<React.SVGProps<SVGElement>>;
 }
 
@@ -31,6 +34,10 @@ const BaseIcon = ({
   marginRight,
   my,
   mx,
+  top,
+  bottom,
+  left,
+  right,
   ...props
 }: BaseIconProps) => (
   <IconComponent width={undefined} height={undefined} {...props} />
@@ -52,7 +59,9 @@ export const Icon = styled(BaseIcon)<IconProps>`
     width: true,
     height: true
   })}
+  position: relative;
   ${space}
+  ${position}
 `;
 
 Icon.defaultProps = {
