@@ -180,7 +180,7 @@ export const Input = ({
         ref={ref}
         {...props}
       />
-      {(value.length && !disabled) > 0 ? (
+      {value.length > 0 && !disabled ? (
         type && type === 'password' ? (
           <Button tabIndex={-1} onClick={handleRevealPassord}>
             <Icon
