@@ -41,7 +41,7 @@ const StyledCheckbox = styled(Box)<
   pointer-events: none;
   ${({ theme }) => space({ mr: 2, theme })}
 
-  ${({ theme, checked, disabled, feedbackColor, focused }) =>
+  ${({ checked, disabled, feedbackColor, focused }) =>
     variant({
       variants: {
         light: {
@@ -55,7 +55,7 @@ const StyledCheckbox = styled(Box)<
               : 'shades.white',
           border: '1px solid',
           borderColor: feedbackColor
-            ? theme.colors.feedback[feedbackColor]
+            ? `feedback.${feedbackColor}`
             : focused
             ? 'shades.grey42'
             : checked && disabled
@@ -75,7 +75,7 @@ const StyledCheckbox = styled(Box)<
               : 'shades.grey44',
           border: '1px solid',
           borderColor: feedbackColor
-            ? theme.colors.feedback[feedbackColor]
+            ? `feedback.${feedbackColor}`
             : focused
             ? 'shades.white'
             : checked && disabled
@@ -101,18 +101,14 @@ const StyledIcon = styled.span<
   opacity: ${({ checked }) => (checked ? 1 : 0)};
 
   svg {
-    ${({ theme, feedbackColor }) =>
+    ${({ feedbackColor }) =>
       variant({
         variants: {
           light: {
-            fill: feedbackColor
-              ? theme.colors.feedback[feedbackColor]
-              : 'shades.white'
+            fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.white'
           },
           dark: {
-            fill: feedbackColor
-              ? theme.colors.feedback[feedbackColor]
-              : 'shades.grey42'
+            fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.grey42'
           }
         }
       })}
