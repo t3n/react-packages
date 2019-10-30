@@ -22,23 +22,26 @@
     "@t3n/theme": "^0.2.7",
     "@types/graphql": "^14.5.0",
     "@types/react": "^16.9.11",
+    "@types/react-autosuggest": "^9.3.13",
     "@types/react-dom": "^16.9.3",
-    "@types/styled-components": "^4.1.19",
+    "@types/styled-components": "^4.1.20",
     "@types/styled-system": "^5.1.2",
     "@types/yup": "^0.26.24",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "apollo-link-http": "^1.5.16",
-    "formik": "^2.0.1",
+    "formik": "^2.0.3",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
     "polished": "^3.4.1",
     "react": "^16.11.0",
+    "react-autosuggest": "^9.4.3",
     "react-cookie": "^4.0.1",
     "react-dom": "^16.11.0",
     "react-scripts": "^3.2.0",
     "styled-components": "^4.4.0",
     "styled-system": "^5.1.2",
+    "toasted-notes": "^3.0.0",
     "yup": "^0.27.0"
   },
   "scripts": {
@@ -59,12 +62,10 @@
     "@storybook/preset-create-react-app": "^1.2.0",
     "@storybook/preset-typescript": "^1.1.0",
     "@t3n/configs": "^0.2.3",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "react-docgen-typescript-loader": "^3.3.0",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.6.3",
-    "webpack-notifier": "^1.8.0"
+    "typescript": "^3.6.4"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

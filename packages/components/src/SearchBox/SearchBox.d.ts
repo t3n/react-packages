@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { RenderSuggestion, SuggestionsFetchRequested, OnSuggestionsClearRequested, GetSuggestionValue, OnSuggestionSelected } from 'react-autosuggest';
 import { WidthProps } from 'styled-system';
 export interface GroupedSuggestions<S> {

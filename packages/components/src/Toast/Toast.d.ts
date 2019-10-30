@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { Position } from 'toasted-notes';
 import { AlertStatus } from '../Alert';
 interface ToastProps {

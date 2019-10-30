@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare type NewsCardType = 'HERO' | 'AUTHOR';
 export interface NewsCardProps {
     loading: boolean;
