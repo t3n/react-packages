@@ -152,17 +152,22 @@ export const buttonStyles = css`
       }`};
   }
 
-  &:disabled {
-    opacity: 0.6;
+  ${({ loading }) =>
+    !loading &&
+    css`
+      &:disabled {
+        opacity: 0.6;
 
-    ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
-      color &&
-      color === 'highlight' &&
-      variantProp === 'primary' &&
-      css`
-        color: ${theme.colors.text.highlight};
-      `}
-  }
+        ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
+          color &&
+          color === 'highlight' &&
+          variantProp === 'primary' &&
+          css`
+            color: ${theme.colors.text.highlight};
+          `}
+      }
+    `}
+
 
 `;
 
@@ -190,7 +195,7 @@ export const Button: React.FC<ButtonProps> = ({
     as={href ? 'a' : as}
     size={size}
     loading={loading}
-    disabled={disabled && loading ? false : disabled}
+    disabled={loading || disabled}
     onClick={(e: any) => !loading && onClick && onClick(e)}
     {...rest}
   >
