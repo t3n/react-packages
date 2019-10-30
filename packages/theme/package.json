@@ -12,7 +12,7 @@
     "clean": "rm -rf dist && rm -rf .awcache",
     "check-types": "tsc",
     "start": "webpack --watch",
-    "build": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production rollup --config rollup.config.js",
     "test": "jest",
     "test-watch": "jest --watch"
   },
