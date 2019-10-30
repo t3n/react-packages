@@ -1,13 +1,13 @@
 {
   "name": "@t3n/components",
-  "version": "0.2.25",
+  "version": "0.2.26",
   "description": "t3n react components",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
   "dependencies": {
-    "@t3n/icons": "^0.2.5",
+    "@t3n/icons": "^0.2.6",
     "@t3n/theme": "^0.2.7",
     "@types/btoa": "^1.2.3",
     "@types/react-autosuggest": "^9.3.13",
