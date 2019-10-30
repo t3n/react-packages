@@ -249,10 +249,6 @@ exports[`Button in loading state matches snapshot 1`] = `
   fill: #fff;
 }
 
-.c0:disabled {
-  opacity: 0.6;
-}
-
 @media screen and (min-width:30rem) {
   .c0 {
     line-height: 1.5em;
@@ -286,6 +282,7 @@ exports[`Button in loading state matches snapshot 1`] = `
 <button
   class="c0"
   color="default"
+  disabled=""
   variant="primary"
 >
   <span
@@ -1086,10 +1083,6 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   fill: #fff;
 }
 
-.c0:disabled {
-  opacity: 0.6;
-}
-
 @media screen and (min-width:30rem) {
   .c0 {
     line-height: 1.5em;
@@ -1123,6 +1116,7 @@ exports[`Small Button in loading state matches snapshot 1`] = `
 <button
   class="c0"
   color="default"
+  disabled=""
   variant="primary"
 >
   <span
