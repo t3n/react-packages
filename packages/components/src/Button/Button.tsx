@@ -32,8 +32,6 @@ export interface ButtonProps
   iconRight?: React.FunctionComponent<React.SVGProps<SVGElement>>;
 
   loading?: boolean;
-  disabled?: boolean;
-
   as?: ButtonAsType;
 }
 
@@ -87,8 +85,8 @@ export const buttonStyles = css`
       theme
     })};
 
-  ${({ disabled }: ButtonProps) =>
-    disabled ? 'cursor: block' : 'cursor: pointer'};
+  ${({ disabled, loading }: ButtonProps) =>
+    disabled || loading ? 'cursor: no-drop' : 'cursor: pointer'};
 
   /* We have to provide a value for every breakpoint because of specificity
      of line-height from textStyle */
@@ -154,22 +152,29 @@ export const buttonStyles = css`
       }`};
   }
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: no-drop;
+  ${({ loading }) =>
+    !loading &&
+    css`
+      &:disabled {
+        opacity: 0.6;
 
-    ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
-      color &&
-      color === 'highlight' &&
-      variantProp === 'primary' &&
-      css`
-        color: ${theme.colors.text.highlight};
-      `}
-  }
+        ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
+          color &&
+          color === 'highlight' &&
+          variantProp === 'primary' &&
+          css`
+            color: ${theme.colors.text.highlight};
+          `}
+      }
+    `}
+
 
 `;
 
-const StyledButton = styled.button<Omit<ButtonProps, 'loading'>>`
+const StyledButton = styled(
+  // eslint-disable-next-line react/button-has-type
+  ({ loading, ...rest }: ButtonProps) => <button {...rest} />
+)<ButtonProps>`
   ${buttonStyles}
 `;
 
@@ -181,9 +186,19 @@ export const Button: React.FC<ButtonProps> = ({
   size,
   href,
   as,
+  onClick,
+  disabled,
   ...rest
 }) => (
-  <StyledButton href={href} as={href ? 'a' : as} size={size} {...rest}>
+  <StyledButton
+    href={href}
+    as={href ? 'a' : as}
+    size={size}
+    loading={loading}
+    disabled={loading || disabled}
+    onClick={(e: any) => !loading && onClick && onClick(e)}
+    {...rest}
+  >
     {loading ? (
       <Loader small my={2} />
     ) : (
