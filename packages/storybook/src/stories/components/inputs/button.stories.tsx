@@ -195,9 +195,7 @@ variants.story = {
 export const loading = () => (
   <>
     <Section variant="primary">
-      <Button loading onClick={e => alert('sdf')}>
-        Klick mich
-      </Button>
+      <Button loading>Klick mich</Button>
       <Button variant="secondary" loading ml={3}>
         Klick mich
       </Button>
