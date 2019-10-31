@@ -36,13 +36,15 @@ module.exports = {
       root: 't3n-icons',
       commonjs2: '@t3n/icons',
       commonjs: '@t3n/icons',
-      amd: '@t3n/icons'
+      amd: '@t3n/icons',
+      umd: '@t3n/icons'
     },
     '@t3n/theme': {
       root: 't3n-theme',
       commonjs2: '@t3n/theme',
       commonjs: '@t3n/theme',
-      amd: '@t3n/theme'
+      amd: '@t3n/theme',
+      umd: '@t3n/theme'
     }
   }
 };

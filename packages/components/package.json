@@ -6,11 +6,12 @@
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
   },
+  "main": "dist/bundle.js",
+  "types": "src/index.d.ts",
   "dependencies": {
     "@types/btoa": "^1.2.3",
     "@types/react-autosuggest": "^9.3.13",
     "btoa": "^1.2.1",
-    "clean-tag": "^3.1.1",
     "polished": "^3.4.1",
     "react-autosuggest": "^9.4.3",
     "react-imgix": "^8.6.4",
@@ -20,8 +21,7 @@
     "toasted-notes": "^3.0.0",
     "use-debounce": "^3.1.0"
   },
-  "main": "dist/bundle.js",
-  "types": "src/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "clean": "rm -rf dist && rm -rf .awcache",
     "check-types": "tsc",

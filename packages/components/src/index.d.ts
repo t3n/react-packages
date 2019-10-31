@@ -40,5 +40,4 @@ export { Tag } from './Tag';
 export { TagList } from './TagList';
 export { Text } from './Text';
 export { TitleCard } from './TitleCard';
-export { Toast, useToast } from './Toast';
 export { VisualSection } from './VisualSection';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, select, text, number } from '@storybook/addon-knobs';
-import { Divider, Section, Text, Heading, Icon } from '@t3n/components';
+import { Divider, Section, Text, Heading } from '@t3n/components';
 import { DividerVariants } from '@t3n/components/src/Divider/Divider';
 import { MaterialInfo } from '@t3n/icons';
 

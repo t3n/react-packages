@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { resolve } = require('path');
-const { cpus } = require('os');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+const babelConfig = require('../babel/');
 
 const { NODE_ENV } = process.env;
 const isProd = NODE_ENV === 'production';
@@ -15,7 +15,8 @@ module.exports = ({ title = '', dirname = '' }) => {
       filename: 'bundle.js',
       path: resolve(dirname || __dirname, './dist'),
       library: '',
-      libraryTarget: 'commonjs'
+      libraryTarget: 'umd',
+      umdNamedDefine: true
     },
     mode: isProd ? 'production' : 'development',
     optimization: {
@@ -36,24 +37,6 @@ module.exports = ({ title = '', dirname = '' }) => {
           test: /\.tsx?$/,
           exclude: [/node_modules/, /\.test\.tsx?$/],
           use: [
-            // { loader: 'cache-loader' },
-            // {
-            //   loader: 'thread-loader',
-            //   options: {
-            //     workers: cpus().length - 1
-            //   }
-            // },
-            // { loader: 'babel-loader' },
-            // {
-            //   loader: 'ts-loader',
-            //   options: {
-            //     happyPackMode: true,
-            //     onlyCompileBundledFiles: true,
-            //     compilerOptions: {
-            //       noEmit: false
-            //     }
-            //   }
-            // }
             {
               loader: 'awesome-typescript-loader',
               options: {
@@ -61,6 +44,7 @@ module.exports = ({ title = '', dirname = '' }) => {
                 useCache: true,
                 useBabel: true,
                 babelCore: '@babel/core',
+                babelOptions: babelConfig,
                 reportFiles: ['src/**/*.{ts,tsx}']
               }
             }
@@ -68,16 +52,26 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
         {
           enforce: 'pre',
-          exclude: [/node_modules/, /\.test\.jsx?$/],
+          exclude: [
+            /[\\/]node_modules[\\/](?!(toasted-notes|hex-rgb|react-spring)[\\/])/,
+            /\.test\.jsx?$/
+          ],
           test: /\.jsx?$/,
-          loaders: ['babel-loader', 'source-map-loader']
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                ...babelConfig
+              }
+            },
+            {
+              loader: 'source-map-loader'
+            }
+          ]
         }
       ]
     },
-    plugins: [
-      // new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
-      new WebpackNotifierPlugin({ title })
-    ]
+    plugins: [new WebpackNotifierPlugin({ title })]
   };
 
   if (isProd) {
