@@ -14,7 +14,6 @@ export interface AccordionProps extends MarginProps {
 
 const StyledAccordion = styled.div<SpaceProps>`
   border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
-  box-shadow: ${({ theme }: ThemeProps) => theme.shadows.elevate};
 
   ${({ theme }) => color({ theme, bg: 'shades.white' })};
 
