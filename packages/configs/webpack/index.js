@@ -30,10 +30,6 @@ module.exports = ({ title = '', dirname = '' }) => {
     module: {
       rules: [
         {
-          test: /\.svg$/,
-          use: ['@svgr/webpack']
-        },
-        {
           test: /\.tsx?$/,
           exclude: [/node_modules/, /\.test\.tsx?$/],
           use: [

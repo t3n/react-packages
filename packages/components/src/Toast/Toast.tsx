@@ -4,6 +4,7 @@ import { MaterialClear } from '@t3n/icons';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '@t3n/theme';
 import { MarginLeftProps, margin } from 'styled-system';
+
 import { AlertStatus, AlertText, Alert } from '../Alert';
 import { Box } from '../Box';
 
@@ -23,7 +24,7 @@ const StyledIcon = styled(MaterialClear)<
   ${margin}
 `;
 
-const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
+export const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
   return (
     <Box m={1}>
       <Alert status={status}>
@@ -46,7 +47,7 @@ interface NotifyOptions {
   isClosable: boolean;
 }
 
-const useToast = () => {
+export const useToast = () => {
   const notify = ({ text, status, duration, position }: NotifyOptions) => {
     return toaster.notify(
       ({ onClose, id }) => (
@@ -66,5 +67,3 @@ const useToast = () => {
 
   return [notify];
 };
-
-export { useToast, Toast };
