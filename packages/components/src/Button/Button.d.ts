@@ -12,7 +12,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLA
     iconLeft?: React.FunctionComponent<React.SVGProps<SVGElement>>;
     iconRight?: React.FunctionComponent<React.SVGProps<SVGElement>>;
     loading?: boolean;
-    disabled?: boolean;
     as?: ButtonAsType;
 }
 export declare const buttonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & ButtonProps, any>>;
