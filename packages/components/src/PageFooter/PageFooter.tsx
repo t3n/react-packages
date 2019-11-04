@@ -168,7 +168,11 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               <SocialLink href="https://github.com/t3n" title="GitHub" mx={2}>
                 <SocialGithub fill="white" />
               </SocialLink>
-              <SocialLink href="https://medium.com/@t3nbackstageblog" title="Medium" mx={2}>
+              <SocialLink
+                href="https://medium.com/@t3nbackstageblog"
+                title="Medium"
+                mx={2}
+              >
                 <SocialMedium fill="white" />
               </SocialLink>
             </SocialLinks>
