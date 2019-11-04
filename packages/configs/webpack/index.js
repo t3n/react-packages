@@ -16,7 +16,8 @@ module.exports = ({ title = '', dirname = '' }) => {
       path: resolve(dirname || __dirname, './dist'),
       library: '',
       libraryTarget: 'umd',
-      umdNamedDefine: true
+      umdNamedDefine: true,
+      globalObject: `(typeof self !== 'undefined' ? self : this)`
     },
     mode: isProd ? 'production' : 'development',
     optimization: {

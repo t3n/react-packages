@@ -3,7 +3,11 @@ const configure = require('@t3n/configs/webpack');
 
 const config = configure({ title: '@t3n/components', dirname: __dirname });
 
-config.output.library = 't3n-components';
+config.output.library = {
+  root: 't3n-components',
+  commonjs: '@t3n/components',
+  amd: '@t3n/components'
+};
 
 module.exports = {
   ...config,
