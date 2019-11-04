@@ -90,7 +90,16 @@ export const buttonStyles = css`
 
   /* We have to provide a value for every breakpoint because of specificity
      of line-height from textStyle */
-  ${({ theme }) => lineHeight({ theme, lineHeight: [2, 2, 2, 2] })}
+  ${({ theme }) =>
+    lineHeight({
+      theme,
+      lineHeight: [
+        'calc(1.5em - 4px)',
+        'calc(1.5em - 4px)',
+        'calc(1.5em - 4px)',
+        'calc(1.5em - 4px)'
+      ]
+    })}
   ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
     variant({
       prop: 'color',
