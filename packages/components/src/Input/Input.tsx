@@ -80,7 +80,8 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   }
 
   &[type='text'],
-  &[type='password'] {
+  &[type='password'],
+  &[type='email'] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
