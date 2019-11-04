@@ -3,6 +3,8 @@ const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+const babelConfig = require('../babel/');
+
 const { NODE_ENV } = process.env;
 const isProd = NODE_ENV === 'production';
 
@@ -13,7 +15,8 @@ module.exports = ({ title = '', dirname = '' }) => {
       filename: 'bundle.js',
       path: resolve(dirname || __dirname, './dist'),
       library: '',
-      libraryTarget: 'commonjs'
+      libraryTarget: 'umd',
+      umdNamedDefine: true
     },
     mode: isProd ? 'production' : 'development',
     optimization: {
@@ -27,10 +30,6 @@ module.exports = ({ title = '', dirname = '' }) => {
     module: {
       rules: [
         {
-          test: /\.svg$/,
-          use: ['@svgr/webpack']
-        },
-        {
           test: /\.tsx?$/,
           exclude: [/node_modules/, /\.test\.tsx?$/],
           use: [
@@ -41,6 +40,7 @@ module.exports = ({ title = '', dirname = '' }) => {
                 useCache: true,
                 useBabel: true,
                 babelCore: '@babel/core',
+                babelOptions: babelConfig,
                 reportFiles: ['src/**/*.{ts,tsx}']
               }
             }
@@ -48,9 +48,22 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
         {
           enforce: 'pre',
-          exclude: [/node_modules/, /\.test\.jsx?$/],
+          exclude: [
+            /[\\/]node_modules[\\/](?!(toasted-notes|hex-rgb|react-spring)[\\/])/,
+            /\.test\.jsx?$/
+          ],
           test: /\.jsx?$/,
-          loaders: ['babel-loader', 'source-map-loader']
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                ...babelConfig
+              }
+            },
+            {
+              loader: 'source-map-loader'
+            }
+          ]
         }
       ]
     },

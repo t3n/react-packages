@@ -58,6 +58,7 @@ exports[`Author Card matches snapshot 1`] = `
 
 .c1 {
   font-weight: bold;
+  color: #fff;
   background-color: #f9423a;
   padding: 0 2px;
   font-size: 0.875rem;

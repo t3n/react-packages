@@ -23,15 +23,19 @@
     "@types/styled-system": "^5.1.2",
     "hex-rgb": "^4.1.0",
     "lodash": "^4.17.15",
-    "polished": "^3.4.1",
-    "styled-system": "^5.1.2"
+    "polished": "^3.4.1"
   },
   "devDependencies": {
     "@t3n/configs": "^0.2.3",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.3"
+    "styled-system": "^5.1.2",
+    "typescript": "^3.6.4"
   },
+  "peerDependencies": {
+    "styled-system": ">=5.1.2"
+  },
+  "sideEffects": false,
   "jest": {
     "displayName": "theme",
     "coverageDirectory": "coverage",

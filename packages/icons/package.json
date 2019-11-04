@@ -13,8 +13,8 @@
     "check-types": "tsc",
     "start": "webpack --watch",
     "build": "npm run clean && npm run generate && NODE_ENV=production webpack",
-    "start:generate": "ts-node-dev --respawn --transpile-only src/lib/generate.ts",
-    "generate": "ts-node-dev src/lib/generate.ts"
+    "start:generate": "ts-node-dev -P tsconfig.node.json --respawn --transpile-only src/lib/generate.ts",
+    "generate": "ts-node-dev -P tsconfig.node.json src/lib/generate.ts"
   },
   "peerDependencies": {
     "react": ">=16.10"
@@ -28,14 +28,16 @@
     "@types/fs-extra": "^8.0.0",
     "@types/node": "^12.7.11",
     "@types/prettier": "^1.18.3",
-    "@types/react": "^16.9.5",
+    "@types/react": "^16.9.11",
     "chalk": "^2.4.2",
     "fs-extra": "^8.1.0",
     "material-design-icons": "^3.0.1",
     "prettier": "^1.18.2",
+    "react": "^16.11.0",
     "ts-node-dev": "^1.0.0-pre.43",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
+  "sideEffects": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }

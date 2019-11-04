@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface ImageProps {
     alt: string;
     src: string;

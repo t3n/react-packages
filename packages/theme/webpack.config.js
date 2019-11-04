@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const configure = require('@t3n/configs/webpack');
 
+const config = configure({ title: '@t3n/theme', dirname: __dirname });
+
+config.output.library = 't3n-theme';
+
 module.exports = {
-  ...configure({ title: '@t3n/theme', dirname: __dirname }),
+  ...config,
   externals: {
     react: {
       root: 'React',

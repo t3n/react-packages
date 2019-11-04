@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const configure = require('@t3n/configs/webpack');
 
+const config = configure({ title: '@t3n/icons', dirname: __dirname });
+
+config.output.library = 't3n-icons';
+
 module.exports = {
-  ...configure({ title: '@t3n/icons', dirname: __dirname }),
+  ...config,
   entry: './src/components/index.ts',
   externals: {
     react: {
