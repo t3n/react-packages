@@ -37,7 +37,7 @@
     "npm-check": "^5.9.0",
     "prettier": "^1.18.2",
     "source-map-loader": "^0.2.4",
-    "typescript": "^3.6.3",
+    "typescript": "^3.6.4",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.0",
     "webpack-bundle-analyzer": "^3.6.0",
@@ -46,7 +46,7 @@
   },
   "scripts": {
     "clean": "lerna clean --yes && rm -rf node_modules && lerna run clean --parallel",
-    "prepare": "lerna clean --yes && lerna bootstrap",
+    "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
     "test": "jest",

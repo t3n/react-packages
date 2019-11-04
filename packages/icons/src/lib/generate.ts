@@ -38,7 +38,7 @@ const MATERIAL_COMPONENTS_FOLDER_PATH = path.join(
 );
 const MATERIAL_ICONS_FOLDER_PATH = path.resolve(
   __dirname,
-  '../../node_modules/material-design-icons'
+  '../../../../node_modules/material-design-icons'
 );
 const INDEX_FILE_PATH = path.join(COMPONENTS_FOLDER_PATH, 'index.ts');
 
