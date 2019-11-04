@@ -78,6 +78,13 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   :disabled {
     opacity: 0.6;
   }
+
+  &[type='text'],
+  &[type='password'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 `;
 
 const Button = styled.button.attrs(() => ({
