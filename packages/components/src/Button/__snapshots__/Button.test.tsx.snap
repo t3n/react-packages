@@ -28,7 +28,7 @@ exports[`Button in default state matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -65,33 +65,33 @@ exports[`Button in default state matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -216,7 +216,7 @@ exports[`Button in loading state matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: no-drop;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -249,33 +249,33 @@ exports[`Button in loading state matches snapshot 1`] = `
   fill: #fff;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -323,7 +323,7 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -360,33 +360,33 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -427,7 +427,7 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #2a2a2a;
   background-color: #fff;
   border-color: #fff;
@@ -465,33 +465,33 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   color: #f9423a;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -532,7 +532,7 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #2a2a2a;
   background-color: #fff;
   border-color: #fff;
@@ -569,33 +569,33 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -636,7 +636,7 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #2a2a2a;
   background-color: transparent;
   border-color: #2a2a2a;
@@ -673,33 +673,33 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -740,7 +740,7 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: transparent;
   border-color: #fff;
@@ -777,33 +777,33 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -844,7 +844,7 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: transparent;
   border-color: #fff;
@@ -881,33 +881,33 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -1050,7 +1050,7 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: no-drop;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -1083,33 +1083,33 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   fill: #fff;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
@@ -1157,7 +1157,7 @@ exports[`Small Button matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
-  line-height: 1.5em;
+  line-height: calc(1.5em - 4px);
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -1194,33 +1194,33 @@ exports[`Small Button matches snapshot 1`] = `
   opacity: 0.6;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width:40em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width:52em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width:64em) {
   .c0 {
-    line-height: 1.5em;
+    line-height: calc(1.5em - 4px);
   }
 }
 
