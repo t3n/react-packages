@@ -79,7 +79,8 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
     opacity: 0.6;
   }
 
-  &[type='text'] {
+  &[type='text'],
+  &[type='password'] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
