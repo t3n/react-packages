@@ -1,6 +1,6 @@
 {
   "name": "@t3n/configs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "t3n javascript configuration wrapper",
   "repository": {
     "type": "git",
@@ -11,6 +11,5 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
-  },
-  "devDependencies": {}
+  }
 }
