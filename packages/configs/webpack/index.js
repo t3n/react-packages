@@ -10,7 +10,7 @@ const isProd = NODE_ENV === 'production';
 
 module.exports = ({ title = '', dirname = '' }) => {
   const config = {
-    entry: './src/index.ts',
+    entry: ['./src/index.ts'],
     output: {
       filename: 'bundle.js',
       path: resolve(dirname || __dirname, './dist'),
@@ -49,8 +49,36 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
         {
           enforce: 'pre',
+          exclude: path => {
+            return !/[\\/]node_modules[\\/]hex-rgb[\\/]/.test(path);
+          },
+          test: /\.jsx?$/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                ...babelConfig,
+                presets: babelConfig.presets.map(preset => {
+                  if (
+                    Array.isArray(preset) &&
+                    preset[0] === '@babel/preset-env'
+                  ) {
+                    const presetName = preset[0];
+                    const { targets, modules } = preset[1];
+
+                    return [presetName, { targets, modules }];
+                  }
+
+                  return preset;
+                })
+              }
+            }
+          ]
+        },
+        {
+          enforce: 'pre',
           exclude: [
-            /[\\/]node_modules[\\/](?!(toasted-notes|hex-rgb|react-spring)[\\/])/,
+            /[\\/]node_modules[\\/](?!(toasted-notes|react-spring|react-imgix)[\\/])/,
             /\.test\.jsx?$/
           ],
           test: /\.jsx?$/,
