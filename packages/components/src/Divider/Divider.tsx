@@ -63,7 +63,7 @@ export const Divider: React.FC<DividerProps> = ({
       alignItems="center"
       width={width}
       variant={variantProp}
-      my={4}
+      my={3}
     >
       <StyledLine variant={variantProp} />
       {children ? (
