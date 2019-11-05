@@ -64,6 +64,13 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<LinkProps>`
       underline(
         underlineColor(linkStyleConfig.visited.underlineColor)({ theme })
       )}
+    &:focus {
+      ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
+      ${({ theme }: ThemeProps) =>
+        underline(
+          underlineColor(linkStyleConfig.focus.underlineColor)({ theme })
+        )}
+    }
   }
 `;
 

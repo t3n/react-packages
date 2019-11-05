@@ -31,7 +31,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
     })}
 
   ${Logo} {
-    width: auto;
+    width: 7.5rem;
     height: 2.5rem;
   }
 `;

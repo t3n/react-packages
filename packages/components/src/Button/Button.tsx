@@ -91,12 +91,7 @@ export const buttonStyles = css`
   /* We have to provide a value for every breakpoint because of specificity
      of line-height from textStyle */
   ${lineHeight({
-    lineHeight: [
-      'calc(1.5em - 4px)',
-      'calc(1.5em - 4px)',
-      'calc(1.5em - 4px)',
-      'calc(1.5em - 4px)'
-    ]
+    lineHeight: ['1.25rem', '1.25rem', '1.25rem', '1.25rem']
   })}
   ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
     variant({
@@ -214,13 +209,11 @@ export const Button: React.FC<ButtonProps> = ({
           <Icon
             component={iconLeft}
             mr={2}
-            width="auto"
+            width={
+              size === 'big' ? '1.5rem' : size === 'small' ? '1rem' : '1.25rem'
+            }
             height={
-              size === 'big'
-                ? '1.75rem'
-                : size === 'small'
-                ? '1.25rem'
-                : '1.5rem'
+              size === 'big' ? '1.5rem' : size === 'small' ? '1rem' : '1.25rem'
             }
           />
         )}
