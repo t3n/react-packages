@@ -86,6 +86,10 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
     -moz-appearance: none;
     appearance: none;
   }
+
+  &::-ms-clear {
+    display: none;
+  }
 `;
 
 const Button = styled.button.attrs(() => ({
