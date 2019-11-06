@@ -94,6 +94,10 @@ const SocialLinks = styled(Box)`
 
 const SocialLink = styled(Link)`
   line-height: 0 !important;
+
+  &:active {
+    transform: scale(0.9);
+  }
 `;
 
 export const PageFooter: React.FC<PageFooterProps> = ({
@@ -128,33 +132,42 @@ export const PageFooter: React.FC<PageFooterProps> = ({
           <GridItem width={[1, 1, 1, 1 / 3]} mb={[2, 2, 2, 0]}>
             <SocialLinks>
               <SocialLink
-                href="https://www.facebook.com/t3nMagazin"
+                href="https://facebook.com/t3nMagazin"
                 title="Facebook"
-                mx={1}
+                mx={2}
+                target="_blank"
               >
                 <SocialFacebook fill="white" />
               </SocialLink>
-              <SocialLink href="https://twitter.com/t3n" title="Twitter" mx={2}>
+              <SocialLink
+                href="https://twitter.com/t3n"
+                title="Twitter"
+                mx={2}
+                target="_blank"
+              >
                 <SocialTwitter fill="white" />
               </SocialLink>
               <SocialLink
-                href="https://www.xing.com/news/pages/t3n-magazin-67"
+                href="https://xing.com/news/pages/t3n-magazin-67"
                 title="Xing"
                 mx={2}
+                target="_blank"
               >
                 <SocialXing fill="white" />
               </SocialLink>
               <SocialLink
-                href="https://www.linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
+                href="https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
                 title="LinkedIn"
                 mx={2}
+                target="_blank"
               >
                 <SocialLinkedin fill="white" />
               </SocialLink>
               <SocialLink
-                href="https://www.instagram.com/t3n_magazin/"
+                href="https://instagram.com/t3n_magazin/"
                 title="Instagram"
                 mx={2}
+                target="_blank"
               >
                 <SocialInstagram fill="white" />
               </SocialLink>
@@ -162,16 +175,23 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                 href="https://t3n.de/social-media/#Die_hei%C3%9Festen_News_in_deinem_Messenger"
                 title="Whatsapp"
                 mx={2}
+                target="_blank"
               >
                 <SocialWhatsapp fill="white" />
               </SocialLink>
-              <SocialLink href="https://github.com/t3n" title="GitHub" mx={2}>
+              <SocialLink
+                href="https://github.com/t3n"
+                title="GitHub"
+                mx={2}
+                target="_blank"
+              >
                 <SocialGithub fill="white" />
               </SocialLink>
               <SocialLink
                 href="https://medium.com/@t3nbackstageblog"
                 title="Medium"
                 mx={2}
+                target="_blank"
               >
                 <SocialMedium fill="white" />
               </SocialLink>
