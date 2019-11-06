@@ -53,7 +53,7 @@ const border = css`
       error
         ? theme.colors.feedback.error
         : disabled
-        ? theme.colors.shades.grey244
+        ? theme.colors.shades.grey204
         : isFocused
         ? theme.colors.shades.grey42
         : theme.colors.shades.grey143};
