@@ -112,7 +112,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
         </Box>
       )}
       <FooterBottom
-        px={[3, 4]}
+        px={[3, 3, 3, 3, 8]}
         py={[4, 4, 4, 0]}
         height={['auto', 'auto', 'auto', '2.5rem']}
         borderTop="1px solid"
