@@ -10,6 +10,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
