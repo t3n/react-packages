@@ -1,6 +1,6 @@
 {
   "name": "@t3n/components",
-  "version": "0.2.38",
+  "version": "0.2.39",
   "description": "t3n react components",
   "repository": {
     "type": "git",
@@ -32,8 +32,8 @@
   },
   "devDependencies": {
     "@t3n/configs": "^0.2.8",
-    "@t3n/icons": "^0.2.12",
-    "@t3n/theme": "^0.2.12",
+    "@t3n/icons": "^0.2.13",
+    "@t3n/theme": "^0.2.13",
     "@testing-library/jest-dom": "^4.2.0",
     "@testing-library/react": "^9.3.0",
     "@types/jest": "^24.0.20",
