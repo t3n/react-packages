@@ -33,7 +33,9 @@ const underlineColor = (value: string) => ({ theme }: ThemeProps) => {
   return 'rgb(255,255,255)';
 };
 
-export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<LinkProps>`
+export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
+  Omit<LinkProps, 'children'>
+>`
   ${({ theme }) => color({ color: linkStyleConfig.default.color, theme })}
   ${({ theme, disabled }) =>
     disabled
