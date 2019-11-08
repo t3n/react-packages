@@ -29,9 +29,10 @@ orbs:
 jobs:
   checkout_and_build:
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - checkout
+      - restore_cache: *restore_js_packages
 
       - run: |
           npm ci --unsafe-perm
@@ -42,12 +43,13 @@ jobs:
       - run: |
           npx bundlesize
 
+      - save_cache: *save_js_packages
       - persist_to_workspace: *persist_to_workspace
 
   prettier:
     working_directory: *workspace_root
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run prettier:check
@@ -55,7 +57,7 @@ jobs:
   lint:
     working_directory: *workspace_root
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run lint:theme
@@ -66,7 +68,7 @@ jobs:
   test:
     working_directory: *workspace_root
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run test
@@ -84,7 +86,7 @@ jobs:
   publishPatch:
     working_directory: *workspace_root
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -99,7 +101,7 @@ jobs:
   publishMinor:
     working_directory: *workspace_root
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -114,7 +116,7 @@ jobs:
   publishMajor:
     working_directory: *workspace_root
     docker:
-      - image: quay.io/yeebase/ci-build:7.2
+      - image: circleci/node:lts
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
