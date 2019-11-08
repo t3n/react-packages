@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  forwardRef,
+  useImperativeHandle
+} from 'react';
 import styled, { css } from 'styled-components';
 import {
   space,
@@ -109,113 +115,120 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
-export const Input = ({
-  disabled,
-  type,
-  error,
-  width,
-  className,
-  onFocus,
-  onBlur,
-  onChange,
-  onReset,
-  isFocused,
-  defaultValue,
-  ...props
-}: InputProps) => {
-  const ref = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState(defaultValue || '');
-  const [focused, setFocused] = useState(isFocused || false);
-  const [revealPassword, setRevealPassword] = useState(false);
+export const Input = forwardRef(
+  (
+    {
+      disabled,
+      type,
+      error,
+      width,
+      className,
+      onFocus,
+      onBlur,
+      onChange,
+      onReset,
+      isFocused,
+      defaultValue,
+      ...props
+    }: InputProps,
+    ref: React.Ref<HTMLInputElement | null>
+  ) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    const [value, setValue] = useState(defaultValue || '');
+    const [focused, setFocused] = useState(isFocused || false);
+    const [revealPassword, setRevealPassword] = useState(false);
 
-  const inputType = type === 'password' && revealPassword ? 'text' : type;
+    useImperativeHandle(ref, () => inputRef.current);
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    setFocused(true);
-    if (onFocus) onFocus(e);
-  };
+    const inputType = type === 'password' && revealPassword ? 'text' : type;
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    setFocused(false);
-    if (onBlur) onBlur(e);
-  };
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      e.stopPropagation();
+      setFocused(true);
+      if (onFocus) onFocus(e);
+    };
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    setValue(e.target.value);
-    if (onChange) onChange(e);
-  };
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      e.stopPropagation();
+      setFocused(false);
+      if (onBlur) onBlur(e);
+    };
 
-  const handleReset = () => {
-    setValue('');
-    if (ref !== null && ref.current !== null) {
-      ref.current.focus();
-    }
-    if (onReset) onReset();
-  };
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      e.stopPropagation();
+      setValue(e.target.value);
+      if (onChange) onChange(e);
+    };
 
-  const handleRevealPassord = () => {
-    setRevealPassword(!revealPassword);
-    if (ref !== null && ref.current !== null) {
-      ref.current.focus();
-    }
-  };
-
-  useEffect(() => {
-    if (focused && ref !== null && ref.current !== null) {
-      ref.current.focus();
-      if (type !== 'email') {
-        // E-Mail type does not support selectionStart
-        ref.current.selectionStart = ref.current.value.length;
+    const handleReset = () => {
+      setValue('');
+      if (inputRef !== null && inputRef.current !== null) {
+        inputRef.current.focus();
       }
-    }
-  }, [focused, type]);
+      if (onReset) onReset();
+    };
 
-  return (
-    <StyledInput
-      disabled={disabled}
-      width={width}
-      className={className}
-      isFocused={focused}
-    >
-      <StyledNativeInput
-        error={error}
-        type={inputType}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleOnChange}
-        isFocused={focused}
+    const handleRevealPassord = () => {
+      setRevealPassword(!revealPassword);
+      if (inputRef !== null && inputRef.current !== null) {
+        inputRef.current.focus();
+      }
+    };
+
+    useEffect(() => {
+      if (focused && inputRef !== null && inputRef.current !== null) {
+        inputRef.current.focus();
+        if (type !== 'email') {
+          // E-Mail type does not support selectionStart
+          inputRef.current.selectionStart = inputRef.current.value.length;
+        }
+      }
+    }, [focused, type]);
+
+    return (
+      <StyledInput
         disabled={disabled}
-        value={value}
-        ref={ref}
-        {...props}
-      />
-      {value.length > 0 && !disabled ? (
-        type && type === 'password' ? (
-          <Button tabIndex={-1} onClick={handleRevealPassord}>
-            <Icon
-              component={
-                revealPassword ? MaterialVisibilityOff : MaterialVisibility
-              }
-              fill={focused ? 'text.primary' : 'shades.grey204'}
-            />
-          </Button>
-        ) : (
-          <Button tabIndex={-1} onClick={handleReset}>
-            <Icon
-              component={MaterialClear}
-              width="1.5rem"
-              height="1.5rem"
-              fill={focused ? 'text.primary' : 'shades.grey204'}
-            />
-          </Button>
-        )
-      ) : null}
-    </StyledInput>
-  );
-};
+        width={width}
+        className={className}
+        isFocused={focused}
+      >
+        <StyledNativeInput
+          error={error}
+          type={inputType}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleOnChange}
+          isFocused={focused}
+          disabled={disabled}
+          value={value}
+          ref={inputRef}
+          {...props}
+        />
+        {value.length > 0 && !disabled ? (
+          type && type === 'password' ? (
+            <Button tabIndex={-1} onClick={handleRevealPassord}>
+              <Icon
+                component={
+                  revealPassword ? MaterialVisibilityOff : MaterialVisibility
+                }
+                fill={focused ? 'text.primary' : 'shades.grey204'}
+              />
+            </Button>
+          ) : (
+            <Button tabIndex={-1} onClick={handleReset}>
+              <Icon
+                component={MaterialClear}
+                width="1.5rem"
+                height="1.5rem"
+                fill={focused ? 'text.primary' : 'shades.grey204'}
+              />
+            </Button>
+          )
+        ) : null}
+      </StyledInput>
+    );
+  }
+);
 
 Input.defaultProps = {
   type: 'text',
