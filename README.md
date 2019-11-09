@@ -5,17 +5,21 @@ This monorepo hosts packages necessary for development and documentation of reac
 :warning:
 
 ```
- This repo is still a prototype and experimental and not yet intended for use in production
+ This repo is still in an early state and may change in it's structure
 ```
+
+To check out all our components you may have a look at https://storybook.t3n.de wich hosts the latest version of this package.
+If you would rather try our components you can fork our [CodeSandbox template](https://codesandbox.io/s/t3n-react-components-fbvgb)
 
 ## Packages
 
-The monorepo is structured into 3 packages:
+The monorepo is structured into four packages:
 
 - @t3n/theme
 - @t3n/components
 - @t3n/storybook
 - @t3n/icons
+- @t3n/configs
 
 ## Development
 
