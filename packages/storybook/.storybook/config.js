@@ -55,8 +55,6 @@ addDecorator(story => (
 const loadStories = () => [
   // Storybook
   require('../src/stories/storybook/introduction.story.mdx'),
-  require('../src/stories/storybook/usage.story.mdx'),
-  require('../src/stories/storybook/editor.story.mdx'),
 
   // Design-System
   require('../src/stories/designSystem/breakpoints/breakpoints.stories'),
