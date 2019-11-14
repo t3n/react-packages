@@ -65,31 +65,31 @@ exports[`Accordion machtes snapshot 1`] = `
 
 @media screen and (min-width:30rem) {
   .c2 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }
 
 @media screen and (min-width:48rem) {
   .c2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
 @media screen and (min-width:61.25rem) {
   .c2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
 @media screen and (min-width:90rem) {
   .c2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width:30rem) {
   .c2 {
-    line-height: 1.333em;
+    line-height: 1.5em;
   }
 }
 

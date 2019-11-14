@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { SpaceProps, space, MarginProps, color } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { Icon } from '../Icon';
-import { H3 } from '../Heading';
+import { Heading } from '../Heading';
 import { Box } from '../Box';
 
 export interface AccordionProps extends MarginProps {
@@ -58,7 +58,9 @@ export const Accordion: React.FC<AccordionProps> = ({
         role="button"
         tabIndex={0}
       >
-        <H3 m={0}>{title}</H3>
+        <Heading as="h3" styleAs="h4" m={0}>
+          {title}
+        </Heading>
 
         <StyledIconBox bg="shades.grey244" collapsed={collapsed} ml={2}>
           <Icon
