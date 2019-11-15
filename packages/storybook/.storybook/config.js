@@ -105,6 +105,7 @@ const loadStories = () => [
   require('../src/stories/components/inputs/input.stories'),
   require('../src/stories/components/inputs/switch.stories'),
   require('../src/stories/components/inputs/link.stories'),
+  require('../src/stories/components/inputs/breadcrumbs.stories'),
 
   // Form
   require('../src/stories/components/form/formgroup.stories'),
