@@ -5,7 +5,7 @@ import {
   GridItem,
   VisualSection,
   Box,
-  Heading
+  Section
 } from '@t3n/components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storyContainerContentDecorator } from '../../../../utils/decorators';
@@ -22,33 +22,36 @@ defaultStory.story = {
   decorators: [withKnobs, storyContainerContentDecorator]
 };
 
-export const variantStory = () => (
+export const lineBreakStory = () => (
   <>
-    <Heading as="h3" ml={3}>
-      Punchline 50% width
-    </Heading>
-    <Grid>
-      <GridItem width={[1, 1, 1 / 2, 1 / 2]}>
-        <Box ml={4}>
-          <Punchline>Test für Punchline mit Zeilenumbruch</Punchline>
-        </Box>
-      </GridItem>
-    </Grid>
-    <Heading as="h3" ml={3} mt={8}>
-      Punchline in Visual-Section 100% width
-    </Heading>
-    <Grid>
-      <GridItem width={[1]}>
-        <VisualSection variant="highlight" innerGap={9}>
-          <Box ml={3}>
-            <Punchline>Test für Punchline in Visual-Section</Punchline>
+    <Section variant="primary" innerGap={9}>
+      <Grid>
+        <GridItem>
+          <Box width="500px" pl={3}>
+            <Punchline>Punchline mit Zeilenumbruch</Punchline>
           </Box>
-        </VisualSection>
-      </GridItem>
-    </Grid>
+        </GridItem>
+      </Grid>
+    </Section>
   </>
 );
 
-variantStory.story = {
-  name: 'Varianten'
+lineBreakStory.story = {
+  name: 'Zeilenumbruch'
+};
+
+export const visualSectionStory = () => (
+  <Grid>
+    <GridItem width={[1]}>
+      <VisualSection variant="highlight" innerGap={9}>
+        <Box p={3}>
+          <Punchline>Punchline in Visual-Section</Punchline>
+        </Box>
+      </VisualSection>
+    </GridItem>
+  </Grid>
+);
+
+visualSectionStory.story = {
+  name: 'Visual Section'
 };
