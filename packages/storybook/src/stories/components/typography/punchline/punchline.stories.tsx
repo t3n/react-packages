@@ -7,7 +7,6 @@ import {
   Box,
   Section
 } from '@t3n/components';
-import { withKnobs } from '@storybook/addon-knobs';
 import { storyContainerContentDecorator } from '../../../../utils/decorators';
 
 export default {
@@ -19,7 +18,7 @@ export const defaultStory = () => <Punchline>Punchline</Punchline>;
 
 defaultStory.story = {
   name: 'Default',
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [storyContainerContentDecorator]
 };
 
 export const lineBreakStory = () => (
