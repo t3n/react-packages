@@ -5,6 +5,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   font-family: "adelle-sans",sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
+  font-weight: bold;
 }
 
 .c2 {
@@ -161,6 +162,7 @@ exports[`BreadcrumbsItems render custom link component if provided through props
   font-family: "adelle-sans",sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
+  font-weight: bold;
 }
 
 .c1 {
