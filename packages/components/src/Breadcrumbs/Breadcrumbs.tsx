@@ -33,7 +33,9 @@ export const BreadcrumbsItem = styled(
           {label}
         </LinkComponent>
       ) : (
-        <Text inline>{label}</Text>
+        <Text inline bold>
+          {label}
+        </Text>
       )}
     </li>
   )
