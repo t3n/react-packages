@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, AnchorHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { padding, lineHeight } from 'styled-system';
 
@@ -13,9 +13,10 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
   href?: string;
   className?: string;
   label: string;
-  linkComponent?: React.ComponentType<
-    Omit<LinkProps, 'color'> & React.AnchorHTMLAttributes<HTMLAnchorElement>
-  >;
+  linkComponent?: (
+    props: React.AnchorHTMLAttributes<HTMLAnchorElement> &
+      Pick<LinkProps, 'variant' | 'children'> & { href: string }
+  ) => JSX.Element;
 }
 
 export const BreadcrumbsItem = styled(
@@ -32,9 +33,7 @@ export const BreadcrumbsItem = styled(
           {label}
         </LinkComponent>
       ) : (
-        <Text inline bold>
-          {label}
-        </Text>
+        <Text inline>{label}</Text>
       )}
     </li>
   )
@@ -87,7 +86,7 @@ export interface BreadcrumbsProps {
 
 export const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
   return (
-    <nav>
+    <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>
     </nav>
   );

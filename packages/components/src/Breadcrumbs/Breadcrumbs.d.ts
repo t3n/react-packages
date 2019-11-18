@@ -4,7 +4,9 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
     href?: string;
     className?: string;
     label: string;
-    linkComponent?: React.ComponentType<Omit<LinkProps, 'color'> & React.AnchorHTMLAttributes<HTMLAnchorElement>>;
+    linkComponent?: (props: React.AnchorHTMLAttributes<HTMLAnchorElement> & Pick<LinkProps, 'variant' | 'children'> & {
+        href: string;
+    }) => JSX.Element;
 }
 export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent: LinkComponent }: BreadcrumbsItemProps) => JSX.Element, any, {}, never>;
 export interface BreadcrumbsProps {

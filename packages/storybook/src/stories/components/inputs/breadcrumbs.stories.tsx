@@ -3,6 +3,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 
 import { Breadcrumbs, BreadcrumbsItem } from '@t3n/components';
+import { BreadcrumbsItemProps } from '@t3n/components/src/Breadcrumbs';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -34,3 +35,28 @@ export const item = () => {
     </Breadcrumbs>
   );
 };
+
+const CustomLinkComponent = styled.a<{ href: string }>`
+  color: green;
+  font-style: italic;
+
+  &:hover {
+    color: blue;
+  }
+`;
+
+const CustomBreadcrumbsItem = ({ href, label }: BreadcrumbsItemProps) => (
+  <BreadcrumbsItem
+    href={href}
+    label={label}
+    linkComponent={CustomLinkComponent}
+  />
+);
+
+export const customLink = () => (
+  <Breadcrumbs>
+    <CustomBreadcrumbsItem href="/" label="Custom Link" />
+    <CustomBreadcrumbsItem href="/" label="Another Custom Link" />
+    <BreadcrumbsItem label="Current Page" />
+  </Breadcrumbs>
+);
