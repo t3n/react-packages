@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs matches snapshot 1`] = `
+.c3 {
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  font-weight: bold;
+}
+
+.c2 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  pointer-events: auto;
+  opacity: 1;
+  background-repeat: repeat-x;
+  background-size: 1px 1px;
+  background-position: 0 100%;
+  cursor: pointer;
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  color: #2a2a2a;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDE0MywxNDMsMTQzKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
+}
+
+.c2:hover {
+  color: #2a2a2a;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDI0OSw2Niw1OCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIC8+PC9nPjwvc3ZnPg==');
+}
+
+.c2:focus {
+  color: #f9423a;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDI0OSw2Niw1OCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIC8+PC9nPjwvc3ZnPg==');
+}
+
+.c2:visited {
+  color: #2a2a2a;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDE0MywxNDMsMTQzKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
+}
+
+.c2:visited:focus {
+  color: #f9423a;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDI0OSw2Niw1OCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIC8+PC9nPjwvc3ZnPg==');
+}
+
+.c1 {
+  position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+  line-height: 1.666em;
+  margin-right: -2px;
+}
+
+.c1:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  bottom: 50%;
+  left: 0;
+  margin-bottom: -6px;
+  border-top: 0.333rem solid transparent;
+  border-bottom: 0.333rem solid transparent;
+  border-left: 0.333rem solid #8F8F8F;
+}
+
+.c1:first-child {
+  padding-left: 0;
+}
+
+.c1:first-child:after {
+  display: none;
+}
+
+.c1:last-child {
+  padding-right: 0;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1rem;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width:30rem) {
+  .c3 {
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c3 {
+    line-height: 1.666em;
+  }
+}
+
+@media screen and (min-width:30rem) {
+  .c2 {
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c2 {
+    line-height: 1.666em;
+  }
+}
+
+<nav>
+  <ul
+    class="c0"
+  >
+    <li
+      class="c1"
+    >
+      <a
+        class="c2"
+        href="/item1"
+        title="Item 1"
+      >
+        Item 1
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <a
+        class="c2"
+        href="/item2"
+        title="Item 2"
+      >
+        Item 2
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <span
+        class="c3"
+      >
+        Item 3
+      </span>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`BreadcrumbsItems render custom link component if provided through props 1`] = `
+.c2 {
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  font-weight: bold;
+}
+
+.c1 {
+  position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+  line-height: 1.666em;
+  margin-right: -2px;
+}
+
+.c1:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  bottom: 50%;
+  left: 0;
+  margin-bottom: -6px;
+  border-top: 0.333rem solid transparent;
+  border-bottom: 0.333rem solid transparent;
+  border-left: 0.333rem solid #8F8F8F;
+}
+
+.c1:first-child {
+  padding-left: 0;
+}
+
+.c1:first-child:after {
+  display: none;
+}
+
+.c1:last-child {
+  padding-right: 0;
+}
+
+.c0 {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1rem;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width:30rem) {
+  .c2 {
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c2 {
+    line-height: 1.666em;
+  }
+}
+
+<nav>
+  <ul
+    class="c0"
+  >
+    <li
+      class="c1"
+    >
+      <a
+        href="/item1"
+        style="color: red;"
+        title="Item 1"
+      >
+        Item 1
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <a
+        href="/item2"
+        style="color: red;"
+        title="Item 2"
+      >
+        Item 2
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <span
+        class="c2"
+      >
+        Item 3
+      </span>
+    </li>
+  </ul>
+</nav>
+`;
