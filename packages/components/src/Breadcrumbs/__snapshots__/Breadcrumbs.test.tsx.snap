@@ -5,7 +5,6 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   font-family: "adelle-sans",sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
-  font-weight: bold;
 }
 
 .c2 {
@@ -116,7 +115,9 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   }
 }
 
-<nav>
+<nav
+  aria-label="Breadcrumb"
+>
   <ul
     class="c0"
   >
@@ -160,7 +161,6 @@ exports[`BreadcrumbsItems render custom link component if provided through props
   font-family: "adelle-sans",sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
-  font-weight: bold;
 }
 
 .c1 {
@@ -223,7 +223,9 @@ exports[`BreadcrumbsItems render custom link component if provided through props
   }
 }
 
-<nav>
+<nav
+  aria-label="Breadcrumb"
+>
   <ul
     class="c0"
   >

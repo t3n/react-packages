@@ -24,6 +24,14 @@ test('Breadcrumbs matches snapshot', () => {
   expect(container.firstChild).toMatchSnapshot();
 });
 
+test('Breadcrumbs navigation element is accessible', () => {
+  const { getByRole } = renderBreadcrumbs();
+
+  expect(getByRole('navigation').getAttribute('aria-label')).toEqual(
+    'Breadcrumb'
+  );
+});
+
 test('BreadcrumbsItems render label prop as text content', () => {
   const { getAllByRole } = renderBreadcrumbs();
 

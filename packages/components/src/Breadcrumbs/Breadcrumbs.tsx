@@ -33,9 +33,7 @@ export const BreadcrumbsItem = styled(
           {label}
         </LinkComponent>
       ) : (
-        <Text inline bold>
-          {label}
-        </Text>
+        <Text inline>{label}</Text>
       )}
     </li>
   )
@@ -88,7 +86,7 @@ export interface BreadcrumbsProps {
 
 export const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
   return (
-    <nav>
+    <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>
     </nav>
   );
