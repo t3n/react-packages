@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import { MarginProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
-import { SliderMarker, SliderPointer, SliderLabels } from './SliderElements';
+import {
+  SliderMarkerProps,
+  SliderMarker,
+  SliderPointer,
+  SliderLabels
+} from './SliderElements';
 
 export type VariantType = 'light' | 'dark';
 
@@ -17,12 +22,6 @@ export interface SliderProps extends MarginProps {
   steps?: number;
   name: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface SliderMarkerProps {
-  label: string;
-  showLabel: boolean;
-  value: number;
 }
 
 const StyledSlider = styled.div<SliderProps>`
@@ -40,19 +39,13 @@ const StyledSliderRail = styled.div`
   position: absolute;
   width: 100%;
   background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
-  height: ${({ theme }: ThemeProps) => theme.space[1]+'px'};
-  bottom: ${({ theme }: ThemeProps) => (theme.space[3]/2-theme.space[1]/2)+'px'};
+  height: ${({ theme }: ThemeProps) => theme.space[1] + 'px'};
+  bottom: ${({ theme }: ThemeProps) => (theme.space[3] / 2 - theme.space[1] / 2) + 'px'};
 `;
 
-const generateMarker = (minValue:number, maxValue:number, labels?: Array<string>, tracks?: Array<SliderMarkerProps>, steps?: number) => {
-  const marker = [];
-
-  if (tracks) {
-    tracks.forEach((track: SliderMarkerProps) => {
-      marker.push(track);
-    });
-  } else {
-    let newValue = minValue;
+const generateMarkerFromSteps = (minValue: number, maxValue: number, steps?: number) => {
+  const marker: Array<SliderMarkerProps> = [];
+  let newValue = minValue;
     let index = 0;
     do {
       marker.push({
@@ -61,10 +54,32 @@ const generateMarker = (minValue:number, maxValue:number, labels?: Array<string>
         showLabel: false
       });
       newValue += (steps as number);
-      index++;
+      index += 1;
     } while (
       newValue <= (maxValue as number)
     );
+
+    return marker;
+}
+
+const generateMarker = (minValue: number, maxValue: number, labels?: Array<string>, tracks?: Array<SliderMarkerProps>, steps?: number) => {
+  const marker: Array<SliderMarkerProps> = [];
+
+  if (tracks) {
+    tracks.forEach((track: SliderMarkerProps) => {
+      marker.push(track);
+    });
+  } else {
+    marker.push(...generateMarkerFromSteps(minValue, maxValue, steps));
+  }
+
+  if (labels) {
+    labels.forEach((label: string, index:number) => {
+      if (marker[index] && label !== '') {
+        marker[index]['label'] = label;
+        marker[index]['showLabel'] = true;
+      }
+    });
   }
 
   return marker;

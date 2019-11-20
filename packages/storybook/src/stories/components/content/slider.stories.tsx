@@ -23,7 +23,14 @@ defaultStory.story = {
 export const customMinMaxWithStepsStory = () => {
   return (
     <div>
-      <Slider name="slider" minValue={0} maxValue={10} steps={2} initialValue={0} />
+      <Slider
+        name="slider"
+        minValue={0}
+        maxValue={10}
+        steps={2}
+        initialValue={0}
+        labels={['0', '', '4', '', '8']}
+      />
     </div>
   );
 };
