@@ -132,9 +132,7 @@ export const SliderPointer = (props: SliderPointerProps) => {
       ref={ref}
       color={highlightColor}
       style={{ left: position }}
-      tabindex="0"
-      role="slider"
-      aria-valuenow={value}
+      tabindex="-1"
     />
   );
 };
