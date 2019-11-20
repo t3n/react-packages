@@ -16,7 +16,7 @@ export interface SliderLabelsProps {
   value: number;
 }
 
-export interface SliderLabelProps extends ThemeProps{
+export interface SliderLabelProps extends ThemeProps {
   highlight: boolean;
 }
 
@@ -43,8 +43,6 @@ const fontColor = ({
 const StyledSliderMarkerList = styled.div`
   position: absolute;
   width: 100%;
-  cursor: pointer;
-  pointer-events: none;
 `;
 
 const StyledSliderMarker = styled.span`
@@ -69,6 +67,8 @@ const StyledSliderPointer = styled.span<{ color?: (ThemeColors & string) }>`
   transform: translateX(-${({ theme }: ThemeProps) => theme.space[3] / 2 + 'px'});
   white-space: nowrap;
   background-color: ${props => props.color ? props.color : ({ theme }: ThemeProps) => theme.colors.brand.red};
+  cursor: pointer;
+  pointer-events: none;
 `;
 
 const StyledSliderLabelList = styled.span`
@@ -106,7 +106,15 @@ export const SliderPointer = (props: SliderPointerProps) => {
   const indexOfMarker = _.findIndex(marker, { 'value': value });
   const amountOfItems = marker ? marker.length : 0;
   const position = calculatePercentagePosition(amountOfItems, indexOfMarker) + '%';
-  return <StyledSliderPointer color={highlightColor} style={{ left: position }} />;
+  return (
+    <StyledSliderPointer
+      color={highlightColor}
+      style={{ left: position }}
+      tabindex="0"
+      role="slider"
+      aria-value={value}
+    />
+  );
 }
 
 export const SliderMarker = (props: SliderMarkerProps) => {

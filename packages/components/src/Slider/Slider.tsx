@@ -46,20 +46,20 @@ const StyledSliderRail = styled.div`
 const generateMarkerFromSteps = (minValue: number, maxValue: number, steps?: number) => {
   const marker: Array<SliderTrackProps> = [];
   let newValue = minValue;
-    let index = 0;
-    do {
-      marker.push({
-        value: newValue,
-        label: '',
-        showLabel: false
-      });
-      newValue += (steps as number);
-      index += 1;
-    } while (
-      newValue <= (maxValue as number)
-    );
+  let index = 0;
+  do {
+    marker.push({
+      value: newValue,
+      label: '',
+      showLabel: false
+    });
+    newValue += (steps as number);
+    index += 1;
+  } while (
+    newValue <= (maxValue as number)
+  );
 
-    return marker;
+  return marker;
 }
 
 const generateMarker = (minValue: number, maxValue: number, labels?: Array<string>, tracks?: Array<SliderTrackProps>, steps?: number) => {
@@ -74,7 +74,7 @@ const generateMarker = (minValue: number, maxValue: number, labels?: Array<strin
   }
 
   if (labels) {
-    labels.forEach((label: string, index:number) => {
+    labels.forEach((label: string, index: number) => {
       if (marker[index] && label !== '') {
         marker[index]['label'] = label;
         marker[index]['showLabel'] = true;
