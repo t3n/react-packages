@@ -26,6 +26,12 @@ export interface SliderProps extends MarginProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+export interface HiddenInputProps {
+  name: string;
+  value: any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 const StyledSlider = styled.div<SliderProps>`
   position: relative;
   display: flex;
@@ -45,6 +51,10 @@ const StyledSliderRail = styled.div`
   height: ${({ theme }: ThemeProps) => `${theme.space[1]}px`};
   bottom: ${({ theme }: ThemeProps) =>
     `${theme.space[3] / 2 - theme.space[1] / 2}px`};
+`;
+
+const HiddenInput = styled.input.attrs({ type: 'hidden' }) <HiddenInputProps>`
+  display: none;
 `;
 
 const generateMarkerFromSteps = (
@@ -127,6 +137,7 @@ export const Slider: React.FC<SliderProps> = ({
       {...marginProps}
     >
       <StyledSlide>
+        <HiddenInput value={value} name={name} />
         <SliderLabels marker={marker} value={value} />
         <DndProvider backend={HTML5Backend}>
           <StyledSliderRail />

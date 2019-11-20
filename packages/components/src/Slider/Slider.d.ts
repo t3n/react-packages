@@ -14,4 +14,9 @@ export interface SliderProps extends MarginProps {
     name: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+export interface HiddenInputProps {
+    name: string;
+    value: any;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 export declare const Slider: React.FC<SliderProps>;
