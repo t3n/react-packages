@@ -37,13 +37,9 @@ export interface SliderPointerProps {
   highlightColor?: ThemeColors & string;
 }
 
-const fontSize = ({ theme }: ThemeProps) =>
-  typography({ fontSize: theme });
+const fontSize = ({ theme }: ThemeProps) => typography({ fontSize: theme });
 
-const fontColor = ({
-  highlight,
-  theme
-}: SliderLabelProps & ThemeProps) => `
+const fontColor = ({ highlight, theme }: SliderLabelProps & ThemeProps) => `
   color: ${highlight ? theme.colors.brand.black : theme.colors.shades.grey232};
 `;
 
@@ -65,15 +61,20 @@ const StyledSliderMarker = styled.span`
   background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
 `;
 
-const StyledSliderPointer = styled.span<{ color?: (ThemeColors & string) }>`
+const StyledSliderPointer = styled.span<{ color?: ThemeColors & string }>`
   position: absolute;
   bottom: 0;
-  width: ${({ theme }: ThemeProps) => theme.space[3] + 'px'};
-  height: ${({ theme }: ThemeProps) => theme.space[3] + 'px'};
+  width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
+  height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   border-radius: 50%;
-  transform: translateX(-${({ theme }: ThemeProps) => theme.space[3] / 2 + 'px'});
+  transform: translateX(
+    -${({ theme }: ThemeProps) => `${theme.space[3] / 2}px`}
+  );
   white-space: nowrap;
-  background-color: ${props => props.color ? props.color : ({ theme }: ThemeProps) => theme.colors.brand.red};
+  background-color: ${props =>
+    props.color
+      ? props.color
+      : ({ theme }: ThemeProps) => theme.colors.brand.red};
   cursor: pointer;
   pointer-events: none;
 `;
@@ -81,7 +82,8 @@ const StyledSliderPointer = styled.span<{ color?: (ThemeColors & string) }>`
 const StyledSliderLabelList = styled.span`
   display: inline-block;
   width: 100%;
-  margin-bottom: ${({ theme }: ThemeProps) => (theme.space[3] + theme.space[4]) + 'px'};
+  margin-bottom: ${({ theme }: ThemeProps) =>
+    `${theme.space[3] + theme.space[4]}px`};
 `;
 
 const StyledSliderLabel = styled.span<SliderLabelProps>`
@@ -89,7 +91,7 @@ const StyledSliderLabel = styled.span<SliderLabelProps>`
   display: inline-block;
   text-align: center;
   transform: translateX(-50%);
-  white-space:nowrap;
+  white-space: nowrap;
   font-weight: bold;
   ${fontColor};
   ${fontSize};
@@ -106,14 +108,17 @@ const calculatePercentagePosition = (amount: number, position: number) => {
 
   const distance = 100 / (amount - 1);
   return position * distance;
-}
+};
 
 export const SliderPointer = (props: SliderPointerProps) => {
   const ref = useRef(null);
   const { highlightColor, marker, value } = props;
-  const indexOfMarker = _.findIndex(marker, { 'value': value });
+  const indexOfMarker = _.findIndex(marker, { value });
   const amountOfItems = marker ? marker.length : 0;
-  const position = calculatePercentagePosition(amountOfItems, indexOfMarker) + '%';
+  const position = `${calculatePercentagePosition(
+    amountOfItems,
+    indexOfMarker
+  )}%`;
   return (
     <StyledSliderPointer
       ref={ref}
@@ -124,7 +129,7 @@ export const SliderPointer = (props: SliderPointerProps) => {
       aria-valuenow={value}
     />
   );
-}
+};
 
 export const SliderMarkerList = (props: SliderMarkerListProps) => {
   const { marker } = props;
@@ -143,20 +148,24 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
       })}
     </StyledSliderMarkerList>
   );
-}
+};
 
 export const SliderMarker = (props: SliderMarkerProps) => {
   const { value, position } = props;
   const ref = useRef(null);
 
   return (
-    <StyledSliderMarker ref={ref} data-value={value} style={{ left: position + '%' }} />
+    <StyledSliderMarker
+      ref={ref}
+      data-value={value}
+      style={{ left: `${position}%` }}
+    />
   );
-}
+};
 
 export const SliderLabels = (props: SliderLabelsProps) => {
   const { marker, value } = props;
-  const labels = _.find(marker, { 'showLabel': true });
+  const labels = _.find(marker, { showLabel: true });
 
   if (!labels || !marker) {
     return null;
@@ -165,11 +174,20 @@ export const SliderLabels = (props: SliderLabelsProps) => {
   return (
     <StyledSliderLabelList>
       {marker.map((mark: SliderTrackProps, index: number) => {
-        const position = calculatePercentagePosition(marker.length, index) + '%';
+        const position = `${calculatePercentagePosition(
+          marker.length,
+          index
+        )}%`;
         return (
-          <StyledSliderLabel key={index} style={{ left: position }} highlight={mark.value === value}>{mark.label}</StyledSliderLabel>
+          <StyledSliderLabel
+            key={index}
+            style={{ left: position }}
+            highlight={mark.value === value}
+          >
+            {mark.label}
+          </StyledSliderLabel>
         );
       })}
     </StyledSliderLabelList>
   );
-}
+};

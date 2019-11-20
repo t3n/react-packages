@@ -39,11 +39,16 @@ const StyledSliderRail = styled.div`
   position: absolute;
   width: 100%;
   background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
-  height: ${({ theme }: ThemeProps) => theme.space[1] + 'px'};
-  bottom: ${({ theme }: ThemeProps) => (theme.space[3] / 2 - theme.space[1] / 2) + 'px'};
+  height: ${({ theme }: ThemeProps) => `${theme.space[1]}px`};
+  bottom: ${({ theme }: ThemeProps) =>
+    `${theme.space[3] / 2 - theme.space[1] / 2}px`};
 `;
 
-const generateMarkerFromSteps = (minValue: number, maxValue: number, steps?: number) => {
+const generateMarkerFromSteps = (
+  minValue: number,
+  maxValue: number,
+  steps?: number
+) => {
   const marker: Array<SliderTrackProps> = [];
   let newValue = minValue;
   let index = 0;
@@ -53,16 +58,20 @@ const generateMarkerFromSteps = (minValue: number, maxValue: number, steps?: num
       label: '',
       showLabel: false
     });
-    newValue += (steps as number);
+    newValue += steps as number;
     index += 1;
-  } while (
-    newValue <= (maxValue as number)
-  );
+  } while (newValue <= (maxValue as number));
 
   return marker;
-}
+};
 
-const generateMarker = (minValue: number, maxValue: number, labels?: Array<string>, tracks?: Array<SliderTrackProps>, steps?: number) => {
+const generateMarker = (
+  minValue: number,
+  maxValue: number,
+  labels?: Array<string>,
+  tracks?: Array<SliderTrackProps>,
+  steps?: number
+) => {
   const marker: Array<SliderTrackProps> = [];
 
   if (tracks) {
@@ -76,14 +85,14 @@ const generateMarker = (minValue: number, maxValue: number, labels?: Array<strin
   if (labels) {
     labels.forEach((label: string, index: number) => {
       if (marker[index] && label !== '') {
-        marker[index]['label'] = label;
-        marker[index]['showLabel'] = true;
+        marker[index].label = label;
+        marker[index].showLabel = true;
       }
     });
   }
 
   return marker;
-}
+};
 
 export const Slider: React.FC<SliderProps> = ({
   initialValue,
@@ -115,7 +124,11 @@ export const Slider: React.FC<SliderProps> = ({
         <SliderLabels marker={marker} value={value} />
         <StyledSliderRail />
         <SliderMarkerList marker={marker} />
-        <SliderPointer highlightColor={highlightColor} marker={marker} value={value} />
+        <SliderPointer
+          highlightColor={highlightColor}
+          marker={marker}
+          value={value}
+        />
       </StyledSlide>
     </StyledSlider>
   );
