@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import _ from 'lodash';
 import styled from 'styled-components';
 import { ThemeProps } from '@t3n/theme';
@@ -9,6 +9,7 @@ export interface SliderTrackProps {
   label: string;
   showLabel: boolean;
   value: number;
+  position: number;
 }
 
 export interface SliderLabelsProps {
@@ -20,8 +21,14 @@ export interface SliderLabelProps extends ThemeProps {
   highlight: boolean;
 }
 
-export interface SliderMarkerProps {
+export interface SliderMarkerListProps {
   marker?: Array<SliderTrackProps>;
+}
+
+export interface SliderMarkerProps {
+  value: number;
+  position?: number;
+  key?: number;
 }
 
 export interface SliderPointerProps {
@@ -102,22 +109,24 @@ const calculatePercentagePosition = (amount: number, position: number) => {
 }
 
 export const SliderPointer = (props: SliderPointerProps) => {
+  const ref = useRef(null);
   const { highlightColor, marker, value } = props;
   const indexOfMarker = _.findIndex(marker, { 'value': value });
   const amountOfItems = marker ? marker.length : 0;
   const position = calculatePercentagePosition(amountOfItems, indexOfMarker) + '%';
   return (
     <StyledSliderPointer
+      ref={ref}
       color={highlightColor}
       style={{ left: position }}
       tabindex="0"
       role="slider"
-      aria-value={value}
+      aria-valuenow={value}
     />
   );
 }
 
-export const SliderMarker = (props: SliderMarkerProps) => {
+export const SliderMarkerList = (props: SliderMarkerListProps) => {
   const { marker } = props;
 
   if (!marker) {
@@ -127,12 +136,21 @@ export const SliderMarker = (props: SliderMarkerProps) => {
   return (
     <StyledSliderMarkerList>
       {marker.map((mark: SliderTrackProps, index: number) => {
-        const position = calculatePercentagePosition(marker.length, index) + '%';
+        const position = calculatePercentagePosition(marker.length, index);
         return (
-          <StyledSliderMarker data-value={mark.value} key={index} style={{ left: position }} />
+          <SliderMarker key={index} position={position} value={mark.value} />
         );
       })}
     </StyledSliderMarkerList>
+  );
+}
+
+export const SliderMarker = (props: SliderMarkerProps) => {
+  const { value, position } = props;
+  const ref = useRef(null);
+
+  return (
+    <StyledSliderMarker ref={ref} data-value={value} style={{ left: position + '%' }} />
   );
 }
 

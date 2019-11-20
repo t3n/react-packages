@@ -5,7 +5,7 @@ import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import {
   SliderTrackProps,
-  SliderMarker,
+  SliderMarkerList,
   SliderPointer,
   SliderLabels
 } from './SliderElements';
@@ -114,7 +114,7 @@ export const Slider: React.FC<SliderProps> = ({
       <StyledSlide>
         <SliderLabels marker={marker} value={value} />
         <StyledSliderRail />
-        <SliderMarker marker={marker} />
+        <SliderMarkerList marker={marker} />
         <SliderPointer highlightColor={highlightColor} marker={marker} value={value} />
       </StyledSlide>
     </StyledSlider>

@@ -5,6 +5,7 @@ export interface SliderTrackProps {
     label: string;
     showLabel: boolean;
     value: number;
+    position: number;
 }
 export interface SliderLabelsProps {
     marker?: Array<SliderTrackProps>;
@@ -13,8 +14,13 @@ export interface SliderLabelsProps {
 export interface SliderLabelProps extends ThemeProps {
     highlight: boolean;
 }
-export interface SliderMarkerProps {
+export interface SliderMarkerListProps {
     marker?: Array<SliderTrackProps>;
+}
+export interface SliderMarkerProps {
+    value: number;
+    position?: number;
+    key?: number;
 }
 export interface SliderPointerProps {
     marker?: Array<SliderTrackProps>;
@@ -22,5 +28,6 @@ export interface SliderPointerProps {
     highlightColor?: ThemeColors & string;
 }
 export declare const SliderPointer: (props: SliderPointerProps) => JSX.Element;
-export declare const SliderMarker: (props: SliderMarkerProps) => JSX.Element | null;
+export declare const SliderMarkerList: (props: SliderMarkerListProps) => JSX.Element | null;
+export declare const SliderMarker: (props: SliderMarkerProps) => JSX.Element;
 export declare const SliderLabels: (props: SliderLabelsProps) => JSX.Element | null;
