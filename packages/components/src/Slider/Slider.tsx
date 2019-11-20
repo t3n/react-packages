@@ -4,7 +4,7 @@ import { MarginProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import {
-  SliderMarkerProps,
+  SliderTrackProps,
   SliderMarker,
   SliderPointer,
   SliderLabels
@@ -18,7 +18,7 @@ export interface SliderProps extends MarginProps {
   maxValue: number;
   highlightColor?: ThemeColors & string;
   labels?: Array<string>;
-  tracks?: Array<SliderMarkerProps>;
+  tracks?: Array<SliderTrackProps>;
   steps?: number;
   name: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -44,7 +44,7 @@ const StyledSliderRail = styled.div`
 `;
 
 const generateMarkerFromSteps = (minValue: number, maxValue: number, steps?: number) => {
-  const marker: Array<SliderMarkerProps> = [];
+  const marker: Array<SliderTrackProps> = [];
   let newValue = minValue;
     let index = 0;
     do {
@@ -62,11 +62,11 @@ const generateMarkerFromSteps = (minValue: number, maxValue: number, steps?: num
     return marker;
 }
 
-const generateMarker = (minValue: number, maxValue: number, labels?: Array<string>, tracks?: Array<SliderMarkerProps>, steps?: number) => {
-  const marker: Array<SliderMarkerProps> = [];
+const generateMarker = (minValue: number, maxValue: number, labels?: Array<string>, tracks?: Array<SliderTrackProps>, steps?: number) => {
+  const marker: Array<SliderTrackProps> = [];
 
   if (tracks) {
-    tracks.forEach((track: SliderMarkerProps) => {
+    tracks.forEach((track: SliderTrackProps) => {
       marker.push(track);
     });
   } else {
@@ -112,7 +112,7 @@ export const Slider: React.FC<SliderProps> = ({
       {...marginProps}
     >
       <StyledSlide>
-        <SliderLabels marker={marker} />
+        <SliderLabels marker={marker} value={value} />
         <StyledSliderRail />
         <SliderMarker marker={marker} />
         <SliderPointer highlightColor={highlightColor} marker={marker} value={value} />
