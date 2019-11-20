@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import _ from 'lodash';
 import styled from 'styled-components';
+import { useDrag, useDrop } from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { typography } from 'styled-system';
@@ -35,6 +36,7 @@ export interface SliderPointerProps {
   marker?: Array<SliderTrackProps>;
   value: number;
   highlightColor?: ThemeColors & string;
+  onChange?: Function
 }
 
 const fontSize = ({ theme }: ThemeProps) => typography({ fontSize: theme });
@@ -58,6 +60,7 @@ const StyledSliderMarker = styled.span`
   margin: 2px 0;
   bottom: 0;
   white-space: nowrap;
+  z-index: 5;
   background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
 `;
 
@@ -67,16 +70,13 @@ const StyledSliderPointer = styled.span<{ color?: ThemeColors & string }>`
   width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   border-radius: 50%;
-  transform: translateX(
-    -${({ theme }: ThemeProps) => `${theme.space[3] / 2}px`}
-  );
   white-space: nowrap;
   background-color: ${props =>
     props.color
       ? props.color
       : ({ theme }: ThemeProps) => theme.colors.brand.red};
   cursor: pointer;
-  pointer-events: none;
+  z-index: 10;
 `;
 
 const StyledSliderLabelList = styled.span`
@@ -112,7 +112,15 @@ const calculatePercentagePosition = (amount: number, position: number) => {
 
 export const SliderPointer = (props: SliderPointerProps) => {
   const ref = useRef(null);
-  const { highlightColor, marker, value } = props;
+  const { highlightColor, marker, value, onChange } = props;
+  const [{ isDragging }, drag] = useDrag({
+    item: { type: 'pointer', value, onChange },
+    collect: monitor => ({
+      isDragging: monitor.isDragging()
+    })
+  });
+  drag(ref);
+
   const indexOfMarker = _.findIndex(marker, { value });
   const amountOfItems = marker ? marker.length : 0;
   const position = `${calculatePercentagePosition(
@@ -153,12 +161,25 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
 export const SliderMarker = (props: SliderMarkerProps) => {
   const { value, position } = props;
   const ref = useRef(null);
+  const [canDrop, drop] = useDrop({
+    accept: 'pointer',
+    drop(item) {
+      item.onChange(value);
+    },
+    collect: monitor => monitor.canDrop()
+  });
+  drop(ref);
+
+  const style: React.CSSProperties = {
+    transform: `scale(${canDrop ? 1.2 : 1})`,
+    left: position + '%'
+  };
 
   return (
     <StyledSliderMarker
       ref={ref}
       data-value={value}
-      style={{ left: `${position}%` }}
+      style={style}
     />
   );
 };

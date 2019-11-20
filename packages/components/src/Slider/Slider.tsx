@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { DndProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import { MarginProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
@@ -28,6 +30,7 @@ const StyledSlider = styled.div<SliderProps>`
   position: relative;
   display: flex;
   height: auto;
+  margin: ${({ theme }: ThemeProps) => `${theme.space[4]}px`};
 `;
 
 const StyledSlide = styled.div`
@@ -107,6 +110,9 @@ export const Slider: React.FC<SliderProps> = ({
 }) => {
   const [value, setValue] = useState(initialValue || 0);
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
+  const change = (value: number) => {
+    setValue(value);
+  };
 
   return (
     <StyledSlider
@@ -122,13 +128,16 @@ export const Slider: React.FC<SliderProps> = ({
     >
       <StyledSlide>
         <SliderLabels marker={marker} value={value} />
-        <StyledSliderRail />
-        <SliderMarkerList marker={marker} />
-        <SliderPointer
-          highlightColor={highlightColor}
-          marker={marker}
-          value={value}
-        />
+        <DndProvider backend={HTML5Backend}>
+          <StyledSliderRail />
+          <SliderMarkerList marker={marker} />
+          <SliderPointer
+            highlightColor={highlightColor}
+            marker={marker}
+            value={value}
+            onChange={change}
+          />
+        </DndProvider>
       </StyledSlide>
     </StyledSlider>
   );
