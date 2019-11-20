@@ -42,10 +42,10 @@ export const withTracksStory = () => {
         maxValue={20}
         tracks={
           [
-            { label: '3 €', value: 3 },
-            { label: '5 €', value: 5 },
-            { label: '10 €', value: 10 },
-            { label: '20 €', value: 20 }
+            { label: '3 €', value: 3, showLabel: true },
+            { label: '5 €', value: 5, showLabel: true },
+            { label: '10 €', value: 10, showLabel: true },
+            { label: '20 €', value: 20, showLabel: true }
           ]
         } />
     </div>

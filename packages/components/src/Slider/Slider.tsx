@@ -97,6 +97,7 @@ export const Slider: React.FC<SliderProps> = ({
       {...marginProps}
     >
       <StyledSlide>
+        <SliderLabels marker={marker} />
         <StyledSliderRail />
         <SliderMarker marker={marker} />
         <SliderPointer highlightColor={highlightColor} marker={marker} value={value} />
