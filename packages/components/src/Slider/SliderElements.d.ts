@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 export interface SliderTrackProps {
     label: string;
@@ -8,6 +9,9 @@ export interface SliderTrackProps {
 export interface SliderLabelsProps {
     marker?: Array<SliderTrackProps>;
     value: number;
+}
+export interface SliderLabelProps extends ThemeProps {
+    highlight: boolean;
 }
 export interface SliderMarkerProps {
     marker?: Array<SliderTrackProps>;

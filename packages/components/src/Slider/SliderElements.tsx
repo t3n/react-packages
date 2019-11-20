@@ -16,6 +16,10 @@ export interface SliderLabelsProps {
   value: number;
 }
 
+export interface SliderLabelProps extends ThemeProps{
+  highlight: boolean;
+}
+
 export interface SliderMarkerProps {
   marker?: Array<SliderTrackProps>;
 }
@@ -28,6 +32,13 @@ export interface SliderPointerProps {
 
 const fontSize = ({ theme }: ThemeProps) =>
   typography({ fontSize: theme });
+
+const fontColor = ({
+  highlight,
+  theme
+}: SliderLabelProps & ThemeProps) => `
+  color: ${highlight ? theme.colors.brand.black : theme.colors.shades.grey232};
+`;
 
 const StyledSliderMarkerList = styled.div`
   position: absolute;
@@ -66,14 +77,14 @@ const StyledSliderLabelList = styled.span`
   margin-bottom: ${({ theme }: ThemeProps) => (theme.space[3] + theme.space[4]) + 'px'};
 `;
 
-const StyledSliderLabel = styled.span`
+const StyledSliderLabel = styled.span<SliderLabelProps>`
   position: absolute;
   display: inline-block;
   text-align: center;
   transform: translateX(-50%);
   white-space:nowrap;
-  color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
   font-weight: bold;
+  ${fontColor};
   ${fontSize};
 `;
 
@@ -93,7 +104,8 @@ const calculatePercentagePosition = (amount: number, position: number) => {
 export const SliderPointer = (props: SliderPointerProps) => {
   const { highlightColor, marker, value } = props;
   const indexOfMarker = _.findIndex(marker, { 'value': value });
-  const position = calculatePercentagePosition(marker.length, indexOfMarker) + '%';
+  const amountOfItems = marker ? marker.length : 0;
+  const position = calculatePercentagePosition(amountOfItems, indexOfMarker) + '%';
   return <StyledSliderPointer color={highlightColor} style={{ left: position }} />;
 }
 
@@ -127,10 +139,9 @@ export const SliderLabels = (props: SliderLabelsProps) => {
   return (
     <StyledSliderLabelList>
       {marker.map((mark: SliderTrackProps, index: number) => {
-        const positionValue = calculatePercentagePosition(marker.length, index);
-        const position = positionValue === 100 ? `calc(${positionValue}% - 6px)` : positionValue + '%';
+        const position = calculatePercentagePosition(marker.length, index) + '%';
         return (
-          <StyledSliderLabel key={index} style={{ left: position }}>{mark.label}</StyledSliderLabel>
+          <StyledSliderLabel key={index} style={{ left: position }} highlight={mark.value === value}>{mark.label}</StyledSliderLabel>
         );
       })}
     </StyledSliderLabelList>
