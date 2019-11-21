@@ -10,7 +10,7 @@ export interface SliderTrackProps {
   label: string;
   showLabel: boolean;
   value: number;
-  position: number;
+  position?: number;
 }
 
 export interface SliderLabelsProps {
@@ -24,19 +24,21 @@ export interface SliderLabelProps extends ThemeProps {
 
 export interface SliderMarkerListProps {
   marker?: Array<SliderTrackProps>;
+  changeSliderValue?: (value: number) => void;
 }
 
 export interface SliderMarkerProps {
   value: number;
   position?: number;
   key?: number;
+  changeSliderValue?: (value: number) => void;
 }
 
 export interface SliderPointerProps {
   marker?: Array<SliderTrackProps>;
   value: number;
   highlightColor?: ThemeColors & string;
-  onChange?: Function
+  onValueChange?: (value: number) => void;
 }
 
 const fontSize = ({ theme }: ThemeProps) => typography({ fontSize: theme });
@@ -61,6 +63,7 @@ const StyledSliderMarker = styled.span`
   bottom: 0;
   white-space: nowrap;
   z-index: 5;
+  cursor: pointer;
   background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
 `;
 
@@ -112,9 +115,9 @@ const calculatePercentagePosition = (amount: number, position: number) => {
 
 export const SliderPointer = (props: SliderPointerProps) => {
   const ref = useRef(null);
-  const { highlightColor, marker, value, onChange } = props;
+  const { highlightColor, marker, value, onValueChange } = props;
   const [{ isDragging }, drag] = useDrag({
-    item: { type: 'pointer', value, onChange },
+    item: { type: 'pointer', value, onValueChange },
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })
@@ -138,7 +141,7 @@ export const SliderPointer = (props: SliderPointerProps) => {
 };
 
 export const SliderMarkerList = (props: SliderMarkerListProps) => {
-  const { marker } = props;
+  const { marker, changeSliderValue } = props;
 
   if (!marker) {
     return null;
@@ -149,7 +152,7 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
       {marker.map((mark: SliderTrackProps, index: number) => {
         const position = calculatePercentagePosition(marker.length, index);
         return (
-          <SliderMarker key={index} position={position} value={mark.value} />
+          <SliderMarker key={index} position={position} value={mark.value} changeSliderValue={changeSliderValue} />
         );
       })}
     </StyledSliderMarkerList>
@@ -157,12 +160,12 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
 };
 
 export const SliderMarker = (props: SliderMarkerProps) => {
-  const { value, position } = props;
+  const { value, position, changeSliderValue } = props;
   const ref = useRef(null);
   const [canDrop, drop] = useDrop({
     accept: 'pointer',
     drop(item) {
-      item.onChange(value);
+      item.onValueChange(value);
     },
     collect: monitor => monitor.canDrop()
   });
@@ -173,11 +176,18 @@ export const SliderMarker = (props: SliderMarkerProps) => {
     left: position + '%'
   };
 
+  const handleClick = () => {
+    if (changeSliderValue) {
+      changeSliderValue(value);
+    }
+  };
+
   return (
     <StyledSliderMarker
       ref={ref}
       data-value={value}
       style={style}
+      onClick={handleClick}
     />
   );
 };

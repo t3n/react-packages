@@ -116,11 +116,12 @@ export const Slider: React.FC<SliderProps> = ({
   tracks,
   steps,
   name,
+  onChange,
   ...marginProps
 }) => {
   const [value, setValue] = useState(initialValue || 0);
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
-  const change = (value: number) => {
+  const changeSliderValue = (value: number) => {
     setValue(value);
   };
 
@@ -137,16 +138,16 @@ export const Slider: React.FC<SliderProps> = ({
       {...marginProps}
     >
       <StyledSlide>
-        <HiddenInput value={value} name={name} />
+        <HiddenInput value={value} name={name} onChange={onChange} />
         <SliderLabels marker={marker} value={value} />
         <DndProvider backend={HTML5Backend}>
           <StyledSliderRail />
-          <SliderMarkerList marker={marker} />
+          <SliderMarkerList marker={marker} changeSliderValue={changeSliderValue} />
           <SliderPointer
             highlightColor={highlightColor}
             marker={marker}
             value={value}
-            onChange={change}
+            onValueChange={changeSliderValue}
           />
         </DndProvider>
       </StyledSlide>
