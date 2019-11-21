@@ -34,10 +34,12 @@ export interface SliderMarkerProps {
   changeSliderValue?: (value: number) => void;
 }
 
-export interface SliderPointerProps {
+export interface SliderPointerPreviewProps {
+  highlightColor?: ThemeColors & string;
+}
+export interface SliderPointerProps extends SliderPointerPreviewProps {
   marker?: Array<SliderTrackProps>;
   value: number;
-  highlightColor?: ThemeColors & string;
   onValueChange?: (value: number) => void;
 }
 
@@ -80,6 +82,19 @@ const StyledSliderPointer = styled.span<{ color?: ThemeColors & string }>`
       : ({ theme }: ThemeProps) => theme.colors.brand.red};
   cursor: pointer;
   z-index: 10;
+`;
+
+const StyledSliderPointerPreview = styled.span<{
+  color?: ThemeColors & string;
+}>`
+  position: absolute;
+  width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
+  height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
+  border-radius: 50%;
+  background-color: ${props =>
+    props.color
+      ? props.color
+      : ({ theme }: ThemeProps) => theme.colors.brand.red};
 `;
 
 const StyledSliderLabelList = styled.span`
@@ -138,6 +153,11 @@ export const SliderPointer = (props: SliderPointerProps) => {
       tabindex="-1"
     />
   );
+};
+
+export const SliderPointerPreview = (props: SliderPointerPreviewProps) => {
+  const { highlightColor } = props;
+  return <StyledSliderPointerPreview color={highlightColor} />;
 };
 
 export const SliderMarkerList = (props: SliderMarkerListProps) => {

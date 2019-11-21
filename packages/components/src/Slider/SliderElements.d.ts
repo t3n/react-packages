@@ -24,13 +24,16 @@ export interface SliderMarkerProps {
     key?: number;
     changeSliderValue?: (value: number) => void;
 }
-export interface SliderPointerProps {
+export interface SliderPointerPreviewProps {
+    highlightColor?: ThemeColors & string;
+}
+export interface SliderPointerProps extends SliderPointerPreviewProps {
     marker?: Array<SliderTrackProps>;
     value: number;
-    highlightColor?: ThemeColors & string;
     onValueChange?: (value: number) => void;
 }
 export declare const SliderPointer: (props: SliderPointerProps) => JSX.Element;
+export declare const SliderPointerPreview: (props: SliderPointerPreviewProps) => JSX.Element;
 export declare const SliderMarkerList: (props: SliderMarkerListProps) => JSX.Element | null;
 export declare const SliderMarker: (props: SliderMarkerProps) => JSX.Element;
 export declare const SliderLabels: (props: SliderLabelsProps) => JSX.Element | null;

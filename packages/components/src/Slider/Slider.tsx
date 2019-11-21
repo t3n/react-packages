@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import TouchBackend from 'react-dnd-touch-backend';
 import { MarginProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
@@ -11,6 +11,7 @@ import {
   SliderPointer,
   SliderLabels
 } from './SliderElements';
+import SliderDragLayer from './SliderDragLayer';
 
 export type VariantType = 'light' | 'dark';
 
@@ -124,6 +125,11 @@ export const Slider: React.FC<SliderProps> = ({
   const changeSliderValue = (value: number) => {
     setValue(value);
   };
+  const touchBackendOptions = {
+    enableTouchEvents: true,
+    enableMouseEvents: true,
+    enableKeyboardEvents: true
+  };
 
   return (
     <StyledSlider
@@ -140,7 +146,8 @@ export const Slider: React.FC<SliderProps> = ({
       <StyledSlide>
         <HiddenInput value={value} name={name} onChange={onChange} />
         <SliderLabels marker={marker} value={value} />
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider backend={TouchBackend} options={touchBackendOptions}>
+          <SliderDragLayer highlightColor={highlightColor} />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}
