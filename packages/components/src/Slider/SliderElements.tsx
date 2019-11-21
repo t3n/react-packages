@@ -152,7 +152,12 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
       {marker.map((mark: SliderTrackProps, index: number) => {
         const position = calculatePercentagePosition(marker.length, index);
         return (
-          <SliderMarker key={index} position={position} value={mark.value} changeSliderValue={changeSliderValue} />
+          <SliderMarker
+            key={index}
+            position={position}
+            value={mark.value}
+            changeSliderValue={changeSliderValue}
+          />
         );
       })}
     </StyledSliderMarkerList>
@@ -173,7 +178,7 @@ export const SliderMarker = (props: SliderMarkerProps) => {
 
   const style: React.CSSProperties = {
     transform: `scale(${canDrop ? 1.2 : 1})`,
-    left: position + '%'
+    left: `${position}%`
   };
 
   const handleClick = () => {

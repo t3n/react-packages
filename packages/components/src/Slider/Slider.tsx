@@ -53,7 +53,7 @@ const StyledSliderRail = styled.div`
     `${theme.space[3] / 2 - theme.space[1] / 2}px`};
 `;
 
-const HiddenInput = styled.input.attrs({ type: 'hidden' }) <HiddenInputProps>`
+const HiddenInput = styled.input.attrs({ type: 'hidden' })<HiddenInputProps>`
   display: none;
 `;
 
@@ -142,7 +142,10 @@ export const Slider: React.FC<SliderProps> = ({
         <SliderLabels marker={marker} value={value} />
         <DndProvider backend={HTML5Backend}>
           <StyledSliderRail />
-          <SliderMarkerList marker={marker} changeSliderValue={changeSliderValue} />
+          <SliderMarkerList
+            marker={marker}
+            changeSliderValue={changeSliderValue}
+          />
           <SliderPointer
             highlightColor={highlightColor}
             marker={marker}
