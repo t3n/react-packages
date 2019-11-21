@@ -7,6 +7,15 @@ export interface SliderDragLayerProps {
   highlightColor?: ThemeColors & string;
 }
 
+export const snapToMarker = (
+  x: number,
+  amountOfMarker: number,
+  offsetWidth: number
+) => {
+  const gridWidth = offsetWidth / amountOfMarker;
+  return Math.round(x / gridWidth) * gridWidth;
+};
+
 const layerStyles: React.CSSProperties = {
   position: 'fixed',
   pointerEvents: 'none',
@@ -19,7 +28,10 @@ const layerStyles: React.CSSProperties = {
 
 const getItemStyles = (
   initialOffset: XYCoord | null,
-  currentOffset: XYCoord | null
+  currentOffset: XYCoord | null,
+  minimumOffset: number,
+  maximumOffset: number,
+  amountOfMarker: number
 ) => {
   if (!initialOffset || !currentOffset) {
     return {
@@ -27,7 +39,20 @@ const getItemStyles = (
     };
   }
 
-  const { x } = currentOffset;
+  // prevent positions outside of slider
+  let { x } = currentOffset;
+  if (minimumOffset && x < minimumOffset) {
+    x = minimumOffset;
+  }
+  if (maximumOffset && x > maximumOffset) {
+    x = maximumOffset;
+  }
+
+  // snap position to next marker
+  const width = maximumOffset - minimumOffset;
+  const snappedXPosition = snapToMarker(x, amountOfMarker - 1, width);
+  x = minimumOffset + snappedXPosition;
+
   const transform = `translate(${x}px, ${initialOffset.y}px)`;
   return {
     transform,
@@ -45,11 +70,12 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
       isDragging: monitor.isDragging()
     })
   );
-
+  const { highlightColor, slider } = props;
+  const { dimensions, amountOfMarker } = slider;
   const renderItem = () => {
     switch (itemType) {
       case 'pointer':
-        return <SliderPointerPreview highlightColor={props.highlightColor} />;
+        return <SliderPointerPreview highlightColor={highlightColor} />;
       default:
         return null;
     }
@@ -57,7 +83,15 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
 
   return !isDragging ? null : (
     <div style={layerStyles}>
-      <div style={getItemStyles(initialOffset, currentOffset)}>
+      <div
+        style={getItemStyles(
+          initialOffset,
+          currentOffset,
+          dimensions.offsetX,
+          dimensions.offsetX + dimensions.width,
+          amountOfMarker
+        )}
+      >
         {renderItem()}
       </div>
     </div>

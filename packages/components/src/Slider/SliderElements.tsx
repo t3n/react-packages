@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import _ from 'lodash';
 import styled from 'styled-components';
-import { useDrag, useDrop } from 'react-dnd';
+import { useDrag, useDrop, DragSourceMonitor } from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { typography } from 'styled-system';
@@ -81,6 +81,8 @@ const StyledSliderPointer = styled.span<{ color?: ThemeColors & string }>`
       ? props.color
       : ({ theme }: ThemeProps) => theme.colors.brand.red};
   cursor: pointer;
+  transition-property: left;
+  transition-duration: 0.2s;
   z-index: 10;
 `;
 
@@ -91,6 +93,7 @@ const StyledSliderPointerPreview = styled.span<{
   width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   border-radius: 50%;
+  opacity: 0.7;
   background-color: ${props =>
     props.color
       ? props.color
@@ -133,7 +136,7 @@ export const SliderPointer = (props: SliderPointerProps) => {
   const { highlightColor, marker, value, onValueChange } = props;
   const [{ isDragging }, drag] = useDrag({
     item: { type: 'pointer', value, onValueChange },
-    collect: monitor => ({
+    collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging()
     })
   });

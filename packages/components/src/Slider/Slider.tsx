@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
 import TouchBackend from 'react-dnd-touch-backend';
@@ -120,7 +120,21 @@ export const Slider: React.FC<SliderProps> = ({
   onChange,
   ...marginProps
 }) => {
+  const sliderRef = useRef();
+  const [dimensions, setDimensions] = useState({ width: 0, offsetX: 0 });
   const [value, setValue] = useState(initialValue || 0);
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      setDimensions({
+        width: sliderRef.current.offsetWidth,
+        height: sliderRef.current.offsetHeight,
+        offsetX: sliderRef.current.offsetLeft,
+        offsetY: sliderRef.current.offsetTop
+      });
+    }
+  }, []);
+
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
   const changeSliderValue = (value: number) => {
     setValue(value);
@@ -128,11 +142,13 @@ export const Slider: React.FC<SliderProps> = ({
   const touchBackendOptions = {
     enableTouchEvents: true,
     enableMouseEvents: true,
-    enableKeyboardEvents: true
+    enableKeyboardEvents: true,
+    enableHoverOutsideTarget: false
   };
 
   return (
     <StyledSlider
+      ref={sliderRef}
       initialValue={initialValue}
       minValue={minValue}
       maxValue={maxValue}
@@ -147,7 +163,10 @@ export const Slider: React.FC<SliderProps> = ({
         <HiddenInput value={value} name={name} onChange={onChange} />
         <SliderLabels marker={marker} value={value} />
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
-          <SliderDragLayer highlightColor={highlightColor} />
+          <SliderDragLayer
+            highlightColor={highlightColor}
+            slider={{ dimensions, amountOfMarker: marker.length }}
+          />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}
