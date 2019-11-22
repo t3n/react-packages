@@ -125,7 +125,7 @@ export const Slider: React.FC<SliderProps> = ({
   const [value, setValue] = useState(initialValue || 0);
 
   useEffect(() => {
-    if (sliderRef.current) {
+    if (sliderRef && sliderRef.current) {
       setDimensions({
         width: sliderRef.current.offsetWidth,
         height: sliderRef.current.offsetHeight,
@@ -136,8 +136,8 @@ export const Slider: React.FC<SliderProps> = ({
   }, []);
 
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
-  const changeSliderValue = (value: number) => {
-    setValue(value);
+  const changeSliderValue = (newValue: number) => {
+    setValue(newValue);
   };
   const touchBackendOptions = {
     enableTouchEvents: true,
@@ -165,11 +165,12 @@ export const Slider: React.FC<SliderProps> = ({
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
           <SliderDragLayer
             highlightColor={highlightColor}
-            slider={{ dimensions, amountOfMarker: marker.length }}
+            slider={{ dimensions }}
           />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}
+            slider={{ dimensions }}
             changeSliderValue={changeSliderValue}
           />
           <SliderPointer

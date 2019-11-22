@@ -5,6 +5,7 @@ import { useDrag, useDrop, DragSourceMonitor } from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { typography } from 'styled-system';
+import { ObjectProperty } from '@babel/types';
 
 export interface SliderTrackProps {
   label: string;
@@ -22,9 +23,27 @@ export interface SliderLabelProps extends ThemeProps {
   highlight: boolean;
 }
 
+export interface DimensionsProps {
+  width: number;
+  height: number;
+  offsetX: number;
+  offsetY: number;
+}
+
+export interface DragItemProps {
+  indexOfMarker: number;
+  value: number;
+  onValueChange?: (value: number) => void;
+}
+
+export interface SliderProps {
+  dimensions: DimensionsProps;
+}
+
 export interface SliderMarkerListProps {
   marker?: Array<SliderTrackProps>;
   changeSliderValue?: (value: number) => void;
+  slider?: SliderProps;
 }
 
 export interface SliderMarkerProps {
@@ -52,6 +71,8 @@ const fontColor = ({ highlight, theme }: SliderLabelProps & ThemeProps) => `
 const StyledSliderMarkerList = styled.div`
   position: absolute;
   width: 100%;
+  height: 2rem;
+  bottom: -1rem;
 `;
 
 const StyledSliderMarker = styled.span`
@@ -59,10 +80,9 @@ const StyledSliderMarker = styled.span`
   position: absolute;
   width: 0.75rem;
   height: 0.75rem;
-  transform: translateX(-${0.75 / 2}rem);
   border-radius: 50%;
   margin: 0.125rem 0;
-  bottom: 0;
+  bottom: 1rem;
   white-space: nowrap;
   z-index: 5;
   cursor: pointer;
@@ -81,8 +101,6 @@ const StyledSliderPointer = styled.span<{ color?: ThemeColors & string }>`
       ? props.color
       : ({ theme }: ThemeProps) => theme.colors.brand.red};
   cursor: pointer;
-  transition-property: left;
-  transition-duration: 0.2s;
   z-index: 10;
 `;
 
@@ -93,7 +111,7 @@ const StyledSliderPointerPreview = styled.span<{
   width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   border-radius: 50%;
-  opacity: 0.7;
+  opacity: 0.3;
   background-color: ${props =>
     props.color
       ? props.color
@@ -135,24 +153,26 @@ const calculatePercentagePosition = (amount: number, position: number) => {
 export const SliderPointer = (props: SliderPointerProps) => {
   const ref = useRef(null);
   const { highlightColor, marker, value, onValueChange } = props;
+  const indexOfMarker = _.findIndex(marker, { value });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [{ isDragging }, drag] = useDrag({
-    item: { type: 'pointer', value, onValueChange },
+    item: { type: 'pointer', value, indexOfMarker, onValueChange },
     collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging()
     })
   });
   drag(ref);
 
-  const indexOfMarker = _.findIndex(marker, { value });
   const amountOfItems = marker ? marker.length : 0;
   const position = `${calculatePercentagePosition(
     amountOfItems,
     indexOfMarker
   )}%`;
+
   return (
     <StyledSliderPointer
-      ref={ref}
       color={highlightColor}
+      ref={ref}
       style={{ left: position }}
       tabindex="-1"
     />
@@ -164,20 +184,80 @@ export const SliderPointerPreview = (props: SliderPointerPreviewProps) => {
   return <StyledSliderPointerPreview color={highlightColor} />;
 };
 
-export const SliderMarkerList = (props: SliderMarkerListProps) => {
-  const { marker, changeSliderValue } = props;
-
-  if (!marker) {
-    return null;
+const snapPositionToClosestMarker = (
+  x: number,
+  amountOfMarker: number,
+  offsetWidth: number
+) => {
+  const gridWidth = offsetWidth / amountOfMarker;
+  const gridPositions = [];
+  for (let index = 0; index <= amountOfMarker; index += 1) {
+    gridPositions.push(index * gridWidth);
   }
+  const closestXPositionOnGrid = gridPositions.reduce((previous, current) =>
+    Math.abs(current - x) < Math.abs(previous - x) ? current : previous
+  );
 
-  return (
-    <StyledSliderMarkerList>
+  return gridPositions.indexOf(closestXPositionOnGrid);
+};
+
+const getClosestMarker = (
+  marker: Array<SliderTrackProps>,
+  width: number,
+  deltaX: number,
+  indexOfLastMarker: number
+) => {
+  const amountOfMarker = marker ? marker.length : 0;
+  const positionOfLastMarker = calculatePercentagePosition(
+    amountOfMarker,
+    indexOfLastMarker
+  );
+  const xPositionOfLastMarker = Math.round(width * positionOfLastMarker) / 100;
+  const xPositionOfPointer = deltaX + xPositionOfLastMarker;
+
+  // snap position of pointer to closest marker
+  const closestMarkerIndex = snapPositionToClosestMarker(
+    xPositionOfPointer,
+    amountOfMarker - 1,
+    width
+  );
+
+  return marker[closestMarkerIndex];
+};
+
+export const SliderMarkerList = (props: SliderMarkerListProps) => {
+  const ref = useRef(null);
+  const { marker, changeSliderValue, slider } = props;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [canDrop, drop] = useDrop({
+    accept: 'pointer',
+    drop(item, monitor) {
+      const delta = monitor.getDifferenceFromInitialOffset() as {
+        x: number;
+        y: number;
+      };
+      if (marker && slider) {
+        const { dimensions } = slider;
+        const closestMarker = getClosestMarker(
+          marker,
+          dimensions.width,
+          delta.x,
+          item.indexOfMarker
+        );
+        item.onValueChange(closestMarker.value);
+      }
+    },
+    collect: monitor => monitor.canDrop()
+  });
+  drop(ref);
+
+  return !marker ? null : (
+    <StyledSliderMarkerList ref={ref}>
       {marker.map((mark: SliderTrackProps, index: number) => {
         const position = calculatePercentagePosition(marker.length, index);
         return (
           <SliderMarker
-            key={index}
+            key={mark.value}
             position={position}
             value={mark.value}
             changeSliderValue={changeSliderValue}
@@ -190,20 +270,6 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
 
 export const SliderMarker = (props: SliderMarkerProps) => {
   const { value, position, changeSliderValue } = props;
-  const ref = useRef(null);
-  const [canDrop, drop] = useDrop({
-    accept: 'pointer',
-    drop(item) {
-      item.onValueChange(value);
-    },
-    collect: monitor => monitor.canDrop()
-  });
-  drop(ref);
-
-  const style: React.CSSProperties = {
-    transform: `scale(${canDrop ? 1.2 : 1})`,
-    left: `${position}%`
-  };
 
   const handleClick = () => {
     if (changeSliderValue) {
@@ -211,11 +277,14 @@ export const SliderMarker = (props: SliderMarkerProps) => {
     }
   };
 
+  const style: React.CSSProperties = {
+    left: `${position}%`
+  };
+
   return (
     <StyledSliderMarker
-      ref={ref}
-      data-value={value}
       style={style}
+      data-value={value}
       onClick={handleClick}
     />
   );
@@ -238,7 +307,7 @@ export const SliderLabels = (props: SliderLabelsProps) => {
         )}%`;
         return (
           <StyledSliderLabel
-            key={index}
+            key={mark.value}
             style={{ left: position }}
             highlight={mark.value === value}
           >

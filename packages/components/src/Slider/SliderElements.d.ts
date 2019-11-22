@@ -14,9 +14,24 @@ export interface SliderLabelsProps {
 export interface SliderLabelProps extends ThemeProps {
     highlight: boolean;
 }
+export interface DimensionsProps {
+    width: number;
+    height: number;
+    offsetX: number;
+    offsetY: number;
+}
+export interface DragItemProps {
+    indexOfMarker: number;
+    value: number;
+    onValueChange?: (value: number) => void;
+}
+export interface SliderProps {
+    dimensions: DimensionsProps;
+}
 export interface SliderMarkerListProps {
     marker?: Array<SliderTrackProps>;
     changeSliderValue?: (value: number) => void;
+    slider?: SliderProps;
 }
 export interface SliderMarkerProps {
     value: number;
