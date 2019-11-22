@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Slider, Heading, Grid, GridItem } from '@t3n/components';
 import { theme } from '@t3n/theme';
+import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 
 export default {
   title: 'Components|Content/Slider',
@@ -39,6 +40,7 @@ customMinMaxWithStepsStory.story = {
 };
 
 export const customHighlightColorStory = () => {
+  const colors = (theme.colors as unknown) as ThemeColors;
   return (
     <Grid>
       <GridItem>
@@ -56,7 +58,7 @@ export const customHighlightColorStory = () => {
           minValue={1}
           maxValue={5}
           initialValue={2}
-          highlightColor={theme.colors.brand.black}
+          highlightColor={colors.brand.black as (ThemeColors & string)}
         />
       </GridItem>
       <GridItem>
@@ -68,7 +70,7 @@ export const customHighlightColorStory = () => {
           minValue={1}
           maxValue={5}
           initialValue={2}
-          highlightColor={theme.colors.feedback.success}
+          highlightColor={colors.feedback.success as (ThemeColors & string)}
         />
       </GridItem>
     </Grid>
