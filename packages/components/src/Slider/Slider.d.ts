@@ -12,11 +12,11 @@ export interface SliderProps extends MarginProps {
     tracks?: Array<SliderTrackProps>;
     steps?: number;
     name: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (value: number) => void;
 }
 export interface HiddenInputProps {
     name: string;
     value: any;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (value: number) => void;
 }
 export declare const Slider: React.FC<SliderProps>;

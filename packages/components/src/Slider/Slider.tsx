@@ -24,20 +24,21 @@ export interface SliderProps extends MarginProps {
   tracks?: Array<SliderTrackProps>;
   steps?: number;
   name: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: number) => void;
 }
 
 export interface HiddenInputProps {
   name: string;
   value: any;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: number) => void;
 }
 
 const StyledSlider = styled.div<SliderProps>`
   position: relative;
   display: flex;
   height: auto;
-  margin: ${({ theme }: ThemeProps) => `${theme.space[4]}px`};
+  margin-left: ${({ theme }: ThemeProps) => `${theme.space[2]}px`};
+  margin-right: ${({ theme }: ThemeProps) => `${theme.space[4]}px`};
 `;
 
 const StyledSlide = styled.div`
@@ -138,6 +139,7 @@ export const Slider: React.FC<SliderProps> = ({
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
   const changeSliderValue = (newValue: number) => {
     setValue(newValue);
+    if (onChange) onChange(newValue);
   };
   const touchBackendOptions = {
     enableTouchEvents: true,
@@ -160,7 +162,7 @@ export const Slider: React.FC<SliderProps> = ({
       {...marginProps}
     >
       <StyledSlide>
-        <HiddenInput value={value} name={name} onChange={onChange} />
+        <HiddenInput value={value} name={name} />
         <SliderLabels marker={marker} value={value} />
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
           <SliderDragLayer
