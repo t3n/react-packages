@@ -5,7 +5,6 @@ import { useDrag, useDrop, DragSourceMonitor } from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { typography } from 'styled-system';
-import { ObjectProperty } from '@babel/types';
 
 export interface SliderTrackProps {
   label: string;
@@ -111,7 +110,7 @@ const StyledSliderPointerPreview = styled.span<{
   width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 0.5;
   background-color: ${props =>
     props.color
       ? props.color
