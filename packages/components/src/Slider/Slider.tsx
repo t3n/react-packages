@@ -130,16 +130,18 @@ export const Slider: React.FC<SliderProps> = ({
   ...marginProps
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [dimensions, setDimensions] = useState({ width: 0, offsetX: 0 });
   const [value, setValue] = useState(initialValue || 0);
 
+  const sliderDimensions = useRef({
+    width: 0,
+    offsetX: 0
+  });
   useEffect(() => {
-    let sliderDimensions = null;
     if (sliderRef) {
       if (sliderRef.current) {
         const currentSlider = (sliderRef.current as unknown) as HTMLElementWithOffset;
         if (currentSlider) {
-          sliderDimensions = {
+          sliderDimensions.current = {
             offsetX: currentSlider.offsetLeft,
             offsetY: currentSlider.offsetTop,
             width: currentSlider.offsetWidth,
@@ -148,12 +150,9 @@ export const Slider: React.FC<SliderProps> = ({
         }
       }
     }
+  }, []);
 
-    if (sliderDimensions !== null) {
-      setDimensions(sliderDimensions);
-    }
-  }, [dimensions]);
-
+  const currentSliderDimensions = sliderDimensions.current as DimensionsProps;
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
   const changeSliderValue = (newValue: number) => {
     setValue(newValue);
@@ -185,12 +184,12 @@ export const Slider: React.FC<SliderProps> = ({
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
           <SliderDragLayer
             highlightColor={highlightColor}
-            slider={{ dimensions }}
+            slider={{ dimensions: currentSliderDimensions }}
           />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}
-            slider={{ dimensions }}
+            slider={{ dimensions: currentSliderDimensions }}
             changeSliderValue={changeSliderValue}
           />
           <SliderPointer
