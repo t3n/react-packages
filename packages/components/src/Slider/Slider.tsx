@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
 import TouchBackend from 'react-dnd-touch-backend';
 import { MarginProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
+import { theme } from '@t3n/theme';
 import {
   SliderTrackProps,
   SliderMarkerList,
@@ -45,8 +45,8 @@ const StyledSlider = styled.div<SliderProps>`
   position: relative;
   display: flex;
   height: auto;
-  margin-left: ${({ theme }: ThemeProps) => `${theme.space[2]}px`};
-  margin-right: ${({ theme }: ThemeProps) => `${theme.space[4]}px`};
+  margin-left: ${`${theme.space[2]}px`};
+  margin-right: ${`${theme.space[4]}px`};
 `;
 
 const StyledSlide = styled.div`
@@ -57,10 +57,9 @@ const StyledSlide = styled.div`
 const StyledSliderRail = styled.div`
   position: absolute;
   width: 100%;
-  background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
-  height: ${({ theme }: ThemeProps) => `${theme.space[1]}px`};
-  bottom: ${({ theme }: ThemeProps) =>
-    `${theme.space[3] / 2 - theme.space[1] / 2}px`};
+  background-color: ${theme.colors.shades.grey232};
+  height: ${`${theme.space[1]}px`};
+  bottom: ${`${theme.space[3] / 2 - theme.space[1] / 2}px`};
 `;
 
 const HiddenInput = styled.input.attrs({ type: 'hidden' })<HiddenInputProps>`
@@ -128,13 +127,14 @@ export const Slider: React.FC<SliderProps> = ({
   ...marginProps
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, offsetX: 0 });
   const [value, setValue] = useState(initialValue || 0);
 
   const sliderDimensions = useRef({
     width: 0,
     offsetX: 0
   });
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (sliderRef) {
       if (sliderRef.current) {
         const currentSlider = (sliderRef.current as unknown) as HTMLElementWithOffset;
@@ -148,9 +148,10 @@ export const Slider: React.FC<SliderProps> = ({
         }
       }
     }
+
+    setDimensions(sliderDimensions.current as DimensionsProps);
   }, []);
 
-  const currentSliderDimensions = sliderDimensions.current as DimensionsProps;
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
   const changeSliderValue = (newValue: number) => {
     setValue(newValue);
@@ -182,12 +183,12 @@ export const Slider: React.FC<SliderProps> = ({
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
           <SliderDragLayer
             highlightColor={highlightColor}
-            slider={{ dimensions: currentSliderDimensions }}
+            slider={{ dimensions }}
           />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}
-            slider={{ dimensions: currentSliderDimensions }}
+            slider={{ dimensions }}
             changeSliderValue={changeSliderValue}
           />
           <SliderPointer
@@ -203,5 +204,6 @@ export const Slider: React.FC<SliderProps> = ({
 };
 
 Slider.defaultProps = {
-  steps: 1
+  steps: 1,
+  highlightColor: theme.colors.brand.red as (ThemeColors & string)
 };
