@@ -181,10 +181,7 @@ export const Slider: React.FC<SliderProps> = ({
         <HiddenInput value={value} name={name} />
         <SliderLabels marker={marker} value={value} />
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
-          <SliderDragLayer
-            highlightColor={highlightColor}
-            slider={{ dimensions }}
-          />
+          <SliderDragLayer slider={{ dimensions }} />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}

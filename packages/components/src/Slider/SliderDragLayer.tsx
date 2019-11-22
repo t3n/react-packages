@@ -1,10 +1,8 @@
 import React from 'react';
 import { XYCoord, useDragLayer } from 'react-dnd';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { SliderPointerPreview, SliderProps } from './SliderElements';
 
 export interface SliderDragLayerProps {
-  highlightColor?: ThemeColors & string;
   slider?: SliderProps;
 }
 
@@ -47,16 +45,21 @@ const getItemStyles = (
 };
 
 const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
-  const { itemType, isDragging, initialOffset, currentOffset } = useDragLayer(
-    monitor => ({
-      item: monitor.getItem(),
-      itemType: monitor.getItemType(),
-      initialOffset: monitor.getInitialSourceClientOffset(),
-      currentOffset: monitor.getSourceClientOffset(),
-      isDragging: monitor.isDragging()
-    })
-  );
-  const { highlightColor, slider } = props;
+  const {
+    itemType,
+    item,
+    isDragging,
+    initialOffset,
+    currentOffset
+  } = useDragLayer(monitor => ({
+    item: monitor.getItem(),
+    itemType: monitor.getItemType(),
+    initialOffset: monitor.getInitialSourceClientOffset(),
+    currentOffset: monitor.getSourceClientOffset(),
+    isDragging: monitor.isDragging()
+  }));
+  const { slider } = props;
+  const color = item ? item.highlightColor : '';
 
   let dimensions = null;
   if (slider) {
@@ -74,7 +77,7 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
         )}
       >
         {itemType === 'pointer' ? (
-          <SliderPointerPreview highlightColor={highlightColor} />
+          <SliderPointerPreview highlightColor={color} />
         ) : null}
       </div>
     </div>

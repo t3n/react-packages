@@ -160,7 +160,13 @@ export const SliderPointer = (props: SliderPointerProps) => {
   const indexOfMarker = _.findIndex(marker, { value });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [{ isDragging }, drag] = useDrag({
-    item: { type: 'pointer', value, indexOfMarker, onValueChange },
+    item: {
+      type: 'pointer',
+      value,
+      indexOfMarker,
+      onValueChange,
+      highlightColor
+    },
     collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging()
     })
