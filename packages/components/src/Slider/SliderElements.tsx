@@ -57,11 +57,11 @@ const StyledSliderMarkerList = styled.div`
 const StyledSliderMarker = styled.span`
   display: inline-block;
   position: absolute;
-  width: 12px;
-  height: 12px;
-  transform: translateX(-6px);
+  width: 0.75rem;
+  height: 0.75rem;
+  transform: translateX(-${0.75 / 2}rem);
   border-radius: 50%;
-  margin: 2px 0;
+  margin: 0.125rem 0;
   bottom: 0;
   white-space: nowrap;
   z-index: 5;
@@ -111,6 +111,7 @@ const StyledSliderLabel = styled.span<SliderLabelProps>`
   position: absolute;
   display: inline-block;
   text-align: center;
+  padding-left: 0.75rem;
   transform: translateX(-50%);
   white-space: nowrap;
   font-weight: bold;
