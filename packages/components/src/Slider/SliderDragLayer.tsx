@@ -57,14 +57,6 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
     })
   );
   const { highlightColor, slider } = props;
-  const renderItem = () => {
-    switch (itemType) {
-      case 'pointer':
-        return <SliderPointerPreview highlightColor={highlightColor} />;
-      default:
-        return null;
-    }
-  };
 
   let dimensions = null;
   if (slider) {
@@ -81,7 +73,9 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
           dimensions.offsetX + dimensions.width
         )}
       >
-        {renderItem()}
+        {itemType === 'pointer' ? (
+          <SliderPointerPreview highlightColor={highlightColor} />
+        ) : null}
       </div>
     </div>
   );
