@@ -14,6 +14,12 @@ export interface SliderProps extends MarginProps {
     name: string;
     onChange?: (value: number) => void;
 }
+export interface HTMLElementWithOffset extends HTMLElement {
+    offsetWidth: number;
+    offsetHeight: number;
+    offsetLeft: number;
+    offsetTop: number;
+}
 export interface HiddenInputProps {
     name: string;
     value: any;

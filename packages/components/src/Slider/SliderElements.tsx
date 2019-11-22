@@ -29,9 +29,9 @@ export interface SliderLabelProps extends ThemeProps {
 
 export interface DimensionsProps {
   width: number;
-  height: number;
+  height?: number;
   offsetX: number;
-  offsetY: number;
+  offsetY?: number;
 }
 
 export interface DragItemProps extends DragObjectWithType {

@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { DragObjectWithType } from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 export interface SliderTrackProps {
@@ -16,14 +17,14 @@ export interface SliderLabelProps extends ThemeProps {
 }
 export interface DimensionsProps {
     width: number;
-    height: number;
+    height?: number;
     offsetX: number;
-    offsetY: number;
+    offsetY?: number;
 }
-export interface DragItemProps {
+export interface DragItemProps extends DragObjectWithType {
     indexOfMarker: number;
     value: number;
-    onValueChange?: (value: number) => void;
+    onValueChange: (value: number) => void;
 }
 export interface SliderProps {
     dimensions: DimensionsProps;
