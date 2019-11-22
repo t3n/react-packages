@@ -74,7 +74,6 @@ const generateMarkerFromSteps = (
 ) => {
   const marker: Array<SliderTrackProps> = [];
   let newValue = minValue;
-  let index = 0;
   do {
     marker.push({
       value: newValue,
@@ -82,7 +81,6 @@ const generateMarkerFromSteps = (
       showLabel: false
     });
     newValue += steps as number;
-    index += 1;
   } while (newValue <= (maxValue as number));
 
   return marker;
