@@ -9,7 +9,8 @@ import {
   SliderTrackProps,
   SliderMarkerList,
   SliderPointer,
-  SliderLabels
+  SliderLabels,
+  DimensionsProps
 } from './SliderElements';
 import SliderDragLayer from './SliderDragLayer';
 
@@ -25,6 +26,13 @@ export interface SliderProps extends MarginProps {
   steps?: number;
   name: string;
   onChange?: (value: number) => void;
+}
+
+export interface HTMLElementWithOffset extends HTMLElement {
+  offsetWidth: number;
+  offsetHeight: number;
+  offsetLeft: number;
+  offsetTop: number;
 }
 
 export interface HiddenInputProps {
@@ -121,20 +129,30 @@ export const Slider: React.FC<SliderProps> = ({
   onChange,
   ...marginProps
 }) => {
-  const sliderRef = useRef();
+  const sliderRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, offsetX: 0 });
   const [value, setValue] = useState(initialValue || 0);
 
   useEffect(() => {
-    if (sliderRef && sliderRef.current) {
-      setDimensions({
-        width: sliderRef.current.offsetWidth,
-        height: sliderRef.current.offsetHeight,
-        offsetX: sliderRef.current.offsetLeft,
-        offsetY: sliderRef.current.offsetTop
-      });
+    let sliderDimensions = null;
+    if (sliderRef) {
+      if (sliderRef.current) {
+        const currentSlider = (sliderRef.current as unknown) as HTMLElementWithOffset;
+        if (currentSlider) {
+          sliderDimensions = {
+            offsetX: currentSlider.offsetLeft,
+            offsetY: currentSlider.offsetTop,
+            width: currentSlider.offsetWidth,
+            height: currentSlider.offsetHeight
+          } as DimensionsProps;
+        }
+      }
     }
-  }, []);
+
+    if (sliderDimensions !== null) {
+      setDimensions(sliderDimensions);
+    }
+  }, [dimensions]);
 
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
   const changeSliderValue = (newValue: number) => {

@@ -1,7 +1,12 @@
 import React, { useRef } from 'react';
 import _ from 'lodash';
 import styled from 'styled-components';
-import { useDrag, useDrop, DragSourceMonitor } from 'react-dnd';
+import {
+  useDrag,
+  useDrop,
+  DragSourceMonitor,
+  DragObjectWithType
+} from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { typography } from 'styled-system';
@@ -29,10 +34,10 @@ export interface DimensionsProps {
   offsetY: number;
 }
 
-export interface DragItemProps {
+export interface DragItemProps extends DragObjectWithType {
   indexOfMarker: number;
   value: number;
-  onValueChange?: (value: number) => void;
+  onValueChange: (value: number) => void;
 }
 
 export interface SliderProps {
@@ -173,7 +178,6 @@ export const SliderPointer = (props: SliderPointerProps) => {
       color={highlightColor}
       ref={ref}
       style={{ left: position }}
-      tabindex="-1"
     />
   );
 };
@@ -235,15 +239,19 @@ export const SliderMarkerList = (props: SliderMarkerListProps) => {
         x: number;
         y: number;
       };
+      const dragElement = item as DragItemProps;
       if (marker && slider) {
         const { dimensions } = slider;
         const closestMarker = getClosestMarker(
           marker,
           dimensions.width,
           delta.x,
-          item.indexOfMarker
+          dragElement.indexOfMarker
         );
-        item.onValueChange(closestMarker.value);
+
+        if (dragElement) {
+          dragElement.onValueChange(closestMarker.value);
+        }
       }
     },
     collect: monitor => monitor.canDrop()

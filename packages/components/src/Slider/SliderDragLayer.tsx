@@ -1,12 +1,11 @@
 import React from 'react';
 import { XYCoord, useDragLayer } from 'react-dnd';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
-import { ObjectOrArray } from 'styled-system';
 import { SliderPointerPreview, SliderProps } from './SliderElements';
 
 export interface SliderDragLayerProps {
   highlightColor?: ThemeColors & string;
-  slider?: ObjectOrArray<SliderProps>;
+  slider?: SliderProps;
 }
 
 const layerStyles: React.CSSProperties = {
@@ -58,7 +57,6 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
     })
   );
   const { highlightColor, slider } = props;
-  const { dimensions } = slider;
   const renderItem = () => {
     switch (itemType) {
       case 'pointer':
@@ -68,7 +66,12 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
     }
   };
 
-  return !isDragging ? null : (
+  let dimensions = null;
+  if (slider) {
+    dimensions = slider.dimensions;
+  }
+
+  return !isDragging || dimensions === null ? null : (
     <div style={layerStyles}>
       <div
         style={getItemStyles(
