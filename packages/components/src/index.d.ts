@@ -37,6 +37,7 @@ export { RadioButton } from './RadioButton';
 export { Ratio } from './Ratio';
 export { SearchBox } from './SearchBox';
 export { Section } from './Section';
+export { Slider } from './Slider';
 export { SocialButton, socialNetworksConfig } from './SocialButton';
 export { Switch } from './Switch';
 export { Tag } from './Tag';

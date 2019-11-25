@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "./packages/components/dist/*.js",
-      "maxSize": "120 kB"
+      "maxSize": "130 kB"
     },
     {
       "path": "./packages/icons/dist/*.js",
