@@ -7,9 +7,9 @@ import {
   DragSourceMonitor,
   DragObjectWithType
 } from 'react-dnd';
-import { ThemeProps } from '@t3n/theme';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
-import { typography } from 'styled-system';
+import { ThemeProps, composeTextStyle } from '@t3n/theme';
+import { ThemeTextColor } from '@t3n/theme/src/theme/colors/colors';
+import { color } from 'styled-system';
 
 export interface SliderTrackProps {
   label: string;
@@ -21,6 +21,7 @@ export interface SliderTrackProps {
 export interface SliderLabelsProps {
   marker?: Array<SliderTrackProps>;
   value: number;
+  onLabelClick: (value: number) => void;
 }
 
 export interface SliderLabelProps extends ThemeProps {
@@ -58,15 +59,13 @@ export interface SliderMarkerProps {
 }
 
 export interface SliderPointerPreviewProps {
-  highlightColor?: ThemeColors & string;
+  highlightColor?: ThemeTextColor & string;
 }
 export interface SliderPointerProps extends SliderPointerPreviewProps {
   marker?: Array<SliderTrackProps>;
   value: number;
   onValueChange?: (value: number) => void;
 }
-
-const fontSize = ({ theme }: ThemeProps) => typography({ fontSize: theme });
 
 const fontColor = ({ highlight, theme }: SliderLabelProps & ThemeProps) => `
   color: ${highlight ? theme.colors.brand.black : theme.colors.shades.grey232};
@@ -93,33 +92,35 @@ const StyledSliderMarker = styled.span`
   background-color: ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
 `;
 
-const StyledSliderPointer = styled.span<{ color?: ThemeColors & string }>`
+const StyledSliderPointer = styled.span<{ color?: ThemeTextColor & string }>`
   position: absolute;
   bottom: 0;
-  width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
-  height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   border-radius: 50%;
   white-space: nowrap;
-  background-color: ${props =>
-    props.color
-      ? props.color
-      : ({ theme }: ThemeProps) => theme.colors.brand.red};
   cursor: pointer;
   z-index: 10;
+  width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
+  height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
+  ${({
+    theme,
+    color: colorProp
+  }: ThemeProps & { color?: ThemeTextColor & string }) =>
+    color({ bg: `text.${colorProp || 'highlight'}`, theme })}
 `;
 
 const StyledSliderPointerPreview = styled.span<{
-  color?: ThemeColors & string;
+  color?: ThemeTextColor & string;
 }>`
   position: absolute;
   width: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
   height: ${({ theme }: ThemeProps) => `${theme.space[3]}px`};
+  transform: scale(1.4);
   border-radius: 50%;
-  opacity: 0.5;
-  background-color: ${props =>
-    props.color
-      ? props.color
-      : ({ theme }: ThemeProps) => theme.colors.brand.red};
+  ${({
+    theme,
+    color: colorProp
+  }: ThemeProps & { color?: ThemeTextColor & string }) =>
+    color({ bg: `text.${colorProp || 'highlight'}`, theme })}
 `;
 
 const StyledSliderLabelList = styled.span`
@@ -129,16 +130,24 @@ const StyledSliderLabelList = styled.span`
     `${theme.space[3] + theme.space[4]}px`};
 `;
 
-const StyledSliderLabel = styled.span<SliderLabelProps>`
+const StyledSliderLabel = styled.button<SliderLabelProps>`
   position: absolute;
-  display: inline-block;
-  text-align: center;
-  padding-left: 0.75rem;
+  padding: 0;
+  margin: 0;
+  margin-left: 0.5rem;
   transform: translateX(-50%);
   white-space: nowrap;
   font-weight: bold;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
   ${fontColor};
-  ${fontSize};
+  border: none;
+  background-color: transparent;
+  ${({ theme }) =>
+    composeTextStyle({
+      textStyle: 'regular',
+      theme
+    })};
 `;
 
 const calculatePercentagePosition = (amount: number, position: number) => {
@@ -154,9 +163,14 @@ const calculatePercentagePosition = (amount: number, position: number) => {
   return position * distance;
 };
 
-export const SliderPointer = (props: SliderPointerProps) => {
+export const SliderPointer = ({
+  highlightColor,
+  marker,
+  value,
+  onValueChange
+}: SliderPointerProps) => {
   const ref = useRef(null);
-  const { highlightColor, marker, value, onValueChange } = props;
+
   const indexOfMarker = _.findIndex(marker, { value });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [{ isDragging }, drag] = useDrag({
@@ -188,10 +202,11 @@ export const SliderPointer = (props: SliderPointerProps) => {
   );
 };
 
-export const SliderPointerPreview = (props: SliderPointerPreviewProps) => {
-  const { highlightColor } = props;
-  return <StyledSliderPointerPreview color={highlightColor} />;
-};
+export const SliderPointerPreview = ({
+  highlightColor
+}: SliderPointerPreviewProps) => (
+  <StyledSliderPointerPreview color={highlightColor} />
+);
 
 const snapPositionToClosestMarker = (
   x: number,
@@ -303,8 +318,11 @@ export const SliderMarker = (props: SliderMarkerProps) => {
   );
 };
 
-export const SliderLabels = (props: SliderLabelsProps) => {
-  const { marker, value } = props;
+export const SliderLabels = ({
+  marker,
+  value,
+  onLabelClick
+}: SliderLabelsProps) => {
   const labels = _.find(marker, { showLabel: true });
 
   if (!labels || !marker) {
@@ -318,11 +336,13 @@ export const SliderLabels = (props: SliderLabelsProps) => {
           marker.length,
           index
         )}%`;
+
         return (
           <StyledSliderLabel
             key={mark.value}
             style={{ left: position }}
             highlight={mark.value === value}
+            onClick={() => onLabelClick(mark.value)}
           >
             {mark.label}
           </StyledSliderLabel>

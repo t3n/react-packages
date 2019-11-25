@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
 import TouchBackend from 'react-dnd-touch-backend';
 import { MarginProps, margin } from 'styled-system';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
+import { ThemeTextColor } from '@t3n/theme/src/theme/colors/colors';
 import { theme } from '@t3n/theme';
 import {
   SliderTrackProps,
@@ -20,19 +20,12 @@ export interface SliderProps extends MarginProps {
   initialValue: number;
   minValue: number;
   maxValue: number;
-  highlightColor?: ThemeColors & string;
+  highlightColor?: ThemeTextColor & string;
   labels?: Array<string>;
   tracks?: Array<SliderTrackProps>;
   steps?: number;
   name: string;
   onChange?: (value: number) => void;
-}
-
-export interface HTMLElementWithOffset extends HTMLElement {
-  offsetWidth: number;
-  offsetHeight: number;
-  offsetLeft: number;
-  offsetTop: number;
 }
 
 export interface HiddenInputProps {
@@ -128,34 +121,34 @@ export const Slider: React.FC<SliderProps> = ({
   const sliderRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, offsetX: 0 });
   const [value, setValue] = useState(initialValue || 0);
+  const [isDragging, setIsDragging] = useState(false);
 
-  const sliderDimensions = useRef({
+  const sliderDimensions = useRef<DimensionsProps>({
     width: 0,
     offsetX: 0
   });
   useLayoutEffect(() => {
-    if (sliderRef) {
-      if (sliderRef.current) {
-        const currentSlider = (sliderRef.current as unknown) as HTMLElementWithOffset;
-        if (currentSlider) {
-          sliderDimensions.current = {
-            offsetX: currentSlider.offsetLeft,
-            offsetY: currentSlider.offsetTop,
-            width: currentSlider.offsetWidth,
-            height: currentSlider.offsetHeight
-          } as DimensionsProps;
-        }
-      }
+    if (sliderRef && sliderRef.current) {
+      const currentSlider = sliderRef.current;
+
+      sliderDimensions.current = {
+        offsetX: currentSlider.offsetLeft,
+        offsetY: currentSlider.offsetTop,
+        width: currentSlider.offsetWidth,
+        height: currentSlider.offsetHeight
+      };
     }
 
-    setDimensions(sliderDimensions.current as DimensionsProps);
+    setDimensions(sliderDimensions.current);
   }, []);
 
   const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
+
   const changeSliderValue = (newValue: number) => {
     setValue(newValue);
     if (onChange) onChange(newValue);
   };
+
   const touchBackendOptions = {
     enableTouchEvents: true,
     enableMouseEvents: true,
@@ -178,21 +171,31 @@ export const Slider: React.FC<SliderProps> = ({
     >
       <StyledSlide>
         <HiddenInput value={value} name={name} />
-        <SliderLabels marker={marker} value={value} />
+        <SliderLabels
+          marker={marker}
+          value={value}
+          onLabelClick={changeSliderValue}
+        />
         <DndProvider backend={TouchBackend} options={touchBackendOptions}>
-          <SliderDragLayer slider={{ dimensions }} />
+          <SliderDragLayer
+            slider={{ dimensions }}
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={() => setIsDragging(false)}
+          />
           <StyledSliderRail />
           <SliderMarkerList
             marker={marker}
             slider={{ dimensions }}
             changeSliderValue={changeSliderValue}
           />
-          <SliderPointer
-            highlightColor={highlightColor}
-            marker={marker}
-            value={value}
-            onValueChange={changeSliderValue}
-          />
+          {!isDragging && (
+            <SliderPointer
+              highlightColor={highlightColor}
+              marker={marker}
+              value={value}
+              onValueChange={changeSliderValue}
+            />
+          )}
         </DndProvider>
       </StyledSlide>
     </StyledSlider>
@@ -201,5 +204,5 @@ export const Slider: React.FC<SliderProps> = ({
 
 Slider.defaultProps = {
   steps: 1,
-  highlightColor: theme.colors.brand.red as (ThemeColors & string)
+  highlightColor: 'highlight'
 };

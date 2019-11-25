@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { XYCoord, useDragLayer } from 'react-dnd';
 import { SliderPointerPreview, SliderProps } from './SliderElements';
 
 export interface SliderDragLayerProps {
   slider?: SliderProps;
+  onDragStart: () => void;
+  onDragEnd: () => void;
 }
 
 const layerStyles: React.CSSProperties = {
@@ -22,11 +24,10 @@ const getItemStyles = (
   minimumOffset: number,
   maximumOffset: number
 ) => {
-  if (!initialOffset || !currentOffset) {
+  if (!initialOffset || !currentOffset)
     return {
       display: 'none'
     };
-  }
 
   // prevent positions outside of slider
   let { x } = currentOffset;
@@ -44,7 +45,11 @@ const getItemStyles = (
   };
 };
 
-const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
+const SliderDragLayer: React.FC<SliderDragLayerProps> = ({
+  slider,
+  onDragStart,
+  onDragEnd
+}) => {
   const {
     itemType,
     item,
@@ -58,15 +63,24 @@ const SliderDragLayer: React.FC<SliderDragLayerProps> = props => {
     currentOffset: monitor.getSourceClientOffset(),
     isDragging: monitor.isDragging()
   }));
-  const { slider } = props;
+
+  useEffect(() => {
+    if (isDragging) {
+      document.body.style.cursor = 'pointer';
+      onDragStart();
+    } else {
+      document.body.style.cursor = 'default';
+      onDragEnd();
+    }
+  }, [isDragging, onDragEnd, onDragStart]);
+
   const color = item ? item.highlightColor : '';
 
-  let dimensions = null;
-  if (slider) {
-    dimensions = slider.dimensions;
-  }
+  const dimensions = slider ? slider.dimensions : null;
 
-  return !isDragging || dimensions === null ? null : (
+  if (!isDragging || dimensions === null) return null;
+
+  return (
     <div style={layerStyles}>
       <div
         style={getItemStyles(

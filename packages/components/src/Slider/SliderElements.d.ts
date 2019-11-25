@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { DragObjectWithType } from 'react-dnd';
 import { ThemeProps } from '@t3n/theme';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
+import { ThemeTextColor } from '@t3n/theme/src/theme/colors/colors';
 export interface SliderTrackProps {
     label: string;
     showLabel: boolean;
@@ -11,6 +11,7 @@ export interface SliderTrackProps {
 export interface SliderLabelsProps {
     marker?: Array<SliderTrackProps>;
     value: number;
+    onLabelClick: (value: number) => void;
 }
 export interface SliderLabelProps extends ThemeProps {
     highlight: boolean;
@@ -41,15 +42,15 @@ export interface SliderMarkerProps {
     changeSliderValue?: (value: number) => void;
 }
 export interface SliderPointerPreviewProps {
-    highlightColor?: ThemeColors & string;
+    highlightColor?: ThemeTextColor & string;
 }
 export interface SliderPointerProps extends SliderPointerPreviewProps {
     marker?: Array<SliderTrackProps>;
     value: number;
     onValueChange?: (value: number) => void;
 }
-export declare const SliderPointer: (props: SliderPointerProps) => JSX.Element;
-export declare const SliderPointerPreview: (props: SliderPointerPreviewProps) => JSX.Element;
+export declare const SliderPointer: ({ highlightColor, marker, value, onValueChange }: SliderPointerProps) => JSX.Element;
+export declare const SliderPointerPreview: ({ highlightColor }: SliderPointerPreviewProps) => JSX.Element;
 export declare const SliderMarkerList: (props: SliderMarkerListProps) => JSX.Element | null;
 export declare const SliderMarker: (props: SliderMarkerProps) => JSX.Element;
-export declare const SliderLabels: (props: SliderLabelsProps) => JSX.Element | null;
+export declare const SliderLabels: ({ marker, value, onLabelClick }: SliderLabelsProps) => JSX.Element | null;

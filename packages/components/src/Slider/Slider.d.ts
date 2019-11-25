@@ -1,24 +1,18 @@
 import React from 'react';
 import { MarginProps } from 'styled-system';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
+import { ThemeTextColor } from '@t3n/theme/src/theme/colors/colors';
 import { SliderTrackProps } from './SliderElements';
 export declare type VariantType = 'light' | 'dark';
 export interface SliderProps extends MarginProps {
     initialValue: number;
     minValue: number;
     maxValue: number;
-    highlightColor?: ThemeColors & string;
+    highlightColor?: ThemeTextColor & string;
     labels?: Array<string>;
     tracks?: Array<SliderTrackProps>;
     steps?: number;
     name: string;
     onChange?: (value: number) => void;
-}
-export interface HTMLElementWithOffset extends HTMLElement {
-    offsetWidth: number;
-    offsetHeight: number;
-    offsetLeft: number;
-    offsetTop: number;
 }
 export interface HiddenInputProps {
     name: string;
