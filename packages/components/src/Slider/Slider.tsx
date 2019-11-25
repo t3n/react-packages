@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated as Animated } from 'react-spring';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -31,6 +31,8 @@ const StyledSliderThumbInner = styled.button<SliderThumbProps>`
   position: absolute;
   top: 0;
   left: 0;
+  margin: 0;
+  padding: 0;
   border-radius: 50%;
   border: none;
   outline: 0;
@@ -44,8 +46,6 @@ const StyledSliderThumbInner = styled.button<SliderThumbProps>`
 `;
 
 const StyledSliderThumb = styled.div`
-  margin: 0;
-  padding: 0;
   position: absolute;
   top: 50%;
   left: 0;
@@ -77,6 +77,10 @@ export const Slider = ({
   const trackWidthRef = useRef(trackWidth);
   const trackPositionXRef = useRef(trackPositionX);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  const animatedValue = useSpring({
+    x: stepWidth * ((value - min) / step)
+  });
 
   useEffect(() => {
     const updateTrackPositionAndDimensions = () => {
@@ -169,17 +173,19 @@ export const Slider = ({
   return (
     <StyledSlider>
       <StyledSliderTrack ref={trackRef} />
-      <StyledSliderThumb
+      <Animated.div
         style={{
-          transform: `translateX(${stepWidthRef.current *
-            ((value - min) / step)}px)`
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          transform: animatedValue.x.interpolate(x => `translateX(${x}px)`)
         }}
       >
         <StyledSliderThumbInner
           onPointerDown={handleThumbDragStart}
           isDragging={isDragging}
         />
-      </StyledSliderThumb>
+      </Animated.div>
     </StyledSlider>
   );
 };
