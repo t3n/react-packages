@@ -2,7 +2,7 @@ import React, { useState, useRef, useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
 import TouchBackend from 'react-dnd-touch-backend';
-import { MarginProps } from 'styled-system';
+import { MarginProps, margin } from 'styled-system';
 import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
 import { theme } from '@t3n/theme';
 import {
@@ -45,8 +45,7 @@ const StyledSlider = styled.div<SliderProps>`
   position: relative;
   display: flex;
   height: auto;
-  margin-left: ${`${theme.space[2]}px`};
-  margin-right: ${`${theme.space[4]}px`};
+  ${margin({ ml: [2], mr: [4], theme })}
 `;
 
 const StyledSlide = styled.div`
