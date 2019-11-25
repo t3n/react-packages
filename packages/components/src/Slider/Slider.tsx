@@ -1,205 +1,185 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
-import { DndProvider } from 'react-dnd';
-import TouchBackend from 'react-dnd-touch-backend';
-import { MarginProps, margin } from 'styled-system';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
-import { theme } from '@t3n/theme';
-import {
-  SliderTrackProps,
-  SliderMarkerList,
-  SliderPointer,
-  SliderLabels,
-  DimensionsProps
-} from './SliderElements';
-import SliderDragLayer from './SliderDragLayer';
+import { color } from 'styled-system';
+import { useSpring, animated } from 'react-spring';
 
-export type VariantType = 'light' | 'dark';
+import { ThemeProps } from '@t3n/theme';
 
-export interface SliderProps extends MarginProps {
-  initialValue: number;
-  minValue: number;
-  maxValue: number;
-  highlightColor?: ThemeColors & string;
-  labels?: Array<string>;
-  tracks?: Array<SliderTrackProps>;
-  steps?: number;
-  name: string;
+export interface SliderProps {
+  min?: number;
+  max: number;
+  step?: number;
+  initialValue?: number;
   onChange?: (value: number) => void;
 }
 
-export interface HTMLElementWithOffset extends HTMLElement {
-  offsetWidth: number;
-  offsetHeight: number;
-  offsetLeft: number;
-  offsetTop: number;
-}
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(Math.max(value, min), max);
 
-export interface HiddenInputProps {
-  name: string;
-  value: any;
-  onChange?: (value: number) => void;
-}
-
-const StyledSlider = styled.div<SliderProps>`
-  position: relative;
-  display: flex;
-  height: auto;
-  ${margin({ ml: [2], mr: [4], theme })}
-`;
-
-const StyledSlide = styled.div`
-  position: relative;
+const StyledSliderTrack = styled.div`
+  height: 4px;
   width: 100%;
+  position: relative;
+  ${({ theme }) => color({ bg: 'background.secondary', theme })}
 `;
 
-const StyledSliderRail = styled.div`
+interface SliderThumbProps {
+  isDragging: boolean;
+}
+
+const StyledSliderThumbInner = styled.button<SliderThumbProps>`
   position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  transform: translate(-50%, -50%)
+    scale(${({ isDragging }) => (isDragging ? 1.4 : 1)});
+  width: ${({ theme }: ThemeProps) => theme.space[3]}px;
+  height: ${({ theme }: ThemeProps) => theme.space[3]}px;
+  ${({ theme }) => color({ bg: 'text.highlight', theme })}
+`;
+
+const StyledSliderThumb = styled.div`
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+`;
+
+const StyledSlider = styled.div`
   width: 100%;
-  background-color: ${theme.colors.shades.grey232};
-  height: ${`${theme.space[1]}px`};
-  bottom: ${`${theme.space[3] / 2 - theme.space[1] / 2}px`};
+  position: relative;
 `;
 
-const HiddenInput = styled.input.attrs({ type: 'hidden' })<HiddenInputProps>`
-  display: none;
-`;
+export const Slider = ({
+  min = 1,
+  max,
+  step = 1,
+  initialValue = 1,
+  onChange
+}: SliderProps) => {
+  const [value, setValue] = useState(min > initialValue ? min : initialValue);
+  const valueRef = useRef(value);
 
-const generateMarkerFromSteps = (
-  minValue: number,
-  maxValue: number,
-  steps?: number
-) => {
-  const marker: Array<SliderTrackProps> = [];
-  let newValue = minValue;
-  do {
-    marker.push({
-      value: newValue,
-      label: '',
-      showLabel: false
-    });
-    newValue += steps as number;
-  } while (newValue <= (maxValue as number));
+  const [isDragging, setIsDragging] = useState(false);
+  const isDraggingRef = useRef(isDragging);
 
-  return marker;
-};
+  const [stepWidth, setStepWidth] = useState(0);
+  const stepWidthRef = useRef(stepWidth);
 
-const generateMarker = (
-  minValue: number,
-  maxValue: number,
-  labels?: Array<string>,
-  tracks?: Array<SliderTrackProps>,
-  steps?: number
-) => {
-  const marker: Array<SliderTrackProps> = [];
+  const [trackWidth, setTrackWidth] = useState(0);
+  const [trackPositionX, setTrackPositionX] = useState(0);
+  const trackWidthRef = useRef(trackWidth);
+  const trackPositionXRef = useRef(trackPositionX);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  if (tracks) {
-    tracks.forEach((track: SliderTrackProps) => {
-      marker.push(track);
-    });
-  } else {
-    marker.push(...generateMarkerFromSteps(minValue, maxValue, steps));
-  }
+  useEffect(() => {
+    const updateTrackPositionAndDimensions = () => {
+      if (!trackRef.current) return;
 
-  if (labels) {
-    labels.forEach((label: string, index: number) => {
-      if (marker[index] && label !== '') {
-        marker[index].label = label;
-        marker[index].showLabel = true;
-      }
-    });
-  }
+      trackWidthRef.current = trackRef.current.getBoundingClientRect().width;
+      trackPositionXRef.current = trackRef.current.getBoundingClientRect().left;
 
-  return marker;
-};
+      setTrackWidth(trackWidthRef.current);
+      setTrackPositionX(trackWidthRef.current);
+    };
+    updateTrackPositionAndDimensions();
 
-export const Slider: React.FC<SliderProps> = ({
-  initialValue,
-  minValue,
-  maxValue,
-  highlightColor,
-  labels,
-  tracks,
-  steps,
-  name,
-  onChange,
-  ...marginProps
-}) => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [dimensions, setDimensions] = useState({ width: 0, offsetX: 0 });
-  const [value, setValue] = useState(initialValue || 0);
+    window.addEventListener('resize', updateTrackPositionAndDimensions);
 
-  const sliderDimensions = useRef({
-    width: 0,
-    offsetX: 0
-  });
-  useLayoutEffect(() => {
-    if (sliderRef) {
-      if (sliderRef.current) {
-        const currentSlider = (sliderRef.current as unknown) as HTMLElementWithOffset;
-        if (currentSlider) {
-          sliderDimensions.current = {
-            offsetX: currentSlider.offsetLeft,
-            offsetY: currentSlider.offsetTop,
-            width: currentSlider.offsetWidth,
-            height: currentSlider.offsetHeight
-          } as DimensionsProps;
-        }
-      }
-    }
-
-    setDimensions(sliderDimensions.current as DimensionsProps);
+    return () =>
+      window.removeEventListener('resize', updateTrackPositionAndDimensions);
   }, []);
 
-  const marker = generateMarker(minValue, maxValue, labels, tracks, steps);
-  const changeSliderValue = (newValue: number) => {
-    setValue(newValue);
-    if (onChange) onChange(newValue);
-  };
-  const touchBackendOptions = {
-    enableTouchEvents: true,
-    enableMouseEvents: true,
-    enableKeyboardEvents: true,
-    enableHoverOutsideTarget: false
-  };
+  useEffect(() => {
+    stepWidthRef.current = trackWidthRef.current / ((max - min) / step);
+    setStepWidth(stepWidthRef.current);
+  }, [max, min, step, trackWidth]);
+
+  useEffect(() => {
+    console.log('Value: ', value);
+
+    if (onChange) onChange(value);
+  }, [value, onChange]);
+
+  const handleThumbDrag = useCallback(
+    (e: PointerEvent) => {
+      if (!e.isPrimary || !trackRef.current || !isDraggingRef.current) return;
+
+      document.body.style.cursor = 'pointer';
+
+      const { clientX } = e;
+
+      const nextValue = clamp(
+        (Math.round(
+          (clientX - trackPositionXRef.current) / stepWidthRef.current
+        ) +
+          1) *
+          step +
+          (min - step),
+        min,
+        max
+      );
+
+      if (nextValue !== valueRef.current) {
+        valueRef.current = nextValue;
+
+        setValue(valueRef.current);
+      }
+    },
+    [max, min, step]
+  );
+
+  const handleThumbDragEnd = useCallback((e: PointerEvent) => {
+    if (!e.isPrimary || !trackRef.current || !isDraggingRef.current) return;
+
+    document.body.style.cursor = 'initial';
+
+    isDraggingRef.current = false;
+
+    setIsDragging(isDraggingRef.current);
+  }, []);
+
+  const handleThumbDragStart = useCallback(
+    (e: React.PointerEvent<HTMLButtonElement>) => {
+      if (!e.isPrimary || !trackRef.current || isDraggingRef.current) return;
+
+      isDraggingRef.current = true;
+
+      setIsDragging(isDraggingRef.current);
+    },
+    []
+  );
+
+  useEffect(() => {
+    window.addEventListener('pointermove', handleThumbDrag);
+    window.addEventListener('pointerup', handleThumbDragEnd);
+
+    return () => {
+      window.removeEventListener('pointermove', handleThumbDrag);
+      window.removeEventListener('pointerup', handleThumbDragEnd);
+    };
+  }, [handleThumbDrag, handleThumbDragEnd]);
 
   return (
-    <StyledSlider
-      ref={sliderRef}
-      initialValue={initialValue}
-      minValue={minValue}
-      maxValue={maxValue}
-      highlightColor={highlightColor}
-      labels={labels}
-      tracks={tracks}
-      steps={steps}
-      name={name}
-      {...marginProps}
-    >
-      <StyledSlide>
-        <HiddenInput value={value} name={name} />
-        <SliderLabels marker={marker} value={value} />
-        <DndProvider backend={TouchBackend} options={touchBackendOptions}>
-          <SliderDragLayer slider={{ dimensions }} />
-          <StyledSliderRail />
-          <SliderMarkerList
-            marker={marker}
-            slider={{ dimensions }}
-            changeSliderValue={changeSliderValue}
-          />
-          <SliderPointer
-            highlightColor={highlightColor}
-            marker={marker}
-            value={value}
-            onValueChange={changeSliderValue}
-          />
-        </DndProvider>
-      </StyledSlide>
+    <StyledSlider>
+      <StyledSliderTrack ref={trackRef} />
+      <StyledSliderThumb
+        style={{
+          transform: `translateX(${stepWidthRef.current *
+            ((value - min) / step)}px)`
+        }}
+      >
+        <StyledSliderThumbInner
+          onPointerDown={handleThumbDragStart}
+          isDragging={isDragging}
+        />
+      </StyledSliderThumb>
     </StyledSlider>
   );
-};
-
-Slider.defaultProps = {
-  steps: 1,
-  highlightColor: theme.colors.brand.red as (ThemeColors & string)
 };
