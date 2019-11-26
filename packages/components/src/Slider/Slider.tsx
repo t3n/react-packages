@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
-import { useSpring, animated as Animated } from 'react-spring';
+import { motion, PanInfo } from 'framer-motion';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -24,23 +24,17 @@ const StyledSliderTrack = styled.div`
   ${({ theme }) => color({ bg: 'background.secondary', theme })}
 `;
 
-interface SliderThumbProps {
-  isDragging: boolean;
-}
-
-const StyledSliderThumb = styled.button<SliderThumbProps>`
+const StyledSliderThumb = styled.span`
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  margin: 0;
-  padding: 0;
   border-radius: 50%;
   border: none;
   outline: 0;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-  transform: translate(-50%, -50%)
-    scale(${({ isDragging }) => (isDragging ? 1.4 : 1)});
+  transform: translate(-50%, -50%);
   width: ${({ theme }: ThemeProps) => theme.space[3]}px;
   height: ${({ theme }: ThemeProps) => theme.space[3]}px;
   ${({ theme }) => color({ bg: 'text.highlight', theme })}
@@ -73,10 +67,6 @@ export const Slider = ({
   const trackPositionXRef = useRef(trackPositionX);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const animatedValue = useSpring({
-    x: stepWidth * ((value - min) / step)
-  });
-
   useEffect(() => {
     const updateTrackPositionAndDimensions = () => {
       if (!trackRef.current) return;
@@ -106,81 +96,57 @@ export const Slider = ({
     if (onChange) onChange(value);
   }, [value, onChange]);
 
+  const handleThumbDragStart = useCallback(() => {
+    setIsDragging(true);
+    document.body.style.cursor = 'pointer';
+  }, []);
+
   const handleThumbDrag = useCallback(
-    (e: PointerEvent) => {
-      if (!e.isPrimary || !trackRef.current || !isDraggingRef.current) return;
-
-      document.body.style.cursor = 'pointer';
-
-      const { clientX } = e;
-
+    (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
       const nextValue = clamp(
-        (Math.round(
-          (clientX - trackPositionXRef.current) / stepWidthRef.current
-        ) +
-          1) *
-          step +
+        (Math.round(info.point.x / stepWidthRef.current) + 1) * step +
           (min - step),
         min,
         max
       );
 
-      if (nextValue !== valueRef.current) {
-        valueRef.current = nextValue;
-
-        setValue(valueRef.current);
-      }
+      setValue(nextValue);
     },
     [max, min, step]
   );
 
-  const handleThumbDragEnd = useCallback((e: PointerEvent) => {
-    if (!e.isPrimary || !trackRef.current || !isDraggingRef.current) return;
-
+  const handleThumbDragEnd = useCallback(() => {
+    setIsDragging(false);
     document.body.style.cursor = 'initial';
-
-    isDraggingRef.current = false;
-
-    setIsDragging(isDraggingRef.current);
   }, []);
-
-  const handleThumbDragStart = useCallback(
-    (e: React.PointerEvent<HTMLButtonElement>) => {
-      if (!e.isPrimary || !trackRef.current || isDraggingRef.current) return;
-
-      isDraggingRef.current = true;
-
-      setIsDragging(isDraggingRef.current);
-    },
-    []
-  );
-
-  useEffect(() => {
-    window.addEventListener('pointermove', handleThumbDrag);
-    window.addEventListener('pointerup', handleThumbDragEnd);
-
-    return () => {
-      window.removeEventListener('pointermove', handleThumbDrag);
-      window.removeEventListener('pointerup', handleThumbDragEnd);
-    };
-  }, [handleThumbDrag, handleThumbDragEnd]);
 
   return (
     <StyledSlider>
       <StyledSliderTrack ref={trackRef} />
-      <Animated.div
+      <motion.button
+        drag="x"
+        dragConstraints={trackRef}
+        dragElastic={0}
+        onDragStart={handleThumbDragStart}
+        onDrag={handleThumbDrag}
+        onDragEnd={handleThumbDragEnd}
+        dragMomentum={false}
         style={{
           position: 'absolute',
           top: '50%',
           left: 0,
-          transform: animatedValue.x.interpolate(x => `translateX(${x}px)`)
+          padding: 0,
+          margin: 0,
+          background: 'transparent',
+          border: 'none'
+        }}
+        animate={{
+          x: isDragging ? undefined : stepWidth * ((value - min) / step),
+          scale: isDragging ? 1.4 : 1
         }}
       >
-        <StyledSliderThumb
-          onPointerDown={handleThumbDragStart}
-          isDragging={isDragging}
-        />
-      </Animated.div>
+        <StyledSliderThumb />
+      </motion.button>
     </StyledSlider>
   );
 };

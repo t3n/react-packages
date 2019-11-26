@@ -11,7 +11,7 @@ export default {
 };
 
 export const defaultStory = () => (
-  <Slider initialValue={5} min={5} max={20} step={5} />
+  <Slider initialValue={5} min={5} max={20} step={2} />
 );
 
 defaultStory.story = {
