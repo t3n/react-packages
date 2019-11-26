@@ -10,6 +10,7 @@ export interface SliderProps {
   max: number;
   step?: number;
   initialValue?: number;
+  labels?: string[];
   onChange?: (value: number) => void;
 }
 
@@ -27,7 +28,7 @@ interface SliderThumbProps {
   isDragging: boolean;
 }
 
-const StyledSliderThumbInner = styled.button<SliderThumbProps>`
+const StyledSliderThumb = styled.button<SliderThumbProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -43,12 +44,6 @@ const StyledSliderThumbInner = styled.button<SliderThumbProps>`
   width: ${({ theme }: ThemeProps) => theme.space[3]}px;
   height: ${({ theme }: ThemeProps) => theme.space[3]}px;
   ${({ theme }) => color({ bg: 'text.highlight', theme })}
-`;
-
-const StyledSliderThumb = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 0;
 `;
 
 const StyledSlider = styled.div`
@@ -181,7 +176,7 @@ export const Slider = ({
           transform: animatedValue.x.interpolate(x => `translateX(${x}px)`)
         }}
       >
-        <StyledSliderThumbInner
+        <StyledSliderThumb
           onPointerDown={handleThumbDragStart}
           isDragging={isDragging}
         />
