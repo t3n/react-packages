@@ -7,4 +7,4 @@ export interface SliderProps {
     labels?: string[];
     onChange?: (value: number) => void;
 }
-export declare const Slider: ({ min, max, step, initialValue, onChange }: SliderProps) => JSX.Element;
+export declare const Slider: ({ min, max, step, initialValue, labels, onChange }: SliderProps) => JSX.Element;

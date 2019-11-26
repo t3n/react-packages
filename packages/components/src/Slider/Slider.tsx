@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
-import { color } from 'styled-system';
+import { color, space } from 'styled-system';
 import { motion, PanInfo } from 'framer-motion';
 
 import { ThemeProps } from '@t3n/theme';
+import { Text } from '../Text';
 
 export interface SliderProps {
   min?: number;
@@ -31,7 +32,7 @@ const StyledSliderThumb = styled.span`
   left: 0;
   border-radius: 50%;
   border: none;
-  outline: 0;
+  outline: none;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   transform: translate(-50%, -50%);
@@ -40,9 +41,47 @@ const StyledSliderThumb = styled.span`
   ${({ theme }) => color({ bg: 'text.highlight', theme })}
 `;
 
+interface LabelProps {
+  x: number;
+}
+
+const StyledSliderLabel = styled.button<LabelProps>`
+  display: block;
+  position: absolute;
+  top: 0;
+  left: ${({ x }) => x}%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  ${({ theme }) => space({ theme, mt: -6 })}
+`;
+
+const StyledSliderMarker = styled.button<LabelProps>`
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: ${({ theme }: ThemeProps) => theme.space[3]}px;
+  height: ${({ theme }: ThemeProps) => theme.space[3]}px;
+  position: absolute;
+  top: 50%;
+  left: ${({ x }) => x}%;
+  border: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  outline: none;
+  ${({ theme }) => color({ bg: 'background.secondary', theme })}
+`;
+
 const StyledSlider = styled.div`
   width: 100%;
   position: relative;
+`;
+
+const StyledSliderContainer = styled.div`
+  ${({ theme }) => space({ pt: 5, pb: 2, px: 2, theme })}
 `;
 
 export const Slider = ({
@@ -50,6 +89,7 @@ export const Slider = ({
   max,
   step = 1,
   initialValue = 1,
+  labels = [],
   onChange
 }: SliderProps) => {
   const [value, setValue] = useState(min > initialValue ? min : initialValue);
@@ -96,6 +136,10 @@ export const Slider = ({
     if (onChange) onChange(value);
   }, [value, onChange]);
 
+  const handleMarkerClick = (i: number) => {
+    setValue(i * ((max - min) / (labels.length - 1)) + min);
+  };
+
   const handleThumbDragStart = useCallback(() => {
     setIsDragging(true);
     document.body.style.cursor = 'pointer';
@@ -121,32 +165,50 @@ export const Slider = ({
   }, []);
 
   return (
-    <StyledSlider>
-      <StyledSliderTrack ref={trackRef} />
-      <motion.button
-        drag="x"
-        dragConstraints={trackRef}
-        dragElastic={0}
-        onDragStart={handleThumbDragStart}
-        onDrag={handleThumbDrag}
-        onDragEnd={handleThumbDragEnd}
-        dragMomentum={false}
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          padding: 0,
-          margin: 0,
-          background: 'transparent',
-          border: 'none'
-        }}
-        animate={{
-          x: isDragging ? undefined : stepWidth * ((value - min) / step),
-          scale: isDragging ? 1.4 : 1
-        }}
-      >
-        <StyledSliderThumb />
-      </motion.button>
-    </StyledSlider>
+    <StyledSliderContainer>
+      <StyledSlider>
+        <StyledSliderTrack ref={trackRef} />
+        {labels.map((label, i) => (
+          <>
+            <StyledSliderMarker
+              x={(100 / (labels.length - 1)) * i}
+              onClick={() => handleMarkerClick(i)}
+            />
+            <StyledSliderLabel
+              x={(100 / (labels.length - 1)) * i}
+              onClick={() => handleMarkerClick(i)}
+            >
+              <Text inline bold>
+                {label}
+              </Text>
+            </StyledSliderLabel>
+          </>
+        ))}
+        <motion.button
+          drag="x"
+          dragConstraints={trackRef}
+          dragElastic={0}
+          onDragStart={handleThumbDragStart}
+          onDrag={handleThumbDrag}
+          onDragEnd={handleThumbDragEnd}
+          dragMomentum={false}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: 0,
+            padding: 0,
+            margin: 0,
+            background: 'transparent',
+            border: 'none'
+          }}
+          animate={{
+            x: isDragging ? undefined : stepWidth * ((value - min) / step),
+            scale: isDragging ? 1.4 : 1
+          }}
+        >
+          <StyledSliderThumb />
+        </motion.button>
+      </StyledSlider>
+    </StyledSliderContainer>
   );
 };
