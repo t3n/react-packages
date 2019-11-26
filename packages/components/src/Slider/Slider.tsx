@@ -7,6 +7,7 @@ import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text';
 
 export interface SliderProps {
+  name: string;
   min?: number;
   max: number;
   step?: number;
@@ -19,7 +20,7 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
 const StyledSliderTrack = styled.div`
-  height: 4px;
+  height: ${({ theme }: ThemeProps) => theme.space[2]}px;
   width: 100%;
   position: relative;
   ${({ theme }) => color({ bg: 'background.secondary', theme })}
@@ -36,8 +37,8 @@ const StyledSliderThumb = styled.span`
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   transform: translate(-50%, -50%);
-  width: ${({ theme }: ThemeProps) => theme.space[3]}px;
-  height: ${({ theme }: ThemeProps) => theme.space[3]}px;
+  width: ${({ theme }: ThemeProps) => theme.space[5]}px;
+  height: ${({ theme }: ThemeProps) => theme.space[5]}px;
   ${({ theme }) => color({ bg: 'text.highlight', theme })}
 `;
 
@@ -48,22 +49,26 @@ interface LabelProps {
 const StyledSliderLabel = styled.button<LabelProps>`
   display: block;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: ${({ x }) => x}%;
   transform: translateX(-50%);
   cursor: pointer;
   outline: none;
   border: none;
   background: transparent;
-  ${({ theme }) => space({ theme, mt: -6 })}
+  ${({ theme }) => space({ theme, mb: 4 })}
+
+  ${Text} {
+    transition: all 0.15s ease-in-out;
+  }
 `;
 
 const StyledSliderMarker = styled.button<LabelProps>`
   margin: 0;
   padding: 0;
   display: block;
-  width: ${({ theme }: ThemeProps) => theme.space[3]}px;
-  height: ${({ theme }: ThemeProps) => theme.space[3]}px;
+  width: ${({ theme }: ThemeProps) => theme.space[4]}px;
+  height: ${({ theme }: ThemeProps) => theme.space[4]}px;
   position: absolute;
   top: 50%;
   left: ${({ x }) => x}%;
@@ -81,10 +86,47 @@ const StyledSlider = styled.div`
 `;
 
 const StyledSliderContainer = styled.div`
-  ${({ theme }) => space({ pt: 5, pb: 2, px: 2, theme })}
+  ${({ theme }) => space({ pt: 6, pb: 3, px: 2, theme })}
 `;
 
+interface SliderLabelsProps extends Pick<SliderProps, 'min' | 'max'> {
+  labels: string[];
+  value: number;
+  onPress: (value: number) => void;
+}
+
+const SliderLabels = ({
+  labels,
+  value,
+  min = 0,
+  max,
+  onPress
+}: SliderLabelsProps) => (
+  <>
+    {labels.map((label, i) => {
+      const x = (100 / (labels.length - 1)) * i;
+      const isActive = value === i * ((max - min) / (labels.length - 1)) + min;
+
+      return (
+        <React.Fragment key={label}>
+          <StyledSliderMarker x={x} onClick={() => onPress(i)} />
+          <StyledSliderLabel x={x} onClick={() => onPress(i)}>
+            <Text
+              inline
+              bold
+              color={isActive ? 'text.primary' : 'text.secondary'}
+            >
+              {label}
+            </Text>
+          </StyledSliderLabel>
+        </React.Fragment>
+      );
+    })}
+  </>
+);
+
 export const Slider = ({
+  name,
   min = 1,
   max,
   step = 1,
@@ -93,48 +135,31 @@ export const Slider = ({
   onChange
 }: SliderProps) => {
   const [value, setValue] = useState(min > initialValue ? min : initialValue);
-  const valueRef = useRef(value);
-
   const [isDragging, setIsDragging] = useState(false);
-  const isDraggingRef = useRef(isDragging);
-
+  const [isTouched, setIsTouched] = useState(false);
   const [stepWidth, setStepWidth] = useState(0);
-  const stepWidthRef = useRef(stepWidth);
 
-  const [trackWidth, setTrackWidth] = useState(0);
-  const [trackPositionX, setTrackPositionX] = useState(0);
-  const trackWidthRef = useRef(trackWidth);
-  const trackPositionXRef = useRef(trackPositionX);
+  const stepWidthRef = useRef(stepWidth);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const updateTrackPositionAndDimensions = () => {
+    if (onChange) onChange(value);
+  }, [onChange, value]);
+
+  useEffect(() => {
+    const updateStepWidth = () => {
       if (!trackRef.current) return;
 
-      trackWidthRef.current = trackRef.current.getBoundingClientRect().width;
-      trackPositionXRef.current = trackRef.current.getBoundingClientRect().left;
+      const trackWidth = trackRef.current.getBoundingClientRect().width;
 
-      setTrackWidth(trackWidthRef.current);
-      setTrackPositionX(trackWidthRef.current);
+      stepWidthRef.current = trackWidth / ((max - min) / step);
+      setStepWidth(stepWidthRef.current);
     };
-    updateTrackPositionAndDimensions();
+    updateStepWidth();
 
-    window.addEventListener('resize', updateTrackPositionAndDimensions);
-
-    return () =>
-      window.removeEventListener('resize', updateTrackPositionAndDimensions);
-  }, []);
-
-  useEffect(() => {
-    stepWidthRef.current = trackWidthRef.current / ((max - min) / step);
-    setStepWidth(stepWidthRef.current);
-  }, [max, min, step, trackWidth]);
-
-  useEffect(() => {
-    console.log('Value: ', value);
-
-    if (onChange) onChange(value);
-  }, [value, onChange]);
+    window.addEventListener('resize', updateStepWidth);
+    return () => window.removeEventListener('resize', updateStepWidth);
+  }, [max, min, step]);
 
   const handleMarkerClick = (i: number) => {
     setValue(i * ((max - min) / (labels.length - 1)) + min);
@@ -166,28 +191,32 @@ export const Slider = ({
 
   return (
     <StyledSliderContainer>
+      <input
+        type="range"
+        name={name}
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        style={{ display: 'none' }}
+        readOnly
+      />
       <StyledSlider>
         <StyledSliderTrack ref={trackRef} />
-        {labels.map((label, i) => (
-          <>
-            <StyledSliderMarker
-              x={(100 / (labels.length - 1)) * i}
-              onClick={() => handleMarkerClick(i)}
-            />
-            <StyledSliderLabel
-              x={(100 / (labels.length - 1)) * i}
-              onClick={() => handleMarkerClick(i)}
-            >
-              <Text inline bold>
-                {label}
-              </Text>
-            </StyledSliderLabel>
-          </>
-        ))}
+        <SliderLabels
+          labels={labels}
+          value={value}
+          min={min}
+          max={max}
+          onPress={handleMarkerClick}
+        />
         <motion.button
           drag="x"
           dragConstraints={trackRef}
           dragElastic={0}
+          onTapStart={() => setIsTouched(true)}
+          onTap={() => setIsTouched(false)}
+          onTapCancel={() => setIsTouched(false)}
           onDragStart={handleThumbDragStart}
           onDrag={handleThumbDrag}
           onDragEnd={handleThumbDragEnd}
@@ -203,7 +232,7 @@ export const Slider = ({
           }}
           animate={{
             x: isDragging ? undefined : stepWidth * ((value - min) / step),
-            scale: isDragging ? 1.4 : 1
+            scale: isTouched ? 0.75 : 1
           }}
         >
           <StyledSliderThumb />

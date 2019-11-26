@@ -12,11 +12,13 @@ export default {
 
 export const defaultStory = () => (
   <Slider
+    name="slider"
     initialValue={5}
     min={5}
     max={20}
     step={5}
     labels={['5€', '10€', '15€', '20€']}
+    onChange={v => console.log(v)}
   />
 );
 
