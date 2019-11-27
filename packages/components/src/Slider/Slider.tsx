@@ -127,10 +127,10 @@ const SliderLabels = ({
 
 export const Slider = ({
   name,
-  min = 1,
+  min = 0,
   max,
   step = 1,
-  initialValue = 1,
+  initialValue = 0,
   labels = [],
   onChange
 }: SliderProps) => {
