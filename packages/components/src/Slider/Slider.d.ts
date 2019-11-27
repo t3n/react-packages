@@ -1,28 +1,11 @@
-import React from 'react';
-import { MarginProps } from 'styled-system';
-import { ThemeColors } from '@t3n/theme/src/theme/colors/colors';
-import { SliderTrackProps } from './SliderElements';
-export declare type VariantType = 'light' | 'dark';
-export interface SliderProps extends MarginProps {
-    initialValue: number;
-    minValue: number;
-    maxValue: number;
-    highlightColor?: ThemeColors & string;
-    labels?: Array<string>;
-    tracks?: Array<SliderTrackProps>;
-    steps?: number;
+/// <reference types="react" />
+export interface SliderProps {
     name: string;
+    min?: number;
+    max: number;
+    step?: number;
+    initialValue?: number;
+    labels?: string[];
     onChange?: (value: number) => void;
 }
-export interface HTMLElementWithOffset extends HTMLElement {
-    offsetWidth: number;
-    offsetHeight: number;
-    offsetLeft: number;
-    offsetTop: number;
-}
-export interface HiddenInputProps {
-    name: string;
-    value: any;
-    onChange?: (value: number) => void;
-}
-export declare const Slider: React.FC<SliderProps>;
+export declare const Slider: ({ name, min, max, step, initialValue, labels, onChange }: SliderProps) => JSX.Element;
