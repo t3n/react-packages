@@ -11,9 +11,9 @@ export interface SliderProps {
   min?: number;
   max: number;
   step?: number;
-  initialValue?: number;
+  value: number;
   labels?: string[];
-  onChange?: (value: number) => void;
+  onChange: (value: number) => void;
 }
 
 const clamp = (value: number, min: number, max: number) =>
@@ -130,21 +130,16 @@ export const Slider = ({
   min = 0,
   max,
   step = 1,
-  initialValue = 0,
+  value = 0,
   labels = [],
   onChange
 }: SliderProps) => {
-  const [value, setValue] = useState(min > initialValue ? min : initialValue);
   const [isDragging, setIsDragging] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
   const [stepWidth, setStepWidth] = useState(0);
 
   const stepWidthRef = useRef(stepWidth);
   const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (onChange) onChange(value);
-  }, [onChange, value]);
 
   useEffect(() => {
     const updateStepWidth = () => {
@@ -162,13 +157,13 @@ export const Slider = ({
   }, [max, min, step]);
 
   const handleMarkerClick = (i: number) => {
-    setValue(i * ((max - min) / (labels.length - 1)) + min);
+    onChange(i * ((max - min) / (labels.length - 1)) + min);
   };
 
   const handleThumbDragStart = useCallback(() => {
     setIsDragging(true);
     document.body.style.cursor = 'pointer';
-  }, []);
+  }, [setIsDragging]);
 
   const handleThumbDrag = useCallback(
     (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
@@ -179,15 +174,15 @@ export const Slider = ({
         max
       );
 
-      setValue(nextValue);
+      onChange(nextValue);
     },
-    [max, min, step]
+    [max, min, onChange, step]
   );
 
   const handleThumbDragEnd = useCallback(() => {
     setIsDragging(false);
     document.body.style.cursor = 'initial';
-  }, []);
+  }, [setIsDragging]);
 
   return (
     <StyledSliderContainer>

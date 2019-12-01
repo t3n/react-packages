@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { number, array, withKnobs } from '@storybook/addon-knobs';
 
-import { Slider, Text } from '@t3n/components';
+import { Slider, Text, H3, Button } from '@t3n/components';
 
+import { Formik } from 'formik';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
@@ -25,6 +26,7 @@ export const defaultStory = () => {
         name="slider"
         min={minKnob}
         max={maxKnob}
+        value={value}
         step={stepKnob}
         labels={labelsKnob}
         onChange={setValue}
@@ -48,10 +50,100 @@ export const range = () => {
         name="slider"
         max={10}
         step={1}
+        value={value}
         labels={['0', '10']}
         onChange={setValue}
       />
       <Text>Selected value: {value}</Text>
     </>
   );
+};
+
+export const syncedSlider = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [value, setValue] = useState(1);
+
+  return (
+    <>
+      <H3>Slider, die im sync sind</H3>
+      <Text>Currently selected value: {value}</Text>
+      <Slider
+        name="slider"
+        max={10}
+        step={1}
+        value={value}
+        labels={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
+        onChange={setValue}
+      />
+      <Slider
+        name="slider"
+        max={10}
+        step={1}
+        value={value}
+        labels={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
+        onChange={setValue}
+      />
+    </>
+  );
+};
+
+syncedSlider.story = {
+  name: 'Sync mehrere Slider'
+};
+
+export const inForm = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [submitted, setSubmitted] = useState(false);
+
+  return (
+    <>
+      <Formik
+        onSubmit={() => setSubmitted(true)}
+        initialValues={{ statisfied: 2 }}
+        render={({
+          handleReset,
+          dirty,
+          values,
+          setFieldValue,
+          handleSubmit
+        }) => {
+          return (
+            <>
+              <Slider
+                name="statisfied"
+                max={10}
+                step={2}
+                value={values.statisfied}
+                labels={['0', '2', '4', '6', '8', '10']}
+                onChange={val => setFieldValue('statisfied', val)}
+              />
+              <Button mr={3} variant="primary" onClick={() => handleSubmit()}>
+                Submit
+              </Button>
+              {dirty && (
+                <>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      handleReset();
+                      setSubmitted(false);
+                    }}
+                  >
+                    Reset
+                  </Button>
+                  <pre>{JSON.stringify(values)}</pre>
+                </>
+              )}
+            </>
+          );
+        }}
+      />
+
+      {submitted && <Text>Du hast das Formular abgeschickt :)</Text>}
+    </>
+  );
+};
+
+syncedSlider.story = {
+  name: 'Slider im Formular'
 };
