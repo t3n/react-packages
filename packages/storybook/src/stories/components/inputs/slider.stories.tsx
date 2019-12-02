@@ -144,6 +144,6 @@ export const inForm = () => {
   );
 };
 
-syncedSlider.story = {
+inForm.story = {
   name: 'Slider im Formular'
 };
