@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@styled-system/theme-get": "^5.1.2",
-    "@types/jest": "^24.0.20",
-    "@types/lodash": "^4.14.144",
-    "@types/styled-system": "^5.1.2",
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.149",
+    "@types/styled-system": "^5.1.4",
     "hex-rgb": "^4.1.0",
     "lodash": "^4.17.15",
     "polished": "^3.4.1"
@@ -28,8 +28,8 @@
   "devDependencies": {
     "@t3n/configs": "^0.2.10",
     "jest": "^24.9.0",
-    "styled-system": "^5.1.2",
-    "ts-jest": "^24.1.0",
+    "styled-system": "^5.1.4",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.6.4"
   },
   "peerDependencies": {
