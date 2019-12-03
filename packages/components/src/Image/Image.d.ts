@@ -20,7 +20,6 @@ export interface ImageProps extends MarginProps {
 export declare const Image: {
     ({ width, height, src, alt, disableSrcSet, processConfiguration, className, ...rest }: ImageProps): JSX.Element;
     defaultProps: {
-        width: number;
         className: string;
     };
 };
