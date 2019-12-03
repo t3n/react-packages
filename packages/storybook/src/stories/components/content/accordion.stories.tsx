@@ -96,7 +96,6 @@ export const multipleStory = () => {
           <GridItem width={[1, 1, 1 / 3]}>
             <Image
               alt="Bild"
-              width="100%"
               src="https://images.unsplash.com/photo-1559116674-71fae8b32c95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=663&q=80"
             />
           </GridItem>

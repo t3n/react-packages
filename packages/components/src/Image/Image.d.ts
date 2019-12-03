@@ -1,21 +1,27 @@
 /// <reference types="react" />
-export interface ImageProps {
+import { MarginProps } from 'styled-system';
+declare type FitTypes = 'crop' | 'faces' | 'facearea';
+export interface ImageProps extends MarginProps {
     alt: string;
     src: string;
-    width?: string;
-    height?: string;
+    sizes?: string;
+    width?: number;
+    height?: number;
+    disableSrcSet?: boolean;
     className?: string;
     processConfiguration?: {
-        fit?: 'crop';
+        fit?: FitTypes;
+        facepad?: number;
         quality?: number;
         aspectRatio?: string;
+        crop?: string;
     };
 }
 export declare const Image: {
-    ({ width, height, src, alt, processConfiguration, className }: ImageProps): JSX.Element;
+    ({ width, height, src, alt, disableSrcSet, processConfiguration, className, ...rest }: ImageProps): JSX.Element;
     defaultProps: {
-        width: string;
-        height: string;
-        className: {};
+        width: number;
+        className: string;
     };
 };
+export {};
