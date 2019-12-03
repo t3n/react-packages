@@ -8,7 +8,6 @@ export interface ImageProps {
     height?: number;
     disableSrcSet?: boolean;
     className?: string;
-    quality: number;
     processConfiguration?: {
         fit?: FitTypes;
         facepad?: number;

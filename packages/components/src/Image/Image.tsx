@@ -10,7 +10,6 @@ export interface ImageProps {
   height?: number;
   disableSrcSet?: boolean;
   className?: string;
-  quality: number;
   processConfiguration?: {
     fit?: FitTypes;
     facepad?: number;
@@ -29,7 +28,6 @@ export const Image = ({
   processConfiguration,
   className
 }: ImageProps) => {
-  // todo filter
   const params: { [key: string]: any } = {
     fit: processConfiguration && processConfiguration.fit,
     q: processConfiguration && processConfiguration.quality,
