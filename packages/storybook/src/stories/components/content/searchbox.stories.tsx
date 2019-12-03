@@ -181,7 +181,9 @@ const SearchBoxWithNoData: React.FC = () => {
   return (
     <SearchBox<TSuggestion>
       width="auto"
-      onSelect={() => {}}
+      onSelect={() => {
+        console.log('selected');
+      }}
       handleSuggestionFetchRequested={handleSuggestionChange}
       handleSuggestionClearRequested={() => setSuggestions(null)}
       getSuggestionValue={s => s.title}
@@ -221,7 +223,9 @@ const SearchBoxWithCategorizedData: React.FC = () => {
     <SearchBox<TSuggestion>
       width="auto"
       multiSection
-      onSelect={() => {}}
+      onSelect={() => {
+        console.log('selected');
+      }}
       handleSuggestionFetchRequested={handleSuggestionChange}
       handleSuggestionClearRequested={() => setSuggestions(null)}
       getSuggestionValue={s => s.title}
