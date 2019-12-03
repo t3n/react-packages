@@ -68,6 +68,5 @@ export const Image = ({
 };
 
 Image.defaultProps = {
-  width: 150,
   className: ''
 };
