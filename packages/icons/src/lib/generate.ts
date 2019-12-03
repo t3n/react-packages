@@ -53,16 +53,19 @@ const readDirectoryContents = async (dir: string): Promise<FolderContents> => {
 
   const childPaths = childNames.map(name => path.resolve(dir, name));
 
-  return childPaths.reduce(async (reduced, childPath) => {
-    const { dirs: reducedDirs, files: reducedFiles } = await reduced;
-    const stat = await fs.stat(childPath);
-    const isDir = await stat.isDirectory();
+  return childPaths.reduce(
+    async (reduced, childPath) => {
+      const { dirs: reducedDirs, files: reducedFiles } = await reduced;
+      const stat = await fs.stat(childPath);
+      const isDir = await stat.isDirectory();
 
-    return Promise.resolve({
-      dirs: isDir ? [...reducedDirs, childPath] : reducedDirs,
-      files: !isDir ? [...reducedFiles, childPath] : reducedFiles
-    });
-  }, Promise.resolve<FolderContents>({ dirs: [], files: [] }));
+      return Promise.resolve({
+        dirs: isDir ? [...reducedDirs, childPath] : reducedDirs,
+        files: !isDir ? [...reducedFiles, childPath] : reducedFiles
+      });
+    },
+    Promise.resolve<FolderContents>({ dirs: [], files: [] })
+  );
 };
 
 const getPathEnd = (filePath: string) => (filePath.match(/[^/]+$/) || [''])[0];
@@ -131,9 +134,11 @@ const generateIconComponents = async (
   );
 
   if (recursive)
-    return (await Promise.all(
-      childDirs.map(childDir => generateIconComponents(childDir))
-    )).reduce(
+    return (
+      await Promise.all(
+        childDirs.map(childDir => generateIconComponents(childDir))
+      )
+    ).reduce(
       (reducedComponents, components) => [...reducedComponents, ...components],
       []
     );
