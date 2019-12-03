@@ -72,7 +72,7 @@ export const Accordion: React.FC<AccordionProps> = ({
         </StyledIconBox>
       </StyledAccordionHeadBox>
       {collapsed && (
-        <Box mt={3} mb={5}>
+        <Box mt={3} mb={5} pr={5}>
           {children}
         </Box>
       )}
