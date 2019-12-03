@@ -1,8 +1,10 @@
 import React from 'react';
 import Imgix from 'react-imgix';
+import styled from 'styled-components';
+import { margin, MarginProps } from 'styled-system';
 
 type FitTypes = 'crop' | 'faces' | 'facearea';
-export interface ImageProps {
+export interface ImageProps extends MarginProps {
   alt: string;
   src: string;
   sizes?: string;
@@ -19,6 +21,10 @@ export interface ImageProps {
   };
 }
 
+const StyledImage = styled(Imgix)`
+  ${margin}
+`;
+
 export const Image = ({
   width,
   height,
@@ -26,7 +32,8 @@ export const Image = ({
   alt,
   disableSrcSet = false,
   processConfiguration,
-  className
+  className,
+  ...rest
 }: ImageProps) => {
   const params: { [key: string]: any } = {
     fit: processConfiguration && processConfiguration.fit,
@@ -45,7 +52,7 @@ export const Image = ({
   });
 
   return (
-    <Imgix
+    <StyledImage
       src={src}
       imgixParams={params}
       disableSrcSet={disableSrcSet}
@@ -55,6 +62,7 @@ export const Image = ({
         alt
       }}
       className={className}
+      {...rest}
     />
   );
 };
