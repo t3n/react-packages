@@ -1,12 +1,10 @@
-/// <reference types="react" />
-import { MarginProps } from 'styled-system';
+import React from 'react';
+import { MarginProps, WidthProps, HeightProps } from 'styled-system';
 declare type FitTypes = 'crop' | 'faces' | 'facearea';
-export interface ImageProps extends MarginProps {
+export interface BaseImageProps extends Pick<React.HTMLAttributes<HTMLImageElement>, 'onLoad'> {
     alt: string;
     src: string;
     sizes?: string;
-    width?: number;
-    height?: number;
     disableSrcSet?: boolean;
     className?: string;
     processConfiguration?: {
@@ -15,12 +13,12 @@ export interface ImageProps extends MarginProps {
         quality?: number;
         aspectRatio?: string;
         crop?: string;
+        width?: number;
+        height?: number;
     };
+    style?: React.CSSProperties;
 }
-export declare const Image: {
-    ({ width, height, src, alt, disableSrcSet, processConfiguration, className, ...rest }: ImageProps): JSX.Element;
-    defaultProps: {
-        className: string;
-    };
-};
+export interface ImageProps extends BaseImageProps, MarginProps, WidthProps, HeightProps {
+}
+export declare const Image: import("styled-components").StyledComponent<({ width, height, ...props }: any) => JSX.Element, any, ImageProps, never>;
 export {};
