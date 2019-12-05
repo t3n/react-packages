@@ -56,6 +56,7 @@ const StyledSliderLabel = styled.button<LabelProps>`
   outline: none;
   border: none;
   background: transparent;
+  white-space: nowrap;
   ${({ theme }) => space({ theme, mb: 4 })}
 
   ${Text} {
@@ -87,7 +88,6 @@ const StyledSlider = styled.div`
 
 const StyledSliderContainer = styled.div`
   ${({ theme }) => space({ pt: 6, pb: 3, px: 2, theme })}
-  white-space: nowrap;
 `;
 
 interface SliderLabelsProps extends Pick<SliderProps, 'min' | 'max'> {
