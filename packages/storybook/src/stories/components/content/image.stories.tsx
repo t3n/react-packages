@@ -1,7 +1,7 @@
 import React from 'react';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 
-import { Image, Text, Grid, GridItem, H3 } from '@t3n/components';
+import { Image, Text, Grid, GridItem, H3, Box } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
@@ -39,7 +39,7 @@ defaultStory.story = {
   name: 'Default'
 };
 
-export const CropStory = () => {
+export const CropModes = () => {
   const directions = ['top', 'right', 'bottom', 'left'];
 
   return (
@@ -104,11 +104,7 @@ export const CropStory = () => {
   );
 };
 
-CropStory.story = {
-  name: 'Crop modes'
-};
-
-export const QualityStory = () => {
+export const QualityConfiguration = () => {
   const q = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
   return (
@@ -130,5 +126,24 @@ export const QualityStory = () => {
         ))}
       </Grid>
     </>
+  );
+};
+
+export const Responsive = () => {
+  return (
+    <Box>
+      <Image
+        src="https://images.unsplash.com/photo-1575315599174-f0c6d26625eb"
+        sizes="50vw"
+        width={[1, 1, 1 / 2, 1 / 3]}
+        alt="Responsive Image"
+      />
+      <Text small secondary>
+        Open the &quot;Network&quot; tab in your browser and check the
+        downloaded image file size. Now resize the window and check again. The
+        browser picks the appropriate size for the viewport and fetches the
+        corresponding image.
+      </Text>
+    </Box>
   );
 };
