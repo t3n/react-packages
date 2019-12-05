@@ -56,6 +56,7 @@ const StyledSliderLabel = styled.button<LabelProps>`
   outline: none;
   border: none;
   background: transparent;
+  white-space: nowrap;
   ${({ theme }) => space({ theme, mb: 4 })}
 
   ${Text} {
