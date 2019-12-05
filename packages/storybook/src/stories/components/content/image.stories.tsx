@@ -134,8 +134,8 @@ export const Responsive = () => {
     <Box>
       <Image
         src="https://images.unsplash.com/photo-1575315599174-f0c6d26625eb"
-        sizes="100vw"
-        width="100%"
+        sizes="50vw"
+        width={[1, 1, 1 / 2, 1 / 3]}
         alt="Responsive Image"
       />
       <Text small secondary>
