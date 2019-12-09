@@ -254,7 +254,10 @@ export const inHeaderStory = () => {
         isLoading={false}
         width={[0.3, 0.5, 0.7]}
       />
-      <Avatar src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80" />
+      <Avatar
+        src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80"
+        alt="Avatar"
+      />
     </PageHeader>
   );
 };

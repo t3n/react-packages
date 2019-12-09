@@ -4,6 +4,7 @@ interface AvatarImageProps {
     src: string;
     size?: number;
     className?: string;
+    alt: string;
 }
 export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
     label?: string;
