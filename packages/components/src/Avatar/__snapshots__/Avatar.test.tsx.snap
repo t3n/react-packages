@@ -26,6 +26,7 @@ exports[`Avatar matches snapshot and renders label 1`] = `
   class="c0"
 >
   <img
+    alt="alt-attribute"
     class="c1"
     height="40"
     src=""
@@ -61,6 +62,7 @@ exports[`Avatar renders without label 1`] = `
   class="c0"
 >
   <img
+    alt="alt-attribute"
     class="c1"
     height="40"
     src=""

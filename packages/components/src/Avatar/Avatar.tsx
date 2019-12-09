@@ -7,9 +7,10 @@ interface AvatarImageProps {
   src: string;
   size?: number;
   className?: string;
+  alt: string;
 }
 
-const AvatarImage = ({ src, size, className }: AvatarImageProps) => {
+const AvatarImage = ({ src, size, className, alt }: AvatarImageProps) => {
   return (
     <Imgix
       src={src}
@@ -17,6 +18,7 @@ const AvatarImage = ({ src, size, className }: AvatarImageProps) => {
       imgixParams={{ fit: 'crop', h: size, w: size }}
       width={size}
       height={size}
+      htmlAttributes={{ alt }}
       disableSrcSet
     />
   );
