@@ -13,8 +13,8 @@ export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 export interface LinkProps extends TextColorProps, SpaceProps {
   small?: TextProps['small'];
   disabled?: boolean;
-  children: ReactNode;
   variant?: LinkVariantType;
+  children: ReactNode;
 }
 
 export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
