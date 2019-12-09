@@ -42,7 +42,10 @@ export const withTransparentHeader = () => {
       noContentPadding={noContentPadding}
       showHeader={showHeader}
       headerContent={
-        <Avatar src="https://storage.googleapis.com/t3n-de/pioneers/ee08e42d57b7c75290f40f8d9a56489b8db91cd6/Thelen_Frank_Portrait_03%20-%20Lena%20He%C3%9Fbru%CC%88gge.jpg" />
+        <Avatar
+          src="https://storage.googleapis.com/t3n-de/pioneers/ee08e42d57b7c75290f40f8d9a56489b8db91cd6/Thelen_Frank_Portrait_03%20-%20Lena%20He%C3%9Fbru%CC%88gge.jpg"
+          alt="Avatar"
+        />
       }
     >
       <VisualSection variant="highlight">

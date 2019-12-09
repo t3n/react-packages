@@ -44,7 +44,12 @@ const UserAvatar = () => {
   } = data;
 
   return (
-    <Avatar label={`${firstName} ${lastName}`} src={avatarUrl} size={40} />
+    <Avatar
+      label={`${firstName} ${lastName}`}
+      src={avatarUrl}
+      size={40}
+      alt={`${firstName} ${lastName}`}
+    />
   );
 };
 
@@ -58,6 +63,7 @@ export const defaultStory = () => (
       )}
       label={text('Label', '')}
       textColor={select('Textfarbe', options, 'black')}
+      alt={text('alt-Attribut', '')}
     />
   </div>
 );
@@ -76,6 +82,7 @@ export const withText = () => (
       )}
       label={text('Label', 'John Doe')}
       textColor={select('Textfarbe', options, 'black')}
+      alt={text('alt-Attribut', 'John Doe')}
     />
   </div>
 );
