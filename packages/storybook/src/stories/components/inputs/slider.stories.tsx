@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { number, array, withKnobs } from '@storybook/addon-knobs';
 
-import { Slider, Text, H3, Button } from '@t3n/components';
+import { Slider, Text, H3, Button, Box } from '@t3n/components';
 
 import { Formik } from 'formik';
 import { storyContainerDecorator } from '../../../utils/decorators';
@@ -146,4 +146,31 @@ export const inForm = () => {
 
 inForm.story = {
   name: 'Slider im Formular'
+};
+
+export const fixedContainer = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [value, setValue] = useState(1);
+
+  return (
+    <>
+      <Box display="flex" justifyContent="center">
+        <Box width="300px">
+          <Slider
+            value={value}
+            max={2}
+            min={0}
+            step={1}
+            onChange={v => setValue(v)}
+            name="slider"
+            labels={['0', '1', '2']}
+          />
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+fixedContainer.story = {
+  name: 'Slider in fixed Container'
 };

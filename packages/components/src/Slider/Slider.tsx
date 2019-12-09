@@ -149,7 +149,11 @@ export const Slider = ({
       const trackWidth = trackRef.current.getBoundingClientRect().width;
 
       stepWidthRef.current = trackWidth / ((max - min) / step);
-      setStepWidth(stepWidthRef.current);
+
+      // random micro adsustement to force the animation
+      const rnd = Math.random() / 1000 + 1;
+
+      setStepWidth(stepWidthRef.current * rnd);
     };
     updateStepWidth();
 
