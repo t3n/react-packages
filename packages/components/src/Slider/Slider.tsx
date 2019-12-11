@@ -135,6 +135,7 @@ export const Slider = ({
   labels = [],
   onChange
 }: SliderProps) => {
+  const [initialized, setInitialized] = useState(value === min);
   const [isDragging, setIsDragging] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
   const [stepWidth, setStepWidth] = useState(0);
@@ -154,12 +155,14 @@ export const Slider = ({
       const rnd = Math.random() / 1000 + 1;
 
       setStepWidth(stepWidthRef.current * rnd);
+
+      if (!initialized) setInitialized(true);
     };
     updateStepWidth();
 
     window.addEventListener('resize', updateStepWidth);
     return () => window.removeEventListener('resize', updateStepWidth);
-  }, [max, min, step]);
+  }, [initialized, max, min, step]);
 
   const handleMarkerClick = (i: number) => {
     onChange(i * ((max - min) / (labels.length - 1)) + min);
@@ -210,33 +213,36 @@ export const Slider = ({
           max={max}
           onPress={handleMarkerClick}
         />
-        <motion.button
-          drag="x"
-          dragConstraints={trackRef}
-          dragElastic={0}
-          onTapStart={() => setIsTouched(true)}
-          onTap={() => setIsTouched(false)}
-          onTapCancel={() => setIsTouched(false)}
-          onDragStart={handleThumbDragStart}
-          onDrag={handleThumbDrag}
-          onDragEnd={handleThumbDragEnd}
-          dragMomentum={false}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: 0,
-            padding: 0,
-            margin: 0,
-            background: 'transparent',
-            border: 'none'
-          }}
-          animate={{
-            x: isDragging ? undefined : stepWidth * ((value - min) / step),
-            scale: isTouched ? 0.75 : 1
-          }}
-        >
-          <StyledSliderThumb />
-        </motion.button>
+        {initialized && (
+          <motion.button
+            drag="x"
+            dragConstraints={trackRef}
+            dragElastic={0}
+            onTapStart={() => setIsTouched(true)}
+            onTap={() => setIsTouched(false)}
+            onTapCancel={() => setIsTouched(false)}
+            onDragStart={handleThumbDragStart}
+            onDrag={handleThumbDrag}
+            onDragEnd={handleThumbDragEnd}
+            dragMomentum={false}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: 0,
+              padding: 0,
+              margin: 0,
+              background: 'transparent',
+              border: 'none'
+            }}
+            animate={{
+              x: isDragging ? undefined : stepWidth * ((value - min) / step),
+              scale: isTouched ? 0.75 : 1
+            }}
+            initial={false}
+          >
+            <StyledSliderThumb />
+          </motion.button>
+        )}
       </StyledSlider>
     </StyledSliderContainer>
   );
