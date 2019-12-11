@@ -44,5 +44,6 @@ export const VisualSection: React.FC<VisualSectionProps> = ({
 VisualSection.displayName = 'VisualSection';
 
 VisualSection.defaultProps = {
-  innerGap: 6
+  innerGap: 6,
+  wide: true
 };
