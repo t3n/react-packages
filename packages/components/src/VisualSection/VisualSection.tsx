@@ -9,6 +9,7 @@ export type VisualSectionVariants = 'primary' | 'highlight';
 export interface VisualSectionProps {
   variant: VisualSectionVariants;
   innerGap?: SpaceProps['py'];
+  wide?: boolean;
 }
 
 const svgData =
@@ -32,15 +33,17 @@ const VisualSectionOuter = styled.div<VisualSectionProps>`
 export const VisualSection: React.FC<VisualSectionProps> = ({
   variant,
   innerGap,
+  wide,
   children
 }) => (
   <VisualSectionOuter variant={variant} innerGap={innerGap}>
-    <Content wide>{children}</Content>
+    <Content wide={wide}>{children}</Content>
   </VisualSectionOuter>
 );
 
 VisualSection.displayName = 'VisualSection';
 
 VisualSection.defaultProps = {
-  innerGap: 6
+  innerGap: 6,
+  wide: true
 };
