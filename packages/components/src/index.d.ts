@@ -1,3 +1,4 @@
+import 'core-js/features/weak-set';
 export { Accordion } from './Accordion';
 export { Alert, AlertText } from './Alert';
 export { AuthorCard } from './AuthorCard';
