@@ -40,6 +40,7 @@
     "@types/jest": "^24.0.23",
     "@types/react": "^16.9.14",
     "@types/react-dom": "^16.9.3",
+    "@types/react-imgix": "^9.0.0",
     "@types/styled-components": "^4.4.0",
     "@types/styled-system": "^5.1.4",
     "babel-jest": "^24.9.0",
