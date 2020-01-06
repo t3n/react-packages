@@ -41,35 +41,61 @@ DefaultStory.story = {
 };
 
 export const ReadOnlyStory = () => {
-  const switchVariant = select('Variante Switch', ['light', 'dark'], 'light');
-
   return (
-    <Section variant={switchVariant === 'light' ? 'primary' : 'inverse'}>
-      <Grid>
-        <GridItem mb={3}>
-          <Switch
-            disabled={false}
-            checked={false}
-            value="true"
-            name="Read-Only "
-            readOnly
-            label="Switch read only"
-            variant={switchVariant}
-          />
-        </GridItem>
-        <GridItem>
-          <Switch
-            disabled={false}
-            checked
-            value="true"
-            name="Read-Only "
-            readOnly
-            label="Switch read only checked"
-            variant={switchVariant}
-          />
-        </GridItem>
-      </Grid>
-    </Section>
+    <>
+      <Section variant="primary">
+        <Grid>
+          <GridItem mb={3}>
+            <Switch
+              disabled={false}
+              checked={false}
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only"
+              variant="light"
+            />
+          </GridItem>
+          <GridItem>
+            <Switch
+              disabled={false}
+              checked
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only checked"
+              variant="light"
+            />
+          </GridItem>
+        </Grid>
+      </Section>
+      <Section variant="inverse">
+        <Grid>
+          <GridItem mb={3}>
+            <Switch
+              disabled={false}
+              checked={false}
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only"
+              variant="dark"
+            />
+          </GridItem>
+          <GridItem>
+            <Switch
+              disabled={false}
+              checked
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only checked"
+              variant="dark"
+            />
+          </GridItem>
+        </Grid>
+      </Section>
+    </>
   );
 };
 

@@ -160,7 +160,7 @@ const PlainSwitch = ({
       />
       <HiddenCheckbox
         checked={checked}
-        onChange={onChange}
+        onChange={readOnly ? undefined : onChange}
         readOnly={readOnly}
         disabled={disabled}
         name={name}
@@ -195,7 +195,7 @@ export const Switch: React.FC<SwitchProps> = ({
         variant={variantProp}
         checked={checked}
         disabled={disabled}
-        onChange={onChange}
+        onChange={readOnly ? undefined : onChange}
         readOnly={readOnly}
         name={name}
         value={value}
