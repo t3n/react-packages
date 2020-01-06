@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
-import { Switch, Section } from '@t3n/components';
+import { Switch, Section, Grid, GridItem } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -38,4 +38,67 @@ export const DefaultStory = () => {
 
 DefaultStory.story = {
   name: 'Default'
+};
+
+export const ReadOnlyStory = () => {
+  return (
+    <>
+      <Section variant="primary">
+        <Grid>
+          <GridItem mb={3}>
+            <Switch
+              disabled={false}
+              checked={false}
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only"
+              variant="light"
+            />
+          </GridItem>
+          <GridItem>
+            <Switch
+              disabled={false}
+              checked
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only checked"
+              variant="light"
+            />
+          </GridItem>
+        </Grid>
+      </Section>
+      <Section variant="inverse">
+        <Grid>
+          <GridItem mb={3}>
+            <Switch
+              disabled={false}
+              checked={false}
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only"
+              variant="dark"
+            />
+          </GridItem>
+          <GridItem>
+            <Switch
+              disabled={false}
+              checked
+              value="true"
+              name="Read-Only "
+              readOnly
+              label="Switch read only checked"
+              variant="dark"
+            />
+          </GridItem>
+        </Grid>
+      </Section>
+    </>
+  );
+};
+
+ReadOnlyStory.story = {
+  name: 'Read Only'
 };

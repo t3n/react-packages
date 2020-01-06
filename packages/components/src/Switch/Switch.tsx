@@ -15,6 +15,7 @@ export interface SwitchProps extends MarginProps, WidthProps {
   disabled?: boolean;
   variant?: VariantType;
   feedbackColor?: ThemeFeedbackColor;
+  readOnly?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -114,7 +115,8 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<SwitchProps>`
   height: 100%;
   opacity: 0;
   margin: 0;
-  cursor: inherit;
+  cursor: ${({ disabled, readOnly }) =>
+    disabled ? 'not-allowed' : readOnly ? 'default' : 'pointer'};
 `;
 
 const StyledLabel = styled.label<
@@ -123,7 +125,8 @@ const StyledLabel = styled.label<
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ disabled, readOnly }) =>
+    disabled ? 'not-allowed' : readOnly ? 'default' : 'pointer'};
   ${width};
 
   ${({ disabled }) =>
@@ -141,6 +144,7 @@ const StyledLabel = styled.label<
 
 const PlainSwitch = ({
   checked,
+  readOnly,
   onChange,
   disabled,
   name,
@@ -156,7 +160,8 @@ const PlainSwitch = ({
       />
       <HiddenCheckbox
         checked={checked}
-        onChange={onChange}
+        onChange={readOnly ? undefined : onChange}
+        readOnly={readOnly}
         disabled={disabled}
         name={name}
         value={value}
@@ -167,6 +172,7 @@ const PlainSwitch = ({
 
 export const Switch: React.FC<SwitchProps> = ({
   checked,
+  readOnly,
   onChange,
   label,
   disabled,
@@ -180,6 +186,7 @@ export const Switch: React.FC<SwitchProps> = ({
     <StyledLabel
       variant={variantProp}
       disabled={disabled}
+      readOnly={readOnly}
       width={widthProp}
       {...marginProps}
     >
@@ -188,7 +195,8 @@ export const Switch: React.FC<SwitchProps> = ({
         variant={variantProp}
         checked={checked}
         disabled={disabled}
-        onChange={onChange}
+        onChange={readOnly ? undefined : onChange}
+        readOnly={readOnly}
         name={name}
         value={value}
       />
