@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
-import { Switch, Section } from '@t3n/components';
+import { Switch, Section, Grid, GridItem } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -38,4 +38,41 @@ export const DefaultStory = () => {
 
 DefaultStory.story = {
   name: 'Default'
+};
+
+export const ReadOnlyStory = () => {
+  const switchVariant = select('Variante Switch', ['light', 'dark'], 'light');
+
+  return (
+    <Section variant={switchVariant === 'light' ? 'primary' : 'inverse'}>
+      <Grid>
+        <GridItem mb={3}>
+          <Switch
+            disabled={false}
+            checked={false}
+            value="true"
+            name="Read-Only "
+            readOnly
+            label="Switch read only"
+            variant={switchVariant}
+          />
+        </GridItem>
+        <GridItem>
+          <Switch
+            disabled={false}
+            checked
+            value="true"
+            name="Read-Only "
+            readOnly
+            label="Switch read only checked"
+            variant={switchVariant}
+          />
+        </GridItem>
+      </Grid>
+    </Section>
+  );
+};
+
+ReadOnlyStory.story = {
+  name: 'Read Only'
 };
