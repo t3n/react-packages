@@ -31,7 +31,7 @@
     "jest": "^24.9.0",
     "styled-system": "^5.1.4",
     "ts-jest": "^24.2.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "peerDependencies": {
     "styled-system": ">=5.1.2"

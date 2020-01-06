@@ -16,5 +16,5 @@ interface NotifyOptions {
     position: keyof typeof Position;
     isClosable: boolean;
 }
-export declare const useToast: () => (({ text, status, duration, position }: NotifyOptions) => void)[];
+export declare const useToast: () => (({ text, status, duration, position }: NotifyOptions) => any)[];
 export {};
