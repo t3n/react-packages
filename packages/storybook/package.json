@@ -42,7 +42,7 @@
     "styled-components": "^4.4.0",
     "styled-system": "^5.1.4",
     "toasted-notes": "^3.0.0",
-    "yup": "^0.27.0"
+    "yup": "^0.28.0"
   },
   "scripts": {
     "clean": "rm -rf storybook-static && rm -rf .awcache",
@@ -65,7 +65,7 @@
     "babel-loader": "^8.0.6",
     "react-docgen-typescript-loader": "^3.6.0",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
