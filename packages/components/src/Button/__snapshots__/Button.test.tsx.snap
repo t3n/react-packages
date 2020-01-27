@@ -41,21 +41,21 @@ exports[`Button in default state matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #fff;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -135,60 +135,6 @@ exports[`Button in loading state matches snapshot 1`] = `
   animation-delay: -0.15s;
 }
 
-.c3:hover :not(:disabled) .c2 > div,
-.c3:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c3 .c2 > div {
-  background-color: #fff;
-}
-
-.c4:hover :not(:disabled) .c2 > div,
-.c4:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c4 .c2 > div {
-  background-color: #2a2a2a;
-}
-
-.c5:hover :not(:disabled) .c2 > div,
-.c5:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c5 .c2 > div {
-  background-color: #2a2a2a;
-}
-
-.c6:hover :not(:disabled) .c2 > div,
-.c6:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c6 .c2 > div {
-  background-color: #2a2a2a;
-}
-
-.c7:hover :not(:disabled) .c2 > div,
-.c7:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c7 .c2 > div {
-  background-color: #fff;
-}
-
-.c8:hover :not(:disabled) .c2 > div,
-.c8:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c8 .c2 > div {
-  background-color: #fff;
-}
-
 .c0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -234,8 +180,8 @@ exports[`Button in loading state matches snapshot 1`] = `
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c9.c9,
-.c0:focus :not(:disabled) .c9.c9 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
@@ -243,7 +189,7 @@ exports[`Button in loading state matches snapshot 1`] = `
   background-color: #fff;
 }
 
-.c0 .c9 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -336,21 +282,21 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #fff;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -440,21 +386,21 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #2a2a2a;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #2a2a2a;
@@ -545,21 +491,21 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #2a2a2a;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #2a2a2a;
@@ -649,21 +595,21 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #2a2a2a;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #2a2a2a;
@@ -753,21 +699,21 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #fff;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -857,21 +803,21 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #fff;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -951,78 +897,6 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   animation-delay: -0.15s;
 }
 
-.c3:hover :not(:disabled) .c2 > div,
-.c3:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c3 .c2 > div {
-  background-color: #fff;
-}
-
-.c4:hover :not(:disabled) .c2 > div,
-.c4:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c4 .c2 > div {
-  background-color: #2a2a2a;
-}
-
-.c5:hover :not(:disabled) .c2 > div,
-.c5:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c5 .c2 > div {
-  background-color: #2a2a2a;
-}
-
-.c6:hover :not(:disabled) .c2 > div,
-.c6:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c6 .c2 > div {
-  background-color: #2a2a2a;
-}
-
-.c7:hover :not(:disabled) .c2 > div,
-.c7:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c7 .c2 > div {
-  background-color: #fff;
-}
-
-.c8:hover :not(:disabled) .c2 > div,
-.c8:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c8 .c2 > div {
-  background-color: #fff;
-}
-
-.c9:hover :not(:disabled) .c2 > div,
-.c9:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c9 .c2 > div {
-  background-color: #fff;
-}
-
-.c10:hover :not(:disabled) .c2 > div,
-.c10:focus :not(:disabled) .c2 > div {
-  background-color: white;
-}
-
-.c10 .c2 > div {
-  background-color: #fff;
-}
-
 .c0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -1068,8 +942,8 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c11.c11,
-.c0:focus :not(:disabled) .c11.c11 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
@@ -1077,7 +951,7 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   background-color: #fff;
 }
 
-.c0 .c11 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -1170,21 +1044,21 @@ exports[`Small Button matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c1 > div,
-.c0:focus :not(:disabled) .c1 > div {
+.c0:hover :not(:disabled) .sc-AykKD > div,
+.c0:focus :not(:disabled) .sc-AykKD > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .c2.c2,
-.c0:focus :not(:disabled) .c2.c2 {
+.c0:hover :not(:disabled) .sc-AykKE.sc-AykKE,
+.c0:focus :not(:disabled) .sc-AykKE.sc-AykKE {
   fill: white;
 }
 
-.c0 .c1 > div {
+.c0 .sc-AykKD > div {
   background-color: #fff;
 }
 
-.c0 .c2 {
+.c0 .sc-AykKE {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;

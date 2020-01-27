@@ -1,0 +1,759 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All variants Checkbox matches snapshot 1`] = `
+.c2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #2a2a2a;
+  border: 1px solid;
+  border-color: #2a2a2a;
+}
+
+.c5 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #fff;
+}
+
+.c3 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c3 svg {
+  fill: #fff;
+}
+
+.c6 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c6 svg {
+  fill: #2a2a2a;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+
+.c4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+
+<div>
+  <label
+    class="c0"
+  >
+    <div
+      class="sc-AykKD c1"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c3"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c4"
+  >
+    <div
+      class="sc-AykKD c5"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c6"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Checkbox has feedback styles 1`] = `
+.c2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #f9423a;
+}
+
+.c4 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #5bd6ff;
+}
+
+.c6 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #ffef4f;
+}
+
+.c8 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #34e88f;
+}
+
+.c11 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: shades.grey44;
+  border: 1px solid;
+  border-color: #f9423a;
+}
+
+.c12 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: shades.grey44;
+  border: 1px solid;
+  border-color: #5bd6ff;
+}
+
+.c13 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: shades.grey44;
+  border: 1px solid;
+  border-color: #ffef4f;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: shades.grey44;
+  border: 1px solid;
+  border-color: #34e88f;
+}
+
+.c3 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c3 svg {
+  fill: #f9423a;
+}
+
+.c5 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c5 svg {
+  fill: #5bd6ff;
+}
+
+.c7 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c7 svg {
+  fill: #ffef4f;
+}
+
+.c9 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c9 svg {
+  fill: #34e88f;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+
+.c10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+
+<div>
+  <label
+    class="c0"
+  >
+    <div
+      class="sc-AykKD c1"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c3"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c0"
+  >
+    <div
+      class="sc-AykKD c4"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c5"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c0"
+  >
+    <div
+      class="sc-AykKD c6"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c7"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c0"
+  >
+    <div
+      class="sc-AykKD c8"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c9"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c10"
+  >
+    <div
+      class="sc-AykKD c11"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c3"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c10"
+  >
+    <div
+      class="sc-AykKD c12"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c5"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c10"
+  >
+    <div
+      class="sc-AykKD c13"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c7"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c10"
+  >
+    <div
+      class="sc-AykKD c14"
+    >
+      <input
+        checked=""
+        class="c2"
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c9"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Checkbox is disabled 1`] = `
+.c2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: not-allowed;
+  opacity: 0;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  margin-right: 8px;
+  background-color: #8F8F8F;
+  border: 1px solid;
+  border-color: #8F8F8F;
+}
+
+.c3 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c3 svg {
+  fill: #fff;
+}
+
+.c4 {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  line-height: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.c4 svg {
+  fill: #2a2a2a;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: not-allowed;
+  color: #8F8F8F;
+}
+
+<div>
+  <label
+    class="c0"
+    disabled=""
+  >
+    <div
+      class="sc-AykKD c1"
+      disabled=""
+    >
+      <input
+        checked=""
+        class="c2"
+        disabled=""
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c3"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+  <label
+    class="c0"
+    disabled=""
+  >
+    <div
+      class="sc-AykKD c1"
+      disabled=""
+    >
+      <input
+        checked=""
+        class="c2"
+        disabled=""
+        name="check"
+        type="checkbox"
+        value="checkbox"
+      />
+      <span
+        class="c4"
+      >
+        <svg
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          />
+        </svg>
+      </span>
+    </div>
+  </label>
+</div>
+`;

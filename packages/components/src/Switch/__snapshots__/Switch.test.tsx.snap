@@ -310,7 +310,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch unchecked
     </span>
     <div
-      class="c2"
+      class="sc-AykKD c2"
     >
       <div
         class="c3"
@@ -334,7 +334,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch checked
     </span>
     <div
-      class="c5"
+      class="sc-AykKD c5"
     >
       <div
         class="c6"
@@ -360,7 +360,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch disabled checked
     </span>
     <div
-      class="c8"
+      class="sc-AykKD c8"
       disabled=""
     >
       <div
@@ -389,7 +389,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch disabled unchecked
     </span>
     <div
-      class="c8"
+      class="sc-AykKD c8"
       disabled=""
     >
       <div
@@ -416,7 +416,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch unchecked
     </span>
     <div
-      class="c13"
+      class="sc-AykKD c13"
     >
       <div
         class="c14"
@@ -440,7 +440,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch checked
     </span>
     <div
-      class="c5"
+      class="sc-AykKD c5"
     >
       <div
         class="c15"
@@ -466,7 +466,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch disabled checked
     </span>
     <div
-      class="c16"
+      class="sc-AykKD c16"
       disabled=""
     >
       <div
@@ -495,7 +495,7 @@ exports[`Switch variants matches snapshot 1`] = `
       Switch disabled unchecked
     </span>
     <div
-      class="c16"
+      class="sc-AykKD c16"
       disabled=""
     >
       <div
