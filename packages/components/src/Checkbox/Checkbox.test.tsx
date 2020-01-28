@@ -6,7 +6,9 @@ test('Label is present on checkbox', () => {
   const { getByText } = renderWithTheme(
     <Checkbox
       label="ein Label"
-      onChange={() => {}}
+      onChange={() => {
+        console.log('clicked');
+      }}
       checked
       name="check"
       value="checkbox"
@@ -21,35 +23,45 @@ test('Checkbox has feedback styles', () => {
   const { container } = renderWithTheme(
     <>
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         checked
         name="check"
         value="checkbox"
         feedbackColor="error"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         checked
         name="check"
         value="checkbox"
         feedbackColor="notice"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         checked
         name="check"
         value="checkbox"
         feedbackColor="warn"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         checked
         name="check"
         value="checkbox"
         feedbackColor="success"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         variant="dark"
         checked
         name="check"
@@ -57,7 +69,9 @@ test('Checkbox has feedback styles', () => {
         feedbackColor="error"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         variant="dark"
         checked
         name="check"
@@ -65,7 +79,9 @@ test('Checkbox has feedback styles', () => {
         feedbackColor="notice"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         variant="dark"
         checked
         name="check"
@@ -73,7 +89,9 @@ test('Checkbox has feedback styles', () => {
         feedbackColor="warn"
       />
       <Checkbox
-        onChange={() => {}}
+        onChange={() => {
+          console.log('clicked');
+        }}
         variant="dark"
         checked
         name="check"
