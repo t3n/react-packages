@@ -2,24 +2,6 @@ import React from 'react';
 import { renderWithTheme } from '../helper/renderWithTheme';
 import { Checkbox } from './Checkbox';
 
-test('All variants Checkbox matches snapshot', () => {
-  const { container } = renderWithTheme(
-    <>
-      <Checkbox onChange={() => {}} checked name="check" value="checkbox" />
-      <Checkbox
-        onChange={() => {}}
-        checked
-        name="check"
-        variant="dark"
-        value="checkbox"
-      />
-    </>,
-    {}
-  );
-
-  expect(container).toMatchSnapshot();
-});
-
 test('Label is present on checkbox', () => {
   const { getByText } = renderWithTheme(
     <Checkbox
