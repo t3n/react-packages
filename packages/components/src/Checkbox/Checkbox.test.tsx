@@ -35,30 +35,6 @@ test('Label is present on checkbox', () => {
   expect(getByText(/ein label/i)).toBeTruthy();
 });
 
-test('Checkbox is disabled', () => {
-  const { container } = renderWithTheme(
-    <>
-      <Checkbox
-        onChange={() => {}}
-        checked
-        name="check"
-        value="checkbox"
-        disabled
-      />
-      <Checkbox
-        onChange={() => {}}
-        variant="dark"
-        checked
-        name="check"
-        value="checkbox"
-        disabled
-      />
-    </>,
-    {}
-  );
-
-  expect(container).toMatchSnapshot();
-});
 test('Checkbox has feedback styles', () => {
   const { container } = renderWithTheme(
     <>
