@@ -12,7 +12,7 @@
     "@types/btoa": "^1.2.3",
     "@types/react-autosuggest": "^9.3.13",
     "btoa": "^1.2.1",
-    "framer-motion": "^1.6.17",
+    "framer-motion": "^1.8.0",
     "polished": "^3.4.1",
     "react-autosuggest": "^9.4.3",
     "react-imgix": "^9.0.1",
@@ -35,7 +35,6 @@
     "@t3n/configs": "^0.2.11",
     "@t3n/icons": "^0.2.19",
     "@t3n/theme": "^0.2.19",
-    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.0",
     "@types/jest": "^24.0.23",
     "@types/react": "^16.9.14",
@@ -43,17 +42,16 @@
     "@types/react-imgix": "^9.0.0",
     "@types/styled-components": "^4.4.0",
     "@types/styled-system": "^5.1.4",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0",
-    "jest-styled-components": "^6.3.4",
-    "jsdom": "^15.2.0",
-    "jsdom-global": "^3.0.2",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0",
+    "jest-styled-components": "^7.0.0",
+    "jsdom": "^16.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
-    "styled-components": "^4.4.0",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.4"
+    "styled-components": "^5.0.0",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "@t3n/icons": ">=0.2",
@@ -72,7 +70,7 @@
       "ts",
       "tsx"
     ],
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "testRegex": [
       "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
     ],

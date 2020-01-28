@@ -1,5 +1,4 @@
 import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
 import {
@@ -33,11 +32,11 @@ test('Breadcrumbs navigation element is accessible', () => {
 });
 
 test('BreadcrumbsItems render label prop as text content', () => {
-  const { getAllByRole } = renderBreadcrumbs();
+  const { getByText } = renderBreadcrumbs();
 
-  expect(getAllByRole('listitem')[0]).toHaveTextContent('Item 1');
-  expect(getAllByRole('listitem')[1]).toHaveTextContent('Item 2');
-  expect(getAllByRole('listitem')[2]).toHaveTextContent('Item 3');
+  expect(getByText('Item 1')).toBeDefined();
+  expect(getByText('Item 2')).toBeDefined();
+  expect(getByText('Item 3')).toBeDefined();
 });
 
 test('BreadcrumbsItems with href prop provided render as anchor element', () => {
@@ -63,9 +62,13 @@ test('BreadcrumbsItems without href prop provided render as span element', () =>
 test('BreadcrumbsItems without href render with bold text style', () => {
   const { getByText } = renderBreadcrumbs();
 
-  expect(getByText('Item 1')).not.toHaveStyleRule('font-weight', 'bold');
-  expect(getByText('Item 2')).not.toHaveStyleRule('font-weight', 'bold');
-  expect(getByText('Item 3')).toHaveStyleRule('font-weight', 'bold');
+  expect(window.getComputedStyle(getByText('Item 1')).fontWeight).not.toBe(
+    'bold'
+  );
+  expect(window.getComputedStyle(getByText('Item 2')).fontWeight).not.toBe(
+    'bold'
+  );
+  expect(window.getComputedStyle(getByText('Item 3')).fontWeight).toBe('bold');
 });
 
 test('BreadcrumbsItems render custom link component if provided through props', () => {

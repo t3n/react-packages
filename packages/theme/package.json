@@ -28,10 +28,10 @@
   "devDependencies": {
     "@t3n/configs": "^0.2.11",
     "@types/styled-system__theme-get": "^5.0.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "styled-system": "^5.1.4",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.4"
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "styled-system": ">=5.1.2"
