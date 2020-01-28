@@ -31,13 +31,13 @@ test('Breadcrumbs navigation element is accessible', () => {
   );
 });
 
-// test('BreadcrumbsItems render label prop as text content', () => {
-//   const { getAllByRole } = renderBreadcrumbs();
+test('BreadcrumbsItems render label prop as text content', () => {
+  const { getByText } = renderBreadcrumbs();
 
-//   expect(getAllByRole('listitem')[0]).toHaveTextContent('Item 1');
-//   expect(getAllByRole('listitem')[1]).toHaveTextContent('Item 2');
-//   expect(getAllByRole('listitem')[2]).toHaveTextContent('Item 3');
-// });
+  expect(getByText('Item 1')).toBeDefined();
+  expect(getByText('Item 2')).toBeDefined();
+  expect(getByText('Item 3')).toBeDefined();
+});
 
 test('BreadcrumbsItems with href prop provided render as anchor element', () => {
   const { getByText } = renderBreadcrumbs();
