@@ -2,6 +2,7 @@ version: 2.1
 
 aliases:
   - &workspace_root ~/workspace
+  - &ci_node_image circleci/node:lts
 
   - &attach_workspace
     at: *workspace_root
@@ -29,7 +30,7 @@ orbs:
 jobs:
   checkout_and_build:
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - checkout
       - restore_cache: *restore_js_packages
@@ -49,7 +50,7 @@ jobs:
   prettier:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run prettier:check
@@ -57,7 +58,7 @@ jobs:
   lint:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run lint:theme
@@ -68,7 +69,7 @@ jobs:
   test:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run test
@@ -86,7 +87,7 @@ jobs:
   publishPatch:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -101,7 +102,7 @@ jobs:
   publishMinor:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -116,7 +117,7 @@ jobs:
   publishMajor:
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:lts
+      - image: *ci_node_image
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -134,6 +135,8 @@ workflows:
     jobs:
       - checkout_and_build:
           filters:
+            branches:
+              ignore: /dependabot.*/
             tags:
               ignore: /.*/
       - prettier:
@@ -237,5 +240,24 @@ workflows:
               only:
                 - /feature.*/
           context: google
+          requires:
+            - checkout_and_build
+  build_and_test_dependabot:
+    jobs:
+      - hold:
+          type: approval
+          filters:
+            branches:
+              only: /dependabot.*/
+      - checkout_and_build:
+          requires:
+            - hold
+      - prettier:
+          requires:
+            - checkout_and_build
+      - lint:
+          requires:
+            - checkout_and_build
+      - test:
           requires:
             - checkout_and_build
