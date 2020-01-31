@@ -5,8 +5,8 @@
   "ignoreFolders": ["iconfont", "sprites"],
   "include": [
     "arrow_back",
-    "arrow_forward",
     "arrow_drop_down",
+    "arrow_forward",
     "check",
     "clear",
     "filter_list",
@@ -15,9 +15,14 @@
     "keyboard_arrow_down",
     "keyboard_arrow_up",
     "local_offer",
+    "loop",
     "people",
     "room",
     "visibility_off",
-    "visibility"
+    "visibility",
+    "laptop",
+    "library_books",
+    "subscriptions",
+    "web"
   ]
 }
