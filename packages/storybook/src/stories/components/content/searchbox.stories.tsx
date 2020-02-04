@@ -25,6 +25,7 @@ interface SuggestionCategory {
 }
 
 interface TSuggestion {
+  type: 'ITEM' | 'MORE';
   title: string;
   value: string;
   url: string;
@@ -33,18 +34,21 @@ interface TSuggestion {
 
 const allSuggestions: TSuggestion[] = [
   {
+    type: 'ITEM',
     title: 'Erstes Ergebnis',
     description: 'Some description content',
     url: '/news',
     value: '1'
   },
   {
+    type: 'ITEM',
     title: 'Zweites Ergebnis',
     description: 'Some description content',
     url: '/news',
     value: '2'
   },
   {
+    type: 'ITEM',
     title: 'Drittes Ergebnis',
     description: 'Some description content',
     url: '/news',
@@ -72,7 +76,8 @@ const SearchBoxWithData: React.FC<{
   width: any;
   variant: SearchBoxVariantType;
   initialSuggestions: TSuggestion[];
-}> = ({ isLoading, width, variant }) => {
+  withMore?: boolean;
+}> = ({ isLoading, width, variant, withMore = false }) => {
   const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
   const [loading, setLoading] = useState(isLoading);
 
@@ -80,7 +85,20 @@ const SearchBoxWithData: React.FC<{
     if (r.reason === 'input-changed') {
       setLoading(true);
       setTimeout(() => {
-        setSuggestions(allSuggestions);
+        setSuggestions(
+          withMore
+            ? [
+                ...allSuggestions,
+                {
+                  type: 'MORE',
+                  title: 'Alle Ergebnisse anzeigen',
+                  value: 'more',
+                  url: '/news',
+                  description: ''
+                }
+              ]
+            : allSuggestions
+        );
         setLoading(false);
       }, 1000);
     }
@@ -90,8 +108,13 @@ const SearchBoxWithData: React.FC<{
     event: React.FormEvent,
     data: SuggestionSelectedEventData<TSuggestion>
   ) => {
-    // eslint-disable-next-line no-alert
-    alert(`Deine Auswahl: ${data.suggestion.title}`);
+    if (data.suggestion.type === 'ITEM') {
+      // eslint-disable-next-line no-alert
+      alert(`Deine Auswahl: ${data.suggestion.title}`);
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Du willst mer Ergenisse sehen');
+    }
     setSuggestions([]);
   };
 
@@ -264,4 +287,18 @@ export const inHeaderStory = () => {
 
 inHeaderStory.story = {
   name: 'Im Header'
+};
+
+export const withMoreLinkStory = () => (
+  <SearchBoxWithData
+    variant="red"
+    width="auto"
+    initialSuggestions={[]}
+    isLoading={false}
+    withMore
+  />
+);
+
+withMoreLinkStory.story = {
+  name: 'Mit Mehr Link'
 };
