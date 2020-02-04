@@ -113,7 +113,7 @@ const SearchBoxWithData: React.FC<{
       alert(`Deine Auswahl: ${data.suggestion.title}`);
     } else {
       // eslint-disable-next-line no-alert
-      alert('Du willst mer Ergenisse sehen');
+      alert('Du willst mehr Ergebnisse sehen');
     }
     setSuggestions([]);
   };
