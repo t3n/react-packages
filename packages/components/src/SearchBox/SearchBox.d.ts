@@ -11,7 +11,6 @@ export interface SearchBoxProps<S> extends WidthProps {
     placeholder: string;
     isLoading: boolean;
     multiSection?: boolean;
-    showMoreLink: boolean;
     suggestions: GroupedSuggestions<S>[] | S[] | null;
     getSuggestionValue: GetSuggestionValue<S>;
     handleSuggestionFetchRequested: SuggestionsFetchRequested;
@@ -19,11 +18,10 @@ export interface SearchBoxProps<S> extends WidthProps {
     renderSuggestion: RenderSuggestion<S>;
     onSelect: OnSuggestionSelected<S>;
 }
-declare function SearchBox<S>({ variant: variantProp, width, placeholder, multiSection, isLoading, showMoreLink, renderSuggestion, suggestions, onSelect, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested }: SearchBoxProps<S>): JSX.Element;
+declare function SearchBox<S>({ variant: variantProp, width, placeholder, multiSection, isLoading, renderSuggestion, suggestions, onSelect, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested }: SearchBoxProps<S>): JSX.Element;
 declare namespace SearchBox {
     var defaultProps: {
         isLoading: boolean;
-        showMoreLink: boolean;
         suggestions: null;
         variant: string;
         placeholder: string;

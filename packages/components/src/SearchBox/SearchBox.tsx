@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 import { ThemeProps, composeTextStyle, theme as t3nTheme } from '@t3n/theme';
 import { space, WidthProps, layout, variant } from 'styled-system';
-import { MaterialClear, T3nLoupe, MaterialArrowForward } from '@t3n/icons';
+import { MaterialClear, T3nLoupe } from '@t3n/icons';
 import { useDebouncedCallback } from 'use-debounce';
 import { Loader } from '../Loader';
 import { Text } from '../Text';
@@ -159,7 +159,6 @@ export interface SearchBoxProps<S> extends WidthProps {
   placeholder: string;
   isLoading: boolean;
   multiSection?: boolean;
-  showMoreLink: boolean;
   suggestions: GroupedSuggestions<S>[] | S[] | null;
   getSuggestionValue: GetSuggestionValue<S>;
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
@@ -174,7 +173,6 @@ function SearchBox<S>({
   placeholder,
   multiSection,
   isLoading,
-  showMoreLink,
   renderSuggestion,
   suggestions,
   onSelect,
@@ -194,20 +192,12 @@ function SearchBox<S>({
 
   const renderSuggestionContainer = ({
     children,
-    query,
     containerProps
   }: RenderSuggestionsContainerParams) => {
     return (
       term.length >= 3 && (
         <SuggestionContainer {...containerProps}>
           {children}
-          {showMoreLink && suggestions && suggestions.length > 0 && (
-            <SuggestionItem>
-              <Text m={0} align="center">
-                {`Alle Ergebnisse für "${query}"`} <MaterialArrowForward />
-              </Text>
-            </SuggestionItem>
-          )}
           {suggestions !== null && suggestions.length === 0 && !isLoading && (
             <Text color="text.primary" p={[2, 3]} m={0}>
               Keine Treffer gefunden
@@ -234,6 +224,7 @@ function SearchBox<S>({
             multiSection
             renderSuggestionsContainer={renderSuggestionContainer}
             getSuggestionValue={getSuggestionValue}
+            focusInputOnSuggestionClick={false}
             suggestions={suggestions === null ? [] : (suggestions as S[])}
             getSectionSuggestions={(section: GroupedSuggestions<S>) =>
               section.suggestions
@@ -264,6 +255,7 @@ function SearchBox<S>({
           <AutoSuggest<S>
             renderSuggestionsContainer={renderSuggestionContainer}
             getSuggestionValue={getSuggestionValue}
+            focusInputOnSuggestionClick={false}
             suggestions={suggestions === null ? [] : (suggestions as S[])}
             shouldRenderSuggestions={() => term.length >= 2}
             onSuggestionsFetchRequested={debounced}
@@ -308,7 +300,6 @@ function SearchBox<S>({
 
 SearchBox.defaultProps = {
   isLoading: true,
-  showMoreLink: true,
   suggestions: null,
   variant: 'red',
   placeholder: 'Suche nach Pionieren'
