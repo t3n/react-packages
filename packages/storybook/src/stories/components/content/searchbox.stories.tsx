@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SearchBox, PageHeader, Avatar, Section } from '@t3n/components';
+import { SearchBox, PageHeader, Avatar, Section, Text } from '@t3n/components';
 import { withKnobs } from '@storybook/addon-knobs';
 import {
   SuggestionsFetchRequestedParams,
@@ -77,7 +77,8 @@ const SearchBoxWithData: React.FC<{
   variant: SearchBoxVariantType;
   initialSuggestions: TSuggestion[];
   withMore?: boolean;
-}> = ({ isLoading, width, variant, withMore = false }) => {
+  onSearchTermChange?: (term: string) => void;
+}> = ({ isLoading, width, onSearchTermChange, variant, withMore = false }) => {
   const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
   const [loading, setLoading] = useState(isLoading);
 
@@ -129,6 +130,7 @@ const SearchBoxWithData: React.FC<{
       suggestions={suggestions}
       renderSuggestion={s => <div>{s.title}</div>}
       isLoading={loading}
+      onSearchTermChange={onSearchTermChange}
       placeholder={placeholderText}
     />
   );
@@ -301,4 +303,28 @@ export const withMoreLinkStory = () => (
 
 withMoreLinkStory.story = {
   name: 'Mit Mehr Link'
+};
+
+const SearchTermChangeStory = () => {
+  const [term, setTerm] = useState('');
+
+  return (
+    <>
+      <SearchBoxWithData
+        variant="red"
+        width="auto"
+        initialSuggestions={[]}
+        isLoading={false}
+        withMore
+        onSearchTermChange={t => setTerm(t)}
+      />
+      <Text>Suchbegriff: {term}</Text>
+    </>
+  );
+};
+
+export const withSearchTermChangeStory = () => <SearchTermChangeStory />;
+
+withSearchTermChangeStory.story = {
+  name: 'Auslesen des Suchbegriffs'
 };

@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import AutoSuggest, {
   RenderSuggestion,
   SuggestionsFetchRequested,
@@ -165,6 +165,7 @@ export interface SearchBoxProps<S> extends WidthProps {
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
   renderSuggestion: RenderSuggestion<S>;
   onSelect: OnSuggestionSelected<S>;
+  onSearchTermChange?: (term: string) => void;
 }
 
 function SearchBox<S>({
@@ -176,12 +177,19 @@ function SearchBox<S>({
   renderSuggestion,
   suggestions,
   onSelect,
+  onSearchTermChange,
   getSuggestionValue,
   handleSuggestionFetchRequested,
   handleSuggestionClearRequested
 }: SearchBoxProps<S>) {
   const [term, setTerm] = useState('');
   const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
+
+  useEffect(() => {
+    if (onSearchTermChange) {
+      onSearchTermChange(term);
+    }
+  }, [onSearchTermChange, term]);
 
   const handleOnChange = (
     event: FormEvent<any>,
