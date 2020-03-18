@@ -18,6 +18,8 @@
     "local_offer",
     "loop",
     "people",
+    "person",
+    "person_add",
     "room",
     "view_array",
     "view_day",
