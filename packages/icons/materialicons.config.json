@@ -4,6 +4,9 @@
   },
   "ignoreFolders": ["iconfont", "sprites"],
   "include": [
+    "add",
+    "add_circle",
+    "add_circle_outline",
     "arrow_back",
     "arrow_drop_down",
     "arrow_forward",
