@@ -55,15 +55,15 @@ isOpenStory.story = {
 };
 
 const MultiAccordions = () => {
-  const [accState, setAccState] = useState(true);
+  const [open, setOpen] = useState(true);
 
   return (
     <Section variant="secondary">
-      <Button onClick={() => setAccState(!accState)} mb={3}>
-        {accState ? 'Alle schließen' : 'Alle öffnen'}
+      <Button onClick={() => setOpen(!open)} mb={3}>
+        {open ? 'Alle schließen' : 'Alle öffnen'}
       </Button>
       <Accordion
-        initialOpen={accState}
+        initialOpen={open}
         title="Wie bekomme ich einen grünen Haken und damit ein verifiziertes Profil?"
         mb={1}
       >
@@ -76,7 +76,7 @@ const MultiAccordions = () => {
         </Text>
       </Accordion>
       <Accordion
-        initialOpen={accState}
+        initialOpen={open}
         title="Warum sollte ich mich beim Pioneers Network anmelden?"
         mb={1}
       >
@@ -90,7 +90,7 @@ const MultiAccordions = () => {
         </Text>
       </Accordion>
       <Accordion
-        initialOpen={accState}
+        initialOpen={open}
         title="Kann ich mich mit anderen Pionieren vernetzen?"
         mb={1}
       >
@@ -100,7 +100,7 @@ const MultiAccordions = () => {
         </Text>
       </Accordion>
       <Accordion
-        initialOpen={accState}
+        initialOpen={open}
         title="Das hier ist eine ganz lange Headline um zu testen wie ein Umbruch aussehen würde."
         mb={1}
       >
