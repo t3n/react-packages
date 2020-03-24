@@ -3,7 +3,7 @@ import React, {
   useRef,
   useEffect,
   forwardRef,
-  useImperativeHandle
+  useImperativeHandle,
 } from 'react';
 import styled, { css } from 'styled-components';
 import {
@@ -11,14 +11,14 @@ import {
   width as styledWidth,
   WidthProps,
   size,
-  position
+  position,
 } from 'styled-system';
 
 import { ThemeProps, getThemeColor } from '@t3n/theme';
 import {
   MaterialClear,
   MaterialVisibility,
-  MaterialVisibilityOff
+  MaterialVisibilityOff,
 } from '@t3n/icons';
 import { Icon } from '../Icon';
 
@@ -54,7 +54,7 @@ const border = css`
       isFocused,
       error,
       disabled,
-      theme
+      theme,
     }: StyledNativeInputProps & ThemeProps) =>
       error
         ? theme.colors.feedback.error
@@ -75,7 +75,7 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   line-height: 40px;
   color: ${getThemeColor('text.primary')};
   background-color: ${getThemeColor('background.primary')};
-  border-radius: ${props => props.theme.border.radii[1]};
+  border-radius: ${(props) => props.theme.border.radii[1]};
   outline: 0;
   ${border}
   ${padding};
@@ -99,7 +99,7 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
 `;
 
 const Button = styled.button.attrs(() => ({
-  type: 'button'
+  type: 'button',
 }))`
   position: absolute;
   padding: 0;
@@ -233,5 +233,5 @@ export const Input = forwardRef(
 Input.defaultProps = {
   type: 'text',
   isFocused: false,
-  width: '100%'
+  width: '100%',
 };

@@ -69,6 +69,6 @@ export const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`
 `;
 
 CardHeader.defaultProps = {
-  bg: 'background.secondary'
+  bg: 'background.secondary',
 };
 CardHeader.displayName = 'CardHeader';

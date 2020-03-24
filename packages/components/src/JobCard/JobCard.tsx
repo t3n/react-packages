@@ -50,7 +50,7 @@ const LoadingJobListItem = () => (
 );
 
 const BorderImage = styled(Image)`
-  border: 0.125rem solid ${props => props.theme.colors.shades.grey204};
+  border: 0.125rem solid ${(props) => props.theme.colors.shades.grey204};
   margin-right: 0.625rem;
 `;
 
@@ -60,7 +60,7 @@ const JobCardItem = ({
   postCode,
   title,
   url,
-  companyName
+  companyName,
 }: Job) => (
   <Card href={url} stretch>
     <div style={{ flex: 1 }}>
@@ -89,7 +89,7 @@ const JobListItem = ({
   url,
   title,
   postCode,
-  imageUrl
+  imageUrl,
 }: Job) => (
   <Card href={url} stretch rounded={false} elevate={false}>
     <div style={{ display: 'flex' }}>

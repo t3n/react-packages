@@ -18,12 +18,12 @@ const StyledBox = styled(Box)<Omit<DividerProps, 'children'>>`
   ${variant({
     variants: {
       primary: {
-        color: 'text.primary'
+        color: 'text.primary',
       },
       inverse: {
-        color: 'text.inverse'
-      }
-    }
+        color: 'text.inverse',
+      },
+    },
   })}
 `;
 
@@ -35,19 +35,19 @@ const StyledLine = styled.span<Pick<DividerProps, 'variant'>>`
   ${variant({
     variants: {
       primary: {
-        bg: 'text.primary'
+        bg: 'text.primary',
       },
       inverse: {
-        bg: 'text.inverse'
-      }
-    }
+        bg: 'text.inverse',
+      },
+    },
   })}
 `;
 
 const StyledIcon = styled(Icon)<Pick<DividerProps, 'variant'>>`
   fill: ${({ theme, variant: variantProp }) =>
     getThemeColor(variantProp === 'inverse' ? 'text.inverse' : 'text.primary')({
-      theme
+      theme,
     })};
 `;
 
@@ -80,5 +80,5 @@ export const Divider: React.FC<DividerProps> = ({
 Divider.defaultProps = {
   width: 1,
   variant: 'primary',
-  my: 3
+  my: 3,
 };

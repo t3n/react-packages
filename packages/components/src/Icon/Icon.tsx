@@ -8,7 +8,7 @@ import {
   HeightProps,
   ColorProps,
   MarginProps,
-  PositionProps
+  PositionProps,
 } from 'styled-system';
 
 export interface BaseIconProps
@@ -54,10 +54,10 @@ export const Icon = styled(BaseIcon)<IconProps>`
   ${system({
     fill: {
       property: 'fill',
-      scale: 'colors'
+      scale: 'colors',
     },
     width: true,
-    height: true
+    height: true,
   })}
   position: relative;
   ${space}
@@ -66,7 +66,7 @@ export const Icon = styled(BaseIcon)<IconProps>`
 
 Icon.defaultProps = {
   fill: 'text.primary',
-  width: '1.5rem'
+  width: '1.5rem',
 };
 
 export default Icon;

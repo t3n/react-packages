@@ -38,7 +38,7 @@ export const TagList: React.FC<TagListProps> = ({
   initialCollapsed,
   collapseAfter,
   colorVariant,
-  tags
+  tags,
 }) => {
   const [collapsed, setCollapsed] = useState(initialCollapsed || true);
 
@@ -97,5 +97,5 @@ export const TagList: React.FC<TagListProps> = ({
 TagList.defaultProps = {
   collapseAfter: 5,
   initialCollapsed: true,
-  colorVariant: 'secondary'
+  colorVariant: 'secondary',
 };

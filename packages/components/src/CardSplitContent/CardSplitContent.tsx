@@ -8,7 +8,7 @@ import {
   color,
   ColorProps,
   size,
-  WidthProps
+  WidthProps,
 } from 'styled-system';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
@@ -25,7 +25,7 @@ interface CardSplitContentProps {
 
 export const CardSplitContent: React.FC<CardSplitContentProps> = ({
   children,
-  variant
+  variant,
 }) => {
   const backgroundColor = variant
     ? `background.${variant}`

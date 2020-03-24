@@ -60,5 +60,5 @@ export const FormGroup = ({
 );
 
 FormGroup.defaultProps = {
-  my: 4
+  my: 4,
 };

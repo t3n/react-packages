@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {
   maxWidth as styledMaxWidth,
   padding,
-  PaddingProps
+  PaddingProps,
 } from 'styled-system';
 import { rem } from 'polished';
 import { ThemeProps } from '@t3n/theme';
@@ -31,5 +31,5 @@ Content.displayName = 'Content';
 Content.defaultProps = {
   wide: false,
   small: false,
-  px: [3]
+  px: [3],
 };

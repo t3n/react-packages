@@ -15,7 +15,7 @@ import {
   SocialGoogle,
   SocialPocket,
   SocialSlack,
-  SocialYoutube
+  SocialYoutube,
 } from '@t3n/icons';
 import { getThemeColor } from '@t3n/theme';
 
@@ -53,58 +53,58 @@ export interface SocialNetworksProps {
 export const socialNetworksConfig: SocialNetworksProps = {
   email: {
     name: 'E-Mail',
-    icon: SocialEmail
+    icon: SocialEmail,
   },
   facebook: {
     name: 'Facebook',
-    icon: SocialFacebook
+    icon: SocialFacebook,
   },
   flipboard: {
     name: 'Flipboard',
-    icon: SocialFlipboard
+    icon: SocialFlipboard,
   },
   github: {
     name: 'Github',
-    icon: SocialGithub
+    icon: SocialGithub,
   },
   google: {
     name: 'Google',
     icon: SocialGoogle,
-    iconScale: 1.4
+    iconScale: 1.4,
   },
   instagram: {
     name: 'Instagram',
-    icon: SocialInstagram
+    icon: SocialInstagram,
   },
   linkedin: {
     name: 'Linkedin',
     icon: SocialLinkedin,
-    iconScale: 0.8
+    iconScale: 0.8,
   },
   pocket: {
     name: 'Pocket',
-    icon: SocialPocket
+    icon: SocialPocket,
   },
   slack: {
     name: 'Slack',
-    icon: SocialSlack
+    icon: SocialSlack,
   },
   twitter: {
     name: 'Twitter',
-    icon: SocialTwitter
+    icon: SocialTwitter,
   },
   whatsapp: {
     name: 'Whatsapp',
-    icon: SocialWhatsapp
+    icon: SocialWhatsapp,
   },
   xing: {
     name: 'Xing',
-    icon: SocialXing
+    icon: SocialXing,
   },
   youtube: {
     name: 'Youtube',
-    icon: SocialYoutube
-  }
+    icon: SocialYoutube,
+  },
 };
 
 const socialButtonStyle = css<SocialButtonProps>`
@@ -113,7 +113,7 @@ const socialButtonStyle = css<SocialButtonProps>`
   ${({ theme }) =>
     border({
       borderColor: 'background.secondary',
-      theme
+      theme,
     })}
 
   &:hover :not(:disabled),
@@ -122,7 +122,7 @@ const socialButtonStyle = css<SocialButtonProps>`
     ${({ network, theme }) =>
       border({
         borderColor: `social.${network}`,
-        theme
+        theme,
       })}
 
     ${Icon} {
@@ -141,12 +141,12 @@ const socialButtonStyle = css<SocialButtonProps>`
 
 const mapSocialButtonAttributes = ({
   network,
-  textBefore
+  textBefore,
 }: SocialButtonProps) => ({
   iconLeft: socialNetworksConfig[network].icon,
   children: `${textBefore ? `${textBefore} ` : ''}${
     socialNetworksConfig[network].name
-  }`
+  }`,
 });
 
 export const SocialButton = styled(Button).attrs(mapSocialButtonAttributes)<

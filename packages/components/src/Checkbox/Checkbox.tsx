@@ -62,7 +62,7 @@ const StyledCheckbox = styled(Box)<
             ? 'shades.grey143'
             : checked
             ? 'shades.grey42'
-            : 'shades.grey143'
+            : 'shades.grey143',
         },
         dark: {
           bg:
@@ -82,9 +82,9 @@ const StyledCheckbox = styled(Box)<
             ? 'shades.grey143'
             : checked
             ? 'shades.white'
-            : 'shades.grey204'
-        }
-      }
+            : 'shades.grey204',
+        },
+      },
     })}
 `;
 
@@ -105,12 +105,12 @@ const StyledIcon = styled.span<
       variant({
         variants: {
           light: {
-            fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.white'
+            fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.white',
           },
           dark: {
-            fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.grey42'
-          }
-        }
+            fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.grey42',
+          },
+        },
       })}
   }
 `;
@@ -126,12 +126,12 @@ const StyledLabel = styled.label<
     variant({
       variants: {
         light: {
-          color: disabled ? 'shades.grey143' : 'black'
+          color: disabled ? 'shades.grey143' : 'black',
         },
         dark: {
-          color: disabled ? 'shades.grey143' : 'white'
-        }
-      }
+          color: disabled ? 'shades.grey143' : 'white',
+        },
+      },
     })}
 `;
 
@@ -142,7 +142,7 @@ const PlainCheckbox = ({
   feedbackColor,
   name,
   variant: variantProp,
-  value
+  value,
 }: CheckboxProps) => {
   const [hasFocus, setHasFocus] = useState(false);
 
@@ -182,7 +182,7 @@ export const Checkbox = ({
   feedbackColor,
   name,
   value,
-  variant: variantProp
+  variant: variantProp,
 }: CheckboxProps) => {
   return (
     <StyledLabel disabled={disabled} variant={variantProp}>
@@ -205,5 +205,5 @@ export const Checkbox = ({
 };
 
 Checkbox.defaultProps = {
-  variant: 'light'
+  variant: 'light',
 };

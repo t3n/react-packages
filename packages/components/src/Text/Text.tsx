@@ -8,7 +8,7 @@ import {
   ColorProps,
   SpaceProps,
   WidthProps,
-  TextAlignProps
+  TextAlignProps,
 } from 'styled-system';
 import { ThemeProps, composeTextStyle } from '@t3n/theme';
 
@@ -34,7 +34,7 @@ const fontStyle = ({ italic }: TextProps) =>
 const textColor = ({
   color: colorProp,
   secondary,
-  theme
+  theme,
 }: TextProps & ThemeProps) =>
   color({ color: secondary ? 'text.secondary' : colorProp, theme });
 
@@ -52,7 +52,7 @@ export const textStyle = css<TextProps>`
 `;
 
 export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
-  as: as || (inline ? 'span' : 'p')
+  as: as || (inline ? 'span' : 'p'),
 }))<TextProps>`
   ${textStyle}
 `;
