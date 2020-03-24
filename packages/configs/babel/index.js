@@ -10,11 +10,11 @@ const config = {
         targets: '>0.25%, not op_mini all',
         modules: false,
         useBuiltIns: 'usage',
-        corejs: 3
-      }
+        corejs: 3,
+      },
     ],
-    '@babel/preset-react'
-  ]
+    '@babel/preset-react',
+  ],
 };
 
 module.exports = process.env.NODE_ENV === 'test' ? testsConfig : config;

@@ -17,16 +17,16 @@ module.exports = ({ title = '', dirname = '' }) => {
       library: '',
       libraryTarget: 'umd',
       umdNamedDefine: true,
-      globalObject: `(typeof self !== 'undefined' ? self : this)`
+      globalObject: `(typeof self !== 'undefined' ? self : this)`,
     },
     mode: isProd ? 'production' : 'development',
     optimization: {
-      nodeEnv: NODE_ENV || (isProd ? 'production' : 'development')
+      nodeEnv: NODE_ENV || (isProd ? 'production' : 'development'),
     },
     context: resolve(dirname || __dirname),
     devtool: 'source-map',
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     },
     module: {
       rules: [
@@ -42,14 +42,14 @@ module.exports = ({ title = '', dirname = '' }) => {
                 useBabel: true,
                 babelCore: '@babel/core',
                 babelOptions: babelConfig,
-                reportFiles: ['src/**/*.{ts,tsx}']
-              }
-            }
-          ]
+                reportFiles: ['src/**/*.{ts,tsx}'],
+              },
+            },
+          ],
         },
         {
           enforce: 'pre',
-          exclude: path => {
+          exclude: (path) => {
             return !/[\\/]node_modules[\\/]hex-rgb[\\/]/.test(path);
           },
           test: /\.jsx?$/,
@@ -58,7 +58,7 @@ module.exports = ({ title = '', dirname = '' }) => {
               loader: 'babel-loader',
               options: {
                 ...babelConfig,
-                presets: babelConfig.presets.map(preset => {
+                presets: babelConfig.presets.map((preset) => {
                   if (
                     Array.isArray(preset) &&
                     preset[0] === '@babel/preset-env'
@@ -70,42 +70,42 @@ module.exports = ({ title = '', dirname = '' }) => {
                   }
 
                   return preset;
-                })
-              }
-            }
-          ]
+                }),
+              },
+            },
+          ],
         },
         {
           enforce: 'pre',
           exclude: [
             /[\\/]node_modules[\\/](?!(toasted-notes|react-spring|react-imgix|framer-motion)[\\/])/,
-            /\.test\.jsx?$/
+            /\.test\.jsx?$/,
           ],
           test: /\.jsx?$/,
           use: [
             {
               loader: 'babel-loader',
               options: {
-                ...babelConfig
-              }
+                ...babelConfig,
+              },
             },
             {
-              loader: 'source-map-loader'
-            }
-          ]
-        }
-      ]
+              loader: 'source-map-loader',
+            },
+          ],
+        },
+      ],
     },
-    plugins: [new WebpackNotifierPlugin({ title })]
+    plugins: [new WebpackNotifierPlugin({ title })],
   };
 
   if (isProd) {
     config.plugins = [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
-        openAnalyzer: false
+        openAnalyzer: false,
       }),
-      ...config.plugins
+      ...config.plugins,
     ];
   }
 

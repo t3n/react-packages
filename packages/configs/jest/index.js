@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   testRegex: ['(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$'],
   transform: {
-    '^.+\\.(t|j)sx?$': 'babel-jest'
+    '^.+\\.(t|j)sx?$': 'babel-jest',
   },
-  setupFiles: ['<rootDir>/setupFile.js']
+  setupFiles: ['<rootDir>/setupFile.js'],
 };
