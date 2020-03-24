@@ -3,7 +3,7 @@ const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const babelConfig = require('../babel/');
+const babelConfig = require('../babel');
 
 const { NODE_ENV } = process.env;
 const isProd = NODE_ENV === 'production';
