@@ -26,5 +26,5 @@ export interface Theme {
 export interface ThemeProps {
     theme: Theme;
 }
-export { composeTextStyle, getThemeColor, getColorForBackground, hexToRgb } from './utils';
+export { composeTextStyle, getThemeColor, getColorForBackground, hexToRgb, } from './utils';
 export { theme };
