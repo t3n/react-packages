@@ -29,39 +29,15 @@
     "@t3n/configs": "^0.2.11",
     "@types/styled-system__theme-get": "^5.0.0",
     "jest": "^25.1.0",
+    "jsdom": "^16.0.1",
     "styled-system": "^5.1.4",
     "ts-jest": "^25.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "styled-system": ">=5.1.2"
   },
   "sideEffects": false,
-  "jest": {
-    "displayName": "theme",
-    "coverageDirectory": "coverage",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx",
-      "ts",
-      "tsx"
-    ],
-    "testEnvironment": "node",
-    "testRegex": [
-      "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfig": {
-          "jsx": "react"
-        }
-      }
-    }
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

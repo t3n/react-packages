@@ -7,7 +7,7 @@ import {
   SpaceProps,
   SizeProps,
   TextAlignProps,
-  color
+  color,
 } from 'styled-system';
 import { ThemeProps, composeTextStyle } from '@t3n/theme';
 

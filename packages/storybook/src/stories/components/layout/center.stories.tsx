@@ -6,7 +6,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Layout/Center',
   component: Center,
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => (
@@ -18,5 +18,5 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

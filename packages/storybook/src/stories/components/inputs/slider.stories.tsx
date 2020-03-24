@@ -9,7 +9,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Inputs/Slider',
   component: Slider,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 export const defaultStory = () => {
@@ -37,7 +37,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const range = () => {
@@ -88,7 +88,7 @@ export const syncedSlider = () => {
 };
 
 syncedSlider.story = {
-  name: 'Sync mehrere Slider'
+  name: 'Sync mehrere Slider',
 };
 
 export const inForm = () => {
@@ -105,7 +105,7 @@ export const inForm = () => {
           dirty,
           values,
           setFieldValue,
-          handleSubmit
+          handleSubmit,
         }) => {
           return (
             <>
@@ -115,7 +115,7 @@ export const inForm = () => {
                 step={2}
                 value={values.statisfied}
                 labels={['0', '2', '4', '6', '8', '10']}
-                onChange={val => setFieldValue('statisfied', val)}
+                onChange={(val) => setFieldValue('statisfied', val)}
               />
               <Button mr={3} variant="primary" onClick={() => handleSubmit()}>
                 Submit
@@ -145,7 +145,7 @@ export const inForm = () => {
 };
 
 inForm.story = {
-  name: 'Slider im Formular'
+  name: 'Slider im Formular',
 };
 
 export const fixedContainer = () => {
@@ -161,7 +161,7 @@ export const fixedContainer = () => {
             max={2}
             min={0}
             step={1}
-            onChange={v => setValue(v)}
+            onChange={(v) => setValue(v)}
             name="slider"
             labels={['0', '1', '2']}
           />
@@ -172,5 +172,5 @@ export const fixedContainer = () => {
 };
 
 fixedContainer.story = {
-  name: 'Slider in fixed Container'
+  name: 'Slider in fixed Container',
 };

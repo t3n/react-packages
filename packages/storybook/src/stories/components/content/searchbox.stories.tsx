@@ -3,11 +3,11 @@ import { SearchBox, PageHeader, Avatar, Section, Text } from '@t3n/components';
 import { withKnobs } from '@storybook/addon-knobs';
 import {
   SuggestionsFetchRequestedParams,
-  SuggestionSelectedEventData
+  SuggestionSelectedEventData,
 } from 'react-autosuggest';
 import {
   GroupedSuggestions,
-  SearchBoxVariantType
+  SearchBoxVariantType,
 } from '@t3n/components/src/SearchBox';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -16,7 +16,7 @@ const placeholderText = 'Suche nach digitialen Pionieren, News und mehr';
 export default {
   component: SearchBox,
   title: 'Components|Content/SearchBox',
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 interface SuggestionCategory {
@@ -38,37 +38,37 @@ const allSuggestions: TSuggestion[] = [
     title: 'Erstes Ergebnis',
     description: 'Some description content',
     url: '/news',
-    value: '1'
+    value: '1',
   },
   {
     type: 'ITEM',
     title: 'Zweites Ergebnis',
     description: 'Some description content',
     url: '/news',
-    value: '2'
+    value: '2',
   },
   {
     type: 'ITEM',
     title: 'Drittes Ergebnis',
     description: 'Some description content',
     url: '/news',
-    value: '3'
-  }
+    value: '3',
+  },
 ];
 
 const categorizedSuggestions: GroupedSuggestions<TSuggestion>[] = [
   {
     title: 'Pioniere',
-    suggestions: allSuggestions
+    suggestions: allSuggestions,
   },
   {
     title: 'Interessen',
-    suggestions: allSuggestions
+    suggestions: allSuggestions,
   },
   {
     title: 'Tools',
-    suggestions: allSuggestions
-  }
+    suggestions: allSuggestions,
+  },
 ];
 
 const SearchBoxWithData: React.FC<{
@@ -95,8 +95,8 @@ const SearchBoxWithData: React.FC<{
                   title: 'Alle Ergebnisse anzeigen',
                   value: 'more',
                   url: '/news',
-                  description: ''
-                }
+                  description: '',
+                },
               ]
             : allSuggestions
         );
@@ -126,9 +126,9 @@ const SearchBoxWithData: React.FC<{
       onSelect={onSelect}
       handleSuggestionFetchRequested={handleSuggestionChange}
       handleSuggestionClearRequested={() => setSuggestions(null)}
-      getSuggestionValue={s => s.title}
+      getSuggestionValue={(s) => s.title}
       suggestions={suggestions}
-      renderSuggestion={s => <div>{s.title}</div>}
+      renderSuggestion={(s) => <div>{s.title}</div>}
       isLoading={loading}
       onSearchTermChange={onSearchTermChange}
       placeholder={placeholderText}
@@ -146,7 +146,7 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const lightStory = () => (
@@ -171,7 +171,7 @@ export const lightStory = () => (
 );
 
 lightStory.story = {
-  name: 'Helle Variante'
+  name: 'Helle Variante',
 };
 
 export const loadingStory = () => {
@@ -186,7 +186,7 @@ export const loadingStory = () => {
 };
 
 loadingStory.story = {
-  name: 'Ladend'
+  name: 'Ladend',
 };
 
 const SearchBoxWithNoData: React.FC = () => {
@@ -211,9 +211,9 @@ const SearchBoxWithNoData: React.FC = () => {
       }}
       handleSuggestionFetchRequested={handleSuggestionChange}
       handleSuggestionClearRequested={() => setSuggestions(null)}
-      getSuggestionValue={s => s.title}
+      getSuggestionValue={(s) => s.title}
       suggestions={suggestions}
-      renderSuggestion={s => <div>{s.title}</div>}
+      renderSuggestion={(s) => <div>{s.title}</div>}
       isLoading={loading}
       placeholder={placeholderText}
     />
@@ -225,7 +225,7 @@ export const noResults = () => {
 };
 
 noResults.story = {
-  name: 'Ohne Treffer'
+  name: 'Ohne Treffer',
 };
 
 const SearchBoxWithCategorizedData: React.FC = () => {
@@ -253,9 +253,9 @@ const SearchBoxWithCategorizedData: React.FC = () => {
       }}
       handleSuggestionFetchRequested={handleSuggestionChange}
       handleSuggestionClearRequested={() => setSuggestions(null)}
-      getSuggestionValue={s => s.title}
+      getSuggestionValue={(s) => s.title}
       suggestions={suggestions}
-      renderSuggestion={s => <div>{s.title}</div>}
+      renderSuggestion={(s) => <div>{s.title}</div>}
       isLoading={loading}
       placeholder={placeholderText}
     />
@@ -267,7 +267,7 @@ export const withCategorizedData = () => {
 };
 
 withCategorizedData.story = {
-  name: 'Ergebnisse in Kategorien'
+  name: 'Ergebnisse in Kategorien',
 };
 
 export const inHeaderStory = () => {
@@ -288,7 +288,7 @@ export const inHeaderStory = () => {
 };
 
 inHeaderStory.story = {
-  name: 'Im Header'
+  name: 'Im Header',
 };
 
 export const withMoreLinkStory = () => (
@@ -302,7 +302,7 @@ export const withMoreLinkStory = () => (
 );
 
 withMoreLinkStory.story = {
-  name: 'Mit Mehr Link'
+  name: 'Mit Mehr Link',
 };
 
 const SearchTermChangeStory = () => {
@@ -316,7 +316,7 @@ const SearchTermChangeStory = () => {
         initialSuggestions={[]}
         isLoading={false}
         withMore
-        onSearchTermChange={t => setTerm(t)}
+        onSearchTermChange={(t) => setTerm(t)}
       />
       <Text>Suchbegriff: {term}</Text>
     </>
@@ -326,5 +326,5 @@ const SearchTermChangeStory = () => {
 export const withSearchTermChangeStory = () => <SearchTermChangeStory />;
 
 withSearchTermChangeStory.story = {
-  name: 'Auslesen des Suchbegriffs'
+  name: 'Auslesen des Suchbegriffs',
 };

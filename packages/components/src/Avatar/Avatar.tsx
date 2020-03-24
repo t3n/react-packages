@@ -25,7 +25,7 @@ const AvatarImage = ({ src, size, className, alt }: AvatarImageProps) => {
 };
 
 AvatarImage.defaultProps = {
-  size: '40'
+  size: '40',
 };
 
 const StyledAvatarImage = styled(AvatarImage)<{ src: string }>`
@@ -67,5 +67,5 @@ export const Avatar: React.FC<AvatarProps> = ({
 };
 
 Avatar.defaultProps = {
-  label: ''
+  label: '',
 };

@@ -6,13 +6,13 @@ import {
   Text,
   Section,
   VisualSection,
-  Content
+  Content,
 } from '@t3n/components';
 
 export default {
   title: 'Components|Layout/Section',
   component: Section,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const defaultStory = () => (
@@ -23,7 +23,7 @@ export const defaultStory = () => (
         range: true,
         min: 0,
         max: 9,
-        step: 1
+        step: 1,
       })}
     >
       <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
@@ -45,7 +45,7 @@ export const defaultStory = () => (
         range: true,
         min: 0,
         max: 9,
-        step: 1
+        step: 1,
       })}
     >
       <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
@@ -67,7 +67,7 @@ export const defaultStory = () => (
         range: true,
         min: 0,
         max: 9,
-        step: 1
+        step: 1,
       })}
     >
       <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
@@ -89,7 +89,7 @@ export const defaultStory = () => (
         range: true,
         min: 0,
         max: 9,
-        step: 1
+        step: 1,
       })}
     >
       <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
@@ -109,7 +109,7 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const VisualSections = () => (
@@ -120,7 +120,7 @@ export const VisualSections = () => (
         range: true,
         min: 0,
         max: 9,
-        step: 1
+        step: 1,
       })}
     >
       <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
@@ -145,7 +145,7 @@ export const VisualSections = () => (
         range: true,
         min: 0,
         max: 9,
-        step: 1
+        step: 1,
       })}
     >
       <Content>
@@ -170,5 +170,5 @@ export const VisualSections = () => (
 );
 
 VisualSections.story = {
-  name: 'Visual Sections'
+  name: 'Visual Sections',
 };

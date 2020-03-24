@@ -8,7 +8,7 @@ import StoryContainer from '../../../components/StoryContainer';
 export default {
   title: 'Components|Inputs/Button',
   component: Button,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const defaultStory = () => {
@@ -40,7 +40,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const variants = () => (
@@ -189,7 +189,7 @@ export const variants = () => (
 );
 
 variants.story = {
-  name: 'Alle Varianten'
+  name: 'Alle Varianten',
 };
 
 export const loading = () => (
@@ -226,7 +226,7 @@ export const loading = () => (
 );
 
 loading.story = {
-  name: 'Ladend'
+  name: 'Ladend',
 };
 
 export const disabled = () => (
@@ -277,7 +277,7 @@ export const disabled = () => (
 );
 
 disabled.story = {
-  name: 'Disabled status'
+  name: 'Disabled status',
 };
 
 export const icon = () => (
@@ -462,5 +462,5 @@ export const icon = () => (
   </>
 );
 icon.story = {
-  name: 'Mit Icon'
+  name: 'Mit Icon',
 };

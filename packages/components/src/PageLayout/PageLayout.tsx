@@ -37,7 +37,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   headerContent,
   initialTransparent = false,
   footerContent,
-  children
+  children,
 }) => {
   const y = useScrollYPosition();
   const [transparentHeader, setTransparentHeader] = useState(

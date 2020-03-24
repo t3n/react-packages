@@ -21,84 +21,84 @@ export interface ThemeLinkStyles {
 const primaryLinkStyles: LinkStyle = {
   default: {
     color: 'text.primary',
-    underlineColor: 'shades.grey143'
+    underlineColor: 'shades.grey143',
   },
   hover: {
     color: 'text.primary',
-    underlineColor: 'text.highlight'
+    underlineColor: 'text.highlight',
   },
   focus: {
     color: 'text.highlight',
-    underlineColor: 'text.highlight'
+    underlineColor: 'text.highlight',
   },
   visited: {
     color: 'text.primary',
-    underlineColor: 'shades.grey143'
-  }
+    underlineColor: 'shades.grey143',
+  },
 };
 
 const secondaryLinkStyles: LinkStyle = {
   default: {
     color: 'text.primary',
-    underlineColor: 'text.primary'
+    underlineColor: 'text.primary',
   },
   hover: {
     color: 'text.primary',
-    underlineColor: 'text.highlight'
+    underlineColor: 'text.highlight',
   },
   focus: {
     color: 'text.highlight',
-    underlineColor: 'text.highlight'
+    underlineColor: 'text.highlight',
   },
   visited: {
     color: 'text.primary',
-    underlineColor: 'text.primary'
-  }
+    underlineColor: 'text.primary',
+  },
 };
 
 const highlightLinkStyles: LinkStyle = {
   default: {
     color: 'text.inverse',
-    underlineColor: 'text.inverse'
+    underlineColor: 'text.inverse',
   },
   hover: {
     color: 'text.inverse',
-    underlineColor: 'text.primary'
+    underlineColor: 'text.primary',
   },
   focus: {
     color: 'text.primary',
-    underlineColor: 'text.primary'
+    underlineColor: 'text.primary',
   },
   visited: {
     color: 'text.inverse',
-    underlineColor: 'text.inverse'
-  }
+    underlineColor: 'text.inverse',
+  },
 };
 
 const inverseLinkStyles: LinkStyle = {
   default: {
     color: 'text.inverse',
-    underlineColor: 'shades.grey143'
+    underlineColor: 'shades.grey143',
   },
   hover: {
     color: 'text.inverse',
-    underlineColor: 'text.highlight'
+    underlineColor: 'text.highlight',
   },
   focus: {
     color: 'text.highlight',
-    underlineColor: 'text.highlight'
+    underlineColor: 'text.highlight',
   },
   visited: {
     color: 'text.inverse',
-    underlineColor: 'shades.grey143'
-  }
+    underlineColor: 'shades.grey143',
+  },
 };
 
 const linkStyles = {
   primary: primaryLinkStyles,
   secondary: secondaryLinkStyles,
   highlight: highlightLinkStyles,
-  inverse: inverseLinkStyles
+  inverse: inverseLinkStyles,
 };
 
 export default linkStyles;

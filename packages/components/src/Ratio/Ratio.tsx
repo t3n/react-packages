@@ -33,6 +33,6 @@ export const Ratio = styled.div<RatioProps>`
 `;
 
 Ratio.defaultProps = {
-  ratio: 16 / 9
+  ratio: 16 / 9,
 };
 Ratio.displayName = 'Ratio';

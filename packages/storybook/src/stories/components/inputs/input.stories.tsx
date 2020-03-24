@@ -6,7 +6,7 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Inputs/Input',
   component: Input,
-  decorators: [storyContainerContentDecorator]
+  decorators: [storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (
@@ -21,7 +21,7 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const disabled = () => (
@@ -38,7 +38,7 @@ export const disabled = () => (
 export const focused = () => <Input isFocused width={0.5} />;
 
 focused.story = {
-  name: 'Focus'
+  name: 'Focus',
 };
 
 export const types = () => (
@@ -53,7 +53,7 @@ export const types = () => (
 );
 
 types.story = {
-  name: 'Types'
+  name: 'Types',
 };
 
 export const errorStates = () => (

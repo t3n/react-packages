@@ -6,7 +6,7 @@ const config = configure({ title: '@t3n/icons', dirname: __dirname });
 config.output.library = {
   root: 't3n-icons',
   commonjs: '@t3n/icons',
-  amd: '@t3n/icons'
+  amd: '@t3n/icons',
 };
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react'
-    }
-  }
+      amd: 'react',
+    },
+  },
 };

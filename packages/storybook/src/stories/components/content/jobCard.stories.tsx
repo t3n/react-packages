@@ -8,7 +8,7 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/JobCard',
   component: JobCard,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 export const defaultStory = () => {
@@ -32,7 +32,7 @@ export const defaultStory = () => {
       'https://t3n.de/jobs/job/pb3c-gmbh/senior-performance-marketing-manager-m-w-d/'
     ),
     city: text('Stadt', 'Berlin'),
-    postCode: text('Postleitzahl', '10789')
+    postCode: text('Postleitzahl', '10789'),
   };
 
   return (
@@ -51,5 +51,5 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

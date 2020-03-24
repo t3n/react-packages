@@ -6,20 +6,20 @@ const theme = {
   lineHeights: ['1.2rem', '1.4rem', '1.6rem'],
   textStyles: {
     family: {
-      fontFamily: 'default'
+      fontFamily: 'default',
     },
     size: {
-      fontSize: 1
+      fontSize: 1,
     },
     line: {
-      lineHeight: 2
+      lineHeight: 2,
     },
     text: {
       fontFamily: 'default',
       fontSize: [0, 1],
-      lineHeight: [0, 1, 2]
-    }
-  }
+      lineHeight: [0, 1, 2],
+    },
+  },
 };
 
 // eslint-disable-next-line jest/no-disabled-tests
@@ -30,41 +30,41 @@ describe.skip('composeTextStyle', () => {
     expect(textStyle).toEqual({
       '0': {
         fontSize: '2rem',
-        lineHeight: '1.2rem'
+        lineHeight: '1.2rem',
       },
       '1': {
         '@media screen and (min-width: 4rem)': {
           fontSize: '1rem',
-          lineHeight: '1.4rem'
-        }
+          lineHeight: '1.4rem',
+        },
       },
       '2': {
         '@media screen and (min-width: 8rem)': {
-          lineHeight: '1.6rem'
-        }
+          lineHeight: '1.6rem',
+        },
       },
-      fontFamily: 'default'
+      fontFamily: 'default',
     });
   });
 
   it('returns object with correct font-family value for textStyle from styled-system', () => {
     const textStyle = composeTextStyle({ textStyle: 'family', theme });
     expect(textStyle).toEqual({
-      fontFamily: 'default'
+      fontFamily: 'default',
     });
   });
 
   it('returns object with correct font-size value for textStyle from styled-system', () => {
     const textStyle = composeTextStyle({ textStyle: 'size', theme });
     expect(textStyle).toEqual({
-      fontSize: '1rem'
+      fontSize: '1rem',
     });
   });
 
   it('returns object with correct lineHeight value for textStyle from styled-system', () => {
     const textStyle = composeTextStyle({ textStyle: 'line', theme });
     expect(textStyle).toEqual({
-      lineHeight: '1.6rem'
+      lineHeight: '1.6rem',
     });
   });
 });

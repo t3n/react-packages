@@ -4,7 +4,7 @@ interface Theme {
     };
     [key: string]: any;
 }
-declare const composeTextStyle: ({ textStyle, theme }: {
+declare const composeTextStyle: ({ textStyle, theme, }: {
     textStyle: string;
     theme: Theme;
 }) => any[];

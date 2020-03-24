@@ -9,7 +9,7 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components|Layout/Divider',
-  component: Divider
+  component: Divider,
 };
 
 export const defaultStory = () => (
@@ -18,7 +18,7 @@ export const defaultStory = () => (
       range: true,
       min: 0,
       max: 1,
-      step: 0.1
+      step: 0.1,
     })}
     variant={select<DividerVariants>(
       'Farbe',
@@ -32,7 +32,7 @@ export const defaultStory = () => (
 
 defaultStory.story = {
   name: 'Default',
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 export const variantStory = () => (
@@ -134,7 +134,7 @@ export const variantStory = () => (
 
 variantStory.story = {
   name: 'Alle Varianten',
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const textVariantStory = () => (
@@ -161,7 +161,7 @@ export const textVariantStory = () => (
 
 textVariantStory.story = {
   name: 'Text Variante',
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const iconVariant = () => (
@@ -188,5 +188,5 @@ export const iconVariant = () => (
 
 iconVariant.story = {
   name: 'Icon Variante',
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };

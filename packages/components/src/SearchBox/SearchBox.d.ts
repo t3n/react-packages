@@ -19,7 +19,7 @@ export interface SearchBoxProps<S> extends WidthProps {
     onSelect: OnSuggestionSelected<S>;
     onSearchTermChange?: (term: string) => void;
 }
-declare function SearchBox<S>({ variant: variantProp, width, placeholder, multiSection, isLoading, renderSuggestion, suggestions, onSelect, onSearchTermChange, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested }: SearchBoxProps<S>): JSX.Element;
+declare function SearchBox<S>({ variant: variantProp, width, placeholder, multiSection, isLoading, renderSuggestion, suggestions, onSelect, onSearchTermChange, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested, }: SearchBoxProps<S>): JSX.Element;
 declare namespace SearchBox {
     var defaultProps: {
         isLoading: boolean;

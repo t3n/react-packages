@@ -5,20 +5,20 @@ import {
   GridItem,
   VisualSection,
   Box,
-  Section
+  Section,
 } from '@t3n/components';
 import { storyContainerContentDecorator } from '../../../../utils/decorators';
 
 export default {
   title: 'Components|Typografie/Punchline',
-  component: Text
+  component: Text,
 };
 
 export const defaultStory = () => <Punchline>Punchline</Punchline>;
 
 defaultStory.story = {
   name: 'Default',
-  decorators: [storyContainerContentDecorator]
+  decorators: [storyContainerContentDecorator],
 };
 
 export const lineBreakStory = () => (
@@ -36,7 +36,7 @@ export const lineBreakStory = () => (
 );
 
 lineBreakStory.story = {
-  name: 'Zeilenumbruch'
+  name: 'Zeilenumbruch',
 };
 
 export const visualSectionStory = () => (
@@ -52,5 +52,5 @@ export const visualSectionStory = () => (
 );
 
 visualSectionStory.story = {
-  name: 'Visual Section'
+  name: 'Visual Section',
 };

@@ -105,5 +105,5 @@ export const Link = styled.a<LinkProps>`
 `;
 
 Link.defaultProps = {
-  variant: 'primary'
+  variant: 'primary',
 };

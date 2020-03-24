@@ -25,7 +25,7 @@ export const BreadcrumbsItem = styled(
     label,
     className,
     variant,
-    linkComponent: LinkComponent = Link
+    linkComponent: LinkComponent = Link,
   }: BreadcrumbsItemProps) => (
     <li className={className}>
       {href ? (

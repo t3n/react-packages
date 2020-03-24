@@ -9,12 +9,12 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/TitleCard',
   component: TitleCard,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 export const defaultStory = () => {
   const headlineTags = Object.keys(theme.textStyles).filter(
-    item => item && item.charAt(0) === 'h'
+    (item) => item && item.charAt(0) === 'h'
   ) as HeadingElements[];
 
   return (

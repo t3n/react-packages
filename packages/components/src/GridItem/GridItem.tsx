@@ -5,7 +5,7 @@ import {
   order,
   OrderProps,
   SpaceProps,
-  WidthProps
+  WidthProps,
 } from 'styled-system';
 
 export interface GridItemProps extends SpaceProps, WidthProps, OrderProps {}
@@ -18,5 +18,5 @@ export const GridItem = styled.div<GridItemProps>`
 
 GridItem.defaultProps = {
   px: [0, 2],
-  width: 1
+  width: 1,
 };

@@ -7,7 +7,7 @@ import {
   SpaceProps,
   AlignItemsProps,
   HeightProps,
-  layout
+  layout,
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -33,11 +33,11 @@ const indent = ({ noGap, wide, theme }: GridProps & ThemeProps) =>
     : wide
     ? space({
         mx: [0, -4],
-        theme
+        theme,
       })
     : space({
         mx: [0, -2],
-        theme
+        theme,
       });
 
 const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string =>
@@ -65,5 +65,5 @@ Grid.defaultProps = {
   reverse: false,
   wide: false,
   noGap: false,
-  justifyContent: 'flex-start'
+  justifyContent: 'flex-start',
 };

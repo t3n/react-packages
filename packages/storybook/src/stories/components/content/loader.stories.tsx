@@ -7,7 +7,7 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/Loader',
   component: Loader,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (
@@ -15,12 +15,14 @@ export const defaultStory = () => (
     small={boolean('small', true)}
     color={select(
       'Farbe',
-      Object.keys(theme.colors.background).map(color => `background.${color}`),
+      Object.keys(theme.colors.background).map(
+        (color) => `background.${color}`
+      ),
       'background.inverse'
     )}
   />
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

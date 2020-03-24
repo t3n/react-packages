@@ -7,7 +7,7 @@ import {
   lineHeight,
   MarginProps,
   WidthProps,
-  variant
+  variant,
 } from 'styled-system';
 import { composeTextStyle, ThemeProps, Theme } from '@t3n/theme';
 
@@ -43,7 +43,7 @@ const buildColorVariants = (
   const allVariants: ButtonColorVariant[] = ['default', 'highlight', 'inverse'];
   const buildConfig: any = {};
 
-  allVariants.forEach(el => {
+  allVariants.forEach((el) => {
     buildConfig[el] = {
       color:
         variantProp === 'primary'
@@ -60,7 +60,7 @@ const buildColorVariants = (
       borderColor:
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].borderColor
-          : theme.buttonStyles.color[el][type].bg
+          : theme.buttonStyles.color[el][type].bg,
     };
   });
   return buildConfig;
@@ -82,7 +82,7 @@ export const buttonStyles = css`
   ${({ theme, size }: ButtonProps & ThemeProps) =>
     composeTextStyle({
       textStyle: size === 'big' ? 'big' : 'regular',
-      theme
+      theme,
     })};
 
   ${({ disabled, loading }: ButtonProps) =>
@@ -91,19 +91,19 @@ export const buttonStyles = css`
   /* We have to provide a value for every breakpoint because of specificity
      of line-height from textStyle */
   ${lineHeight({
-    lineHeight: ['1.25rem', '1.25rem', '1.25rem', '1.25rem']
+    lineHeight: ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
   })}
   ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
     variant({
       prop: 'color',
-      variants: buildColorVariants(variantProp, 'default', theme)
+      variants: buildColorVariants(variantProp, 'default', theme),
     })}
 
   &:hover :not(:disabled), &:focus :not(:disabled) {
     ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
       variant({
         prop: 'color',
-        variants: buildColorVariants(variantProp, 'hover', theme)
+        variants: buildColorVariants(variantProp, 'hover', theme),
       })}
 
     ${Loader} {
@@ -122,7 +122,7 @@ export const buttonStyles = css`
       ${({
         theme,
         color: colorProp,
-        variant: variantProp = 'primary'
+        variant: variantProp = 'primary',
       }: ButtonProps & ThemeProps) =>
         `background-color: ${
           variantProp === 'secondary'
@@ -141,7 +141,7 @@ export const buttonStyles = css`
     ${({
       variant: variantProp,
       color: colorProp,
-      theme
+      theme,
     }: ThemeProps & ButtonProps) =>
       `fill: ${
         variantProp === 'secondary'
@@ -229,5 +229,5 @@ export const Button: React.FC<ButtonProps> = ({
 Button.defaultProps = {
   size: 'regular',
   color: 'default',
-  variant: 'primary'
+  variant: 'primary',
 };

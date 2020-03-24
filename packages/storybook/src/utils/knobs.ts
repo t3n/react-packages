@@ -21,8 +21,8 @@ export const knobsFromProps = (c: any) => (
   filterPropNames: string[] = []
 ) =>
   Object.keys({ ...c.defaultProps, ...props })
-    .filter(propName => !filterPropNames.includes(propName))
-    .map(propName => {
+    .filter((propName) => !filterPropNames.includes(propName))
+    .map((propName) => {
       const defaultProp = c.defaultProps[propName];
       const prop = Object.prototype.hasOwnProperty.call(props, propName)
         ? props[propName]
@@ -31,7 +31,7 @@ export const knobsFromProps = (c: any) => (
 
       return {
         propName,
-        knob
+        knob,
       };
     })
     .reduce(

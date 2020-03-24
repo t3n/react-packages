@@ -13,7 +13,7 @@ import {
   Grid,
   GridItem,
   Button,
-  H5
+  H5,
 } from '@t3n/components';
 
 import { FormInput } from '../../../components/FormField';
@@ -22,7 +22,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Form/Formulare',
   decorators: [storyContainerDecorator],
-  parameters: { docs: { page: null } }
+  parameters: { docs: { page: null } },
 };
 
 interface RegisterValues {
@@ -70,7 +70,7 @@ export const register = () => {
     passwordComfirm: Yup.string().oneOf(
       [Yup.ref('password')],
       'Die Passwörter stimmen nicht überein'
-    )
+    ),
   });
 
   return (
@@ -82,7 +82,7 @@ export const register = () => {
             lastName: '',
             firstName: '',
             password: '',
-            passwordComfirm: ''
+            passwordComfirm: '',
           }}
           validationSchema={registerFormValidation}
           isInitialValid={false}
@@ -94,7 +94,7 @@ export const register = () => {
             handleSubmit,
             isValid,
             isSubmitting,
-            handleReset
+            handleReset,
           }: FormikProps<RegisterValues>) => {
             return (
               <Card splitted>
@@ -157,5 +157,5 @@ export const register = () => {
 };
 
 register.story = {
-  name: 'Registrierung'
+  name: 'Registrierung',
 };

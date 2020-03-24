@@ -6,7 +6,7 @@ import {
   MarginProps,
   layout,
   WidthProps,
-  HeightProps
+  HeightProps,
 } from 'styled-system';
 
 type FitTypes = 'crop' | 'faces' | 'facearea';
@@ -44,10 +44,10 @@ const BaseImage = ({
     facepad: processConfiguration && processConfiguration.facepad,
     ar: processConfiguration && processConfiguration.aspectRatio,
     w: processConfiguration && processConfiguration.width,
-    h: processConfiguration && processConfiguration.height
+    h: processConfiguration && processConfiguration.height,
   };
 
-  Object.keys(params).forEach(key => {
+  Object.keys(params).forEach((key) => {
     if (!params[key]) {
       delete params[key];
     }
@@ -59,7 +59,7 @@ const BaseImage = ({
       imgixParams={params}
       htmlAttributes={{
         alt,
-        onLoad
+        onLoad,
       }}
       {...props}
     />
@@ -68,7 +68,7 @@ const BaseImage = ({
 
 BaseImage.defaultProps = {
   disableSrcSet: false,
-  sizes: '100vw'
+  sizes: '100vw',
 };
 
 export interface ImageProps

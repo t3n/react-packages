@@ -60,7 +60,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
             ? theme.colors.shades.grey143
             : checked
             ? theme.colors.shades.grey42
-            : theme.colors.shades.grey143
+            : theme.colors.shades.grey143,
         },
         dark: {
           bg:
@@ -78,9 +78,9 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
             ? theme.colors.shades.grey143
             : checked
             ? theme.colors.shades.white
-            : theme.colors.shades.grey242
-        }
-      }
+            : theme.colors.shades.grey242,
+        },
+      },
     })}
 
   &:focus,
@@ -89,7 +89,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
       border({
         theme,
         border: '1px solid',
-        borderColor: theme.colors.shades.grey42
+        borderColor: theme.colors.shades.grey42,
       })};
   }
 `;
@@ -111,14 +111,14 @@ const StyledRadioDot = styled.span<
         light: {
           background: feedbackColor
             ? theme.colors.feedback[feedbackColor]
-            : theme.colors.shades.white
+            : theme.colors.shades.white,
         },
         dark: {
           background: feedbackColor
             ? theme.colors.feedback[feedbackColor]
-            : theme.colors.shades.grey42
-        }
-      }
+            : theme.colors.shades.grey42,
+        },
+      },
     })}
 `;
 
@@ -134,12 +134,12 @@ const StyledLabel = styled.label<
     variant({
       variants: {
         light: {
-          color: disabled ? 'shades.grey143' : 'black'
+          color: disabled ? 'shades.grey143' : 'black',
         },
         dark: {
-          color: disabled ? 'shades.grey143' : 'white'
-        }
-      }
+          color: disabled ? 'shades.grey143' : 'white',
+        },
+      },
     })}
 `;
 
@@ -150,7 +150,7 @@ const PlainRadioButton = ({
   feedbackColor,
   name,
   variant: variantProp,
-  value
+  value,
 }: RadioButtonProps) => {
   return (
     <StyledRadioButton
@@ -183,7 +183,7 @@ export const RadioButton = ({
   feedbackColor,
   name,
   value,
-  variant: variantProp
+  variant: variantProp,
 }: RadioButtonProps) => {
   return (
     <StyledLabel disabled={disabled} variant={variantProp}>
@@ -206,5 +206,5 @@ export const RadioButton = ({
 };
 
 RadioButton.defaultProps = {
-  variant: 'light'
+  variant: 'light',
 };

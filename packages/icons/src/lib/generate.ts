@@ -51,7 +51,7 @@ const capitalizeString = (str: string) =>
 const readDirectoryContents = async (dir: string): Promise<FolderContents> => {
   const childNames: string[] = await fs.readdir(dir);
 
-  const childPaths = childNames.map(name => path.resolve(dir, name));
+  const childPaths = childNames.map((name) => path.resolve(dir, name));
 
   return childPaths.reduce(
     async (reduced, childPath) => {
@@ -61,7 +61,7 @@ const readDirectoryContents = async (dir: string): Promise<FolderContents> => {
 
       return Promise.resolve({
         dirs: isDir ? [...reducedDirs, childPath] : reducedDirs,
-        files: !isDir ? [...reducedFiles, childPath] : reducedFiles
+        files: !isDir ? [...reducedFiles, childPath] : reducedFiles,
       });
     },
     Promise.resolve<FolderContents>({ dirs: [], files: [] })
@@ -74,11 +74,11 @@ const generateComponentName = (fileName: string) =>
   getPathEnd(fileName)
     .replace('.svg', '')
     .split(/[^A-Za-z0-9äöüß]+/)
-    .map(word => capitalizeString(word))
+    .map((word) => capitalizeString(word))
     .join('');
 
 const filterFilesBySvg = (files: string[]) =>
-  files.filter(file => /\.svg$/.test(file));
+  files.filter((file) => /\.svg$/.test(file));
 
 const svgToReactComponent = (svg: string, componentName: string) =>
   svgr(
@@ -87,10 +87,10 @@ const svgToReactComponent = (svg: string, componentName: string) =>
       plugins: [
         '@svgr/plugin-svgo',
         '@svgr/plugin-jsx',
-        '@svgr/plugin-prettier'
+        '@svgr/plugin-prettier',
       ],
       icon: true,
-      template
+      template,
     },
     { componentName }
   );
@@ -104,7 +104,7 @@ const generateIconComponents = async (
   const svgFiles = filterFilesBySvg(files);
 
   const svgComponents = await Promise.all(
-    svgFiles.map(async svgPath => {
+    svgFiles.map(async (svgPath) => {
       const componentName = generateComponentName(svgPath);
 
       console.log(
@@ -128,7 +128,7 @@ const generateIconComponents = async (
       return {
         name: componentName,
         path: componentPath,
-        reactComponent
+        reactComponent,
       };
     })
   );
@@ -136,7 +136,7 @@ const generateIconComponents = async (
   if (recursive)
     return (
       await Promise.all(
-        childDirs.map(childDir => generateIconComponents(childDir))
+        childDirs.map((childDir) => generateIconComponents(childDir))
       )
     ).reduce(
       (reducedComponents, components) => [...reducedComponents, ...components],
@@ -151,23 +151,23 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
 
   const categoryNames = dirs
     .filter(
-      dirPath =>
+      (dirPath) =>
         !(materialIconsConfig as MaterialIconsConfig).ignoreFolders.filter(
-          categoryName => dirPath.indexOf(categoryName) > -1
+          (categoryName) => dirPath.indexOf(categoryName) > -1
         ).length
     )
-    .map(dirPath => getPathEnd(dirPath));
+    .map((dirPath) => getPathEnd(dirPath));
 
   const categoryFiles = await Promise.all(
-    categoryNames.map(async categoryName => {
+    categoryNames.map(async (categoryName) => {
       const { files } = await readDirectoryContents(
         path.resolve(MATERIAL_ICONS_FOLDER_PATH, categoryName, 'svg/production')
       );
 
       return files.filter(
-        filePath =>
+        (filePath) =>
           !!(materialIconsConfig as MaterialIconsConfig).include.find(
-            name => filePath.indexOf(`ic_${name}_24px.svg`) > -1
+            (name) => filePath.indexOf(`ic_${name}_24px.svg`) > -1
           )
       );
     })
@@ -177,22 +177,20 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
     []
   );
 
-  (materialIconsConfig as MaterialIconsConfig).include.forEach(iconName => {
-    if (!svgFiles.find(svgPath => svgPath.indexOf(iconName) > -1))
+  (materialIconsConfig as MaterialIconsConfig).include.forEach((iconName) => {
+    if (!svgFiles.find((svgPath) => svgPath.indexOf(iconName) > -1))
       throw new Error(
         `Material icon with name ${chalk.black.bgWhite(iconName)} not found!`
       );
   });
 
   return Promise.all(
-    svgFiles.map(async svgPath => {
+    svgFiles.map(async (svgPath) => {
       const svg = await fs.readFile(svgPath, 'utf8');
       const componentName = [
-        generateComponentName(svgPath)
-          .replace('Ic', '')
-          .replace('24px', '')
+        generateComponentName(svgPath).replace('Ic', '').replace('24px', ''),
       ].map(
-        name =>
+        (name) =>
           (materialIconsConfig as MaterialIconsConfig).renameRules[name] || name
       )[0];
 
@@ -211,7 +209,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
       return {
         name: componentName,
         path: fileDest,
-        reactComponent
+        reactComponent,
       };
     })
   );
@@ -238,9 +236,9 @@ const createIndexFile = async (components: IconComponents) => {
   const index = [
     ...Object.values(components).sort((a, b) =>
       a.path < b.path ? -1 : a.path > b.path ? 1 : 0
-    )
+    ),
   ]
-    .map(component => {
+    .map((component) => {
       const indexEntryPath = component.path
         .replace(COMPONENTS_FOLDER_PATH, '')
         .replace('.tsx', '');
@@ -255,7 +253,7 @@ const createIndexFile = async (components: IconComponents) => {
   const prettierOptions = await prettier.resolveConfig(__dirname);
   const formattedIndex = await prettier.format(index, {
     ...(prettierOptions || {}),
-    parser: 'babel'
+    parser: 'babel',
   });
   await fs.writeFile(INDEX_FILE_PATH, formattedIndex);
 };
@@ -269,7 +267,7 @@ const generate = async () => {
 
     const components: IconComponents = {};
 
-    [...iconComponents, ...materialIconComponents].forEach(component => {
+    [...iconComponents, ...materialIconComponents].forEach((component) => {
       const prefixedComponentName = getPrefixedComponentName(component);
 
       if (components[prefixedComponentName])

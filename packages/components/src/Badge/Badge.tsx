@@ -11,7 +11,7 @@ export interface BadgeProps {
 
 const background = ({
   variant = 'highlight',
-  theme
+  theme,
 }: BadgeProps & ThemeProps) => `
   background-color: ${theme.colors.background[variant]};
 `;
@@ -27,7 +27,7 @@ const borderRadius = ({ rounded, theme }: BadgeProps & ThemeProps) =>
 
 export const Badge = styled.span<BadgeProps>`
   font-weight: bold;
-  color: ${props => getColorForBackground(props.variant || 'highlight')};
+  color: ${(props) => getColorForBackground(props.variant || 'highlight')};
   ${background};
   ${padding};
   ${fontSize};

@@ -18,19 +18,19 @@ const AlertBox = styled(Box)<{ status: AlertStatus }>`
     prop: 'status',
     variants: {
       success: {
-        bg: 'feedback.success'
+        bg: 'feedback.success',
       },
       notice: {
-        bg: 'feedback.notice'
+        bg: 'feedback.notice',
       },
       warning: {
-        bg: 'feedback.warn'
+        bg: 'feedback.warn',
       },
       error: {
         bg: 'feedback.error',
-        color: 'shades.white'
-      }
-    }
+        color: 'shades.white',
+      },
+    },
   })}
   ${space};
 `;

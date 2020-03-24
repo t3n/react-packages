@@ -8,14 +8,14 @@ import { storyContainerDecorator } from '../../../../utils/decorators';
 export default {
   title: 'Components|Typografie/Heading',
   component: Heading,
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
 };
 
 const headings: HeadingElements[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 export const sizes = () => (
   <>
-    {headings.map(h => (
+    {headings.map((h) => (
       <div key={h}>
         <Text my={0}>{h.toUpperCase()}</Text>
         <Heading as={h} mt={0}>
@@ -28,5 +28,5 @@ export const sizes = () => (
 );
 
 sizes.story = {
-  name: 'Größen'
+  name: 'Größen',
 };

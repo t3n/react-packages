@@ -12,7 +12,7 @@ export interface CheckboxProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 export declare const Checkbox: {
-    ({ checked, onChange, label, disabled, feedbackColor, name, value, variant: variantProp }: CheckboxProps): JSX.Element;
+    ({ checked, onChange, label, disabled, feedbackColor, name, value, variant: variantProp, }: CheckboxProps): JSX.Element;
     defaultProps: {
         variant: string;
     };

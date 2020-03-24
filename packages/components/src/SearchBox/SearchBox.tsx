@@ -6,7 +6,7 @@ import AutoSuggest, {
   GetSuggestionValue,
   RenderSuggestionsContainerParams,
   OnSuggestionSelected,
-  SuggestionSelectedEventData
+  SuggestionSelectedEventData,
 } from 'react-autosuggest';
 import styled from 'styled-components';
 
@@ -33,12 +33,12 @@ const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
     ${variant({
       variants: {
         red: {
-          fill: 'text.inverse'
+          fill: 'text.inverse',
         },
         light: {
-          fill: 'text.primary'
-        }
-      }
+          fill: 'text.primary',
+        },
+      },
     })};
     width: 23px;
     height: 23px;
@@ -58,24 +58,24 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
     ${variant({
       variants: {
         red: {
-          color: 'text.inverse'
+          color: 'text.inverse',
         },
         light: {
-          color: 'text.primary'
-        }
-      }
+          color: 'text.primary',
+        },
+      },
     })};
 
     &::placeholder {
       ${variant({
         variants: {
           red: {
-            color: 'text.inverse'
+            color: 'text.inverse',
           },
           light: {
-            color: 'text.primary'
-          }
-        }
+            color: 'text.primary',
+          },
+        },
       })};
     }
 
@@ -95,12 +95,12 @@ const Wrapper = styled.div<
     variants: {
       red: {
         color: 'text.primary',
-        bg: darken(0.17, t3nTheme.colors.brand.red)
+        bg: darken(0.17, t3nTheme.colors.brand.red),
       },
       light: {
-        bg: 'shades.white'
-      }
-    }
+        bg: 'shades.white',
+      },
+    },
   })};
 
   position: relative;
@@ -180,7 +180,7 @@ function SearchBox<S>({
   onSearchTermChange,
   getSuggestionValue,
   handleSuggestionFetchRequested,
-  handleSuggestionClearRequested
+  handleSuggestionClearRequested,
 }: SearchBoxProps<S>) {
   const [term, setTerm] = useState('');
   const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
@@ -200,7 +200,7 @@ function SearchBox<S>({
 
   const renderSuggestionContainer = ({
     children,
-    containerProps
+    containerProps,
   }: RenderSuggestionsContainerParams) => {
     return (
       term.length >= 3 && (
@@ -256,7 +256,7 @@ function SearchBox<S>({
             inputProps={{
               value: term,
               onChange: handleOnChange,
-              placeholder
+              placeholder,
             }}
           />
         ) : (
@@ -277,7 +277,7 @@ function SearchBox<S>({
             inputProps={{
               value: term,
               onChange: handleOnChange,
-              placeholder
+              placeholder,
             }}
           />
         )}
@@ -310,7 +310,7 @@ SearchBox.defaultProps = {
   isLoading: true,
   suggestions: null,
   variant: 'red',
-  placeholder: 'Suche nach Pionieren'
+  placeholder: 'Suche nach Pionieren',
 };
 
 export { SearchBox };
