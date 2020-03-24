@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MaterialArrowDropDown } from '@t3n/icons';
 import styled from 'styled-components';
 import { SpaceProps, space, MarginProps, color } from 'styled-system';
@@ -14,6 +14,7 @@ export interface AccordionProps extends MarginProps {
 
 const StyledAccordion = styled.div<SpaceProps>`
   border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
+  border: 1px solid ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
 
   ${({ theme }) => color({ theme, bg: 'shades.white' })};
 
@@ -50,9 +51,16 @@ export const Accordion: React.FC<AccordionProps> = ({
 }) => {
   const [collapsed, setCollapsed] = useState(initialOpen || false);
 
+  useEffect(() => {
+    if (typeof initialOpen !== 'undefined') {
+      setCollapsed(initialOpen);
+    }
+  }, [initialOpen]);
+
   return (
-    <StyledAccordion p={[3, 3, 4]} {...rest}>
+    <StyledAccordion {...rest}>
       <StyledAccordionHeadBox
+        p={[3, 3, 4]}
         onClick={() => setCollapsed(!collapsed)}
         onKeyDown={() => setCollapsed(!collapsed)}
         role="button"
@@ -72,7 +80,7 @@ export const Accordion: React.FC<AccordionProps> = ({
         </StyledIconBox>
       </StyledAccordionHeadBox>
       {collapsed && (
-        <Box mt={3} mb={5} pr={5}>
+        <Box mt={3} mb={5} pr={[8, 8, 9]} pl={[3, 3, 4]}>
           {children}
         </Box>
       )}
