@@ -33,7 +33,7 @@ export {
   composeTextStyle,
   getThemeColor,
   getColorForBackground,
-  hexToRgb
+  hexToRgb,
 } from './utils';
 
 export { theme };

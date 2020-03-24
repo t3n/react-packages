@@ -11,7 +11,7 @@ export const breakpoints = [
   breakpointExtraSmall,
   breakpointSmall,
   breakpointMedium,
-  breakpointLarge
+  breakpointLarge,
 ];
 
-export default breakpoints.map(bp => rem(bp));
+export default breakpoints.map((bp) => rem(bp));

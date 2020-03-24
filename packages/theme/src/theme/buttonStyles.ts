@@ -23,39 +23,39 @@ const buttonStyles = {
       default: {
         color: 'text.inverse',
         bg: 'shades.grey42',
-        borderColor: 'shades.grey42'
+        borderColor: 'shades.grey42',
       },
       hover: {
         color: 'text.inverse',
         bg: 'background.highlight',
-        borderColor: 'background.highlight'
-      }
+        borderColor: 'background.highlight',
+      },
     },
     inverse: {
       default: {
         color: 'text.primary',
         bg: 'background.primary',
-        borderColor: 'background.primary'
+        borderColor: 'background.primary',
       },
       hover: {
         color: 'text.inverse',
         bg: 'background.highlight',
-        borderColor: 'background.highlight'
-      }
+        borderColor: 'background.highlight',
+      },
     },
     highlight: {
       default: {
         color: 'text.primary',
         bg: 'background.primary',
-        borderColor: 'background.primary'
+        borderColor: 'background.primary',
       },
       hover: {
         color: 'text.inverse',
         bg: 'background.inverse',
-        borderColor: 'background.inverse'
-      }
-    }
-  }
+        borderColor: 'background.inverse',
+      },
+    },
+  },
 };
 
 export default buttonStyles;
