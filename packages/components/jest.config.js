@@ -3,5 +3,5 @@ const config = require('@t3n/configs/jest');
 
 module.exports = {
   ...config,
-  displayName: 'components'
+  displayName: 'components',
 };

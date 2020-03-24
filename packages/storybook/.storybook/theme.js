@@ -1,7 +1,6 @@
 import { create } from '@storybook/theming';
-import logo from './Logo.svg';
-
 import { theme } from '@t3n/theme';
+import logo from './Logo.svg';
 
 export default create({
   brandUrl: 'https://t3n.de',
@@ -11,5 +10,5 @@ export default create({
   appBg: theme.colors.background.secondary,
   appContentBg: '#fff',
 
-  textColor: theme.colors.text.primary
+  textColor: theme.colors.text.primary,
 });

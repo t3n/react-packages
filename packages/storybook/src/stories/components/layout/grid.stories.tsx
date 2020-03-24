@@ -10,7 +10,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Layout/Grid',
   component: Grid,
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
 };
 
 const GridItemContent = styled.div`
@@ -36,5 +36,5 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

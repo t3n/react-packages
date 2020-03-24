@@ -8,7 +8,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Layout/Ratio',
   component: Ratio,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 export const defaultStory = () => (
@@ -16,5 +16,5 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

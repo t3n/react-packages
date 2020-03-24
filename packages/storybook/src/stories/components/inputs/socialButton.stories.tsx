@@ -5,7 +5,7 @@ import {
   Grid,
   GridItem,
   SocialButton,
-  socialNetworksConfig
+  socialNetworksConfig,
 } from '@t3n/components';
 import { SocialNetworkType } from '@t3n/components/src/SocialButton/SocialButton';
 
@@ -14,7 +14,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Inputs/SocialButton',
   component: SocialButton,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 export const defaultStory = () => {
@@ -33,12 +33,12 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const networks = () => (
   <Grid>
-    {Object.keys(socialNetworksConfig).map(network => (
+    {Object.keys(socialNetworksConfig).map((network) => (
       <GridItem width="auto" mb={2} key={network}>
         <SocialButton network={network as SocialNetworkType} />
       </GridItem>

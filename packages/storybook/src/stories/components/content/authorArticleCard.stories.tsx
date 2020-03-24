@@ -7,7 +7,7 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/AuthorArticleCard',
   component: AuthorCard,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (
@@ -17,7 +17,7 @@ export const defaultStory = () => (
       avatar: text(
         'Author-Avatar',
         'https://storage.googleapis.com/t3n-de/neos/bc7fce93490239419c6588eef4913653b89a8af2/afr_t3n.jpg'
-      )
+      ),
     }}
     url={text(
       'URL',
@@ -38,6 +38,6 @@ defaultStory.story = {
       <Grid justifyContent="center">
         <GridItem width={1 / 3}>{story()}</GridItem>
       </Grid>
-    )
-  ]
+    ),
+  ],
 };

@@ -10,7 +10,7 @@ import {
   Grid,
   GridItem,
   Logo,
-  H3
+  H3,
 } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
@@ -26,8 +26,8 @@ export default {
       </Grid>
     ),
     storyContainerDecorator,
-    withKnobs
-  ]
+    withKnobs,
+  ],
 };
 
 const KNOBS_CATEGORY_CARD = 'Card';
@@ -51,7 +51,7 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const link = () => (
@@ -70,7 +70,7 @@ export const header = () => (
         {
           ratio: 16 / 9,
           image:
-            'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+            'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
         },
         KNOBS_CATEGORY_HEADER,
         ['children', 'is']
@@ -90,7 +90,7 @@ export const big = () => (
         {
           ratio: 16 / 9,
           image:
-            'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+            'https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
         },
         KNOBS_CATEGORY_HEADER,
         ['children', 'is']
@@ -108,7 +108,7 @@ export const bigWithHeaderContent = () => (
     <CardHeader
       {...headerKnobs(
         {
-          ratio: 16 / 9
+          ratio: 16 / 9,
         },
         KNOBS_CATEGORY_HEADER,
         ['children', 'is']

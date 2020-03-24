@@ -10,12 +10,12 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   component: Avatar,
   title: 'Components|Content/Avatar',
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 const options = {
   White: 'white',
-  Black: 'black'
+  Black: 'black',
 };
 
 const AVATAR_QUERY = gql`
@@ -39,8 +39,8 @@ const UserAvatar = () => {
 
   const {
     viewer: {
-      me: { firstName, lastName, avatarUrl }
-    }
+      me: { firstName, lastName, avatarUrl },
+    },
   } = data;
 
   return (
@@ -69,7 +69,7 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const withText = () => (
@@ -88,7 +88,7 @@ export const withText = () => (
 );
 
 withText.story = {
-  name: 'Mit Text'
+  name: 'Mit Text',
 };
 
 export const liveData = () => (
@@ -103,7 +103,7 @@ export const liveData = () => (
 );
 
 liveData.story = {
-  name: 'Live-Daten'
+  name: 'Live-Daten',
 };
 
 // {

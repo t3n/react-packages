@@ -7,7 +7,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Form/FormGroup',
   decorators: [storyContainerDecorator],
-  parameters: { docs: { page: null } }
+  parameters: { docs: { page: null } },
 };
 
 export const defaultStory = () => (
@@ -19,7 +19,7 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const errorState = () => (
@@ -31,7 +31,7 @@ export const errorState = () => (
 );
 
 errorState.story = {
-  name: 'Mit Error'
+  name: 'Mit Error',
 };
 
 export const labelVariants = () => (
@@ -56,5 +56,5 @@ export const labelVariants = () => (
 );
 
 labelVariants.story = {
-  name: 'Label-Varianten'
+  name: 'Label-Varianten',
 };

@@ -5,12 +5,12 @@ import {
   Image,
   Text,
   Grid,
-  GridItem
+  GridItem,
 } from '@t3n/components';
 
 export default {
   title: 'Components|Content/Accordion',
-  component: Accordion
+  component: Accordion,
 };
 
 export const defaultStory = () => {
@@ -31,7 +31,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const isOpenStory = () => {
@@ -50,7 +50,7 @@ export const isOpenStory = () => {
 };
 
 isOpenStory.story = {
-  name: 'Initial geöffnet'
+  name: 'Initial geöffnet',
 };
 
 export const multipleStory = () => {
@@ -117,5 +117,5 @@ export const multipleStory = () => {
 };
 
 multipleStory.story = {
-  name: 'Mehrere Akkordeons'
+  name: 'Mehrere Akkordeons',
 };

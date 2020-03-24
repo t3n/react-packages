@@ -16,8 +16,8 @@ export default {
   component: PageHeader,
   decorators: [
     withKnobs,
-    (story: any) => <StoryWrapper>{story()}</StoryWrapper>
-  ]
+    (story: any) => <StoryWrapper>{story()}</StoryWrapper>,
+  ],
 };
 
 export const defaultStory = () => (
@@ -30,17 +30,17 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const displayUserMenu = () => <PageHeader />;
 
 defaultStory.story = {
-  name: 'Mit Usermenü'
+  name: 'Mit Usermenü',
 };
 
 export const linkedLogo = () => <PageHeader logoHref="https://t3n.de" />;
 
 linkedLogo.story = {
-  name: 'Verlinktes Logo'
+  name: 'Verlinktes Logo',
 };

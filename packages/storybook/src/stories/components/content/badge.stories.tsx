@@ -9,7 +9,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/Badge',
   component: Badge,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 export const defaultStory = () => {
@@ -27,7 +27,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const variants = () => {
@@ -41,7 +41,7 @@ export const variants = () => {
         Kleine Badges
       </Heading>
       <Grid wide>
-        {colors.map(c => (
+        {colors.map((c) => (
           <GridItem key={c} width={1 / colors.length}>
             <Badge small variant={c}>
               {badgeText}
@@ -52,7 +52,7 @@ export const variants = () => {
 
       <Heading as="h3">Abgerundet</Heading>
       <Grid wide>
-        {colors.map(c => (
+        {colors.map((c) => (
           <GridItem key={c} width={1 / colors.length}>
             <Badge small rounded variant={c}>
               {badgeText}
@@ -63,7 +63,7 @@ export const variants = () => {
 
       <Heading as="h3">Große Badges</Heading>
       <Grid wide>
-        {colors.map(c => (
+        {colors.map((c) => (
           <GridItem key={c} width={1 / colors.length}>
             <Badge small={false} variant={c}>
               {badgeText}
@@ -74,7 +74,7 @@ export const variants = () => {
 
       <Heading as="h3">Abgerundet</Heading>
       <Grid wide>
-        {colors.map(c => (
+        {colors.map((c) => (
           <GridItem key={c} width={1 / colors.length}>
             <Badge small={false} variant={c}>
               {badgeText}
@@ -87,5 +87,5 @@ export const variants = () => {
 };
 
 variants.story = {
-  name: 'Varianten'
+  name: 'Varianten',
 };

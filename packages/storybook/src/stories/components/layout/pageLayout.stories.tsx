@@ -8,13 +8,13 @@ import {
   H1,
   Avatar,
   VisualSection,
-  Content
+  Content,
 } from '@t3n/components';
 
 export default {
   title: 'Components|Layout/PageLayout',
   component: PageLayout,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const defaultStory = () => {
@@ -29,7 +29,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const withTransparentHeader = () => {
@@ -81,5 +81,5 @@ export const withTransparentHeader = () => {
 };
 
 withTransparentHeader.story = {
-  name: 'Transparenter Header'
+  name: 'Transparenter Header',
 };
