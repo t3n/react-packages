@@ -12,7 +12,6 @@ interface MaterialIconsConfig {
     [key: string]: string;
   };
   ignoreFolders: string[];
-  include: string[];
 }
 
 interface IconComponent {
@@ -164,25 +163,13 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
         path.resolve(MATERIAL_ICONS_FOLDER_PATH, categoryName, 'svg/production')
       );
 
-      return files.filter(
-        (filePath) =>
-          !!(materialIconsConfig as MaterialIconsConfig).include.find(
-            (name) => filePath.indexOf(`ic_${name}_24px.svg`) > -1
-          )
-      );
+      return files.filter((filePath) => /24px\.svg$/.test(filePath));
     })
   );
   const svgFiles = categoryFiles.reduce(
     (allFiles, files) => [...allFiles, ...files],
     []
   );
-
-  (materialIconsConfig as MaterialIconsConfig).include.forEach((iconName) => {
-    if (!svgFiles.find((svgPath) => svgPath.indexOf(iconName) > -1))
-      throw new Error(
-        `Material icon with name ${chalk.black.bgWhite(iconName)} not found!`
-      );
-  });
 
   return Promise.all(
     svgFiles.map(async (svgPath) => {
@@ -200,9 +187,11 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
         )} component from Material Icons`
       );
 
+      const categoryName = svgPath.split('/').reverse()[3];
       const reactComponent = await svgToReactComponent(svg, componentName);
       const fileDest = path.join(
         MATERIAL_COMPONENTS_FOLDER_PATH,
+        categoryName,
         `${componentName}.tsx`
       );
 
@@ -224,7 +213,11 @@ const writeComponents = async (components: IconComponents) => {
 };
 
 const getComponentPrefix = (filePath: string) =>
-  capitalizeString(filePath.split('/').reverse()[1]);
+  capitalizeString(
+    filePath
+      .substr(COMPONENTS_FOLDER_PATH.length + 1, filePath.length)
+      .split('/')[0]
+  );
 
 const prefixComponentName = (componentName: string, prefix: string) =>
   prefix + componentName;

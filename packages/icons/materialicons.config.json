@@ -2,38 +2,5 @@
   "renameRules": {
     "3dRotation": "ThreeDRotation"
   },
-  "ignoreFolders": ["iconfont", "sprites"],
-  "include": [
-    "add",
-    "add_circle",
-    "add_circle_outline",
-    "arrow_back",
-    "arrow_drop_down",
-    "arrow_forward",
-    "check",
-    "clear",
-    "delete",
-    "edit",
-    "filter_list",
-    "home",
-    "info",
-    "keyboard_arrow_down",
-    "keyboard_arrow_up",
-    "local_offer",
-    "loop",
-    "people",
-    "person",
-    "person_add",
-    "room",
-    "view_array",
-    "view_day",
-    "view_list",
-    "view_module",
-    "visibility_off",
-    "visibility",
-    "laptop",
-    "library_books",
-    "subscriptions",
-    "web"
-  ]
+  "ignoreFolders": ["iconfont", "sprites"]
 }
