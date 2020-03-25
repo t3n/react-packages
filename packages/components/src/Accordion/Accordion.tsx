@@ -24,6 +24,7 @@ const StyledAccordion = styled.div<SpaceProps>`
 const StyledAccordionHeadBox = styled(Box)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
 
   :focus {
