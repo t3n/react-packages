@@ -4,7 +4,7 @@ import {
   number,
   select,
   boolean,
-  text
+  text,
 } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
@@ -18,7 +18,7 @@ import { recentNews, recentNewsVariables } from './__generated__/recentNews';
 export default {
   title: 'Components|Content/NewsCard',
   component: NewsCard,
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 const RECENT_NEWS = gql`
@@ -46,7 +46,7 @@ const RECENT_NEWS = gql`
 
 const ArticleCardWithData = ({
   limit,
-  fakeLoading
+  fakeLoading,
 }: {
   limit: number;
   fakeLoading: boolean;
@@ -61,8 +61,8 @@ const ArticleCardWithData = ({
     RECENT_NEWS,
     {
       variables: {
-        limit
-      }
+        limit,
+      },
     }
   );
 
@@ -78,17 +78,18 @@ const ArticleCardWithData = ({
         : data &&
           data.article &&
           data.article.recentNews &&
-          data.article.recentNews.map(news => (
+          data.article.recentNews.map((news) => (
             <GridItem key={news.identifier} width={[1, 1, 1 / 3]} mb={4}>
               <NewsCard
                 news={{
                   ...news,
                   author: {
-                    name: `${news.author.firstName || ''} ${news.author
-                      .lastName || ''}`,
-                    avatar: news.author.avatarUrl || ''
+                    name: `${news.author.firstName || ''} ${
+                      news.author.lastName || ''
+                    }`,
+                    avatar: news.author.avatarUrl || '',
                   },
-                  publishedAt: new Date(news.date)
+                  publishedAt: new Date(news.date),
                 }}
                 loading={false}
                 type={type}
@@ -112,7 +113,7 @@ export const defaultStory = () => {
         'Author Avatar-URL',
         'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
         'news'
-      )
+      ),
     },
     publishedAt: new Date(
       text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
@@ -127,7 +128,7 @@ export const defaultStory = () => {
       'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
       'news'
     ),
-    type: text('Artikel-Typ', 'Ratgeber', 'news')
+    type: text('Artikel-Typ', 'Ratgeber', 'news'),
   };
 
   return (
@@ -140,7 +141,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const heroLayout = () => {
@@ -156,7 +157,7 @@ export const heroLayout = () => {
         'Author Avatar-URL',
         'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
         'news'
-      )
+      ),
     },
     publishedAt: new Date(
       text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
@@ -171,7 +172,7 @@ export const heroLayout = () => {
       'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
       'news'
     ),
-    type: text('Artikel-Typ', 'Ratgeber', 'news')
+    type: text('Artikel-Typ', 'Ratgeber', 'news'),
   };
 
   return (
@@ -199,7 +200,7 @@ export const authorLayout = () => {
         'Author Avatar-URL',
         'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
         'news'
-      )
+      ),
     },
     publishedAt: new Date(
       text('Datum', 'Wed, 14 Aug 2019 10:30:30 GMT', 'news')
@@ -214,7 +215,7 @@ export const authorLayout = () => {
       'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
       'news'
     ),
-    type: text('Artikel-Typ', 'Ratgeber', 'news')
+    type: text('Artikel-Typ', 'Ratgeber', 'news'),
   };
 
   return (
@@ -234,7 +235,7 @@ export const liveData = () => {
     min: 1,
     max: 10,
     range: false,
-    step: 1
+    step: 1,
   });
   const fakeLoading = boolean('Fake ladestatus', false);
 
@@ -242,5 +243,5 @@ export const liveData = () => {
 };
 
 liveData.story = {
-  name: 'Live-Daten'
+  name: 'Live-Daten',
 };

@@ -19,7 +19,7 @@ storiesOf('Components|Inputs/InputGroup', module)
               {
                 text: 'text',
                 email: 'email',
-                password: 'password'
+                password: 'password',
               },
               'text',
               'Input'
@@ -31,7 +31,7 @@ storiesOf('Components|Inputs/InputGroup', module)
     ),
     {
       options: {
-        showPanel: true
-      }
+        showPanel: true,
+      },
     }
   );

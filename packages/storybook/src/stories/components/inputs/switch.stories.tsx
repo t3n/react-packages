@@ -8,7 +8,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Inputs/Switch',
   component: Switch,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 export const DefaultStory = () => {
@@ -37,7 +37,7 @@ export const DefaultStory = () => {
 };
 
 DefaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const ReadOnlyStory = () => {
@@ -100,5 +100,5 @@ export const ReadOnlyStory = () => {
 };
 
 ReadOnlyStory.story = {
-  name: 'Read Only'
+  name: 'Read Only',
 };

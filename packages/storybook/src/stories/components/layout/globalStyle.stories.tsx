@@ -6,7 +6,7 @@ import { GlobalStyle, Box } from '@t3n/components';
 export default {
   title: 'Components|Layout/GlobalStyle',
   component: GlobalStyle,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const defaultStory = () => (
@@ -18,7 +18,7 @@ export const defaultStory = () => (
           Primary: 'primary',
           Secondary: 'secondary',
           Highlight: 'highlight',
-          inverse: 'inverse'
+          inverse: 'inverse',
         },
         'primary'
       )}
@@ -35,5 +35,5 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

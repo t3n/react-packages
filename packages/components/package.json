@@ -1,6 +1,6 @@
 {
   "name": "@t3n/components",
-  "version": "0.2.61",
+  "version": "0.3.0",
   "description": "t3n react components",
   "repository": {
     "type": "git",
@@ -32,15 +32,15 @@
     "test-watch": "jest --watch"
   },
   "devDependencies": {
-    "@t3n/configs": "^0.2.11",
-    "@t3n/icons": "^0.2.22",
-    "@t3n/theme": "^0.2.21",
-    "@testing-library/react": "^9.3.0",
+    "@t3n/configs": "^0.3.0",
+    "@t3n/icons": "^0.3.0",
+    "@t3n/theme": "^0.3.0",
+    "@testing-library/react": "^10.0.1",
     "@types/jest": "^25.1.0",
     "@types/react": "^16.9.14",
     "@types/react-dom": "^16.9.3",
     "@types/react-imgix": "^9.0.0",
-    "@types/styled-components": "^4.4.0",
+    "@types/styled-components": "^5.0.1",
     "@types/styled-system": "^5.1.4",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
@@ -59,34 +59,6 @@
     "react": ">=16.10",
     "react-dom": ">=16.10",
     "styled-components": ">=4"
-  },
-  "jest": {
-    "displayName": "components",
-    "coverageDirectory": "coverage",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx",
-      "ts",
-      "tsx"
-    ],
-    "testEnvironment": "jsdom",
-    "testRegex": [
-      "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "setupFiles": [
-      "<rootDir>/setupFile.js"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": {
-          "jsx": "react"
-        }
-      }
-    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

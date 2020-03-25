@@ -4,11 +4,11 @@ import { Content } from '@t3n/components';
 
 export default {
   title: 'Components|Layout/Content',
-  component: Content
+  component: Content,
 };
 
 export const defaultStory = () => <Content>Hello</Content>;
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

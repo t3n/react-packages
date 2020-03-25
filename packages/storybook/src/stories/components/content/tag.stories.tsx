@@ -9,11 +9,11 @@ const variants: TagColorVariant[] = [
   'primary',
   'secondary',
   'inverse',
-  'black'
+  'black',
 ];
 
 export const defaultStory = () => {
-  return variants.map(variant => (
+  return variants.map((variant) => (
     <Box m={5} key={variant}>
       <Tag colorVariant={variant}>Some tag</Tag>
     </Box>
@@ -21,11 +21,11 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Tag'
+  name: 'Tag',
 };
 
 export const smallTags = () => {
-  return variants.map(variant => (
+  return variants.map((variant) => (
     <Box m={5} key={variant}>
       <Tag colorVariant={variant} small>
         Small Tag
@@ -35,13 +35,13 @@ export const smallTags = () => {
 };
 
 smallTags.story = {
-  name: 'Kleine Tags'
+  name: 'Kleine Tags',
 };
 
 export const linkedTags = () => {
   const smallTag = boolean('Kleine Tags', false);
 
-  return variants.map(variant => (
+  return variants.map((variant) => (
     <Box m={5} key={variant}>
       <Tag link="#" colorVariant={variant} small={smallTag}>
         Text
@@ -51,7 +51,7 @@ export const linkedTags = () => {
 };
 
 linkedTags.story = {
-  name: 'Verlinkte Tags'
+  name: 'Verlinkte Tags',
 };
 
 const ClicakbleTagList: React.FC = () => {
@@ -61,13 +61,13 @@ const ClicakbleTagList: React.FC = () => {
   const smallTag = boolean('Kleine Tags', false);
 
   const removeTag = (tag: string) => {
-    const filteredTags = tags.filter(t => t !== tag);
+    const filteredTags = tags.filter((t) => t !== tag);
     setTags(filteredTags);
   };
 
   return (
     <>
-      {tags.map(tag => (
+      {tags.map((tag) => (
         <Tag
           key={tag}
           m={2}
@@ -88,11 +88,11 @@ const ClicakbleTagList: React.FC = () => {
 export const clickableTags = () => <ClicakbleTagList />;
 
 clickableTags.story = {
-  name: 'Tags mit Klick-Event'
+  name: 'Tags mit Klick-Event',
 };
 
 export default {
   component: Tag,
   title: 'Components|Content/Tag',
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };

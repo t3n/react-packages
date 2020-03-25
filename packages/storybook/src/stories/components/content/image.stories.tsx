@@ -7,14 +7,14 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/Image',
   component: Image,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 const options = {
   range: true,
   min: 0,
   max: 100,
-  step: 5
+  step: 5,
 };
 
 export const defaultStory = () => (
@@ -30,13 +30,13 @@ export const defaultStory = () => (
       fit: boolean('Crop?', true) ? 'crop' : undefined,
       quality: number('Qualität', 65, options),
       aspectRatio: '16:9',
-      crop: 'faces'
+      crop: 'faces',
     }}
   />
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const CropModes = () => {
@@ -56,7 +56,7 @@ export const CropModes = () => {
         </GridItem>
         <GridItem width={[1, 1 / 2]}>
           <Grid>
-            {directions.map(direction => (
+            {directions.map((direction) => (
               <GridItem key={direction} width={[1 / 2]}>
                 <Text bold>{direction}</Text>
                 <Image
@@ -66,7 +66,7 @@ export const CropModes = () => {
                   height={100}
                   processConfiguration={{
                     fit: 'crop',
-                    crop: direction
+                    crop: direction,
                   }}
                 />
               </GridItem>
@@ -95,7 +95,7 @@ export const CropModes = () => {
             processConfiguration={{
               crop: 'faces',
               fit: 'facearea',
-              facepad: 2.0
+              facepad: 2.0,
             }}
           />
         </GridItem>
@@ -110,7 +110,7 @@ export const QualityConfiguration = () => {
   return (
     <>
       <Grid>
-        {q.map(el => (
+        {q.map((el) => (
           <GridItem width={[1 / 3]}>
             <Text>Qualität: {el}</Text>
             <Image
@@ -119,7 +119,7 @@ export const QualityConfiguration = () => {
               width={300}
               disableSrcSet
               processConfiguration={{
-                quality: el
+                quality: el,
               }}
             />
           </GridItem>

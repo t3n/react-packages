@@ -7,7 +7,7 @@ import {
   Input,
   Button,
   Box,
-  Text
+  Text,
 } from '@t3n/components';
 import { Position } from 'toasted-notes';
 import { AlertStatus } from '@t3n/components/src/Alert';
@@ -17,7 +17,7 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 export default {
   component: Alert,
   title: 'Components|Content/Alert',
-  decorators: [withKnobs, storyContainerContentDecorator]
+  decorators: [withKnobs, storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (
@@ -48,7 +48,7 @@ const AsToastStory = () => {
     { positon: 'bottom-right', label: 'Unten rechts' },
     { positon: 'bottom', label: 'Unten' },
     { positon: 'bottom-left', label: 'Unten links' },
-    { positon: 'top-left', label: 'Oben links' }
+    { positon: 'top-left', label: 'Oben links' },
   ];
 
   return (
@@ -56,7 +56,7 @@ const AsToastStory = () => {
       <Text>Konfiguriere den Toast;</Text>
       <Box display="flex" alignItems="center">
         <select
-          onChange={e => setStatus(e.target.value)}
+          onChange={(e) => setStatus(e.target.value)}
           style={{ marginRight: '2rem' }}
         >
           <option selected={status === 'warning'} value="warning">
@@ -72,11 +72,11 @@ const AsToastStory = () => {
             Error
           </option>
         </select>
-        <Input defaultValue={text} onChange={e => setText(e.target.value)} />
+        <Input defaultValue={text} onChange={(e) => setText(e.target.value)} />
       </Box>
 
       <Text>Wo soll der Toast angezeigt werden?</Text>
-      {positons.map(el => (
+      {positons.map((el) => (
         <Button
           key={el.positon}
           m={2}
@@ -86,7 +86,7 @@ const AsToastStory = () => {
               status: status as AlertStatus,
               isClosable: true,
               duration: 9000,
-              position: el.positon as keyof typeof Position
+              position: el.positon as keyof typeof Position,
             })
           }
         >
@@ -100,5 +100,5 @@ const AsToastStory = () => {
 export const asToast = () => <AsToastStory />;
 
 asToast.story = {
-  name: 'Als Toast'
+  name: 'Als Toast',
 };

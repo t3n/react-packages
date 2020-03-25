@@ -23,7 +23,7 @@ export const AuthorCard = ({
   title,
   articleType,
   author,
-  url
+  url,
 }: AuthorCardProps) => (
   <Card href={url} stretch>
     <div>

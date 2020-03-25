@@ -17,7 +17,7 @@ export interface SectionProps {
 const SectionOuter = styled.div<SectionProps>`
   background-color: ${({
     variant = 'primary',
-    theme
+    theme,
   }: SectionProps & ThemeProps) => theme.colors.background[variant]};
   color: ${({ variant = 'primary', theme }: SectionProps & ThemeProps) => {
     switch (variant) {
@@ -38,7 +38,7 @@ export const Section = ({
   wide,
   small,
   children,
-  innerGap
+  innerGap,
 }: SectionProps) => (
   <SectionOuter variant={variant} innerGap={innerGap}>
     <Content wide={wide} small={small}>
@@ -50,5 +50,5 @@ export const Section = ({
 Section.displayName = 'Section';
 
 Section.defaultProps = {
-  innerGap: 6
+  innerGap: 6,
 };

@@ -5,7 +5,7 @@ import {
   MaterialCheck,
   MaterialClear,
   MaterialVisibility,
-  MaterialVisibilityOff
+  MaterialVisibilityOff,
 } from '@t3n/icons';
 import { theme } from '@t3n/theme';
 
@@ -14,14 +14,14 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Content/Icon',
   component: Icon,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 const icons = {
   MaterialCheck,
   MaterialClear,
   MaterialVisibility,
-  MaterialVisibilityOff
+  MaterialVisibilityOff,
 };
 
 type IconType =
@@ -43,9 +43,9 @@ export const defaultStory = () => {
       fill={select(
         'fill',
         [
-          ...Object.keys(theme.colors.text).map(val => `text.${val}`),
-          ...Object.keys(theme.colors.feedback).map(val => `feedback.${val}`),
-          ...Object.keys(theme.colors.social).map(val => `social.${val}`)
+          ...Object.keys(theme.colors.text).map((val) => `text.${val}`),
+          ...Object.keys(theme.colors.feedback).map((val) => `feedback.${val}`),
+          ...Object.keys(theme.colors.social).map((val) => `social.${val}`),
         ],
         'text.highlight'
       )}
@@ -53,12 +53,12 @@ export const defaultStory = () => {
         range: true,
         min: 8,
         max: 80,
-        step: 8
+        step: 8,
       })}
     />
   );
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

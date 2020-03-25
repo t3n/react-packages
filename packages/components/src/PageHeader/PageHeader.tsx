@@ -27,7 +27,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
       theme,
       color: 'text.inverse',
       bg: transparent ? 'transparent' : 'background.highlight',
-      px: [3, 3, 3, 3, 8]
+      px: [3, 3, 3, 3, 8],
     })}
 
   ${Logo} {
@@ -39,7 +39,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
 export const PageHeader: React.FC<PageHeaderProps> = ({
   transparent,
   logoHref,
-  children
+  children,
 }) => {
   return (
     <PageHeaderWrapper transparent={transparent}>

@@ -9,7 +9,7 @@ export interface SectionProps {
     innerGap?: SpaceProps['py'];
 }
 export declare const Section: {
-    ({ variant, wide, small, children, innerGap }: SectionProps): JSX.Element;
+    ({ variant, wide, small, children, innerGap, }: SectionProps): JSX.Element;
     displayName: string;
     defaultProps: {
         innerGap: number;

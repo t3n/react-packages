@@ -6,7 +6,7 @@ import { Link, Section, Heading } from '@t3n/components';
 export default {
   title: 'Components|Inputs/Link',
   component: Link,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
 };
 
 export const defaultStory = () => {
@@ -27,7 +27,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const variants = () => (
@@ -120,7 +120,7 @@ export const variants = () => (
 );
 
 variants.story = {
-  name: 'Alle Varianten'
+  name: 'Alle Varianten',
 };
 
 export const disabledStory = () => (
@@ -161,5 +161,5 @@ export const disabledStory = () => (
 );
 
 disabledStory.story = {
-  name: 'Disabled Status'
+  name: 'Disabled Status',
 };

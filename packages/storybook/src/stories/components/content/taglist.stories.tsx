@@ -15,10 +15,10 @@ export const defaultStory = () => {
     'Neos CMS',
     'Flow Framework',
     'Symfony',
-    'Laravel'
+    'Laravel',
   ];
 
-  const tags = tagValues.map(label => (
+  const tags = tagValues.map((label) => (
     <Tag colorVariant={colorVariant} mr={2}>
       {label}
     </Tag>
@@ -28,11 +28,11 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Liste mit Tags'
+  name: 'Liste mit Tags',
 };
 
 export default {
   component: TagList,
   title: 'Components|Content/TagList',
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };

@@ -47,7 +47,7 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'shades.grey232'
             : checked
             ? 'feedback.success'
-            : 'shades.grey204'
+            : 'shades.grey204',
         },
         dark: {
           bg: disabled
@@ -64,9 +64,9 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'shades.black'
             : checked
             ? 'feedback.success'
-            : 'shades.grey143'
-        }
-      }
+            : 'shades.grey143',
+        },
+      },
     })}
 `;
 
@@ -92,7 +92,7 @@ const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'shades.grey232'
             : checked
             ? 'feedback.success'
-            : 'shades.grey204'
+            : 'shades.grey204',
         },
         dark: {
           bg: 'shades.grey42',
@@ -103,9 +103,9 @@ const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'shades.black'
             : checked
             ? 'feedback.success'
-            : 'shades.grey143'
-        }
-      }
+            : 'shades.grey143',
+        },
+      },
     })}
 `;
 
@@ -133,12 +133,12 @@ const StyledLabel = styled.label<
     variant({
       variants: {
         light: {
-          color: disabled ? 'shades.grey155' : 'black'
+          color: disabled ? 'shades.grey155' : 'black',
         },
         dark: {
-          color: disabled ? 'shades.grey155' : 'white'
-        }
-      }
+          color: disabled ? 'shades.grey155' : 'white',
+        },
+      },
     })}
 `;
 
@@ -149,7 +149,7 @@ const PlainSwitch = ({
   disabled,
   name,
   variant: variantProp,
-  value
+  value,
 }: SwitchProps) => {
   return (
     <StyledSwitch variant={variantProp} checked={checked} disabled={disabled}>
@@ -205,5 +205,5 @@ export const Switch: React.FC<SwitchProps> = ({
 };
 
 Switch.defaultProps = {
-  variant: 'light'
+  variant: 'light',
 };

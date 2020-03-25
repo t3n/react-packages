@@ -13,7 +13,7 @@ interface System {
 
 const composeTextStyle = ({
   textStyle,
-  theme
+  theme,
 }: {
   textStyle: string;
   theme: Theme;
@@ -22,10 +22,10 @@ const composeTextStyle = ({
   const system: System = {
     fontFamily,
     fontSize,
-    lineHeight
+    lineHeight,
   };
 
-  return Object.keys(styles).map(propName =>
+  return Object.keys(styles).map((propName) =>
     system[propName]({ [propName]: styles[propName], theme })
   );
 };

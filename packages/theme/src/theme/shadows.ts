@@ -8,7 +8,7 @@ export interface ThemeShadows {
 
 const shadows = {
   elevate,
-  elevateHover
+  elevateHover,
 };
 
 export default shadows;

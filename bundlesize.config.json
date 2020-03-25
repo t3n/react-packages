@@ -6,7 +6,7 @@
     },
     {
       "path": "./packages/icons/dist/*.js",
-      "maxSize": "15 kB"
+      "maxSize": "100 kB"
     },
     {
       "path": "./packages/theme/dist/*.js",

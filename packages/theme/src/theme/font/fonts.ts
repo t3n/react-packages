@@ -7,7 +7,7 @@ export interface ThemeFonts {
 }
 
 const fonts = {
-  default: fontDefault
+  default: fontDefault,
 };
 
 export default fonts;

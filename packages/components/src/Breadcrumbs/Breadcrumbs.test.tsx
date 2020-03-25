@@ -4,7 +4,7 @@ import { renderWithTheme } from '../helper/renderWithTheme';
 import {
   Breadcrumbs,
   BreadcrumbsItem,
-  BreadcrumbsItemProps
+  BreadcrumbsItemProps,
 } from './Breadcrumbs';
 
 const renderBreadcrumbs = () =>

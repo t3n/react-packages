@@ -14,8 +14,8 @@ export default {
         <GridItem width={1 / 3}>{story()}</GridItem>
       </Grid>
     ),
-    storyContainerContentDecorator
-  ]
+    storyContainerContentDecorator,
+  ],
 };
 
 export const defaultStory = () => (
@@ -40,5 +40,5 @@ export const defaultStory = () => (
 );
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

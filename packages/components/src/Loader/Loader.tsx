@@ -5,7 +5,7 @@ import {
   size,
   BackgroundColorProps,
   space,
-  MarginProps
+  MarginProps,
 } from 'styled-system';
 
 export interface LoaderProps extends MarginProps {
@@ -61,5 +61,5 @@ export const Loader = styled(
 )``;
 
 Loader.defaultProps = {
-  color: 'background.secondary'
+  color: 'background.secondary',
 };

@@ -21,7 +21,7 @@ export interface ThemeBrandColors {
 export const brandColors = {
   red,
   black,
-  white
+  white,
 };
 
 export type ThemeShadeColor =
@@ -50,7 +50,7 @@ export const shadesColors = {
   grey204,
   grey232,
   grey244,
-  white
+  white,
 };
 
 // BACKGROUND
@@ -76,7 +76,7 @@ export const backgroundColors = {
   primary: backgroundPrimary,
   secondary: backgroundSecondary,
   inverse: backgroundInverse,
-  highlight: backgroundHighlight
+  highlight: backgroundHighlight,
 };
 
 // TEXT
@@ -98,7 +98,7 @@ export const textColors = {
   primary: textPrimary,
   secondary: textSecondary,
   inverse: textInverse,
-  highlight: textHighlight
+  highlight: textHighlight,
 };
 
 // SOCIAL
@@ -168,7 +168,7 @@ export const socialColors = {
   twitter,
   whatsapp,
   xing,
-  youtube
+  youtube,
 };
 
 // FEEDBACK
@@ -190,7 +190,7 @@ export const feedbackColors = {
   success,
   notice,
   warn,
-  error
+  error,
 };
 
 export interface ThemeColors {
@@ -208,7 +208,7 @@ const colors = {
   background: backgroundColors,
   text: textColors,
   social: socialColors,
-  feedback: feedbackColors
+  feedback: feedbackColors,
 };
 
 export default colors;

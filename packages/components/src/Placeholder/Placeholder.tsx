@@ -5,7 +5,7 @@ import {
   layout,
   BorderRadiusProps,
   borderRadius,
-  space
+  space,
 } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 

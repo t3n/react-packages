@@ -22,21 +22,21 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
       variants: {
         primary: {
           bg: 'background.primary',
-          color: 'text.primary'
+          color: 'text.primary',
         },
         secondary: {
           bg: 'background.secondary',
-          color: 'text.primary'
+          color: 'text.primary',
         },
         highlight: {
           bg: 'background.highlight',
-          color: 'text.inverse'
+          color: 'text.inverse',
         },
         inverse: {
           bg: 'background.inverse',
-          color: 'text.inverse'
-        }
-      }
+          color: 'text.inverse',
+        },
+      },
     })}
   }
 
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 `;
 
 GlobalStyle.defaultProps = {
-  variant: 'primary'
+  variant: 'primary',
 };
 
 export default GlobalStyle;

@@ -1,4 +1,7 @@
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const testsConfig = require('./tests');
+
+const config = {
   plugins: ['polished', 'styled-components', '@babel/plugin-transform-runtime'],
   presets: [
     [
@@ -7,9 +10,11 @@ module.exports = {
         targets: '>0.25%, not op_mini all',
         modules: false,
         useBuiltIns: 'usage',
-        corejs: 3
-      }
+        corejs: 3,
+      },
     ],
-    '@babel/preset-react'
-  ]
+    '@babel/preset-react',
+  ],
 };
+
+module.exports = process.env.NODE_ENV === 'test' ? testsConfig : config;

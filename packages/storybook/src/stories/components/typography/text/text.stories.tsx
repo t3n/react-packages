@@ -7,7 +7,7 @@ import { storyContainerDecorator } from '../../../../utils/decorators';
 export default {
   title: 'Components|Typografie/Text',
   component: Text,
-  decorators: [storyContainerDecorator]
+  decorators: [storyContainerDecorator],
 };
 
 export const paragraph = () => (

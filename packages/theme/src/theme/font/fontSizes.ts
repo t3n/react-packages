@@ -3,4 +3,4 @@ export const fontSizes = [0.875, 1, 1.125, 1.25, 1.5, 1.75, 2, 2.25, 2.5];
 
 export type ThemeFontSizes = string[];
 
-export default fontSizes.map(val => `${val}rem`);
+export default fontSizes.map((val) => `${val}rem`);

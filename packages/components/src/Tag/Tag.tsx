@@ -22,7 +22,7 @@ interface StyledTagProps {
 }
 
 const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
-  href: props.link ? props.link : undefined
+  href: props.link ? props.link : undefined,
 }))`
   display: inline-flex;
   align-items: center;
@@ -37,21 +37,21 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
     variants: {
       primary: {
         bg: 'background.primary',
-        color: 'text.primary'
+        color: 'text.primary',
       },
       secondary: {
         bg: 'background.secondary',
-        color: 'text.primary'
+        color: 'text.primary',
       },
       inverse: {
         bg: 'background.inverse',
-        color: 'text.inverse'
+        color: 'text.inverse',
       },
       black: {
         bg: 'shades.black',
-        color: 'text.inverse'
-      }
-    }
+        color: 'text.inverse',
+      },
+    },
   })}
 
   svg {

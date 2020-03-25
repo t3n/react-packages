@@ -10,7 +10,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   title: 'Components|Inputs/RadioButton',
   component: RadioButton,
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 export const DefaultStory = () => {
@@ -54,5 +54,5 @@ export const DefaultStory = () => {
 };
 
 DefaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };

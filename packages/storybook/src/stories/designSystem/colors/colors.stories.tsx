@@ -8,13 +8,13 @@ import {
   Text,
   Grid,
   GridItem,
-  Section
+  Section,
 } from '@t3n/components';
 import { RgbColor, RgbaColor } from 'polished/lib/types/color';
 
 export default {
   title: 'Design System|Colors',
-  parameters: { docs: { page: null } }
+  parameters: { docs: { page: null } },
 };
 
 interface ColorCardProps {
@@ -39,7 +39,7 @@ const ColorCard = ({ name, value, rgb }: ColorCardProps) => (
             style={{
               display: 'inline-flex',
               width: '100%',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
             }}
           >
             <strong style={{ flex: 1 }}>{colorName[0].toUpperCase()}:</strong>
@@ -54,7 +54,7 @@ const ColorCard = ({ name, value, rgb }: ColorCardProps) => (
 
 export const groups = () => (
   <ThemeConsumer>
-    {theme => {
+    {(theme) => {
       return Object.keys(theme.colors).map((name, i) => {
         const headingProps: any = {};
 
@@ -67,7 +67,7 @@ export const groups = () => (
             </Heading>
 
             <Grid my={-1}>
-              {Object.keys(theme.colors[name]).map(colorName => {
+              {Object.keys(theme.colors[name]).map((colorName) => {
                 const value = theme.colors[name][colorName];
                 const rgb = parseToRgb(theme.colors[name][colorName]);
 
@@ -91,5 +91,5 @@ export const groups = () => (
 );
 
 groups.story = {
-  name: 'Gruppen'
+  name: 'Gruppen',
 };

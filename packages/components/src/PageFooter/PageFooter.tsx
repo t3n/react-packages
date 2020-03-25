@@ -11,7 +11,7 @@ import {
   SocialInstagram,
   SocialWhatsapp,
   SocialGithub,
-  SocialMedium
+  SocialMedium,
 } from '@t3n/icons';
 
 import { Grid } from '../Grid';
@@ -31,7 +31,7 @@ const FooterLinks = styled(Box)`
 `;
 
 const FooterLink = styled(Link).attrs(() => ({
-  small: true
+  small: true,
 }))`
   flex-shrink: 0;
   ${({ theme }) => flexbox({ theme })}
@@ -39,20 +39,20 @@ const FooterLink = styled(Link).attrs(() => ({
   ${createLinkStyle({
     default: {
       color: 'text.inverse',
-      underlineColor: 'rgba(0,0,0,0)'
+      underlineColor: 'rgba(0,0,0,0)',
     },
     hover: {
       color: 'text.inverse',
-      underlineColor: 'text.inverse'
+      underlineColor: 'text.inverse',
     },
     focus: {
       color: 'text.inverse',
-      underlineColor: 'text.inverse'
+      underlineColor: 'text.inverse',
     },
     visited: {
       color: 'text.inverse',
-      underlineColor: 'rgba(0,0,0,0)'
-    }
+      underlineColor: 'rgba(0,0,0,0)',
+    },
   })}
 `;
 
@@ -74,20 +74,20 @@ const SocialLinks = styled(Box)`
     ${createLinkStyle({
       default: {
         color: 'text.inverse',
-        underlineColor: 'rgba(0,0,0,0)'
+        underlineColor: 'rgba(0,0,0,0)',
       },
       hover: {
         color: 'text.inverse',
-        underlineColor: 'rgba(0,0,0,0)'
+        underlineColor: 'rgba(0,0,0,0)',
       },
       focus: {
         color: 'text.inverse',
-        underlineColor: 'rgba(0,0,0,0)'
+        underlineColor: 'rgba(0,0,0,0)',
       },
       visited: {
         color: 'text.inverse',
-        underlineColor: 'rgba(0,0,0,0)'
-      }
+        underlineColor: 'rgba(0,0,0,0)',
+      },
     })}
   }
 `;
@@ -102,7 +102,7 @@ const SocialLink = styled(Link)`
 
 export const PageFooter: React.FC<PageFooterProps> = ({
   children,
-  contactLink
+  contactLink,
 }) => {
   return (
     <Box width="100%" bg="black">

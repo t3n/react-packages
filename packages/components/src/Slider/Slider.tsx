@@ -101,7 +101,7 @@ const SliderLabels = ({
   value,
   min = 0,
   max,
-  onPress
+  onPress,
 }: SliderLabelsProps) => (
   <>
     {labels.map((label, i) => {
@@ -133,7 +133,7 @@ export const Slider = ({
   step = 1,
   value = 0,
   labels = [],
-  onChange
+  onChange,
 }: SliderProps) => {
   const [initialized, setInitialized] = useState(value === min);
   const [isDragging, setIsDragging] = useState(false);
@@ -232,11 +232,11 @@ export const Slider = ({
               padding: 0,
               margin: 0,
               background: 'transparent',
-              border: 'none'
+              border: 'none',
             }}
             animate={{
               x: isDragging ? undefined : stepWidth * ((value - min) / step),
-              scale: isTouched ? 0.75 : 1
+              scale: isTouched ? 0.75 : 1,
             }}
             initial={false}
           >

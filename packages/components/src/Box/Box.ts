@@ -9,7 +9,7 @@ import {
   ColorProps,
   LayoutProps,
   FlexboxProps,
-  PositionProps
+  PositionProps,
 } from 'styled-system';
 
 export interface BoxProps

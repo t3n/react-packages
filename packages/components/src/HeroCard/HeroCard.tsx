@@ -23,7 +23,7 @@ export const HeroCard = ({
   imageUrl,
   publishedAt,
   author,
-  url
+  url,
 }: HeroCardProps) => (
   <Card href={url} stretch>
     <CardHeader ratio={16 / 9} image={imageUrl} />
@@ -42,7 +42,7 @@ export const HeroCard = ({
         {publishedAt.toLocaleDateString('de-DE', {
           day: '2-digit',
           month: '2-digit',
-          year: 'numeric'
+          year: 'numeric',
         })}
       </Text>
     </CardFooter>
