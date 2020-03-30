@@ -7,7 +7,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export default {
   component: UserCard,
   title: 'Components|Content/UserCard',
-  decorators: [withKnobs, storyContainerDecorator]
+  decorators: [withKnobs, storyContainerDecorator],
 };
 
 const defaultUserStatic: UserCardProps['user'] = {
@@ -23,17 +23,17 @@ const defaultUserStatic: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/bjoernassmann',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/BjoernAssmann',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Bjoern_Assmann',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 const compactUser: UserCardProps['user'] = {
@@ -49,17 +49,17 @@ const compactUser: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/bjoernassmann',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/BjoernAssmann',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Bjoern_Assmann',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 const flagUser: UserCardProps['user'] = {
@@ -75,17 +75,17 @@ const flagUser: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/janchriste',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/janchriste',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Jan_Christe',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 const compactFlagUser: UserCardProps['user'] = {
@@ -101,17 +101,17 @@ const compactFlagUser: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/janchriste',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/janchriste',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Jan_Christe',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 const thirdUser: UserCardProps['user'] = {
@@ -127,17 +127,17 @@ const thirdUser: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/andreaslenz',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/andylenz',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Andreas_Lenz4',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 const compactThirdUser: UserCardProps['user'] = {
@@ -153,17 +153,17 @@ const compactThirdUser: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/andreaslenz',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/andylenz',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Andreas_Lenz4',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 const fourthUser: UserCardProps['user'] = {
@@ -179,17 +179,17 @@ const fourthUser: UserCardProps['user'] = {
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/martin-brueggemann-45b438185',
-      type: 'LINKEDIN'
+      type: 'LINKEDIN',
     },
     {
       url: 'https://twitter.com/brgmn',
-      type: 'TWITTER'
+      type: 'TWITTER',
     },
     {
       url: 'https://www.xing.com/profile/Martin_Brueggemann7/cv',
-      type: 'XING'
-    }
-  ]
+      type: 'XING',
+    },
+  ],
 };
 
 export const defaultStory = () => {
@@ -213,17 +213,17 @@ export const defaultStory = () => {
     socialLinks: [
       {
         url: 'https://www.linkedin.com/in/bjoernassmann',
-        type: 'LINKEDIN'
+        type: 'LINKEDIN',
       },
       {
         url: 'https://twitter.com/BjoernAssmann',
-        type: 'TWITTER'
+        type: 'TWITTER',
       },
       {
         url: 'https://www.xing.com/profile/Bjoern_Assmann',
-        type: 'XING'
-      }
-    ]
+        type: 'XING',
+      },
+    ],
   };
 
   return (
@@ -239,7 +239,7 @@ export const defaultStory = () => {
 };
 
 defaultStory.story = {
-  name: 'Default'
+  name: 'Default',
 };
 
 export const compactStory = () => {
@@ -253,7 +253,7 @@ export const compactStory = () => {
 };
 
 compactStory.story = {
-  name: 'Compact'
+  name: 'Compact',
 };
 
 export const flagStory = () => {
@@ -276,7 +276,7 @@ export const flagStory = () => {
 };
 
 flagStory.story = {
-  name: 'Flag'
+  name: 'Flag',
 };
 
 export const variantStory = () => {
@@ -344,5 +344,5 @@ export const variantStory = () => {
 };
 
 variantStory.story = {
-  name: 'Varianten'
+  name: 'Varianten',
 };

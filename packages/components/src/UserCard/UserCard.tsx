@@ -6,7 +6,7 @@ import {
   SocialLinkedin,
   SocialTwitter,
   SocialGithub,
-  SocialEmail
+  SocialEmail,
 } from '@t3n/icons';
 import { Card } from '../Card';
 import { Heading } from '../Heading';
@@ -86,7 +86,7 @@ type SocialLinksProps = {
 const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   return (
     <Box mt={2} display="flex">
-      {links.map(link => (
+      {links.map((link) => (
         <SocialButton key={link.type} href={link.url}>
           {link.type === 'XING' ? (
             <SocialXing fill="#9b9b9b" />
@@ -107,7 +107,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
 
 const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   user,
-  children
+  children,
 }) => {
   return (
     <Box display="flex" alignItems="center" flexDirection="column">
@@ -119,7 +119,7 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
 
 const NormalUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   user,
-  children
+  children,
 }) => {
   return (
     <Grid>
