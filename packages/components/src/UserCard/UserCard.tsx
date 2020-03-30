@@ -58,6 +58,8 @@ export type SocialLinkType =
   | 'HOMEPAGE'
   | 'LINKEDIN';
 
+type SocialLinks = { url: string; type: SocialLinkType }[];
+
 export type UserCardProps = {
   user: {
     id: number;
@@ -67,20 +69,14 @@ export type UserCardProps = {
     position?: string;
     flag?: string;
     phone?: string;
-    profile: string;
-    socialLinks: {
-      url: string;
-      type: SocialLinkType;
-    }[];
+    profileUrl: string;
+    socialLinks: SocialLinks;
   };
   compact: boolean;
 };
 
 type SocialLinksProps = {
-  links: {
-    url: string;
-    type: SocialLinkType;
-  }[];
+  links: SocialLinks;
 };
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
@@ -157,12 +153,12 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
           {user.phone}
         </Text>
       )}
-      {user.socialLinks && <SocialLinks links={user.socialLinks} />}
+      {user.socialLinks.length > 0 && <SocialLinks links={user.socialLinks} />}
     </>
   );
 
   return (
-    <StyledCard href={user.profile}>
+    <StyledCard href={user.profileUrl}>
       {compact ? (
         <CompactUserCard user={user}>{content}</CompactUserCard>
       ) : (

@@ -19,7 +19,7 @@ const defaultUserStatic: UserCardProps['user'] = {
   position: 'Geschäftsführer | CFO',
   phone: '01234/567890',
   flag: '',
-  profile: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
+  profileUrl: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/bjoernassmann',
@@ -45,7 +45,7 @@ const compactUser: UserCardProps['user'] = {
   position: 'Geschäftsführer | CFO',
   phone: '',
   flag: '',
-  profile: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
+  profileUrl: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/bjoernassmann',
@@ -71,7 +71,7 @@ const flagUser: UserCardProps['user'] = {
   position: 'Geschäftsführer | CCO & CPO',
   phone: '01234/567890',
   flag: 'Elternzeit',
-  profile: 'https://t3n.de/pioneers/profile/jan.christe/',
+  profileUrl: 'https://t3n.de/pioneers/profile/jan.christe/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/janchriste',
@@ -97,7 +97,7 @@ const compactFlagUser: UserCardProps['user'] = {
   position: 'Geschäftsführer | CCO & CPO',
   phone: '',
   flag: 'Elternzeit',
-  profile: 'https://t3n.de/pioneers/profile/jan.christe/',
+  profileUrl: 'https://t3n.de/pioneers/profile/jan.christe/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/janchriste',
@@ -123,7 +123,7 @@ const thirdUser: UserCardProps['user'] = {
   position: 'Geschäftsführer | CEO',
   phone: '01234/567890',
   flag: '',
-  profile: 'https://t3n.de/pioneers/profile/andylenz77/',
+  profileUrl: 'https://t3n.de/pioneers/profile/andylenz77/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/andreaslenz',
@@ -149,7 +149,7 @@ const compactThirdUser: UserCardProps['user'] = {
   position: 'Geschäftsführer | CEO',
   phone: '',
   flag: '',
-  profile: 'https://t3n.de/pioneers/profile/andylenz77/',
+  profileUrl: 'https://t3n.de/pioneers/profile/andylenz77/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/andreaslenz',
@@ -175,7 +175,7 @@ const fourthUser: UserCardProps['user'] = {
   position: 'Mitgründer',
   phone: '',
   flag: '',
-  profile: 'https://t3n.de/pioneers/profile/brgmn/',
+  profileUrl: 'https://t3n.de/pioneers/profile/brgmn/',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/martin-brueggemann-45b438185',
@@ -205,7 +205,7 @@ export const defaultStory = () => {
     position: text('Position', 'Geschäftsführer | CFO', 'user'),
     phone: text('Telefon', '01234/567890', 'user'),
     flag: text('Flag', '', 'user'),
-    profile: text(
+    profileUrl: text(
       'Pioneers Network Profil',
       'https://t3n.de/pioneers/profile/bjoern.assmann/',
       'user'

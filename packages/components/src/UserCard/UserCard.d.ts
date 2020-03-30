@@ -1,5 +1,9 @@
 import React from 'react';
 export declare type SocialLinkType = 'TWITTER' | 'GITHUB' | 'XING' | 'HOMEPAGE' | 'LINKEDIN';
+declare type SocialLinks = {
+    url: string;
+    type: SocialLinkType;
+}[];
 export declare type UserCardProps = {
     user: {
         id: number;
@@ -9,12 +13,14 @@ export declare type UserCardProps = {
         position?: string;
         flag?: string;
         phone?: string;
-        profile: string;
-        socialLinks: {
-            url: string;
-            type: SocialLinkType;
-        }[];
+        profileUrl: string;
+        socialLinks: SocialLinks;
     };
     compact: boolean;
 };
+declare type SocialLinksProps = {
+    links: SocialLinks;
+};
+declare const SocialLinks: React.FC<SocialLinksProps>;
 export declare const UserCard: React.FC<UserCardProps>;
+export {};
