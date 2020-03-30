@@ -54,6 +54,7 @@ module.exports = {
     '../src/stories/components/inputs/switch.stories',
     '../src/stories/components/inputs/link.stories',
     '../src/stories/components/inputs/breadcrumbs.stories',
+    '../src/stories/components/inputs/textarea.stories',
 
     // Form
     '../src/stories/components/form/formgroup.stories',

@@ -44,6 +44,7 @@ export { Switch } from './Switch';
 export { Tag } from './Tag';
 export { TagList } from './TagList';
 export { Text } from './Text';
+export { Textarea } from './Textarea';
 export { TitleCard } from './TitleCard';
 export { Toast, useToast } from './Toast';
 export { UserCard } from './UserCard';
