@@ -58,7 +58,7 @@ export type SocialLinkType =
   | 'HOMEPAGE'
   | 'LINKEDIN';
 
-type SocialLinks = { url: string; type: SocialLinkType }[];
+type SocialLink = { url: string; type: SocialLinkType };
 
 export type UserCardProps = {
   user: {
@@ -70,13 +70,13 @@ export type UserCardProps = {
     flag?: string;
     phone?: string;
     profileUrl: string;
-    socialLinks: SocialLinks;
+    socialLinks: SocialLink[];
   };
   compact: boolean;
 };
 
 type SocialLinksProps = {
-  links: SocialLinks;
+  links: SocialLink[];
 };
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
