@@ -10,6 +10,6 @@ export interface LinkProps extends TextColorProps, SpaceProps {
     children: ReactNode;
 }
 export declare type LinkState = 'default' | 'hover' | 'focus' | 'visited';
-export declare const createLinkStyle: (linkStyleConfig: LinkStyle) => import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<Pick<LinkProps, "small" | "p" | "color" | "disabled" | "m" | "margin" | "mt" | "marginTop" | "mr" | "marginRight" | "mb" | "marginBottom" | "ml" | "marginLeft" | "mx" | "marginX" | "my" | "marginY" | "padding" | "pt" | "paddingTop" | "pr" | "paddingRight" | "pb" | "paddingBottom" | "pl" | "paddingLeft" | "px" | "paddingX" | "py" | "paddingY" | "variant">, any>>;
+export declare const createLinkStyle: (linkStyleConfig: LinkStyle) => import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<Pick<LinkProps, "small" | "p" | "color" | "m" | "margin" | "mt" | "marginTop" | "mb" | "marginBottom" | "ml" | "marginLeft" | "mr" | "marginRight" | "my" | "marginY" | "mx" | "marginX" | "disabled" | "padding" | "pt" | "paddingTop" | "pr" | "paddingRight" | "pb" | "paddingBottom" | "pl" | "paddingLeft" | "px" | "paddingX" | "py" | "paddingY" | "variant">, any>>;
 export declare const linkStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<LinkProps, any>>;
 export declare const Link: import("styled-components").StyledComponent<"a", any, LinkProps, never>;

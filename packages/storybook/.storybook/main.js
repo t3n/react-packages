@@ -43,6 +43,7 @@ module.exports = {
     '../src/stories/components/content/tag.stories',
     '../src/stories/components/content/taglist.stories',
     '../src/stories/components/content/titleCard.stories',
+    '../src/stories/components/content/userCard.stories',
 
     // Components - Inputs
     '../src/stories/components/inputs/button.stories',
@@ -56,7 +57,7 @@ module.exports = {
 
     // Form
     '../src/stories/components/form/formgroup.stories',
-    '../src/stories/components/form/form.stories',
+    '../src/stories/components/form/form.stories'
   ],
   addons: [
     '@storybook/preset-create-react-app',
@@ -64,12 +65,12 @@ module.exports = {
     {
       name: '@storybook/addon-docs',
       options: {
-        configureJSX: true,
-      },
+        configureJSX: true
+      }
     },
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-knobs',
-    '@storybook/addon-a11y',
-  ],
+    '@storybook/addon-a11y'
+  ]
 };
