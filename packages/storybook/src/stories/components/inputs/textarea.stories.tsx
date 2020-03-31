@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, number } from '@storybook/addon-knobs';
+import { withKnobs, number, text } from '@storybook/addon-knobs';
 import { Textarea, Text } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -14,14 +14,49 @@ export const defaultStory = () => {
 
   return (
     <>
-      <Text>Ohne Value, Placeholder und MaxLength</Text>
-      <Textarea width={0.5} />
+      <Textarea
+        width={number('Width', 0.5, {
+          range: true,
+          min: 0.1,
+          max: 1,
+          step: 0.1,
+        })}
+        rows={number('Rows', 6)}
+        maxLength={maxLength}
+        placeholder={text('Placeholder', '')}
+      />
+    </>
+  );
+};
+
+defaultStory.story = {
+  name: 'Default',
+};
+
+export const placeholderStory = () => {
+  const maxLength = number('Maximale Länge', 200, { min: 1 });
+
+  return (
+    <>
       <Text>Mit Placeholder und MaxLength</Text>
       <Textarea
         width={0.5}
         placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr..."
         maxLength={maxLength}
       />
+    </>
+  );
+};
+
+placeholderStory.story = {
+  name: 'Placeholder',
+};
+
+export const valueStory = () => {
+  const maxLength = number('Maximale Länge', 200, { min: 1 });
+
+  return (
+    <>
       <Text>Mit Value und MaxLength</Text>
       <Textarea
         width={0.5}
@@ -32,8 +67,8 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
+valueStory.story = {
+  name: 'Value',
 };
 
 export const disabled = () => {
