@@ -14,15 +14,15 @@ export const defaultStory = () => {
 
   return (
     <>
-      <Text>Ohne Value und Placeholder</Text>
-      <Textarea width={0.5} maxLength={maxLength} />
-      <Text>Mit Placeholder</Text>
+      <Text>Ohne Value, Placeholder und MaxLength</Text>
+      <Textarea width={0.5} />
+      <Text>Mit Placeholder und MaxLength</Text>
       <Textarea
         width={0.5}
         placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr..."
         maxLength={maxLength}
       />
-      <Text>Mit Value</Text>
+      <Text>Mit Value und MaxLength</Text>
       <Textarea
         width={0.5}
         defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr..."
@@ -37,25 +37,23 @@ defaultStory.story = {
 };
 
 export const disabled = () => {
-  const maxLength = number('Maximale Länge', 200, { min: 1 });
-
   return (
     <>
       <Text>Ohne Value und Placeholder</Text>
-      <Textarea disabled width={0.5} maxLength={maxLength} />
+      <Textarea disabled width={0.5} maxLength={200} />
       <Text>Mit Placeholder</Text>
       <Textarea
         disabled
         width={0.5}
         placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr..."
-        maxLength={maxLength}
+        maxLength={200}
       />
       <Text>Mit Value</Text>
       <Textarea
         disabled
         width={0.5}
         defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr..."
-        maxLength={maxLength}
+        maxLength={200}
       />
     </>
   );
