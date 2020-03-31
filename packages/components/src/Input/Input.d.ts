@@ -9,4 +9,4 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
     error?: boolean;
     className?: string;
 }
-export declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement | null>>;
+export declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
