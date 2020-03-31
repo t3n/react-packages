@@ -83,8 +83,8 @@ const StyledNativeTextarea = styled.textarea.attrs(() => ({
   noValidate: true,
 }))<StyledNativeTextareaProps>`
   width: 100%;
-  height: 40px;
-  min-height: 120px;
+  min-height: ${({ rows }: StyledNativeTextareaProps) =>
+    rows ? `${rows * 30}px` : '120px'};
   font-family: ${({ theme }) => theme.fonts.default};
   font-size: 1rem;
   line-height: 30px;
@@ -139,6 +139,7 @@ export const Textarea = forwardRef(
       disabled,
       error,
       width,
+      rows,
       className,
       onFocus,
       onBlur,
@@ -194,6 +195,7 @@ export const Textarea = forwardRef(
       <StyledTextarea
         disabled={disabled}
         width={width}
+        rows={rows}
         error={error}
         className={className}
         isFocused={focused}
@@ -208,6 +210,7 @@ export const Textarea = forwardRef(
           value={value}
           ref={textareaRef}
           maxLength={maxLength}
+          rows={rows}
           {...props}
         />
         {value.length > 0 && !disabled ? (
