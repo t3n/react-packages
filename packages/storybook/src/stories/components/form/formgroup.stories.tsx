@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input, FormGroup, Box, Text, Link } from '@t3n/components';
+import { Input, FormGroup, Box, Text, Link, Textarea } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -15,6 +15,9 @@ export const defaultStory = () => (
     <FormGroup label="Vorname">
       <Input />
     </FormGroup>
+    <FormGroup label="Nachricht">
+      <Textarea maxLength={200} />
+    </FormGroup>
   </Box>
 );
 
@@ -26,6 +29,9 @@ export const errorState = () => (
   <Box width={[1, 1, 0.5]}>
     <FormGroup label="Vorname" errorMessage="Dies ist eine Fehlermeldung">
       <Input error />
+    </FormGroup>
+    <FormGroup label="Nachricht" errorMessage="Dies ist eine Fehlermeldung">
+      <Textarea error maxLength={200} />
     </FormGroup>
   </Box>
 );

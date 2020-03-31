@@ -284,58 +284,58 @@ export const variantStory = () => {
     <>
       <H2>Default: 3 Cards</H2>
       <Grid>
-        <GridItem width={[1, 1, 1 / 3]}>
+        <GridItem width={[1, 1 / 2, 1 / 3]} mb={2}>
           <UserCard user={thirdUser} compact={false} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 3]}>
+        <GridItem width={[1, 1 / 2, 1 / 3]} mb={2}>
           <UserCard user={flagUser} compact={false} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 3]}>
+        <GridItem width={[1, 1 / 2, 1 / 3]} mb={2}>
           <UserCard user={defaultUserStatic} compact={false} />
         </GridItem>
       </Grid>
 
       <H2>Default: 4 Cards</H2>
       <Grid>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard user={thirdUser} compact={false} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard user={flagUser} compact={false} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard user={defaultUserStatic} compact={false} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard user={fourthUser} compact={false} />
         </GridItem>
       </Grid>
 
       <H2>Compact: 3 Cards</H2>
       <Grid>
-        <GridItem width={[1, 1, 1 / 3]}>
+        <GridItem width={[1, 1 / 2, 1 / 3]} mb={2}>
           <UserCard compact user={compactThirdUser} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 3]}>
+        <GridItem width={[1, 1 / 2, 1 / 3]} mb={2}>
           <UserCard compact user={compactFlagUser} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 3]}>
+        <GridItem width={[1, 1 / 2, 1 / 3]} mb={2}>
           <UserCard compact user={compactUser} />
         </GridItem>
       </Grid>
 
       <H2>Compact: 4 Cards</H2>
       <Grid>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard compact user={compactThirdUser} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard compact user={compactFlagUser} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard compact user={compactUser} />
         </GridItem>
-        <GridItem width={[1, 1, 1 / 4]}>
+        <GridItem width={[1, 1 / 2, 1 / 3, 1 / 4]} mb={2}>
           <UserCard compact user={fourthUser} />
         </GridItem>
       </Grid>

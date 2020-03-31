@@ -18,6 +18,7 @@ import {
 
 import { FormInput } from '../../../components/FormField';
 import { storyContainerDecorator } from '../../../utils/decorators';
+import { FormTextarea } from '../../../components/FormTextarea';
 
 export default {
   title: 'Components|Form/Formulare',
@@ -29,8 +30,9 @@ interface RegisterValues {
   email: string;
   firstName: string;
   lastName: string;
+  message?: string;
   password: string;
-  passwordComfirm: string;
+  passwordConfirm: string;
 }
 
 const DebugValues = styled.pre<ThemeProps>`
@@ -64,10 +66,14 @@ export const register = () => {
     firstName: Yup.string()
       .required('Bitte gib einen Vornamen ein')
       .min(3, 'Bitte gib mindestens drei Zeichen ein'),
+    message: Yup.string().max(
+      200,
+      'Die Nachricht darf höchstens 200 Zeichen lang sein'
+    ),
     password: Yup.string()
       .required('Bitte gib ein Passwort an')
       .min(8, 'Dein Passwort muss mindestens acht Zeichen lang sein'),
-    passwordComfirm: Yup.string().oneOf(
+    passwordConfirm: Yup.string().oneOf(
       [Yup.ref('password')],
       'Die Passwörter stimmen nicht überein'
     ),
@@ -82,7 +88,7 @@ export const register = () => {
             lastName: '',
             firstName: '',
             password: '',
-            passwordComfirm: '',
+            passwordConfirm: '',
           }}
           validationSchema={registerFormValidation}
           isInitialValid={false}
@@ -139,7 +145,16 @@ export const register = () => {
                         name="passwordConfirm"
                         label="Passwort wiederholen"
                       />
-                      <Button type="submit" disabled={!isValid || isSubmitting}>
+                      <FormTextarea
+                        name="message"
+                        label="Nachricht"
+                        maxLength={200}
+                      />
+                      <Button
+                        mt={2}
+                        type="submit"
+                        disabled={!isValid || isSubmitting}
+                      >
                         {isValid && !isSubmitting
                           ? 'Abschicken'
                           : 'Bitte alle Felder ausfüllen'}
