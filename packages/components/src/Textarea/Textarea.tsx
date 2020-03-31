@@ -31,11 +31,28 @@ export interface TextareaProps
   className?: string;
 }
 
+const color = css`
+  color: ${({
+    isFocused,
+    error,
+    disabled,
+    theme,
+  }: TextareaProps & ThemeProps) =>
+    error
+      ? theme.colors.feedback.error
+      : disabled
+      ? theme.colors.shades.grey204
+      : isFocused
+      ? theme.colors.shades.grey42
+      : theme.colors.shades.grey143};
+`;
+
 const StyledTextarea = styled.div<TextareaProps>`
   position: relative;
   display: flex;
   align-items: center;
-  ${styledWidth};
+  ${styledWidth}
+  ${color}
 `;
 
 interface StyledNativeTextareaProps extends TextareaProps {
@@ -76,7 +93,7 @@ const StyledNativeTextarea = styled.textarea.attrs(() => ({
   border-radius: ${(props) => props.theme.border.radii[1]};
   outline: 0;
   ${border}
-  ${padding};
+  ${padding}
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -177,6 +194,7 @@ export const Textarea = forwardRef(
       <StyledTextarea
         disabled={disabled}
         width={width}
+        error={error}
         className={className}
         isFocused={focused}
       >
