@@ -23,10 +23,19 @@ const StyledCard = styled(Card)`
   height: 100%;
 `;
 
-const StyledBadge = styled(Badge)`
+const StyledCompactBadge = styled(Badge)`
   position: absolute;
   top: 8px;
   right: 8px;
+`;
+
+const StyledDefaultBadge = styled(Badge)`
+  @media screen and (max-width: ${(props: ThemeProps) =>
+      props.theme.breakpoints[1]}) {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
 `;
 
 const SocialButton = styled(Button)`
@@ -48,6 +57,22 @@ const SocialButton = styled(Button)`
 
   &:hover > svg {
     fill: #fff;
+  }
+`;
+
+const StyledGridItem = styled(GridItem)`
+  @media screen and (max-width: ${(props: ThemeProps) =>
+      props.theme.breakpoints[1]}) {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+`;
+
+const SocialLinksBox = styled(Box)`
+  @media screen and (max-width: ${(props: ThemeProps) =>
+      props.theme.breakpoints[1]}) {
+    justify-content: center;
   }
 `;
 
@@ -81,7 +106,7 @@ type SocialLinksProps = {
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   return (
-    <Box mt={2} display="flex">
+    <SocialLinksBox mt={2} display="flex">
       {links.map((link) => (
         <SocialButton key={link.type} href={link.url}>
           {link.type === 'XING' ? (
@@ -97,7 +122,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
           )}
         </SocialButton>
       ))}
-    </Box>
+    </SocialLinksBox>
   );
 };
 
@@ -113,18 +138,25 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   );
 };
 
-const NormalUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
+const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   user,
   children,
 }) => {
   return (
     <Grid>
-      <GridItem width={[1, 2 / 5, 2 / 5, 2 / 5]} mb={0}>
+      <GridItem width={[1, 1, 2 / 5, 2 / 5]} mb={0}>
         <Box display="flex" justifyContent="center">
           <Avatar src={user.avatarUrl} size={80} alt={user.name} />
         </Box>
+        <Box display="flex" justifyContent="center">
+          {user.flag && (
+            <StyledDefaultBadge small rounded variant="inverse">
+              {user.flag}
+            </StyledDefaultBadge>
+          )}
+        </Box>
       </GridItem>
-      <GridItem width={[1, 3 / 5, 3 / 5, 3 / 5]}>{children}</GridItem>
+      <StyledGridItem width={[1, 1, 3 / 5, 3 / 5]}>{children}</StyledGridItem>
     </Grid>
   );
 };
@@ -135,13 +167,13 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
       <Heading styleAs="h6" as="h6" mt={0} mb={0}>
         {user.name}
       </Heading>
-      <Text align={compact ? 'center' : 'left'} small mt={1} mb={1}>
+      <Text small mt={1} mb={1}>
         {user.position}
       </Text>
-      {user.flag && (
-        <StyledBadge small rounded variant="inverse">
+      {user.flag && compact && (
+        <StyledCompactBadge small rounded variant="inverse">
           {user.flag}
-        </StyledBadge>
+        </StyledCompactBadge>
       )}
       {user.email && (
         <Text small mt={1} mb={0}>
@@ -162,7 +194,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
       {compact ? (
         <CompactUserCard user={user}>{content}</CompactUserCard>
       ) : (
-        <NormalUserCard user={user}>{content}</NormalUserCard>
+        <DefaultUserCard user={user}>{content}</DefaultUserCard>
       )}
     </StyledCard>
   );
