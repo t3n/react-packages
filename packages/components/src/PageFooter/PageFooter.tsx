@@ -9,7 +9,6 @@ import {
   SocialXing,
   SocialLinkedin,
   SocialInstagram,
-  SocialWhatsapp,
   SocialGithub,
   SocialMedium,
 } from '@t3n/icons';
@@ -170,14 +169,6 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                 target="_blank"
               >
                 <SocialInstagram fill="white" />
-              </SocialLink>
-              <SocialLink
-                href="https://t3n.de/social-media/#Die_hei%C3%9Festen_News_in_deinem_Messenger"
-                title="Whatsapp"
-                mx={2}
-                target="_blank"
-              >
-                <SocialWhatsapp fill="white" />
               </SocialLink>
               <SocialLink
                 href="https://github.com/t3n"
