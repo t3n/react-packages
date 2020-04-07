@@ -27,6 +27,7 @@ export { JobCard } from './JobCard';
 export { Link } from './Link';
 export { Loader } from './Loader';
 export { Logo } from './Logo';
+export { Modal } from './Modal';
 export { NewsCard } from './NewsCard';
 export { PageFooter } from './PageFooter';
 export { PageHeader } from './PageHeader';
