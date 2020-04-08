@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 
 import {
   PageLayout,
@@ -20,9 +20,14 @@ export default {
 export const defaultStory = () => {
   const noContentPadding = boolean('Kein Inhaltsabstand', false);
   const showHeader = boolean('Mit Header', true);
+  const contactLink = text('Kontaktlink', 'mailto:info@t3n.de');
 
   return (
-    <PageLayout noContentPadding={noContentPadding} showHeader={showHeader}>
+    <PageLayout
+      noContentPadding={noContentPadding}
+      showHeader={showHeader}
+      contactLink={contactLink}
+    >
       Content
     </PageLayout>
   );
@@ -35,12 +40,14 @@ defaultStory.story = {
 export const withTransparentHeader = () => {
   const noContentPadding = boolean('Kein Inhaltsabstand', false);
   const showHeader = boolean('Mit Header', true);
+  const contactLink = text('Kontaktlink', 'mailto:info@t3n.de');
 
   return (
     <PageLayout
       initialTransparent
       noContentPadding={noContentPadding}
       showHeader={showHeader}
+      contactLink={contactLink}
       headerContent={
         <Avatar
           src="https://storage.googleapis.com/t3n-de/pioneers/ee08e42d57b7c75290f40f8d9a56489b8db91cd6/Thelen_Frank_Portrait_03%20-%20Lena%20He%C3%9Fbru%CC%88gge.jpg"
