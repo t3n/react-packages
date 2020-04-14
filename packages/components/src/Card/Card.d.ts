@@ -8,6 +8,7 @@ export interface CardProps extends MarginProps {
     dashed?: boolean;
     splitted?: boolean;
     href?: string | false;
+    targetBlank?: boolean;
     color?: string;
     width?: SizeProps['size'];
     children?: ReactNode;
@@ -15,4 +16,5 @@ export interface CardProps extends MarginProps {
 export declare const Card: import("styled-components").StyledComponent<"div", any, {
     href: string | false | undefined;
     as: string;
-} & CardProps, "href" | "as">;
+    target: string | undefined;
+} & CardProps, "href" | "as" | "target">;

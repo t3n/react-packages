@@ -55,7 +55,7 @@ defaultStory.story = {
 };
 
 export const link = () => (
-  <Card {...cardKnobs({ href: '#' }, KNOBS_CATEGORY_CARD)}>
+  <Card {...cardKnobs({ href: '#', targetBlank: false }, KNOBS_CATEGORY_CARD)}>
     <Heading as="h2" mt={0}>
       {text('Headline', headlineText, KNOBS_CATEGORY_CONTENT)}
     </Heading>
