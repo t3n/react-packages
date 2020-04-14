@@ -20,6 +20,7 @@ export interface CardProps extends MarginProps {
   dashed?: boolean;
   splitted?: boolean;
   href?: string | false;
+  targetBlank?: boolean;
   color?: string;
   width?: SizeProps['size'];
   children?: ReactNode;
@@ -57,9 +58,10 @@ const border = ({ dashed, elevate, href, theme }: CardProps & ThemeProps) => {
   return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
-export const Card = styled.div.attrs(({ href }: CardProps) => ({
+export const Card = styled.div.attrs(({ href, targetBlank }: CardProps) => ({
   href,
   as: href ? 'a' : 'div',
+  target: href && targetBlank ? '_blank' : undefined,
 }))<CardProps>`
   display: block;
   background-color: white;
