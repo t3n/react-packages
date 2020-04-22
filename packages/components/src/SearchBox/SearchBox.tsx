@@ -158,13 +158,16 @@ export interface SearchBoxProps<S> extends WidthProps {
   variant: SearchBoxVariantType;
   placeholder: string;
   isLoading: boolean;
+  defaultValue?: string;
   multiSection?: boolean;
   suggestions: GroupedSuggestions<S>[] | S[] | null;
   getSuggestionValue: GetSuggestionValue<S>;
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
   renderSuggestion: RenderSuggestion<S>;
+  renderSuggestionsEmpty?: React.ReactNode;
   onSelect: OnSuggestionSelected<S>;
+  clearOnSelect?: boolean;
   onSearchTermChange?: (term: string) => void;
 }
 
@@ -172,17 +175,20 @@ function SearchBox<S>({
   variant: variantProp,
   width,
   placeholder,
+  defaultValue,
   multiSection,
   isLoading,
   renderSuggestion,
+  renderSuggestionsEmpty: SuggestionsEmpty,
   suggestions,
   onSelect,
+  clearOnSelect,
   onSearchTermChange,
   getSuggestionValue,
   handleSuggestionFetchRequested,
   handleSuggestionClearRequested,
 }: SearchBoxProps<S>) {
-  const [term, setTerm] = useState('');
+  const [term, setTerm] = useState(defaultValue || '');
   const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
 
   useEffect(() => {
@@ -206,11 +212,14 @@ function SearchBox<S>({
       term.length >= 3 && (
         <SuggestionContainer {...containerProps}>
           {children}
-          {suggestions !== null && suggestions.length === 0 && !isLoading && (
-            <Text color="text.primary" p={[2, 3]} m={0}>
-              Keine Treffer gefunden
-            </Text>
-          )}
+          {suggestions !== null &&
+            suggestions.length === 0 &&
+            !isLoading &&
+            (SuggestionsEmpty || (
+              <Text color="text.primary" p={[2, 3]} m={0}>
+                Keine Treffer gefunden
+              </Text>
+            ))}
         </SuggestionContainer>
       )
     );
@@ -220,7 +229,7 @@ function SearchBox<S>({
     event: React.FormEvent<any>,
     data: SuggestionSelectedEventData<S>
   ) => {
-    setTerm('');
+    if (clearOnSelect) setTerm('');
     onSelect(event, data);
   };
 
@@ -237,7 +246,7 @@ function SearchBox<S>({
             getSectionSuggestions={(section: GroupedSuggestions<S>) =>
               section.suggestions
             }
-            shouldRenderSuggestions={() => term.length >= 2}
+            shouldRenderSuggestions={(value) => value.length > 1}
             renderSectionTitle={(section: GroupedSuggestions<S>) => (
               <Box px={[3]} py={[2]} bg="shades.grey232">
                 <Text m={0} bold>
@@ -265,7 +274,7 @@ function SearchBox<S>({
             getSuggestionValue={getSuggestionValue}
             focusInputOnSuggestionClick={false}
             suggestions={suggestions === null ? [] : (suggestions as S[])}
-            shouldRenderSuggestions={() => term.length >= 2}
+            shouldRenderSuggestions={(value) => value.length > 1}
             onSuggestionsFetchRequested={debounced}
             onSuggestionsClearRequested={handleSuggestionClearRequested}
             onSuggestionSelected={handleSuggestionSelected}
@@ -311,6 +320,7 @@ SearchBox.defaultProps = {
   suggestions: null,
   variant: 'red',
   placeholder: 'Suche nach Pionieren',
+  clearOnSelect: true,
 };
 
 export { SearchBox };

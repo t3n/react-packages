@@ -78,7 +78,15 @@ const SearchBoxWithData: React.FC<{
   initialSuggestions: TSuggestion[];
   withMore?: boolean;
   onSearchTermChange?: (term: string) => void;
-}> = ({ isLoading, width, onSearchTermChange, variant, withMore = false }) => {
+  clearOnSelect?: boolean;
+}> = ({
+  isLoading,
+  width,
+  onSearchTermChange,
+  variant,
+  withMore = false,
+  clearOnSelect,
+}) => {
   const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
   const [loading, setLoading] = useState(isLoading);
 
@@ -132,6 +140,7 @@ const SearchBoxWithData: React.FC<{
       isLoading={loading}
       onSearchTermChange={onSearchTermChange}
       placeholder={placeholderText}
+      clearOnSelect={clearOnSelect}
     />
   );
 };
@@ -189,7 +198,9 @@ loadingStory.story = {
   name: 'Ladend',
 };
 
-const SearchBoxWithNoData: React.FC = () => {
+const SearchBoxWithNoData: React.FC<{
+  renderSuggestionsEmpty?: React.ReactNode;
+}> = ({ renderSuggestionsEmpty }) => {
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<TSuggestion[] | null>(null);
 
@@ -214,6 +225,7 @@ const SearchBoxWithNoData: React.FC = () => {
       getSuggestionValue={(s) => s.title}
       suggestions={suggestions}
       renderSuggestion={(s) => <div>{s.title}</div>}
+      renderSuggestionsEmpty={renderSuggestionsEmpty}
       isLoading={loading}
       placeholder={placeholderText}
     />
@@ -226,6 +238,36 @@ export const noResults = () => {
 
 noResults.story = {
   name: 'Ohne Treffer',
+};
+
+export const customNoResults = () => {
+  return (
+    <SearchBoxWithNoData
+      renderSuggestionsEmpty={
+        <Text color="feedback.error" p={[2, 3]} m={0}>
+          Es gab leider ein Problem beim Laden der Ergebnisse!
+        </Text>
+      }
+    />
+  );
+};
+
+customNoResults.story = {
+  name: 'Individuelle Fehlermeldung',
+};
+
+export const keepSelectionStory = () => (
+  <SearchBoxWithData
+    variant="red"
+    width="auto"
+    initialSuggestions={[]}
+    isLoading={false}
+    clearOnSelect={false}
+  />
+);
+
+keepSelectionStory.story = {
+  name: 'Auswahl nicht zurücksetzen',
 };
 
 const SearchBoxWithCategorizedData: React.FC = () => {
