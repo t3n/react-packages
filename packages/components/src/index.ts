@@ -14,6 +14,7 @@ export { CardSplitContent } from './CardSplitContent';
 export { Center } from './Center';
 export { Checkbox } from './Checkbox';
 export { Content } from './Content';
+export { ConfirmDialog } from './ConfirmDialog';
 export { Divider } from './Divider';
 export { FormGroup } from './FormGroup';
 export { GlobalStyle } from './GlobalStyle';

@@ -23,11 +23,6 @@ export const defaultStory = () => {
         <Modal
           onClose={() => setModalOpen(false)}
           headline={text('Headline', 'Das ist die Headline eines Modals')}
-          onConfirm={() => {
-            alert('Klick!');
-            setModalOpen(false);
-          }}
-          buttonLabel={text('Button-Label', 'Klick')}
         >
           {text(
             'Inhalt',
@@ -41,33 +36,4 @@ export const defaultStory = () => {
 
 defaultStory.story = {
   name: 'Default',
-};
-
-export const deleteStory = () => {
-  const [modalOpen, setModalOpen] = useState(true);
-
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
-
-      {modalOpen && (
-        <Modal
-          onClose={() => setModalOpen(false)}
-          headline="Willst du das Internet wirklich löschen?"
-          onConfirm={() => {
-            alert('Du hast das Internet gelöscht :(');
-            setModalOpen(false);
-          }}
-          buttonLabel="Löschen"
-        >
-          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
-          anschauen. Die Löschung des Internets ist unwiderruflich.
-        </Modal>
-      )}
-    </>
-  );
-};
-
-deleteStory.story = {
-  name: 'Delete',
 };

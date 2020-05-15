@@ -38,6 +38,7 @@ module.exports = {
     '../src/stories/components/content/jobCard.stories',
     '../src/stories/components/content/loader.stories',
     '../src/stories/components/content/modal.stories',
+    '../src/stories/components/content/confirmDialog.stories',
     '../src/stories/components/content/newsCard.stories',
     '../src/stories/components/content/placeholder.stories',
     '../src/stories/components/content/searchbox.stories',
