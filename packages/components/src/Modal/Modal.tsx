@@ -5,13 +5,10 @@ import { theme, ThemeProps } from '@t3n/theme';
 import { Card } from '../Card';
 import { Box } from '../Box';
 import { Heading } from '../Heading';
-import { Button } from '../Button';
 
 export interface ModalProps {
   headline: string;
   onClose: () => void;
-  onConfirm: () => void;
-  buttonLabel: string;
 }
 
 const ModalWrapper = styled.div`
@@ -67,13 +64,6 @@ const StyledIconContainer = styled(Box)`
   }
 `;
 
-const StyledButtonBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
-    flex-direction: column;
-  }
-`;
-
 const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
     <StyledIconContainer
@@ -93,9 +83,7 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
 export const Modal: React.FC<ModalProps> = ({
   headline,
-  onConfirm,
   onClose,
-  buttonLabel,
   children,
 }) => {
   return (
@@ -106,19 +94,6 @@ export const Modal: React.FC<ModalProps> = ({
           {headline}
         </StyledHeading>
         {children}
-        <StyledButtonBox display="flex" justifyContent="flex-end" mt={3}>
-          <Button
-            variant="secondary"
-            mr={[0, 3, 3, 3]}
-            mb={[1, 0, 0, 0]}
-            onClick={onClose}
-          >
-            Abbrechen
-          </Button>
-          <Button variant="primary" onClick={onConfirm}>
-            {buttonLabel}
-          </Button>
-        </StyledButtonBox>
       </StyledModal>
       <ModalBackdrop onClick={onClose} />
     </ModalWrapper>
