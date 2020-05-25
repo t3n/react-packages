@@ -28,8 +28,8 @@ export interface ButtonProps
   color?: ButtonColorVariant;
   size?: ButtonSizeVariant;
 
-  iconLeft?: React.FunctionComponent<React.SVGProps<SVGElement>>;
-  iconRight?: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  iconLeft?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
 
   loading?: boolean;
   as?: ButtonAsType;
