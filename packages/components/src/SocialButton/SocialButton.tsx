@@ -45,7 +45,7 @@ export interface SocialButtonProps {
 export interface SocialNetworksProps {
   [key: string]: {
     name: string;
-    icon: React.FunctionComponent<React.SVGProps<SVGElement>>;
+    icon: React.FC<React.SVGProps<SVGSVGElement>>;
     iconScale?: number;
   };
 }

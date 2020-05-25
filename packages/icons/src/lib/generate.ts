@@ -79,20 +79,26 @@ const generateComponentName = (fileName: string) =>
 const filterFilesBySvg = (files: string[]) =>
   files.filter((file) => /\.svg$/.test(file));
 
-const svgToReactComponent = (svg: string, componentName: string) =>
-  svgr(
+const svgToReactComponent = async (svg: string, componentName: string) => {
+  const component = await svgr(
     svg,
     {
-      plugins: [
-        '@svgr/plugin-svgo',
-        '@svgr/plugin-jsx',
-        '@svgr/plugin-prettier',
-      ],
+      plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
       icon: true,
+      typescript: true,
       template,
     },
     { componentName }
   );
+
+  return prettier.format(
+    component.replace(
+      `const ${componentName}`,
+      `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`
+    ),
+    { singleQuote: true, parser: 'typescript' }
+  );
+};
 
 const generateIconComponents = async (
   dir: string,

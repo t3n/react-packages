@@ -15,7 +15,7 @@ export interface BaseIconProps
   extends React.SVGProps<SVGSVGElement>,
     MarginProps,
     PositionProps {
-  component: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  component: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const BaseIcon = ({

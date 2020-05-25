@@ -7,12 +7,12 @@ export interface SocialButtonProps {
 export interface SocialNetworksProps {
     [key: string]: {
         name: string;
-        icon: React.FunctionComponent<React.SVGProps<SVGElement>>;
+        icon: React.FC<React.SVGProps<SVGSVGElement>>;
         iconScale?: number;
     };
 }
 export declare const socialNetworksConfig: SocialNetworksProps;
 export declare const SocialButton: import("styled-components").StyledComponent<React.FC<import("../Button").ButtonProps>, any, {
-    iconLeft: React.FunctionComponent<React.SVGProps<SVGElement>>;
+    iconLeft: React.FC<React.SVGProps<SVGSVGElement>>;
     children: string;
 } & SocialButtonProps, "children" | "iconLeft">;
