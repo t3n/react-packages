@@ -83,14 +83,7 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
   const component = await svgr(
     svg,
     {
-      plugins: [
-        '@svgr/plugin-svgo',
-        '@svgr/plugin-jsx',
-        '@svgr/plugin-prettier',
-      ],
-      prettierConfig: {
-        parser: 'typescript',
-      },
+      plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
       icon: true,
       typescript: true,
       template,
@@ -98,9 +91,12 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
     { componentName }
   );
 
-  return component.replace(
-    `const ${componentName}`,
-    `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`
+  return prettier.format(
+    component.replace(
+      `const ${componentName}`,
+      `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`
+    ),
+    { singleQuote: true, parser: 'typescript' }
   );
 };
 
