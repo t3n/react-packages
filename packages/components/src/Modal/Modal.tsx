@@ -44,6 +44,7 @@ const StyledModal = styled(Card)`
   max-height: 100%;
   overflow: auto;
   margin-bottom: 0;
+  max-width: 35rem;
 `;
 
 const StyledHeading = styled(Heading)`

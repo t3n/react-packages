@@ -17,4 +17,4 @@ export declare const Card: import("styled-components").StyledComponent<"div", an
     href: string | false | undefined;
     as: string;
     target: string | undefined;
-} & CardProps, "target" | "href" | "as">;
+} & CardProps, "href" | "as" | "target">;
