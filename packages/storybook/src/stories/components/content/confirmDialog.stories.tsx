@@ -71,3 +71,33 @@ export const deleteStory = () => {
 deleteStory.story = {
   name: 'Delete',
 };
+
+export const disabledStory: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(true);
+
+  return (
+    <>
+      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
+
+      {modalOpen && (
+        <ConfirmDialog
+          onClose={() => setModalOpen(false)}
+          headline="Willst du das Internet wirklich löschen?"
+          onConfirm={() => {
+            alert('Du hast das Internet gelöscht :(');
+            setModalOpen(false);
+          }}
+          buttonLabel="Löschen"
+          buttonDisabled
+        >
+          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
+          anschauen. Die Löschung des Internets ist unwiderruflich.
+        </ConfirmDialog>
+      )}
+    </>
+  );
+};
+
+deleteStory.story = {
+  name: 'Disabled Button',
+};

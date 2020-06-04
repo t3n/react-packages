@@ -8,6 +8,7 @@ import { Modal, ModalProps } from '../Modal';
 export interface ConfirmDialogProps extends ModalProps {
   onConfirm: () => void;
   buttonLabel: string;
+  buttonDisabled?: boolean;
 }
 
 const StyledButtonBox = styled(Box)`
@@ -22,6 +23,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   onConfirm,
   onClose,
   buttonLabel,
+  buttonDisabled,
   children,
 }) => {
   return (
@@ -36,7 +38,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
         >
           Abbrechen
         </Button>
-        <Button variant="primary" onClick={onConfirm}>
+        <Button variant="primary" onClick={onConfirm} disabled={buttonDisabled}>
           {buttonLabel}
         </Button>
       </StyledButtonBox>
