@@ -72,7 +72,7 @@ deleteStory.story = {
   name: 'Delete',
 };
 
-export const disabledStory: React.FC = () => {
+export const disabledStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
 
   return (
@@ -98,6 +98,6 @@ export const disabledStory: React.FC = () => {
   );
 };
 
-deleteStory.story = {
+disabledStory.story = {
   name: 'Disabled Button',
 };
