@@ -3,7 +3,7 @@ import toaster, { Position } from 'toasted-notes';
 import { MaterialClear } from '@t3n/icons';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '@t3n/theme';
-import { MarginLeftProps, margin } from 'styled-system';
+import { MarginLeftProps, margin, variant } from 'styled-system';
 
 import { AlertStatus, AlertText, Alert } from '../Alert';
 import { Box } from '../Box';
@@ -19,9 +19,26 @@ interface ToastProps {
 const StyledIcon = styled(MaterialClear)<
   { status: AlertStatus } & MarginLeftProps
 >`
-  fill: white;
   cursor: pointer;
   ${margin}
+
+  ${variant({
+    prop: 'status',
+    variants: {
+      success: {
+        fill: 'shades.black',
+      },
+      notice: {
+        fill: 'shades.black',
+      },
+      warning: {
+        fill: 'shades.black',
+      },
+      error: {
+        fill: 'shades.white',
+      },
+    },
+  })}
 `;
 
 export const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
