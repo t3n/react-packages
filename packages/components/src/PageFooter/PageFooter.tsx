@@ -29,7 +29,7 @@ const FooterLinks = styled(Box)`
   flex-wrap: wrap;
 `;
 
-const FooterLink = styled(Link).attrs(() => ({
+export const FooterLink = styled(Link).attrs(() => ({
   small: true,
 }))`
   flex-shrink: 0;
