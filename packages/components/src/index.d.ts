@@ -15,7 +15,6 @@ export { Checkbox } from './Checkbox';
 export { Content } from './Content';
 export { ConfirmDialog } from './ConfirmDialog';
 export { Divider } from './Divider';
-export { FooterLink } from './PageFooter';
 export { FormGroup } from './FormGroup';
 export { GlobalStyle } from './GlobalStyle';
 export { Grid } from './Grid';
