@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { withKnobs } from '@storybook/addon-knobs';
-import { PageFooter, FooterLink, Box } from '@t3n/components';
+import { PageFooter, Box, FooterLink } from '@t3n/components';
 
 export default {
   title: 'Components|Layout/PageFooter',
