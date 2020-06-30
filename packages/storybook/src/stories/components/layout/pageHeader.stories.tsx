@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { PageHeader, Section, Box } from '@t3n/components';
+import { PageHeader, UserMenu } from '@t3n/components';
+import { UserMenuProps } from '@t3n/components/src/UserMenu';
 
 const StoryWrapper = styled.div`
   position: relative;
@@ -10,6 +11,32 @@ const StoryWrapper = styled.div`
   width: 100%;
   z-index: 1;
 `;
+
+const standardUser: UserMenuProps['user'] = {
+  name: 'Jan Christe',
+  nickName: 'jan.christe',
+  avatarUrl:
+    'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
+};
+
+const standardLinkGroups: UserMenuProps['linkGroups'] = [
+  {
+    link: [
+      {
+        url: `https://t3n.de/pioneers/profile/${standardUser.nickName}`,
+        label: 'Mein Pioneers-Profil',
+      },
+    ],
+  },
+  {
+    link: [
+      {
+        url: 'https://faq.t3n.de/',
+        label: 'FAQ',
+      },
+    ],
+  },
+];
 
 export default {
   title: 'Components|Layout/PageHeader',
@@ -23,9 +50,6 @@ export default {
 export const defaultStory = () => (
   <>
     <PageHeader transparent={boolean('Transparenter Hintergrund', false)} />
-    <Section variant="secondary">
-      <Box pt={6}>Content</Box>
-    </Section>
   </>
 );
 
@@ -33,7 +57,16 @@ defaultStory.story = {
   name: 'Default',
 };
 
-export const displayUserMenu = () => <PageHeader />;
+export const displayUserMenu = () => (
+  <PageHeader>
+    <UserMenu
+      loading={false}
+      loggedIn
+      user={standardUser}
+      linkGroups={standardLinkGroups}
+    />
+  </PageHeader>
+);
 
 defaultStory.story = {
   name: 'Mit Usermenü',
