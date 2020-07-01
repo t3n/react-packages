@@ -11,9 +11,7 @@ export interface UserMenuProps {
         avatarUrl: string;
     };
     itemGroups?: {
-        item: {
-            label: JSX.Element | string;
-        }[];
+        item: (JSX.Element | string)[];
     }[];
 }
 export declare const UserMenu: React.FC<UserMenuProps>;

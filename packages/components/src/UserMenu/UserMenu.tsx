@@ -144,9 +144,7 @@ export interface UserMenuProps {
   };
 
   itemGroups?: {
-    item: {
-      label: JSX.Element | string;
-    }[];
+    item: (JSX.Element | string)[];
   }[];
 }
 
@@ -211,7 +209,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
                     return loading ? (
                       <Placeholder height="21px" mt={1} mx={2} />
                     ) : (
-                      <UserMenuListItem>{item.label}</UserMenuListItem>
+                      <UserMenuListItem>{item}</UserMenuListItem>
                     );
                   })}
                   <UserMenuListDivider />
