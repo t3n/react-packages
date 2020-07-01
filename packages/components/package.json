@@ -21,8 +21,7 @@
     "styled-system": "^5.1.4",
     "toasted-notes": "^3.0.0",
     "use-debounce": "^3.2.0",
-    "react-slick": "^0.26.1",
-    "slick-carousel": "^1.8.1"
+    "react-slick": "^0.26.1"
   },
   "sideEffects": false,
   "scripts": {
@@ -61,7 +60,8 @@
     "@t3n/theme": ">=0.2",
     "react": ">=16.10",
     "react-dom": ">=16.10",
-    "styled-components": ">=4"
+    "styled-components": ">=4",
+    "slick-carousel": "^1.8.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
