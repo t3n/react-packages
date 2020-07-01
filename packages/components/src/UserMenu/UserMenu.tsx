@@ -134,6 +134,8 @@ const StyledLogoutLink = styled.a`
 export interface UserMenuProps {
   loading: boolean;
   loggedIn: boolean;
+  loginLink?: string;
+  logoutLink?: string;
 
   user?: {
     name: string;
@@ -151,6 +153,8 @@ export interface UserMenuProps {
 export const UserMenu: React.FC<UserMenuProps> = ({
   user,
   itemGroups,
+  loginLink = '/account/login',
+  logoutLink = '/account/logout',
   loading,
   loggedIn,
 }) => {
@@ -218,16 +222,14 @@ export const UserMenu: React.FC<UserMenuProps> = ({
             <Placeholder height="21px" mt={1} mx={2} />
           ) : (
             <UserMenuListItem>
-              <StyledLogoutLink href="/account/logout">
-                Abmelden
-              </StyledLogoutLink>
+              <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
             </UserMenuListItem>
           )}
         </UserMenuList>
       )}
     </StyledBox>
   ) : (
-    <Link href="/account/login" variant="highlight">
+    <Link href={loginLink} variant="highlight">
       Anmelden
     </Link>
   );

@@ -3,6 +3,8 @@ export declare const UserMenuListItem: import("styled-components").StyledCompone
 export interface UserMenuProps {
     loading: boolean;
     loggedIn: boolean;
+    loginLink?: string;
+    logoutLink?: string;
     user?: {
         name: string;
         nickName: string;
