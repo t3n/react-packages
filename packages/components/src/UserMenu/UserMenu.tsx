@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { color, space, border, layout } from 'styled-system';
 
@@ -7,6 +7,11 @@ import { Box, Avatar, Placeholder, Text, Link } from '..';
 
 const StyledBox = styled(Box)`
   cursor: pointer;
+  ${({ theme }) => space({ theme, p: 6, m: -6 })};
+
+  &:hover > ul {
+    display: block;
+  }
 `;
 
 const AvatarPlaceholder = styled(Placeholder)`
@@ -21,9 +26,9 @@ const AvatarPlaceholder = styled(Placeholder)`
 `;
 
 const UserMenuList = styled.ul`
+  display: none;
   position: absolute;
-  top: 100%;
-  right: 0;
+  right: 38px;
   list-style-type: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => composeTextStyle({ theme, textStyle: 'small' })};
@@ -66,6 +71,7 @@ const UserMenuList = styled.ul`
       props.theme.breakpoints[0]}) {
     left: 0;
     right: 0;
+    top: 100%;
     ${({ theme }) => composeTextStyle({ theme, textStyle: 'regular' })};
 
     &:before {
@@ -168,76 +174,53 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   loading,
   loggedIn,
 }) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [closeTimeoutRef, setCloseTimeoutRef] = useState<number | null>(null);
-
-  const handleMouseEnter = () => {
-    setDropdownOpen(true);
-
-    if (closeTimeoutRef !== null) {
-      clearTimeout(closeTimeoutRef);
-      setCloseTimeoutRef(null);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    const timeoutRef = setTimeout(() => setDropdownOpen(false), 300);
-    setCloseTimeoutRef(timeoutRef);
-  };
-
   return loggedIn ? (
-    <StyledBox
-      position={['unset', 'relative']}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <StyledBox position={['unset', 'relative']}>
       {loading ? (
         <AvatarPlaceholder height="40px" width="40px" />
       ) : (
         user && <Avatar src={user.avatarUrl} alt={user.name} />
       )}
 
-      {dropdownOpen && (
-        <UserMenuList>
-          <UserMenuListItemText>
-            Angemeldet als
-            {loading ? (
-              <Placeholder height="21px" width="100%" />
-            ) : (
-              user && (
-                <Text my={0} bold>
-                  {user.name}
-                </Text>
-              )
-            )}
-          </UserMenuListItemText>
-          <UserMenuListDivider />
-
-          {itemGroups &&
-            itemGroups.map((group) => {
-              return (
-                <>
-                  {group.item.map((item) => {
-                    return loading ? (
-                      <Placeholder height="21px" mt={1} mx={2} />
-                    ) : (
-                      <UserMenuListItem>{item}</UserMenuListItem>
-                    );
-                  })}
-                  <UserMenuListDivider />
-                </>
-              );
-            })}
-
+      <UserMenuList>
+        <UserMenuListItemText>
+          Angemeldet als
           {loading ? (
-            <Placeholder height="21px" mt={1} mx={2} />
+            <Placeholder height="21px" width="100%" />
           ) : (
-            <UserMenuListItem>
-              <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
-            </UserMenuListItem>
+            user && (
+              <Text my={0} bold>
+                {user.name}
+              </Text>
+            )
           )}
-        </UserMenuList>
-      )}
+        </UserMenuListItemText>
+        <UserMenuListDivider />
+
+        {itemGroups &&
+          itemGroups.map((group) => {
+            return (
+              <>
+                {group.item.map((item) => {
+                  return loading ? (
+                    <Placeholder height="21px" mt={1} mx={2} />
+                  ) : (
+                    <UserMenuListItem>{item}</UserMenuListItem>
+                  );
+                })}
+                <UserMenuListDivider />
+              </>
+            );
+          })}
+
+        {loading ? (
+          <Placeholder height="21px" mt={1} mx={2} />
+        ) : (
+          <UserMenuListItem>
+            <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
+          </UserMenuListItem>
+        )}
+      </UserMenuList>
     </StyledBox>
   ) : (
     <Link href={loginLink} variant="highlight">
