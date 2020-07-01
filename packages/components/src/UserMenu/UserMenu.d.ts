@@ -10,7 +10,7 @@ export interface UserMenuProps {
         nickName: string;
         avatarUrl: string;
     };
-    itemGroups: {
+    itemGroups?: {
         item: {
             label: JSX.Element | string;
         }[];

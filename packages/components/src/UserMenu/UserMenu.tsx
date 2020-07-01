@@ -143,7 +143,7 @@ export interface UserMenuProps {
     avatarUrl: string;
   };
 
-  itemGroups: {
+  itemGroups?: {
     item: {
       label: JSX.Element | string;
     }[];
@@ -203,20 +203,21 @@ export const UserMenu: React.FC<UserMenuProps> = ({
           </UserMenuListItemText>
           <UserMenuListDivider />
 
-          {itemGroups.map((group) => {
-            return (
-              <>
-                {group.item.map((item) => {
-                  return loading ? (
-                    <Placeholder height="21px" mt={1} mx={2} />
-                  ) : (
-                    <UserMenuListItem>{item.label}</UserMenuListItem>
-                  );
-                })}
-                <UserMenuListDivider />
-              </>
-            );
-          })}
+          {itemGroups &&
+            itemGroups.map((group) => {
+              return (
+                <>
+                  {group.item.map((item) => {
+                    return loading ? (
+                      <Placeholder height="21px" mt={1} mx={2} />
+                    ) : (
+                      <UserMenuListItem>{item.label}</UserMenuListItem>
+                    );
+                  })}
+                  <UserMenuListDivider />
+                </>
+              );
+            })}
 
           {loading ? (
             <Placeholder height="21px" mt={1} mx={2} />

@@ -23,42 +23,6 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
       {
         label: (
           <>
-            <a
-              href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}
-            >
-              Mein Pioneers-Profil
-            </a>
-          </>
-        ),
-      },
-      {
-        label: (
-          <>
-            <a href="https://t3n.de/account">Mein Konto / Pro</a>
-          </>
-        ),
-      },
-    ],
-  },
-  {
-    item: [
-      {
-        label: (
-          <>
-            <a href="https://faq.t3n.de/">FAQ</a>
-          </>
-        ),
-      },
-    ],
-  },
-];
-
-const extraContentLinkGroups: UserMenuProps['itemGroups'] = [
-  {
-    item: [
-      {
-        label: (
-          <>
             <a href="/">Ein toller Link</a>
           </>
         ),
@@ -134,7 +98,6 @@ export const defaultStory = () => {
         loading={boolean('Lädt?', false)}
         loggedIn={boolean('Eingeloggt?', true)}
         user={defaultUser}
-        itemGroups={standardLinkGroups}
       />
     </PageHeader>
   );
@@ -147,7 +110,7 @@ defaultStory.story = {
 export const loadingStory = () => {
   return (
     <PageHeader>
-      <UserMenu loggedIn loading itemGroups={standardLinkGroups} />
+      <UserMenu loggedIn loading />
     </PageHeader>
   );
 };
@@ -159,11 +122,7 @@ loadingStory.story = {
 export const notLoggedInStory = () => {
   return (
     <PageHeader>
-      <UserMenu
-        loading={false}
-        loggedIn={false}
-        itemGroups={standardLinkGroups}
-      />
+      <UserMenu loading={false} loggedIn={false} />
     </PageHeader>
   );
 };
@@ -179,7 +138,7 @@ export const extraContentStory = () => {
         loading={false}
         loggedIn
         user={standardUser}
-        itemGroups={extraContentLinkGroups}
+        itemGroups={standardLinkGroups}
       />
     </PageHeader>
   );
