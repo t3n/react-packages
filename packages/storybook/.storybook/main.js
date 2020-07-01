@@ -46,6 +46,7 @@ module.exports = {
     '../src/stories/components/content/taglist.stories',
     '../src/stories/components/content/titleCard.stories',
     '../src/stories/components/content/userCard.stories',
+    '../src/stories/components/content/userMenu.stories',
 
     // Components - Inputs
     '../src/stories/components/inputs/button.stories',

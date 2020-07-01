@@ -50,4 +50,5 @@ export { Textarea } from './Textarea';
 export { TitleCard } from './TitleCard';
 export { Toast, useToast } from './Toast';
 export { UserCard } from './UserCard';
+export { UserMenu } from './UserMenu';
 export { VisualSection } from './VisualSection';
