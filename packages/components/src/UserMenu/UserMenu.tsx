@@ -14,17 +14,6 @@ const StyledBox = styled(Box)`
   }
 `;
 
-const AvatarPlaceholder = styled(Placeholder)`
-  ${({ theme }) =>
-    border({
-      theme,
-      borderWidth: 2,
-      borderColor: 'shades.white',
-      borderStyle: 'solid',
-      borderRadius: '50%',
-    })};
-`;
-
 const UserMenuList = styled.ul`
   display: none;
   position: absolute;
@@ -176,10 +165,8 @@ export const UserMenu: React.FC<UserMenuProps> = ({
 }) => {
   return loggedIn ? (
     <StyledBox position={['unset', 'relative']}>
-      {loading ? (
-        <AvatarPlaceholder height="40px" width="40px" />
-      ) : (
-        user && <Avatar src={user.avatarUrl} alt={user.name} />
+      {user && (
+        <Avatar loading={loading} src={user.avatarUrl} alt={user.name} />
       )}
 
       <UserMenuList>

@@ -106,6 +106,26 @@ liveData.story = {
   name: 'Live-Daten',
 };
 
+export const loading = () => (
+  <div>
+    <Avatar loading />
+  </div>
+);
+
+loading.story = {
+  name: 'Loading',
+};
+
+export const noAvatar = () => (
+  <div>
+    <Avatar alt={text('Alt-Text', 'Jan Christe')} />
+  </div>
+);
+
+noAvatar.story = {
+  name: 'No Avatar',
+};
+
 // {
 //   options: {
 //     showPanel: true
