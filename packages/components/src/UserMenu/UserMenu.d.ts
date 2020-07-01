@@ -8,9 +8,8 @@ export interface UserMenuProps {
         nickName: string;
         avatarUrl: string;
     };
-    linkGroups: {
-        link: {
-            url: string;
+    itemGroups: {
+        item: {
             label: JSX.Element | string;
         }[];
     }[];

@@ -18,7 +18,7 @@ const UserMenuList = styled.ul`
   position: absolute;
   top: 100%;
   right: 0;
-  width: 150px;
+  width: 160px;
   margin: 8px 0 0;
   list-style-type: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
@@ -79,8 +79,19 @@ export const UserMenuListItem = styled.li`
   a {
     text-decoration: none;
     display: block;
+  }
+
+  > * {
+    ${({ theme }) => composeTextStyle({ theme, textStyle: 'small' })};
     ${({ theme }) => color({ theme, color: 'text.primary' })};
-    ${({ theme }) => space({ theme, py: 1, px: 2 })};
+    ${({ theme }) => space({ theme, py: 1, px: 2, my: 0 })};
+  }
+
+  @media screen and (max-width: ${(props: ThemeProps) =>
+      props.theme.breakpoints[0]}) {
+    > * {
+      ${({ theme }) => composeTextStyle({ theme, textStyle: 'regular' })};
+    }
   }
 `;
 
@@ -130,9 +141,8 @@ export interface UserMenuProps {
     avatarUrl: string;
   };
 
-  linkGroups: {
-    link: {
-      url: string;
+  itemGroups: {
+    item: {
       label: JSX.Element | string;
     }[];
   }[];
@@ -140,7 +150,7 @@ export interface UserMenuProps {
 
 export const UserMenu: React.FC<UserMenuProps> = ({
   user,
-  linkGroups,
+  itemGroups,
   loading,
   loggedIn,
 }) => {
@@ -189,16 +199,14 @@ export const UserMenu: React.FC<UserMenuProps> = ({
           </UserMenuListItemText>
           <UserMenuListDivider />
 
-          {linkGroups.map((group) => {
+          {itemGroups.map((group) => {
             return (
               <>
-                {group.link.map((link) => {
+                {group.item.map((item) => {
                   return loading ? (
                     <Placeholder height="21px" mt={1} mx={2} />
                   ) : (
-                    <UserMenuListItem>
-                      <a href={link.url}>{link.label}</a>
-                    </UserMenuListItem>
+                    <UserMenuListItem>{item.label}</UserMenuListItem>
                   );
                 })}
                 <UserMenuListDivider />
@@ -210,7 +218,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
             <Placeholder height="21px" mt={1} mx={2} />
           ) : (
             <UserMenuListItem>
-              <StyledLogoutLink href="https://t3n.de/account/logout">
+              <StyledLogoutLink href="/account/logout">
                 Abmelden
               </StyledLogoutLink>
             </UserMenuListItem>

@@ -19,20 +19,37 @@ const standardUser: UserMenuProps['user'] = {
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
 };
 
-const standardLinkGroups: UserMenuProps['linkGroups'] = [
+const standardLinkGroups: UserMenuProps['itemGroups'] = [
   {
-    link: [
+    item: [
       {
-        url: `https://t3n.de/pioneers/profile/${standardUser.nickName}`,
-        label: 'Mein Pioneers-Profil',
+        label: (
+          <>
+            <a
+              href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}
+            >
+              Mein Pioneers-Profil
+            </a>
+          </>
+        ),
+      },
+      {
+        label: (
+          <>
+            <a href="https://t3n.de/account">Mein Konto / Pro</a>
+          </>
+        ),
       },
     ],
   },
   {
-    link: [
+    item: [
       {
-        url: 'https://faq.t3n.de/',
-        label: 'FAQ',
+        label: (
+          <>
+            <a href="https://faq.t3n.de/">FAQ</a>
+          </>
+        ),
       },
     ],
   },
@@ -63,7 +80,7 @@ export const displayUserMenu = () => (
       loading={false}
       loggedIn
       user={standardUser}
-      linkGroups={standardLinkGroups}
+      itemGroups={standardLinkGroups}
     />
   </PageHeader>
 );
