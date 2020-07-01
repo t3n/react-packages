@@ -20,7 +20,9 @@
     "react-use-scroll-position": "github:neo/react-use-scroll-position",
     "styled-system": "^5.1.4",
     "toasted-notes": "^3.0.0",
-    "use-debounce": "^3.2.0"
+    "use-debounce": "^3.2.0",
+    "react-slick": "^0.26.1",
+    "slick-carousel": "^1.8.1"
   },
   "sideEffects": false,
   "scripts": {
@@ -42,6 +44,7 @@
     "@types/react-imgix": "^9.0.0",
     "@types/styled-components": "^5.0.1",
     "@types/styled-system": "^5.1.4",
+    "@types/react-slick": "^0.23.4",
     "babel-jest": "^26.0.1",
     "jest": "^26.0.1",
     "jest-styled-components": "^7.0.0",

@@ -10,6 +10,7 @@ export { Button } from './Button';
 export { Card } from './Card';
 export { CardHeader } from './CardHeader';
 export { CardSplitContent } from './CardSplitContent';
+export { Carousel } from './Carousel';
 export { Center } from './Center';
 export { Checkbox } from './Checkbox';
 export { Content } from './Content';
