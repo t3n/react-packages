@@ -72,7 +72,7 @@ defaultStory.story = {
 export const loadingStory = () => {
   return (
     <PageHeader>
-      <UserMenu loggedIn loading />
+      <UserMenu loggedIn loading user={standardUser} />
     </PageHeader>
   );
 };
