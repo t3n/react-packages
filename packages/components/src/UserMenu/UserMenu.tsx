@@ -1,30 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { color, space, border } from 'styled-system';
+import { color, space, border, layout } from 'styled-system';
 
 import { composeTextStyle, ThemeProps } from '@t3n/theme';
 import { Box, Avatar, Placeholder, Text, Link } from '..';
 
 const StyledBox = styled(Box)`
   cursor: pointer;
-`;
+  ${({ theme }) => space({ theme, p: 6, m: -6 })};
 
-const AvatarPlaceholder = styled(Placeholder)`
-  border-radius: 50%;
-  border: 2px solid white;
+  &:hover > ul {
+    display: block;
+  }
 `;
 
 const UserMenuList = styled.ul`
+  display: none;
   position: absolute;
-  top: 100%;
-  right: 0;
-  width: 160px;
-  margin: 8px 0 0;
+  right: 38px;
   list-style-type: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => composeTextStyle({ theme, textStyle: 'small' })};
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
-  ${({ theme }) => space({ theme, py: 1, px: 0 })};
+  ${({ theme }) => space({ theme, py: 1, px: 0, mt: [0, 2] })};
+  ${({ theme }) => layout({ theme, width: ['100%', '160px'] })};
   ${({ theme }) =>
     border({
       theme,
@@ -47,18 +46,21 @@ const UserMenuList = styled.ul`
     content: '';
 
     ${({ theme }) =>
-      `
-        border-top: 1px solid ${theme.colors.shades.grey232};
-        border-left: 1px solid ${theme.colors.shades.grey232};
-      `};
+      border({
+        theme,
+        borderWidth: 0,
+        borderColor: 'shades.grey232',
+        borderStyle: 'solid',
+        borderTopWidth: 1,
+        borderLeftWidth: 1,
+      })};
   }
 
   @media screen and (max-width: ${(props: ThemeProps) =>
       props.theme.breakpoints[0]}) {
-    width: 100%;
     left: 0;
     right: 0;
-    margin: 0;
+    top: 100%;
     ${({ theme }) => composeTextStyle({ theme, textStyle: 'regular' })};
 
     &:before {
@@ -121,10 +123,15 @@ const UserMenuListDivider = styled.li`
   display: block;
   height: 0;
   ${({ theme }) => space({ theme, my: 2 })};
+
   ${({ theme }) =>
-    `
-      border-top: 1px solid ${theme.colors.shades.grey232};
-    `};
+    border({
+      theme,
+      borderWidth: 0,
+      borderColor: 'shades.grey232',
+      borderStyle: 'solid',
+      borderTopWidth: 1,
+    })};
 `;
 
 const StyledLogoutLink = styled.a`
@@ -144,9 +151,7 @@ export interface UserMenuProps {
   };
 
   itemGroups?: {
-    item: {
-      label: JSX.Element | string;
-    }[];
+    item: (JSX.Element | string)[];
   }[];
 }
 
@@ -158,76 +163,51 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   loading,
   loggedIn,
 }) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [closeTimeoutRef, setCloseTimeoutRef] = useState<number | null>(null);
-
-  const handleMouseEnter = () => {
-    setDropdownOpen(true);
-
-    if (closeTimeoutRef !== null) {
-      clearTimeout(closeTimeoutRef);
-      setCloseTimeoutRef(null);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    const timeoutRef = setTimeout(() => setDropdownOpen(false), 300);
-    setCloseTimeoutRef(timeoutRef);
-  };
-
   return loggedIn ? (
-    <StyledBox
-      position={['unset', 'relative']}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {loading ? (
-        <AvatarPlaceholder height="40px" width="40px" />
-      ) : (
-        user && <Avatar src={user.avatarUrl} alt={user.name} />
+    <StyledBox position={['unset', 'relative']}>
+      {user && (
+        <Avatar loading={loading} src={user.avatarUrl} alt={user.name} />
       )}
 
-      {dropdownOpen && (
-        <UserMenuList>
-          <UserMenuListItemText>
-            Angemeldet als
-            {loading ? (
-              <Placeholder height="21px" width="100%" />
-            ) : (
-              user && (
-                <Text my={0} bold>
-                  {user.name}
-                </Text>
-              )
-            )}
-          </UserMenuListItemText>
-          <UserMenuListDivider />
-
-          {itemGroups &&
-            itemGroups.map((group) => {
-              return (
-                <>
-                  {group.item.map((item) => {
-                    return loading ? (
-                      <Placeholder height="21px" mt={1} mx={2} />
-                    ) : (
-                      <UserMenuListItem>{item.label}</UserMenuListItem>
-                    );
-                  })}
-                  <UserMenuListDivider />
-                </>
-              );
-            })}
-
+      <UserMenuList>
+        <UserMenuListItemText>
+          Angemeldet als
           {loading ? (
-            <Placeholder height="21px" mt={1} mx={2} />
+            <Placeholder height="21px" width="100%" />
           ) : (
-            <UserMenuListItem>
-              <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
-            </UserMenuListItem>
+            user && (
+              <Text my={0} bold>
+                {user.name}
+              </Text>
+            )
           )}
-        </UserMenuList>
-      )}
+        </UserMenuListItemText>
+        <UserMenuListDivider />
+
+        {itemGroups &&
+          itemGroups.map((group) => {
+            return (
+              <>
+                {group.item.map((item) => {
+                  return loading ? (
+                    <Placeholder height="21px" mt={1} mx={2} />
+                  ) : (
+                    <UserMenuListItem>{item}</UserMenuListItem>
+                  );
+                })}
+                <UserMenuListDivider />
+              </>
+            );
+          })}
+
+        {loading ? (
+          <Placeholder height="21px" mt={1} mx={2} />
+        ) : (
+          <UserMenuListItem>
+            <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
+          </UserMenuListItem>
+        )}
+      </UserMenuList>
     </StyledBox>
   ) : (
     <Link href={loginLink} variant="highlight">

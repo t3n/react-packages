@@ -22,36 +22,14 @@ const standardUser: UserMenuProps['user'] = {
 const standardLinkGroups: UserMenuProps['itemGroups'] = [
   {
     item: [
-      {
-        label: (
-          <>
-            <a
-              href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}
-            >
-              Mein Pioneers-Profil
-            </a>
-          </>
-        ),
-      },
-      {
-        label: (
-          <>
-            <a href="https://t3n.de/account">Mein Konto / Pro</a>
-          </>
-        ),
-      },
+      <a href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}>
+        Mein Pioneers-Profil
+      </a>,
+      <a href="https://t3n.de/account">Mein Konto / Pro</a>,
     ],
   },
   {
-    item: [
-      {
-        label: (
-          <>
-            <a href="https://faq.t3n.de/">FAQ</a>
-          </>
-        ),
-      },
-    ],
+    item: [<a href="https://faq.t3n.de/">FAQ</a>],
   },
 ];
 

@@ -20,65 +20,27 @@ const standardUser: UserMenuProps['user'] = {
 const standardLinkGroups: UserMenuProps['itemGroups'] = [
   {
     item: [
-      {
-        label: (
-          <>
-            <a href="/">Ein toller Link</a>
-          </>
-        ),
-      },
-      {
-        label: (
-          <Text>
-            Eine{' '}
-            <span role="img" aria-label="Sonnenblume">
-              🌻
-            </span>{' '}
-            Blume
-          </Text>
-        ),
-      },
-      {
-        label: (
-          <>
-            <a href="/">Ein famoser Link</a>
-          </>
-        ),
-      },
+      <a href="/">Ein toller Link</a>,
+      <Text>
+        Eine{' '}
+        <span role="img" aria-label="Sonnenblume">
+          🌻
+        </span>{' '}
+        Blume
+      </Text>,
+      <a href="/">Ein famoser Link</a>,
     ],
   },
   {
     item: [
-      {
-        label: (
-          <>
-            <a
-              href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}
-            >
-              Mein Pioneers-Profil
-            </a>
-          </>
-        ),
-      },
-      {
-        label: (
-          <>
-            <a href="https://t3n.de/account">Mein Konto / Pro</a>
-          </>
-        ),
-      },
+      <a href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}>
+        Mein Pioneers-Profil
+      </a>,
+      <a href="https://t3n.de/account">Mein Konto / Pro</a>,
     ],
   },
   {
-    item: [
-      {
-        label: (
-          <>
-            <a href="https://faq.t3n.de/">FAQ</a>
-          </>
-        ),
-      },
-    ],
+    item: [<a href="https://faq.t3n.de/">FAQ</a>],
   },
 ];
 
@@ -110,7 +72,7 @@ defaultStory.story = {
 export const loadingStory = () => {
   return (
     <PageHeader>
-      <UserMenu loggedIn loading />
+      <UserMenu loggedIn loading user={standardUser} />
     </PageHeader>
   );
 };
