@@ -23,8 +23,15 @@ const StyledSlider = styled(SlickSlider)`
       })};
   }
 
+  > .slick-dots li button {
+    height: 8px;
+    width: 8px;
+  }
+
   > .slick-dots li button:before {
-    font-size: 20px;
+    font-size: 8px;
+    height: 8px;
+    width: 8px;
   }
 `;
 
