@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-named-default
-import { default as SlickSlider } from 'react-slick';
+import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import { space } from 'styled-system';
 
+import { ThemeProps } from '@t3n/theme';
 import { Button, Box } from '..';
 
 const StyledSlider = styled(SlickSlider)`
@@ -32,6 +33,11 @@ const StyledNextButton = styled(Button)`
   right: 0;
   bottom: 0;
   width: 95px;
+
+  @media screen and (max-width: ${(props: ThemeProps) =>
+      props.theme.breakpoints[0]}) {
+    display: none;
+  }
 `;
 
 const StyledPrevButton = styled(Button)`
@@ -40,30 +46,46 @@ const StyledPrevButton = styled(Button)`
   bottom: 0;
   z-index: 1;
   width: 95px;
+
+  @media screen and (max-width: ${(props: ThemeProps) =>
+      props.theme.breakpoints[0]}) {
+    display: none;
+  }
 `;
 
 const NextButton: React.FC<{
   onClick?: () => void;
-  hasMore: boolean;
-  onClose?: () => void;
-}> = ({ onClick, hasMore, onClose }) => (
+  showNextButton: boolean;
+  nextArrowLabel: string;
+  nextArrowFunction?: () => void;
+  nextArrowFunctionLabel: string;
+}> = ({
+  onClick,
+  showNextButton,
+  nextArrowLabel,
+  nextArrowFunction,
+  nextArrowFunctionLabel,
+}) => (
   <>
-    {hasMore ? (
-      <StyledNextButton onClick={onClick}>Nächste</StyledNextButton>
-    ) : (
-      <StyledNextButton onClick={onClose}>Schließen</StyledNextButton>
-    )}
+    {showNextButton ? (
+      <StyledNextButton onClick={onClick}>{nextArrowLabel}</StyledNextButton>
+    ) : nextArrowFunction ? (
+      <StyledNextButton onClick={nextArrowFunction}>
+        {nextArrowFunctionLabel}
+      </StyledNextButton>
+    ) : null}
   </>
 );
 
 const PrevButton: React.FC<{
   onClick?: () => void;
   showBackButton: boolean;
-}> = ({ onClick, showBackButton }) => (
+  prevArrowLabel: string;
+}> = ({ onClick, showBackButton, prevArrowLabel }) => (
   <>
     {showBackButton ? (
       <StyledPrevButton onClick={onClick} variant="secondary">
-        Zurück
+        {prevArrowLabel}
       </StyledPrevButton>
     ) : null}
   </>
@@ -71,12 +93,32 @@ const PrevButton: React.FC<{
 
 export interface CarouselProps {
   slidesAmount: number;
-  onClose?: () => void;
+  slidesToShow?: number;
+  slidesToScroll?: number;
+  responsive?: ResponsiveObject[];
+  speed?: number;
+  infinite?: boolean;
+  autoplay?: boolean;
+  autoplaySpeed?: number;
+  prevArrowLabel?: string;
+  nextArrowLabel?: string;
+  nextArrowFunction?: () => void;
+  nextArrowFunctionLabel?: string;
 }
 
 export const Carousel: React.FC<CarouselProps> = ({
   slidesAmount,
-  onClose,
+  slidesToShow = 1,
+  slidesToScroll = 1,
+  responsive,
+  speed = 500,
+  infinite = false,
+  autoplay = false,
+  autoplaySpeed = 2000,
+  prevArrowLabel = 'Zurück',
+  nextArrowLabel = 'Nächste',
+  nextArrowFunction,
+  nextArrowFunctionLabel = 'Schließen',
   children,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -85,18 +127,28 @@ export const Carousel: React.FC<CarouselProps> = ({
     <Box>
       <StyledSlider
         dots
-        infinite={false}
-        speed={500}
-        slidesToShow={1}
-        slidesToScroll={1}
+        infinite={infinite}
+        speed={speed}
+        autoplay={autoplay}
+        autoplaySpeed={autoplaySpeed}
+        slidesToShow={slidesToShow}
+        slidesToScroll={slidesToScroll}
         nextArrow={
           <NextButton
-            hasMore={currentIndex < slidesAmount - 1}
-            onClose={onClose}
+            showNextButton={currentIndex < slidesAmount - 1 || infinite}
+            nextArrowLabel={nextArrowLabel}
+            nextArrowFunction={nextArrowFunction}
+            nextArrowFunctionLabel={nextArrowFunctionLabel}
           />
         }
-        prevArrow={<PrevButton showBackButton={currentIndex > 0} />}
+        prevArrow={
+          <PrevButton
+            showBackButton={currentIndex > 0 || infinite}
+            prevArrowLabel={prevArrowLabel}
+          />
+        }
         beforeChange={(prev, next) => setCurrentIndex(next)}
+        responsive={responsive}
       >
         {children}
       </StyledSlider>
