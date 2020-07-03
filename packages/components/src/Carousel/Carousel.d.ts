@@ -1,7 +1,6 @@
 import React from 'react';
 import { ResponsiveObject } from 'react-slick';
 export interface CarouselProps {
-    slidesAmount: number;
     slidesToShow?: number;
     slidesToScroll?: number;
     responsive?: ResponsiveObject[];
@@ -9,9 +8,12 @@ export interface CarouselProps {
     infinite?: boolean;
     autoplay?: boolean;
     autoplaySpeed?: number;
-    prevArrowLabel?: string;
-    nextArrowLabel?: string;
-    nextArrowFunction?: () => void;
-    nextArrowFunctionLabel?: string;
+    nextLabel?: string;
+    prevLabel?: string;
+    onNextClick?: () => void;
+    onPrevClick?: () => void;
+    hideNextButton?: boolean;
+    hidePrevButton?: boolean;
+    onChange?: (currentIndex: number) => void;
 }
 export declare const Carousel: React.FC<CarouselProps>;

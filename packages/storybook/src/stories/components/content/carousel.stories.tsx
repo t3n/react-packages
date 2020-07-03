@@ -114,7 +114,6 @@ const defaultData = [
 export const defaultStory = () => {
   return (
     <Carousel
-      slidesAmount={number('Wie viele Slides gibt es?', defaultData.length)}
       slidesToShow={number(
         'Wie viele Slides sollen gleichzeitig gezeigt werden?',
         1
@@ -124,11 +123,11 @@ export const defaultStory = () => {
         1
       )}
       speed={number('Geschwindigkeit', 500)}
-      prevArrowLabel={text('Zurück-Label', 'Zurück')}
-      nextArrowLabel={text('Weiter-Label', 'Nächste')}
+      prevLabel={text('Zurück-Label', 'Zurück')}
+      nextLabel={text('Weiter-Label', 'Nächste')}
     >
       {defaultData.map((el) => (
-        <Box key={el.id} mb={8}>
+        <Box key={el.id} mb={8} overflow="hidden">
           <Image
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
@@ -156,9 +155,9 @@ defaultStory.story = {
 
 export const infiniteStory = () => {
   return (
-    <Carousel slidesAmount={defaultData.length} infinite>
+    <Carousel infinite>
       {defaultData.map((el) => (
-        <Box key={el.id} mb={8}>
+        <Box key={el.id} mb={8} overflow="hidden">
           <Image
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
@@ -187,13 +186,12 @@ infiniteStory.story = {
 export const autoplayStory = () => {
   return (
     <Carousel
-      slidesAmount={defaultData.length}
       infinite
       autoplay
       autoplaySpeed={number('Autoplay Geschwindigkeit', 2000)}
     >
       {defaultData.map((el) => (
-        <Box key={el.id} mb={8}>
+        <Box key={el.id} mb={8} overflow="hidden">
           <Image
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
@@ -222,7 +220,6 @@ autoplayStory.story = {
 export const responsiveStory = () => {
   return (
     <Carousel
-      slidesAmount={defaultData.length}
       slidesToShow={5}
       slidesToScroll={5}
       infinite
@@ -258,7 +255,7 @@ export const responsiveStory = () => {
       ]}
     >
       {defaultData.map((el) => (
-        <Box key={el.id} mb={8}>
+        <Box key={el.id} mb={8} overflow="hidden">
           <Image
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
@@ -286,6 +283,7 @@ responsiveStory.story = {
 
 export const sliderInModalStory = () => {
   const [showOnboardingModal, setShowOnboardingModal] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <>
@@ -297,11 +295,21 @@ export const sliderInModalStory = () => {
         <StyledBox>
           <Modal headline="" onClose={() => setShowOnboardingModal(false)}>
             <Carousel
-              slidesAmount={defaultData.length}
-              nextArrowFunction={() => setShowOnboardingModal(false)}
+              onNextClick={
+                currentIndex === defaultData.length - 1
+                  ? () => setShowOnboardingModal(false)
+                  : undefined
+              }
+              hideNextButton={false}
+              nextLabel={
+                currentIndex === defaultData.length - 1
+                  ? 'Schließen'
+                  : undefined
+              }
+              onChange={setCurrentIndex}
             >
               {defaultData.map((el) => (
-                <Box key={el.id} mb={8}>
+                <Box key={el.id} mt={2} mb={8} overflow="hidden">
                   <Image
                     m="0 auto"
                     height={['165px', '180px', '150px', '200px', '250px']}
