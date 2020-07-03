@@ -62,7 +62,7 @@
     "react": ">=16.10",
     "react-dom": ">=16.10",
     "styled-components": ">=4",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": ">=1.8"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
