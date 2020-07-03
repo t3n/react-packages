@@ -135,7 +135,7 @@ export const Carousel: React.FC<CarouselProps> = ({
         nextArrow={
           <NextButton
             show={
-              (!hideNextButton && currentIndex !== slidesAmount - 1) ||
+              (!hideNextButton && currentIndex < slidesAmount - 1) ||
               infinite ||
               !!onNextClick
             }
@@ -146,9 +146,7 @@ export const Carousel: React.FC<CarouselProps> = ({
         prevArrow={
           <PrevButton
             show={
-              (!hidePrevButton && currentIndex !== 0) ||
-              infinite ||
-              !!onPrevClick
+              (!hidePrevButton && currentIndex > 0) || infinite || !!onPrevClick
             }
             label={prevLabel}
             customOnClick={onPrevClick}
