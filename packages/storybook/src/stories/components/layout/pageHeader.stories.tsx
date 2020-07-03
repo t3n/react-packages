@@ -63,7 +63,7 @@ export const displayUserMenu = () => (
   </PageHeader>
 );
 
-defaultStory.story = {
+displayUserMenu.story = {
   name: 'Mit Usermenü',
 };
 

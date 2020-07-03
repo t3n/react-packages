@@ -14,6 +14,9 @@ import { theme } from '@t3n/theme';
 import viewports from './viewports';
 import StorybookGlobalStyle from './GlobalStyle';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({

@@ -32,6 +32,7 @@ module.exports = {
     '../src/stories/components/content/avatar.stories',
     '../src/stories/components/content/badge.stories',
     '../src/stories/components/content/card.stories',
+    '../src/stories/components/content/carousel.stories',
     '../src/stories/components/content/heroArticleCard.stories',
     '../src/stories/components/content/icon.stories',
     '../src/stories/components/content/image.stories',
