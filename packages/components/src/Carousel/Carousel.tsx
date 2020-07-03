@@ -54,13 +54,13 @@ const NextButton: React.FC<{
   show: boolean;
   label: string;
   customOnClick?: () => void;
-}> = ({ onClick, show, label, customOnClick }) => (
+}> = ({ onClick, show = true, label, customOnClick }) => (
   <>
-    {show ? (
+    {show && (
       <StyledNextButton onClick={customOnClick || onClick}>
         {label}
       </StyledNextButton>
-    ) : null}
+    )}
   </>
 );
 
@@ -69,13 +69,13 @@ const PrevButton: React.FC<{
   show: boolean;
   label: string;
   customOnClick?: () => void;
-}> = ({ onClick, show, label, customOnClick }) => (
+}> = ({ onClick, show = true, label, customOnClick }) => (
   <>
-    {show ? (
+    {show && (
       <StyledPrevButton onClick={customOnClick || onClick} variant="secondary">
         {label}
       </StyledPrevButton>
-    ) : null}
+    )}
   </>
 );
 
@@ -108,8 +108,8 @@ export const Carousel: React.FC<CarouselProps> = ({
   nextLabel = 'Nächste',
   onNextClick,
   onPrevClick,
-  hideNextButton = false,
-  hidePrevButton = false,
+  hideNextButton,
+  hidePrevButton,
   onChange,
   children,
 }) => {
@@ -135,9 +135,9 @@ export const Carousel: React.FC<CarouselProps> = ({
         nextArrow={
           <NextButton
             show={
-              (!hideNextButton && currentIndex < slidesAmount - 1) ||
-              infinite ||
-              !!onNextClick
+              hideNextButton !== undefined
+                ? !hideNextButton
+                : currentIndex < slidesAmount - 1 || infinite
             }
             label={nextLabel}
             customOnClick={onNextClick}
@@ -146,7 +146,9 @@ export const Carousel: React.FC<CarouselProps> = ({
         prevArrow={
           <PrevButton
             show={
-              (!hidePrevButton && currentIndex > 0) || infinite || !!onPrevClick
+              hidePrevButton !== undefined
+                ? !hidePrevButton
+                : currentIndex > 0 || infinite
             }
             label={prevLabel}
             customOnClick={onPrevClick}

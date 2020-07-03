@@ -300,6 +300,7 @@ export const sliderInModalStory = () => {
                   ? () => setShowOnboardingModal(false)
                   : undefined
               }
+              hideNextButton={false}
               nextLabel={
                 currentIndex === defaultData.length - 1
                   ? 'Schließen'
