@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-named-default
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
-import { space } from 'styled-system';
+import { space, display } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
 import { Button, Box } from '..';
 
 const StyledSlider = styled(SlickSlider)`
@@ -40,11 +39,7 @@ const StyledNextButton = styled(Button)`
   right: 0;
   bottom: 0;
   width: 95px;
-
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
-    display: none;
-  }
+  ${({ theme }) => display({ theme, display: ['none', 'block'] })}
 `;
 
 const StyledPrevButton = styled(Button)`
@@ -53,11 +48,7 @@ const StyledPrevButton = styled(Button)`
   bottom: 0;
   z-index: 1;
   width: 95px;
-
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
-    display: none;
-  }
+  ${({ theme }) => display({ theme, display: ['none', 'block'] })}
 `;
 
 const NextButton: React.FC<{
