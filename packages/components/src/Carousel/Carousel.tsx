@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-named-default
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
-import { space, display } from 'styled-system';
+import { space, display, layout } from 'styled-system';
 import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 
 const StyledSlider = styled(SlickSlider)`
   > .slick-dots {
     bottom: 10px;
-    width: unset;
+    ${({ theme }) => layout({ theme, width: ['100%', 'unset'] })};
     left: 50%;
     transform: translateX(-50%);
   }
@@ -18,7 +18,7 @@ const StyledSlider = styled(SlickSlider)`
     ${({ theme }) =>
       space({
         theme,
-        m: [0, 0, 0, '0 1px'],
+        m: ['0 8px', 0, 0, '0 1px'],
       })};
   }
 
@@ -38,7 +38,6 @@ const StyledNextButton = styled(Button)`
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 95px;
   ${({ theme }) => display({ theme, display: ['none', 'block'] })}
 `;
 
@@ -47,35 +46,40 @@ const StyledPrevButton = styled(Button)`
   left: 0;
   bottom: 0;
   z-index: 1;
-  width: 95px;
   ${({ theme }) => display({ theme, display: ['none', 'block'] })}
 `;
 
 const NextButton: React.FC<{
   onClick?: () => void;
-  nextArrowLabel: string;
-  nextArrowFunction?: () => void;
-  nextArrowFunctionLabel: string;
-}> = ({ onClick, nextArrowLabel, nextArrowFunction, nextArrowFunctionLabel }) =>
-  nextArrowFunction ? (
-    <StyledNextButton onClick={nextArrowFunction}>
-      {nextArrowFunctionLabel}
-    </StyledNextButton>
-  ) : (
-    <StyledNextButton onClick={onClick}>{nextArrowLabel}</StyledNextButton>
-  );
+  show: boolean;
+  label: string;
+  customOnClick?: () => void;
+}> = ({ onClick, show, label, customOnClick }) => (
+  <>
+    {show ? (
+      <StyledNextButton onClick={customOnClick || onClick}>
+        {label}
+      </StyledNextButton>
+    ) : null}
+  </>
+);
 
 const PrevButton: React.FC<{
   onClick?: () => void;
-  prevArrowLabel: string;
-}> = ({ onClick, prevArrowLabel }) => (
-  <StyledPrevButton onClick={onClick} variant="secondary">
-    {prevArrowLabel}
-  </StyledPrevButton>
+  show: boolean;
+  label: string;
+  customOnClick?: () => void;
+}> = ({ onClick, show, label, customOnClick }) => (
+  <>
+    {show ? (
+      <StyledPrevButton onClick={customOnClick || onClick} variant="secondary">
+        {label}
+      </StyledPrevButton>
+    ) : null}
+  </>
 );
 
 export interface CarouselProps {
-  slidesAmount: number;
   slidesToShow?: number;
   slidesToScroll?: number;
   responsive?: ResponsiveObject[];
@@ -83,14 +87,16 @@ export interface CarouselProps {
   infinite?: boolean;
   autoplay?: boolean;
   autoplaySpeed?: number;
-  prevArrowLabel?: string;
-  nextArrowLabel?: string;
-  nextArrowFunction?: () => void;
-  nextArrowFunctionLabel?: string;
+  nextLabel?: string;
+  prevLabel?: string;
+  onNextClick?: () => void;
+  onPrevClick?: () => void;
+  hideNextButton?: boolean;
+  hidePrevButton?: boolean;
+  onChange?: (currentIndex: number) => void;
 }
 
 export const Carousel: React.FC<CarouselProps> = ({
-  slidesAmount,
   slidesToShow = 1,
   slidesToScroll = 1,
   responsive,
@@ -98,13 +104,22 @@ export const Carousel: React.FC<CarouselProps> = ({
   infinite = false,
   autoplay = false,
   autoplaySpeed = 2000,
-  prevArrowLabel = 'Zurück',
-  nextArrowLabel = 'Nächste',
-  nextArrowFunction,
-  nextArrowFunctionLabel = 'Schließen',
+  prevLabel = 'Zurück',
+  nextLabel = 'Nächste',
+  onNextClick,
+  onPrevClick,
+  hideNextButton = false,
+  hidePrevButton = false,
+  onChange,
   children,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(currentIndex);
+    }
+  }, [currentIndex, onChange]);
 
   return (
     <Box>
@@ -117,18 +132,18 @@ export const Carousel: React.FC<CarouselProps> = ({
         slidesToShow={slidesToShow}
         slidesToScroll={slidesToScroll}
         nextArrow={
-          currentIndex < slidesAmount - 1 || infinite ? (
-            <NextButton
-              nextArrowLabel={nextArrowLabel}
-              nextArrowFunction={nextArrowFunction}
-              nextArrowFunctionLabel={nextArrowFunctionLabel}
-            />
-          ) : undefined
+          <NextButton
+            show={!hideNextButton}
+            label={nextLabel}
+            customOnClick={onNextClick}
+          />
         }
         prevArrow={
-          currentIndex > 0 || infinite ? (
-            <PrevButton prevArrowLabel={prevArrowLabel} />
-          ) : undefined
+          <PrevButton
+            show={!hidePrevButton}
+            label={prevLabel}
+            customOnClick={onPrevClick}
+          />
         }
         beforeChange={(prev, next) => setCurrentIndex(next)}
         responsive={responsive}

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, space, border, layout } from 'styled-system';
+import { color, space, border, layout, display } from 'styled-system';
 
-import { composeTextStyle, ThemeProps } from '@t3n/theme';
+import { ThemeProps } from '@t3n/theme';
 import { Box } from '../Box/Box';
 import { Avatar } from '../Avatar/Avatar';
 import { Placeholder } from '../Placeholder/Placeholder';
@@ -24,10 +24,9 @@ const UserMenuList = styled.ul`
   right: 38px;
   list-style-type: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
-  ${({ theme }) => composeTextStyle({ theme, textStyle: 'small' })};
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => space({ theme, py: 1, px: 0, mt: [0, 2] })};
-  ${({ theme }) => layout({ theme, width: ['100%', '160px'] })};
+  ${({ theme }) => layout({ theme, width: ['100%', '210px'] })};
   ${({ theme }) =>
     border({
       theme,
@@ -65,7 +64,6 @@ const UserMenuList = styled.ul`
     left: 0;
     right: 0;
     top: 100%;
-    ${({ theme }) => composeTextStyle({ theme, textStyle: 'regular' })};
 
     &:before {
       right: 28px;
@@ -88,16 +86,8 @@ export const UserMenuListItem = styled.li`
   }
 
   > * {
-    ${({ theme }) => composeTextStyle({ theme, textStyle: 'small' })};
     ${({ theme }) => color({ theme, color: 'text.primary' })};
-    ${({ theme }) => space({ theme, py: 1, px: 2, my: 0 })};
-  }
-
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
-    > * {
-      ${({ theme }) => composeTextStyle({ theme, textStyle: 'regular' })};
-    }
+    ${({ theme }) => space({ theme, py: [1, 2], px: 3, my: 0 })};
   }
 `;
 
@@ -105,20 +95,14 @@ const UserMenuListItemText = styled.li`
   width: 100%;
   z-index: 1;
   position: relative;
-  ${({ theme }) => color({ theme, color: 'text.primary' })};
-  ${({ theme }) => space({ theme, py: 1, px: 2 })};
+  ${({ theme }) => space({ theme, py: [1, 2], px: 3 })};
 
-  strong {
-    display: block;
-    ${({ theme }) => space({ theme, mt: 1 })};
-  }
-
-  > p {
-    ${({ theme }) => composeTextStyle({ theme, textStyle: 'small' })};
-
-    @media screen and (max-width: ${(props: ThemeProps) =>
-        props.theme.breakpoints[0]}) {
-      ${({ theme }) => composeTextStyle({ theme, textStyle: 'regular' })};
+  > a {
+    ${({ theme }) => display({ theme, display: ['flex', 'block'] })}
+    ${({ theme }) => color({ theme, color: 'text.primary' })};
+    text-decoration: none;
+    p {
+      ${({ theme }) => space({ theme, ml: [1, 0] })};
     }
   }
 `;
@@ -175,16 +159,18 @@ export const UserMenu: React.FC<UserMenuProps> = ({
 
       <UserMenuList>
         <UserMenuListItemText>
-          Angemeldet als
-          {loading ? (
-            <Placeholder height="21px" width="100%" />
-          ) : (
-            user && (
-              <Text my={0} bold>
-                {user.name}
-              </Text>
-            )
-          )}
+          <a href="https://t3n.de/account">
+            Angemeldet als
+            {loading ? (
+              <Placeholder height="21px" width="100%" />
+            ) : (
+              user && (
+                <Text my={0} bold>
+                  {user.name}
+                </Text>
+              )
+            )}
+          </a>
         </UserMenuListItemText>
         <UserMenuListDivider />
 
