@@ -112,8 +112,6 @@ const defaultData = [
 ];
 
 export const defaultStory = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   return (
     <Carousel
       slidesToShow={number(
@@ -127,9 +125,6 @@ export const defaultStory = () => {
       speed={number('Geschwindigkeit', 500)}
       prevLabel={text('Zurück-Label', 'Zurück')}
       nextLabel={text('Weiter-Label', 'Nächste')}
-      hidePrevButton={currentIndex === 0}
-      hideNextButton={currentIndex === defaultData.length - 1}
-      onChange={setCurrentIndex}
     >
       {defaultData.map((el) => (
         <Box key={el.id} mb={8} overflow="hidden">
@@ -305,7 +300,6 @@ export const sliderInModalStory = () => {
                   ? () => setShowOnboardingModal(false)
                   : undefined
               }
-              hidePrevButton={currentIndex === 0}
               nextLabel={
                 currentIndex === defaultData.length - 1
                   ? 'Schließen'

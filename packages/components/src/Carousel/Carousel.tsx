@@ -114,6 +114,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   children,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const slidesAmount = React.Children.count(children);
 
   useEffect(() => {
     if (onChange) {
@@ -133,14 +134,22 @@ export const Carousel: React.FC<CarouselProps> = ({
         slidesToScroll={slidesToScroll}
         nextArrow={
           <NextButton
-            show={!hideNextButton}
+            show={
+              (!hideNextButton && currentIndex !== slidesAmount - 1) ||
+              infinite ||
+              !!onNextClick
+            }
             label={nextLabel}
             customOnClick={onNextClick}
           />
         }
         prevArrow={
           <PrevButton
-            show={!hidePrevButton}
+            show={
+              (!hidePrevButton && currentIndex !== 0) ||
+              infinite ||
+              !!onPrevClick
+            }
             label={prevLabel}
             customOnClick={onPrevClick}
           />
