@@ -53,40 +53,25 @@ const StyledPrevButton = styled(Button)`
 
 const NextButton: React.FC<{
   onClick?: () => void;
-  showNextButton: boolean;
   nextArrowLabel: string;
   nextArrowFunction?: () => void;
   nextArrowFunctionLabel: string;
-}> = ({
-  onClick,
-  showNextButton,
-  nextArrowLabel,
-  nextArrowFunction,
-  nextArrowFunctionLabel,
-}) => (
-  <>
-    {showNextButton ? (
-      <StyledNextButton onClick={onClick}>{nextArrowLabel}</StyledNextButton>
-    ) : nextArrowFunction ? (
-      <StyledNextButton onClick={nextArrowFunction}>
-        {nextArrowFunctionLabel}
-      </StyledNextButton>
-    ) : null}
-  </>
-);
+}> = ({ onClick, nextArrowLabel, nextArrowFunction, nextArrowFunctionLabel }) =>
+  nextArrowFunction ? (
+    <StyledNextButton onClick={nextArrowFunction}>
+      {nextArrowFunctionLabel}
+    </StyledNextButton>
+  ) : (
+    <StyledNextButton onClick={onClick}>{nextArrowLabel}</StyledNextButton>
+  );
 
 const PrevButton: React.FC<{
   onClick?: () => void;
-  showBackButton: boolean;
   prevArrowLabel: string;
-}> = ({ onClick, showBackButton, prevArrowLabel }) => (
-  <>
-    {showBackButton ? (
-      <StyledPrevButton onClick={onClick} variant="secondary">
-        {prevArrowLabel}
-      </StyledPrevButton>
-    ) : null}
-  </>
+}> = ({ onClick, prevArrowLabel }) => (
+  <StyledPrevButton onClick={onClick} variant="secondary">
+    {prevArrowLabel}
+  </StyledPrevButton>
 );
 
 export interface CarouselProps {
@@ -132,18 +117,18 @@ export const Carousel: React.FC<CarouselProps> = ({
         slidesToShow={slidesToShow}
         slidesToScroll={slidesToScroll}
         nextArrow={
-          <NextButton
-            showNextButton={currentIndex < slidesAmount - 1 || infinite}
-            nextArrowLabel={nextArrowLabel}
-            nextArrowFunction={nextArrowFunction}
-            nextArrowFunctionLabel={nextArrowFunctionLabel}
-          />
+          currentIndex < slidesAmount - 1 || infinite ? (
+            <NextButton
+              nextArrowLabel={nextArrowLabel}
+              nextArrowFunction={nextArrowFunction}
+              nextArrowFunctionLabel={nextArrowFunctionLabel}
+            />
+          ) : undefined
         }
         prevArrow={
-          <PrevButton
-            showBackButton={currentIndex > 0 || infinite}
-            prevArrowLabel={prevArrowLabel}
-          />
+          currentIndex > 0 || infinite ? (
+            <PrevButton prevArrowLabel={prevArrowLabel} />
+          ) : undefined
         }
         beforeChange={(prev, next) => setCurrentIndex(next)}
         responsive={responsive}
