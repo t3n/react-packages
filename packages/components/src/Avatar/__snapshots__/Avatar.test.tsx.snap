@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Avatar matches snapshot and renders label 1`] = `
+.c3 {
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  font-weight: bold;
+  padding: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -12,18 +24,6 @@ exports[`Avatar matches snapshot and renders label 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c3 {
-  font-family: "adelle-sans",sans-serif;
-  font-size: 1rem;
-  line-height: 1.5em;
-  font-weight: bold;
-  padding: 4px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .c2 {
@@ -57,13 +57,13 @@ exports[`Avatar matches snapshot and renders label 1`] = `
   padding-left: 8px;
 }
 
-@media screen and (min-width:40em) {
+@media screen and (min-width:30rem) {
   .c3 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:52em) {
+@media screen and (min-width:48rem) {
   .c3 {
     line-height: 1.666em;
   }
@@ -93,6 +93,18 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 `;
 
 exports[`Avatar renders without label 1`] = `
+.c3 {
+  font-family: "adelle-sans",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  font-weight: bold;
+  padding: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -104,18 +116,6 @@ exports[`Avatar renders without label 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c3 {
-  font-family: "adelle-sans",sans-serif;
-  font-size: 1rem;
-  line-height: 1.5em;
-  font-weight: bold;
-  padding: 4px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .c2 {
@@ -145,13 +145,13 @@ exports[`Avatar renders without label 1`] = `
   align-items: center;
 }
 
-@media screen and (min-width:40em) {
+@media screen and (min-width:30rem) {
   .c3 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:52em) {
+@media screen and (min-width:48rem) {
   .c3 {
     line-height: 1.666em;
   }

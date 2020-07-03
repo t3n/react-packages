@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import { color, space, border, layout } from 'styled-system';
 
 import { composeTextStyle, ThemeProps } from '@t3n/theme';
-import { Box, Avatar, Placeholder, Text, Link } from '..';
+import { Box } from '../Box/Box';
+import { Avatar } from '../Avatar/Avatar';
+import { Placeholder } from '../Placeholder/Placeholder';
+import { Text } from '../Text/Text';
+import { Link } from '../Link/Link';
 
 const StyledBox = styled(Box)`
   cursor: pointer;
