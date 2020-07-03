@@ -3,8 +3,8 @@ import styled from 'styled-components';
 // eslint-disable-next-line import/no-named-default
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import { space, display } from 'styled-system';
-
-import { Button, Box } from '..';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
 
 const StyledSlider = styled(SlickSlider)`
   > .slick-dots {

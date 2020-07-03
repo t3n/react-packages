@@ -8,7 +8,9 @@ import {
   border,
   color,
 } from 'styled-system';
-import { Placeholder, Box, Text } from '..';
+import { Text } from '../Text/Text';
+import { Box } from '../Box/Box';
+import { Placeholder } from '../Placeholder/Placeholder';
 
 const AvatarPlaceholder = styled((props) => <Placeholder {...props} />)`
   ${({ theme }) =>
