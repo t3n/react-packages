@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, space, border, layout, display } from 'styled-system';
+import { color, space, border, layout } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 import { Box } from '../Box/Box';
@@ -87,7 +87,7 @@ export const UserMenuListItem = styled.li`
 
   > * {
     ${({ theme }) => color({ theme, color: 'text.primary' })};
-    ${({ theme }) => space({ theme, py: [1, 2], px: 3, my: 0 })};
+    ${({ theme }) => space({ theme, py: 2, px: 3, my: 0 })};
   }
 `;
 
@@ -95,15 +95,12 @@ const UserMenuListItemText = styled.li`
   width: 100%;
   z-index: 1;
   position: relative;
-  ${({ theme }) => space({ theme, py: [1, 2], px: 3 })};
+  ${({ theme }) => space({ theme, py: 2, px: 3 })};
 
   > a {
-    ${({ theme }) => display({ theme, display: ['flex', 'block'] })}
     ${({ theme }) => color({ theme, color: 'text.primary' })};
     text-decoration: none;
-    p {
-      ${({ theme }) => space({ theme, ml: [1, 0] })};
-    }
+    align-items: center;
   }
 `;
 
@@ -160,7 +157,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
       <UserMenuList>
         <UserMenuListItemText>
           <a href="https://t3n.de/account">
-            Angemeldet als
+            <Text my={0}>Angemeldet als</Text>
             {loading ? (
               <Placeholder height="21px" width="100%" />
             ) : (
@@ -180,7 +177,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
               <>
                 {group.item.map((item) => {
                   return loading ? (
-                    <Placeholder height="21px" mt={1} mx={2} />
+                    <Placeholder height="21px" my={[1, 2]} mx={3} />
                   ) : (
                     <UserMenuListItem>{item}</UserMenuListItem>
                   );
@@ -191,7 +188,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
           })}
 
         {loading ? (
-          <Placeholder height="21px" mt={1} mx={2} />
+          <Placeholder height="21px" my={[1, 2]} mx={3} />
         ) : (
           <UserMenuListItem>
             <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
