@@ -5,6 +5,7 @@ export interface UserMenuProps {
     loggedIn: boolean;
     loginLink?: string;
     logoutLink?: string;
+    labelLink?: string;
     user?: {
         name: string;
         nickName: string;

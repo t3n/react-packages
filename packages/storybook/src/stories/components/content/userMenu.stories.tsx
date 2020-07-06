@@ -60,6 +60,7 @@ export const defaultStory = () => {
         loading={boolean('Lädt?', false)}
         loggedIn={boolean('Eingeloggt?', true)}
         user={defaultUser}
+        labelLink={text('UserLabel-Link', 'https://t3n.de/account')}
       />
     </PageHeader>
   );
@@ -101,6 +102,7 @@ export const extraContentStory = () => {
         loggedIn
         user={standardUser}
         itemGroups={standardLinkGroups}
+        labelLink={text('UserLabel-Link', 'https://t3n.de/account')}
       />
     </PageHeader>
   );

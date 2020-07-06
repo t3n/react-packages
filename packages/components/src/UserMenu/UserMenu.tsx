@@ -96,6 +96,7 @@ const UserMenuListItemText = styled.li`
   z-index: 1;
   position: relative;
   ${({ theme }) => space({ theme, py: 2, px: 3 })};
+  ${({ theme }) => color({ theme, color: 'text.primary' })};
 
   > a {
     ${({ theme }) => color({ theme, color: 'text.primary' })};
@@ -146,7 +147,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   itemGroups,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
-  labelLink = '/account',
+  labelLink,
   loading,
   loggedIn,
 }) => {
@@ -158,18 +159,33 @@ export const UserMenu: React.FC<UserMenuProps> = ({
 
       <UserMenuList>
         <UserMenuListItemText>
-          <a href={labelLink}>
-            <Text my={0}>Angemeldet als</Text>
-            {loading ? (
-              <Placeholder height="21px" width="100%" />
-            ) : (
-              user && (
-                <Text my={0} bold>
-                  {user.name}
-                </Text>
-              )
-            )}
-          </a>
+          {labelLink ? (
+            <a href={labelLink}>
+              <Text my={0}>Angemeldet als</Text>
+              {loading ? (
+                <Placeholder height="21px" width="100%" />
+              ) : (
+                user && (
+                  <Text my={0} bold>
+                    {user.name}
+                  </Text>
+                )
+              )}
+            </a>
+          ) : (
+            <>
+              <Text my={0}>Angemeldet als</Text>
+              {loading ? (
+                <Placeholder height="21px" width="100%" />
+              ) : (
+                user && (
+                  <Text my={0} bold>
+                    {user.name}
+                  </Text>
+                )
+              )}
+            </>
+          )}
         </UserMenuListItemText>
         <UserMenuListDivider />
 
