@@ -150,6 +150,21 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   loading,
   loggedIn,
 }) => {
+  const UserLabel = () => (
+    <>
+      <Text my={0}>Angemeldet als</Text>
+      {loading ? (
+        <Placeholder height="21px" width="100%" />
+      ) : (
+        user && (
+          <Text my={0} bold>
+            {user.label}
+          </Text>
+        )
+      )}
+    </>
+  );
+
   return loggedIn ? (
     <StyledBox position={['unset', 'relative']}>
       {user && (
@@ -160,30 +175,10 @@ export const UserMenu: React.FC<UserMenuProps> = ({
         <UserMenuListItemText>
           {labelLink ? (
             <a href={labelLink}>
-              <Text my={0}>Angemeldet als</Text>
-              {loading ? (
-                <Placeholder height="21px" width="100%" />
-              ) : (
-                user && (
-                  <Text my={0} bold>
-                    {user.label}
-                  </Text>
-                )
-              )}
+              <UserLabel />
             </a>
           ) : (
-            <>
-              <Text my={0}>Angemeldet als</Text>
-              {loading ? (
-                <Placeholder height="21px" width="100%" />
-              ) : (
-                user && (
-                  <Text my={0} bold>
-                    {user.label}
-                  </Text>
-                )
-              )}
-            </>
+            <UserLabel />
           )}
         </UserMenuListItemText>
         <UserMenuListDivider />
