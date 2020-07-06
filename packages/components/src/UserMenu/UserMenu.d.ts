@@ -7,8 +7,7 @@ export interface UserMenuProps {
     logoutLink?: string;
     labelLink?: string;
     user?: {
-        name: string;
-        nickName: string;
+        label: string;
         avatarUrl: string;
     };
     itemGroups?: {

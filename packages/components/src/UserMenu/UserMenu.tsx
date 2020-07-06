@@ -132,8 +132,7 @@ export interface UserMenuProps {
   labelLink?: string;
 
   user?: {
-    name: string;
-    nickName: string;
+    label: string;
     avatarUrl: string;
   };
 
@@ -154,7 +153,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   return loggedIn ? (
     <StyledBox position={['unset', 'relative']}>
       {user && (
-        <Avatar loading={loading} src={user.avatarUrl} alt={user.name} />
+        <Avatar loading={loading} src={user.avatarUrl} alt={user.label} />
       )}
 
       <UserMenuList>
@@ -167,7 +166,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
               ) : (
                 user && (
                   <Text my={0} bold>
-                    {user.name}
+                    {user.label}
                   </Text>
                 )
               )}
@@ -180,7 +179,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
               ) : (
                 user && (
                   <Text my={0} bold>
-                    {user.name}
+                    {user.label}
                   </Text>
                 )
               )}
