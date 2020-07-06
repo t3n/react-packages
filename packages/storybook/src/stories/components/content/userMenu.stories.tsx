@@ -11,8 +11,7 @@ export default {
 };
 
 const standardUser: UserMenuProps['user'] = {
-  email: 'j.christe@yeebase.com',
-  nickName: 'jan.christe',
+  label: 'john.doe@beispiel.de',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
 };
@@ -46,8 +45,7 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
 
 export const defaultStory = () => {
   const defaultUser: UserMenuProps['user'] = {
-    email: text('Email', 'j.christe@yeebase.com'),
-    nickName: text('Pioneers Nickname', 'jan.christe'),
+    label: text('Email', 'john.doe@beispiel.de'),
     avatarUrl: text(
       'Avatar-URL',
       'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100'
