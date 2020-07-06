@@ -6,7 +6,7 @@ export interface UserMenuProps {
     loginLink?: string;
     logoutLink?: string;
     user?: {
-        name: string;
+        email: string;
         nickName: string;
         avatarUrl: string;
     };
