@@ -96,6 +96,7 @@ const UserMenuListItemText = styled.li`
   z-index: 1;
   position: relative;
   ${({ theme }) => space({ theme, py: 2, px: 3 })};
+  ${({ theme }) => color({ theme, color: 'text.primary' })};
 
   > a {
     ${({ theme }) => color({ theme, color: 'text.primary' })};
@@ -128,6 +129,7 @@ export interface UserMenuProps {
   loggedIn: boolean;
   loginLink?: string;
   logoutLink?: string;
+  labelLink?: string;
 
   user?: {
     label: string;
@@ -144,9 +146,25 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   itemGroups,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
+  labelLink,
   loading,
   loggedIn,
 }) => {
+  const UserLabel = () => (
+    <>
+      <Text my={0}>Angemeldet als</Text>
+      {loading ? (
+        <Placeholder height="21px" width="100%" />
+      ) : (
+        user && (
+          <Text my={0} bold>
+            {user.label}
+          </Text>
+        )
+      )}
+    </>
+  );
+
   return loggedIn ? (
     <StyledBox position={['unset', 'relative']}>
       {user && (
@@ -155,18 +173,13 @@ export const UserMenu: React.FC<UserMenuProps> = ({
 
       <UserMenuList>
         <UserMenuListItemText>
-          <a href="https://t3n.de/account">
-            <Text my={0}>Angemeldet als</Text>
-            {loading ? (
-              <Placeholder height="21px" width="100%" />
-            ) : (
-              user && (
-                <Text my={0} bold>
-                  {user.label}
-                </Text>
-              )
-            )}
-          </a>
+          {labelLink ? (
+            <a href={labelLink}>
+              <UserLabel />
+            </a>
+          ) : (
+            <UserLabel />
+          )}
         </UserMenuListItemText>
         <UserMenuListDivider />
 
