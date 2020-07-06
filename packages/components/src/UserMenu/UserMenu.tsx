@@ -128,6 +128,7 @@ export interface UserMenuProps {
   loggedIn: boolean;
   loginLink?: string;
   logoutLink?: string;
+  labelLink?: string;
 
   user?: {
     name: string;
@@ -145,6 +146,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   itemGroups,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
+  labelLink = '/account',
   loading,
   loggedIn,
 }) => {
@@ -156,7 +158,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
 
       <UserMenuList>
         <UserMenuListItemText>
-          <a href="https://t3n.de/account">
+          <a href={labelLink}>
             <Text my={0}>Angemeldet als</Text>
             {loading ? (
               <Placeholder height="21px" width="100%" />
