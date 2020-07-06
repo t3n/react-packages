@@ -11,11 +11,12 @@ export default {
 };
 
 const standardUser: UserMenuProps['user'] = {
-  name: 'Jan Christe',
-  nickName: 'jan.christe',
+  label: 'john.doe@beispiel.de',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
 };
+
+const nickName = 'jan.christe';
 
 const standardLinkGroups: UserMenuProps['itemGroups'] = [
   {
@@ -33,7 +34,7 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
   },
   {
     item: [
-      <a href={`https://t3n.de/pioneers/profile/${standardUser.nickName}`}>
+      <a href={`https://t3n.de/pioneers/profile/${nickName}`}>
         Mein Pioneers-Profil
       </a>,
       <a href="https://t3n.de/account">Mein Konto / Pro</a>,
@@ -46,8 +47,7 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
 
 export const defaultStory = () => {
   const defaultUser: UserMenuProps['user'] = {
-    name: text('Name', 'Jan Christe'),
-    nickName: text('Pioneers Nickname', 'jan.christe'),
+    label: text('Email', 'john.doe@beispiel.de'),
     avatarUrl: text(
       'Avatar-URL',
       'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100'
