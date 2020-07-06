@@ -16,6 +16,8 @@ const standardUser: UserMenuProps['user'] = {
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
 };
 
+const nickName = 'jan.christe';
+
 const standardLinkGroups: UserMenuProps['itemGroups'] = [
   {
     item: [
@@ -32,7 +34,9 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
   },
   {
     item: [
-      <a href="https://t3n.de/pioneers/profile/">Mein Pioneers-Profil</a>,
+      <a href={`https://t3n.de/pioneers/profile/${nickName}`}>
+        Mein Pioneers-Profil
+      </a>,
       <a href="https://t3n.de/account">Mein Konto / Pro</a>,
     ],
   },
