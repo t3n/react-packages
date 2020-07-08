@@ -11,7 +11,7 @@ import { Link } from '../Link/Link';
 
 const StyledBox = styled(Box)`
   cursor: pointer;
-  ${({ theme }) => space({ theme, p: 6, m: -6 })};
+  ${({ theme }) => space({ theme, py: 6, pl: 6 })};
 
   &:hover > ul {
     display: block;
@@ -21,7 +21,7 @@ const StyledBox = styled(Box)`
 const UserMenuList = styled.ul`
   display: none;
   position: absolute;
-  right: 38px;
+  right: 0;
   list-style-type: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
@@ -124,6 +124,12 @@ const StyledLogoutLink = styled.a`
   ${({ theme }) => space({ theme, mb: 1 })};
 `;
 
+const StyledUserLabel = styled(Text)`
+  ${({ theme }) => layout({ theme, width: ['auto', '176px'] })}
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 export interface UserMenuProps {
   loading: boolean;
   loggedIn: boolean;
@@ -157,9 +163,9 @@ export const UserMenu: React.FC<UserMenuProps> = ({
         <Placeholder height="21px" width="100%" />
       ) : (
         user && (
-          <Text my={0} bold>
+          <StyledUserLabel my={0} bold>
             {user.label}
-          </Text>
+          </StyledUserLabel>
         )
       )}
     </>
