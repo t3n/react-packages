@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, space, border, layout } from 'styled-system';
+import { color, space, border, layout, position } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 import { Box } from '../Box/Box';
@@ -9,22 +9,48 @@ import { Placeholder } from '../Placeholder/Placeholder';
 import { Text } from '../Text/Text';
 import { Link } from '../Link/Link';
 
-const StyledBox = styled(Box)`
+const UserMenuWrapper = styled(Box)`
   cursor: pointer;
-  ${({ theme }) => space({ theme, py: 6, pl: 6 })};
+  position: relative;
+  ${({ theme }) => space({ theme, py: 2, pl: 6 })};
 
   &:hover > ul {
     display: block;
+  }
+
+  &:hover {
+    &:after {
+      top: 51px;
+      right: 14px;
+      left: auto;
+      width: 10px;
+      height: 10px;
+      background: white;
+      transform: rotate(45deg);
+      position: absolute;
+      display: block;
+      content: '';
+
+      ${({ theme }) =>
+        border({
+          theme,
+          borderWidth: 0,
+          borderColor: 'shades.grey232',
+          borderStyle: 'solid',
+          borderTopWidth: 1,
+          borderLeftWidth: 1,
+        })};
+    }
   }
 `;
 
 const UserMenuList = styled.ul`
   display: none;
-  position: absolute;
   right: 0;
   list-style-type: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
+  ${({ theme }) => position({ theme, position: ['fixed', 'absolute'] })};
   ${({ theme }) => space({ theme, py: 1, px: 0, mt: [0, 2] })};
   ${({ theme }) => layout({ theme, width: ['100%', '210px'] })};
   ${({ theme }) =>
@@ -36,38 +62,11 @@ const UserMenuList = styled.ul`
       borderRadius: '4px',
     })};
 
-  &:before {
-    top: -6px;
-    right: 14px;
-    left: auto;
-    width: 10px;
-    height: 10px;
-    background: white;
-    transform: rotate(45deg);
-    position: absolute;
-    display: block;
-    content: '';
-
-    ${({ theme }) =>
-      border({
-        theme,
-        borderWidth: 0,
-        borderColor: 'shades.grey232',
-        borderStyle: 'solid',
-        borderTopWidth: 1,
-        borderLeftWidth: 1,
-      })};
-  }
-
   @media screen and (max-width: ${(props: ThemeProps) =>
       props.theme.breakpoints[0]}) {
     left: 0;
     right: 0;
-    top: 100%;
-
-    &:before {
-      right: 28px;
-    }
+    top: 56px;
   }
 `;
 
@@ -172,7 +171,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   );
 
   return loggedIn ? (
-    <StyledBox position={['unset', 'relative']}>
+    <UserMenuWrapper>
       {user && (
         <Avatar loading={loading} src={user.avatarUrl} alt={user.label} />
       )}
@@ -213,7 +212,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
           </UserMenuListItem>
         )}
       </UserMenuList>
-    </StyledBox>
+    </UserMenuWrapper>
   ) : (
     <Link href={loginLink} variant="highlight">
       Anmelden
