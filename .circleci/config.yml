@@ -31,7 +31,7 @@ jobs:
   checkout_and_build:
     docker:
       - image: *ci_node_image
-    resource_class: small
+    resource_class: large
     steps:
       - checkout
       - restore_cache: *restore_js_packages
