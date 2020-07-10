@@ -167,7 +167,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
       <Heading styleAs="h6" as="h6" mt={0} mb={0}>
         {user.name}
       </Heading>
-      <Text small mt={1} mb={1}>
+      <Text small mt={1} mb={1} align="center">
         {user.position}
       </Text>
       {user.flag && compact && (
