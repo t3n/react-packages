@@ -31,6 +31,7 @@ jobs:
   checkout_and_build:
     docker:
       - image: *ci_node_image
+    resource_class: large
     steps:
       - checkout
       - restore_cache: *restore_js_packages
@@ -51,6 +52,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
+    resource_class: small
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run prettier:check
@@ -59,6 +61,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
+    resource_class: small
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run lint:theme
@@ -70,6 +73,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
+    resource_class: small
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run test
@@ -78,6 +82,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: google/cloud-sdk
+    resource_class: medium
     steps:
       - attach_workspace: *attach_workspace
       - setup_remote_docker
@@ -88,6 +93,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
+    resource_class: small
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -103,6 +109,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
+    resource_class: small
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
@@ -118,6 +125,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
+    resource_class: small
     steps:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
