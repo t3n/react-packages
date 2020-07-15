@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/btoa": "^1.2.3",
     "@types/react-autosuggest": "^9.3.13",
+    "@types/react-slick": "^0.23.4",
     "btoa": "^1.2.1",
     "framer-motion": "^1.8.2",
     "polished": "^3.4.1",
@@ -41,7 +42,6 @@
     "@types/react": "^16.9.14",
     "@types/react-dom": "^16.9.3",
     "@types/react-imgix": "^9.0.0",
-    "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.0.1",
     "@types/styled-system": "^5.1.4",
     "babel-jest": "^26.0.1",
