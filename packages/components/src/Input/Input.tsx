@@ -33,6 +33,7 @@ export interface InputProps
   defaultValue?: string;
   error?: boolean;
   className?: string;
+  hideReset?: boolean;
 }
 
 const StyledInput = styled.div<InputProps>`
@@ -45,8 +46,6 @@ const StyledInput = styled.div<InputProps>`
 interface StyledNativeInputProps extends InputProps {
   isFocused: boolean;
 }
-
-const padding = ({ theme }: ThemeProps) => space({ pl: 2, pr: 6, theme });
 
 const border = css`
   border: 1px solid
@@ -78,7 +77,7 @@ const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
   border-radius: ${(props) => props.theme.border.radii[1]};
   outline: 0;
   ${border}
-  ${padding};
+  ${({ theme, hideReset }) => space({ theme, pl: 2, pr: hideReset ? 2 : 6 })};
 
   ::placeholder,
   :disabled {
@@ -129,6 +128,7 @@ export const Input = forwardRef(
       onReset,
       isFocused,
       defaultValue,
+      hideReset,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement | null>
@@ -191,6 +191,7 @@ export const Input = forwardRef(
         width={width}
         className={className}
         isFocused={focused}
+        hideReset={hideReset}
       >
         <StyledNativeInput
           error={error}
@@ -202,6 +203,7 @@ export const Input = forwardRef(
           disabled={disabled}
           value={value}
           ref={inputRef}
+          hideReset={hideReset}
           {...props}
         />
         {value.length > 0 && !disabled ? (
@@ -214,7 +216,7 @@ export const Input = forwardRef(
                 fill={focused ? 'text.primary' : 'shades.grey204'}
               />
             </Button>
-          ) : (
+          ) : hideReset ? null : (
             <Button tabIndex={-1} onClick={handleReset}>
               <Icon
                 component={MaterialClear}
@@ -233,5 +235,6 @@ export const Input = forwardRef(
 Input.defaultProps = {
   type: 'text',
   isFocused: false,
+  hideReset: false,
   width: '100%',
 };
