@@ -55,7 +55,9 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.0.0",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "@types/react-dates": "^17.1.13",
+    "react-dates": "^21.8.0"
   },
   "peerDependencies": {
     "@t3n/icons": ">=0.2",
@@ -64,7 +66,8 @@
     "react": ">=16.10",
     "react-dom": ">=16.10",
     "slick-carousel": ">=1.8",
-    "styled-components": ">=4"
+    "styled-components": ">=4",
+    "react-dates": ">= 21.8"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

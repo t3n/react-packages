@@ -63,10 +63,15 @@
     "@storybook/preset-create-react-app": "^3.0.0",
     "@storybook/preset-typescript": "^3.0.0",
     "@t3n/configs": "^0.4.0",
+    "@types/react-dates": "^17.1.13",
     "babel-loader": "^8.1.0",
+    "react-dates": "^21.8.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.3"
+  },
+  "peerDependencies": {
+    "react-dates": ">= 21.8"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

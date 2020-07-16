@@ -77,9 +77,5 @@
     "upgrade-interactive": "npm-check --update && npm-check --update packages/components && npm-check --update packages/theme && npm-check --update packages/storybook && npm-check --update packages/configs && npm-check --update packages/icons",
     "codegen:watch": "npx apollo client:codegen --target=typescript --watch",
     "codegen:build": "npx apollo client:codegen --target=typescript"
-  },
-  "dependencies": {
-    "@types/react-dates": "^17.1.13",
-    "react-dates": "^21.8.0"
   }
 }

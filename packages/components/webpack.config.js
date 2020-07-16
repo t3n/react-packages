@@ -50,5 +50,10 @@ module.exports = {
       amd: '@t3n/theme',
       umd: '@t3n/theme',
     },
+    moment: {
+      commonjs: 'moment',
+      commonjs2: 'moment',
+      amd: 'moment',
+    },
   },
 };
