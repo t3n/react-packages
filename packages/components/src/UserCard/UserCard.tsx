@@ -69,6 +69,10 @@ const StyledGridItem = styled(GridItem)`
   }
 `;
 
+const StyledBox = styled(Box)`
+  text-align: center;
+`;
+
 const SocialLinksBox = styled(Box)`
   @media screen and (max-width: ${(props: ThemeProps) =>
       props.theme.breakpoints[1]}) {
@@ -131,10 +135,10 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   children,
 }) => {
   return (
-    <Box display="flex" alignItems="center" flexDirection="column">
+    <StyledBox display="flex" alignItems="center" flexDirection="column">
       <Avatar src={user.avatarUrl} size={80} alt={user.name} />
       {children}
-    </Box>
+    </StyledBox>
   );
 };
 
@@ -167,7 +171,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
       <Heading styleAs="h6" as="h6" mt={0} mb={0}>
         {user.name}
       </Heading>
-      <Text small mt={1} mb={1} align="center">
+      <Text small mt={1} mb={1}>
         {user.position}
       </Text>
       {user.flag && compact && (
