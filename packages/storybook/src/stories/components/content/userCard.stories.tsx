@@ -15,11 +15,37 @@ const defaultUserStatic: UserCardProps['user'] = {
   name: 'Björn Assmann',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
-  email: 'b.assmann@t3n.de',
+  email: 'beispiel@t3n.de',
   position: 'Geschäftsführer | CFO',
   phone: '01234/567890',
   flag: '',
   profileUrl: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
+  socialLinks: [
+    {
+      url: 'https://www.linkedin.com/in/bjoernassmann',
+      type: 'LINKEDIN',
+    },
+    {
+      url: 'https://twitter.com/BjoernAssmann',
+      type: 'TWITTER',
+    },
+    {
+      url: 'https://www.xing.com/profile/Bjoern_Assmann',
+      type: 'XING',
+    },
+  ],
+};
+
+const noLinkUser: UserCardProps['user'] = {
+  id: 1,
+  name: 'Björn Assmann',
+  avatarUrl:
+    'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
+  email: 'beispiel@t3n.de',
+  position: 'Geschäftsführer | CFO',
+  phone: '01234/567890',
+  flag: '',
+  profileUrl: '',
   socialLinks: [
     {
       url: 'https://www.linkedin.com/in/bjoernassmann',
@@ -67,7 +93,7 @@ const flagUser: UserCardProps['user'] = {
   name: 'Jan Christe',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined',
-  email: 'j.christe@t3n.de',
+  email: 'beispiel@t3n.de',
   position: 'Geschäftsführer | CCO & CPO',
   phone: '01234/567890',
   flag: 'Elternzeit',
@@ -119,7 +145,7 @@ const thirdUser: UserCardProps['user'] = {
   name: 'Andreas Lenz',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/neos/e80a662daac7dc2d910550e0a6bba514dd56d699/andy%20small.png',
-  email: 'a.lenz@t3n.de',
+  email: 'beispiel@t3n.de',
   position: 'Geschäftsführer | CEO',
   phone: '01234/567890',
   flag: '',
@@ -201,7 +227,7 @@ export const defaultStory = () => {
       'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
       'user'
     ),
-    email: text('E-Mail Adresse', 'b.assmann@t3n.de', 'user'),
+    email: text('E-Mail Adresse', 'beispiel@t3n.de', 'user'),
     position: text('Position', 'Geschäftsführer | CFO', 'user'),
     phone: text('Telefon', '01234/567890', 'user'),
     flag: text('Flag', '', 'user'),
@@ -232,6 +258,7 @@ export const defaultStory = () => {
         <UserCard
           compact={boolean('Compact', false, 'card')}
           user={defaultUser}
+          secondary={boolean('Secondary', false, 'card')}
         />
       </GridItem>
     </Grid>
@@ -254,6 +281,29 @@ export const compactStory = () => {
 
 compactStory.story = {
   name: 'Compact',
+};
+
+export const noLinkStory = () => {
+  return (
+    <>
+      <H2>Default nicht verlinkt</H2>
+      <Grid>
+        <GridItem width={[1, 1, 2 / 5]}>
+          <UserCard user={noLinkUser} compact={false} />
+        </GridItem>
+      </Grid>
+      <H2>Compact nicht verlinkt</H2>
+      <Grid>
+        <GridItem width={[1, 1, 2 / 5]}>
+          <UserCard compact user={noLinkUser} />
+        </GridItem>
+      </Grid>
+    </>
+  );
+};
+
+noLinkStory.story = {
+  name: 'No Link',
 };
 
 export const flagStory = () => {
