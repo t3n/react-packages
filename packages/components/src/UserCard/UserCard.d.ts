@@ -13,7 +13,7 @@ export declare type UserCardProps = {
         position?: string;
         flag?: string;
         phone?: string;
-        profileUrl: string;
+        profileUrl?: string;
         socialLinks: SocialLink[];
     };
     compact: boolean;

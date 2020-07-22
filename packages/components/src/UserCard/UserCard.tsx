@@ -98,7 +98,7 @@ export type UserCardProps = {
     position?: string;
     flag?: string;
     phone?: string;
-    profileUrl: string;
+    profileUrl?: string;
     socialLinks: SocialLink[];
   };
   compact: boolean;
@@ -165,13 +165,17 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   );
 };
 
-export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
+export const UserCard: React.FC<UserCardProps> = ({
+  user,
+  compact,
+  secondary,
+}) => {
   const content = (
     <>
       <Heading styleAs="h6" as="h6" mt={0} mb={0}>
         {user.name}
       </Heading>
-      <Text small mt={1} mb={1}>
+      <Text small mt={1} mb={1} secondary={!!secondary}>
         {user.position}
       </Text>
       {user.flag && compact && (
@@ -180,12 +184,12 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
         </StyledCompactBadge>
       )}
       {user.email && (
-        <Text small mt={1} mb={0}>
+        <Text small mt={1} mb={0} secondary={!!secondary}>
           {user.email}
         </Text>
       )}
       {user.phone && (
-        <Text small mt={1}>
+        <Text small mt={1} secondary={!!secondary}>
           {user.phone}
         </Text>
       )}
@@ -193,8 +197,16 @@ export const UserCard: React.FC<UserCardProps> = ({ user, compact }) => {
     </>
   );
 
-  return (
+  return user.profileUrl ? (
     <StyledCard href={user.profileUrl}>
+      {compact ? (
+        <CompactUserCard user={user}>{content}</CompactUserCard>
+      ) : (
+        <DefaultUserCard user={user}>{content}</DefaultUserCard>
+      )}
+    </StyledCard>
+  ) : (
+    <StyledCard>
       {compact ? (
         <CompactUserCard user={user}>{content}</CompactUserCard>
       ) : (
