@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeContext } from 'styled-components';
 import {
   border,
   typography,
@@ -12,7 +12,7 @@ import {
   position,
   flexbox,
 } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
+import { ThemeProps, Theme } from '@t3n/theme';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Input } from '../Input';
@@ -20,7 +20,7 @@ import { Button } from '../Button';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 
-const StyledSingleDatePicker = createGlobalStyle`
+const SingleDatePickerGlobalStyles = createGlobalStyle`
   .SingleDatePickerInput__withBorder {
     border: none;
   }
@@ -126,11 +126,10 @@ const StyledSingleDatePicker = createGlobalStyle`
   .DayPickerNavigation__verticalDefault {
     display: flex;
     justify-content: center;
-    padding-bottom: 16px;
     height: 40px;
     position: absolute;
     top: 40px;
-    ${({ theme }) => space({ theme, mx: 'auto' })}
+    ${({ theme }) => space({ theme, mx: 'auto', pb: 3 })}
   }
 
   .DayPicker_focusRegion {
@@ -176,23 +175,139 @@ const StyledSingleDatePicker = createGlobalStyle`
   }
 `;
 
+export const TimePicker: React.FC<{
+  focus: boolean;
+  minutes: string;
+  hours: string;
+  date: moment.Moment | null;
+  onChange: (date: moment.Moment | null) => void;
+  onFocusChange: (focus: boolean) => void;
+  onMinutesChange: (minutes: string) => void;
+  onHoursChange: (hours: string) => void;
+}> = ({
+  focus,
+  date,
+  minutes,
+  hours,
+  onChange,
+  onFocusChange,
+  onMinutesChange,
+  onHoursChange,
+}) => {
+  return (
+    <Box
+      p={['13px', '13px', 4]}
+      pt={0}
+      width={['300px', '300px', 'auto']}
+      mx={['auto', 'auto', 0]}
+      display="flex"
+      justifyContent="center"
+      flexDirection="column"
+    >
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onChange(
+            date
+              ? date.set({
+                  h: parseInt(hours, 10),
+                  m: parseInt(minutes, 10),
+                })
+              : null
+          );
+          onFocusChange(!focus);
+        }}
+      >
+        <Text mt={0} mb={2} bold>
+          Uhrzeit wählen
+        </Text>
+        <Grid mb={3}>
+          <GridItem width={[1, 1, 2 / 3]}>
+            <Grid>
+              <GridItem width="64px" mr={1}>
+                <Input
+                  name="hour"
+                  type="text"
+                  placeholder="hh"
+                  onChange={(e) => onHoursChange(e.currentTarget.value)}
+                  maxLength={2}
+                  pattern="[0-9]{2}"
+                  defaultValue={hours}
+                  hideReset
+                />
+              </GridItem>
+              <GridItem
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                width="auto"
+                px={0}
+              >
+                <Text my={0}>:</Text>
+              </GridItem>
+              <GridItem width="64px" mx={1}>
+                <Input
+                  name="minute"
+                  type="text"
+                  placeholder="mm"
+                  onChange={(e) => onMinutesChange(e.currentTarget.value)}
+                  maxLength={2}
+                  pattern="[0-9]{2}"
+                  defaultValue={minutes}
+                  hideReset
+                />
+              </GridItem>
+              <GridItem
+                display="flex"
+                alignItems="center"
+                justifyContent="flex-start"
+                width="auto"
+                px={0}
+              >
+                <Text my={0}>Uhr</Text>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem
+            width={[1, 1, 1 / 3]}
+            display="flex"
+            justifyContent="flex-end"
+          >
+            <Button mt={[2, 2, 0]} width={[1, 1, 'auto']} type="submit">
+              Datum festlegen
+            </Button>
+          </GridItem>
+        </Grid>
+      </form>
+    </Box>
+  );
+};
+
 export const DatePicker: React.FC<{
+  id: string;
   timePicker?: boolean;
   date: moment.Moment | null;
   onChange: (date: moment.Moment | null) => void;
-}> = ({ timePicker = false, date, onChange }) => {
+}> = ({ id, timePicker = false, date, onChange }) => {
   const [focus, setFocus] = useState(false);
   const [mobile, setMobile] = useState(false);
-  const [hour, setHour] = useState('');
-  const [minute, setMinute] = useState('');
+  const [hours, setHours] = useState('');
+  const [minutes, setMinutes] = useState('');
+
+  const theme: Theme = useContext(ThemeContext);
+  const fontSize = window
+    .getComputedStyle(window.document.body)
+    .getPropertyValue('font-size');
+  const mobileBreakpoint =
+    parseInt(theme.breakpoints[1], 10) * parseInt(fontSize, 10);
 
   const setMobileOnSmallScreen = useCallback(() => {
-    if (window.matchMedia('(max-width: 768px)').matches) {
+    if (window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches) {
       setMobile(true);
     } else {
       setMobile(false);
     }
-  }, []);
+  }, [mobileBreakpoint]);
 
   useEffect(() => {
     setMobileOnSmallScreen();
@@ -201,10 +316,10 @@ export const DatePicker: React.FC<{
 
   return (
     <>
-      <StyledSingleDatePicker />
+      <SingleDatePickerGlobalStyles />
       <SingleDatePicker
-        readOnly={!!mobile}
-        withFullScreenPortal={!!mobile}
+        readOnly={mobile}
+        withFullScreenPortal={mobile}
         orientation={mobile ? 'vertical' : 'horizontal'}
         keepOpenOnDateSelect={!!timePicker}
         numberOfMonths={mobile ? 1 : 2}
@@ -214,99 +329,16 @@ export const DatePicker: React.FC<{
           timePicker
             ? () => {
                 return (
-                  <Box
-                    p={['13px', '13px', 4]}
-                    pt={0}
-                    width={['300px', '300px', 'auto']}
-                    mx={['auto', 'auto', 0]}
-                    display="flex"
-                    justifyContent="center"
-                    flexDirection="column"
-                  >
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        onChange(
-                          date
-                            ? date.set({
-                                h: parseInt(hour, 10),
-                                m: parseInt(minute, 10),
-                              })
-                            : null
-                        );
-                        setFocus(!focus);
-                      }}
-                    >
-                      <Text mt={0} mb={2} bold>
-                        Uhrzeit wählen
-                      </Text>
-                      <Grid mb={3}>
-                        <GridItem width={[1, 1, 2 / 3]}>
-                          <Grid>
-                            <GridItem width="64px" mr={1}>
-                              <Input
-                                name="hour"
-                                type="text"
-                                placeholder="hh"
-                                onChange={(e) => setHour(e.currentTarget.value)}
-                                maxLength={2}
-                                pattern="[0-9]{2}"
-                                defaultValue={hour}
-                                onReset={() => setHour('')}
-                                hideReset
-                              />
-                            </GridItem>
-                            <GridItem
-                              display="flex"
-                              alignItems="center"
-                              justifyContent="center"
-                              width="auto"
-                              px={0}
-                            >
-                              <Text my={0}>:</Text>
-                            </GridItem>
-                            <GridItem width="64px" mx={1}>
-                              <Input
-                                name="minute"
-                                type="text"
-                                placeholder="mm"
-                                onChange={(e) =>
-                                  setMinute(e.currentTarget.value)
-                                }
-                                maxLength={2}
-                                pattern="[0-9]{2}"
-                                defaultValue={minute}
-                                onReset={() => setMinute('')}
-                                hideReset
-                              />
-                            </GridItem>
-                            <GridItem
-                              display="flex"
-                              alignItems="center"
-                              justifyContent="flex-start"
-                              width="auto"
-                              px={0}
-                            >
-                              <Text my={0}>Uhr</Text>
-                            </GridItem>
-                          </Grid>
-                        </GridItem>
-                        <GridItem
-                          width={[1, 1, 1 / 3]}
-                          display="flex"
-                          justifyContent="flex-end"
-                        >
-                          <Button
-                            mt={[2, 2, 0]}
-                            width={[1, 1, 'auto']}
-                            type="submit"
-                          >
-                            Datum festlegen
-                          </Button>
-                        </GridItem>
-                      </Grid>
-                    </form>
-                  </Box>
+                  <TimePicker
+                    focus={focus}
+                    date={date}
+                    hours={hours}
+                    minutes={minutes}
+                    onFocusChange={(focusState) => setFocus(focusState)}
+                    onMinutesChange={(timeMinutes) => setMinutes(timeMinutes)}
+                    onHoursChange={(timeHours) => setHours(timeHours)}
+                    onChange={onChange}
+                  />
                 );
               }
             : () => ''
@@ -316,15 +348,15 @@ export const DatePicker: React.FC<{
           onChange(
             newDate
               ? newDate.set({
-                  h: parseInt(hour, 10),
-                  m: parseInt(minute, 10),
+                  h: parseInt(hours, 10),
+                  m: parseInt(minutes, 10),
                 })
               : null
           )
         }
         focused={focus}
         onFocusChange={() => setFocus(!focus)}
-        id="SingleDatePicker"
+        id={id}
       />
     </>
   );

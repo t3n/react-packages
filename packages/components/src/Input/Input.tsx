@@ -22,7 +22,7 @@ import {
 } from '@t3n/icons';
 import { Icon } from '../Icon';
 
-export type InputTypes = 'text' | 'email' | 'password';
+export type InputTypes = 'text' | 'email' | 'password' | 'number' | 'tel';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'width' | 'value'>,
