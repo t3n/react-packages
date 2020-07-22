@@ -17,6 +17,7 @@ export declare type UserCardProps = {
         socialLinks: SocialLink[];
     };
     compact: boolean;
+    secondary?: boolean;
 };
 export declare const UserCard: React.FC<UserCardProps>;
 export {};

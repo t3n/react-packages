@@ -102,6 +102,7 @@ export type UserCardProps = {
     socialLinks: SocialLink[];
   };
   compact: boolean;
+  secondary?: boolean;
 };
 
 type SocialLinksProps = {
