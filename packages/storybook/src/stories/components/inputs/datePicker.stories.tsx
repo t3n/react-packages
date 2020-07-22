@@ -20,7 +20,7 @@ export const DefaultStory = () => {
         <DatePicker
           id="test datepicker"
           date={date}
-          onChange={(newDate) => setDate(newDate)}
+          onChange={(newDate: moment.Moment | null) => setDate(newDate)}
         />
       </Box>
     </Section>
@@ -41,7 +41,7 @@ export const TimePickerStory = () => {
           id="test datepicker with timepicker"
           timePicker
           date={date}
-          onChange={(newDate) => setDate(newDate)}
+          onChange={(newDate: moment.Moment | null) => setDate(newDate)}
         />
       </Box>
     </Section>
