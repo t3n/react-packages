@@ -73,7 +73,7 @@ jobs:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
-    resource_class: small
+    resource_class: medium
     steps:
       - attach_workspace: *attach_workspace
       - run: npm run test
