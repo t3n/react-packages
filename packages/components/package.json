@@ -1,6 +1,6 @@
 {
   "name": "@t3n/components",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "t3n react components",
   "repository": {
     "type": "git",
@@ -11,11 +11,13 @@
   "dependencies": {
     "@types/btoa": "^1.2.3",
     "@types/react-autosuggest": "^9.3.13",
+    "@types/react-dates": "^17.1.13",
     "@types/react-slick": "^0.23.4",
     "btoa": "^1.2.1",
     "framer-motion": "^1.8.2",
     "polished": "^3.4.1",
     "react-autosuggest": "^10.0.2",
+    "react-dates": "^21.8.0",
     "react-imgix": "^9.0.1",
     "react-slick": "^0.26.1",
     "react-spring": "^8.0.27",
