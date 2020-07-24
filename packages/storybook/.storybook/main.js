@@ -54,7 +54,6 @@ module.exports = {
     '../src/stories/components/inputs/socialButton.stories',
     '../src/stories/components/inputs/checkbox.stories',
     '../src/stories/components/inputs/input.stories',
-    '../src/stories/components/inputs/datePicker.stories',
     '../src/stories/components/inputs/slider.stories',
     '../src/stories/components/inputs/switch.stories',
     '../src/stories/components/inputs/link.stories',
