@@ -36,32 +36,6 @@ const defaultUserStatic: UserCardProps['user'] = {
   ],
 };
 
-const noLinkUser: UserCardProps['user'] = {
-  id: 1,
-  name: 'Björn Assmann',
-  avatarUrl:
-    'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
-  email: 'beispiel@t3n.de',
-  position: 'Geschäftsführer | CFO',
-  phone: '01234/567890',
-  flag: '',
-  profileUrl: '',
-  socialLinks: [
-    {
-      url: 'https://www.linkedin.com/in/bjoernassmann',
-      type: 'LINKEDIN',
-    },
-    {
-      url: 'https://twitter.com/BjoernAssmann',
-      type: 'TWITTER',
-    },
-    {
-      url: 'https://www.xing.com/profile/Bjoern_Assmann',
-      type: 'XING',
-    },
-  ],
-};
-
 const compactUser: UserCardProps['user'] = {
   id: 2,
   name: 'Björn Assmann',
@@ -281,29 +255,6 @@ export const compactStory = () => {
 
 compactStory.story = {
   name: 'Compact',
-};
-
-export const noLinkStory = () => {
-  return (
-    <>
-      <H2>Default nicht verlinkt</H2>
-      <Grid>
-        <GridItem width={[1, 1, 2 / 5]}>
-          <UserCard user={noLinkUser} compact={false} />
-        </GridItem>
-      </Grid>
-      <H2>Compact nicht verlinkt</H2>
-      <Grid>
-        <GridItem width={[1, 1, 2 / 5]}>
-          <UserCard compact user={noLinkUser} />
-        </GridItem>
-      </Grid>
-    </>
-  );
-};
-
-noLinkStory.story = {
-  name: 'No Link',
 };
 
 export const flagStory = () => {

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { space } from 'styled-system';
+
 import { ThemeProps } from '@t3n/theme';
 import {
   SocialXing,
@@ -8,34 +10,26 @@ import {
   SocialGithub,
   SocialEmail,
 } from '@t3n/icons';
+
+import { Link } from '../Link';
 import { Card } from '../Card';
-import { Heading } from '../Heading';
 import { Text } from '../Text';
 import { Box } from '../Box';
 import { Avatar } from '../Avatar';
-import { Grid } from '../Grid';
-import { GridItem } from '../GridItem';
 import { Badge } from '../Badge';
 import { Button } from '../Button';
 
 const StyledCard = styled(Card)`
   position: relative;
   height: 100%;
+
+  ${({ theme }: ThemeProps) => space({ pt: [4, 5], theme })};
 `;
 
-const StyledCompactBadge = styled(Badge)`
+const StyledBadge = styled(Badge)`
   position: absolute;
   top: 8px;
   right: 8px;
-`;
-
-const StyledDefaultBadge = styled(Badge)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[1]}) {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
 `;
 
 const SocialButton = styled(Button)`
@@ -43,8 +37,8 @@ const SocialButton = styled(Button)`
   border: 0;
   background-color: ${({ theme }: ThemeProps) =>
     theme.colors.background.secondary};
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   align-items: center;
   margin: 0 0.5rem 0 0;
   padding: 5px;
@@ -60,22 +54,32 @@ const SocialButton = styled(Button)`
   }
 `;
 
-const StyledGridItem = styled(GridItem)`
+const StyledDefaultBox = styled(Box)`
   @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[1]}) {
+      props.theme.breakpoints[0]}) {
     display: grid;
     justify-content: center;
     text-align: center;
   }
 `;
 
-const StyledBox = styled(Box)`
+const StyledCompactBox = styled(Box)`
   text-align: center;
+`;
+
+const StyledLink = styled(Link)`
+  background-image: unset;
+
+  &:hover,
+  &:visited,
+  &:focus {
+    background-image: unset;
+  }
 `;
 
 const SocialLinksBox = styled(Box)`
   @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[1]}) {
+      props.theme.breakpoints[0]}) {
     justify-content: center;
   }
 `;
@@ -136,10 +140,16 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   children,
 }) => {
   return (
-    <StyledBox display="flex" alignItems="center" flexDirection="column">
-      <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+    <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
+      {user.profileUrl ? (
+        <a href={user.profileUrl} title="Pioneers-Profil">
+          <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+        </a>
+      ) : (
+        <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+      )}
       {children}
-    </StyledBox>
+    </StyledCompactBox>
   );
 };
 
@@ -148,21 +158,20 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   children,
 }) => {
   return (
-    <Grid>
-      <GridItem width={[1, 1, 2 / 5, 2 / 5]} mb={0}>
+    <Box display={['unset', 'flex']} m="0 auto">
+      <Box display="flex" flexDirection="column" mr={[0, 3]}>
         <Box display="flex" justifyContent="center">
-          <Avatar src={user.avatarUrl} size={80} alt={user.name} />
-        </Box>
-        <Box display="flex" justifyContent="center">
-          {user.flag && (
-            <StyledDefaultBadge small rounded variant="inverse">
-              {user.flag}
-            </StyledDefaultBadge>
+          {user.profileUrl ? (
+            <a href={user.profileUrl} title="Pioneers-Profil">
+              <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+            </a>
+          ) : (
+            <Avatar src={user.avatarUrl} size={80} alt={user.name} />
           )}
         </Box>
-      </GridItem>
-      <StyledGridItem width={[1, 1, 3 / 5, 3 / 5]}>{children}</StyledGridItem>
-    </Grid>
+      </Box>
+      <StyledDefaultBox>{children}</StyledDefaultBox>
+    </Box>
   );
 };
 
@@ -173,40 +182,42 @@ export const UserCard: React.FC<UserCardProps> = ({
 }) => {
   const content = (
     <>
-      <Heading styleAs="h6" as="h6" mt={0} mb={0}>
-        {user.name}
-      </Heading>
-      <Text small mt={1} mb={1} secondary={!!secondary}>
+      <Text bold mt={0} mb={0}>
+        {user.profileUrl ? (
+          <StyledLink href={user.profileUrl} title="Pioneers-Profil">
+            {user.name}
+          </StyledLink>
+        ) : (
+          user.name
+        )}
+      </Text>
+      <Text mt={1} mb={1} secondary={!!secondary}>
         {user.position}
       </Text>
-      {user.flag && compact && (
-        <StyledCompactBadge small rounded variant="inverse">
+      {user.flag && (
+        <StyledBadge small rounded variant="secondary">
           {user.flag}
-        </StyledCompactBadge>
+        </StyledBadge>
       )}
       {user.email && (
-        <Text small mt={1} mb={0} secondary={!!secondary}>
-          {user.email}
-        </Text>
+        <StyledLink href={`mailto:${user.email}`}>
+          <Text mt={2} mb={0} secondary={!!secondary}>
+            {user.email}
+          </Text>
+        </StyledLink>
       )}
       {user.phone && (
-        <Text small mt={1} secondary={!!secondary}>
-          {user.phone}
-        </Text>
+        <StyledLink href={`tel:${user.phone}`}>
+          <Text mt={1} mb={0} secondary={!!secondary}>
+            {user.phone}
+          </Text>
+        </StyledLink>
       )}
       {user.socialLinks.length > 0 && <SocialLinks links={user.socialLinks} />}
     </>
   );
 
-  return user.profileUrl ? (
-    <StyledCard href={user.profileUrl}>
-      {compact ? (
-        <CompactUserCard user={user}>{content}</CompactUserCard>
-      ) : (
-        <DefaultUserCard user={user}>{content}</DefaultUserCard>
-      )}
-    </StyledCard>
-  ) : (
+  return (
     <StyledCard>
       {compact ? (
         <CompactUserCard user={user}>{content}</CompactUserCard>
