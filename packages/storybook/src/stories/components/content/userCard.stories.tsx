@@ -15,7 +15,7 @@ const defaultUserStatic: UserCardProps['user'] = {
   name: 'Björn Assmann',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
-  email: 'b.assmann@t3n.de',
+  email: 'beispiel@t3n.de',
   position: 'Geschäftsführer | CFO',
   phone: '01234/567890',
   flag: '',
@@ -67,7 +67,7 @@ const flagUser: UserCardProps['user'] = {
   name: 'Jan Christe',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined',
-  email: 'j.christe@t3n.de',
+  email: 'beispiel@t3n.de',
   position: 'Geschäftsführer | CCO & CPO',
   phone: '01234/567890',
   flag: 'Elternzeit',
@@ -119,7 +119,7 @@ const thirdUser: UserCardProps['user'] = {
   name: 'Andreas Lenz',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/neos/e80a662daac7dc2d910550e0a6bba514dd56d699/andy%20small.png',
-  email: 'a.lenz@t3n.de',
+  email: 'beispiel@t3n.de',
   position: 'Geschäftsführer | CEO',
   phone: '01234/567890',
   flag: '',
@@ -201,7 +201,7 @@ export const defaultStory = () => {
       'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
       'user'
     ),
-    email: text('E-Mail Adresse', 'b.assmann@t3n.de', 'user'),
+    email: text('E-Mail Adresse', 'beispiel@t3n.de', 'user'),
     position: text('Position', 'Geschäftsführer | CFO', 'user'),
     phone: text('Telefon', '01234/567890', 'user'),
     flag: text('Flag', '', 'user'),
@@ -232,6 +232,7 @@ export const defaultStory = () => {
         <UserCard
           compact={boolean('Compact', false, 'card')}
           user={defaultUser}
+          secondary={boolean('Secondary', false, 'card')}
         />
       </GridItem>
     </Grid>

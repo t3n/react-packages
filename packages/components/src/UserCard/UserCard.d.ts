@@ -13,10 +13,11 @@ export declare type UserCardProps = {
         position?: string;
         flag?: string;
         phone?: string;
-        profileUrl: string;
+        profileUrl?: string;
         socialLinks: SocialLink[];
     };
     compact: boolean;
+    secondary?: boolean;
 };
 export declare const UserCard: React.FC<UserCardProps>;
 export {};

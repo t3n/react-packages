@@ -82,8 +82,8 @@ const AvatarImage = ({
     <DefaultAvatar
       display="flex"
       alignItems="center"
-      height="40px"
-      width="40px"
+      height={`${size}px`}
+      width={`${size}px`}
     >
       {alt ? (
         <StyledText bold p={1} mx="auto" my={0}>
