@@ -12,6 +12,7 @@ export default {
 
 const standardUser: UserMenuProps['user'] = {
   label: 'john.doe@beispiel.de',
+  name: 'Jan Christe',
   avatarUrl:
     'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
 };
@@ -48,6 +49,7 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
 export const defaultStory = () => {
   const defaultUser: UserMenuProps['user'] = {
     label: text('Email', 'john.doe@beispiel.de'),
+    name: text('Name', 'Jan Christe'),
     avatarUrl: text(
       'Avatar-URL',
       'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100'

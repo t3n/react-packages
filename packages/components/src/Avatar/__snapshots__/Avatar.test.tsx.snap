@@ -3,7 +3,7 @@
 exports[`Avatar matches snapshot and renders label 1`] = `
 .c3 {
   font-family: "adelle-sans",sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5em;
   font-weight: bold;
   padding: 4px;
@@ -40,6 +40,7 @@ exports[`Avatar matches snapshot and renders label 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-transform: uppercase;
 }
 
 .c0 {
@@ -55,18 +56,6 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 
 .c5 {
   padding-left: 8px;
-}
-
-@media screen and (min-width:30rem) {
-  .c3 {
-    line-height: 1.5em;
-  }
-}
-
-@media screen and (min-width:48rem) {
-  .c3 {
-    line-height: 1.666em;
-  }
 }
 
 <div
@@ -95,7 +84,7 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 exports[`Avatar renders without label 1`] = `
 .c3 {
   font-family: "adelle-sans",sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5em;
   font-weight: bold;
   padding: 4px;
@@ -132,6 +121,7 @@ exports[`Avatar renders without label 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-transform: uppercase;
 }
 
 .c0 {
@@ -143,18 +133,6 @@ exports[`Avatar renders without label 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-@media screen and (min-width:30rem) {
-  .c3 {
-    line-height: 1.5em;
-  }
-}
-
-@media screen and (min-width:48rem) {
-  .c3 {
-    line-height: 1.666em;
-  }
 }
 
 <div
