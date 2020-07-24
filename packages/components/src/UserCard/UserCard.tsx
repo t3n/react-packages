@@ -117,7 +117,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   return (
     <SocialLinksBox mt={2} display="flex">
       {links.map((link) => (
-        <SocialButton key={link.type} href={link.url}>
+        <SocialButton key={link.type} href={link.url} target="_blank">
           {link.type === 'XING' ? (
             <SocialXing fill="#9b9b9b" />
           ) : link.type === 'LINKEDIN' ? (
@@ -142,7 +142,12 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
       {user.profileUrl ? (
-        <a href={user.profileUrl} title="Pioneers-Profil">
+        <a
+          href={user.profileUrl}
+          title="Pioneers-Profil"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Avatar src={user.avatarUrl} size={80} alt={user.name} />
         </a>
       ) : (
@@ -162,7 +167,12 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
         <Box display="flex" justifyContent="center">
           {user.profileUrl ? (
-            <a href={user.profileUrl} title="Pioneers-Profil">
+            <a
+              href={user.profileUrl}
+              title="Pioneers-Profil"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Avatar src={user.avatarUrl} size={80} alt={user.name} />
             </a>
           ) : (
