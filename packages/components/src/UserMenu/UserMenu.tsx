@@ -138,6 +138,7 @@ export interface UserMenuProps {
 
   user?: {
     label: string;
+    name: string;
     avatarUrl: string;
   };
 
@@ -173,7 +174,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   return loggedIn ? (
     <UserMenuWrapper>
       {user && (
-        <Avatar loading={loading} src={user.avatarUrl} alt={user.label} />
+        <Avatar loading={loading} src={user.avatarUrl} alt={user.name} />
       )}
 
       <UserMenuList>

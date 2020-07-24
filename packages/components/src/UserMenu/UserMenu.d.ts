@@ -8,6 +8,7 @@ export interface UserMenuProps {
     labelLink?: string;
     user?: {
         label: string;
+        name: string;
         avatarUrl: string;
     };
     itemGroups?: {

@@ -43,6 +43,7 @@ const DefaultAvatar = styled((props) => <Box {...props} />)`
 
 const StyledText = styled((props) => <Text {...props} />)`
   user-select: none;
+  text-transform: uppercase;
 `;
 
 interface AvatarImageProps {
@@ -86,11 +87,11 @@ const AvatarImage = ({
       width={`${size}px`}
     >
       {alt ? (
-        <StyledText bold p={1} mx="auto" my={0}>
+        <StyledText bold p={1} mx="auto" my={0} small>
           {initials}
         </StyledText>
       ) : (
-        <StyledText bold p={1} mx="auto" my={0}>
+        <StyledText bold p={1} mx="auto" my={0} small>
           ?
         </StyledText>
       )}
