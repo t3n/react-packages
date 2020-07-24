@@ -194,7 +194,12 @@ export const UserCard: React.FC<UserCardProps> = ({
     <>
       <Text bold mt={0} mb={0}>
         {user.profileUrl ? (
-          <StyledLink href={user.profileUrl} title="Pioneers-Profil">
+          <StyledLink
+            href={user.profileUrl}
+            title="Pioneers-Profil"
+            target="_blank"
+            rel="noreferrer"
+          >
             {user.name}
           </StyledLink>
         ) : (
