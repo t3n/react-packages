@@ -67,7 +67,7 @@ const AvatarImage = ({
       : '?';
 
   return loading ? (
-    <AvatarPlaceholder height="40px" width="40px" />
+    <AvatarPlaceholder height={`${size}px`} width={`${size}px`} />
   ) : src ? (
     <Imgix
       src={src}
