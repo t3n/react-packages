@@ -5,7 +5,7 @@ export interface GroupedSuggestions<S> {
     title: string;
     suggestions: S[];
 }
-export declare type SearchBoxVariantType = 'red' | 'light';
+export declare type SearchBoxVariantType = 'red' | 'light' | 'grey';
 export interface SearchBoxProps<S> extends WidthProps {
     variant: SearchBoxVariantType;
     placeholder: string;
