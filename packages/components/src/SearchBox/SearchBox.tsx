@@ -38,6 +38,9 @@ const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
         light: {
           fill: 'text.primary',
         },
+        grey: {
+          fill: 'text.primary',
+        },
       },
     })};
     width: 23px;
@@ -63,6 +66,9 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
         light: {
           color: 'text.primary',
         },
+        grey: {
+          color: 'text.primary',
+        },
       },
     })};
 
@@ -73,6 +79,9 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
             color: 'text.inverse',
           },
           light: {
+            color: 'text.primary',
+          },
+          grey: {
             color: 'text.primary',
           },
         },
@@ -99,6 +108,9 @@ const Wrapper = styled.div<
       },
       light: {
         bg: 'shades.white',
+      },
+      grey: {
+        bg: 'shades.grey232',
       },
     },
   })};
@@ -152,7 +164,7 @@ export interface GroupedSuggestions<S> {
   suggestions: S[];
 }
 
-export type SearchBoxVariantType = 'red' | 'light';
+export type SearchBoxVariantType = 'red' | 'light' | 'grey';
 
 export interface SearchBoxProps<S> extends WidthProps {
   variant: SearchBoxVariantType;

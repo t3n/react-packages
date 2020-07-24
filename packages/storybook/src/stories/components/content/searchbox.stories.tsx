@@ -183,6 +183,23 @@ lightStory.story = {
   name: 'Helle Variante',
 };
 
+export const greyStory = () => (
+  <>
+    <Section variant="primary">
+      <SearchBoxWithData
+        variant="grey"
+        width="auto"
+        initialSuggestions={[]}
+        isLoading={false}
+      />
+    </Section>
+  </>
+);
+
+greyStory.story = {
+  name: 'Graue Variante',
+};
+
 export const loadingStory = () => {
   return (
     <SearchBoxWithData
