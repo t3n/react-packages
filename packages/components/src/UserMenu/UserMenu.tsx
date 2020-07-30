@@ -190,14 +190,16 @@ export const UserMenu: React.FC<UserMenuProps> = ({
         <UserMenuListDivider />
 
         {itemGroups &&
-          itemGroups.map((group) => {
+          itemGroups.map((group, idx) => {
             return (
               <>
                 {group.item.map((item) => {
                   return loading ? (
-                    <Placeholder height="21px" my={[1, 2]} mx={3} />
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Placeholder key={idx} height="21px" my={[1, 2]} mx={3} />
                   ) : (
-                    <UserMenuListItem>{item}</UserMenuListItem>
+                    // eslint-disable-next-line react/no-array-index-key
+                    <UserMenuListItem key={idx}>{item}</UserMenuListItem>
                   );
                 })}
                 <UserMenuListDivider />
