@@ -5,7 +5,7 @@ import {
 } from '@t3n/theme/src/theme/colors/colors';
 import { ThemeProps } from '@t3n/theme';
 
-export const NProgressBar = createGlobalStyle<
+export const NProgressBarGlobalStyle = createGlobalStyle<
   { barColor?: ThemeShadeColor | ThemeBrandColor } & ThemeProps
 >`
   #nprogress {

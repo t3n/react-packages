@@ -1,11 +1,16 @@
 import React from 'react';
 
 import { start, inc, done } from 'nprogress';
-import { NProgressBar, Button, Box, PageLayout } from '@t3n/components';
+import {
+  NProgressBarGlobalStyle,
+  Button,
+  Box,
+  PageLayout,
+} from '@t3n/components';
 
 export default {
   title: 'Components|Layout/NProgressBar',
-  component: NProgressBar,
+  component: NProgressBarGlobalStyle,
 };
 
 const ButtonGroup: React.FC = () => (
@@ -24,7 +29,7 @@ const ButtonGroup: React.FC = () => (
 
 export const defaultStory = () => (
   <>
-    <NProgressBar barColor="red" />
+    <NProgressBarGlobalStyle barColor="red" />
     <ButtonGroup />
   </>
 );
@@ -36,7 +41,7 @@ defaultStory.story = {
 export const headerStory = () => (
   <PageLayout>
     <Box position="relative">
-      <NProgressBar barColor="white" />
+      <NProgressBarGlobalStyle barColor="white" />
     </Box>
     <ButtonGroup />
   </PageLayout>
