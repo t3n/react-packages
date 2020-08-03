@@ -19,6 +19,7 @@ module.exports = {
     '../src/stories/components/layout/center.stories',
     '../src/stories/components/layout/divider.stories',
     '../src/stories/components/layout/grid.stories',
+    '../src/stories/components/layout/nprogressbar.stories',
     '../src/stories/components/layout/pageLayout.stories',
     '../src/stories/components/layout/pageHeader.stories',
     '../src/stories/components/layout/pageFooter.stories',

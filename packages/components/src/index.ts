@@ -32,6 +32,7 @@ export { Loader } from './Loader';
 export { Logo } from './Logo';
 export { Modal } from './Modal';
 export { NewsCard } from './NewsCard';
+export { NProgressBarGlobalStyle } from './NProgressBarGlobalStyle';
 export { PageFooter, FooterLink } from './PageFooter';
 export { PageHeader } from './PageHeader';
 export { PageLayout } from './PageLayout';
