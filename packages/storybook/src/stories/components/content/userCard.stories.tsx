@@ -210,6 +210,8 @@ export const defaultStory = () => {
       'https://t3n.de/pioneers/profile/bjoern.assmann/',
       'user'
     ),
+    targetBlank: boolean('Target: _blank', true, 'user'),
+    urlTitle: text('URL Title', 'Pioneers Profil', 'user'),
     socialLinks: [
       {
         url: 'https://www.linkedin.com/in/bjoernassmann',

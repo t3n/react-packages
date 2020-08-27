@@ -14,6 +14,8 @@ export declare type UserCardProps = {
         flag?: string;
         phone?: string;
         profileUrl?: string;
+        targetBlank?: boolean;
+        urlTitle?: string;
         socialLinks: SocialLink[];
     };
     compact: boolean;
