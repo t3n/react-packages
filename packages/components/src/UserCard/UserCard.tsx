@@ -102,12 +102,12 @@ export type UserCardProps = {
     position?: string;
     flag?: string;
     phone?: string;
-    profileUrl?: string;
-    link?: {
-      target?: string;
-      title?: string;
-    };
     socialLinks: SocialLink[];
+  };
+  link?: {
+    url?: string;
+    target?: string;
+    title?: string;
   };
   compact: boolean;
   secondary?: boolean;
@@ -139,17 +139,18 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   );
 };
 
-const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
+const CompactUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
   user,
+  link,
   children,
 }) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
-      {user.profileUrl ? (
+      {link?.url ? (
         <a
-          href={user.profileUrl}
-          title={user.link?.title ?? user.name}
-          target={user.link?.target ?? '_blank'}
+          href={link.url}
+          title={link.title ?? user.name}
+          target={link.target ?? '_blank'}
           rel="noreferrer"
         >
           <Avatar src={user.avatarUrl} size={80} alt={user.name} />
@@ -162,19 +163,20 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
   );
 };
 
-const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
+const DefaultUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
   user,
+  link,
   children,
 }) => {
   return (
     <Box display={['unset', 'flex']} m="0 auto">
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
         <Box display="flex" justifyContent="center">
-          {user.profileUrl ? (
+          {link?.url ? (
             <a
-              href={user.profileUrl}
-              title={user.link?.title ?? user.name}
-              target={user.link?.target ?? '_blank'}
+              href={link.url}
+              title={link.title ?? user.name}
+              target={link.target ?? '_blank'}
               rel="noreferrer"
             >
               <Avatar src={user.avatarUrl} size={80} alt={user.name} />
@@ -191,17 +193,18 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
 
 export const UserCard: React.FC<UserCardProps> = ({
   user,
+  link,
   compact,
   secondary,
 }) => {
   const content = (
     <>
       <Text bold mt={0} mb={0}>
-        {user.profileUrl ? (
+        {link?.url ? (
           <StyledLink
-            href={user.profileUrl}
-            title={user.link?.title ?? user.name}
-            target={user.link?.target ?? '_blank'}
+            href={link.url}
+            title={link.title ?? user.name}
+            target={link.target ?? '_blank'}
             rel="noreferrer"
           >
             {user.name}

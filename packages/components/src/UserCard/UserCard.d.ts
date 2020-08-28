@@ -13,12 +13,12 @@ export declare type UserCardProps = {
         position?: string;
         flag?: string;
         phone?: string;
-        profileUrl?: string;
-        link?: {
-            target?: string;
-            title?: string;
-        };
         socialLinks: SocialLink[];
+    };
+    link?: {
+        url?: string;
+        target?: string;
+        title?: string;
     };
     compact: boolean;
     secondary?: boolean;
