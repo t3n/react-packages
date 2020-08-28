@@ -104,7 +104,7 @@ export type UserCardProps = {
     phone?: string;
     profileUrl?: string;
     link?: {
-      noTargetBlank?: boolean;
+      target?: string;
       title?: string;
     };
     socialLinks: SocialLink[];
@@ -148,8 +148,8 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
       {user.profileUrl ? (
         <a
           href={user.profileUrl}
-          title={user.link?.title || 'Pioneers-Profil'}
-          target={user.link?.noTargetBlank ? undefined : '_blank'}
+          title={user.link?.title ?? user.name}
+          target={user.link?.target ?? '_blank'}
           rel="noreferrer"
         >
           <Avatar src={user.avatarUrl} size={80} alt={user.name} />
@@ -173,8 +173,8 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
           {user.profileUrl ? (
             <a
               href={user.profileUrl}
-              title={user.link?.title || 'Pioneers-Profil'}
-              target={user.link?.noTargetBlank ? undefined : '_blank'}
+              title={user.link?.title ?? user.name}
+              target={user.link?.target ?? '_blank'}
               rel="noreferrer"
             >
               <Avatar src={user.avatarUrl} size={80} alt={user.name} />
@@ -200,8 +200,8 @@ export const UserCard: React.FC<UserCardProps> = ({
         {user.profileUrl ? (
           <StyledLink
             href={user.profileUrl}
-            title={user.link?.title || 'Pioneers-Profil'}
-            target={user.link?.noTargetBlank ? undefined : '_blank'}
+            title={user.link?.title ?? user.name}
+            target={user.link?.target ?? '_blank'}
             rel="noreferrer"
           >
             {user.name}

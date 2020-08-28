@@ -211,11 +211,7 @@ export const defaultStory = () => {
       'user'
     ),
     link: {
-      noTargetBlank: boolean(
-        'No target: _blank (default is target: _blank)',
-        false,
-        'user'
-      ),
+      target: text('Target (default is target: _blank)', '_self', 'user'),
       title: text('URL Title', 'Pioneers Profil', 'user'),
     },
     socialLinks: [
