@@ -104,7 +104,7 @@ export type UserCardProps = {
     phone?: string;
     profileUrl?: string;
     link?: {
-      targetBlank?: boolean;
+      noTargetBlank?: boolean;
       title?: string;
     };
     socialLinks: SocialLink[];
@@ -149,7 +149,7 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
         <a
           href={user.profileUrl}
           title={user.link?.title || 'Pioneers-Profil'}
-          target={user.link?.targetBlank ? '_blank' : undefined}
+          target={user.link?.noTargetBlank ? undefined : '_blank'}
           rel="noreferrer"
         >
           <Avatar src={user.avatarUrl} size={80} alt={user.name} />
@@ -174,7 +174,7 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user'>> = ({
             <a
               href={user.profileUrl}
               title={user.link?.title || 'Pioneers-Profil'}
-              target={user.link?.targetBlank ? '_blank' : undefined}
+              target={user.link?.noTargetBlank ? undefined : '_blank'}
               rel="noreferrer"
             >
               <Avatar src={user.avatarUrl} size={80} alt={user.name} />
@@ -201,7 +201,7 @@ export const UserCard: React.FC<UserCardProps> = ({
           <StyledLink
             href={user.profileUrl}
             title={user.link?.title || 'Pioneers-Profil'}
-            target={user.link?.targetBlank ? '_blank' : undefined}
+            target={user.link?.noTargetBlank ? undefined : '_blank'}
             rel="noreferrer"
           >
             {user.name}
