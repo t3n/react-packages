@@ -233,7 +233,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c0"
   >
     <div
-      class="sc-AxirZ c1"
+      class="c1"
     >
       <input
         checked=""
@@ -261,7 +261,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c0"
   >
     <div
-      class="sc-AxirZ c4"
+      class="c4"
     >
       <input
         checked=""
@@ -289,7 +289,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c0"
   >
     <div
-      class="sc-AxirZ c6"
+      class="c6"
     >
       <input
         checked=""
@@ -317,7 +317,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c0"
   >
     <div
-      class="sc-AxirZ c8"
+      class="c8"
     >
       <input
         checked=""
@@ -345,7 +345,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c10"
   >
     <div
-      class="sc-AxirZ c11"
+      class="c11"
     >
       <input
         checked=""
@@ -373,7 +373,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c10"
   >
     <div
-      class="sc-AxirZ c12"
+      class="c12"
     >
       <input
         checked=""
@@ -401,7 +401,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c10"
   >
     <div
-      class="sc-AxirZ c13"
+      class="c13"
     >
       <input
         checked=""
@@ -429,7 +429,7 @@ exports[`Checkbox has feedback styles 1`] = `
     class="c10"
   >
     <div
-      class="sc-AxirZ c14"
+      class="c14"
     >
       <input
         checked=""
