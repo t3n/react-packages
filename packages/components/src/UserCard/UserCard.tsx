@@ -146,7 +146,7 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
 }) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
-      {link?.url ? (
+      {link && link.url ? (
         <a
           href={link.url}
           title={link.title ?? user.name}
@@ -172,7 +172,7 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
     <Box display={['unset', 'flex']} m="0 auto">
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
         <Box display="flex" justifyContent="center">
-          {link?.url ? (
+          {link && link.url ? (
             <a
               href={link.url}
               title={link.title ?? user.name}
@@ -242,9 +242,13 @@ export const UserCard: React.FC<UserCardProps> = ({
   return (
     <StyledCard>
       {compact ? (
-        <CompactUserCard user={user}>{content}</CompactUserCard>
+        <CompactUserCard user={user} link={link}>
+          {content}
+        </CompactUserCard>
       ) : (
-        <DefaultUserCard user={user}>{content}</DefaultUserCard>
+        <DefaultUserCard user={user} link={link}>
+          {content}
+        </DefaultUserCard>
       )}
     </StyledCard>
   );
