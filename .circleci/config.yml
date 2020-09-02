@@ -49,7 +49,6 @@ jobs:
       - persist_to_workspace: *persist_to_workspace
       - store_artifacts:
           path: packages/components/dist
-          destination: bundle
 
   prettier:
     working_directory: *workspace_root
