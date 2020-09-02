@@ -47,6 +47,8 @@ jobs:
 
       - save_cache: *save_js_packages
       - persist_to_workspace: *persist_to_workspace
+      - store_artifacts:
+          path: /packages/components/dist
 
   prettier:
     working_directory: *workspace_root
@@ -98,7 +100,7 @@ jobs:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - "eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd"
+            - 'eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd'
       - run: git config user.email "circleci@t3n.de"
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -114,7 +116,7 @@ jobs:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - "eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd"
+            - 'eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd'
       - run: git config user.email "circleci@t3n.de"
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -130,7 +132,7 @@ jobs:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - "eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd"
+            - 'eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd'
       - run: git config user.email "circleci@t3n.de"
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
