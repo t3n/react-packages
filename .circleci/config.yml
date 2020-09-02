@@ -48,7 +48,7 @@ jobs:
       - save_cache: *save_js_packages
       - persist_to_workspace: *persist_to_workspace
       - store_artifacts:
-          path: packages/components/dist
+          path: packages/components/dist/report
 
   prettier:
     working_directory: *workspace_root

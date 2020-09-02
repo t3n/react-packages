@@ -104,6 +104,7 @@ module.exports = ({ title = '', dirname = '' }) => {
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         openAnalyzer: false,
+        reportFilename: './report/report.html',
       }),
       ...config.plugins,
     ];
