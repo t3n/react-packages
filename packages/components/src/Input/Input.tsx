@@ -30,6 +30,7 @@ export interface InputProps
   type?: InputTypes;
   onReset?: () => void;
   isFocused?: boolean;
+  value?: string;
   defaultValue?: string;
   error?: boolean;
   className?: string;
@@ -127,6 +128,7 @@ export const Input = forwardRef(
       onChange,
       onReset,
       isFocused,
+      value: controlledValue,
       defaultValue,
       hideReset,
       ...props
@@ -141,6 +143,8 @@ export const Input = forwardRef(
     useImperativeHandle(ref, () => inputRef.current);
 
     const inputType = type === 'password' && revealPassword ? 'text' : type;
+    const displayValue =
+      controlledValue !== undefined ? controlledValue : value;
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
       e.stopPropagation();
@@ -156,7 +160,7 @@ export const Input = forwardRef(
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.stopPropagation();
-      setValue(e.target.value);
+      if (!controlledValue) setValue(e.target.value);
       if (onChange) onChange(e);
     };
 
@@ -201,7 +205,7 @@ export const Input = forwardRef(
           onChange={handleOnChange}
           isFocused={focused}
           disabled={disabled}
-          value={value}
+          value={displayValue}
           ref={inputRef}
           hideReset={hideReset}
           {...props}
