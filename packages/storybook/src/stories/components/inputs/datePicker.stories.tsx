@@ -39,7 +39,7 @@ export const TimePickerStory = () => {
       <Box width={1 / 2}>
         <DatePicker
           id="test datepicker with timepicker"
-          timePicker
+          withTime
           date={date}
           onChange={(newDate: moment.Moment | null) => setDate(newDate)}
         />
