@@ -18,7 +18,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
-import useIsMobile from '../helper/useIsMobile';
+import useIsMobile from '../hooks/useIsMobile';
 
 const SingleDatePickerGlobalStyles = createGlobalStyle`
   .SingleDatePickerInput__withBorder {
@@ -175,47 +175,24 @@ const SingleDatePickerGlobalStyles = createGlobalStyle`
   }
 `;
 
-type TimeInputTypes = 'hour' | 'minute';
-
 const TimeInput: React.FC<{
-  variant: TimeInputTypes;
-  onChange: (date: moment.Moment | null) => void;
+  name: string;
+  value: string | undefined;
+  placeholder: string;
+  onChange: (value: string) => void;
   date: moment.Moment | null;
-}> = ({ variant, onChange, date }) => {
+}> = ({ name, value, placeholder, onChange, date }) => {
   const [isEmpty, setIsEmpty] = useState(true);
 
   return (
     <Input
-      name={variant === 'hour' ? 'hours' : 'minutes'}
-      value={
-        date && !isEmpty
-          ? date.get(variant === 'hour' ? 'hours' : 'minutes').toString()
-          : ''
-      }
+      name={name}
+      value={date && !isEmpty ? value : ''}
       type="text"
-      placeholder={variant === 'hour' ? 'hh' : 'mm'}
+      placeholder={placeholder}
       onChange={(e) => {
         setIsEmpty(!e.currentTarget.value);
-
-        onChange(
-          moment(date || moment()).set(
-            variant === 'hour'
-              ? {
-                  h: e.currentTarget.value.match(
-                    /\b(^$|0?[0-9]|1[0-9]|2[0-3])\b/
-                  )
-                    ? parseInt(e.currentTarget.value, 10)
-                    : 0,
-                }
-              : {
-                  m: e.currentTarget.value.match(
-                    /\b(^$|0?[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])\b/
-                  )
-                    ? parseInt(e.currentTarget.value, 10)
-                    : 0,
-                }
-          )
-        );
+        onChange(e.currentTarget.value);
       }}
       maxLength={2}
       autoComplete="off"
@@ -229,7 +206,7 @@ const TimePicker: React.FC<{
   date: moment.Moment | null;
   onChange: (date: moment.Moment | null) => void;
   onFocusChange: (focus: boolean) => void;
-}> = ({ focus, date, onChange, onFocusChange }) => {
+}> = ({ focus, date, onFocusChange, onChange }) => {
   return (
     <Box
       p={['13px', '13px', 4]}
@@ -253,7 +230,21 @@ const TimePicker: React.FC<{
           <GridItem width={[1, 1, 2 / 3]}>
             <Grid>
               <GridItem width="64px" mr={1}>
-                <TimeInput variant="hour" date={date} onChange={onChange} />
+                <TimeInput
+                  name="hours"
+                  placeholder="hh"
+                  value={date ? date.get('hours').toString() : ''}
+                  date={date}
+                  onChange={(value) =>
+                    onChange(
+                      moment(date || moment()).set({
+                        h: value.match(/\b(^$|0?[0-9]|1[0-9]|2[0-3])\b/)
+                          ? parseInt(value, 10)
+                          : 0,
+                      })
+                    )
+                  }
+                />
               </GridItem>
               <GridItem
                 display="flex"
@@ -267,7 +258,23 @@ const TimePicker: React.FC<{
                 </Text>
               </GridItem>
               <GridItem width="64px" mr={1}>
-                <TimeInput variant="minute" date={date} onChange={onChange} />
+                <TimeInput
+                  name="minutes"
+                  placeholder="mm"
+                  value={date ? date.get('minutes').toString() : ''}
+                  date={date}
+                  onChange={(value) =>
+                    onChange(
+                      moment(date || moment()).set({
+                        m: value.match(
+                          /\b(^$|0?[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])\b/
+                        )
+                          ? parseInt(value, 10)
+                          : 0,
+                      })
+                    )
+                  }
+                />
               </GridItem>
               <GridItem
                 display="flex"
