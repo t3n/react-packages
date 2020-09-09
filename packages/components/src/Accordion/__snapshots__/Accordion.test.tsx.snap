@@ -1,18 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accordion machtes snapshot 1`] = `
-.c5 {
+.c7 {
   width: 2rem;
   height: 2rem;
   fill: #8F8F8F;
   position: relative;
 }
 
-.c2 {
+.c3 {
   font-family: "adelle-sans",sans-serif;
   font-size: 1.125rem;
   line-height: 1.5em;
   margin: 0;
+}
+
+.c1 {
+  padding: 16px;
+}
+
+.c4 {
+  margin-left: 8px;
+  background-color: #f4f4f4;
 }
 
 .c0 {
@@ -21,8 +30,7 @@ exports[`Accordion machtes snapshot 1`] = `
   background-color: #fff;
 }
 
-.c1 {
-  padding: 16px;
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -38,19 +46,17 @@ exports[`Accordion machtes snapshot 1`] = `
   cursor: pointer;
 }
 
-.c1:focus {
+.c2:focus {
   outline: none;
 }
 
-.c3 {
-  margin-left: 8px;
-  background-color: #f4f4f4;
+.c5 {
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
 }
 
-.c3 .c4 {
+.c5 .c6 {
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
@@ -59,7 +65,7 @@ exports[`Accordion machtes snapshot 1`] = `
   transition: transform 0.2s ease-in;
 }
 
-.c6 .c4 {
+.c8 .c6 {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
@@ -69,59 +75,51 @@ exports[`Accordion machtes snapshot 1`] = `
 }
 
 @media screen and (min-width:30rem) {
-  .c2 {
+  .c3 {
     font-size: 1.125rem;
   }
 }
 
 @media screen and (min-width:48rem) {
-  .c2 {
+  .c3 {
     font-size: 1.25rem;
   }
 }
 
 @media screen and (min-width:61.25rem) {
-  .c2 {
+  .c3 {
     font-size: 1.25rem;
   }
 }
 
 @media screen and (min-width:90rem) {
-  .c2 {
+  .c3 {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width:30rem) {
-  .c2 {
+  .c3 {
     line-height: 1.5em;
   }
 }
 
 @media screen and (min-width:48rem) {
-  .c2 {
+  .c3 {
     line-height: 1.333em;
   }
 }
 
 @media screen and (min-width:61.25rem) {
-  .c2 {
+  .c3 {
     line-height: 1.333em;
   }
 }
 
 @media screen and (min-width:90rem) {
-  .c2 {
+  .c3 {
     line-height: 1.333em;
   }
-}
-
-@media screen and (min-width:30rem) {
-
-}
-
-@media screen and (min-width:48rem) {
-
 }
 
 @media screen and (min-width:30rem) {
@@ -136,24 +134,32 @@ exports[`Accordion machtes snapshot 1`] = `
   }
 }
 
+@media screen and (min-width:30rem) {
+
+}
+
+@media screen and (min-width:48rem) {
+
+}
+
 <div
   class="c0"
 >
   <div
-    class="c1"
+    class="c1 c2"
     role="button"
     tabindex="0"
   >
     <h3
-      class="c2"
+      class="c3"
     >
       Some Accordion
     </h3>
     <div
-      class="c3"
+      class="c4 c5"
     >
       <svg
-        class="c4 c5"
+        class="c6 c7"
         fill="shades.grey143"
         viewBox="0 0 24 24"
       >

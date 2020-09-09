@@ -59,18 +59,6 @@ test('BreadcrumbsItems without href prop provided render as span element', () =>
   expect(getByText('Item 3').nodeName.toLowerCase()).toEqual('span');
 });
 
-test('BreadcrumbsItems without href render with bold text style', () => {
-  const { getByText } = renderBreadcrumbs();
-
-  expect(window.getComputedStyle(getByText('Item 1')).fontWeight).not.toBe(
-    'bold'
-  );
-  expect(window.getComputedStyle(getByText('Item 2')).fontWeight).not.toBe(
-    'bold'
-  );
-  expect(window.getComputedStyle(getByText('Item 3')).fontWeight).toBe('bold');
-});
-
 test('BreadcrumbsItems render custom link component if provided through props', () => {
   const CustomLink = ({ href, title }: { href: string; title?: string }) => (
     <a href={href} title={title} style={{ color: 'red' }}>
@@ -95,4 +83,12 @@ test('BreadcrumbsItems render custom link component if provided through props', 
   expect(getByText('Item 1').style.color).toBe('red');
   expect(getByText('Item 2').style.color).toBe('red');
   expect(getByText('Item 3').style.color).not.toBe('red');
+});
+
+test('BreadcrumbsItems without href render with bold text style', () => {
+  const { getByText } = renderBreadcrumbs();
+
+  expect(getByText('Item 1')).not.toHaveStyleRule('font-weight', 'bold');
+  expect(getByText('Item 2')).not.toHaveStyleRule('font-weight', 'bold');
+  expect(getByText('Item 3')).toHaveStyleRule('font-weight', 'bold');
 });
