@@ -5,6 +5,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
     type?: InputTypes;
     onReset?: () => void;
     isFocused?: boolean;
+    value?: string;
     defaultValue?: string;
     error?: boolean;
     className?: string;

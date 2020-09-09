@@ -41,21 +41,21 @@ exports[`Button in default state matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -175,21 +175,21 @@ exports[`Button in loading state matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c2 > div,
-.c0:focus :not(:disabled) .c2 > div {
+.c0:hover :not(:disabled) .> div,
+.c0:focus :not(:disabled) .> div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .c2 > div {
+.c0 .> div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -232,7 +232,7 @@ exports[`Button in loading state matches snapshot 1`] = `
   variant="primary"
 >
   <span
-    class="c1 c2 "
+    class="c1 "
   >
     <div />
     <div />
@@ -282,21 +282,21 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -386,21 +386,21 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #2a2a2a;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #2a2a2a;
@@ -491,21 +491,21 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #2a2a2a;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #2a2a2a;
@@ -595,21 +595,21 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #2a2a2a;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #2a2a2a;
@@ -699,21 +699,21 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -803,21 +803,21 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -937,21 +937,21 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .c2 > div,
-.c0:focus :not(:disabled) .c2 > div {
+.c0:hover :not(:disabled) .> div,
+.c0:focus :not(:disabled) .> div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .c2 > div {
+.c0 .> div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
@@ -994,7 +994,7 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   variant="primary"
 >
   <span
-    class="c1 c2 "
+    class="c1 "
   >
     <div />
     <div />
@@ -1044,21 +1044,21 @@ exports[`Small Button matches snapshot 1`] = `
   border-color: #f9423a;
 }
 
-.c0:hover :not(:disabled) .sc-AxirZ > div,
-.c0:focus :not(:disabled) .sc-AxirZ > div {
+.c0:hover :not(:disabled) .sc-gtssRu > div,
+.c0:focus :not(:disabled) .sc-gtssRu > div {
   background-color: white;
 }
 
-.c0:hover :not(:disabled) .sc-AxiKw.sc-AxiKw,
-.c0:focus :not(:disabled) .sc-AxiKw.sc-AxiKw {
+.c0:hover :not(:disabled) .sc-dlnjPT.sc-dlnjPT,
+.c0:focus :not(:disabled) .sc-dlnjPT.sc-dlnjPT {
   fill: white;
 }
 
-.c0 .sc-AxirZ > div {
+.c0 .sc-gtssRu > div {
   background-color: #fff;
 }
 
-.c0 .sc-AxiKw {
+.c0 .sc-dlnjPT {
   -webkit-transition: fill 0.1s ease-in-out;
   transition: fill 0.1s ease-in-out;
   fill: #fff;
