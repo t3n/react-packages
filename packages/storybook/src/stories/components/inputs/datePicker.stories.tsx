@@ -16,7 +16,7 @@ export const DefaultStory = () => {
 
   return (
     <Section>
-      <Box width={1 / 2}>
+      <Box width={[1, 1 / 2]}>
         <DatePicker
           id="test datepicker"
           date={date}
@@ -36,7 +36,7 @@ export const TimePickerStory = () => {
 
   return (
     <Section>
-      <Box width={1 / 2}>
+      <Box width={[1, 1 / 2]}>
         <DatePicker
           id="test datepicker with timepicker"
           withTime
