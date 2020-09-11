@@ -20,6 +20,25 @@ import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 import useIsMobile from '../hooks/useIsMobile';
 
+moment.locale('de');
+moment.updateLocale('de', {
+  months: [
+    'Januar',
+    'Februar',
+    'März',
+    'April',
+    'Mai',
+    'Juni',
+    'Juli',
+    'August',
+    'September',
+    'Oktober',
+    'November',
+    'Dezember',
+  ],
+  weekdaysMin: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
+});
+
 const SingleDatePickerGlobalStyles = createGlobalStyle`
   .SingleDatePickerInput__withBorder {
     border: none;
@@ -169,9 +188,36 @@ const SingleDatePickerGlobalStyles = createGlobalStyle`
     height: 340px;
   }
 
-  .CalendarDay__selected, .CalendarDay__selected:hover {
-    ${({ theme }) => color({ theme, bg: 'background.highlight' })}
-    ${({ theme }) => border({ theme, borderColor: 'brand.red' })}
+  .CalendarDay__selected, .CalendarDay__selected:hover, .CalendarDay__selected:active {
+    ${({ theme }) => {
+      const { backgroundColor } = color({ theme, bg: 'brand.red' });
+      return `background-color: ${backgroundColor} !important;`;
+    }}
+    ${({ theme }) => {
+      const { borderColor } = border({ theme, borderColor: 'brand.red' });
+      return `border-color: ${borderColor} !important;`;
+    }}
+  }
+
+
+  .DayPicker_weekHeader {
+    ${({ theme }) => color({ theme, color: 'shades.grey143' })}
+  }
+
+  .CalendarDay__default {
+    ${({ theme }) => border({ theme, borderColor: 'shades.grey232' })}
+
+    &:hover {
+      ${({ theme }) => border({ theme, borderColor: 'shades.grey232' })}
+      ${({ theme }) => color({ theme, bg: 'shades.grey232' })}
+
+    }
+  }
+
+
+  .CalendarDay__blocked_out_of_range, .CalendarDay__blocked_out_of_range:active, .CalendarDay__blocked_out_of_range:hover {
+    ${({ theme }) => border({ theme, color: 'shades.grey204' })}
+
   }
 `;
 
@@ -179,27 +225,19 @@ const TimeInput: React.FC<{
   name: string;
   value: string | undefined;
   placeholder: string;
+  showValue: boolean;
   onChange: (value: string) => void;
-  date: moment.Moment | null;
-}> = ({ name, value, placeholder, onChange, date }) => {
-  const [isEmpty, setIsEmpty] = useState(true);
-
-  return (
-    <Input
-      name={name}
-      value={date && !isEmpty ? value : ''}
-      type="text"
-      placeholder={placeholder}
-      onChange={(e) => {
-        setIsEmpty(!e.currentTarget.value);
-        onChange(e.currentTarget.value);
-      }}
-      maxLength={2}
-      autoComplete="off"
-      hideReset
-    />
-  );
-};
+}> = ({ name, value, placeholder, onChange, showValue }) => (
+  <Input
+    name={name}
+    value={showValue ? value : ''}
+    type="text"
+    placeholder={placeholder}
+    onChange={(e) => onChange(e.currentTarget.value)}
+    autoComplete="off"
+    hideReset
+  />
+);
 
 const TimePicker: React.FC<{
   focus: boolean;
@@ -207,6 +245,21 @@ const TimePicker: React.FC<{
   onChange: (date: moment.Moment | null) => void;
   onFocusChange: (focus: boolean) => void;
 }> = ({ focus, date, onFocusChange, onChange }) => {
+  const getParsedValue = (value?: string) => {
+    if (!value) {
+      return '';
+    }
+
+    return value.length > 1 ? value : `0${value}`;
+  };
+
+  const parsedHours = getParsedValue(date ? date.get('hours').toString() : '');
+  const parsedMinutes = getParsedValue(
+    date ? date.get('minutes').toString() : ''
+  );
+
+  const showTime = !!(date && (date.get('minutes') || date.get('hours')));
+
   return (
     <Box
       p={['13px', '13px', 4]}
@@ -224,7 +277,7 @@ const TimePicker: React.FC<{
         }}
       >
         <Text mt={0} mb={2} bold>
-          Uhrzeit wählen
+          Uhrzeit
         </Text>
         <Grid mb={3}>
           <GridItem width={[1, 1, 2 / 3]}>
@@ -233,17 +286,24 @@ const TimePicker: React.FC<{
                 <TimeInput
                   name="hours"
                   placeholder="hh"
-                  value={date ? date.get('hours').toString() : ''}
-                  date={date}
-                  onChange={(value) =>
+                  value={parsedHours}
+                  showValue={showTime}
+                  onChange={(value) => {
+                    const parsedValue =
+                      value.length > 2 && value[0] === '0'
+                        ? value.substring(1, 3)
+                        : value.length > 2
+                        ? value.substring(0, 2)
+                        : value;
+
                     onChange(
                       moment(date || moment()).set({
-                        h: value.match(/\b(^$|0?[0-9]|1[0-9]|2[0-3])\b/)
-                          ? parseInt(value, 10)
-                          : 0,
+                        h: parsedValue.match(/\b(^$|0?[0-9]|1[0-9]|2[0-3])\b/)
+                          ? parseInt(parsedValue, 10)
+                          : parseInt(parsedHours, 10) || 0,
                       })
-                    )
-                  }
+                    );
+                  }}
                 />
               </GridItem>
               <GridItem
@@ -261,19 +321,26 @@ const TimePicker: React.FC<{
                 <TimeInput
                   name="minutes"
                   placeholder="mm"
-                  value={date ? date.get('minutes').toString() : ''}
-                  date={date}
-                  onChange={(value) =>
+                  value={parsedMinutes}
+                  showValue={showTime}
+                  onChange={(value) => {
+                    const parsedValue =
+                      value.length > 2 && value[0] === '0'
+                        ? value.substring(1, 3)
+                        : value.length > 2
+                        ? value.substring(0, 2)
+                        : value;
+
                     onChange(
                       moment(date || moment()).set({
-                        m: value.match(
+                        m: parsedValue.match(
                           /\b(^$|0?[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])\b/
                         )
-                          ? parseInt(value, 10)
-                          : 0,
+                          ? parseInt(parsedValue, 10)
+                          : parseInt(parsedMinutes, 10) || 0,
                       })
-                    )
-                  }
+                    );
+                  }}
                 />
               </GridItem>
               <GridItem
@@ -309,7 +376,6 @@ export const DatePicker: React.FC<{
   onChange: (date: moment.Moment | null) => void;
 }> = ({ id, withTime = false, date, onChange }) => {
   const [focus, setFocus] = useState(false);
-
   const isMobile = useIsMobile();
 
   return (
@@ -322,7 +388,14 @@ export const DatePicker: React.FC<{
         keepOpenOnDateSelect={!!withTime}
         numberOfMonths={isMobile ? 1 : 2}
         placeholder="Datum wählen"
-        displayFormat={withTime ? 'DD.MM.YYYY, HH:mm [Uhr]' : 'DD.MM.YYYY'}
+        monthFormat="MMMM YYYY"
+        displayFormat={
+          withTime &&
+          (date?.get('hours').toString() !== '0' ||
+            date?.get('minutes').toString() !== '0')
+            ? 'DD.MM.YYYY, HH:mm [Uhr]'
+            : 'DD.MM.YYYY'
+        }
         renderCalendarInfo={
           withTime
             ? () => {
@@ -342,8 +415,8 @@ export const DatePicker: React.FC<{
           onChange(
             newDate
               ? newDate.set({
-                  h: parseInt('0', 10),
-                  m: parseInt('0', 10),
+                  h: date?.get('hours') || 0,
+                  m: date?.get('minutes') || 0,
                 })
               : null
           )
