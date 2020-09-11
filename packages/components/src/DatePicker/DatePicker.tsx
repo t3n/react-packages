@@ -189,8 +189,14 @@ const SingleDatePickerGlobalStyles = createGlobalStyle`
   }
 
   .CalendarDay__selected, .CalendarDay__selected:hover, .CalendarDay__selected:active {
-    ${({ theme }) => color({ theme, bg: '#f9423a !important' })}
-    ${({ theme }) => border({ theme, borderColor: '#f9423a !important' })}
+    ${({ theme }) => {
+      const { backgroundColor } = color({ theme, bg: 'brand.red' });
+      return `background-color: ${backgroundColor} !important;`;
+    }}
+    ${({ theme }) => {
+      const { borderColor } = border({ theme, borderColor: 'brand.red' });
+      return `border-color: ${borderColor} !important;`;
+    }}
   }
 
 
