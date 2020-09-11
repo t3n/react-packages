@@ -290,9 +290,6 @@ const TimePicker: React.FC<{
                         ? value.substring(0, 2)
                         : value;
 
-                    console.log('value', value);
-                    console.log('parsedValue', parsedValue);
-
                     onChange(
                       moment(date || moment()).set({
                         h: parsedValue.match(/\b(^$|0?[0-9]|1[0-9]|2[0-3])\b/)
