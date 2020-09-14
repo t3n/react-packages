@@ -192,18 +192,19 @@ export const UserMenu: React.FC<UserMenuProps> = ({
         {itemGroups &&
           itemGroups.map((group, idx) => {
             return (
-              <>
-                {group.item.map((item) => {
+              // eslint-disable-next-line react/no-array-index-key
+              <React.Fragment key={idx}>
+                {group.item.map((item, index) => {
                   return loading ? (
                     // eslint-disable-next-line react/no-array-index-key
-                    <Placeholder key={idx} height="21px" my={[1, 2]} mx={3} />
+                    <Placeholder key={index} height="21px" my={[1, 2]} mx={3} />
                   ) : (
                     // eslint-disable-next-line react/no-array-index-key
-                    <UserMenuListItem key={idx}>{item}</UserMenuListItem>
+                    <UserMenuListItem key={index}>{item}</UserMenuListItem>
                   );
                 })}
                 <UserMenuListDivider />
-              </>
+              </React.Fragment>
             );
           })}
 
