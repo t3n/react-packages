@@ -5,6 +5,9 @@ exports[`Punchline machtes snapshot 1`] = `
   font-family: "adelle-sans",sans-serif;
   font-size: 1.5rem;
   line-height: 1.333em;
+}
+
+.c1 {
   font-size: 2.5rem;
   text-align: left;
   line-height: 1.5em;
@@ -64,46 +67,46 @@ exports[`Punchline machtes snapshot 1`] = `
 }
 
 @media screen and (min-width:30rem) {
-  .c0 {
+  .c1 {
     font-size: 3rem;
     line-height: 1.5em;
   }
 }
 
 @media screen and (min-width:48rem) {
-  .c0 {
+  .c1 {
     font-size: 3.5rem;
     line-height: 1.6em;
   }
 }
 
 @media screen and (min-width:61.25rem) {
-  .c0 {
+  .c1 {
     font-size: 4rem;
     line-height: 1.6em;
   }
 }
 
 @media screen and (min-width:30rem) {
-  .c0 {
+  .c1 {
     padding-bottom: 0;
   }
 }
 
 @media screen and (min-width:48rem) {
-  .c0 {
+  .c1 {
     padding-bottom: 4px;
   }
 }
 
 @media screen and (min-width:61.25rem) {
-  .c0 {
+  .c1 {
     padding-bottom: 4px;
   }
 }
 
 <h1
-  class="c0"
+  class="c0 c1"
 >
   Test
 </h1>

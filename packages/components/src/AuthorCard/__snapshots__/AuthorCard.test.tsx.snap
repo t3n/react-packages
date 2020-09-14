@@ -46,14 +46,14 @@ exports[`Author Card matches snapshot 1`] = `
   transform: translate3d(0,-2px,0);
 }
 
-.c0 .sc-AxhCb {
+.c0 .sc-hKFyIo {
   margin-left: -24px;
   margin-right: -24px;
   margin-top: -24px;
   margin-bottom: 24px;
 }
 
-.c0 .sc-AxhCb .sc-AxirZ {
+.c0 .sc-hKFyIo .sc-gtssRu {
   padding: 16px;
 }
 
@@ -92,7 +92,7 @@ exports[`Author Card matches snapshot 1`] = `
 }
 
 @media screen and (min-width:30rem) {
-  .c0 .sc-AxhCb .sc-AxirZ {
+  .c0 .sc-hKFyIo .sc-gtssRu {
     padding: 24px;
   }
 }
