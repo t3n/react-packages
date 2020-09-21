@@ -196,8 +196,13 @@ export const UserMenu: React.FC<UserMenuProps> = ({
               <React.Fragment key={idx}>
                 {group.item.map((item, index) => {
                   return loading ? (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <Placeholder key={index} height="21px" my={[1, 2]} mx={3} />
+                    <Placeholder
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={`placeholder-${index}`}
+                      height="21px"
+                      my={[1, 2]}
+                      mx={3}
+                    />
                   ) : (
                     // eslint-disable-next-line react/no-array-index-key
                     <UserMenuListItem key={index}>{item}</UserMenuListItem>
