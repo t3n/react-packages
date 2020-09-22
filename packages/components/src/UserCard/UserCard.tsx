@@ -197,13 +197,11 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
   );
 };
 
-export const UserCard: React.FC<UserCardProps> = ({
-  user,
-  link,
-  compact,
-  secondary,
-}) => {
-  const content = (
+const UserCardContent: React.FC<Pick<
+  UserCardProps,
+  'user' | 'link' | 'secondary'
+>> = ({ user, link, secondary }) => {
+  return (
     <>
       <Text bold mt={0} mb={0}>
         {link?.url ? (
@@ -255,16 +253,23 @@ export const UserCard: React.FC<UserCardProps> = ({
       )}
     </>
   );
+};
 
+export const UserCard: React.FC<UserCardProps> = ({
+  user,
+  link,
+  compact,
+  secondary,
+}) => {
   return (
     <StyledCard href={!link?.fullCard || !link?.url ? undefined : link?.url}>
       {compact ? (
         <CompactUserCard user={user} link={link}>
-          {content}
+          <UserCardContent user={user} link={link} secondary={secondary} />
         </CompactUserCard>
       ) : (
         <DefaultUserCard user={user} link={link}>
-          {content}
+          <UserCardContent user={user} link={link} secondary={secondary} />
         </DefaultUserCard>
       )}
     </StyledCard>
