@@ -240,30 +240,18 @@ export const UserCard: React.FC<UserCardProps> = ({
     </>
   );
 
-  if (
-    !link ||
-    !link.wholeCardLinked ||
-    user.email ||
-    user.phone ||
-    (Array.isArray(user.socialLinks) && user.socialLinks.length)
-  ) {
-    return (
-      <StyledCard>
-        {compact ? (
-          <CompactUserCard user={user} link={link}>
-            {content}
-          </CompactUserCard>
-        ) : (
-          <DefaultUserCard user={user} link={link}>
-            {content}
-          </DefaultUserCard>
-        )}
-      </StyledCard>
-    );
-  }
-
   return (
-    <StyledCard href={link?.url}>
+    <StyledCard
+      href={
+        !link ||
+        !link.wholeCardLinked ||
+        user.email ||
+        user.phone ||
+        (Array.isArray(user.socialLinks) && user.socialLinks.length)
+          ? link?.url
+          : undefined
+      }
+    >
       {compact ? (
         <CompactUserCard user={user} link={link}>
           {content}
