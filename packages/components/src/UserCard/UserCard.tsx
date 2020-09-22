@@ -105,7 +105,7 @@ export type UserCardProps = {
     socialLinks: SocialLink[];
   };
   link?: {
-    wholeCardLinked?: boolean;
+    fullCard?: boolean;
     url?: string;
     target?: string;
     title?: string;
@@ -116,13 +116,18 @@ export type UserCardProps = {
 
 type SocialLinksProps = {
   links: SocialLink[];
+  cardLinked?: boolean;
 };
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
+const SocialLinks: React.FC<SocialLinksProps> = ({ links, cardLinked }) => {
   return (
     <SocialLinksBox mt={2} display="flex">
       {links.map((link) => (
-        <SocialButton key={link.type} href={link.url} target="_blank">
+        <SocialButton
+          key={link.type}
+          href={cardLinked ? undefined : link.url}
+          target="_blank"
+        >
           {link.type === 'XING' ? (
             <SocialXing fill="#9b9b9b" />
           ) : link.type === 'LINKEDIN' ? (
@@ -223,35 +228,36 @@ export const UserCard: React.FC<UserCardProps> = ({
         </StyledBadge>
       )}
       {user.email && (
-        <StyledLink href={`mailto:${user.email}`}>
+        <StyledLink
+          href={
+            link?.url && link?.fullCard ? undefined : `mailto:${user.email}`
+          }
+        >
           <Text mt={2} mb={0} secondary={!!secondary}>
             {user.email}
           </Text>
         </StyledLink>
       )}
       {user.phone && (
-        <StyledLink href={`tel:${user.phone}`}>
+        <StyledLink
+          href={link?.url && link?.fullCard ? undefined : `tel:${user.phone}`}
+        >
           <Text mt={1} mb={0} secondary={!!secondary}>
             {user.phone}
           </Text>
         </StyledLink>
       )}
-      {user.socialLinks.length > 0 && <SocialLinks links={user.socialLinks} />}
+      {user.socialLinks.length > 0 && (
+        <SocialLinks
+          links={user.socialLinks}
+          cardLinked={(link?.url && link?.fullCard) || false}
+        />
+      )}
     </>
   );
 
   return (
-    <StyledCard
-      href={
-        !link ||
-        !link.wholeCardLinked ||
-        user.email ||
-        user.phone ||
-        (Array.isArray(user.socialLinks) && user.socialLinks.length)
-          ? link?.url
-          : undefined
-      }
-    >
+    <StyledCard href={!link?.fullCard || !link?.url ? undefined : link?.url}>
       {compact ? (
         <CompactUserCard user={user} link={link}>
           {content}

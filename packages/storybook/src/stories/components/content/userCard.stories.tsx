@@ -257,6 +257,7 @@ export const defaultStory = () => {
       ],
     },
     link: {
+      fullCard: boolean('Ganze Card verlinkt', true, 'user'),
       url: text(
         'Pioneers Network Profil',
         'https://t3n.de/pioneers/profile/bjoern.assmann/',
@@ -444,7 +445,7 @@ export const wholeCardLinked = () => {
       socialLinks: [],
     },
     link: {
-      wholeCardLinked: boolean('Ganze Card verlinkt', true, 'user'),
+      fullCard: boolean('Ganze Card verlinkt', true, 'user'),
       url: text(
         'Link',
         'https://t3n.de/pioneers/profile/bjoern.assmann/',

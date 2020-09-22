@@ -16,7 +16,7 @@ export declare type UserCardProps = {
         socialLinks: SocialLink[];
     };
     link?: {
-        wholeCardLinked?: boolean;
+        fullCard?: boolean;
         url?: string;
         target?: string;
         title?: string;
