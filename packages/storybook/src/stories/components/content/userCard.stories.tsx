@@ -444,6 +444,7 @@ export const wholeCardLinked = () => {
       socialLinks: [],
     },
     link: {
+      wholeCardLinked: boolean('Ganze Card verlinkt', true, 'user'),
       url: text(
         'Link',
         'https://t3n.de/pioneers/profile/bjoern.assmann/',

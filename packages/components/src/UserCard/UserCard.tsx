@@ -105,6 +105,7 @@ export type UserCardProps = {
     socialLinks: SocialLink[];
   };
   link?: {
+    wholeCardLinked?: boolean;
     url?: string;
     target?: string;
     title?: string;
@@ -241,6 +242,7 @@ export const UserCard: React.FC<UserCardProps> = ({
 
   if (
     !link ||
+    !link.wholeCardLinked ||
     user.email ||
     user.phone ||
     (Array.isArray(user.socialLinks) && user.socialLinks.length)
