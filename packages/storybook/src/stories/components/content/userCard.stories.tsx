@@ -257,6 +257,7 @@ export const defaultStory = () => {
       ],
     },
     link: {
+      fullCard: boolean('Ganze Card verlinkt', true, 'user'),
       url: text(
         'Pioneers Network Profil',
         'https://t3n.de/pioneers/profile/bjoern.assmann/',
@@ -428,4 +429,46 @@ export const variantStory = () => {
 
 variantStory.story = {
   name: 'Varianten',
+};
+
+export const wholeCardLinked = () => {
+  const minimalUser: Pick<UserCardProps, 'user' | 'link'> = {
+    user: {
+      id: 1,
+      name: text('Name', 'Björn Assmann', 'user'),
+      avatarUrl: text(
+        'Avatar URL',
+        'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
+        'user'
+      ),
+      position: text('Position', 'Geschäftsführer | CFO', 'user'),
+      socialLinks: [],
+    },
+    link: {
+      fullCard: boolean('Ganze Card verlinkt', true, 'user'),
+      url: text(
+        'Link',
+        'https://t3n.de/pioneers/profile/bjoern.assmann/',
+        'user'
+      ),
+      title: text('URL Title', 'Pioneers Profil', 'user'),
+    },
+  };
+
+  return (
+    <Grid justifyContent="center">
+      <GridItem width={[1, 1, 2 / 5]}>
+        <UserCard
+          compact={boolean('Compact', false, 'card')}
+          user={minimalUser.user}
+          link={minimalUser.link}
+          secondary={boolean('Secondary', false, 'card')}
+        />
+      </GridItem>
+    </Grid>
+  );
+};
+
+defaultStory.story = {
+  name: 'Default',
 };
