@@ -260,16 +260,19 @@ export const UserCard: React.FC<UserCardProps> = ({
   link,
   compact,
   secondary,
+  children,
 }) => {
   return (
     <StyledCard href={!link?.fullCard || !link?.url ? undefined : link?.url}>
       {compact ? (
         <CompactUserCard user={user} link={link}>
           <UserCardContent user={user} link={link} secondary={secondary} />
+          {children}
         </CompactUserCard>
       ) : (
         <DefaultUserCard user={user} link={link}>
           <UserCardContent user={user} link={link} secondary={secondary} />
+          {children}
         </DefaultUserCard>
       )}
     </StyledCard>
