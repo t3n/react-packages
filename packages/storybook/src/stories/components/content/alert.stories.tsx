@@ -26,7 +26,7 @@ export const defaultStory = () => (
       <AlertText>Dies ist eine Erolgsmeldung</AlertText>
     </Alert>
     <Alert status="notice" m={2}>
-      <AlertText>Merke dir dies und das!</AlertText>
+      <AlertText>Merke dir dies und jenes!</AlertText>
     </Alert>
     <Alert status="warning" m={2}>
       <AlertText>Dies ist eine Warnung!</AlertText>
