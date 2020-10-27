@@ -4,5 +4,6 @@ export interface ConfirmDialogProps extends ModalProps {
     onConfirm: () => void;
     buttonLabel: string;
     buttonDisabled?: boolean;
+    loading?: boolean;
 }
 export declare const ConfirmDialog: React.FC<ConfirmDialogProps>;
