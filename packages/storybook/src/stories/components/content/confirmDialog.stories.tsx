@@ -28,6 +28,7 @@ export const defaultStory = () => {
             setModalOpen(false);
           }}
           buttonLabel={text('Button-Label', 'Klick')}
+          wide={boolean('Wide', false)}
           loading={boolean('Lädt', false)}
         >
           {text(
@@ -131,4 +132,35 @@ export const loadingStory = () => {
 
 loadingStory.story = {
   name: 'Loading',
+};
+
+export const widthStory = () => {
+  const [modalOpen, setModalOpen] = useState(true);
+
+  return (
+    <>
+      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
+
+      {modalOpen && (
+        <ConfirmDialog
+          onClose={() => setModalOpen(false)}
+          headline="Willst du das Internet wirklich löschen?"
+          onConfirm={() => {
+            alert('Du hast das Internet gelöscht :(');
+            setModalOpen(false);
+          }}
+          buttonLabel="Löschen"
+          loading
+          width={[1 / 2, 1 / 4, 1 / 5]}
+        >
+          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
+          anschauen. Die Löschung des Internets ist unwiderruflich.
+        </ConfirmDialog>
+      )}
+    </>
+  );
+};
+
+widthStory.story = {
+  name: 'Width',
 };
