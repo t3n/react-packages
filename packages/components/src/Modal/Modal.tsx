@@ -1,33 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { WidthProps } from 'styled-system';
+
 import { MaterialClear } from '@t3n/icons';
-import { theme, ThemeProps } from '@t3n/theme';
+import { theme } from '@t3n/theme';
+
 import { Card } from '../Card';
 import { Box } from '../Box';
 import { Heading } from '../Heading';
 
-export interface ModalProps {
+export interface ModalProps extends WidthProps {
   headline: string;
   wide?: boolean;
-  width?: string | number[];
   onClose: () => void;
 }
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled(Box)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 200;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
-    align-items: flex-end;
-  }
 `;
 
 const ModalBackdrop = styled.div`
@@ -47,6 +41,8 @@ const StyledModal = styled(Card)<{ wide: boolean }>`
   overflow: auto;
   margin-bottom: 0;
   max-width: 35rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 
   ${({ wide }) =>
     wide &&
@@ -94,13 +90,17 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 export const Modal: React.FC<ModalProps> = ({
   headline,
   wide = false,
-  width,
+  width: widthProp,
   onClose,
   children,
 }) => {
   return (
-    <ModalWrapper>
-      <StyledModal elevate wide={wide} width={width || [1, 2 / 3, 2 / 5]}>
+    <ModalWrapper
+      display="flex"
+      justifyContent="center"
+      alignItems={['flex-end', 'center']}
+    >
+      <StyledModal elevate wide={wide} width={widthProp || [1, 2 / 3, 2 / 5]}>
         <CloseIcon onClick={onClose} />
         <StyledHeading styleAs="h4" as="h4" mt={1} mb={3}>
           {headline}

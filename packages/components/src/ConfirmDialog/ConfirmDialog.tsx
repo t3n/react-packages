@@ -10,8 +10,6 @@ export interface ConfirmDialogProps extends ModalProps {
   buttonLabel: string;
   buttonDisabled?: boolean;
   loading?: boolean;
-  wide?: boolean;
-  width?: string | number[];
 }
 
 const StyledButtonBox = styled(Box)`
@@ -28,12 +26,17 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   buttonLabel,
   buttonDisabled,
   loading,
-  wide,
-  width,
+  wide: modalPropWide,
+  width: modalPropWidth,
   children,
 }) => {
   return (
-    <Modal headline={headline} wide={wide} width={width} onClose={onClose}>
+    <Modal
+      headline={headline}
+      wide={modalPropWide}
+      width={modalPropWidth}
+      onClose={onClose}
+    >
       {children}
       <StyledButtonBox display="flex" justifyContent="flex-end" mt={3}>
         <Button
