@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-alert */
 import React from 'react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { Button, ConfirmDialog } from '@t3n/components';
 import { useState } from '@storybook/addons';
 import { storyContainerDecorator } from '../../../utils/decorators';
@@ -28,6 +28,7 @@ export const defaultStory = () => {
             setModalOpen(false);
           }}
           buttonLabel={text('Button-Label', 'Klick')}
+          loading={boolean('Lädt', false)}
         >
           {text(
             'Inhalt',
@@ -100,4 +101,34 @@ export const disabledStory = () => {
 
 disabledStory.story = {
   name: 'Disabled Button',
+};
+
+export const loadingStory = () => {
+  const [modalOpen, setModalOpen] = useState(true);
+
+  return (
+    <>
+      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
+
+      {modalOpen && (
+        <ConfirmDialog
+          onClose={() => setModalOpen(false)}
+          headline="Willst du das Internet wirklich löschen?"
+          onConfirm={() => {
+            alert('Du hast das Internet gelöscht :(');
+            setModalOpen(false);
+          }}
+          buttonLabel="Löschen"
+          loading
+        >
+          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
+          anschauen. Die Löschung des Internets ist unwiderruflich.
+        </ConfirmDialog>
+      )}
+    </>
+  );
+};
+
+loadingStory.story = {
+  name: 'Loading',
 };
