@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { MaterialClear } from '@t3n/icons';
 import { theme, ThemeProps } from '@t3n/theme';
 import { Card } from '../Card';
@@ -8,6 +8,8 @@ import { Heading } from '../Heading';
 
 export interface ModalProps {
   headline: string;
+  wide?: boolean;
+  width?: string | number[];
   onClose: () => void;
 }
 
@@ -37,7 +39,7 @@ const ModalBackdrop = styled.div`
   background: rgba(0, 0, 0, 0.6);
 `;
 
-const StyledModal = styled(Card)`
+const StyledModal = styled(Card)<{ wide: boolean }>`
   position: relative;
   overflow: inherit;
   z-index: 1;
@@ -45,6 +47,12 @@ const StyledModal = styled(Card)`
   overflow: auto;
   margin-bottom: 0;
   max-width: 35rem;
+
+  ${({ wide }) =>
+    wide &&
+    css`
+      width: 720px;
+    `}
 `;
 
 const StyledHeading = styled(Heading)`
@@ -84,12 +92,14 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
 export const Modal: React.FC<ModalProps> = ({
   headline,
+  wide = false,
+  width,
   onClose,
   children,
 }) => {
   return (
     <ModalWrapper>
-      <StyledModal elevate width={[1, 2 / 3, 2 / 5]}>
+      <StyledModal elevate wide={wide} width={width || [1, 2 / 3, 2 / 5]}>
         <CloseIcon onClick={onClose} />
         <StyledHeading styleAs="h4" as="h4" mt={1} mb={3}>
           {headline}

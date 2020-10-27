@@ -28,6 +28,7 @@ export const defaultStory = () => {
             setModalOpen(false);
           }}
           buttonLabel={text('Button-Label', 'Klick')}
+          wide={boolean('Wide', false)}
           loading={boolean('Lädt', false)}
         >
           {text(
