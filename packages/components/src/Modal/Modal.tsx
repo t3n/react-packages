@@ -51,7 +51,8 @@ const StyledModal = styled(Card)<{ wide: boolean }>`
   ${({ wide }) =>
     wide &&
     css`
-      width: 720px;
+      width: 100%;
+      max-width: 720px;
     `}
 `;
 
