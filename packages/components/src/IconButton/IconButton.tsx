@@ -29,10 +29,9 @@ export interface IconButtonProps
   color?: IconButtonColorVariant;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   as?: IconButtonAsType;
-  title: string;
+  label?: string;
   loading?: boolean;
   alwaysShowText?: boolean;
-  iconOnly?: boolean;
 }
 
 const buildColorVariants = (
@@ -218,15 +217,15 @@ export const iconButtonStyles = css`
     max-width: 100vw;
   }
 
-  ${({ iconOnly }) =>
-    iconOnly &&
+  ${({ label }) =>
+    !label &&
     css`
       transition: all 0.1s;
     `}
 `;
 
 const StyledIconButton = styled(
-  ({ alwaysShowText, iconOnly, icon, loading, ...rest }: IconButtonProps) => (
+  ({ alwaysShowText, icon, loading, ...rest }: IconButtonProps) => (
     // eslint-disable-next-line react/button-has-type
     <button {...rest} />
   )
@@ -250,7 +249,7 @@ const getButtonSize = (
 export const IconButton: React.FC<IconButtonProps> = ({
   children,
   loading,
-  title,
+  label,
   icon,
   size,
   href,
@@ -258,7 +257,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
   onClick,
   disabled,
   alwaysShowText = false,
-  iconOnly = false,
   ...rest
 }) => (
   <StyledIconButton
@@ -267,8 +265,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
     size={size}
     icon={icon}
     alwaysShowText={alwaysShowText}
-    iconOnly={iconOnly}
-    title={title}
+    label={label}
     loading={loading}
     disabled={loading || disabled}
     onClick={(e: any) => onClick && onClick(e)}
@@ -286,7 +283,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
           width={getButtonSize(size)}
           height={getButtonSize(size)}
         />
-        {!iconOnly && <span className="icon-button_text">{title}</span>}
+        {label && <span className="icon-button_text">{label}</span>}
       </>
     )}
   </StyledIconButton>

@@ -12,7 +12,7 @@ import {
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/IconButton',
+  title: 'Components|Inputs/IconButton',
   component: IconButton,
   decorators: [withKnobs, storyContainerDecorator],
 };
@@ -45,12 +45,11 @@ export const defaultStory = () => {
   return (
     <IconButton
       icon={icons[iconOption]}
-      title={text('Titel', 'Speichern')}
+      label={text('Label', 'Speichern')}
       alwaysShowText={boolean('Always show text', false)}
       size={select<SizesType>('Size', ['regular', 'small', 'big'], 'regular')}
       as={select<AsType>('As', ['button', 'a'], 'button')}
       loading={boolean('Loading', false)}
-      iconOnly={boolean('Icon only', false)}
       variant={select<VariantType>(
         'Variant',
         ['primary', 'secondary'],
@@ -75,13 +74,13 @@ export const variants = () => (
       <H3>Primär</H3>
       <Grid>
         <GridItem width={1 / 3}>
-          <IconButton icon={MaterialCheck} title="Speichern" size="small" />
+          <IconButton icon={MaterialCheck} label="Speichern" size="small" />
         </GridItem>
         <GridItem width={1 / 3}>
-          <IconButton icon={MaterialCheck} title="Speichern" size="regular" />
+          <IconButton icon={MaterialCheck} label="Speichern" size="regular" />
         </GridItem>
         <GridItem width={1 / 3}>
-          <IconButton icon={MaterialCheck} title="Speichern" size="big" />
+          <IconButton icon={MaterialCheck} label="Speichern" size="big" />
         </GridItem>
       </Grid>
       <H3>Sekundär</H3>
@@ -89,7 +88,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             variant="secondary"
             size="small"
           />
@@ -97,7 +96,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             variant="secondary"
             size="regular"
           />
@@ -105,7 +104,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             variant="secondary"
             size="big"
           />
@@ -116,13 +115,13 @@ export const variants = () => (
       <H3>Primär</H3>
       <Grid>
         <GridItem width={1 / 3}>
-          <IconButton icon={MaterialCheck} title="Speichern" size="small" />
+          <IconButton icon={MaterialCheck} label="Speichern" size="small" />
         </GridItem>
         <GridItem width={1 / 3}>
-          <IconButton icon={MaterialCheck} title="Speichern" size="regular" />
+          <IconButton icon={MaterialCheck} label="Speichern" size="regular" />
         </GridItem>
         <GridItem width={1 / 3}>
-          <IconButton icon={MaterialCheck} title="Speichern" size="big" />
+          <IconButton icon={MaterialCheck} label="Speichern" size="big" />
         </GridItem>
       </Grid>
       <H3>Sekundär</H3>
@@ -130,7 +129,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             variant="secondary"
             size="small"
           />
@@ -138,7 +137,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             variant="secondary"
             size="regular"
           />
@@ -146,7 +145,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             variant="secondary"
             size="big"
           />
@@ -159,7 +158,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="inverse"
             size="small"
           />
@@ -167,7 +166,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="inverse"
             size="regular"
           />
@@ -175,7 +174,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="inverse"
             size="big"
           />
@@ -186,7 +185,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="inverse"
             variant="secondary"
             size="small"
@@ -195,7 +194,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="inverse"
             variant="secondary"
             size="regular"
@@ -204,7 +203,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="inverse"
             variant="secondary"
             size="big"
@@ -218,7 +217,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="highlight"
             size="small"
           />
@@ -226,7 +225,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="highlight"
             size="regular"
           />
@@ -234,7 +233,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="highlight"
             size="big"
           />
@@ -245,7 +244,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="highlight"
             variant="secondary"
             size="small"
@@ -254,7 +253,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="highlight"
             variant="secondary"
             size="regular"
@@ -263,7 +262,7 @@ export const variants = () => (
         <GridItem width={1 / 3}>
           <IconButton
             icon={MaterialCheck}
-            title="Speichern"
+            label="Speichern"
             color="highlight"
             variant="secondary"
             size="big"
@@ -288,7 +287,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               size="small"
             />
           </GridItem>
@@ -296,7 +295,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               size="regular"
             />
           </GridItem>
@@ -304,7 +303,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               size="big"
             />
           </GridItem>
@@ -315,7 +314,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               variant="secondary"
               size="small"
             />
@@ -324,7 +323,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               variant="secondary"
               size="regular"
             />
@@ -333,7 +332,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               variant="secondary"
               size="big"
             />
@@ -347,7 +346,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               size="small"
             />
           </GridItem>
@@ -355,7 +354,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               size="regular"
             />
           </GridItem>
@@ -363,7 +362,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               size="big"
             />
           </GridItem>
@@ -374,7 +373,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               variant="secondary"
               size="small"
             />
@@ -383,7 +382,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               variant="secondary"
               size="regular"
             />
@@ -392,7 +391,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               variant="secondary"
               size="big"
             />
@@ -406,7 +405,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="inverse"
               size="small"
             />
@@ -415,7 +414,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="inverse"
               size="regular"
             />
@@ -424,7 +423,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="inverse"
               size="big"
             />
@@ -436,7 +435,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="inverse"
               variant="secondary"
               size="small"
@@ -446,7 +445,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="inverse"
               variant="secondary"
               size="regular"
@@ -456,7 +455,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="inverse"
               variant="secondary"
               size="big"
@@ -471,7 +470,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="highlight"
               size="small"
             />
@@ -480,7 +479,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="highlight"
               size="regular"
             />
@@ -489,7 +488,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="highlight"
               size="big"
             />
@@ -501,7 +500,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="highlight"
               variant="secondary"
               size="small"
@@ -511,7 +510,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="highlight"
               variant="secondary"
               size="regular"
@@ -521,7 +520,7 @@ export const loadingStory = () => {
             <IconButton
               loading
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               color="highlight"
               variant="secondary"
               size="big"
@@ -544,58 +543,29 @@ export const iconOnlyStory = () => {
         <H3>Primär</H3>
         <Grid>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              size="small"
-            />
+            <IconButton icon={MaterialCheck} size="small" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              size="regular"
-            />
+            <IconButton icon={MaterialCheck} size="regular" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              size="big"
-            />
+            <IconButton icon={MaterialCheck} size="big" />
           </GridItem>
         </Grid>
         <H3>Sekundär</H3>
         <Grid>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              variant="secondary"
-              size="small"
-            />
+            <IconButton icon={MaterialCheck} variant="secondary" size="small" />
           </GridItem>
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               variant="secondary"
               size="regular"
             />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              variant="secondary"
-              size="big"
-            />
+            <IconButton icon={MaterialCheck} variant="secondary" size="big" />
           </GridItem>
         </Grid>
       </Section>
@@ -603,58 +573,29 @@ export const iconOnlyStory = () => {
         <H3>Primär</H3>
         <Grid>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              size="small"
-            />
+            <IconButton icon={MaterialCheck} size="small" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              size="regular"
-            />
+            <IconButton icon={MaterialCheck} size="regular" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              size="big"
-            />
+            <IconButton icon={MaterialCheck} size="big" />
           </GridItem>
         </Grid>
         <H3>Sekundär</H3>
         <Grid>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              variant="secondary"
-              size="small"
-            />
+            <IconButton icon={MaterialCheck} variant="secondary" size="small" />
           </GridItem>
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               variant="secondary"
               size="regular"
             />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              variant="secondary"
-              size="big"
-            />
+            <IconButton icon={MaterialCheck} variant="secondary" size="big" />
           </GridItem>
         </Grid>
       </Section>
@@ -662,31 +603,13 @@ export const iconOnlyStory = () => {
         <H3>Primär</H3>
         <Grid>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              color="inverse"
-              size="small"
-            />
+            <IconButton icon={MaterialCheck} color="inverse" size="small" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              color="inverse"
-              size="regular"
-            />
+            <IconButton icon={MaterialCheck} color="inverse" size="regular" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              color="inverse"
-              size="big"
-            />
+            <IconButton icon={MaterialCheck} color="inverse" size="big" />
           </GridItem>
         </Grid>
         <H3>Sekundär</H3>
@@ -694,8 +617,6 @@ export const iconOnlyStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               color="inverse"
               variant="secondary"
               size="small"
@@ -704,8 +625,6 @@ export const iconOnlyStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               color="inverse"
               variant="secondary"
               size="regular"
@@ -714,8 +633,6 @@ export const iconOnlyStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               color="inverse"
               variant="secondary"
               size="big"
@@ -727,31 +644,13 @@ export const iconOnlyStory = () => {
         <H3>Primär</H3>
         <Grid>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              color="highlight"
-              size="small"
-            />
+            <IconButton icon={MaterialCheck} color="highlight" size="small" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              color="highlight"
-              size="regular"
-            />
+            <IconButton icon={MaterialCheck} color="highlight" size="regular" />
           </GridItem>
           <GridItem width={1 / 3}>
-            <IconButton
-              icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
-              color="highlight"
-              size="big"
-            />
+            <IconButton icon={MaterialCheck} color="highlight" size="big" />
           </GridItem>
         </Grid>
         <H3>Sekundär</H3>
@@ -759,8 +658,6 @@ export const iconOnlyStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               color="highlight"
               variant="secondary"
               size="small"
@@ -769,8 +666,6 @@ export const iconOnlyStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               color="highlight"
               variant="secondary"
               size="regular"
@@ -779,8 +674,6 @@ export const iconOnlyStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
-              iconOnly
               color="highlight"
               variant="secondary"
               size="big"
@@ -805,7 +698,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               size="small"
             />
@@ -813,7 +706,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               size="regular"
             />
@@ -821,7 +714,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               size="big"
             />
@@ -832,7 +725,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               variant="secondary"
               size="small"
@@ -841,7 +734,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               variant="secondary"
               size="regular"
@@ -850,7 +743,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               variant="secondary"
               size="big"
@@ -864,7 +757,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               size="small"
             />
@@ -872,7 +765,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               size="regular"
             />
@@ -880,7 +773,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               size="big"
             />
@@ -891,7 +784,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               variant="secondary"
               size="small"
@@ -900,7 +793,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               variant="secondary"
               size="regular"
@@ -909,7 +802,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               variant="secondary"
               size="big"
@@ -923,7 +816,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="inverse"
               size="small"
@@ -932,7 +825,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="inverse"
               size="regular"
@@ -941,7 +834,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="inverse"
               size="big"
@@ -953,7 +846,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="inverse"
               variant="secondary"
@@ -963,7 +856,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="inverse"
               variant="secondary"
@@ -973,7 +866,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="inverse"
               variant="secondary"
@@ -988,7 +881,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="highlight"
               size="small"
@@ -997,7 +890,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="highlight"
               size="regular"
@@ -1006,7 +899,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="highlight"
               size="big"
@@ -1018,7 +911,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="highlight"
               variant="secondary"
@@ -1028,7 +921,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="highlight"
               variant="secondary"
@@ -1038,7 +931,7 @@ export const alwaysShowTextStory = () => {
           <GridItem width={1 / 3}>
             <IconButton
               icon={MaterialCheck}
-              title="Speichern"
+              label="Speichern"
               alwaysShowText
               color="highlight"
               variant="secondary"

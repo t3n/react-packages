@@ -11,10 +11,9 @@ export interface IconButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorH
     color?: IconButtonColorVariant;
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     as?: IconButtonAsType;
-    title: string;
+    label?: string;
     loading?: boolean;
     alwaysShowText?: boolean;
-    iconOnly?: boolean;
 }
 export declare const iconButtonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & IconButtonProps, any>>;
 export declare const IconButton: React.FC<IconButtonProps>;
