@@ -20,20 +20,32 @@ export type IconButtonVariant = 'primary' | 'secondary';
 export type IconButtonColorVariant = 'default' | 'inverse' | 'highlight';
 export type IconButtonSizeVariant = 'small' | 'regular' | 'big';
 
-export interface IconButtonProps
-  extends ButtonHTMLAttributes<any>,
-    Omit<AnchorHTMLAttributes<any>, 'type'>,
-    MarginProps,
-    WidthProps {
+interface IconButtonBaseProps extends MarginProps, WidthProps {
   size?: IconButtonSizeVariant;
   variant?: IconButtonVariant;
   colorVariant?: IconButtonColorVariant;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  as?: IconButtonAsType;
   label?: string;
   loading?: boolean;
   expanded?: boolean;
 }
+
+interface IconButtonButtonTypeProps
+  extends IconButtonBaseProps,
+    ButtonHTMLAttributes<any> {
+  as?: 'button';
+}
+
+interface IconButtonATypeProps
+  extends IconButtonBaseProps,
+    Omit<AnchorHTMLAttributes<any>, 'type'> {
+  as?: 'a';
+}
+
+export type IconButtonProps = IconButtonATypeProps | IconButtonButtonTypeProps;
+
+const isATypeProps = (props: IconButtonProps): props is IconButtonATypeProps =>
+  props.as === 'a';
 
 const buildColorVariants = (
   variantProp: IconButtonVariant,
@@ -91,8 +103,11 @@ export const iconButtonStyles = css`
       theme,
     })};
 
-  ${({ disabled, loading }: IconButtonProps) =>
-    disabled || loading ? 'cursor: no-drop' : 'cursor: pointer'};
+  ${(props: IconButtonProps) => {
+    return (!isATypeProps(props) && props.disabled) || props.loading
+      ? 'cursor: no-drop'
+      : 'cursor: pointer';
+  }};
 
   /* We have to provide a value for every breakpoint because of specificity
      of line-height from textStyle */
@@ -254,46 +269,53 @@ const getButtonSize = (
   }
 };
 
-export const IconButton: React.FC<IconButtonProps> = ({
-  children,
-  loading,
-  label,
-  icon,
-  size,
-  href,
-  as,
-  disabled,
-  expanded = false,
-  ...rest
-}) => (
-  <StyledIconButton
-    href={href}
-    as={href ? 'a' : as}
-    size={size}
-    icon={icon}
-    expanded={expanded}
-    label={label}
-    loading={loading}
-    disabled={loading || disabled}
-    {...rest}
-  >
-    {loading ? (
-      <>
-        <Loader loaderSize={getButtonSize(size)} />
-      </>
-    ) : (
-      <>
-        <Icon
-          component={icon}
-          mr={2}
-          width={getButtonSize(size)}
-          height={getButtonSize(size)}
-        />
-        {label && <span className="icon-button_text">{label}</span>}
-      </>
-    )}
-  </StyledIconButton>
-);
+export const IconButton: React.FC<IconButtonProps> = (props) => {
+  const {
+    children,
+    loading,
+    label,
+    icon,
+    size,
+    as,
+    expanded = false,
+    ...rest
+  } = props;
+
+  // eslint-disable-next-line react/destructuring-assignment
+  const href = isATypeProps(props) ? props.href : undefined;
+  // eslint-disable-next-line react/destructuring-assignment
+  const disabled = !isATypeProps(props) ? props.disabled : undefined;
+
+  return (
+    <StyledIconButton
+      href={href}
+      as={href ? 'a' : as}
+      size={size}
+      icon={icon}
+      expanded={expanded}
+      label={label}
+      loading={loading}
+      disabled={loading || disabled}
+      {...rest}
+    >
+      {loading ? (
+        <>
+          <Loader loaderSize={getButtonSize(size)} />
+        </>
+      ) : (
+        <>
+          <Icon
+            component={icon}
+            mr={2}
+            width={getButtonSize(size)}
+            height={getButtonSize(size)}
+          />
+          {label && <span className="icon-button_text">{label}</span>}
+        </>
+      )}
+    </StyledIconButton>
+  );
+};
 
 IconButton.defaultProps = {
   size: 'regular',
