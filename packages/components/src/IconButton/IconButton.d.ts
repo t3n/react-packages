@@ -8,7 +8,7 @@ export declare type IconButtonSizeVariant = 'small' | 'regular' | 'big';
 export interface IconButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLAttributes<any>, 'type'>, MarginProps, WidthProps {
     size?: IconButtonSizeVariant;
     variant?: IconButtonVariant;
-    color?: IconButtonColorVariant;
+    colorVariant?: IconButtonColorVariant;
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     as?: IconButtonAsType;
     label?: string;

@@ -9,6 +9,7 @@ import {
   MarginProps,
   WidthProps,
   variant,
+  color,
 } from 'styled-system';
 import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
 import { Loader } from '../Loader';
@@ -26,7 +27,7 @@ export interface IconButtonProps
     WidthProps {
   size?: IconButtonSizeVariant;
   variant?: IconButtonVariant;
-  color?: IconButtonColorVariant;
+  colorVariant?: IconButtonColorVariant;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   as?: IconButtonAsType;
   label?: string;
@@ -76,12 +77,13 @@ export const iconButtonStyles = css`
   text-decoration: none;
   border-radius: 30px;
   border: 2px solid;
-  padding: 8px;
+  ${({ theme }) => space({ p: 2, theme })};
   ${width};
   ${margin};
 
   ${({ theme, size }) =>
     space({ px: size, py: size && size === 'small' ? 2 : 2, theme })}
+
   ${({ theme, size }: IconButtonProps & ThemeProps) =>
     composeTextStyle({
       textStyle:
@@ -125,12 +127,12 @@ export const iconButtonStyles = css`
 
     ${Loader} {
       > div {
-        background-color: white;
+        ${({ theme }) => color({ theme, bg: 'background.white' })};
       }
     }
 
-    ${Icon}${Icon} {
-      fill: white;
+    ${Icon} {
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
     }
   }
 
@@ -141,15 +143,17 @@ export const iconButtonStyles = css`
         color: colorProp,
         variant: variantProp = 'primary',
       }: IconButtonProps & ThemeProps) =>
-        `background-color: ${
-          variantProp === 'secondary'
-            ? colorProp === 'highlight' || colorProp === 'inverse'
-              ? theme.colors.text.inverse
-              : theme.colors.text.primary
-            : colorProp === 'highlight' || colorProp === 'inverse'
-            ? theme.colors.text.primary
-            : theme.colors.text.inverse
-        }`};
+        color({
+          theme,
+          bg:
+            variantProp === 'secondary'
+              ? colorProp === 'highlight' || colorProp === 'inverse'
+                ? 'text.inverse'
+                : 'text.primary'
+              : colorProp === 'highlight' || colorProp === 'inverse'
+              ? 'text.primary'
+              : 'text.inverse',
+        })}
     }
   }
 
@@ -172,24 +176,24 @@ export const iconButtonStyles = css`
       }`};
   }
 
-
   ${({ loading }) =>
     !loading &&
     css`
       &:disabled {
         opacity: 0.6;
-
         ${({
-          color,
+          colorVariant,
           variant: variantProp,
           theme,
         }: ThemeProps & IconButtonProps) =>
-          color &&
-          color === 'highlight' &&
-          variantProp === 'primary' &&
-          css`
-            color: ${theme.colors.text.highlight};
-          `}
+          color({
+            theme,
+            color:
+              colorVariant &&
+              colorVariant === 'highlight' &&
+              variantProp === 'primary' &&
+              'text.highlight',
+          })}
       }
     `}
 
@@ -204,7 +208,7 @@ export const iconButtonStyles = css`
       transition: all 0.1s;
       ${expanded &&
       css`
-        padding: 0 0.25rem;
+        ${({ theme }) => space({ px: 2, theme })};
       `}
     }
   `}
@@ -213,7 +217,7 @@ export const iconButtonStyles = css`
     opacity: 1;
     line-height: inherit;
     font-size: inherit;
-    padding: 0 0.25rem;
+    ${({ theme }) => space({ px: 1, theme })};
     max-width: 100vw;
   }
 
