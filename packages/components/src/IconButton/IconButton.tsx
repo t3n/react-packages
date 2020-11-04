@@ -236,7 +236,7 @@ export const iconButtonStyles = css`
     opacity: 1;
     line-height: inherit;
     font-size: inherit;
-    ${({ theme }) => space({ px: 1, theme })};
+    ${({ theme }) => space({ px: 2, theme })};
     max-width: 100vw;
   }
 
