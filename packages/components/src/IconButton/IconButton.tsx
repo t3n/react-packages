@@ -136,6 +136,10 @@ export const iconButtonStyles = css`
     }
   }
 
+  &:focus {
+    outline: none;
+  }
+
   ${Loader} {
     > div {
       ${({
@@ -258,7 +262,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
   size,
   href,
   as,
-  onClick,
   disabled,
   expanded = false,
   ...rest
@@ -272,7 +275,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
     label={label}
     loading={loading}
     disabled={loading || disabled}
-    onClick={(e: any) => onClick && onClick(e)}
     {...rest}
   >
     {loading ? (

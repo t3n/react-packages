@@ -60,6 +60,7 @@ export const defaultStory = () => {
         ['default', 'highlight', 'inverse'],
         'default'
       )}
+      onClick={() => alert('Geklickt!')}
     />
   );
 };
