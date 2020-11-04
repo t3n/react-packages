@@ -36,7 +36,6 @@ module.exports = {
     '../src/stories/components/content/carousel.stories',
     '../src/stories/components/content/heroArticleCard.stories',
     '../src/stories/components/content/icon.stories',
-    '../src/stories/components/content/iconButton.stories',
     '../src/stories/components/content/image.stories',
     '../src/stories/components/content/jobCard.stories',
     '../src/stories/components/content/loader.stories',
@@ -53,6 +52,7 @@ module.exports = {
 
     // Components - Inputs
     '../src/stories/components/inputs/button.stories',
+    '../src/stories/components/content/iconButton.stories',
     '../src/stories/components/inputs/socialButton.stories',
     '../src/stories/components/inputs/checkbox.stories',
     '../src/stories/components/inputs/input.stories',
