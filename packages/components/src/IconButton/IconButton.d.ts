@@ -13,7 +13,7 @@ export interface IconButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorH
     as?: IconButtonAsType;
     label?: string;
     loading?: boolean;
-    alwaysShowText?: boolean;
+    expanded?: boolean;
 }
 export declare const iconButtonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & IconButtonProps, any>>;
 export declare const IconButton: React.FC<IconButtonProps>;

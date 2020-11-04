@@ -46,7 +46,7 @@ export const defaultStory = () => {
     <IconButton
       icon={icons[iconOption]}
       label={text('Label', 'Speichern')}
-      alwaysShowText={boolean('Always show text', false)}
+      expanded={boolean('Expanded', false)}
       size={select<SizesType>('Size', ['regular', 'small', 'big'], 'regular')}
       as={select<AsType>('As', ['button', 'a'], 'button')}
       loading={boolean('Loading', false)}
@@ -689,7 +689,7 @@ iconOnlyStory.story = {
   name: 'Icon Only',
 };
 
-export const alwaysShowTextStory = () => {
+export const expandedStory = () => {
   return (
     <>
       <Section variant="primary">
@@ -699,7 +699,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               size="small"
             />
           </GridItem>
@@ -707,7 +707,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               size="regular"
             />
           </GridItem>
@@ -715,7 +715,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               size="big"
             />
           </GridItem>
@@ -726,7 +726,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               variant="secondary"
               size="small"
             />
@@ -735,7 +735,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               variant="secondary"
               size="regular"
             />
@@ -744,7 +744,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               variant="secondary"
               size="big"
             />
@@ -758,7 +758,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               size="small"
             />
           </GridItem>
@@ -766,7 +766,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               size="regular"
             />
           </GridItem>
@@ -774,7 +774,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               size="big"
             />
           </GridItem>
@@ -785,7 +785,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               variant="secondary"
               size="small"
             />
@@ -794,7 +794,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               variant="secondary"
               size="regular"
             />
@@ -803,7 +803,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               variant="secondary"
               size="big"
             />
@@ -817,7 +817,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="inverse"
               size="small"
             />
@@ -826,7 +826,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="inverse"
               size="regular"
             />
@@ -835,7 +835,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="inverse"
               size="big"
             />
@@ -847,7 +847,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="inverse"
               variant="secondary"
               size="small"
@@ -857,7 +857,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="inverse"
               variant="secondary"
               size="regular"
@@ -867,7 +867,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="inverse"
               variant="secondary"
               size="big"
@@ -882,7 +882,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="highlight"
               size="small"
             />
@@ -891,7 +891,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="highlight"
               size="regular"
             />
@@ -900,7 +900,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="highlight"
               size="big"
             />
@@ -912,7 +912,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="highlight"
               variant="secondary"
               size="small"
@@ -922,7 +922,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="highlight"
               variant="secondary"
               size="regular"
@@ -932,7 +932,7 @@ export const alwaysShowTextStory = () => {
             <IconButton
               icon={MaterialCheck}
               label="Speichern"
-              alwaysShowText
+              expanded
               color="highlight"
               variant="secondary"
               size="big"
@@ -944,6 +944,6 @@ export const alwaysShowTextStory = () => {
   );
 };
 
-alwaysShowTextStory.story = {
-  name: 'Always Show Text',
+expandedStory.story = {
+  name: 'Expanded',
 };

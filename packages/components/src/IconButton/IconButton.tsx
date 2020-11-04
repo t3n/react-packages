@@ -31,7 +31,7 @@ export interface IconButtonProps
   as?: IconButtonAsType;
   label?: string;
   loading?: boolean;
-  alwaysShowText?: boolean;
+  expanded?: boolean;
 }
 
 const buildColorVariants = (
@@ -193,16 +193,16 @@ export const iconButtonStyles = css`
       }
     `}
 
-  ${({ alwaysShowText }) => css`
+  ${({ expanded }) => css`
     > .icon-button_text {
       display: inline-block;
-      max-width: ${alwaysShowText ? '100vw' : 0};
-      opacity: ${alwaysShowText ? 1 : 0};
-      font-size: ${alwaysShowText ? 'inherit' : 0};
-      line-height: ${alwaysShowText ? 'inherit' : 0};
+      max-width: ${expanded ? '100vw' : 0};
+      opacity: ${expanded ? 1 : 0};
+      font-size: ${expanded ? 'inherit' : 0};
+      line-height: ${expanded ? 'inherit' : 0};
       overflow: hidden;
       transition: all 0.1s;
-      ${alwaysShowText &&
+      ${expanded &&
       css`
         padding: 0 0.25rem;
       `}
@@ -225,7 +225,7 @@ export const iconButtonStyles = css`
 `;
 
 const StyledIconButton = styled(
-  ({ alwaysShowText, icon, loading, ...rest }: IconButtonProps) => (
+  ({ expanded, icon, loading, ...rest }: IconButtonProps) => (
     // eslint-disable-next-line react/button-has-type
     <button {...rest} />
   )
@@ -256,7 +256,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   as,
   onClick,
   disabled,
-  alwaysShowText = false,
+  expanded = false,
   ...rest
 }) => (
   <StyledIconButton
@@ -264,7 +264,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
     as={href ? 'a' : as}
     size={size}
     icon={icon}
-    alwaysShowText={alwaysShowText}
+    expanded={expanded}
     label={label}
     loading={loading}
     disabled={loading || disabled}
