@@ -9,7 +9,7 @@ import {
   MarginProps,
   WidthProps,
   variant,
-  color,
+  color as systemColor,
 } from 'styled-system';
 import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
 import { Loader } from '../Loader';
@@ -23,7 +23,7 @@ export type IconButtonSizeVariant = 'small' | 'regular' | 'big';
 interface IconButtonBaseProps extends MarginProps, WidthProps {
   size?: IconButtonSizeVariant;
   variant?: IconButtonVariant;
-  colorVariant?: IconButtonColorVariant;
+  color?: IconButtonColorVariant;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   label?: string;
   loading?: boolean;
@@ -32,13 +32,13 @@ interface IconButtonBaseProps extends MarginProps, WidthProps {
 
 interface IconButtonButtonTypeProps
   extends IconButtonBaseProps,
-    ButtonHTMLAttributes<any> {
+    Omit<ButtonHTMLAttributes<any>, 'color'> {
   as?: 'button';
 }
 
 interface IconButtonATypeProps
   extends IconButtonBaseProps,
-    Omit<AnchorHTMLAttributes<any>, 'type'> {
+    Omit<AnchorHTMLAttributes<any>, 'color' | 'type'> {
   as?: 'a';
 }
 
@@ -142,7 +142,7 @@ export const iconButtonStyles = css`
 
     ${Loader} {
       > div {
-        ${({ theme }) => color({ theme, bg: 'background.white' })};
+        ${({ theme }) => systemColor({ theme, bg: 'background.white' })};
       }
     }
 
@@ -162,7 +162,7 @@ export const iconButtonStyles = css`
         color: colorProp,
         variant: variantProp = 'primary',
       }: IconButtonProps & ThemeProps) =>
-        color({
+        systemColor({
           theme,
           bg:
             variantProp === 'secondary'
@@ -201,15 +201,15 @@ export const iconButtonStyles = css`
       &:disabled {
         opacity: 0.6;
         ${({
-          colorVariant,
+          color,
           variant: variantProp,
           theme,
         }: ThemeProps & IconButtonProps) =>
-          color({
+          systemColor({
             theme,
             color:
-              colorVariant &&
-              colorVariant === 'highlight' &&
+              color &&
+              color === 'highlight' &&
               variantProp === 'primary' &&
               'text.highlight',
           })}
