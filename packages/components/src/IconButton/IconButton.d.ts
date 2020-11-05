@@ -8,16 +8,16 @@ export declare type IconButtonSizeVariant = 'small' | 'regular' | 'big';
 interface IconButtonBaseProps extends MarginProps, WidthProps {
     size?: IconButtonSizeVariant;
     variant?: IconButtonVariant;
-    colorVariant?: IconButtonColorVariant;
+    color?: IconButtonColorVariant;
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     label?: string;
     loading?: boolean;
     expanded?: boolean;
 }
-interface IconButtonButtonTypeProps extends IconButtonBaseProps, ButtonHTMLAttributes<any> {
+interface IconButtonButtonTypeProps extends IconButtonBaseProps, Omit<ButtonHTMLAttributes<any>, 'color'> {
     as?: 'button';
 }
-interface IconButtonATypeProps extends IconButtonBaseProps, Omit<AnchorHTMLAttributes<any>, 'type'> {
+interface IconButtonATypeProps extends IconButtonBaseProps, Omit<AnchorHTMLAttributes<any>, 'color' | 'type'> {
     as?: 'a';
 }
 export declare type IconButtonProps = IconButtonATypeProps | IconButtonButtonTypeProps;
