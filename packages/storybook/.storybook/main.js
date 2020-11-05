@@ -52,6 +52,7 @@ module.exports = {
 
     // Components - Inputs
     '../src/stories/components/inputs/button.stories',
+    '../src/stories/components/inputs/iconButton.stories',
     '../src/stories/components/inputs/socialButton.stories',
     '../src/stories/components/inputs/checkbox.stories',
     '../src/stories/components/inputs/input.stories',

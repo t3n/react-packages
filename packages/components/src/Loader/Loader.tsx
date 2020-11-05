@@ -10,6 +10,7 @@ import {
 
 export interface LoaderProps extends MarginProps {
   small?: boolean;
+  loaderSize?: string;
   color?: BackgroundColorProps['bg'];
 }
 
@@ -22,7 +23,8 @@ const LoaderWrapper = styled.span<
 
   > div {
     ${color};
-    ${({ small }) => size({ size: small ? '0.5rem' : '1rem' })};
+    ${({ small, loaderSize }) =>
+      size({ size: loaderSize || (small ? '0.5rem' : '1rem') })};
 
     border-radius: 100%;
     display: inline-block;
@@ -51,8 +53,13 @@ const LoaderWrapper = styled.span<
 `;
 
 export const Loader = styled(
-  ({ small, color: bg, ...marginProps }: LoaderProps) => (
-    <LoaderWrapper small={small} bg={bg} {...marginProps}>
+  ({ small, loaderSize, color: bg, ...marginProps }: LoaderProps) => (
+    <LoaderWrapper
+      small={small}
+      loaderSize={loaderSize}
+      bg={bg}
+      {...marginProps}
+    >
       <div />
       <div />
       <div />
