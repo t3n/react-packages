@@ -10,6 +10,7 @@ const variants: TagColorVariant[] = [
   'secondary',
   'inverse',
   'black',
+  'highlight',
 ];
 
 export const defaultStory = () => {

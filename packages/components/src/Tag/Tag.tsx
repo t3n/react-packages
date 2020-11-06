@@ -3,7 +3,12 @@ import styled, { css } from 'styled-components';
 import { variant, padding, color, MarginProps, margin } from 'styled-system';
 import { Theme, composeTextStyle } from '@t3n/theme';
 
-export type TagColorVariant = 'primary' | 'secondary' | 'inverse' | 'black';
+export type TagColorVariant =
+  | 'primary'
+  | 'secondary'
+  | 'inverse'
+  | 'black'
+  | 'highlight';
 
 export interface TagProps extends MarginProps {
   colorVariant?: TagColorVariant;
@@ -51,13 +56,19 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
         bg: 'shades.black',
         color: 'text.inverse',
       },
+      highlight: {
+        bg: 'background.highlight',
+        color: 'text.inverse',
+      },
     },
   })}
 
   svg {
     ${({ theme }) => margin({ theme, mt: 1, ml: 2 })}
     fill: ${({ theme, variant: variantStyle }: StyledTagProps) =>
-      variantStyle === 'inverse' || variantStyle === 'black'
+      variantStyle === 'inverse' ||
+      variantStyle === 'black' ||
+      variantStyle === 'highlight'
         ? theme.colors.text.inverse
         : theme.colors.text.primary}
   }
