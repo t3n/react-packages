@@ -534,7 +534,7 @@ export const loadingStory = () => {
 };
 
 loadingStory.story = {
-  name: 'Loading',
+  name: 'Ladend',
 };
 
 export const iconOnlyStory = () => {
@@ -947,4 +947,18 @@ export const expandedStory = () => {
 
 expandedStory.story = {
   name: 'Expanded',
+};
+
+export const sideBySide = () => (
+  <>
+    <Section variant="primary">
+      <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
+      <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
+      <IconButton icon={MaterialCheck} label="Speichern" />
+    </Section>
+  </>
+);
+
+sideBySide.story = {
+  name: 'Side By Side',
 };
