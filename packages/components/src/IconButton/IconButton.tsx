@@ -156,6 +156,8 @@ export const iconButtonStyles = css`
   }
 
   ${Loader} {
+    // 0.1rem because of getLoaderSize - 0.2rem in comparison to getButtonSize
+    padding: 0.1rem 0;
     > div {
       ${({
         theme,
@@ -232,7 +234,7 @@ export const iconButtonStyles = css`
     }
   `}
 
-  &:hover > .icon-button_text {
+  &:hover > .icon-button_text, &:focus > .icon-button_text {
     opacity: 1;
     line-height: inherit;
     font-size: inherit;
@@ -269,6 +271,19 @@ const getButtonSize = (
   }
 };
 
+const getLoaderSize = (
+  value: 'big' | 'small' | 'regular' | undefined
+): string => {
+  switch (value) {
+    case 'big':
+      return '1.133rem';
+    case 'small':
+      return '0.8rem';
+    default:
+      return '1.05rem';
+  }
+};
+
 export const IconButton: React.FC<IconButtonProps> = (props) => {
   const {
     children,
@@ -300,7 +315,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
     >
       {loading ? (
         <>
-          <Loader loaderSize={getButtonSize(size)} />
+          <Loader loaderSize={getLoaderSize(size)} />
         </>
       ) : (
         <>
