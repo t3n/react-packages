@@ -6,7 +6,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 export const defaultStory = () => {
   const colorVariant = select(
     'colorVariant',
-    ['inverse', 'primary', 'secondary', 'black'],
+    ['inverse', 'primary', 'secondary', 'black', 'highlight'],
     'secondary'
   );
   const tagValues = [
