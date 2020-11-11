@@ -156,8 +156,8 @@ export const iconButtonStyles = css`
   }
 
   ${Loader} {
-    // 0.1rem because of getLoaderSize - 0.2rem in comparison to getButtonSize
-    padding: 0.1rem 0;
+    // 0.325rem because of getLoaderSize - 0.65rem in comparison to getButtonSize
+    padding: 0.325rem 0;
     > div {
       ${({
         theme,
@@ -276,11 +276,11 @@ const getLoaderSize = (
 ): string => {
   switch (value) {
     case 'big':
-      return '1.133rem';
+      return '0.683rem';
     case 'small':
-      return '0.8rem';
+      return '0.35rem';
     default:
-      return '1.05rem';
+      return '0.6rem';
   }
 };
 
