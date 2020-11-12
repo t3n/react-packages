@@ -66,6 +66,9 @@ module.exports = {
     // Form
     '../src/stories/components/form/formgroup.stories',
     '../src/stories/components/form/form.stories',
+
+    // Legacy
+    '../src/stories/components/legacy/legacyFooter.stories',
   ],
   addons: [
     '@storybook/preset-create-react-app',

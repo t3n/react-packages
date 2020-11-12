@@ -29,6 +29,7 @@ export { IconButton } from './IconButton';
 export { Image } from './Image';
 export { Input } from './Input';
 export { JobCard } from './JobCard';
+export { LegacyFooter } from './LegacyFooter';
 export { Link } from './Link';
 export { Loader } from './Loader';
 export { Logo } from './Logo';
