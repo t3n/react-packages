@@ -18,7 +18,7 @@ import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text';
 import { Box } from '../Box';
 
-const StyledLink = styled.a`
+const FooterLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 
@@ -95,7 +95,7 @@ const LegacyMobileLinks = () => {
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
       {legacyMobileLinks.map((link) => (
-        <StyledLink href={link.url}>
+        <FooterLink href={link.url}>
           <LinkLabel
             mt={0}
             mb={1}
@@ -104,7 +104,7 @@ const LegacyMobileLinks = () => {
           >
             {link.label}
           </LinkLabel>
-        </StyledLink>
+        </FooterLink>
       ))}
     </MobileLinksWrapper>
   );
@@ -199,20 +199,20 @@ const LegacyMobileFooter = () => {
       <LegacyMobileSocialLinks />
       <Text align="center" mt={0}>
         ©{' '}
-        <StyledLink
+        <FooterLink
           href="https://yeebase.com/"
           target="_blank"
           title="Die externe Seite im neuen Tab/Fenster öffnen"
           rel="noopener"
         >
           yeebase media GmbH
-        </StyledLink>{' '}
+        </FooterLink>{' '}
         2005 - 2020
       </Text>
       <Text align="center">
-        <StyledLink href="/" className="js-switch-to-desktop">
+        <FooterLink href="/" className="js-switch-to-desktop">
           Desktop-Seite
-        </StyledLink>
+        </FooterLink>
       </Text>
     </>
   );

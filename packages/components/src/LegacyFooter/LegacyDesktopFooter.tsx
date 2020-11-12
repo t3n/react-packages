@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, border } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
+import { color, border, layout } from 'styled-system';
 
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
@@ -11,7 +9,7 @@ import { Box } from '../Box';
 import { Heading } from '../Heading';
 import { Image } from '../Image';
 
-const StyledLink = styled.a`
+const FooterLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 
@@ -27,12 +25,7 @@ const LinkLabel = styled(Text)`
 `;
 
 const DesktopLinkWrapper = styled(Grid)`
-  width: 636px;
-
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[2]}) {
-    width: 100%;
-  }
+  ${({ theme }) => layout({ theme, width: ['100%', '100%', '100%', '636px'] })};
 `;
 
 const DesktopLinkGroup = styled(GridItem)`
@@ -245,7 +238,7 @@ const LegacyDesktopLinks = () => {
             {group.label}
           </Text>
           {group.links.map((link) => (
-            <StyledLink
+            <FooterLink
               href={link.url}
               target={link.target || '_self'}
               rel={link.rel || undefined}
@@ -258,7 +251,7 @@ const LegacyDesktopLinks = () => {
               >
                 {link.label}
               </LinkLabel>
-            </StyledLink>
+            </FooterLink>
           ))}
         </DesktopLinkGroup>
       ))}
@@ -273,7 +266,7 @@ const LegacyDesktopBottom = () => {
         <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
           agof- und IVW-geprüft
           <Box mt={3} mb={5}>
-            <StyledLink
+            <FooterLink
               href="http://www.agof.de/"
               target="_blank"
               title="Die externe Seite im neuen Tab/Fenster öffnen"
@@ -284,8 +277,8 @@ const LegacyDesktopBottom = () => {
                 width="80px"
                 alt="agof"
               />
-            </StyledLink>
-            <StyledLink
+            </FooterLink>
+            <FooterLink
               href="http://www.ivw.de/"
               target="_blank"
               title="Die externe Seite im neuen Tab/Fenster öffnen"
@@ -296,13 +289,13 @@ const LegacyDesktopBottom = () => {
                 width="50px"
                 alt="IVW"
               />
-            </StyledLink>
+            </FooterLink>
           </Box>
         </GridItem>
         <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
           Ausgezeichnet von kununu
           <Box mt={3} mb={5}>
-            <StyledLink
+            <FooterLink
               href="https://www.kununu.com/de/t3n/"
               rel="nofollow noopener noreferrer"
               target="_blank"
@@ -313,8 +306,8 @@ const LegacyDesktopBottom = () => {
                 width="87px"
                 alt="kununu Top Company"
               />
-            </StyledLink>
-            <StyledLink
+            </FooterLink>
+            <FooterLink
               href="https://www.kununu.com/de/t3n/"
               rel="nofollow noopener noreferrer"
               target="_blank"
@@ -325,36 +318,36 @@ const LegacyDesktopBottom = () => {
                 width="87px"
                 alt="kununu Open Company"
               />
-            </StyledLink>
+            </FooterLink>
           </Box>
         </GridItem>
       </Grid>
       <Grid>
         <GridItem width={[1, 1 / 2]}>
-          <StyledLink href="/" className="js-switch-to-mobile">
+          <FooterLink href="/" className="js-switch-to-mobile">
             Mobile Seite
-          </StyledLink>{' '}
+          </FooterLink>{' '}
           • ©{' '}
-          <StyledLink
+          <FooterLink
             href="https://yeebase.com/"
             target="_blank"
             title="Die externe Seite im neuen Tab/Fenster öffnen"
             rel="noreferrer noopener"
           >
             yeebase media GmbH
-          </StyledLink>{' '}
+          </FooterLink>{' '}
           2005 - {new Date().getFullYear()}
         </GridItem>
         <GridItem width={[1, 1 / 2]}>
           powered by{' '}
-          <StyledLink
+          <FooterLink
             href="https://www.neos.io/"
             rel="nofollow noopener noreferrer"
             target="_blank"
             title="Die externe Seite im neuen Tab/Fenster öffnen"
           >
             Neos
-          </StyledLink>
+          </FooterLink>
         </GridItem>
       </Grid>
     </DesktopBottomWrapper>
