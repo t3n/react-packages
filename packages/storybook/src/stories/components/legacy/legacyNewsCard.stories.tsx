@@ -6,10 +6,13 @@ import { Box, Grid, GridItem, LegacyNewsCard } from '@t3n/components';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
-import { recentNews, recentNewsVariables } from './__generated__/recentNews';
+import {
+  recentNews,
+  recentNewsVariables,
+} from '../content/__generated__/recentNews';
 
 export default {
-  title: 'Components|Content/LegacyNewsCard',
+  title: 'Components|Legacy/LegacyNewsCard',
   component: LegacyNewsCard,
   decorators: [withKnobs, storyContainerContentDecorator],
 };
