@@ -54,7 +54,7 @@ const LegacyArticleCardWithData = ({
   const type: LegacyNewsCardType = select(
     'Darstellung als',
     { 'Hero-Card': 'HERO', 'Feed-Card': 'FEED' },
-    'HERO'
+    'FEED'
   );
 
   const { data, loading } = useQuery<recentNews, recentNewsVariables>(
