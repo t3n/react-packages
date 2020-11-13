@@ -39,7 +39,6 @@ module.exports = {
     '../src/stories/components/content/icon.stories',
     '../src/stories/components/content/image.stories',
     '../src/stories/components/content/jobCard.stories',
-    '../src/stories/components/content/legacyNewsCard.stories',
     '../src/stories/components/content/loader.stories',
     '../src/stories/components/content/modal.stories',
     '../src/stories/components/content/newsCard.stories',
@@ -70,6 +69,8 @@ module.exports = {
 
     // Legacy
     '../src/stories/components/legacy/legacyFooter.stories',
+    '../src/stories/components/legacy/legacyNewsCard.stories',
+
   ],
   addons: [
     '@storybook/preset-create-react-app',

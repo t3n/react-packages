@@ -28,4 +28,5 @@ export interface LegacyHeroCardProps {
 }
 export declare const LegacyLoadingHeroCard: () => JSX.Element;
 export declare const LegacyLoadingFeedCard: () => JSX.Element;
+export declare const LegacyLoadingMobileCard: () => JSX.Element;
 export declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, }: LegacyNewsCardProps) => JSX.Element | null;
