@@ -10,7 +10,6 @@ import { Heading } from '../Heading';
 import { Image } from '../Image';
 import { LegacyArticleSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyCard } from '../LegacyCard';
-import { Ratio } from '../Ratio';
 
 export interface LegacyNewsCardProps {
   loading: boolean;
