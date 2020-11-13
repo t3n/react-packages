@@ -37,7 +37,7 @@ const AlertBox = styled(Box)<{ status: AlertStatus }>`
 
 // todo export AlertIcon as soon as we do have an IconComponent
 
-const AlertText: React.FC = ({ children }) => {
+export const AlertText: React.FC = ({ children }) => {
   return (
     <Text m={0} width="100%">
       {children}
@@ -45,7 +45,7 @@ const AlertText: React.FC = ({ children }) => {
   );
 };
 
-const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
+export const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
   return (
     <AlertBox
       display="flex"
@@ -58,5 +58,3 @@ const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
     </AlertBox>
   );
 };
-
-export { Alert, AlertText };

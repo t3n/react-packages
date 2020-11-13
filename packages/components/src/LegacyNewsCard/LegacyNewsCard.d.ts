@@ -1,10 +1,9 @@
 /// <reference types="react" />
-export declare type LegacyNewsCardType = 'HERO' | 'FEED';
 export interface LegacyNewsCardProps {
     loading: boolean;
-    type: LegacyNewsCardType;
-    mostRead?: boolean;
+    popular?: boolean;
     sponsored?: boolean;
+    hero?: boolean;
     news?: {
         title: string;
         type: string;
@@ -18,4 +17,15 @@ export interface LegacyNewsCardProps {
         url: string;
     };
 }
-export declare const LegacyNewsCard: ({ loading, type, mostRead, sponsored, news, }: LegacyNewsCardProps) => JSX.Element | null;
+export interface LegacyHeroCardProps {
+    type: string;
+    sponsored?: boolean;
+    hero?: boolean;
+    title: string;
+    teaser: string;
+    url: string;
+    imageUrl: string;
+}
+export declare const LegacyLoadingHeroCard: () => JSX.Element;
+export declare const LegacyLoadingFeedCard: () => JSX.Element;
+export declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, }: LegacyNewsCardProps) => JSX.Element | null;

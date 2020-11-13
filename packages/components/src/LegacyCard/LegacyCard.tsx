@@ -4,17 +4,8 @@ import styled from 'styled-components';
 
 import { Box } from '../Box';
 
-export interface LegacyCardProps {
-  type: string;
-  mostRead?: boolean;
-  sponsored?: boolean;
-  title: string;
-  teaser: string;
-  url: string;
-  imageUrl: string;
-}
-
 export const LegacyCard = styled(Box)`
+  position: relative;
   ${({ theme }) =>
     border({ theme, border: '2px solid', borderColor: 'shades.grey232' })}
   ${({ theme }) => space({ theme, p: 3 })}

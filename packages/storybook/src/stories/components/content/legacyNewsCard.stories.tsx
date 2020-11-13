@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  withKnobs,
-  select,
-  boolean,
-  text,
-  number,
-} from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, number } from '@storybook/addon-knobs';
 
 import { Box, Grid, GridItem, LegacyNewsCard } from '@t3n/components';
 
-import { LegacyNewsCardType } from '@t3n/components/src/LegacyNewsCard';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
@@ -51,11 +44,7 @@ const LegacyArticleCardWithData = ({
   limit: number;
   fakeLoading: boolean;
 }) => {
-  const type: LegacyNewsCardType = select(
-    'Darstellung als',
-    { 'Hero-Card': 'HERO', 'Feed-Card': 'FEED' },
-    'FEED'
-  );
+  const hero = boolean('Hero-Card', false);
 
   const { data, loading } = useQuery<recentNews, recentNewsVariables>(
     RECENT_NEWS,
@@ -72,7 +61,7 @@ const LegacyArticleCardWithData = ({
         ? new Array(limit).fill(null).map((el, idx) => (
             // eslint-disable-next-line react/no-array-index-key
             <GridItem key={idx} width={1} mb={4}>
-              <LegacyNewsCard loading type={type} />
+              <LegacyNewsCard loading hero={hero} />
             </GridItem>
           ))
         : data &&
@@ -92,7 +81,7 @@ const LegacyArticleCardWithData = ({
                   publishedAt: new Date(news.date),
                 }}
                 loading={false}
-                type={type}
+                hero={hero}
               />
             </GridItem>
           ))}
@@ -138,10 +127,10 @@ export const defaultStory = () => {
 
   return (
     <LegacyNewsCard
-      loading={boolean('Fake Lade-Status', false, 'card')}
-      type={select('Darstellung', ['FEED', 'HERO'], 'HERO', 'card')}
+      loading={boolean('Loading', false, 'card')}
+      hero={boolean('Hero', false, 'card')}
       news={news}
-      mostRead={boolean('Most-Read', false, 'card')}
+      popular={boolean('Popular', false, 'card')}
       sponsored={boolean('Sponsored', false, 'card')}
     />
   );
@@ -192,7 +181,7 @@ export const heroLayout = () => {
       <Box mb={3}>
         <LegacyNewsCard
           loading
-          type="HERO"
+          hero
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
         />
@@ -200,7 +189,7 @@ export const heroLayout = () => {
       <Box>
         <LegacyNewsCard
           loading={false}
-          type="HERO"
+          hero
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
         />
@@ -254,19 +243,17 @@ export const feedLayout = () => {
       <Box mb={3}>
         <LegacyNewsCard
           loading
-          type="FEED"
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
-          mostRead={boolean('Most-Read', false, 'card')}
+          popular={boolean('Popular', false, 'card')}
         />
       </Box>
       <Box>
         <LegacyNewsCard
           loading={false}
-          type="FEED"
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
-          mostRead={boolean('Most-Read', false, 'card')}
+          popular={boolean('Popular', false, 'card')}
         />
       </Box>
     </>
@@ -284,7 +271,7 @@ export const liveData = () => {
     range: false,
     step: 1,
   });
-  const fakeLoading = boolean('Fake ladestatus', false);
+  const fakeLoading = boolean('Loading', false);
 
   return <LegacyArticleCardWithData limit={limit} fakeLoading={fakeLoading} />;
 };

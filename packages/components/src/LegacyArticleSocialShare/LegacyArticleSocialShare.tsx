@@ -13,13 +13,33 @@ import { space } from 'styled-system';
 import { Icon } from '../Icon';
 import { Box } from '../Box';
 
-export interface SocialNetworksProps {
-  [key: string]: {
-    name: string;
-    icon: React.FC<React.SVGProps<SVGSVGElement>>;
-    iconScale?: number;
-  };
+export type SocialNetworkType =
+  | 'facebook'
+  | 'flipboard'
+  | 'linkedin'
+  | 'pocket'
+  | 'twitter'
+  | 'xing';
+
+export interface SocialIconProps {
+  network: SocialNetworkType;
+  url: string;
 }
+
+export interface SocialLinkProps {
+  url: string;
+  children: ReactNode;
+}
+
+export interface SocialNetworkProps {
+  name: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconScale?: number;
+}
+
+export type SocialNetworksProps = {
+  [key in SocialNetworkType]: SocialNetworkProps;
+};
 
 const LegacySocialConfig: SocialNetworksProps = {
   facebook: {
@@ -50,31 +70,27 @@ const LegacySocialConfig: SocialNetworksProps = {
   },
 };
 
-interface SocialIconProps {
-  network: string;
-  url: string;
-}
-
-interface AnchorProps {
-  url: string;
-  children: ReactNode;
-}
-
-const StyledAnchor = styled(
+const SocialLink = styled(
   // eslint-disable-next-line jsx-a11y/anchor-has-content
-  ({ url, ...rest }: AnchorProps) => <a href={url} {...rest} />
-)<AnchorProps>``;
+  ({ url, ...rest }: SocialLinkProps) => <a href={url} {...rest} />
+)<SocialLinkProps>``;
 
 const LegacySocialIcon: React.FC<{
   url: string;
   component: React.FC<React.SVGProps<SVGSVGElement>>;
 }> = ({ url, component, ...rest }) => (
-  <StyledAnchor url={url} {...rest}>
+  <SocialLink url={url} {...rest}>
     <Icon height="1.25rem" fill="shades.grey143" component={component} />
-  </StyledAnchor>
+  </SocialLink>
 );
 
-const socialIconStyle = css<SocialIconProps>`
+const socialIconAttributes = ({ network }: SocialIconProps) => ({
+  component: LegacySocialConfig[network].icon,
+});
+
+const SocialIcon = styled(LegacySocialIcon).attrs(socialIconAttributes)<
+  SocialIconProps
+>`
   ${({ theme }) => space({ theme, mr: 2 })}
   ${Icon} {
     ${({ network }) =>
@@ -89,20 +105,10 @@ const socialIconStyle = css<SocialIconProps>`
   }
 `;
 
-const SocialIconAttributes = ({ network }: SocialIconProps) => ({
-  component: LegacySocialConfig[network].icon,
-});
-
-const SocialIcon = styled(LegacySocialIcon).attrs(SocialIconAttributes)<
-  SocialIconProps
->`
-  ${socialIconStyle}
-`;
-
-export const ArticleSocialSharing: React.FC<{ url: string; title: string }> = ({
-  url,
-  title,
-}) => (
+export const LegacyArticleSocialShare: React.FC<{
+  url: string;
+  title: string;
+}> = ({ url, title }) => (
   <Box mt={3}>
     <SocialIcon
       url={`https://getpocket.com/edit.php?url=${url}?utm_source=pocket&utm_medium=social&utm_campaign=social-buttons`}
