@@ -70,7 +70,6 @@ module.exports = {
     // Legacy
     '../src/stories/components/legacy/legacyFooter.stories',
     '../src/stories/components/legacy/legacyNewsCard.stories',
-
   ],
   addons: [
     '@storybook/preset-create-react-app',
