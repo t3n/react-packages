@@ -162,6 +162,7 @@ exports[`Accordion machtes snapshot 1`] = `
         class="c6 c7"
         fill="shades.grey143"
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M7 10l5 5 5-5z"
