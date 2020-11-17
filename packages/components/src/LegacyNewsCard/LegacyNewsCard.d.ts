@@ -17,15 +17,6 @@ export interface LegacyNewsCardProps {
         url: string;
     };
 }
-export interface LegacyHeroCardProps {
-    type: string;
-    sponsored?: boolean;
-    hero?: boolean;
-    title: string;
-    teaser: string;
-    url: string;
-    imageUrl: string;
-}
 export declare const LegacyLoadingHeroCard: () => JSX.Element;
 export declare const LegacyLoadingFeedCard: () => JSX.Element;
 export declare const LegacyLoadingMobileCard: () => JSX.Element;
