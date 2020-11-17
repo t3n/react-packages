@@ -31,7 +31,7 @@ const Content = styled(Box)`
 
 export default {
   component: LegacyUserMenu,
-  title: 'Components|Legacy/LegacyUserMenu',
+  title: 'Legacy|Content/UserMenu',
   decorators: [withKnobs, storyContainerDecorator],
 };
 

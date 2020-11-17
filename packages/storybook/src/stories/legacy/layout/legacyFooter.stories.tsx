@@ -15,7 +15,7 @@ const LegacyFooterWrapper = styled(Box)`
 `;
 
 export default {
-  title: 'Components|Legacy/LegacyFooter',
+  title: 'Legacy|Layout/Footer',
   component: LegacyFooter,
   decorators: [withKnobs],
 };
