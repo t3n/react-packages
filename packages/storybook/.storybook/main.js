@@ -69,6 +69,7 @@ module.exports = {
 
     // Legacy
     '../src/stories/components/legacy/legacyFooter.stories',
+    '../src/stories/components/legacy/legacyUserMenu.stories',
   ],
   addons: [
     '@storybook/preset-create-react-app',
