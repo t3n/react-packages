@@ -31,19 +31,9 @@ export interface LegacyNewsCardProps {
   };
 }
 
-export interface LegacyHeroCardProps {
-  type: string;
-  sponsored?: boolean;
-  hero?: boolean;
-  title: string;
-  teaser: string;
-  url: string;
-  imageUrl: string;
-}
-
-const LegacyNewsCardHeadline = styled(Heading)<{
-  hero?: boolean;
-}>`
+const LegacyNewsCardHeadline = styled(Heading)<
+  Pick<LegacyNewsCardProps, 'hero'>
+>`
   ${({ theme, hero }) => typography({ theme, fontSize: hero ? '2.65rem' : 3 })}
   ${({ theme, hero }) => space({ theme, ml: !hero ? '216px' : '' })}
 `;
@@ -52,12 +42,12 @@ const LegacyNewsCardMobileHeadline = styled(Heading)`
   ${({ theme }) => typography({ theme, fontSize: 2 })}
 `;
 
-const SponsoredInfo = styled(Text)<{ hero?: boolean }>`
+const SponsoredInfo = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
   font-size: 0.75rem;
   ${({ theme, hero }) => space({ theme, ml: !hero ? '216px' : '' })}
 `;
 
-const LegacyHeroTeaser = styled(Text)<{ hero?: boolean }>`
+const LegacyHeroTeaser = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
   ${({ theme, hero }) => typography({ theme, fontSize: hero ? 2 : 1 })}
 `;
 
@@ -98,7 +88,7 @@ export const LegacyLoadingHeroCard = () => (
 );
 
 export const LegacyLoadingFeedCard = () => (
-  <LegacyCard display={['none', 'none', 'block']}>
+  <LegacyCard>
     <Box display="flex">
       <Box mr={3}>
         <Placeholder height="120px" width="200px" />
@@ -115,7 +105,7 @@ export const LegacyLoadingFeedCard = () => (
 );
 
 export const LegacyLoadingMobileCard = () => (
-  <LegacyMobileNewsCard display={['block', 'block', 'none']} px={3}>
+  <LegacyMobileNewsCard px={3}>
     <Placeholder height="1.5rem" mt={1} mb={4} width="90%" />
     <Placeholder height="190px" width="320px" />
     <LegacyNewsCardMeta mt={2}>
@@ -136,19 +126,16 @@ export const LegacyNewsCard = ({
     return <Text>Keine Daten vorhanden</Text>;
   }
 
-  if (loading && hero) {
-    return (
-      <>
-        <LegacyLoadingHeroCard />
-        <LegacyLoadingMobileCard />
-      </>
-    );
-  }
   if (loading) {
     return (
       <>
-        <LegacyLoadingFeedCard />
-        <LegacyLoadingMobileCard />
+        <Box display={['none', 'none', 'block']}>
+          {hero ? <LegacyLoadingHeroCard /> : <LegacyLoadingFeedCard />}
+          <LegacyLoadingHeroCard />
+        </Box>
+        <Box display={['block', 'block', 'none']}>
+          <LegacyLoadingMobileCard />
+        </Box>
       </>
     );
   }
@@ -169,7 +156,7 @@ export const LegacyNewsCard = ({
         <Box display="flex">
           <Box
             mr={3}
-            position={hero ? 'static' : 'absolute'}
+            position={hero ? 'initial' : 'absolute'}
             top={hero ? '' : '16px'}
           >
             <a href={news.url}>
