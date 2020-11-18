@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import styled from 'styled-components';
 import {
@@ -8,24 +9,12 @@ import {
   position,
   typography,
 } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
-
 import { MaterialExpandMore } from '@t3n/icons';
+
 import { Box } from '../Box/Box';
 import { Avatar } from '../Avatar/Avatar';
 import { Placeholder } from '../Placeholder/Placeholder';
 import { Icon } from '../Icon';
-
-const LegacyUserMenuWrapper = styled(Box)`
-  cursor: pointer;
-  position: relative;
-  ${({ theme }) => space({ theme, py: 2, pl: 6 })};
-
-  &:hover > ul {
-    display: block;
-  }
-`;
 
 const StyledAvatar = styled(Avatar)`
   ${({ theme }) =>
@@ -45,14 +34,19 @@ const AvatarLink = styled.a`
 `;
 
 const LegacyUserMenuList = styled.ul`
-  display: none;
   right: 0;
   z-index: 1;
   list-style-type: none;
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
-  ${({ theme }) => position({ theme, position: ['fixed', 'absolute'] })};
   ${({ theme }) => space({ theme, m: '1px', py: 2, px: 3 })};
   ${({ theme }) => layout({ theme, width: ['97%', '165px'] })};
+  ${({ theme }) =>
+    position({
+      theme,
+      position: ['fixed', 'absolute'],
+      left: [1, 'auto'],
+      right: [1, 0],
+    })};
   ${({ theme }) =>
     border({
       theme,
@@ -60,11 +54,19 @@ const LegacyUserMenuList = styled.ul`
       borderColor: 'shades.grey232',
       borderStyle: 'solid',
     })};
+`;
 
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
-    left: 4px;
-    right: 4px;
+const LegacyUserMenuWrapper = styled(Box)`
+  position: relative;
+  cursor: pointer;
+  ${({ theme }) => space({ theme, py: 2, pl: 6 })};
+
+  > ${LegacyUserMenuList} {
+    display: none;
+  }
+
+  &:hover > ${LegacyUserMenuList} {
+    display: block;
   }
 `;
 
@@ -121,10 +123,9 @@ const LoginLink = styled.a`
 
 export interface LegacyUserMenuProps {
   loading: boolean;
-  loggedIn: boolean;
-  loginLink?: string;
-  logoutLink?: string;
-  labelLink?: string;
+  loginUrl?: string;
+  logoutUrl?: string;
+  labelUrl?: string;
 
   user?: {
     name: string;
@@ -139,32 +140,33 @@ export interface LegacyUserMenuProps {
 export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
   user,
   itemGroups,
-  loginLink = '/account/login',
-  logoutLink = '/account/logout',
-  labelLink,
+  loginUrl = '/account/login',
+  logoutUrl = '/account/logout',
+  labelUrl,
   loading,
-  loggedIn,
 }) => {
-  return loggedIn ? (
+  if (!user) {
+    return <LoginLink href={loginUrl}>Anmelden</LoginLink>;
+  }
+
+  return (
     <LegacyUserMenuWrapper>
-      {user && (
-        <AvatarLink href={labelLink}>
-          <StyledAvatar
-            loading={loading}
-            src={user.avatarUrl}
-            alt={user.name}
-            size={28}
-          />
-          <Icon
-            component={MaterialExpandMore}
-            width="25px"
-            height="20px"
-            mt={1}
-            ml={-2}
-            fill="text.secondary"
-          />
-        </AvatarLink>
-      )}
+      <AvatarLink href={labelUrl}>
+        <StyledAvatar
+          loading={loading}
+          src={user.avatarUrl}
+          alt={user.name}
+          size={28}
+        />
+        <Icon
+          component={MaterialExpandMore}
+          width="25px"
+          height="20px"
+          mt={1}
+          ml={-2}
+          fill="text.secondary"
+        />
+      </AvatarLink>
 
       <LegacyUserMenuList>
         {itemGroups &&
@@ -196,12 +198,10 @@ export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
           <Placeholder height="21px" my={[1, 2]} />
         ) : (
           <LegacyUserMenuListItem>
-            <LogoutLink href={logoutLink}>Abmelden</LogoutLink>
+            <LogoutLink href={logoutUrl}>Abmelden</LogoutLink>
           </LegacyUserMenuListItem>
         )}
       </LegacyUserMenuList>
     </LegacyUserMenuWrapper>
-  ) : (
-    <LoginLink href={loginLink}>Anmelden</LoginLink>
   );
 };
