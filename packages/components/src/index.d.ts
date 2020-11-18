@@ -29,6 +29,7 @@ export { Image } from './Image';
 export { Input } from './Input';
 export { JobCard } from './JobCard';
 export { LegacyFooter } from './LegacyFooter';
+export { LegacyNewsCard } from './LegacyNewsCard';
 export { LegacyUserMenu } from './LegacyUserMenu';
 export { Link } from './Link';
 export { Loader } from './Loader';

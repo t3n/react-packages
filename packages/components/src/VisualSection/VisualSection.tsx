@@ -17,8 +17,8 @@ const svgData =
 
 const VisualSectionOuter = styled.div<VisualSectionProps>`
   background-image: ${`url("data:image/svg+xml;base64,${svgData}")`};
-  background-size: 150%;
-  background-position: center;
+  background-size: 2000px;
+  background-position: top left;
   background-color: ${({ variant, theme }) =>
     variant ? theme.colors.background[variant] : 'white'};
   ${({ innerGap, theme }: VisualSectionProps & ThemeProps) =>
