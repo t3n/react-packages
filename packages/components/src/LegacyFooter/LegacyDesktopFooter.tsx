@@ -323,7 +323,7 @@ const LegacyDesktopBottom = () => {
         </GridItem>
       </Grid>
       <Grid>
-        <GridItem width={[1, 1 / 2]}>
+        <GridItem width={1}>
           <FooterLink href="/" className="js-switch-to-mobile">
             Mobile Seite
           </FooterLink>{' '}
@@ -337,17 +337,6 @@ const LegacyDesktopBottom = () => {
             yeebase media GmbH
           </FooterLink>{' '}
           2005 - {new Date().getFullYear()}
-        </GridItem>
-        <GridItem width={[1, 1 / 2]}>
-          powered by{' '}
-          <FooterLink
-            href="https://www.neos.io/"
-            rel="nofollow noopener noreferrer"
-            target="_blank"
-            title="Die externe Seite im neuen Tab/Fenster öffnen"
-          >
-            Neos
-          </FooterLink>
         </GridItem>
       </Grid>
     </DesktopBottomWrapper>
