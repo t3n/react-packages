@@ -31,6 +31,7 @@ export { Input } from './Input';
 export { JobCard } from './JobCard';
 export { LegacyFooter } from './LegacyFooter';
 export { LegacyHeader } from './LegacyHeader';
+export { LegacyUserMenu } from './LegacyUserMenu';
 export { Link } from './Link';
 export { Loader } from './Loader';
 export { Logo } from './Logo';

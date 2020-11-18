@@ -17,7 +17,7 @@ const LegacyHeaderWrapper = styled(Box)`
 `;
 
 export default {
-  title: 'Components|Legacy/LegacyHeader',
+  title: 'Legacy|Layout/Header',
   component: LegacyHeader,
   decorators: [withKnobs],
 };

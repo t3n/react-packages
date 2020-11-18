@@ -67,9 +67,16 @@ module.exports = {
     '../src/stories/components/form/formgroup.stories',
     '../src/stories/components/form/form.stories',
 
-    // Legacy
-    '../src/stories/components/legacy/legacyFooter.stories',
-    '../src/stories/components/legacy/legacyHeader.stories',
+    // Legacy - Layout
+    '../src/stories/legacy/layout/legacyFooter.stories',
+    '../src/stories/legacy/layout/legacyHeader.stories',
+
+    // Legacy - Content
+    '../src/stories/legacy/content/legacyUserMenu.stories',
+
+    // Legacy - Inputs
+
+    // Legacy - Form
   ],
   addons: [
     '@storybook/preset-create-react-app',
