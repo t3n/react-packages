@@ -175,7 +175,7 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
   },
 ];
 
-const LegacyMobileSocialLinks = () => {
+export const LegacyMobileSocialLinks = () => {
   return (
     <Box display="flex" justifyContent="center" my={4}>
       {legacyMobileSocialLinks.map((link) => (
