@@ -9,10 +9,10 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 import {
   recentNews,
   recentNewsVariables,
-} from '../content/__generated__/recentNews';
+} from '../../components/content/__generated__/recentNews';
 
 export default {
-  title: 'Components|Legacy/LegacyNewsCard',
+  title: 'Legacy|Layout/News-Card',
   component: LegacyNewsCard,
   decorators: [withKnobs, storyContainerContentDecorator],
 };
