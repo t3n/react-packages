@@ -95,10 +95,9 @@ export const defaultStory = () => {
       <LegacyPageHeader display="flex" justifyContent="flex-end" pr={2}>
         <LegacyUserMenu
           loading={boolean('Lädt?', false)}
-          loggedIn={boolean('Eingeloggt?', true)}
           user={defaultUser}
           itemGroups={standardLinkGroup}
-          labelLink={text('UserLabel-Link', 'https://t3n.de/account')}
+          labelUrl={text('UserLabel-Link', 'https://t3n.de/account')}
         />
       </LegacyPageHeader>
       <Content />
@@ -115,7 +114,6 @@ export const loadingStory = () => {
     <Wrapper>
       <LegacyPageHeader display="flex" justifyContent="flex-end" pr={2}>
         <LegacyUserMenu
-          loggedIn
           loading
           user={standardUser}
           itemGroups={standardLinkGroup}
@@ -134,7 +132,7 @@ export const notLoggedInStory = () => {
   return (
     <Wrapper>
       <LegacyPageHeader display="flex" justifyContent="flex-end" pr={2}>
-        <LegacyUserMenu loading={false} loggedIn={false} />
+        <LegacyUserMenu loading={false} />
       </LegacyPageHeader>
       <Content />
     </Wrapper>
@@ -151,10 +149,9 @@ export const extraContentStory = () => {
       <LegacyPageHeader display="flex" justifyContent="flex-end" pr={2}>
         <LegacyUserMenu
           loading={false}
-          loggedIn
           user={standardUser}
           itemGroups={extraLinkGroups}
-          labelLink={text('UserLabel-Link', 'https://t3n.de/account')}
+          labelUrl={text('UserLabel-Link', 'https://t3n.de/account')}
         />
       </LegacyPageHeader>
       <Content />
