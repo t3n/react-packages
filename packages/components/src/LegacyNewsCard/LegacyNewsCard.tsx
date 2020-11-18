@@ -131,7 +131,6 @@ export const LegacyNewsCard = ({
       <>
         <Box display={['none', 'none', 'block']}>
           {hero ? <LegacyLoadingHeroCard /> : <LegacyLoadingFeedCard />}
-          <LegacyLoadingHeroCard />
         </Box>
         <Box display={['block', 'block', 'none']}>
           <LegacyLoadingMobileCard />
