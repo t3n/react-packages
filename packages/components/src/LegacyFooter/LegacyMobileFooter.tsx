@@ -177,7 +177,7 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
 
 export const LegacyMobileSocialLinks = () => {
   return (
-    <Box display="flex" justifyContent="center" my={4}>
+    <Box display="flex" justifyContent="center">
       {legacyMobileSocialLinks.map((link) => (
         <SocialLink
           href={link.url}
@@ -192,11 +192,15 @@ export const LegacyMobileSocialLinks = () => {
   );
 };
 
+const StyledLegacyMobileSocialLinks = styled(LegacyMobileSocialLinks)`
+  ${({ theme }) => space({ my: 4, theme })};
+`;
+
 const LegacyMobileFooter = () => {
   return (
     <>
       <LegacyMobileLinks />
-      <LegacyMobileSocialLinks />
+      <StyledLegacyMobileSocialLinks />
       <Text align="center" mt={0}>
         ©{' '}
         <FooterLink

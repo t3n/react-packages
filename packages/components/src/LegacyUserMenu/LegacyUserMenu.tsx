@@ -59,7 +59,7 @@ const LegacyUserMenuList = styled.ul`
 const LegacyUserMenuWrapper = styled(Box)`
   position: relative;
   cursor: pointer;
-  ${({ theme }) => space({ theme, py: 2, pl: 6 })};
+  ${({ theme }) => space({ theme, py: 2 })};
 
   > ${LegacyUserMenuList} {
     display: none;
