@@ -14,7 +14,7 @@
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-viewport": "^5.2.8",
-    "@storybook/addons": "^5.2.8",
+    "@storybook/addons": "^6.1.1",
     "@storybook/react": "^5.2.8",
     "@storybook/theming": "^5.2.8",
     "@t3n/components": "^0.4.18",
