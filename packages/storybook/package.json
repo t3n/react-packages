@@ -46,7 +46,7 @@
     "styled-components": "^5.0.0",
     "styled-system": "^5.1.4",
     "toasted-notes": "^3.0.0",
-    "yup": "^0.29.0"
+    "yup": "^0.30.0"
   },
   "scripts": {
     "clean": "rm -rf storybook-static && rm -rf .awcache",
