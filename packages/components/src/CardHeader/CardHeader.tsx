@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, color, ColorProps } from 'styled-system';

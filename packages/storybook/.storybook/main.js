@@ -34,13 +34,13 @@ module.exports = {
     '../src/stories/components/content/badge.stories',
     '../src/stories/components/content/card.stories',
     '../src/stories/components/content/carousel.stories',
+    '../src/stories/components/content/confirmDialog.stories',
     '../src/stories/components/content/heroArticleCard.stories',
     '../src/stories/components/content/icon.stories',
     '../src/stories/components/content/image.stories',
     '../src/stories/components/content/jobCard.stories',
     '../src/stories/components/content/loader.stories',
     '../src/stories/components/content/modal.stories',
-    '../src/stories/components/content/confirmDialog.stories',
     '../src/stories/components/content/newsCard.stories',
     '../src/stories/components/content/placeholder.stories',
     '../src/stories/components/content/searchbox.stories',
@@ -73,6 +73,7 @@ module.exports = {
 
     // Legacy - Content
     '../src/stories/legacy/content/legacyUserMenu.stories',
+    '../src/stories/legacy/content/legacyNewsCard.stories',
 
     // Legacy - Inputs
 

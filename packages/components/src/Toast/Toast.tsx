@@ -9,6 +9,7 @@ import { AlertStatus, AlertText, Alert } from '../Alert';
 import { Box } from '../Box';
 
 interface ToastProps {
+  // eslint-disable-next-line react/no-unused-prop-types
   id: string;
   status: AlertStatus;
   text: string;
