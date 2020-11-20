@@ -149,8 +149,8 @@ const mapSocialButtonAttributes = ({
   }`,
 });
 
-export const SocialButton = styled(Button).attrs(mapSocialButtonAttributes)<
-  SocialButtonProps
->`
+export const SocialButton = styled(Button).attrs(
+  mapSocialButtonAttributes
+)<SocialButtonProps>`
   ${socialButtonStyle}
 `;

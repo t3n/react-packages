@@ -73,6 +73,7 @@ module.exports = {
     // Legacy - Content
     '../src/stories/legacy/content/legacyUserMenu.stories',
     '../src/stories/legacy/content/legacyNewsCard.stories',
+
     // Legacy - Inputs
 
     // Legacy - Form

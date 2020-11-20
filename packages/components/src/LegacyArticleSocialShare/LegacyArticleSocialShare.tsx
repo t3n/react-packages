@@ -88,9 +88,9 @@ const socialIconAttributes = ({ network }: SocialIconProps) => ({
   component: LegacySocialConfig[network].icon,
 });
 
-const SocialIcon = styled(LegacySocialIcon).attrs(socialIconAttributes)<
-  SocialIconProps
->`
+const SocialIcon = styled(LegacySocialIcon).attrs(
+  socialIconAttributes
+)<SocialIconProps>`
   ${({ theme }) => space({ theme, mr: 2 })}
   ${Icon} {
     ${({ network }) =>

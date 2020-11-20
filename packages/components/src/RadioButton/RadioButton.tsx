@@ -19,9 +19,9 @@ export interface RadioButtonProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const HiddenRadioButton = styled.input.attrs({ type: 'radio' })<
-  RadioButtonProps
->`
+const HiddenRadioButton = styled.input.attrs({
+  type: 'radio',
+})<RadioButtonProps>`
   position: absolute;
   width: 100%;
   height: 100%;

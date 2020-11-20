@@ -12,7 +12,7 @@ import {
 } from '../../components/content/__generated__/recentNews';
 
 export default {
-  title: 'Legacy|Layout/News-Card',
+  title: 'Legacy|Content/News-Card',
   component: LegacyNewsCard,
   decorators: [withKnobs, storyContainerContentDecorator],
 };

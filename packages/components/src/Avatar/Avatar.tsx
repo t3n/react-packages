@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import styled from 'styled-components';
 import Imgix from 'react-imgix';

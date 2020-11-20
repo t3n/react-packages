@@ -65,9 +65,9 @@ const border = css`
         : theme.colors.shades.grey143};
 `;
 
-const StyledNativeInput = styled.input.attrs(() => ({ noValidate: true }))<
-  StyledNativeInputProps
->`
+const StyledNativeInput = styled.input.attrs(() => ({
+  noValidate: true,
+}))<StyledNativeInputProps>`
   width: 100%;
   height: 40px;
   font-family: ${({ theme }) => theme.fonts.default};
