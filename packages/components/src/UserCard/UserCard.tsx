@@ -197,10 +197,9 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
   );
 };
 
-const UserCardContent: React.FC<Pick<
-  UserCardProps,
-  'user' | 'link' | 'secondary'
->> = ({ user, link, secondary }) => {
+const UserCardContent: React.FC<
+  Pick<UserCardProps, 'user' | 'link' | 'secondary'>
+> = ({ user, link, secondary }) => {
   return (
     <>
       <Text bold mt={0} mb={0}>

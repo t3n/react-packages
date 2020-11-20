@@ -149,8 +149,8 @@ const SuggestionContainer = styled.div`
 const SuggestionItem = styled.div`
   ${({ theme }) => space({ theme, p: [2, 3] })}
   color: ${({ theme }: ThemeProps) => theme.colors.text.primary};
-  border-bottom: 1px solid ${({ theme }: ThemeProps) =>
-    theme.colors.shades.grey244};
+  border-bottom: 1px solid
+    ${({ theme }: ThemeProps) => theme.colors.shades.grey244};
 
   &:hover {
     cursor: pointer;
