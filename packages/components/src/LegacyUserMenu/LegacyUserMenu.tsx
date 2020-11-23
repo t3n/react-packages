@@ -13,7 +13,6 @@ import { MaterialExpandMore } from '@t3n/icons';
 
 import { Box } from '../Box/Box';
 import { Avatar } from '../Avatar/Avatar';
-import { Placeholder } from '../Placeholder/Placeholder';
 import { Icon } from '../Icon';
 
 const StyledAvatar = styled(Avatar)`
