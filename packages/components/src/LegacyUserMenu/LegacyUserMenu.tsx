@@ -158,50 +158,40 @@ export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
           alt={user.name}
           size={28}
         />
-        <Icon
-          component={MaterialExpandMore}
-          width="25px"
-          height="20px"
-          mt={1}
-          ml={-2}
-          fill="text.secondary"
-        />
+        {!loading && (
+          <Icon
+            component={MaterialExpandMore}
+            width="25px"
+            height="20px"
+            mt={1}
+            ml={-2}
+            fill="text.secondary"
+          />
+        )}
       </AvatarLink>
 
-      <LegacyUserMenuList>
-        {itemGroups &&
-          itemGroups.map((group, idx) => {
-            return (
-              // eslint-disable-next-line react/no-array-index-key
-              <React.Fragment key={idx}>
-                {group.item.map((item, index) => {
-                  return loading ? (
-                    <Placeholder
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={`placeholder-${index}`}
-                      height="21px"
-                      my={[1, 2]}
-                    />
-                  ) : (
+      {!loading && (
+        <LegacyUserMenuList>
+          {itemGroups &&
+            itemGroups.map((group, idx) => {
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <React.Fragment key={idx}>
+                  {group.item.map((item, idx) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <LegacyUserMenuListItem key={index}>
+                    <LegacyUserMenuListItem key={idx}>
                       {item}
                     </LegacyUserMenuListItem>
-                  );
-                })}
-                <LegacyUserMenuListDivider />
-              </React.Fragment>
-            );
-          })}
-
-        {loading ? (
-          <Placeholder height="21px" my={[1, 2]} />
-        ) : (
+                  ))}
+                  <LegacyUserMenuListDivider />
+                </React.Fragment>
+              );
+            })}
           <LegacyUserMenuListItem>
             <LogoutLink href={logoutUrl}>Abmelden</LogoutLink>
           </LegacyUserMenuListItem>
-        )}
-      </LegacyUserMenuList>
+        </LegacyUserMenuList>
+      )}
     </LegacyUserMenuWrapper>
   );
 };
