@@ -177,9 +177,9 @@ export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
               return (
                 // eslint-disable-next-line react/no-array-index-key
                 <React.Fragment key={idx}>
-                  {group.item.map((item, idx) => (
+                  {group.item.map((item, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <LegacyUserMenuListItem key={idx}>
+                    <LegacyUserMenuListItem key={index}>
                       {item}
                     </LegacyUserMenuListItem>
                   ))}
