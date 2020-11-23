@@ -60,8 +60,12 @@ const StyledLegacyMobileSocialLinks = styled(LegacyMobileSocialLinks)`
 
 const HeaderCampaign = styled(Box)`
   width: 320px;
-  height: 160px;
+  min-height: 150px;
   overflow: hidden;
+
+  > a {
+    display: flex;
+  }
 `;
 
 const NavHeader = styled(Box)``;

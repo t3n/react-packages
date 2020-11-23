@@ -21,12 +21,13 @@ const SearchForm = styled.form`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  pointer-events: none;
 `;
 
 const SearchInput = styled.input`
+  pointer-events: all;
   width: 42px;
   cursor: pointer;
-  transition: all 0.4s ease;
   transform: translateX(42px);
   opacity: 0;
   z-index: 150;
@@ -78,7 +79,14 @@ export type TagNavTagsType = {
 export const LegacyTagNav: React.FC<{ tags: TagNavTagsType }> = ({ tags }) => {
   return (
     <Box position="relative" mb={4}>
-      <Box display="flex" justifyContent="center" className="tg-submenu" py={1}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        position="relative"
+        width="calc(100% - 42px)"
+        className="tg-submenu"
+        py={1}
+      >
         {tags.map((tag, idx) => (
           <StyledTag
             link={tag.url}
