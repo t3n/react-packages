@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled from 'styled-components';
-import { border, color, space, typography } from 'styled-system';
+import { border, color, space, typography, layout } from 'styled-system';
 
 import { MaterialSearch } from '@t3n/icons';
 
@@ -19,9 +19,10 @@ const SearchForm = styled.form`
   position: absolute;
   top: 0;
   width: 100%;
-  display: flex;
   justify-content: flex-end;
   pointer-events: none;
+  ${({ theme }) =>
+    layout({ theme, height: ['80px', '80px', '80px', 'unset'] })};
 `;
 
 const SearchInput = styled.input`
@@ -80,7 +81,7 @@ export const LegacyTagNav: React.FC<{ tags: TagNavTagsType }> = ({ tags }) => {
   return (
     <Box position="relative" mb={4}>
       <Box
-        display="flex"
+        display={['block', 'block', 'block', 'flex']}
         justifyContent="center"
         position="relative"
         width="calc(100% - 42px)"
@@ -92,6 +93,7 @@ export const LegacyTagNav: React.FC<{ tags: TagNavTagsType }> = ({ tags }) => {
             link={tag.url}
             colorVariant={tag.variant || 'secondary'}
             key={idx}
+            mb={[2, 2, 2, 0]}
           >
             {tag.label}
           </StyledTag>

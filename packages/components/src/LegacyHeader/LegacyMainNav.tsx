@@ -19,7 +19,7 @@ import { HeaderLink } from './LegacyHeader';
 const MainNavWrapper = styled(Box)`
   width: 100%;
   margin: 0 auto;
-  padding: 0 10%;
+  ${({ theme }) => space({ theme, p: ['0', '0', '0', '0 10%'] })};
 `;
 
 const MainNavDropdown = styled.ul`

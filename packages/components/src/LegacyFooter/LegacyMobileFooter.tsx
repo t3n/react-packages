@@ -178,12 +178,14 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
 export const LegacyMobileSocialLinks = () => {
   return (
     <Box display="flex" justifyContent="center">
-      {legacyMobileSocialLinks.map((link) => (
+      {legacyMobileSocialLinks.map((link, idx) => (
         <SocialLink
           href={link.url}
           title={link.title}
           target={link.target ? link.target : '_self'}
           rel={link.rel ? link.rel : undefined}
+          // eslint-disable-next-line react/no-array-index-key
+          key={idx}
         >
           {link.icon}
         </SocialLink>

@@ -7,4 +7,7 @@ export declare const LegacyHeader: React.FC<{
     userMenuLabelUrl: string;
     userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
     tagNavTags: TagNavTagsType;
+    headerCampaignUrl: string;
+    headerCampaignImage: string;
+    headerCampaignImageMobile?: string;
 }>;

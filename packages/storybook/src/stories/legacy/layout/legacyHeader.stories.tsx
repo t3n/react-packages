@@ -64,6 +64,23 @@ const tagNavTags: TagNavTagsType = [
   },
 ];
 
+const variants = [
+  {
+    image: 'https://storage.googleapis.com/t3n-media/t3n-headercampaign-a.png',
+    imageMobile:
+      'https://storage.googleapis.com/t3n-media/t3n-headercampaign-a-mobile.png',
+    href: 'https://t3n.de/headercampaign-a',
+  },
+  {
+    image: 'https://storage.googleapis.com/t3n-media/t3n-headercampaign-b.png',
+    imageMobile:
+      'https://storage.googleapis.com/t3n-media/t3n-headercampaign-b-mobile.png',
+    href: 'https://t3n.de/headercampaign-b',
+  },
+];
+
+const randomNumber = Math.floor(variants.length * Math.random());
+
 export default {
   title: 'Legacy|Layout/Header',
   component: LegacyHeader,
@@ -78,6 +95,9 @@ export const defaultStory = () => (
         userMenuLabelUrl="/account/"
         userMenuLinkGroups={standardLinkGroup}
         tagNavTags={tagNavTags}
+        headerCampaignUrl={variants[randomNumber].href}
+        headerCampaignImage={variants[randomNumber].image}
+        headerCampaignImageMobile={variants[randomNumber].imageMobile}
       />
     </LegacyHeaderWrapper>
   </Wrapper>

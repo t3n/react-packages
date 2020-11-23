@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled from 'styled-components';
-import { border, color, space } from 'styled-system';
+import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -13,17 +13,52 @@ import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { LegacyMainNav } from './LegacyMainNav';
 import { LegacyTagNav, TagNavTagsType } from './LegacyTagNav';
 import { LegacyT3nNav } from './LegacyT3nNav';
+import useIsMobile from '../hooks/useIsMobile';
+import { LegacyMobileNav } from './LegacyMobileNav';
+
+const HeaderCampaign = styled(Box)`
+  overflow: hidden;
+
+  > a {
+    display: flex;
+  }
+`;
+
+const MobileHeader = styled(Box)`
+  width: 100%;
+  ${({ theme }) =>
+    color({ theme, bg: 'shades.white', color: 'text.secondary' })};
+  ${({ theme }) => space({ px: 2, theme })};
+
+  ${Logo} {
+    ${({ theme }) => space({ mt: 2, theme })};
+    ${({ theme }) =>
+      layout({
+        theme,
+        width: ['140px', '140px', '160px', '200px'],
+        height: ['45px', '45px', '55px', '62px'],
+      })};
+
+    > path {
+      fill: ${({ theme }: ThemeProps) => theme.colors.brand.red};
+    }
+  }
+`;
 
 const Header = styled(Box)`
   z-index: 300;
   width: 100%;
   ${({ theme }) =>
     color({ theme, bg: 'shades.white', color: 'text.secondary' })};
-  ${({ theme }) => space({ px: 4, theme })};
+  ${({ theme }) => space({ px: 4, pb: [2, 2, 2, 0], theme })};
 
   ${Logo} {
-    width: 200px;
-    height: 62px;
+    ${({ theme }) =>
+      layout({
+        theme,
+        width: ['140px', '140px', '160px', '200px'],
+        height: ['45px', '45px', '55px', '62px'],
+      })};
 
     > path {
       fill: ${({ theme }: ThemeProps) => theme.colors.brand.red};
@@ -58,16 +93,6 @@ const StyledLegacyMobileSocialLinks = styled(LegacyMobileSocialLinks)`
   ${({ theme }) => space({ mt: 3, mb: 4, theme })};
 `;
 
-const HeaderCampaign = styled(Box)`
-  width: 320px;
-  min-height: 150px;
-  overflow: hidden;
-
-  > a {
-    display: flex;
-  }
-`;
-
 const NavHeader = styled(Box)``;
 
 export const LegacyHeader: React.FC<{
@@ -75,7 +100,45 @@ export const LegacyHeader: React.FC<{
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
   tagNavTags: TagNavTagsType;
-}> = ({ user, userMenuLabelUrl, userMenuLinkGroups, tagNavTags }) => {
+  headerCampaignUrl: string;
+  headerCampaignImage: string;
+  headerCampaignImageMobile?: string;
+}> = ({
+  user,
+  userMenuLabelUrl,
+  userMenuLinkGroups,
+  tagNavTags,
+  headerCampaignUrl,
+  headerCampaignImage,
+  headerCampaignImageMobile,
+}) => {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <MobileHeader
+        display="flex"
+        justifyContent="space-between"
+        alignItems="flex-end"
+        className="tg-header"
+      >
+        <a href="/" title="t3n - digital pioneers">
+          <Logo />
+        </a>
+        <HeaderCampaign>
+          <a href={headerCampaignUrl}>
+            <Image
+              src={headerCampaignImageMobile}
+              width={[80, 80, 250, 320]}
+              height={[50, 50, 120, 160]}
+            />
+          </a>
+        </HeaderCampaign>
+        <LegacyMobileNav user={user} />
+      </MobileHeader>
+    );
+  }
+
   return (
     <Header className="tg-header">
       <VisualHeader
@@ -87,8 +150,12 @@ export const LegacyHeader: React.FC<{
           <Logo />
         </a>
         <HeaderCampaign>
-          <a href="https://t3n.de/headercampaign-b">
-            <Image src="https://storage.googleapis.com/t3n-media/t3n-headercampaign-b.png" />
+          <a href={headerCampaignUrl}>
+            <Image
+              src={headerCampaignImage}
+              width={[80, 80, 250, 320]}
+              height={[50, 50, 120, 160]}
+            />
           </a>
         </HeaderCampaign>
         <Box display="flex" flexDirection="column">
