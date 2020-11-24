@@ -1,7 +1,13 @@
 import React from 'react';
 import { TagList, Tag } from '@t3n/components';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { storyContainerDecorator } from '../../../utils/decorators';
+
+export default {
+  component: TagList,
+  title: 'Components/Content/TagList',
+  decorators: [storyContainerDecorator],
+};
 
 export const defaultStory = () => {
   const colorVariant = select(
@@ -29,10 +35,4 @@ export const defaultStory = () => {
 
 defaultStory.story = {
   name: 'Liste mit Tags',
-};
-
-export default {
-  component: TagList,
-  title: 'Components|Content/TagList',
-  decorators: [withKnobs, storyContainerDecorator],
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean, text, number } from '@storybook/addon-knobs';
+import { boolean, text, number } from '@storybook/addon-knobs';
 
 import { Box, Grid, GridItem, LegacyNewsCard } from '@t3n/components';
 
@@ -12,9 +12,9 @@ import {
 } from '../../components/content/__generated__/recentNews';
 
 export default {
-  title: 'Legacy|Content/News-Card',
+  title: 'Legacy/Content/News-Card',
   component: LegacyNewsCard,
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 const RECENT_NEWS = gql`

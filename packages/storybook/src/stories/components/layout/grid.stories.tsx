@@ -8,7 +8,7 @@ import { ThemeProps } from '@t3n/theme';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Layout/Grid',
+  title: 'Components/Layout/Grid',
   component: Grid,
   decorators: [storyContainerDecorator],
 };

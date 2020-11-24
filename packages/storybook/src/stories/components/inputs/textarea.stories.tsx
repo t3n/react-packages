@@ -1,12 +1,12 @@
 import React from 'react';
-import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { number, text } from '@storybook/addon-knobs';
 import { Textarea, Text } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: Textarea,
-  title: 'Components|Inputs/Textarea',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Inputs/Textarea',
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => {

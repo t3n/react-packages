@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { number, array, withKnobs } from '@storybook/addon-knobs';
+import { number, array } from '@storybook/addon-knobs';
 
 import { Slider, Text, H3, Button, Box } from '@t3n/components';
 
@@ -7,9 +7,9 @@ import { Formik } from 'formik';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/Slider',
+  title: 'Components/Inputs/Slider',
   component: Slider,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => {

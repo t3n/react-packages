@@ -5,7 +5,7 @@ import { Input, FormGroup, Box, Text, Link, Textarea } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Form/FormGroup',
+  title: 'Components/Form/FormGroup',
   decorators: [storyContainerDecorator],
   parameters: { docs: { page: null } },
 };

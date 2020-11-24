@@ -4,7 +4,7 @@ import { Placeholder } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/Loading Indicator',
+  title: 'Components/Content/Loading Indicator',
   component: Placeholder,
   decorators: [storyContainerDecorator],
 };

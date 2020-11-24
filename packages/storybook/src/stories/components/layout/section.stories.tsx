@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, number } from '@storybook/addon-knobs';
+import { number } from '@storybook/addon-knobs';
 
 import {
   Heading,
@@ -10,9 +10,8 @@ import {
 } from '@t3n/components';
 
 export default {
-  title: 'Components|Layout/Section',
+  title: 'Components/Layout/Section',
   component: Section,
-  decorators: [withKnobs],
 };
 
 export const defaultStory = () => (

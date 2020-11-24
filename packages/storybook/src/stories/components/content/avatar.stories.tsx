@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, text, select, number } from '@storybook/addon-knobs';
+import { text, select, number } from '@storybook/addon-knobs';
 
 import { Avatar, Text, Center, PageLayout } from '@t3n/components';
 import { useQuery } from '@apollo/react-hooks';
@@ -9,8 +9,8 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: Avatar,
-  title: 'Components|Content/Avatar',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/Avatar',
+  decorators: [storyContainerDecorator],
 };
 
 const options = {

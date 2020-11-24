@@ -1,13 +1,13 @@
 import React from 'react';
-import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
+import { text, number, boolean } from '@storybook/addon-knobs';
 
 import { Image, Text, Grid, GridItem, H3, Box } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/Image',
+  title: 'Components/Content/Image',
   component: Image,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 const options = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import {
   PageLayout,
@@ -12,9 +12,8 @@ import {
 } from '@t3n/components';
 
 export default {
-  title: 'Components|Layout/PageLayout',
+  title: 'Components/Layout/PageLayout',
   component: PageLayout,
-  decorators: [withKnobs],
 };
 
 export const defaultStory = () => {

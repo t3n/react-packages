@@ -1,13 +1,13 @@
 import React from 'react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import { Loader } from '@t3n/components';
 import { theme } from '@t3n/theme';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/Loader',
+  title: 'Components/Content/Loader',
   component: Loader,
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (

@@ -4,7 +4,7 @@ import { ThemeConsumer } from 'styled-components';
 import Breakpoint from '../../../components/Breakpoint';
 
 export default {
-  title: 'Design System|Breakpoints',
+  title: 'Design System/Breakpoints',
   parameters: { docs: { page: null } },
 };
 

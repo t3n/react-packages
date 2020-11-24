@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
 import {
   Card,
@@ -17,7 +17,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 import { knobsFromProps } from '../../../utils/knobs';
 
 export default {
-  title: 'Components|Content/Card',
+  title: 'Components/Content/Card',
   component: Card,
   decorators: [
     (story: any) => (
@@ -26,7 +26,6 @@ export default {
       </Grid>
     ),
     storyContainerDecorator,
-    withKnobs,
   ],
 };
 

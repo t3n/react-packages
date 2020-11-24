@@ -5,7 +5,7 @@ import { Text, H6 } from '@t3n/components';
 import { storyContainerDecorator } from '../../../../utils/decorators';
 
 export default {
-  title: 'Components|Typografie/Text',
+  title: 'Components/Typografie/Text',
   component: Text,
   decorators: [storyContainerDecorator],
 };

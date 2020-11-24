@@ -1,14 +1,13 @@
 import React from 'react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { Grid, GridItem, HeroCard } from '@t3n/components';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/HeroArticleCard',
+  title: 'Components/Content/HeroArticleCard',
   component: HeroCard,
   decorators: [
-    withKnobs,
     (story: any) => (
       <Grid justifyContent="center">
         <GridItem width={1 / 3}>{story()}</GridItem>

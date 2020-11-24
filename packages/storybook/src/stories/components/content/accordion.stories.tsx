@@ -10,7 +10,7 @@ import {
 } from '@t3n/components';
 
 export default {
-  title: 'Components|Content/Accordion',
+  title: 'Components/Content/Accordion',
   component: Accordion,
 };
 

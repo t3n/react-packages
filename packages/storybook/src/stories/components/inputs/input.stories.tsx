@@ -4,7 +4,7 @@ import { Input, Text } from '@t3n/components';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/Input',
+  title: 'Components/Inputs/Input',
   component: Input,
   decorators: [storyContainerContentDecorator],
 };

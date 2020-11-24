@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tag, Button, Box } from '@t3n/components';
 import { MaterialClear } from '@t3n/icons';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import { TagColorVariant } from '@t3n/components/src/Tag';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -12,6 +12,12 @@ const variants: TagColorVariant[] = [
   'black',
   'highlight',
 ];
+
+export default {
+  component: Tag,
+  title: 'Components/Content/Tag',
+  decorators: [storyContainerDecorator],
+};
 
 export const defaultStory = () => {
   return variants.map((variant) => (
@@ -90,10 +96,4 @@ export const clickableTags = () => <ClicakbleTagList />;
 
 clickableTags.story = {
   name: 'Tags mit Klick-Event',
-};
-
-export default {
-  component: Tag,
-  title: 'Components|Content/Tag',
-  decorators: [withKnobs, storyContainerDecorator],
 };

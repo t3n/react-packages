@@ -29,22 +29,23 @@ const client = new ApolloClient({
   }),
 });
 
-addParameters({
+export const parameters = {
   viewport: {
     viewports: {
       ...viewports,
       ...INITIAL_VIEWPORTS,
     },
   },
-});
+};
 
-addDecorator(withA11y);
-addDecorator((story) => (
-  <ThemeProvider theme={theme}>
-    <ApolloProvider client={client}>
-      <GlobalStyle />
-      <StorybookGlobalStyle />
-      {story()}
-    </ApolloProvider>
-  </ThemeProvider>
-));
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <GlobalStyle />
+        <StorybookGlobalStyle />
+        <Story />
+      </ApolloProvider>
+    </ThemeProvider>
+  ),
+];
