@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface SliderProps {
     name: string;
     min?: number;

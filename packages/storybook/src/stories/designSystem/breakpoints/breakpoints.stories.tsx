@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeConsumer } from 'styled-components';
-import { stripUnit } from 'polished';
 
 import Breakpoint from '../../../components/Breakpoint';
 
@@ -14,7 +13,7 @@ export const allBreakpoints = () => (
     {(theme) =>
       [...theme.breakpoints].reverse().map((bp) => (
         <Breakpoint key={bp} width={bp}>
-          {bp} / {stripUnit(bp) * 16}px
+          {bp} / {parseInt(bp as string, 10) * 16}px
         </Breakpoint>
       ))
     }

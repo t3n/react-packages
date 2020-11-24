@@ -19,11 +19,6 @@ export default {
   decorators: [withKnobs, storyContainerDecorator],
 };
 
-interface SuggestionCategory {
-  title: string;
-  suggestions: TSuggestion[];
-}
-
 interface TSuggestion {
   type: 'ITEM' | 'MORE';
   title: string;
