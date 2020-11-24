@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { MaterialPlayArrow } from '@t3n/icons';
-import { color, typography } from 'styled-system';
+import { color, space, typography } from 'styled-system';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
@@ -19,15 +19,14 @@ const RotatedIcon = styled(Icon)`
   transform: rotate(180deg);
 `;
 
-const LegacyPaginationContainer = styled(Box).attrs({
-  display: 'flex',
-  justifyContent: 'center',
-  alignContent: 'center',
-  alignItems: 'center',
-  mr: 2,
-})<LegacyPaginationContainerProps>`
+const LegacyPaginationContainer = styled(Box)<LegacyPaginationContainerProps>`
   height: 3.75rem;
   width: 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  ${({ theme }) => space({ theme, mr: 2 })}
   ${({ theme, disabled }) =>
     color({
       theme,
