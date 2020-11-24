@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagColorVariant } from '../Tag';
+import { TagColorVariant } from '../../Tag';
 export declare type TagNavTagsType = {
     label: string;
     url: string;

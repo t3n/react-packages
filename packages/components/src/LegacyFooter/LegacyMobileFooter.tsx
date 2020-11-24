@@ -58,12 +58,12 @@ type MobileLinkType = {
 const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Pro',
-    url: '/pro/',
+    url: 'https://t3n.de/pro/',
     bold: true,
   },
   {
     label: 'Jobs bei t3n',
-    url: '/jobs-bei-t3n',
+    url: 'https://t3n.de/jobs-bei-t3n',
   },
   {
     label: 'Unterstütze t3n',
@@ -71,23 +71,23 @@ const legacyMobileLinks: MobileLinkType = [
   },
   {
     label: 'Mediadaten',
-    url: '/mediadaten/de',
+    url: 'https://t3n.de/mediadaten/de',
   },
   {
     label: 'Impressum',
-    url: '/impressum/',
+    url: 'https://t3n.de/impressum/',
   },
   {
     label: 'Nutzungsbedingungen',
-    url: '/nutzungsbedingungen/',
+    url: 'https://t3n.de/nutzungsbedingungen/',
   },
   {
     label: 'AGB',
-    url: '/agb/',
+    url: 'https://t3n.de/agb/',
   },
   {
     label: 'Datenschutz',
-    url: '/datenschutz/',
+    url: 'https://t3n.de/datenschutz/',
   },
 ];
 

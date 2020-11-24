@@ -3,10 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { space, typography } from 'styled-system';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
-import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
-import { HeaderLink } from './LegacyHeader';
+import { Box } from '../../Box';
+import { Text } from '../../Text';
+import { LegacyUserMenu, LegacyUserMenuProps } from '../../LegacyUserMenu';
+import { HeaderLink } from '../LegacyHeader';
 
 const T3nNav = styled(Box)`
   ${Text} {
@@ -20,18 +20,18 @@ type T3nNavLinksType = {
   url: string;
 }[];
 
-const legacyT3nNavLinks: T3nNavLinksType = [
+const t3nNavLinks: T3nNavLinksType = [
   {
     label: 'Über t3n',
-    url: '/ueber-t3n/',
+    url: 'https://t3n.de/ueber-t3n/',
   },
   {
     label: 'Jobs bei t3n',
-    url: '/jobs-bei-t3n/',
+    url: 'https://t3n.de/jobs-bei-t3n/',
   },
   {
     label: 'Mediadaten',
-    url: '/mediadaten/de/',
+    url: 'https://t3n.de/mediadaten/de/',
   },
 ];
 
@@ -42,7 +42,7 @@ export const LegacyT3nNav: React.FC<{
 }> = ({ user, labelUrl, itemGroups }) => {
   return (
     <T3nNav display="flex" alignItems="center">
-      {legacyT3nNavLinks.map((link, idx) => (
+      {t3nNavLinks.map((link, idx) => (
         <HeaderLink href={link.url} title={link.label} key={idx}>
           <Text m={0}>{link.label}</Text>
         </HeaderLink>

@@ -5,13 +5,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, space } from 'styled-system';
 
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Icon } from '../Icon';
-import { Input } from '../Input';
-import { LegacyUserMenuProps } from '../LegacyUserMenu';
-import { Text } from '../Text';
-import { HeaderLink } from './LegacyHeader';
+import { Box } from '../../Box';
+import { Button } from '../../Button';
+import { Icon } from '../../Icon';
+import { Input } from '../../Input';
+import { LegacyUserMenuProps } from '../../LegacyUserMenu';
+import { Text } from '../../Text';
+import { HeaderLink } from '../LegacyHeader';
 
 const MobileMenuToggle = styled(Icon)`
   cursor: pointer;
@@ -123,51 +123,51 @@ type MobileNavLinksType = {
   bold?: boolean;
 }[];
 
-const legacyMobileNavLinks: MobileNavLinksType = [
+const mobileNavLinks: MobileNavLinksType = [
   {
     label: 'Pro',
-    url: '/pro/',
+    url: 'https://t3n.de/pro/',
     bold: true,
   },
   {
     label: 'News',
-    url: '/news/',
+    url: 'https://t3n.de/news/',
   },
   {
     label: 'Magazin',
-    url: '/magazin/',
+    url: 'https://t3n.de/magazin/',
   },
   {
     label: 'Guides',
-    url: '/guides/',
+    url: 'https://t3n.de/guides/',
   },
   {
     label: 'Podcast',
-    url: '/podcast/',
+    url: 'https://t3n.de/podcast/',
   },
   {
     label: 'Themen',
-    url: '/tag/',
+    url: 'https://t3n.de/tag/',
   },
   {
     label: 'Pioneers',
-    url: '/pioneers/',
+    url: 'https://t3n.de/pioneers/',
   },
   {
     label: 'Jobs',
-    url: '/jobs/',
+    url: 'https://t3n.de/jobs/',
   },
   {
     label: 'Firmen',
-    url: '/firmen/',
+    url: 'https://t3n.de/firmen/',
   },
   {
     label: 'Events',
-    url: '/events/',
+    url: 'https://t3n.de/events/',
   },
   {
     label: 'Shop',
-    url: '/store/',
+    url: 'https://t3n.de/store/',
   },
 ];
 
@@ -203,7 +203,7 @@ export const LegacyMobileNav: React.FC<{
             onClick={() => setMenuOpen(!menuOpen)}
           />
         </Box>
-        <SearchForm action="/suche" method="get">
+        <SearchForm action="https://t3n.de/suche" method="get">
           <Input
             type="text"
             placeholder="t3n.de durchsuchen"
@@ -214,7 +214,7 @@ export const LegacyMobileNav: React.FC<{
             Suchen
           </Button>
         </SearchForm>
-        {legacyMobileNavLinks.map((link, idx) => (
+        {mobileNavLinks.map((link, idx) => (
           <MobileMenuItem key={idx}>
             <HeaderLink href={link.url} title={link.label}>
               <Text

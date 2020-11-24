@@ -11,14 +11,15 @@ import {
   typography,
 } from 'styled-system';
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
-import { Text } from '../Text';
-import { HeaderLink } from './LegacyHeader';
+import { Box } from '../../Box';
+import { Icon } from '../../Icon';
+import { Text } from '../../Text';
+import { HeaderLink } from '../LegacyHeader';
 
 const MainNavWrapper = styled(Box)`
   width: 100%;
   margin: 0 auto;
+
   ${({ theme }) => space({ theme, p: ['0', '0', '0', '0 10%'] })};
 `;
 
@@ -26,6 +27,7 @@ const MainNavDropdown = styled.ul`
   right: 0;
   z-index: 1;
   list-style-type: none;
+
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => space({ theme, m: '1px', py: 2, px: 3 })};
   ${({ theme }) => layout({ theme, width: ['97%', '200px'] })};
@@ -76,120 +78,120 @@ type MainNavLinkGroupsType = {
   }[];
 }[];
 
-const legacyMainNavLinkGroups: MainNavLinkGroupsType = [
+const mainNavLinkGroups: MainNavLinkGroupsType = [
   {
     label: 'Pro',
-    url: '/pro/',
+    url: 'https://t3n.de/pro/',
     bold: true,
   },
   {
     label: 'News',
-    url: '/news/',
+    url: 'https://t3n.de/news/',
   },
   {
     label: 'Wissen',
     dropdownLinks: [
       {
         label: 'Magazin',
-        url: '/magazin/',
+        url: 'https://t3n.de/magazin/',
       },
       {
         label: 'Guides',
-        url: '/guides/',
+        url: 'https://t3n.de/guides/',
       },
       {
         label: 'Podcast',
-        url: '/podcast/',
+        url: 'https://t3n.de/podcast/',
       },
       {
         label: 'Newsletter',
-        url: '/info/t3n-newsletter/',
+        url: 'https://t3n.de/info/t3n-newsletter/',
       },
     ],
   },
   {
     label: 'Themen',
-    url: '/tag/',
+    url: 'https://t3n.de/tag/',
     dropdownLinks: [
       {
         label: 'Digitale Wirtschaft',
-        url: '/tag/digitale-wirtschaft/',
+        url: 'https://t3n.de/tag/digitale-wirtschaft/',
       },
       {
         label: 'Software & Infrastruktur',
-        url: '/tag/software-infrastruktur/',
+        url: 'https://t3n.de/tag/software-infrastruktur/',
       },
       {
         label: 'Entwicklung & Design',
-        url: '/tag/entwicklung-design/',
+        url: 'https://t3n.de/tag/entwicklung-design/',
       },
       {
         label: 'Marketing',
-        url: '/tag/marketing/',
+        url: 'https://t3n.de/tag/marketing/',
       },
       {
         label: 'Gadgets & Lifestyle',
-        url: '/tag/gadgets-lifestyle/',
+        url: 'https://t3n.de/tag/gadgets-lifestyle/',
       },
       {
         label: 'Startups',
-        url: '/tag/startups/',
+        url: 'https://t3n.de/tag/startups/',
       },
       {
         label: 'Karriere',
-        url: '/tag/karriere/',
+        url: 'https://t3n.de/tag/karriere/',
       },
       {
         label: 'E-Commerce',
-        url: '/tag/e-commerce/',
+        url: 'https://t3n.de/tag/e-commerce/',
       },
       {
         label: 'Finance',
-        url: '/tag/finance/',
+        url: 'https://t3n.de/tag/finance/',
       },
       {
         label: 'Gaming',
-        url: '/tag/gaming/',
+        url: 'https://t3n.de/tag/gaming/',
       },
       {
         label: 'Mobilität',
-        url: '/tag/mobilitaet/',
+        url: 'https://t3n.de/tag/mobilitaet/',
       },
       {
         label: 'Digitale Gesellschaft',
-        url: '/tag/digitale-gesellschaft/',
+        url: 'https://t3n.de/tag/digitale-gesellschaft/',
       },
     ],
   },
   {
     label: 'Pioneers',
-    url: '/pioneers/',
+    url: 'https://t3n.de/pioneers/',
   },
   {
     label: 'Jobs',
-    url: '/jobs/',
+    url: 'https://t3n.de/jobs/',
   },
   {
     label: 'Firmen',
-    url: '/firmen/',
+    url: 'https://t3n.de/firmen/',
   },
   {
     label: 'Events',
-    url: '/events/',
+    url: 'https://t3n.de/events/',
     dropdownLinks: [
       {
         label: 'Eventkalender',
-        url: '/events/',
+        url: 'https://t3n.de/events/',
       },
       {
         label: 'Medienkooperationen',
-        url: '/events/pakete/',
+        url: 'https://t3n.de/events/pakete/',
       },
     ],
   },
   {
     label: 'Shop',
-    url: '/store/',
+    url: 'https://t3n.de/store/',
   },
 ];
 
@@ -197,7 +199,7 @@ export const LegacyMainNav: React.FC = () => {
   return (
     <MainNavWrapper display="flex" className="tg-menu">
       <Box display="flex" justifyContent="space-between" width="100%" my={3}>
-        {legacyMainNavLinkGroups.map((group, idx) => (
+        {mainNavLinkGroups.map((group, idx) => (
           <MainNavItem key={idx}>
             <Box display="flex">
               {group.url ? (

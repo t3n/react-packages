@@ -1,7 +1,7 @@
 import React from 'react';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
-export declare const LegacyT3nNav: React.FC<{
+export declare const LegacyMobileHeader: React.FC<{
     user: LegacyUserMenuProps['user'];
-    labelUrl: string;
-    itemGroups: LegacyUserMenuProps['itemGroups'];
+    headerCampaignUrl: string;
+    headerCampaignImageMobile?: string;
 }>;

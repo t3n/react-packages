@@ -5,24 +5,13 @@ import { border, color, space, typography, layout } from 'styled-system';
 
 import { MaterialSearch } from '@t3n/icons';
 
-import { Tag, TagColorVariant } from '../Tag';
-import { IconButton } from '../IconButton';
-import { Box } from '../Box';
+import { Tag, TagColorVariant } from '../../Tag';
+import { IconButton } from '../../IconButton';
+import { Box } from '../../Box';
 
 const StyledTag = styled(Tag)`
   ${({ theme }) => space({ mr: 1, theme })};
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
-`;
-
-const SearchForm = styled.form`
-  display: flex;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  justify-content: flex-end;
-  pointer-events: none;
-  ${({ theme }) =>
-    layout({ theme, height: ['80px', '80px', '80px', 'unset'] })};
 `;
 
 const SearchInput = styled.input`
@@ -41,9 +30,20 @@ const SearchInput = styled.input`
       borderColor: 'shades.white',
       borderBottomWidth: 2,
     })}
+`;
 
-  &:focus,
-  &:active {
+const SearchForm = styled.form`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+
+  ${({ theme }) =>
+    layout({ theme, height: ['80px', '80px', '80px', 'unset'] })};
+
+  &:focus-within ${SearchInput} {
     outline: none;
     width: calc(100% - 42px);
     transition-delay: 2s;
@@ -69,6 +69,10 @@ const SearchInput = styled.input`
       ${({ theme }) => typography({ fontSize: 2, theme })};
     }
   }
+`;
+
+const SearchButton = styled(IconButton)<{ type: string }>`
+  pointer-events: all;
 `;
 
 export type TagNavTagsType = {
@@ -99,14 +103,14 @@ export const LegacyTagNav: React.FC<{ tags: TagNavTagsType }> = ({ tags }) => {
           </StyledTag>
         ))}
       </Box>
-      <SearchForm action="/suche" method="get">
+      <SearchForm action="https://t3n.de/suche" method="get">
         <SearchInput
           type="text"
           placeholder="t3n.de durchsuchen"
           name="q"
           id="js-search-box"
         />
-        <IconButton
+        <SearchButton
           icon={MaterialSearch}
           color="inverse"
           size="big"

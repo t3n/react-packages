@@ -72,7 +72,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Über t3n',
-        url: '/ueber-t3n/',
+        url: 'https://t3n.de/ueber-t3n/',
       },
       {
         label: 'Team',
@@ -98,19 +98,19 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Mediadaten',
-        url: '/mediadaten/de',
+        url: 'https://t3n.de/mediadaten/de',
       },
       {
         label: 'AGB',
-        url: '/agb/',
+        url: 'https://t3n.de/agb/',
       },
       {
         label: 'Datenschutz',
-        url: '/datenschutz/',
+        url: 'https://t3n.de/datenschutz/',
       },
       {
         label: 'Impressum',
-        url: '/impressum/',
+        url: 'https://t3n.de/impressum/',
       },
     ],
   },
@@ -164,7 +164,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Newsletter',
-        url: '/info/t3n-newsletter/',
+        url: 'https://t3n.de/info/t3n-newsletter/',
       },
       {
         label: 'Newsarchiv',

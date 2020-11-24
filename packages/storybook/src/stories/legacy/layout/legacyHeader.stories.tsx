@@ -5,7 +5,7 @@ import { color } from 'styled-system';
 import { withKnobs } from '@storybook/addon-knobs';
 import { Box, LegacyHeader } from '@t3n/components';
 import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
-import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/LegacyTagNav';
+import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
 
 const Wrapper = styled(Box)`
   min-height: 100vh;
