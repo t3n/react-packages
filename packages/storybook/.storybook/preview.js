@@ -1,7 +1,5 @@
 import React from 'react';
-import { addDecorator, addParameters } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
-import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { InMemoryCache } from 'apollo-cache-inmemory';
