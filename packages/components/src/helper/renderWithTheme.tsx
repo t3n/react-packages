@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
@@ -8,6 +9,7 @@ interface OptionalTheme {
   theme?: Theme;
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export const renderWithTheme = (
   ui: React.ReactElement,
   { theme, ...options }: RenderOptions & OptionalTheme
