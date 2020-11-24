@@ -15,7 +15,7 @@ const StyledTag = styled(Tag)`
   ${({ theme }) => typography({ fontSize: 0, theme })};
 `;
 
-const SearchInput = styled.input`
+export const SearchInput = styled.input`
   pointer-events: all;
   width: 42px;
   cursor: pointer;
@@ -33,7 +33,7 @@ const SearchInput = styled.input`
     })}
 `;
 
-const SearchForm = styled.form`
+export const SearchForm = styled.form`
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -71,7 +71,7 @@ const SearchForm = styled.form`
   }
 `;
 
-const SearchButton = styled(IconButton)<{ type: string }>`
+export const SearchButton = styled(IconButton)<{ type: string }>`
   pointer-events: all;
 `;
 

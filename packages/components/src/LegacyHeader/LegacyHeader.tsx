@@ -30,7 +30,7 @@ export const HeaderLink = styled.a`
 `;
 
 export const LegacyHeader: React.FC<{
-  user: LegacyUserMenuProps['user'];
+  user?: LegacyUserMenuProps['user'];
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
   tags: TagNavTagsType[];

@@ -13,6 +13,10 @@ import { HeaderCampaign } from './LegacyHeader';
 
 const MobileHeader = styled(Box)`
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 300;
+
   ${({ theme }) =>
     color({ theme, bg: 'background.primary', color: 'text.secondary' })};
   ${({ theme }) => space({ px: 2, theme })};

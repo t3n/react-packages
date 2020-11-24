@@ -8,7 +8,7 @@ import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
 
 const Wrapper = styled(Box)`
-  min-height: 100vh;
+  min-height: 200vh;
   ${({ theme }) => color({ theme, bg: 'shades.grey232' })}
 `;
 
@@ -105,4 +105,23 @@ export const defaultStory = () => (
 
 defaultStory.story = {
   name: 'Default',
+};
+
+export const notLoggedInStory = () => (
+  <Wrapper display="flex">
+    <LegacyHeaderWrapper>
+      <LegacyHeader
+        userMenuLabelUrl="/account/"
+        userMenuLinkGroups={standardLinkGroup}
+        tags={tagNavTags}
+        headerCampaignUrl={variants[randomNumber].href}
+        headerCampaignImage={variants[randomNumber].image}
+        headerCampaignImageMobile={variants[randomNumber].imageMobile}
+      />
+    </LegacyHeaderWrapper>
+  </Wrapper>
+);
+
+notLoggedInStory.story = {
+  name: 'Not logged in',
 };

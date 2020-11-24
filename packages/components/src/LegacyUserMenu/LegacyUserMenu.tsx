@@ -112,7 +112,7 @@ const LogoutLink = styled.a`
 const LoginLink = styled.a`
   text-decoration: none;
   line-height: 44px;
-  ${({ theme }) => space({ theme, px: 2 })};
+  ${({ theme }) => space({ theme, pr: 2 })};
   ${({ theme }) => typography({ theme, fontSize: 0 })};
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 

@@ -16,11 +16,12 @@ import { Icon } from '../../Icon';
 import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
 
-const MainNavWrapper = styled(Box)`
+const MainNavWrapper = styled(Box)<{ isSticky?: boolean }>`
   width: 100%;
   margin: 0 auto;
 
-  ${({ theme }) => space({ theme, p: ['0', '0', '0', '0 10%'] })};
+  ${({ theme, isSticky }) =>
+    space({ theme, p: ['0', '0', '0', isSticky ? '0 40px' : '0 10%'] })};
 `;
 
 const MainNavDropdown = styled.ul`
@@ -195,10 +196,18 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   },
 ];
 
-export const LegacyMainNav: React.FC = () => {
+export const LegacyMainNav: React.FC<{ isSticky?: boolean }> = ({
+  isSticky,
+}) => {
   return (
-    <MainNavWrapper display="flex" className="tg-menu">
-      <Box display="flex" justifyContent="space-between" width="100%" my={3}>
+    <MainNavWrapper display="flex" className="tg-menu" isSticky={isSticky}>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        width="100%"
+        my={3}
+        pr={isSticky ? 7 : 0}
+      >
         {mainNavLinkGroups.map((group, idx) => (
           <MainNavItem key={idx}>
             <Box display="flex">
