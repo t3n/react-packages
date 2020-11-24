@@ -72,7 +72,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Über t3n',
-        url: 'https://t3n.de/ueber-t3n/',
+        url: '/ueber-t3n/',
       },
       {
         label: 'Team',
@@ -94,23 +94,23 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Unterstütze t3n',
-        url: 'https://t3n.de/unterstuetze-t3n',
+        url: '/unterstuetze-t3n',
       },
       {
         label: 'Mediadaten',
-        url: 'https://t3n.de/mediadaten/de',
+        url: '/mediadaten/de',
       },
       {
         label: 'AGB',
-        url: 'https://t3n.de/agb/',
+        url: '/agb/',
       },
       {
         label: 'Datenschutz',
-        url: 'https://t3n.de/datenschutz/',
+        url: '/datenschutz/',
       },
       {
         label: 'Impressum',
-        url: 'https://t3n.de/impressum/',
+        url: '/impressum/',
       },
     ],
   },
@@ -119,56 +119,56 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Pro',
-        url: 'https://t3n.de/pro/',
+        url: '/pro/',
         bold: true,
       },
       {
         label: 'News',
-        url: 'https://t3n.de/news/',
+        url: '/news/',
       },
       {
         label: 'Magazin',
-        url: 'https://t3n.de/magazin/',
+        url: '/magazin/',
       },
       {
         label: 'Podcast',
-        url: 'https://t3n.de/podcast/',
+        url: '/podcast/',
       },
       {
         label: 'Themen',
-        url: 'https://t3n.de/tag/',
+        url: '/tag/',
       },
       {
         label: 'Pioneers',
-        url: 'https://t3n.de/pioneers/',
+        url: '/pioneers/',
       },
       {
         label: 'Jobs',
-        url: 'https://t3n.de/jobs/',
+        url: '/jobs/',
       },
       {
         label: 'Firmen',
-        url: 'https://t3n.de/firmen/',
+        url: '/firmen/',
       },
       {
         label: 'Deals',
-        url: 'https://t3n.de/deals/',
+        url: '/deals/',
       },
       {
         label: 'Events',
-        url: 'https://t3n.de/events/',
+        url: '/events/',
       },
       {
         label: 'Shop',
-        url: 'https://t3n.de/store/',
+        url: '/store/',
       },
       {
         label: 'Newsletter',
-        url: 'https://t3n.de/info/t3n-newsletter/',
+        url: '/info/t3n-newsletter/',
       },
       {
         label: 'Newsarchiv',
-        url: 'https://t3n.de/archive/',
+        url: '/archive/',
       },
     ],
   },
@@ -177,7 +177,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Aktuelle News',
-        url: 'https://t3n.de/rss.xml',
+        url: '/rss.xml',
       },
       {
         label: 'Die neuesten Artikel',
@@ -188,7 +188,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Aktuelle Jobs',
-        url: 'https://t3n.de/jobs/rss/all/',
+        url: '/jobs/rss/all/',
       },
     ],
   },
@@ -204,7 +204,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Pressebereich',
-        url: 'https://t3n.de/presse/presseinformationen/',
+        url: '/presse/presseinformationen/',
       },
       {
         label: 'Redaktion',

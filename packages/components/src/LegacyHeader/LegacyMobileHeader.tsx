@@ -14,7 +14,7 @@ import { HeaderCampaign } from './LegacyHeader';
 const MobileHeader = styled(Box)`
   width: 100%;
   ${({ theme }) =>
-    color({ theme, bg: 'shades.white', color: 'text.secondary' })};
+    color({ theme, bg: 'background.primary', color: 'text.secondary' })};
   ${({ theme }) => space({ px: 2, theme })};
 
   ${Logo} {

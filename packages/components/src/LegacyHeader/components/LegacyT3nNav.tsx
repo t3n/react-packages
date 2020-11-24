@@ -18,20 +18,20 @@ const T3nNav = styled(Box)`
 type T3nNavLinksType = {
   label: string;
   url: string;
-}[];
+};
 
-const t3nNavLinks: T3nNavLinksType = [
+const t3nNavLinks: T3nNavLinksType[] = [
   {
     label: 'Über t3n',
-    url: 'https://t3n.de/ueber-t3n/',
+    url: '/ueber-t3n/',
   },
   {
     label: 'Jobs bei t3n',
-    url: 'https://t3n.de/jobs-bei-t3n/',
+    url: '/jobs-bei-t3n/',
   },
   {
     label: 'Mediadaten',
-    url: 'https://t3n.de/mediadaten/de/',
+    url: '/mediadaten/de/',
   },
 ];
 

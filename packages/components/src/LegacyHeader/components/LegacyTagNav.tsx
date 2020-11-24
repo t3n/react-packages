@@ -12,6 +12,7 @@ import { Box } from '../../Box';
 const StyledTag = styled(Tag)`
   ${({ theme }) => space({ mr: 1, theme })};
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
+  ${({ theme }) => typography({ fontSize: 0, theme })};
 `;
 
 const SearchInput = styled.input`
@@ -40,8 +41,7 @@ const SearchForm = styled.form`
   top: 0;
   pointer-events: none;
 
-  ${({ theme }) =>
-    layout({ theme, height: ['80px', '80px', '80px', 'unset'] })};
+  ${({ theme }) => layout({ theme, height: ['80px', '80px', 'unset'] })};
 
   &:focus-within ${SearchInput} {
     outline: none;
@@ -51,7 +51,7 @@ const SearchForm = styled.form`
     transform: translateX(0);
     opacity: 1;
 
-    ${({ theme }) => typography({ fontSize: 2, theme })};
+    ${({ theme }) => typography({ fontSize: 1, theme })};
 
     ${({ theme }) =>
       border({
@@ -66,7 +66,7 @@ const SearchForm = styled.form`
     &::placeholder {
       transition: all 0.3s 0.4s ease;
 
-      ${({ theme }) => typography({ fontSize: 2, theme })};
+      ${({ theme }) => typography({ fontSize: 1, theme })};
     }
   }
 `;
@@ -79,9 +79,11 @@ export type TagNavTagsType = {
   label: string;
   url: string;
   variant?: TagColorVariant;
-}[];
+};
 
-export const LegacyTagNav: React.FC<{ tags: TagNavTagsType }> = ({ tags }) => {
+export const LegacyTagNav: React.FC<{ tags: TagNavTagsType[] }> = ({
+  tags,
+}) => {
   return (
     <Box position="relative" mb={4}>
       <Box
@@ -103,7 +105,7 @@ export const LegacyTagNav: React.FC<{ tags: TagNavTagsType }> = ({ tags }) => {
           </StyledTag>
         ))}
       </Box>
-      <SearchForm action="https://t3n.de/suche" method="get">
+      <SearchForm action="/suche" method="get">
         <SearchInput
           type="text"
           placeholder="t3n.de durchsuchen"

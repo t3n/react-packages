@@ -33,7 +33,7 @@ export const LegacyHeader: React.FC<{
   user: LegacyUserMenuProps['user'];
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
-  tagNavTags: TagNavTagsType;
+  tags: TagNavTagsType[];
   headerCampaignUrl: string;
   headerCampaignImage: string;
   headerCampaignImageMobile?: string;
@@ -41,7 +41,7 @@ export const LegacyHeader: React.FC<{
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,
-  tagNavTags,
+  tags,
   headerCampaignUrl,
   headerCampaignImage,
   headerCampaignImageMobile,
@@ -63,7 +63,7 @@ export const LegacyHeader: React.FC<{
       user={user}
       userMenuLabelUrl={userMenuLabelUrl}
       userMenuLinkGroups={userMenuLinkGroups}
-      tagNavTags={tagNavTags}
+      tags={tags}
       headerCampaignUrl={headerCampaignUrl}
       headerCampaignImage={headerCampaignImage}
     />

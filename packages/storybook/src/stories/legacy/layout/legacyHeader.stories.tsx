@@ -33,7 +33,7 @@ const standardLinkGroup: LegacyUserMenuProps['itemGroups'] = [
   },
 ];
 
-const tagNavTags: TagNavTagsType = [
+const tagNavTags: TagNavTagsType[] = [
   {
     label: 'Homeoffice 🖥',
     url: 'https://t3n.de/tag/homeoffice/',
@@ -94,7 +94,7 @@ export const defaultStory = () => (
         user={standardUser}
         userMenuLabelUrl="/account/"
         userMenuLinkGroups={standardLinkGroup}
-        tagNavTags={tagNavTags}
+        tags={tagNavTags}
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
         headerCampaignImageMobile={variants[randomNumber].imageMobile}

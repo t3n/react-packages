@@ -8,7 +8,7 @@ import LegacyMobileFooter from './LegacyMobileFooter';
 
 const Footer = styled(Box)`
   ${({ theme }) =>
-    color({ theme, bg: 'shades.grey232', color: 'text.secondary' })};
+    color({ theme, bg: 'background.secondary', color: 'text.secondary' })};
   *:not(h3) {
     ${({ theme }) =>
       typography({

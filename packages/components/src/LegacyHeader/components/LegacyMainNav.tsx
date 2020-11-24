@@ -52,7 +52,7 @@ const MainNavItem = styled(Box)`
   cursor: pointer;
 
   * {
-    ${({ theme }) => typography({ theme, fontSize: 3 })};
+    ${({ theme }) => typography({ theme, fontSize: 2 })};
   }
 
   > ${MainNavDropdown} {
@@ -76,122 +76,122 @@ type MainNavLinkGroupsType = {
     label: string;
     url: string;
   }[];
-}[];
+};
 
-const mainNavLinkGroups: MainNavLinkGroupsType = [
+const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   {
     label: 'Pro',
-    url: 'https://t3n.de/pro/',
+    url: '/pro/',
     bold: true,
   },
   {
     label: 'News',
-    url: 'https://t3n.de/news/',
+    url: '/news/',
   },
   {
     label: 'Wissen',
     dropdownLinks: [
       {
         label: 'Magazin',
-        url: 'https://t3n.de/magazin/',
+        url: '/magazin/',
       },
       {
         label: 'Guides',
-        url: 'https://t3n.de/guides/',
+        url: '/guides/',
       },
       {
         label: 'Podcast',
-        url: 'https://t3n.de/podcast/',
+        url: '/podcast/',
       },
       {
         label: 'Newsletter',
-        url: 'https://t3n.de/info/t3n-newsletter/',
+        url: '/info/t3n-newsletter/',
       },
     ],
   },
   {
     label: 'Themen',
-    url: 'https://t3n.de/tag/',
+    url: '/tag/',
     dropdownLinks: [
       {
         label: 'Digitale Wirtschaft',
-        url: 'https://t3n.de/tag/digitale-wirtschaft/',
+        url: '/tag/digitale-wirtschaft/',
       },
       {
         label: 'Software & Infrastruktur',
-        url: 'https://t3n.de/tag/software-infrastruktur/',
+        url: '/tag/software-infrastruktur/',
       },
       {
         label: 'Entwicklung & Design',
-        url: 'https://t3n.de/tag/entwicklung-design/',
+        url: '/tag/entwicklung-design/',
       },
       {
         label: 'Marketing',
-        url: 'https://t3n.de/tag/marketing/',
+        url: '/tag/marketing/',
       },
       {
         label: 'Gadgets & Lifestyle',
-        url: 'https://t3n.de/tag/gadgets-lifestyle/',
+        url: '/tag/gadgets-lifestyle/',
       },
       {
         label: 'Startups',
-        url: 'https://t3n.de/tag/startups/',
+        url: '/tag/startups/',
       },
       {
         label: 'Karriere',
-        url: 'https://t3n.de/tag/karriere/',
+        url: '/tag/karriere/',
       },
       {
         label: 'E-Commerce',
-        url: 'https://t3n.de/tag/e-commerce/',
+        url: '/tag/e-commerce/',
       },
       {
         label: 'Finance',
-        url: 'https://t3n.de/tag/finance/',
+        url: '/tag/finance/',
       },
       {
         label: 'Gaming',
-        url: 'https://t3n.de/tag/gaming/',
+        url: '/tag/gaming/',
       },
       {
         label: 'Mobilität',
-        url: 'https://t3n.de/tag/mobilitaet/',
+        url: '/tag/mobilitaet/',
       },
       {
         label: 'Digitale Gesellschaft',
-        url: 'https://t3n.de/tag/digitale-gesellschaft/',
+        url: '/tag/digitale-gesellschaft/',
       },
     ],
   },
   {
     label: 'Pioneers',
-    url: 'https://t3n.de/pioneers/',
+    url: '/pioneers/',
   },
   {
     label: 'Jobs',
-    url: 'https://t3n.de/jobs/',
+    url: '/jobs/',
   },
   {
     label: 'Firmen',
-    url: 'https://t3n.de/firmen/',
+    url: '/firmen/',
   },
   {
     label: 'Events',
-    url: 'https://t3n.de/events/',
+    url: '/events/',
     dropdownLinks: [
       {
         label: 'Eventkalender',
-        url: 'https://t3n.de/events/',
+        url: '/events/',
       },
       {
         label: 'Medienkooperationen',
-        url: 'https://t3n.de/events/pakete/',
+        url: '/events/pakete/',
       },
     ],
   },
   {
     label: 'Shop',
-    url: 'https://t3n.de/store/',
+    url: '/store/',
   },
 ];
 
@@ -226,7 +226,7 @@ export const LegacyMainNav: React.FC = () => {
                   component={MaterialExpandMore}
                   width="30px"
                   height="25px"
-                  mt="6px"
+                  mt={1}
                   ml={-1}
                   fill="text.secondary"
                 />

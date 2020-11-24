@@ -65,7 +65,7 @@ const MobileMenuItem = styled.a<ThemeProps>`
   ${({ theme }) =>
     color({
       theme,
-      bg: 'brand.white',
+      bg: 'background.primary',
       color: 'text.primary',
     })}
 
@@ -88,7 +88,7 @@ const MobileMenuItem = styled.a<ThemeProps>`
       color({
         theme,
         color: getColorForBackground('secondary'),
-        bg: 'brand.white',
+        bg: 'background.primary',
       })}
   }
 `;
@@ -111,7 +111,7 @@ const SearchForm = styled.form`
   ${({ theme }) =>
     color({
       theme,
-      bg: 'shades.grey232',
+      bg: 'background.secondary',
     })};
 
   ${({ theme }) => space({ theme, p: 3 })};
@@ -121,53 +121,53 @@ type MobileNavLinksType = {
   label: string;
   url: string;
   bold?: boolean;
-}[];
+};
 
-const mobileNavLinks: MobileNavLinksType = [
+const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
-    url: 'https://t3n.de/pro/',
+    url: '/pro/',
     bold: true,
   },
   {
     label: 'News',
-    url: 'https://t3n.de/news/',
+    url: '/news/',
   },
   {
     label: 'Magazin',
-    url: 'https://t3n.de/magazin/',
+    url: '/magazin/',
   },
   {
     label: 'Guides',
-    url: 'https://t3n.de/guides/',
+    url: '/guides/',
   },
   {
     label: 'Podcast',
-    url: 'https://t3n.de/podcast/',
+    url: '/podcast/',
   },
   {
     label: 'Themen',
-    url: 'https://t3n.de/tag/',
+    url: '/tag/',
   },
   {
     label: 'Pioneers',
-    url: 'https://t3n.de/pioneers/',
+    url: '/pioneers/',
   },
   {
     label: 'Jobs',
-    url: 'https://t3n.de/jobs/',
+    url: '/jobs/',
   },
   {
     label: 'Firmen',
-    url: 'https://t3n.de/firmen/',
+    url: '/firmen/',
   },
   {
     label: 'Events',
-    url: 'https://t3n.de/events/',
+    url: '/events/',
   },
   {
     label: 'Shop',
-    url: 'https://t3n.de/store/',
+    url: '/store/',
   },
 ];
 
@@ -203,7 +203,7 @@ export const LegacyMobileNav: React.FC<{
             onClick={() => setMenuOpen(!menuOpen)}
           />
         </Box>
-        <SearchForm action="https://t3n.de/suche" method="get">
+        <SearchForm action="/suche" method="get">
           <Input
             type="text"
             placeholder="t3n.de durchsuchen"

@@ -18,15 +18,15 @@ const Header = styled(Box)`
   z-index: 300;
   width: 100%;
   ${({ theme }) =>
-    color({ theme, bg: 'shades.white', color: 'text.secondary' })};
+    color({ theme, bg: 'background.primary', color: 'text.secondary' })};
   ${({ theme }) => space({ px: 4, pb: [2, 2, 2, 0], theme })};
 
   ${Logo} {
     ${({ theme }) =>
       layout({
         theme,
-        width: ['140px', '140px', '160px', '200px'],
-        height: ['45px', '45px', '55px', '62px'],
+        width: ['140px', '140px', '160px', '200px', '250px'],
+        height: ['45px', '45px', '60px', '80px', '150px'],
       })};
 
     > path {
@@ -47,22 +47,18 @@ const VisualHeader = styled(Box)`
     })};
 `;
 
-const StyledLegacyMobileSocialLinks = styled(LegacyMobileSocialLinks)`
-  ${({ theme }) => space({ mt: 3, mb: 4, theme })};
-`;
-
 export const LegacyDesktopHeader: React.FC<{
   user: LegacyUserMenuProps['user'];
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
-  tagNavTags: TagNavTagsType;
+  tags: TagNavTagsType[];
   headerCampaignUrl: string;
   headerCampaignImage: string;
 }> = ({
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,
-  tagNavTags,
+  tags,
   headerCampaignUrl,
   headerCampaignImage,
 }) => {
@@ -91,13 +87,13 @@ export const LegacyDesktopHeader: React.FC<{
             labelUrl={userMenuLabelUrl}
             itemGroups={userMenuLinkGroups}
           />
-          <StyledLegacyMobileSocialLinks />
+          <LegacyMobileSocialLinks />
         </Box>
       </VisualHeader>
 
       <Box display="flex" flexDirection="column">
         <LegacyMainNav />
-        <LegacyTagNav tags={tagNavTags} />
+        <LegacyTagNav tags={tags} />
       </Box>
     </Header>
   );

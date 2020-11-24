@@ -5,7 +5,7 @@ export declare const LegacyDesktopHeader: React.FC<{
     user: LegacyUserMenuProps['user'];
     userMenuLabelUrl: string;
     userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
-    tagNavTags: TagNavTagsType;
+    tags: TagNavTagsType[];
     headerCampaignUrl: string;
     headerCampaignImage: string;
 }>;

@@ -58,36 +58,36 @@ type MobileLinkType = {
 const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Pro',
-    url: 'https://t3n.de/pro/',
+    url: '/pro/',
     bold: true,
   },
   {
     label: 'Jobs bei t3n',
-    url: 'https://t3n.de/jobs-bei-t3n',
+    url: '/jobs-bei-t3n',
   },
   {
     label: 'Unterstütze t3n',
-    url: 'https://t3n.de/unterstuetze-t3n',
+    url: '/unterstuetze-t3n',
   },
   {
     label: 'Mediadaten',
-    url: 'https://t3n.de/mediadaten/de',
+    url: '/mediadaten/de',
   },
   {
     label: 'Impressum',
-    url: 'https://t3n.de/impressum/',
+    url: '/impressum/',
   },
   {
     label: 'Nutzungsbedingungen',
-    url: 'https://t3n.de/nutzungsbedingungen/',
+    url: '/nutzungsbedingungen/',
   },
   {
     label: 'AGB',
-    url: 'https://t3n.de/agb/',
+    url: '/agb/',
   },
   {
     label: 'Datenschutz',
-    url: 'https://t3n.de/datenschutz/',
+    url: '/datenschutz/',
   },
 ];
 
@@ -151,13 +151,13 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
   },
   {
     title: 't3n Newsletter',
-    url: 'https://t3n.de/info/t3n-newsletter/',
+    url: '/info/t3n-newsletter/',
     icon: <MaterialLocalPostOffice fill="#8F8F8F" width="20px" height="20px" />,
     rel: 'follow',
   },
   {
     title: 'Notifications',
-    url: 'https://t3n.de/info/push-notifications/',
+    url: '/info/push-notifications/',
     icon: <MaterialNotifications fill="#8F8F8F" width="20px" height="20px" />,
     rel: 'follow',
   },
@@ -175,24 +175,24 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
   },
 ];
 
-export const LegacyMobileSocialLinks = () => {
-  return (
-    <Box display="flex" justifyContent="center">
-      {legacyMobileSocialLinks.map((link, idx) => (
-        <SocialLink
-          href={link.url}
-          title={link.title}
-          target={link.target ? link.target : '_self'}
-          rel={link.rel ? link.rel : undefined}
-          // eslint-disable-next-line react/no-array-index-key
-          key={idx}
-        >
-          {link.icon}
-        </SocialLink>
-      ))}
-    </Box>
-  );
-};
+export const LegacyMobileSocialLinks: React.FC<{ className?: string }> = ({
+  className,
+}) => (
+  <Box display="flex" justifyContent="center" className={className}>
+    {legacyMobileSocialLinks.map((link, idx) => (
+      <SocialLink
+        href={link.url}
+        title={link.title}
+        target={link.target ? link.target : '_self'}
+        rel={link.rel ? link.rel : undefined}
+        // eslint-disable-next-line react/no-array-index-key
+        key={idx}
+      >
+        {link.icon}
+      </SocialLink>
+    ))}
+  </Box>
+);
 
 const StyledLegacyMobileSocialLinks = styled(LegacyMobileSocialLinks)`
   ${({ theme }) => space({ my: 4, theme })};
