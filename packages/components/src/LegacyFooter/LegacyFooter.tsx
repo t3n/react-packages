@@ -13,7 +13,7 @@ const Footer = styled(Box)`
     ${({ theme }) =>
       typography({
         theme,
-        fontSize: [0],
+        fontSize: '12px',
       })};
   }
 `;

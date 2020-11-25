@@ -39,8 +39,12 @@ const MobileLinksWrapper = styled(Box)`
 
 const SocialLink = styled.a`
   text-decoration: none;
-  ${({ theme }) => space({ px: 2, theme })}
+  ${({ theme }) => space({ pl: '12px', theme })}
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
+
+  :last-child {
+    ${({ theme }) => space({ pl: 2, theme })}
+  }
 
   > svg:hover,
   > svg:focus {
@@ -122,55 +126,55 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
   {
     title: 'Facebook',
     url: 'https://facebook.com/t3nMagazin',
-    icon: <SocialFacebook fill="#8F8F8F" width="16px" height="16px" />,
+    icon: <SocialFacebook fill="#8F8F8F" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'Instagram',
     url: 'https://instagram.com/t3n_magazin/',
-    icon: <SocialInstagram fill="#8F8F8F" width="16px" height="16px" />,
+    icon: <SocialInstagram fill="#8F8F8F" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'Twitter',
     url: 'https://twitter.com/t3n',
-    icon: <SocialTwitter fill="#8F8F8F" width="16px" height="16px" />,
+    icon: <SocialTwitter fill="#8F8F8F" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'Xing',
     url: 'https://xing.com/news/pages/t3n-magazin-67',
-    icon: <SocialXing fill="#8F8F8F" width="16px" height="16px" />,
+    icon: <SocialXing fill="#8F8F8F" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'LinkedIn',
     url: 'https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/',
-    icon: <SocialLinkedin fill="#8F8F8F" width="16px" height="16px" />,
+    icon: <SocialLinkedin fill="#8F8F8F" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 't3n Newsletter',
     url: '/info/t3n-newsletter/',
-    icon: <MaterialLocalPostOffice fill="#8F8F8F" width="20px" height="20px" />,
+    icon: <MaterialLocalPostOffice fill="#8F8F8F" width="22px" height="22px" />,
     rel: 'follow',
   },
   {
     title: 'Notifications',
     url: '/info/push-notifications/',
-    icon: <MaterialNotifications fill="#8F8F8F" width="20px" height="20px" />,
+    icon: <MaterialNotifications fill="#8F8F8F" width="24px" height="24px" />,
     rel: 'follow',
   },
   {
     title: 't3n als RSS abonnieren',
     url: '/social-media#RSS-Feeds:_Immer_up_to_date',
-    icon: <MaterialRssFeed fill="#8F8F8F" width="20px" height="20px" />,
+    icon: <MaterialRssFeed fill="#8F8F8F" width="24px" height="24px" />,
     rel: 'follow',
   },
   {
     title: 'Folge t3n auf deinen Lieblingskanälen',
     url: '/social-media/',
-    icon: <MaterialAdd fill="#8F8F8F" width="20px" height="20px" />,
+    icon: <MaterialAdd fill="#8F8F8F" width="24px" height="24px" />,
     rel: 'follow',
   },
 ];
@@ -178,7 +182,12 @@ const legacyMobileSocialLinks: MobileSocialLinkType = [
 export const LegacyMobileSocialLinks: React.FC<{ className?: string }> = ({
   className,
 }) => (
-  <Box display="flex" justifyContent="center" className={className}>
+  <Box
+    display="flex"
+    justifyContent="center"
+    className={className}
+    alignItems="center"
+  >
     {legacyMobileSocialLinks.map((link, idx) => (
       <SocialLink
         href={link.url}

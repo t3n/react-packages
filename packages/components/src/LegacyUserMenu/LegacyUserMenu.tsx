@@ -80,7 +80,7 @@ export const LegacyUserMenuListItem = styled.li`
     text-decoration: none;
     display: block;
     ${({ theme }) => color({ theme, color: 'text.secondary' })};
-    ${({ theme }) => typography({ theme, fontSize: 0 })};
+    ${({ theme }) => typography({ theme, fontSize: '12px' })};
     ${({ theme }) => space({ theme, m: 0, p: 0 })};
 
     &:hover {
@@ -112,7 +112,7 @@ const LoginLink = styled.a`
   text-decoration: none;
   line-height: 44px;
   ${({ theme }) => space({ theme, pr: 2 })};
-  ${({ theme }) => typography({ theme, fontSize: 0 })};
+  ${({ theme }) => typography({ theme, fontSize: '12px' })};
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 
   &:hover {

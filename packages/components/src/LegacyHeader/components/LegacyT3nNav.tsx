@@ -11,7 +11,7 @@ import { HeaderLink } from '../LegacyHeader';
 const T3nNav = styled(Box)`
   ${Text} {
     ${({ theme }) => space({ theme, mr: 3 })};
-    ${({ theme }) => typography({ theme, fontSize: 0 })};
+    ${({ theme }) => typography({ theme, fontSize: '12px' })};
   }
 `;
 
@@ -41,7 +41,13 @@ export const LegacyT3nNav: React.FC<{
   itemGroups: LegacyUserMenuProps['itemGroups'];
 }> = ({ user, labelUrl, itemGroups }) => {
   return (
-    <T3nNav display="flex" alignItems="center">
+    <T3nNav
+      display="flex"
+      alignItems="center"
+      justifyContent="flex-end"
+      mr={-2}
+      pb="2px"
+    >
       {t3nNavLinks.map((link, idx) => (
         <HeaderLink href={link.url} title={link.label} key={idx}>
           <Text m={0}>{link.label}</Text>

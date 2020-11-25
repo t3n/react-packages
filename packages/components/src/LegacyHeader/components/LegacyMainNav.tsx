@@ -21,7 +21,7 @@ const MainNavWrapper = styled(Box)<{ isSticky?: boolean }>`
   margin: 0 auto;
 
   ${({ theme, isSticky }) =>
-    space({ theme, p: ['0', '0', '0', isSticky ? '0 40px' : '0 10%'] })};
+    space({ theme, p: ['0', '0', '0', isSticky ? '0 40px 0 10px' : '0 10%'] })};
 `;
 
 const MainNavDropdown = styled.ul`
@@ -205,7 +205,7 @@ export const LegacyMainNav: React.FC<{ isSticky?: boolean }> = ({
         display="flex"
         justifyContent="space-between"
         width="100%"
-        my={3}
+        my="15px"
         pr={isSticky ? 7 : 0}
       >
         {mainNavLinkGroups.map((group, idx) => (

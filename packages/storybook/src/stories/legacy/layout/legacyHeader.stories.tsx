@@ -82,7 +82,7 @@ const variants = [
 const randomNumber = Math.floor(variants.length * Math.random());
 
 export default {
-  title: 'Legacy|Layout/Header',
+  title: 'Legacy/Layout/Header',
   component: LegacyHeader,
   decorators: [withKnobs],
 };
