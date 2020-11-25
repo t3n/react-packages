@@ -15,6 +15,7 @@ const mapPropToKnob = (name = '', value: any = '', groupId = '') => {
   }
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const knobsFromProps = (c: any) => (
   props: any = {},
   groupId = '',

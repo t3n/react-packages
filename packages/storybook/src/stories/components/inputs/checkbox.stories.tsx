@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 
 import { theme } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
@@ -8,9 +8,9 @@ import { Checkbox, Section } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/Checkbox',
+  title: 'Components/Inputs/Checkbox',
   component: Checkbox,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const DefaultStory = () => {

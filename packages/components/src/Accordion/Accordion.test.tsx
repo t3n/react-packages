@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 import { renderWithTheme } from '../helper/renderWithTheme';

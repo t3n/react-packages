@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, select, text, number } from '@storybook/addon-knobs';
+import { select, text, number } from '@storybook/addon-knobs';
 import { Divider, Section, Text, Heading } from '@t3n/components';
 import { DividerVariants } from '@t3n/components/src/Divider/Divider';
 import { MaterialInfo } from '@t3n/icons';
@@ -8,7 +8,7 @@ import { theme } from '@t3n/theme';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Layout/Divider',
+  title: 'Components/Layout/Divider',
   component: Divider,
 };
 
@@ -32,7 +32,7 @@ export const defaultStory = () => (
 
 defaultStory.story = {
   name: 'Default',
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 export const variantStory = () => (
@@ -134,7 +134,6 @@ export const variantStory = () => (
 
 variantStory.story = {
   name: 'Alle Varianten',
-  decorators: [withKnobs],
 };
 
 export const textVariantStory = () => (
@@ -161,7 +160,6 @@ export const textVariantStory = () => (
 
 textVariantStory.story = {
   name: 'Text Variante',
-  decorators: [withKnobs],
 };
 
 export const iconVariant = () => (
@@ -188,5 +186,4 @@ export const iconVariant = () => (
 
 iconVariant.story = {
   name: 'Icon Variante',
-  decorators: [withKnobs],
 };

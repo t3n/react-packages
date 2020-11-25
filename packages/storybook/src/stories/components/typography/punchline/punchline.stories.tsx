@@ -10,7 +10,7 @@ import {
 import { storyContainerContentDecorator } from '../../../../utils/decorators';
 
 export default {
-  title: 'Components|Typografie/Punchline',
+  title: 'Components/Typografie/Punchline',
   component: Text,
 };
 

@@ -81,13 +81,7 @@ module.exports = {
   ],
   addons: [
     '@storybook/preset-create-react-app',
-    '@storybook/preset-typescript',
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        configureJSX: true,
-      },
-    },
+    '@storybook/addon-docs',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-knobs',

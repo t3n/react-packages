@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { layout } from 'styled-system';
 
-import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { text, number } from '@storybook/addon-knobs';
 import {
   Carousel,
   Box,
@@ -18,8 +18,8 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: Carousel,
-  title: 'Components|Content/Carousel',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/Carousel',
+  decorators: [storyContainerDecorator],
 };
 
 const StyledBox = styled(Box)`

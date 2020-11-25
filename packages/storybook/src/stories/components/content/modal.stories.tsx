@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-alert */
 import React from 'react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 import { Modal, Button } from '@t3n/components';
 import { useState } from '@storybook/addons';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: Modal,
-  title: 'Components|Content/Modal',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/Modal',
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { Grid, GridItem, H3, IconButton, Section } from '@t3n/components';
 
 import {
@@ -12,9 +12,9 @@ import {
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/IconButton',
+  title: 'Components/Inputs/IconButton',
   component: IconButton,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 type SizesType = 'big' | 'small' | 'regular';

@@ -1,12 +1,11 @@
 import React from 'react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 
 import { Link, Section, Heading } from '@t3n/components';
 
 export default {
-  title: 'Components|Inputs/Link',
+  title: 'Components/Inputs/Link',
   component: Link,
-  decorators: [withKnobs],
 };
 
 export const defaultStory = () => {
