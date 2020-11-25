@@ -96,38 +96,42 @@ export const LegacyPagination: React.FC<LegacyPaginationProps> = ({
         </LegacyPaginationContainer>
       )}
       {currentPage !== 1 &&
-        [...Array(maxPageLinks)].map((x, i) => {
-          if (currentPage - (maxPageLinks - i) <= 1) {
+        Array(maxPageLinks)
+          .fill(null)
+          .map((x, i) => {
+            if (currentPage - (maxPageLinks - i) <= 1) {
+              return null;
+            }
+            return (
+              <LegacyPaginationContainer
+                // eslint-disable-next-line react/no-array-index-key
+                key={i}
+                onClick={() => onClick(currentPage - (maxPageLinks - i))}
+              >
+                {currentPage - (maxPageLinks - i)}
+              </LegacyPaginationContainer>
+            );
+          })}
+      <LegacyPaginationContainer disabled>
+        {currentPage}
+      </LegacyPaginationContainer>
+      {Array(maxPageLinks)
+        .fill(null)
+        .map((x, i) => {
+          if (currentPage + (i + 1) >= totalPages) {
             return null;
           }
+
           return (
             <LegacyPaginationContainer
               // eslint-disable-next-line react/no-array-index-key
               key={i}
-              onClick={() => onClick(currentPage - (maxPageLinks - i))}
+              onClick={() => onClick(currentPage + (i + 1))}
             >
-              {currentPage - (maxPageLinks - i)}
+              {currentPage + (i + 1)}
             </LegacyPaginationContainer>
           );
         })}
-      <LegacyPaginationContainer disabled>
-        {currentPage}
-      </LegacyPaginationContainer>
-      {[...Array(maxPageLinks)].map((x, i) => {
-        if (currentPage + (i + 1) >= totalPages) {
-          return null;
-        }
-
-        return (
-          <LegacyPaginationContainer
-            // eslint-disable-next-line react/no-array-index-key
-            key={i}
-            onClick={() => onClick(currentPage + (i + 1))}
-          >
-            {currentPage + (i + 1)}
-          </LegacyPaginationContainer>
-        );
-      })}
       {currentPage === 1 && maxPageLinks === 1 && totalPages > 3 && (
         <LegacyPaginationContainer
           onClick={() => onClick(currentPage + maxPageLinks + 1)}
