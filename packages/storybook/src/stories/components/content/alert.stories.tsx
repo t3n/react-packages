@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 import {
   Alert,
   AlertText,
@@ -16,8 +15,8 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
   component: Alert,
-  title: 'Components|Content/Alert',
-  decorators: [withKnobs, storyContainerContentDecorator],
+  title: 'Components/Content/Alert',
+  decorators: [storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (

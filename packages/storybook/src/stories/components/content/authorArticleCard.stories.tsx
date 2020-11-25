@@ -1,13 +1,13 @@
 import React from 'react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { Grid, GridItem, AuthorCard } from '@t3n/components';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/AuthorArticleCard',
+  title: 'Components/Content/AuthorArticleCard',
   component: AuthorCard,
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 export const defaultStory = () => (

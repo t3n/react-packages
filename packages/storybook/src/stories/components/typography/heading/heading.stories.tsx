@@ -6,7 +6,7 @@ import { HeadingElements } from '@t3n/components/src/Heading/Heading';
 import { storyContainerDecorator } from '../../../../utils/decorators';
 
 export default {
-  title: 'Components|Typografie/Heading',
+  title: 'Components/Typografie/Heading',
   component: Heading,
   decorators: [storyContainerDecorator],
 };

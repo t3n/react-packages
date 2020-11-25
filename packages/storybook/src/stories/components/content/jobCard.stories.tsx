@@ -1,14 +1,14 @@
 import React from 'react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 import { Grid, GridItem, JobCard } from '@t3n/components';
 import { JobCardType } from '@t3n/components/src/JobCard';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/JobCard',
+  title: 'Components/Content/JobCard',
   component: JobCard,
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 export const defaultStory = () => {

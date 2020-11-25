@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 import { Section, Box, DatePicker } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/DatePicker',
+  title: 'Components/Inputs/DatePicker',
   component: DatePicker,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const DefaultStory = () => {

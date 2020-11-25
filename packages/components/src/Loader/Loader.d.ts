@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { BackgroundColorProps, MarginProps } from 'styled-system';
 export interface LoaderProps extends MarginProps {
     small?: boolean;

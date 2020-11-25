@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { withKnobs } from '@storybook/addon-knobs';
 import { Box, LegacyFooter } from '@t3n/components';
 
 const Wrapper = styled(Box)`
@@ -15,9 +14,8 @@ const LegacyFooterWrapper = styled(Box)`
 `;
 
 export default {
-  title: 'Legacy|Layout/Footer',
+  title: 'Legacy/Layout/Footer',
   component: LegacyFooter,
-  decorators: [withKnobs],
 };
 
 export const defaultStory = () => (

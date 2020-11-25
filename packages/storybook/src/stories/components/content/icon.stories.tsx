@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, select, number } from '@storybook/addon-knobs';
+import { select, number } from '@storybook/addon-knobs';
 import { Icon } from '@t3n/components';
 import {
   MaterialCheck,
@@ -12,9 +12,9 @@ import { theme } from '@t3n/theme';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/Icon',
+  title: 'Components/Content/Icon',
   component: Icon,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 const icons = {

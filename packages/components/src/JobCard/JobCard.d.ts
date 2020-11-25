@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare type JobCardType = 'CARD' | 'LIST';
 export interface Job {
     title: string;

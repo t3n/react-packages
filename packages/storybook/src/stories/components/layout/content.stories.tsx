@@ -3,7 +3,7 @@ import React from 'react';
 import { Content } from '@t3n/components';
 
 export default {
-  title: 'Components|Layout/Content',
+  title: 'Components/Layout/Content',
   component: Content,
 };
 

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  withKnobs,
-  number,
-  select,
-  boolean,
-  text,
-} from '@storybook/addon-knobs';
+import { number, select, boolean, text } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
@@ -16,9 +10,9 @@ import { storyContainerContentDecorator } from '../../../utils/decorators';
 import { recentNews, recentNewsVariables } from './__generated__/recentNews';
 
 export default {
-  title: 'Components|Content/NewsCard',
+  title: 'Components/Content/NewsCard',
   component: NewsCard,
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 const RECENT_NEWS = gql`

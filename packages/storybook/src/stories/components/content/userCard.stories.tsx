@@ -1,13 +1,13 @@
 import React from 'react';
 import { UserCard, Grid, GridItem, H2 } from '@t3n/components';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 import { UserCardProps } from '@t3n/components/src/UserCard';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: UserCard,
-  title: 'Components|Content/UserCard',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/UserCard',
+  decorators: [storyContainerDecorator],
 };
 
 const defaultUserStatic: Pick<UserCardProps, 'user' | 'link'> = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 
 import { Breadcrumbs, BreadcrumbsItem } from '@t3n/components';
@@ -8,9 +8,9 @@ import { BreadcrumbsItemProps } from '@t3n/components/src/Breadcrumbs';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/Breadcrumbs',
+  title: 'Components/Inputs/Breadcrumbs',
   component: Breadcrumbs,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => (

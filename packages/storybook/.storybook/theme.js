@@ -3,6 +3,8 @@ import { theme } from '@t3n/theme';
 import logo from './Logo.svg';
 
 export default create({
+  base: 'light',
+
   brandUrl: 'https://t3n.de',
   brandTitle: 't3n - storybook',
   brandImage: logo,

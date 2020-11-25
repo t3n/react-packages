@@ -4,7 +4,7 @@ import { Box, Center } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Layout/Center',
+  title: 'Components/Layout/Center',
   component: Center,
   decorators: [storyContainerDecorator],
 };

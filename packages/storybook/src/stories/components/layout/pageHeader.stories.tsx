@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import { PageHeader, UserMenu } from '@t3n/components';
 import { UserMenuProps } from '@t3n/components/src/UserMenu';
 
@@ -11,6 +11,12 @@ const StoryWrapper = styled.div`
   width: 100%;
   z-index: 1;
 `;
+
+export default {
+  title: 'Components/Layout/PageHeader',
+  component: PageHeader,
+  decorators: [(story: any) => <StoryWrapper>{story()}</StoryWrapper>],
+};
 
 const standardUser: UserMenuProps['user'] = {
   label: 'john.doe@beispiel.de',
@@ -34,15 +40,6 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
     item: [<a href="https://faq.t3n.de/">FAQ</a>],
   },
 ];
-
-export default {
-  title: 'Components|Layout/PageHeader',
-  component: PageHeader,
-  decorators: [
-    withKnobs,
-    (story: any) => <StoryWrapper>{story()}</StoryWrapper>,
-  ],
-};
 
 export const defaultStory = () => (
   <>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 import { UserMenu, PageHeader, Text } from '@t3n/components';
 import { UserMenuProps } from '@t3n/components/src/UserMenu';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: UserMenu,
-  title: 'Components|Content/UserMenu',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/UserMenu',
+  decorators: [storyContainerDecorator],
 };
 
 const standardUser: UserMenuProps['user'] = {

@@ -201,7 +201,10 @@ function SearchBox<S>({
   handleSuggestionClearRequested,
 }: SearchBoxProps<S>) {
   const [term, setTerm] = useState(defaultValue || '');
-  const [debounced] = useDebouncedCallback(handleSuggestionFetchRequested, 400);
+  const { callback: debounced } = useDebouncedCallback(
+    handleSuggestionFetchRequested,
+    400
+  );
 
   useEffect(() => {
     if (onSearchTermChange) {

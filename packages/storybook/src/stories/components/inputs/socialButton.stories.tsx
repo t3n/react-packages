@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, withKnobs, text } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 
 import {
   Grid,
@@ -12,9 +12,9 @@ import { SocialNetworkType } from '@t3n/components/src/SocialButton/SocialButton
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/SocialButton',
+  title: 'Components/Inputs/SocialButton',
   component: SocialButton,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => {

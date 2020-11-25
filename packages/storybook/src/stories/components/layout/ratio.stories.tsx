@@ -1,14 +1,14 @@
 import React from 'react';
-import { withKnobs, number } from '@storybook/addon-knobs';
+import { number } from '@storybook/addon-knobs';
 
 import { Ratio } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Layout/Ratio',
+  title: 'Components/Layout/Ratio',
   component: Ratio,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => (
