@@ -73,7 +73,7 @@ export const Card = styled.div.attrs(({ href, targetBlank }: CardProps) => ({
   justify-content: stretch;
   text-decoration: none;
   overflow: hidden;
-  transition: box-shadow .15s ease-out, transform .15s ease-out;
+  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
   position: relative;
   ${border};
   ${borderRadius}

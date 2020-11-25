@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from '../Link';
 
 interface Props {
+  // eslint-disable-next-line react/require-default-props
   href?: string;
 }
 
