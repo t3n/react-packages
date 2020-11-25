@@ -3,6 +3,7 @@
 const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const babelConfig = require('../babel');
 
@@ -106,6 +107,9 @@ module.exports = ({ title = '', dirname = '' }) => {
         analyzerMode: 'static',
         openAnalyzer: false,
         reportFilename: './report/report.html',
+      }),
+      new ESLintPlugin({
+        extensions: ['ts', 'tsx', 'js', 'jsx'],
       }),
       ...config.plugins,
     ];
