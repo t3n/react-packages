@@ -12,15 +12,17 @@ export default {
 };
 
 const Pagination: React.FC = () => {
-  const pages = number('max. Seite', 1);
-  const [page, setPage] = useState(1);
+  const totalPages = number('max. Seite', 1);
+  const maxPageLinks = number('max. Links', 3);
+  const [currentPage, setCurrentPage] = useState(1);
   return (
     <>
-      <p>Aktuelle Seite: {page}</p>
+      <p>Aktuelle Seite: {currentPage}</p>
       <LegacyPagination
-        page={page}
-        pages={pages}
-        onClick={(value) => setPage(value)}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        maxPageLinks={maxPageLinks}
+        onClick={(value) => setCurrentPage(value)}
       />
     </>
   );

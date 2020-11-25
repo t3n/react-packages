@@ -4,11 +4,13 @@ import { MaterialPlayArrow } from '@t3n/icons';
 import { color, space, typography } from 'styled-system';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
+import { Text } from '../Text';
 
 export interface LegacyPaginationProps {
-  page: number;
-  pages: number;
-  onClick: (page: number) => void;
+  currentPage: number;
+  totalPages: number;
+  maxPageLinks: number;
+  onClick: (currentPage: number) => void;
 }
 
 export interface LegacyPaginationContainerProps {
@@ -26,7 +28,7 @@ const LegacyPaginationContainer = styled(Box)<LegacyPaginationContainerProps>`
   justify-content: center;
   align-content: center;
   align-items: center;
-  ${({ theme }) => space({ theme, mr: 2 })}
+  ${({ theme }) => space({ theme, mr: '10px' })}
   ${({ theme, disabled }) =>
     color({
       theme,
@@ -47,23 +49,32 @@ const LegacyPaginationContainer = styled(Box)<LegacyPaginationContainerProps>`
 `;
 
 const LegacyPaginationElipses = () => (
-  <Box mr={2} height="3.75rem" display="flex" alignItems="center">
-    <span>...</span>
+  <Box
+    mr={2}
+    width="1.875rem"
+    height="3.75rem"
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+  >
+    <Text secondary as="span">
+      ...
+    </Text>
   </Box>
 );
 
 export const LegacyPagination: React.FC<LegacyPaginationProps> = ({
-  page,
-  pages,
+  currentPage,
+  totalPages,
+  maxPageLinks,
   onClick,
 }) => {
-  const prevPage = page - 1;
-  const nextPage = page + 1;
+  const prevPage = currentPage - 1;
 
   return (
     <Box display="flex">
-      {page !== 1 && (
-        <LegacyPaginationContainer onClick={() => onClick(page - 1)}>
+      {currentPage !== 1 && (
+        <LegacyPaginationContainer onClick={() => onClick(currentPage - 1)}>
           <RotatedIcon
             height="1rem"
             width="1rem"
@@ -71,44 +82,69 @@ export const LegacyPagination: React.FC<LegacyPaginationProps> = ({
           />
         </LegacyPaginationContainer>
       )}
-      {prevPage > 1 && (
+      {prevPage >= 1 && (
         <LegacyPaginationContainer onClick={() => onClick(1)}>
           1
         </LegacyPaginationContainer>
       )}
-      {prevPage - 1 > 1 && <LegacyPaginationElipses />}
+      {currentPage - maxPageLinks - 1 > 1 && <LegacyPaginationElipses />}
+      {currentPage === totalPages && maxPageLinks === 1 && totalPages > 3 && (
+        <LegacyPaginationContainer
+          onClick={() => onClick(currentPage - maxPageLinks - 1)}
+        >
+          {currentPage - maxPageLinks - 1}
+        </LegacyPaginationContainer>
+      )}
+      {currentPage !== 1 &&
+        [...Array(maxPageLinks)].map((x, i) => {
+          if (currentPage - (maxPageLinks - i) <= 1) {
+            return null;
+          }
+          return (
+            <LegacyPaginationContainer
+              // eslint-disable-next-line react/no-array-index-key
+              key={i}
+              onClick={() => onClick(currentPage - (maxPageLinks - i))}
+            >
+              {currentPage - (maxPageLinks - i)}
+            </LegacyPaginationContainer>
+          );
+        })}
+      <LegacyPaginationContainer disabled>
+        {currentPage}
+      </LegacyPaginationContainer>
+      {[...Array(maxPageLinks)].map((x, i) => {
+        if (currentPage + (i + 1) >= totalPages) {
+          return null;
+        }
 
-      {prevPage - 1 > 1 && page === pages && (
-        <LegacyPaginationContainer onClick={() => onClick(prevPage - 1)}>
-          {prevPage - 1}
+        return (
+          <LegacyPaginationContainer
+            // eslint-disable-next-line react/no-array-index-key
+            key={i}
+            onClick={() => onClick(currentPage + (i + 1))}
+          >
+            {currentPage + (i + 1)}
+          </LegacyPaginationContainer>
+        );
+      })}
+      {currentPage === 1 && maxPageLinks === 1 && totalPages > 3 && (
+        <LegacyPaginationContainer
+          onClick={() => onClick(currentPage + maxPageLinks + 1)}
+        >
+          {currentPage + maxPageLinks + 1}
         </LegacyPaginationContainer>
       )}
-      {prevPage !== 0 && (
-        <LegacyPaginationContainer onClick={() => onClick(prevPage)}>
-          {prevPage}
-        </LegacyPaginationContainer>
-      )}
-      <LegacyPaginationContainer disabled>{page}</LegacyPaginationContainer>
-      {nextPage !== pages && page !== pages && (
-        <LegacyPaginationContainer onClick={() => onClick(nextPage)}>
-          {nextPage}
-        </LegacyPaginationContainer>
-      )}
-      {page === 1 && nextPage + 1 < pages && (
-        <LegacyPaginationContainer onClick={() => onClick(nextPage + 1)}>
-          {nextPage + 1}
-        </LegacyPaginationContainer>
-      )}
-      {pages - nextPage > 1 && nextPage + 1 !== pages && (
+      {currentPage + maxPageLinks + 1 < totalPages && (
         <LegacyPaginationElipses />
       )}
-      {page !== pages && (
-        <LegacyPaginationContainer onClick={() => onClick(pages)}>
-          {pages}
+      {currentPage < totalPages && (
+        <LegacyPaginationContainer onClick={() => onClick(totalPages)}>
+          {totalPages}
         </LegacyPaginationContainer>
       )}
-      {page !== pages && (
-        <LegacyPaginationContainer onClick={() => onClick(page + 1)}>
+      {currentPage !== totalPages && (
+        <LegacyPaginationContainer onClick={() => onClick(currentPage + 1)}>
           <Icon height="1rem" width="1rem" component={MaterialPlayArrow} />
         </LegacyPaginationContainer>
       )}

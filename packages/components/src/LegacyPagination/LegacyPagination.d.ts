@@ -1,8 +1,9 @@
 import React from 'react';
 export interface LegacyPaginationProps {
-    page: number;
-    pages: number;
-    onClick: (page: number) => void;
+    currentPage: number;
+    totalPages: number;
+    maxPageLinks: number;
+    onClick: (currentPage: number) => void;
 }
 export interface LegacyPaginationContainerProps {
     disabled?: boolean;
