@@ -32,6 +32,7 @@ export { LegacyFooter } from './LegacyFooter';
 export { LegacyHeader } from './LegacyHeader';
 export { LegacyNewsCard } from './LegacyNewsCard';
 export { LegacyUserMenu } from './LegacyUserMenu';
+export { LegacyPagination } from './LegacyPagination';
 export { Link } from './Link';
 export { Loader } from './Loader';
 export { Logo } from './Logo';

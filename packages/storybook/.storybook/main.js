@@ -70,6 +70,7 @@ module.exports = {
     // Legacy - Layout
     '../src/stories/legacy/layout/legacyFooter.stories',
     '../src/stories/legacy/layout/legacyHeader.stories',
+    '../src/stories/legacy/layout/legacyPagination.stories',
 
     // Legacy - Content
     '../src/stories/legacy/content/legacyUserMenu.stories',
