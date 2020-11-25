@@ -1,12 +1,11 @@
 import React from 'react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 
 import { GlobalStyle, Box } from '@t3n/components';
 
 export default {
-  title: 'Components|Layout/GlobalStyle',
+  title: 'Components/Layout/GlobalStyle',
   component: GlobalStyle,
-  decorators: [withKnobs],
 };
 
 export const defaultStory = () => (

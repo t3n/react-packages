@@ -13,7 +13,7 @@ import {
 import { RgbColor, RgbaColor } from 'polished/lib/types/color';
 
 export default {
-  title: 'Design System|Colors',
+  title: 'Design System/Colors',
   parameters: { docs: { page: null } },
 };
 

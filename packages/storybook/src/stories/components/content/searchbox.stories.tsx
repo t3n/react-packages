@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SearchBox, PageHeader, Avatar, Section, Text } from '@t3n/components';
-import { withKnobs } from '@storybook/addon-knobs';
 import {
   SuggestionsFetchRequestedParams,
   SuggestionSelectedEventData,
@@ -15,14 +14,9 @@ const placeholderText = 'Suche nach digitialen Pionieren, News und mehr';
 
 export default {
   component: SearchBox,
-  title: 'Components|Content/SearchBox',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/SearchBox',
+  decorators: [storyContainerDecorator],
 };
-
-interface SuggestionCategory {
-  title: string;
-  suggestions: TSuggestion[];
-}
 
 interface TSuggestion {
   type: 'ITEM' | 'MORE';

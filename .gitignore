@@ -23,3 +23,5 @@ yarn-error.log*
 .awcache
 
 /packages/icons/src/components
+
+packages/storybook/.eslintcache

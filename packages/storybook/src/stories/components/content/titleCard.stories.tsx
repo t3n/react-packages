@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { TitleCard } from '@t3n/components';
 import { theme } from '@t3n/theme';
 
@@ -7,9 +7,9 @@ import { HeadingElements } from '@t3n/components/src/Heading';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/TitleCard',
+  title: 'Components/Content/TitleCard',
   component: TitleCard,
-  decorators: [withKnobs, storyContainerContentDecorator],
+  decorators: [storyContainerContentDecorator],
 };
 
 export const defaultStory = () => {

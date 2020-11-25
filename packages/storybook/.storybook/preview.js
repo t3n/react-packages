@@ -1,7 +1,5 @@
 import React from 'react';
-import { addDecorator, addParameters } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
-import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -29,22 +27,23 @@ const client = new ApolloClient({
   }),
 });
 
-addParameters({
+export const parameters = {
   viewport: {
     viewports: {
       ...viewports,
       ...INITIAL_VIEWPORTS,
     },
   },
-});
+};
 
-addDecorator(withA11y);
-addDecorator((story) => (
-  <ThemeProvider theme={theme}>
-    <ApolloProvider client={client}>
-      <GlobalStyle />
-      <StorybookGlobalStyle />
-      {story()}
-    </ApolloProvider>
-  </ThemeProvider>
-));
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <GlobalStyle />
+        <StorybookGlobalStyle />
+        <Story />
+      </ApolloProvider>
+    </ThemeProvider>
+  ),
+];

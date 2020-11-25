@@ -1,4 +1,4 @@
-import React, { ReactNode, AnchorHTMLAttributes } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { padding, lineHeight } from 'styled-system';
 

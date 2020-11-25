@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 
 import { Switch, Section, Grid, GridItem } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Inputs/Switch',
+  title: 'Components/Inputs/Switch',
   component: Switch,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const DefaultStory = () => {

@@ -1,14 +1,13 @@
 import React from 'react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 import { Button, Grid, GridItem, Section, H3 } from '@t3n/components';
 import { MaterialCheck } from '@t3n/icons';
 import StoryContainer from '../../../components/StoryContainer';
 
 export default {
-  title: 'Components|Inputs/Button',
+  title: 'Components/Inputs/Button',
   component: Button,
-  decorators: [withKnobs],
 };
 
 export const defaultStory = () => {

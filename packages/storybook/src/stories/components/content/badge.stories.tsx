@@ -1,15 +1,15 @@
 import React from 'react';
 import { Badge, Heading, Grid, GridItem } from '@t3n/components';
-import { text, select, boolean, withKnobs } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 import { theme } from '@t3n/theme';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Components|Content/Badge',
+  title: 'Components/Content/Badge',
   component: Badge,
-  decorators: [withKnobs, storyContainerDecorator],
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => {

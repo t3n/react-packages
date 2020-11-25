@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-alert */
 import React from 'react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 import { Button, ConfirmDialog } from '@t3n/components';
 import { useState } from '@storybook/addons';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: ConfirmDialog,
-  title: 'Components|Content/ConfirmDialog',
-  decorators: [withKnobs, storyContainerDecorator],
+  title: 'Components/Content/ConfirmDialog',
+  decorators: [storyContainerDecorator],
 };
 
 export const defaultStory = () => {

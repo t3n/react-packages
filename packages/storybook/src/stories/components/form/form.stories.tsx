@@ -21,7 +21,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 import { FormTextarea } from '../../../components/FormTextarea';
 
 export default {
-  title: 'Components|Form/Formulare',
+  title: 'Components/Form/Formulare',
   decorators: [storyContainerDecorator],
   parameters: { docs: { page: null } },
 };

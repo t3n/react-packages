@@ -9,7 +9,7 @@ import {
 } from '@t3n/components';
 
 export default {
-  title: 'Components|Layout/NProgressBar',
+  title: 'Components/Layout/NProgressBar',
   component: NProgressBarGlobalStyle,
 };
 

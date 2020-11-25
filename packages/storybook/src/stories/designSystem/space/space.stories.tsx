@@ -8,7 +8,7 @@ import { GridItem, Grid } from '@t3n/components';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Design System|Space',
+  title: 'Design System/Space',
   decorators: [storyContainerDecorator],
   parameters: { docs: { page: null } },
 };
