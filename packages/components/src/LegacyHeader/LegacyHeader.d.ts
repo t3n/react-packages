@@ -11,4 +11,5 @@ export declare const LegacyHeader: React.FC<{
     headerCampaignUrl: string;
     headerCampaignImage: string;
     headerCampaignImageMobile?: string;
+    newsIndicator?: number;
 }>;

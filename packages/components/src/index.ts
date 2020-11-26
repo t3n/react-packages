@@ -33,6 +33,7 @@ export { JobCard } from './JobCard';
 export { LegacyFooter } from './LegacyFooter';
 export { LegacyHeader } from './LegacyHeader';
 export { LegacyNewsCard } from './LegacyNewsCard';
+export { LegacySocialBar } from './LegacySocialBar';
 export { LegacyUserMenu } from './LegacyUserMenu';
 export { LegacyPagination } from './LegacyPagination';
 export { Link } from './Link';

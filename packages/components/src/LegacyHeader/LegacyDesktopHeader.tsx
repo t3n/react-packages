@@ -8,9 +8,9 @@ import { ThemeProps } from '@t3n/theme';
 import { Box } from '../Box';
 import { Logo } from '../Logo';
 import { Image } from '../Image';
-import { LegacyMobileSocialLinks } from '../LegacyFooter/LegacyMobileFooter';
+import { LegacySocialBar } from '../LegacySocialBar';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
-import { LegacyMainNav } from './components/LegacyMainNav';
+import LegacyMainNav from './components/LegacyMainNav';
 import {
   LegacyTagNav,
   SearchButton,
@@ -19,7 +19,7 @@ import {
   SearchInput,
   TagNavTagsType,
 } from './components/LegacyTagNav';
-import { LegacyT3nNav } from './components/LegacyT3nNav';
+import LegacyT3nNav from './components/LegacyT3nNav';
 import { HeaderCampaign } from './LegacyHeader';
 
 const T3nLogoSmall: React.FC = () => (
@@ -105,7 +105,7 @@ const VisualHeader = styled(Box)`
   }
 `;
 
-const StyledLegacyMobileSocialLinks = styled(LegacyMobileSocialLinks)`
+const StyledLegacySocialBar = styled(LegacySocialBar)`
   ${({ theme }) => space({ mr: -2, theme })}
 `;
 
@@ -116,6 +116,7 @@ export const LegacyDesktopHeader: React.FC<{
   tags: TagNavTagsType[];
   headerCampaignUrl: string;
   headerCampaignImage: string;
+  newsIndicator?: number;
 }> = ({
   user,
   userMenuLabelUrl,
@@ -123,6 +124,7 @@ export const LegacyDesktopHeader: React.FC<{
   tags,
   headerCampaignUrl,
   headerCampaignImage,
+  newsIndicator,
 }) => {
   const y = useScrollYPosition();
 
@@ -140,7 +142,7 @@ export const LegacyDesktopHeader: React.FC<{
               <T3nLogoSmall />
             </a>
             <Box width="100%" position="relative">
-              <LegacyMainNav isSticky />
+              <LegacyMainNav isSticky newsIndicator={newsIndicator} />
               <SearchForm action="/suche" method="get">
                 <SearchInput
                   type="text"
@@ -190,12 +192,12 @@ export const LegacyDesktopHeader: React.FC<{
             labelUrl={userMenuLabelUrl}
             itemGroups={userMenuLinkGroups}
           />
-          <StyledLegacyMobileSocialLinks />
+          <StyledLegacySocialBar />
         </Box>
       </VisualHeader>
 
       <Box display="flex" flexDirection="column">
-        <LegacyMainNav />
+        <LegacyMainNav newsIndicator={newsIndicator} />
         <LegacyTagNav tags={tags} />
       </Box>
     </Header>

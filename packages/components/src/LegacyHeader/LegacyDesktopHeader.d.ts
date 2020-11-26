@@ -9,4 +9,5 @@ export declare const LegacyDesktopHeader: React.FC<{
     tags: TagNavTagsType[];
     headerCampaignUrl: string;
     headerCampaignImage: string;
+    newsIndicator?: number;
 }>;

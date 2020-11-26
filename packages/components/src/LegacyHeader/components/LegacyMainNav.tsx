@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import { MaterialExpandMore } from '@t3n/icons';
+import { ThemeProps } from '@t3n/theme';
 import React from 'react';
 import styled from 'styled-components';
 import {
@@ -12,9 +12,19 @@ import {
 } from 'styled-system';
 
 import { Box } from '../../Box';
-import { Icon } from '../../Icon';
 import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
+
+const ArrowDownIcon: React.FC = () => (
+  <svg
+    viewBox="0 0 12 7"
+    width="13px"
+    height="15px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M6.677 7.03l-.177.177-.354-.353-5-5L.793 1.5 1.5.793l.354.353L6.5 5.793l.896-.897 1.25-1.25.399-.398 2.101-2.102.354-.353.707.707-.353.354-.4.398-4.6 4.602-.177.176z" />
+  </svg>
+);
 
 const MainNavWrapper = styled(Box)<{ isSticky?: boolean }>`
   width: 100%;
@@ -51,9 +61,21 @@ const MainNavDropdown = styled.ul`
 const MainNavItem = styled(Box)`
   position: relative;
   cursor: pointer;
+  letter-spacing: 1px;
 
   * {
     ${({ theme }) => typography({ theme, fontSize: 2 })};
+  }
+
+  svg {
+    ${({ theme }) => space({ theme, mt: '10px', ml: 1 })};
+    fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+  }
+
+  &:hover {
+    svg {
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.primary};
+    }
   }
 
   > ${MainNavDropdown} {
@@ -69,10 +91,37 @@ const MainNavItem = styled(Box)`
   }
 `;
 
+const StyledText = styled(Text)`
+  &:hover {
+    ${({ theme }) => color({ theme, color: 'text.primary' })};
+  }
+`;
+
+export const NewsIndicator = styled.span`
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 1rem;
+  min-width: 1rem;
+  border-radius: 0.5rem;
+
+  ${({ theme }) => space({ theme, ml: '5px' })};
+  ${({ theme }) =>
+    position({
+      theme,
+      position: 'relative',
+      top: '-2px',
+    })};
+  ${({ theme }) => typography({ theme, fontSize: '12px' })};
+  ${({ theme }) =>
+    color({ theme, color: 'shades.white', bg: 'background.highlight' })};
+`;
+
 type MainNavLinkGroupsType = {
   label: string;
   url?: string;
   bold?: boolean;
+  indicator?: boolean;
   dropdownLinks?: {
     label: string;
     url: string;
@@ -88,6 +137,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   {
     label: 'News',
     url: '/news/',
+    indicator: true,
   },
   {
     label: 'Wissen',
@@ -196,9 +246,10 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   },
 ];
 
-export const LegacyMainNav: React.FC<{ isSticky?: boolean }> = ({
-  isSticky,
-}) => {
+const LegacyMainNav: React.FC<{
+  isSticky?: boolean;
+  newsIndicator?: number;
+}> = ({ isSticky, newsIndicator }) => {
   return (
     <MainNavWrapper display="flex" className="tg-menu" isSticky={isSticky}>
       <Box
@@ -219,27 +270,23 @@ export const LegacyMainNav: React.FC<{ isSticky?: boolean }> = ({
                     color={group.bold ? 'text.primary' : 'inherit'}
                   >
                     {group.label}
+                    {group.indicator && (
+                      <NewsIndicator className="tg-notification-bubble">
+                        {newsIndicator}
+                      </NewsIndicator>
+                    )}
                   </Text>
                 </HeaderLink>
               ) : (
-                <Text
+                <StyledText
                   m={0}
                   bold={!!group.bold}
                   color={group.bold ? 'text.primary' : 'inherit'}
                 >
                   {group.label}
-                </Text>
+                </StyledText>
               )}
-              {group.dropdownLinks && (
-                <Icon
-                  component={MaterialExpandMore}
-                  width="30px"
-                  height="25px"
-                  mt={1}
-                  ml={-1}
-                  fill="text.secondary"
-                />
-              )}
+              {group.dropdownLinks && <ArrowDownIcon />}
             </Box>
 
             {group.dropdownLinks && (
@@ -257,3 +304,5 @@ export const LegacyMainNav: React.FC<{ isSticky?: boolean }> = ({
     </MainNavWrapper>
   );
 };
+
+export default LegacyMainNav;

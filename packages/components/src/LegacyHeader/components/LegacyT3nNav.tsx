@@ -35,7 +35,7 @@ const t3nNavLinks: T3nNavLinksType[] = [
   },
 ];
 
-export const LegacyT3nNav: React.FC<{
+const LegacyT3nNav: React.FC<{
   user: LegacyUserMenuProps['user'];
   labelUrl: string;
   itemGroups: LegacyUserMenuProps['itemGroups'];
@@ -62,3 +62,5 @@ export const LegacyT3nNav: React.FC<{
     </T3nNav>
   );
 };
+
+export default LegacyT3nNav;

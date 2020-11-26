@@ -8,7 +8,7 @@ import { Box } from '../Box';
 import { Logo } from '../Logo';
 import { Image } from '../Image';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
-import { LegacyMobileNav } from './components/LegacyMobileNav';
+import LegacyMobileNav from './components/LegacyMobileNav';
 import { HeaderCampaign } from './LegacyHeader';
 
 const MobileHeader = styled(Box)`
@@ -36,11 +36,17 @@ const MobileHeader = styled(Box)`
   }
 `;
 
-export const LegacyMobileHeader: React.FC<{
+const LegacyMobileHeader: React.FC<{
   user: LegacyUserMenuProps['user'];
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
-}> = ({ user, headerCampaignUrl, headerCampaignImageMobile }) => {
+  newsIndicator?: number;
+}> = ({
+  user,
+  headerCampaignUrl,
+  headerCampaignImageMobile,
+  newsIndicator,
+}) => {
   return (
     <MobileHeader
       display="flex"
@@ -60,7 +66,9 @@ export const LegacyMobileHeader: React.FC<{
           />
         </a>
       </HeaderCampaign>
-      <LegacyMobileNav user={user} />
+      <LegacyMobileNav user={user} newsIndicator={newsIndicator} />
     </MobileHeader>
   );
 };
+
+export default LegacyMobileHeader;

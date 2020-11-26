@@ -12,6 +12,7 @@ import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
+import { NewsIndicator } from './LegacyMainNav';
 
 const MobileMenuToggle = styled(Icon)`
   cursor: pointer;
@@ -120,6 +121,7 @@ const SearchForm = styled.form`
 type MobileNavLinksType = {
   label: string;
   url: string;
+  indicator?: boolean;
   bold?: boolean;
 };
 
@@ -132,6 +134,7 @@ const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'News',
     url: '/news/',
+    indicator: true,
   },
   {
     label: 'Magazin',
@@ -171,9 +174,10 @@ const mobileNavLinks: MobileNavLinksType[] = [
   },
 ];
 
-export const LegacyMobileNav: React.FC<{
+const LegacyMobileNav: React.FC<{
   user: LegacyUserMenuProps['user'];
-}> = ({ user }) => {
+  newsIndicator?: number;
+}> = ({ user, newsIndicator }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -223,6 +227,11 @@ export const LegacyMobileNav: React.FC<{
                 color={link.bold ? 'text.primary' : 'inherit'}
               >
                 {link.label}
+                {link.indicator && (
+                  <NewsIndicator className="tg-notification-bubble">
+                    {newsIndicator}
+                  </NewsIndicator>
+                )}
               </Text>
             </HeaderLink>
           </MobileMenuItem>
@@ -251,3 +260,5 @@ export const LegacyMobileNav: React.FC<{
     </Box>
   );
 };
+
+export default LegacyMobileNav;

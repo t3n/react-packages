@@ -6,7 +6,7 @@ import { color } from 'styled-system';
 import { Box } from '../Box';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import useIsMobile from '../hooks/useIsMobile';
-import { LegacyMobileHeader } from './LegacyMobileHeader';
+import LegacyMobileHeader from './LegacyMobileHeader';
 import { LegacyDesktopHeader } from './LegacyDesktopHeader';
 import { TagNavTagsType } from './components/LegacyTagNav';
 
@@ -37,6 +37,7 @@ export const LegacyHeader: React.FC<{
   headerCampaignUrl: string;
   headerCampaignImage: string;
   headerCampaignImageMobile?: string;
+  newsIndicator?: number;
 }> = ({
   user,
   userMenuLabelUrl,
@@ -45,6 +46,7 @@ export const LegacyHeader: React.FC<{
   headerCampaignUrl,
   headerCampaignImage,
   headerCampaignImageMobile,
+  newsIndicator,
 }) => {
   const isMobile = useIsMobile();
 
@@ -54,6 +56,7 @@ export const LegacyHeader: React.FC<{
         user={user}
         headerCampaignUrl={headerCampaignUrl}
         headerCampaignImageMobile={headerCampaignImageMobile}
+        newsIndicator={newsIndicator}
       />
     );
   }
@@ -66,6 +69,7 @@ export const LegacyHeader: React.FC<{
       tags={tags}
       headerCampaignUrl={headerCampaignUrl}
       headerCampaignImage={headerCampaignImage}
+      newsIndicator={newsIndicator}
     />
   );
 };

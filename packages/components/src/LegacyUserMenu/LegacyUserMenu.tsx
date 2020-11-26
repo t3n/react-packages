@@ -9,11 +9,22 @@ import {
   position,
   typography,
 } from 'styled-system';
-import { MaterialExpandMore } from '@t3n/icons';
+
+import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../Box/Box';
 import { Avatar } from '../Avatar/Avatar';
-import { Icon } from '../Icon';
+
+const ArrowDownIcon: React.FC = () => (
+  <svg
+    viewBox="0 0 12 7"
+    width="9px"
+    height="8px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M6.677 7.03l-.177.177-.354-.353-5-5L.793 1.5 1.5.793l.354.353L6.5 5.793l.896-.897 1.25-1.25.399-.398 2.101-2.102.354-.353.707.707-.353.354-.4.398-4.6 4.602-.177.176z" />
+  </svg>
+);
 
 const StyledAvatar = styled(Avatar)`
   ${({ theme }) =>
@@ -30,6 +41,16 @@ const AvatarLink = styled.a`
   text-decoration: none;
   display: flex;
   align-items: center;
+
+  svg {
+    fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+  }
+
+  &:hover {
+    svg {
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.primary};
+    }
+  }
 `;
 
 const LegacyUserMenuList = styled.ul`
@@ -157,16 +178,7 @@ export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
           alt={user.name}
           size={28}
         />
-        {!loading && (
-          <Icon
-            component={MaterialExpandMore}
-            width="25px"
-            height="20px"
-            mt={1}
-            ml={-2}
-            fill="text.secondary"
-          />
-        )}
+        {!loading && <ArrowDownIcon />}
       </AvatarLink>
 
       {!loading && (
