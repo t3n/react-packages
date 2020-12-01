@@ -27,6 +27,7 @@ module.exports = {
     '../src/stories/components/layout/section.stories',
 
     // Components - Content
+    '../src/stories/components/content/ad.stories',
     '../src/stories/components/content/accordion.stories',
     '../src/stories/components/content/alert.stories',
     '../src/stories/components/content/authorArticleCard.stories',
@@ -72,6 +73,7 @@ module.exports = {
     '../src/stories/legacy/layout/legacyPagination.stories',
 
     // Legacy - Content
+    '../src/stories/legacy/content/legacyAd.stories',
     '../src/stories/legacy/content/legacyUserMenu.stories',
     '../src/stories/legacy/content/legacyNewsCard.stories',
 
