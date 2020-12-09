@@ -89,6 +89,7 @@ export const SearchButton = styled.button`
 
   svg {
     fill: ${({ theme }: ThemeProps) => theme.colors.shades.grey143};
+    margin-top: -2px;
 
     :hover {
       fill: ${({ theme }: ThemeProps) => theme.colors.brand.red};
