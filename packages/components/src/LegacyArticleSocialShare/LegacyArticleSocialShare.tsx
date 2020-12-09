@@ -7,7 +7,6 @@ import {
   MaterialAdd,
   SocialFlipboard,
   SocialInstagram,
-  SocialFacebook,
   SocialLinkedin,
   SocialPocket,
   SocialTwitter,
