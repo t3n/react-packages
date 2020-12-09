@@ -176,7 +176,7 @@ export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
           loading={loading}
           src={user.avatarUrl}
           alt={user.name}
-          size={28}
+          size={25}
         />
         {!loading && <ArrowDownIcon />}
       </AvatarLink>

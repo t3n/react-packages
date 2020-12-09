@@ -10,8 +10,9 @@ import { HeaderLink } from '../LegacyHeader';
 
 const T3nNav = styled(Box)`
   ${Text} {
-    ${({ theme }) => space({ theme, mr: 3 })};
-    ${({ theme }) => typography({ theme, fontSize: '12px' })};
+    ${({ theme }) => space({ theme, mr: '13.2px' })};
+    ${({ theme }) =>
+      typography({ theme, fontSize: '12px', lineHeigth: '12px' })};
   }
 `;
 
@@ -45,7 +46,6 @@ const LegacyT3nNav: React.FC<{
       display="flex"
       alignItems="center"
       justifyContent="flex-end"
-      mr={-2}
       pb="2px"
     >
       {t3nNavLinks.map((link, idx) => (

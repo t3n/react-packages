@@ -114,7 +114,7 @@ export const LegacySocialBar: React.FC<{ className?: string }> = ({
 }) => (
   <Box
     display="flex"
-    justifyContent="center"
+    justifyContent="flex-end"
     className={className}
     alignItems="center"
   >

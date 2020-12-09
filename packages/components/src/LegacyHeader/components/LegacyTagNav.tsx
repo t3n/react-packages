@@ -21,7 +21,7 @@ export const SearchIcon: React.FC = () => (
 const StyledTag = styled(Tag)`
   ${({ theme }) => space({ mr: '5px', py: '7px', px: '15px', theme })};
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
-  ${({ theme }) => typography({ fontSize: 0, theme })};
+  ${({ theme }) => typography({ fontSize: 0, letterSpacing: '1px', theme })};
 `;
 
 export const SearchInput = styled.input`

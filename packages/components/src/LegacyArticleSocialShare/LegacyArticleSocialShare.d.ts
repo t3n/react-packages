@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-export declare type SocialNetworkType = 'facebook' | 'flipboard' | 'linkedin' | 'pocket' | 'twitter' | 'xing';
+export declare type SocialNetworkType = 'facebook' | 'flipboard' | 'linkedin' | 'pocket' | 'twitter' | 'xing' | 'instagram' | 'newsletter' | 'notifications' | 'rssfeed' | 'socialmedia';
 export interface SocialIconProps {
     network: SocialNetworkType;
     url: string;
@@ -20,3 +20,4 @@ export declare const LegacyArticleSocialShare: React.FC<{
     url: string;
     title: string;
 }>;
+export declare const LegacyHeaderSocialShare: React.FC;

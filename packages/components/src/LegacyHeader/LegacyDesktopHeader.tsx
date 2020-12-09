@@ -8,7 +8,6 @@ import { ThemeProps } from '@t3n/theme';
 import { Box } from '../Box';
 import { Logo } from '../Logo';
 import { Image } from '../Image';
-import { LegacySocialBar } from '../LegacySocialBar';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
 import LegacyMainNav from './components/LegacyMainNav';
 import {
@@ -21,6 +20,7 @@ import {
 } from './components/LegacyTagNav';
 import LegacyT3nNav from './components/LegacyT3nNav';
 import { HeaderCampaign } from './LegacyHeader';
+import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">
@@ -105,8 +105,9 @@ const VisualHeader = styled(Box)`
   }
 `;
 
-const StyledLegacySocialBar = styled(LegacySocialBar)`
-  ${({ theme }) => space({ mr: -2, theme })}
+const HeaderWrapper = styled(Header)`
+  ${({ theme }) =>
+    border({ theme, borderTop: '1px solid', borderTopColor: '#dfdfdf' })}
 `;
 
 export const LegacyDesktopHeader: React.FC<{
@@ -168,15 +169,20 @@ export const LegacyDesktopHeader: React.FC<{
   }
 
   return (
-    <Header className="tg-header">
-      <VisualHeader
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <a href="/" title="t3n - digital pioneers">
-          <Logo />
-        </a>
+    <HeaderWrapper className="tg-header">
+      <VisualHeader display="flex" alignItems="center">
+        <Box
+          height="115px"
+          width="260px"
+          mt="15px"
+          ml="20px"
+          mr="32px"
+          alignSelf="flex-start"
+        >
+          <a href="/" title="t3n - digital pioneers">
+            <Logo />
+          </a>
+        </Box>
         <HeaderCampaign>
           <a href={headerCampaignUrl}>
             <Image
@@ -186,13 +192,15 @@ export const LegacyDesktopHeader: React.FC<{
             />
           </a>
         </HeaderCampaign>
-        <Box display="flex" flexDirection="column">
+        <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
           <LegacyT3nNav
             user={user}
             labelUrl={userMenuLabelUrl}
             itemGroups={userMenuLinkGroups}
           />
-          <StyledLegacySocialBar />
+          <Box mr={-2}>
+            <LegacyHeaderSocialShare />
+          </Box>
         </Box>
       </VisualHeader>
 
@@ -200,6 +208,6 @@ export const LegacyDesktopHeader: React.FC<{
         <LegacyMainNav newsIndicator={newsIndicator} />
         <LegacyTagNav tags={tags} />
       </Box>
-    </Header>
+    </HeaderWrapper>
   );
 };

@@ -256,7 +256,8 @@ const LegacyMainNav: React.FC<{
         display="flex"
         justifyContent="space-between"
         width="100%"
-        my="15px"
+        mt="14px"
+        mb="13px"
         pr={isSticky ? 7 : 0}
       >
         {mainNavLinkGroups.map((group, idx) => (
