@@ -24,8 +24,8 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
   ${({ theme, small }) =>
     layout({
       theme,
-      width: small ? '1.6rem' : '2rem',
-      height: small ? '1.6rem' : '2rem',
+      width: small ? '1.6rem' : '2.1rem',
+      height: small ? '1.6rem' : '2.1rem',
     })};
   padding: 0;
   ${({ theme }: ThemeProps) => margin({ theme, mb: 2 })}
@@ -42,7 +42,7 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
 export const TagList: React.FC<TagListProps> = ({
   initialCollapsed,
   collapseAfter,
-  small,
+  small = false,
   colorVariant,
   tags,
 }) => {
@@ -72,7 +72,7 @@ export const TagList: React.FC<TagListProps> = ({
         ))}
         <StyledArrowButton
           aria-label="Mehr Tags"
-          small={small || false}
+          small={small}
           colorVariant={colorVariant}
           onClick={() => setCollapsed(false)}
         >
@@ -92,7 +92,7 @@ export const TagList: React.FC<TagListProps> = ({
       ))}{' '}
       <StyledArrowButton
         aria-label="Weniger Tags"
-        small={small || false}
+        small={small}
         colorVariant={colorVariant}
         onClick={() => setCollapsed(true)}
       >
