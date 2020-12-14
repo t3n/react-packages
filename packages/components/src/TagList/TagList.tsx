@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
-import { margin } from 'styled-system';
+import { layout, margin } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { Tag, TagColorVariant } from '../Tag/Tag';
 import { Box } from '../Box';
@@ -9,6 +9,7 @@ import { Box } from '../Box';
 export interface TagListProps {
   tags: JSX.Element[];
   collapseAfter: number;
+  small?: boolean;
   colorVariant?: TagColorVariant;
   initialCollapsed?: boolean;
 }
@@ -19,9 +20,13 @@ const StyledTagList = styled.div`
   align-items: center;
 `;
 
-const StyledArrowButton = styled(Tag)`
-  height: 2rem;
-  width: 2rem;
+const StyledArrowButton = styled(Tag)<{ small: boolean }>`
+  ${({ theme, small }) =>
+    layout({
+      theme,
+      width: small ? '1.6rem' : '2rem',
+      height: small ? '1.6rem' : '2rem',
+    })};
   padding: 0;
   ${({ theme }: ThemeProps) => margin({ theme, mb: 2 })}
 
@@ -37,6 +42,7 @@ const StyledArrowButton = styled(Tag)`
 export const TagList: React.FC<TagListProps> = ({
   initialCollapsed,
   collapseAfter,
+  small,
   colorVariant,
   tags,
 }) => {
@@ -66,6 +72,7 @@ export const TagList: React.FC<TagListProps> = ({
         ))}
         <StyledArrowButton
           aria-label="Mehr Tags"
+          small={small || false}
           colorVariant={colorVariant}
           onClick={() => setCollapsed(false)}
         >
@@ -85,6 +92,7 @@ export const TagList: React.FC<TagListProps> = ({
       ))}{' '}
       <StyledArrowButton
         aria-label="Weniger Tags"
+        small={small || false}
         colorVariant={colorVariant}
         onClick={() => setCollapsed(true)}
       >
