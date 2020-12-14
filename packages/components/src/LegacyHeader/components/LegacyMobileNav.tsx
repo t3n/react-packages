@@ -187,7 +187,7 @@ const LegacyMobileNav: React.FC<{
       <MobileMenuToggle
         fill="#9b9b9b"
         width="2rem"
-        mb={2}
+        mb="6px"
         component={MaterialMenu}
         onClick={() => setMenuOpen(!menuOpen)}
       />
