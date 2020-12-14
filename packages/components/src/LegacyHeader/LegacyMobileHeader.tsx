@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, layout, space } from 'styled-system';
+import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -14,21 +14,30 @@ import { HeaderCampaign } from './LegacyHeader';
 const MobileHeader = styled(Box)`
   width: 100%;
   position: fixed;
+  height: 56px;
   top: 0;
+  left: 0;
   z-index: 300;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+
+  ${({ theme }) =>
+    border({ theme, borderBottom: '2px solid', borderBottomColor: '#e8e8e8' })}
 
   ${({ theme }) =>
     color({ theme, bg: 'background.primary', color: 'text.secondary' })};
   ${({ theme }) => space({ px: 2, theme })};
 
   ${Logo} {
-    ${({ theme }) => space({ mt: 2, theme })};
     ${({ theme }) =>
       layout({
         theme,
-        width: ['140px', '140px', '160px', '200px'],
-        height: ['45px', '45px', '55px', '62px'],
+        width: ['auto', 'auto', '160px', '200px'],
+        height: ['40px', '40px', '55px', '62px'],
       })};
+    flex-grow: 1;
 
     > path {
       fill: ${({ theme }: ThemeProps) => theme.colors.brand.red};
@@ -54,10 +63,12 @@ const LegacyMobileHeader: React.FC<{
       alignItems="flex-end"
       className="tg-header"
     >
-      <a href="/" title="t3n - digital pioneers">
-        <Logo />
-      </a>
-      <HeaderCampaign>
+      <Box flexGrow={1}>
+        <a href="/" title="t3n - digital pioneers">
+          <Logo />
+        </a>
+      </Box>
+      <HeaderCampaign mr={5}>
         <a href={headerCampaignUrl}>
           <Image
             src={headerCampaignImageMobile}

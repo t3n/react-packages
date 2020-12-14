@@ -185,7 +185,7 @@ const LegacyMobileNav: React.FC<{
       {menuOpen && <Overlay onClick={() => setMenuOpen(!menuOpen)} />}
 
       <MobileMenuToggle
-        fill="shades.grey42"
+        fill="#9b9b9b"
         width="2rem"
         mb={2}
         component={MaterialMenu}
