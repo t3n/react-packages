@@ -104,7 +104,7 @@ export const textColors = {
 // SOCIAL
 export const comment = red;
 export const email = grey143;
-export const facebook = '#6175b5';
+export const facebook = '#1877f2';
 export const flipboard = '#f9261a';
 export const github = '#24292e';
 export const google = '#d44132';
@@ -117,6 +117,10 @@ export const twitter = '#5bc6f8';
 export const whatsapp = '#64d448';
 export const xing = '#338383';
 export const youtube = '#ff0000';
+export const rssfeed = '#f90';
+export const socialmedia = grey42;
+export const newsletter = grey42;
+export const notifications = grey42;
 
 export type ThemeSocialColor =
   | 'comment'
@@ -133,7 +137,11 @@ export type ThemeSocialColor =
   | 'twitter'
   | 'whatsapp'
   | 'xing'
-  | 'youtube';
+  | 'youtube'
+  | 'rssfeed'
+  | 'socialmedia'
+  | 'newsletter'
+  | 'notifications';
 
 export interface ThemeSocialColors {
   comment: string;
@@ -151,6 +159,10 @@ export interface ThemeSocialColors {
   whatsapp: string;
   xing: string;
   youtube: string;
+  rssfeed: string;
+  socialmedia: string;
+  newsletter: string;
+  notifications: string;
 }
 
 export const socialColors = {
@@ -169,6 +181,10 @@ export const socialColors = {
   whatsapp,
   xing,
   youtube,
+  rssfeed,
+  socialmedia,
+  newsletter,
+  notifications,
 };
 
 // FEEDBACK

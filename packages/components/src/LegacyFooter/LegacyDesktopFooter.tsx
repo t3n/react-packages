@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, border, layout } from 'styled-system';
+import { color, border, space, layout, typography } from 'styled-system';
 
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
@@ -22,24 +22,36 @@ const FooterLink = styled.a`
 
 const LinkLabel = styled(Text)`
   white-space: nowrap;
+  ${({ theme }) => typography({ theme, fontSize: '12px', lineHeight: '1.5em' })}
 `;
 
 const DesktopLinkWrapper = styled(Grid)`
-  ${({ theme }) => layout({ theme, width: ['100%', '100%', '100%', '636px'] })};
+  ${({ theme }) =>
+    layout({ theme, width: ['100%', '100%', '100%', 'auto  '] })};
 `;
 
 const DesktopLinkGroup = styled(GridItem)`
+  width: auto;
   ${({ theme }) =>
-    border({
+    space({
       theme,
-      borderWidth: 0,
-      borderColor: 'shades.grey143',
-      borderStyle: 'solid',
-      borderRightWidth: 1,
-    })};
+      mx: 0,
+    })}
 
   &:last-child {
     border: none;
+  }
+
+  &:not(:first-child) {
+    width: 150px;
+    ${({ theme }) =>
+      border({
+        theme,
+        borderWidth: 0,
+        borderColor: 'shades.grey143',
+        borderStyle: 'solid',
+        borderLeftWidth: 1,
+      })};
   }
 `;
 
@@ -52,6 +64,16 @@ const DesktopBottomWrapper = styled(Box)`
       borderStyle: 'solid',
       borderTopWidth: 1,
     })};
+`;
+
+const MissonStatement = styled(Heading)`
+  font-size: 1.625rem;
+  line-height: 36px;
+`;
+
+const LegacyExtraSmallText = styled(Text)`
+  ${({ theme }) => typography({ theme, fontSize: '12px', lineHeight: '1.5em' })}
+  line-height: 1.5em !important;
 `;
 
 type DesktopLinkGroupsType = {
@@ -94,7 +116,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Unterstütze t3n',
-        url: 'https://t3n.de/unterstuetze-t3n',
+        url: '/unterstuetze-t3n',
       },
       {
         label: 'Mediadaten',
@@ -119,48 +141,48 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Pro',
-        url: 'https://t3n.de/pro/',
+        url: '/pro/',
         bold: true,
       },
       {
         label: 'News',
-        url: 'https://t3n.de/news/',
+        url: '/news/',
       },
       {
         label: 'Magazin',
-        url: 'https://t3n.de/magazin/',
+        url: '/magazin/',
       },
       {
         label: 'Podcast',
-        url: 'https://t3n.de/podcast/',
+        url: '/podcast/',
       },
       {
         label: 'Themen',
-        url: 'https://t3n.de/tag/',
+        url: '/tag/',
       },
       {
         label: 'Pioneers',
-        url: 'https://t3n.de/pioneers/',
+        url: '/pioneers/',
       },
       {
         label: 'Jobs',
-        url: 'https://t3n.de/jobs/',
+        url: '/jobs/',
       },
       {
         label: 'Firmen',
-        url: 'https://t3n.de/firmen/',
+        url: '/firmen/',
       },
       {
         label: 'Deals',
-        url: 'https://t3n.de/deals/',
+        url: '/deals/',
       },
       {
         label: 'Events',
-        url: 'https://t3n.de/events/',
+        url: '/events/',
       },
       {
         label: 'Shop',
-        url: 'https://t3n.de/store/',
+        url: '/store/',
       },
       {
         label: 'Newsletter',
@@ -168,7 +190,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Newsarchiv',
-        url: 'https://t3n.de/archive/',
+        url: '/archive/',
       },
     ],
   },
@@ -177,7 +199,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Aktuelle News',
-        url: 'https://t3n.de/rss.xml',
+        url: '/rss.xml',
       },
       {
         label: 'Die neuesten Artikel',
@@ -188,7 +210,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Aktuelle Jobs',
-        url: 'https://t3n.de/jobs/rss/all/',
+        url: '/jobs/rss/all/',
       },
     ],
   },
@@ -204,7 +226,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Pressebereich',
-        url: 'https://t3n.de/presse/presseinformationen/',
+        url: '/presse/presseinformationen/',
       },
       {
         label: 'Redaktion',
@@ -231,8 +253,8 @@ const LegacyDesktopLinks = () => {
         <DesktopLinkGroup
           display="flex"
           flexDirection="column"
-          width={[1 / 2, 1 / 4]}
-          px={4}
+          px="10px"
+          pb="12px"
         >
           <Text mt={0} bold>
             {group.label}
@@ -261,69 +283,82 @@ const LegacyDesktopLinks = () => {
 
 const LegacyDesktopBottom = () => {
   return (
-    <DesktopBottomWrapper mt={[2, 4, 6]} pt={[2, 4, 6]} px={2}>
+    <DesktopBottomWrapper my={[2, 4, 6]} mx="10px">
       <Grid>
         <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
-          agof- und IVW-geprüft
-          <Box mt={3} mb={5}>
-            <FooterLink
-              href="http://www.agof.de/"
-              target="_blank"
-              title="Die externe Seite im neuen Tab/Fenster öffnen"
-              rel="noreferrer noopener"
-            >
-              <Image
-                src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/agof-logo.png"
-                width="80px"
-                alt="agof"
-              />
-            </FooterLink>
-            <FooterLink
-              href="http://www.ivw.de/"
-              target="_blank"
-              title="Die externe Seite im neuen Tab/Fenster öffnen"
-              rel="noreferrer noopener"
-            >
-              <Image
-                src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/ivw.png"
-                width="50px"
-                alt="IVW"
-              />
-            </FooterLink>
+          <Box m="10px">
+            <LegacyExtraSmallText my="12px">
+              agof- und IVW-geprüft
+            </LegacyExtraSmallText>
+            <Box pt="20px" display="flex" alignItems="center">
+              <Box mr="23px">
+                <FooterLink
+                  href="http://www.agof.de/"
+                  target="_blank"
+                  title="Die externe Seite im neuen Tab/Fenster öffnen"
+                  rel="noreferrer noopener"
+                >
+                  <Image
+                    src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/agof-logo.png"
+                    width="80px"
+                    alt="agof"
+                  />
+                </FooterLink>
+              </Box>
+              <FooterLink
+                href="http://www.ivw.de/"
+                target="_blank"
+                title="Die externe Seite im neuen Tab/Fenster öffnen"
+                rel="noreferrer noopener"
+              >
+                <Image
+                  src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/ivw.png"
+                  width="50px"
+                  height="50px"
+                  alt="IVW"
+                />
+              </FooterLink>
+            </Box>
           </Box>
         </GridItem>
         <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
-          Ausgezeichnet von kununu
-          <Box mt={3} mb={5}>
-            <FooterLink
-              href="https://www.kununu.com/de/t3n/"
-              rel="nofollow noopener noreferrer"
-              target="_blank"
-              title="Die externe Seite im neuen Tab/Fenster öffnen"
-            >
-              <Image
-                src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/kununu-top-company.png"
-                width="87px"
-                alt="kununu Top Company"
-              />
-            </FooterLink>
-            <FooterLink
-              href="https://www.kununu.com/de/t3n/"
-              rel="nofollow noopener noreferrer"
-              target="_blank"
-              title="Die externe Seite im neuen Tab/Fenster öffnen"
-            >
-              <Image
-                src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/kununu-open-company.png"
-                width="87px"
-                alt="kununu Open Company"
-              />
-            </FooterLink>
+          <Box m="10px">
+            <LegacyExtraSmallText my="12px">
+              Ausgezeichnet von kununu
+            </LegacyExtraSmallText>
+            <Box pt="20px">
+              <Box mr="20px" display="inline">
+                <FooterLink
+                  href="https://www.kununu.com/de/t3n/"
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  title="Die externe Seite im neuen Tab/Fenster öffnen"
+                >
+                  <Image
+                    src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/kununu-top-company.png"
+                    width="87px"
+                    alt="kununu Top Company"
+                  />
+                </FooterLink>
+              </Box>
+              <FooterLink
+                href="https://www.kununu.com/de/t3n/"
+                rel="nofollow noopener noreferrer"
+                target="_blank"
+                title="Die externe Seite im neuen Tab/Fenster öffnen"
+              >
+                <Image
+                  src="//d1quwwdmdfumn6.cloudfront.net/t3n/2018/images/logos/kununu-open-company.png"
+                  width="87px"
+                  alt="kununu Open Company"
+                />
+              </FooterLink>
+            </Box>
           </Box>
         </GridItem>
       </Grid>
-      <Grid>
-        <GridItem width={1}>
+      <Box mt="40px" mb="10px">
+        <Box width={1} height="55px">
           <FooterLink href="/" className="js-switch-to-mobile">
             Mobile Seite
           </FooterLink>{' '}
@@ -337,8 +372,8 @@ const LegacyDesktopBottom = () => {
             yeebase media GmbH
           </FooterLink>{' '}
           2005 - {new Date().getFullYear()}
-        </GridItem>
-      </Grid>
+        </Box>
+      </Box>
     </DesktopBottomWrapper>
   );
 };
@@ -346,14 +381,14 @@ const LegacyDesktopBottom = () => {
 const LegacyDesktopFooter = () => {
   return (
     <>
-      <Grid>
-        <GridItem width={[1, 1, 1, '280px']} px={0} pl={3}>
-          <Heading as="h3" mt={0}>
+      <Box display="flex" m="10px">
+        <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
+          <MissonStatement as="h3" mt={0}>
             Wir helfen digitalen Pionieren, glücklich zu arbeiten und zu leben.
-          </Heading>
+          </MissonStatement>
         </GridItem>
         <LegacyDesktopLinks />
-      </Grid>
+      </Box>
       <LegacyDesktopBottom />
     </>
   );

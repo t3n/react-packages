@@ -1,25 +1,46 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
-  SocialFacebook,
+  MaterialLocalPostOffice,
+  MaterialNotifications,
+  MaterialRssFeed,
+  MaterialAdd,
   SocialFlipboard,
+  SocialInstagram,
   SocialLinkedin,
   SocialPocket,
   SocialTwitter,
   SocialXing,
 } from '@t3n/icons';
+
 import { getThemeColor } from '@t3n/theme';
 import { space } from 'styled-system';
 import { Icon } from '../Icon';
 import { Box } from '../Box';
 
+const OldFacebookIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="#8F8F8F"
+    width="18px"
+    height="18px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z" />
+  </svg>
+);
 export type SocialNetworkType =
   | 'facebook'
   | 'flipboard'
   | 'linkedin'
   | 'pocket'
   | 'twitter'
-  | 'xing';
+  | 'xing'
+  | 'instagram'
+  | 'newsletter'
+  | 'notifications'
+  | 'rssfeed'
+  | 'socialmedia';
 
 export interface SocialIconProps {
   network: SocialNetworkType;
@@ -44,8 +65,7 @@ export type SocialNetworksProps = {
 const LegacySocialConfig: SocialNetworksProps = {
   facebook: {
     name: 'Facebook',
-    icon: SocialFacebook,
-    iconScale: 0.9,
+    icon: OldFacebookIcon,
   },
   flipboard: {
     name: 'Flipboard',
@@ -67,6 +87,31 @@ const LegacySocialConfig: SocialNetworksProps = {
   xing: {
     name: 'Xing',
     icon: SocialXing,
+  },
+  instagram: {
+    name: 'Instagram',
+    icon: SocialInstagram,
+    iconScale: 0.9,
+  },
+  newsletter: {
+    name: 'Newsletter',
+    icon: MaterialLocalPostOffice,
+    iconScale: 1.1,
+  },
+  notifications: {
+    name: 'Notifications',
+    icon: MaterialNotifications,
+    iconScale: 1.1,
+  },
+  rssfeed: {
+    name: 'RSS-Feed',
+    icon: MaterialRssFeed,
+    iconScale: 1.1,
+  },
+  socialmedia: {
+    name: 'Social-Media',
+    icon: MaterialAdd,
+    iconScale: 1.4,
   },
 };
 
@@ -92,6 +137,8 @@ const SocialIcon = styled(LegacySocialIcon).attrs(
   socialIconAttributes
 )<SocialIconProps>`
   ${({ theme }) => space({ theme, mr: 2 })}
+  width: 24px;
+  height: 24px;
   ${Icon} {
     ${({ network }) =>
       LegacySocialConfig[network].iconScale
@@ -101,6 +148,10 @@ const SocialIcon = styled(LegacySocialIcon).attrs(
 
     &:hover {
       fill: ${({ network }) => getThemeColor(`social.${network}`)};
+    }
+
+    &::last-child {
+      margin-right: 0;
     }
   }
 `;
@@ -134,5 +185,28 @@ export const LegacyArticleSocialShare: React.FC<{
       url={`https://www.linkedin.com/shareArticle?mini=true&url=${url}?utm_source=linkedin.com&utm_medium=social&utm_campaign=social-buttons`}
       network="linkedin"
     />
+  </Box>
+);
+
+export const LegacyHeaderSocialShare: React.FC = () => (
+  <Box mt="5px" display="flex" justifyContent="flex-end">
+    <SocialIcon url="https://facebook.com/t3nMagazin" network="facebook" />
+    <SocialIcon url="https://instagram.com/t3n_magazin/" network="instagram" />
+    <SocialIcon url="https://twitter.com/t3n" network="twitter" />
+    <SocialIcon
+      url="https://xing.com/news/pages/t3n-magazin-67"
+      network="xing"
+    />
+    <SocialIcon
+      url="https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
+      network="linkedin"
+    />
+    <SocialIcon url="/info/t3n-newsletter/" network="newsletter" />
+    <SocialIcon url="/info/push-notifications/" network="notifications" />
+    <SocialIcon
+      url="/social-media#RSS-Feeds:_Immer_up_to_date"
+      network="rssfeed"
+    />
+    <SocialIcon url="/social-media/" network="socialmedia" />
   </Box>
 );

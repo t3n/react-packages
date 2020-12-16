@@ -72,7 +72,7 @@ export declare const textColors: {
 };
 export declare const comment = "#f9423a";
 export declare const email = "#8F8F8F";
-export declare const facebook = "#6175b5";
+export declare const facebook = "#1877f2";
 export declare const flipboard = "#f9261a";
 export declare const github = "#24292e";
 export declare const google = "#d44132";
@@ -85,7 +85,11 @@ export declare const twitter = "#5bc6f8";
 export declare const whatsapp = "#64d448";
 export declare const xing = "#338383";
 export declare const youtube = "#ff0000";
-export declare type ThemeSocialColor = 'comment' | 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'podcast' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube';
+export declare const rssfeed = "#f90";
+export declare const socialmedia = "#2a2a2a";
+export declare const newsletter = "#2a2a2a";
+export declare const notifications = "#2a2a2a";
+export declare type ThemeSocialColor = 'comment' | 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'podcast' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube' | 'rssfeed' | 'socialmedia' | 'newsletter' | 'notifications';
 export interface ThemeSocialColors {
     comment: string;
     email: string;
@@ -102,6 +106,10 @@ export interface ThemeSocialColors {
     whatsapp: string;
     xing: string;
     youtube: string;
+    rssfeed: string;
+    socialmedia: string;
+    newsletter: string;
+    notifications: string;
 }
 export declare const socialColors: {
     comment: string;
@@ -119,6 +127,10 @@ export declare const socialColors: {
     whatsapp: string;
     xing: string;
     youtube: string;
+    rssfeed: string;
+    socialmedia: string;
+    newsletter: string;
+    notifications: string;
 };
 export declare const success = "#34e88f";
 export declare const notice = "#5bd6ff";
@@ -188,6 +200,10 @@ declare const colors: {
         whatsapp: string;
         xing: string;
         youtube: string;
+        rssfeed: string;
+        socialmedia: string;
+        newsletter: string;
+        notifications: string;
     };
     feedback: {
         success: string;
