@@ -12,7 +12,7 @@ const T3nNav = styled(Box)`
   ${Text} {
     ${({ theme }) => space({ theme, mr: '13.2px' })};
     ${({ theme }) =>
-      typography({ theme, fontSize: '12px', lineHeigth: '12px' })};
+      typography({ theme, fontSize: '12px', lineHeight: '12px' })};
   }
 `;
 

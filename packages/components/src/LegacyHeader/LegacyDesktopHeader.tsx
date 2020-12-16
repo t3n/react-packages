@@ -49,6 +49,10 @@ export const StickyHeader = styled(Box)`
       borderBottomWidth: '2px',
     })};
 
+  > ${Box} > a {
+    ${({ theme }) => space({ mt: '5px', ml: '-3px', theme })}
+  }
+
   > ${Box} > a > svg {
     ${({ theme }) =>
       layout({
@@ -64,7 +68,25 @@ export const StickyHeader = styled(Box)`
 
   ${SearchForm} {
     ${({ theme }) => space({ px: 6, py: '10px', theme })}
-    ${({ theme }) => layout({ theme, height: '59px' })};
+    ${({ theme }) => layout({ theme, height: '56px' })};
+  }
+
+  > ${Box} > ${Box}:last-child {
+    ${({ theme }) => space({ mr: '12px', mt: '3px', theme })}
+  }
+`;
+
+const StickyNavBox = styled(Box)`
+  > div {
+    ${({ theme }) => space({ pr: '81px', pl: '3px', theme })}
+  }
+
+  > div > div {
+    ${({ theme }) => space({ mt: '9px', mb: '14px', theme })}
+  }
+
+  button {
+    ${({ theme }) => space({ mr: '6px', mt: '-2px', theme })}
   }
 `;
 
@@ -142,7 +164,7 @@ export const LegacyDesktopHeader: React.FC<{
             <a href="/" title="t3n - digital pioneers">
               <T3nLogoSmall />
             </a>
-            <Box width="100%" position="relative">
+            <StickyNavBox width="100%" position="relative">
               <LegacyMainNav isSticky newsIndicator={newsIndicator} />
               <SearchForm action="/suche" method="get">
                 <SearchInput
@@ -155,7 +177,7 @@ export const LegacyDesktopHeader: React.FC<{
                   <SearchIcon />
                 </SearchButton>
               </SearchForm>
-            </Box>
+            </StickyNavBox>
             <LegacyUserMenu
               loading={!user}
               user={user}
