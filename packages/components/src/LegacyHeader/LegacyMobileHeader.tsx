@@ -63,7 +63,7 @@ const LegacyMobileHeader: React.FC<{
       alignItems="flex-end"
       className="tg-header"
     >
-      <Box flexGrow={1}>
+      <Box flexGrow={1} ml="3px" mb="1px">
         <a href="/" title="t3n - digital pioneers">
           <Logo />
         </a>

@@ -3,7 +3,7 @@ import { MaterialClose, MaterialMenu } from '@t3n/icons';
 import { getColorForBackground, ThemeProps } from '@t3n/theme';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { border, color, layout, space } from 'styled-system';
+import { border, color, layout, position, space } from 'styled-system';
 
 import { Box } from '../../Box';
 import { Button } from '../../Button';
@@ -13,6 +13,18 @@ import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
 import { NewsIndicator } from './LegacyMainNav';
+
+const MobileMenuToggleBox = styled(Box)`
+  span {
+    ${({ theme }) =>
+      position({
+        theme,
+        position: 'absolute',
+        top: '1px',
+        right: '-2px',
+      })};
+  }
+`;
 
 const MobileMenuToggle = styled(Icon)`
   cursor: pointer;
@@ -184,13 +196,20 @@ const LegacyMobileNav: React.FC<{
     <Box>
       {menuOpen && <Overlay onClick={() => setMenuOpen(!menuOpen)} />}
 
-      <MobileMenuToggle
-        fill="#9b9b9b"
-        width="2rem"
-        mb="6px"
-        component={MaterialMenu}
-        onClick={() => setMenuOpen(!menuOpen)}
-      />
+      <MobileMenuToggleBox position="relative">
+        <MobileMenuToggle
+          fill="#9b9b9b"
+          width="2rem"
+          mb="6px"
+          component={MaterialMenu}
+          onClick={() => setMenuOpen(!menuOpen)}
+        />
+        {newsIndicator && (
+          <NewsIndicator className="tg-notification-bubble">
+            {newsIndicator}
+          </NewsIndicator>
+        )}
+      </MobileMenuToggleBox>
 
       <MobileMenuContainer menuOpen={menuOpen}>
         <Box
