@@ -9,7 +9,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   component: LegacyAd,
-  title: 'Legacy/Content/LegacyAd',
+  title: 'Legacy/Content/Ad',
   decorators: [storyContainerDecorator],
 };
 

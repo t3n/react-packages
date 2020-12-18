@@ -3,7 +3,7 @@ import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { TagNavTagsType } from './components/LegacyTagNav';
 export declare const HeaderCampaign: import("styled-components").StyledComponent<"div", any, import("../Box").BoxProps, never>;
 export declare const HeaderLink: import("styled-components").StyledComponent<"a", any, {}, never>;
-export declare const LegacyHeader: React.FC<{
+export interface LegacyHeaderProps {
     user?: LegacyUserMenuProps['user'];
     userMenuLabelUrl: string;
     userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
@@ -12,4 +12,6 @@ export declare const LegacyHeader: React.FC<{
     headerCampaignImage: string;
     headerCampaignImageMobile?: string;
     newsIndicator?: number;
-}>;
+}
+declare const LegacyHeader: React.FC<LegacyHeaderProps>;
+export default LegacyHeader;
