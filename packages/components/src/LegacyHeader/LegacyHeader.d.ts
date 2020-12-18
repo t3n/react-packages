@@ -13,5 +13,4 @@ export interface LegacyHeaderProps {
     headerCampaignImageMobile?: string;
     newsIndicator?: number;
 }
-declare const LegacyHeader: React.FC<LegacyHeaderProps>;
-export default LegacyHeader;
+export declare const LegacyHeader: React.FC<LegacyHeaderProps>;
