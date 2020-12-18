@@ -150,86 +150,87 @@ export const LegacyDesktopHeader: React.FC<{
   newsIndicator,
 }) => {
   const y = useScrollYPosition();
+  // 280 is the height of regular LegacyHeader
+  const isStickyVisible = y > 280;
 
-  if (y > 20) {
-    return (
-      <StickyHeaderWrapper>
-        <StickyHeader className="tg-header">
+  return (
+    <>
+      <HeaderWrapper className="tg-header">
+        <VisualHeader display="flex" alignItems="center">
           <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            px={2}
+            height="115px"
+            width="260px"
+            mt="15px"
+            ml="20px"
+            mr="32px"
+            alignSelf="flex-start"
           >
             <a href="/" title="t3n - digital pioneers">
-              <T3nLogoSmall />
+              <Logo />
             </a>
-            <StickyNavBox width="100%" position="relative">
-              <LegacyMainNav isSticky newsIndicator={newsIndicator} />
-              <SearchForm action="/suche" method="get">
-                <SearchInput
-                  type="text"
-                  placeholder="t3n.de durchsuchen"
-                  name="q"
-                  id="js-search-box"
-                />
-                <SearchButton type="submit">
-                  <SearchIcon />
-                </SearchButton>
-              </SearchForm>
-            </StickyNavBox>
-            <LegacyUserMenu
-              loading={!user}
+          </Box>
+          <HeaderCampaign>
+            <a href={headerCampaignUrl}>
+              <Image
+                src={headerCampaignImage}
+                width={[80, 80, 250, 320]}
+                height={[50, 50, 120, 160]}
+              />
+            </a>
+          </HeaderCampaign>
+          <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
+            <LegacyT3nNav
               user={user}
               labelUrl={userMenuLabelUrl}
               itemGroups={userMenuLinkGroups}
             />
+            <Box mr={-2}>
+              <LegacyHeaderSocialShare />
+            </Box>
           </Box>
-        </StickyHeader>
-      </StickyHeaderWrapper>
-    );
-  }
+        </VisualHeader>
 
-  return (
-    <HeaderWrapper className="tg-header">
-      <VisualHeader display="flex" alignItems="center">
-        <Box
-          height="115px"
-          width="260px"
-          mt="15px"
-          ml="20px"
-          mr="32px"
-          alignSelf="flex-start"
-        >
-          <a href="/" title="t3n - digital pioneers">
-            <Logo />
-          </a>
+        <Box display="flex" flexDirection="column">
+          <LegacyMainNav newsIndicator={newsIndicator} />
+          <LegacyTagNav tags={tags} />
         </Box>
-        <HeaderCampaign>
-          <a href={headerCampaignUrl}>
-            <Image
-              src={headerCampaignImage}
-              width={[80, 80, 250, 320]}
-              height={[50, 50, 120, 160]}
-            />
-          </a>
-        </HeaderCampaign>
-        <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
-          <LegacyT3nNav
-            user={user}
-            labelUrl={userMenuLabelUrl}
-            itemGroups={userMenuLinkGroups}
-          />
-          <Box mr={-2}>
-            <LegacyHeaderSocialShare />
-          </Box>
-        </Box>
-      </VisualHeader>
-
-      <Box display="flex" flexDirection="column">
-        <LegacyMainNav newsIndicator={newsIndicator} />
-        <LegacyTagNav tags={tags} />
-      </Box>
-    </HeaderWrapper>
+      </HeaderWrapper>
+      {isStickyVisible && (
+        <StickyHeaderWrapper>
+          <StickyHeader className="tg-header">
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              px={2}
+            >
+              <a href="/" title="t3n - digital pioneers">
+                <T3nLogoSmall />
+              </a>
+              <StickyNavBox width="100%" position="relative">
+                <LegacyMainNav isSticky newsIndicator={newsIndicator} />
+                <SearchForm action="/suche" method="get">
+                  <SearchInput
+                    type="text"
+                    placeholder="t3n.de durchsuchen"
+                    name="q"
+                    id="js-search-box"
+                  />
+                  <SearchButton type="submit">
+                    <SearchIcon />
+                  </SearchButton>
+                </SearchForm>
+              </StickyNavBox>
+              <LegacyUserMenu
+                loading={!user}
+                user={user}
+                labelUrl={userMenuLabelUrl}
+                itemGroups={userMenuLinkGroups}
+              />
+            </Box>
+          </StickyHeader>
+        </StickyHeaderWrapper>
+      )}
+    </>
   );
 };

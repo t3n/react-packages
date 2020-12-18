@@ -38,6 +38,7 @@ export { LegacyNewsCard } from './LegacyNewsCard';
 export { LegacySocialBar } from './LegacySocialBar';
 export { LegacyUserMenu } from './LegacyUserMenu';
 export { LegacyPagination } from './LegacyPagination';
+export { LegacyPageLayout } from './LegacyPageLayout';
 export { Link } from './Link';
 export { Loader } from './Loader';
 export { Logo } from './Logo';

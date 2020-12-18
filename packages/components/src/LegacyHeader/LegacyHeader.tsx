@@ -29,7 +29,7 @@ export const HeaderLink = styled.a`
   }
 `;
 
-export const LegacyHeader: React.FC<{
+export interface LegacyHeaderProps {
   user?: LegacyUserMenuProps['user'];
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
@@ -38,7 +38,9 @@ export const LegacyHeader: React.FC<{
   headerCampaignImage: string;
   headerCampaignImageMobile?: string;
   newsIndicator?: number;
-}> = ({
+}
+
+export const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,
