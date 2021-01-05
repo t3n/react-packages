@@ -6,4 +6,5 @@ export declare const DatePicker: React.FC<{
     withTime?: boolean;
     date: moment.Moment | null;
     onChange: (date: moment.Moment | null) => void;
+    isOutsideRange?: (day: moment.Moment) => boolean;
 }>;

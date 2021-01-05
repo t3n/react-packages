@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import React, { useState } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
@@ -374,9 +375,11 @@ export const DatePicker: React.FC<{
   withTime?: boolean;
   date: moment.Moment | null;
   onChange: (date: moment.Moment | null) => void;
-}> = ({ id, withTime = false, date, onChange }) => {
+  isOutsideRange?: (day: moment.Moment) => boolean;
+}> = ({ id, withTime = false, date, onChange, isOutsideRange }) => {
   const [focus, setFocus] = useState(false);
   const isMobile = useIsMobile();
+  const falseFunc = () => false;
 
   return (
     <>
@@ -384,6 +387,7 @@ export const DatePicker: React.FC<{
       <SingleDatePicker
         readOnly={isMobile}
         withFullScreenPortal={isMobile}
+        isOutsideRange={isOutsideRange || falseFunc}
         orientation={isMobile ? 'vertical' : 'horizontal'}
         keepOpenOnDateSelect={!!withTime}
         numberOfMonths={isMobile ? 1 : 2}
