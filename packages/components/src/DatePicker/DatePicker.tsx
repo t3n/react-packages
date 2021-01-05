@@ -384,6 +384,7 @@ export const DatePicker: React.FC<{
       <SingleDatePicker
         readOnly={isMobile}
         withFullScreenPortal={isMobile}
+        isOutsideRange={() => false}
         orientation={isMobile ? 'vertical' : 'horizontal'}
         keepOpenOnDateSelect={!!withTime}
         numberOfMonths={isMobile ? 1 : 2}
