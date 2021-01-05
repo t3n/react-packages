@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { Section, Box, DatePicker } from '@t3n/components';
 
-import { boolean } from '@storybook/addon-knobs';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
@@ -21,7 +20,6 @@ export const DefaultStory = () => {
           id="test datepicker"
           date={date}
           onChange={(newDate: moment.Moment | null) => setDate(newDate)}
-          withoutPrevDates={boolean('Ohne vergangene Tage', false)}
         />
       </Box>
     </Section>
