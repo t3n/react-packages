@@ -22,7 +22,6 @@ import LegacyT3nNav from './components/LegacyT3nNav';
 import { HeaderCampaign } from './LegacyHeader';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyAd } from '../LegacyAd';
-import useIsMobile from '../hooks/useIsMobile';
 
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">
@@ -159,11 +158,10 @@ export const LegacyDesktopHeader: React.FC<{
   // 280 is the height of regular LegacyHeader
   const p0Height = document.querySelector('#p0')?.clientHeight ?? 0;
   const isStickyVisible = y > p0Height + 280;
-  const isMobile = useIsMobile();
 
   return (
     <Box position="relative">
-      {!isMobile && showAds && <LegacyAd name="p2" preview={adsPreview} />}
+      {showAds && <LegacyAd name="p2" preview={adsPreview} />}
       <HeaderWrapper className="tg-header">
         <VisualHeader display="flex" alignItems="center">
           <Box
