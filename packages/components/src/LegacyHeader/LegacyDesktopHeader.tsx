@@ -21,6 +21,8 @@ import {
 import LegacyT3nNav from './components/LegacyT3nNav';
 import { HeaderCampaign } from './LegacyHeader';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
+import { LegacyAd } from '../LegacyAd';
+import useIsMobile from '../hooks/useIsMobile';
 
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">
@@ -29,13 +31,13 @@ const T3nLogoSmall: React.FC = () => (
 );
 
 const StickyHeaderWrapper = styled(Box)`
+  z-index: 300;
   position: fixed;
   top: 0;
-  width: inherit;
+  width: 61.25rem;
 `;
 
 export const StickyHeader = styled(Box)`
-  z-index: 300;
   width: 100%;
 
   ${({ theme }) =>
@@ -44,7 +46,7 @@ export const StickyHeader = styled(Box)`
     border({
       theme,
       borderWidth: 0,
-      borderStyle: ' solid',
+      borderStyle: 'solid',
       borderColor: 'shades.grey232',
       borderBottomWidth: '2px',
     })};
@@ -140,6 +142,8 @@ export const LegacyDesktopHeader: React.FC<{
   headerCampaignUrl: string;
   headerCampaignImage: string;
   newsIndicator?: number;
+  showAds?: boolean;
+  adsPreview?: boolean;
 }> = ({
   user,
   userMenuLabelUrl,
@@ -148,13 +152,18 @@ export const LegacyDesktopHeader: React.FC<{
   headerCampaignUrl,
   headerCampaignImage,
   newsIndicator,
+  showAds,
+  adsPreview,
 }) => {
   const y = useScrollYPosition();
   // 280 is the height of regular LegacyHeader
-  const isStickyVisible = y > 280;
+  const p0Height = document.querySelector('#p0')?.clientHeight ?? 0;
+  const isStickyVisible = y > p0Height + 280;
+  const isMobile = useIsMobile();
 
   return (
-    <>
+    <Box position="relative">
+      {!isMobile && showAds && <LegacyAd name="p2" preview={adsPreview} />}
       <HeaderWrapper className="tg-header">
         <VisualHeader display="flex" alignItems="center">
           <Box
@@ -231,6 +240,6 @@ export const LegacyDesktopHeader: React.FC<{
           </StickyHeader>
         </StickyHeaderWrapper>
       )}
-    </>
+    </Box>
   );
 };

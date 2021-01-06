@@ -38,7 +38,6 @@ const StyledLegacyAd = styled(Ad)<AdProps>`
       ? css`
           padding: 5px;
           position: relative;
-          z-index: 10;
           min-height: 90px;
         `
       : ''}

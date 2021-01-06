@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 import { Story } from '@storybook/react';
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, withKnobs } from '@storybook/addon-knobs';
 
 import {
   Box,
@@ -191,3 +191,48 @@ export const notLoggedInStory: Story = () => (
 );
 
 notLoggedInStory.storyName = 'Not logged in';
+
+export const adZonesStory: Story = () => {
+  return (
+    <Wrapper display="flex">
+      <LegacyPageLayoutWrapper>
+        <LegacyPageLayout
+          user={standardUser}
+          userMenuLabelUrl="/account/"
+          userMenuLinkGroups={standardLinkGroup}
+          tags={tagNavTags}
+          headerCampaignUrl={variants[randomNumber].href}
+          headerCampaignImage={variants[randomNumber].image}
+          headerCampaignImageMobile={variants[randomNumber].imageMobile}
+          newsIndicator={number('Indikator', 3)}
+          showAds={boolean('Show Ads', true)}
+          adsPreview={boolean('Ads Preview', true)}
+        >
+          <Section variant="primary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+          <Section variant="secondary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+          <Section variant="primary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+          <Section variant="secondary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+          <Section variant="primary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+          <Section variant="secondary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+          <Section variant="primary">
+            <Text my={9}>Dummy Section</Text>
+          </Section>
+        </LegacyPageLayout>
+      </LegacyPageLayoutWrapper>
+    </Wrapper>
+  );
+};
+
+adZonesStory.storyName = 'With AdZones';
