@@ -10,4 +10,6 @@ export declare const LegacyDesktopHeader: React.FC<{
     headerCampaignUrl: string;
     headerCampaignImage: string;
     newsIndicator?: number;
+    showAds?: boolean;
+    adsPreview?: boolean;
 }>;
