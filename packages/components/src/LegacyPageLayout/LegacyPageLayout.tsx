@@ -13,8 +13,14 @@ const Wrapper = styled(Box)`
 `;
 
 export interface LegacyPageLayoutProps extends LegacyHeaderProps {
-  showAds?: boolean;
-  adsPreview?: boolean;
+  showP0?: boolean;
+  previewP0?: boolean;
+  showP1?: boolean;
+  previewP1?: boolean;
+  showP2?: boolean;
+  previewP2?: boolean;
+  showP13?: boolean;
+  previewP13?: boolean;
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -27,15 +33,21 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   headerCampaignImage,
   headerCampaignImageMobile,
   newsIndicator,
-  showAds,
-  adsPreview,
+  showP0,
+  previewP0,
+  showP1,
+  previewP1,
+  showP2,
+  previewP2,
+  showP13,
+  previewP13,
   children,
 }) => {
   const isMobile = useIsMobile();
 
   return (
     <Wrapper>
-      {!isMobile && showAds && <LegacyAd name="p0" preview={adsPreview} />}
+      {!isMobile && showP0 && <LegacyAd name="p0" preview={previewP0} />}
       <LegacyHeader
         user={user}
         userMenuLabelUrl={userMenuLabelUrl}
@@ -45,17 +57,17 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         headerCampaignImage={headerCampaignImage}
         headerCampaignImageMobile={headerCampaignImageMobile}
         newsIndicator={newsIndicator}
-        showAds={showAds}
-        adsPreview={adsPreview}
+        showAds={showP2}
+        adsPreview={previewP2}
       />
-      {!isMobile && showAds && (
+      {!isMobile && showP1 && (
         <>
-          <LegacyAd name="p1" preview={adsPreview} />
+          <LegacyAd name="p1" preview={previewP1} />
         </>
       )}
-      {isMobile && showAds && (
+      {isMobile && showP13 && (
         <>
-          <LegacyAd name="p13" preview={adsPreview} />
+          <LegacyAd name="p13" preview={previewP13} />
         </>
       )}
       {children}
