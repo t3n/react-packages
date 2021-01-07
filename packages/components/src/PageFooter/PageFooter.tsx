@@ -250,7 +250,8 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                     ml={2}
                     onClick={(e) => {
                       e.preventDefault();
-                      (window as any).UC_UI.showSecondLayer();
+                      // eslint-disable-next-line no-underscore-dangle
+                      (window as any)._sp_.loadPrivacyManagerModal(399880);
                     }}
                   >
                     Datenschutzeinstellungen
