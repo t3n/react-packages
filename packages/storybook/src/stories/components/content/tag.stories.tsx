@@ -11,6 +11,10 @@ const variants: TagColorVariant[] = [
   'inverse',
   'black',
   'highlight',
+  'warning',
+  'notice',
+  'success',
+  'error',
 ];
 
 export default {

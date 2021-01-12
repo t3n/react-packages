@@ -8,7 +8,11 @@ export type TagColorVariant =
   | 'secondary'
   | 'inverse'
   | 'black'
-  | 'highlight';
+  | 'highlight'
+  | 'warning'
+  | 'notice'
+  | 'success'
+  | 'error';
 
 export interface TagProps extends MarginProps {
   colorVariant?: TagColorVariant;
@@ -60,6 +64,22 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
         bg: 'background.highlight',
         color: 'text.inverse',
       },
+      error: {
+        bg: 'background.highlight',
+        color: 'text.inverse',
+      },
+      warning: {
+        bg: 'feedback.warn',
+        color: 'text.primary',
+      },
+      notice: {
+        bg: 'feedback.notice',
+        color: 'text.primary',
+      },
+      success: {
+        bg: 'feedback.success',
+        color: 'text.primary',
+      },
     },
   })}
 
@@ -68,7 +88,8 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
     fill: ${({ theme, variant: variantStyle }: StyledTagProps) =>
       variantStyle === 'inverse' ||
       variantStyle === 'black' ||
-      variantStyle === 'highlight'
+      variantStyle === 'highlight' ||
+      variantStyle === 'error'
         ? theme.colors.text.inverse
         : theme.colors.text.primary}
   }
