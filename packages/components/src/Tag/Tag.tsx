@@ -8,7 +8,8 @@ export type TagColorVariant =
   | 'secondary'
   | 'inverse'
   | 'black'
-  | 'highlight';
+  | 'highlight'
+  | 'warning';
 
 export interface TagProps extends MarginProps {
   colorVariant?: TagColorVariant;
@@ -59,6 +60,10 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
       highlight: {
         bg: 'background.highlight',
         color: 'text.inverse',
+      },
+      warning: {
+        bg: 'feedback.warn',
+        color: 'text.primary',
       },
     },
   })}
