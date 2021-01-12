@@ -231,6 +231,8 @@ export const Slider = ({
               left: 0,
               padding: 0,
               margin: 0,
+              width: 1,
+              height: 1,
               background: 'transparent',
               border: 'none',
             }}
