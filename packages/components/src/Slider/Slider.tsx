@@ -175,8 +175,11 @@ export const Slider = ({
 
   const handleThumbDrag = useCallback(
     (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      const trackX = trackRef.current?.getBoundingClientRect().x || 0;
+
       const nextValue = clamp(
-        (Math.round(info.point.x / stepWidthRef.current) + 1) * step +
+        (Math.round((info.point.x - trackX) / stepWidthRef.current) + 1) *
+          step +
           (min - step),
         min,
         max
