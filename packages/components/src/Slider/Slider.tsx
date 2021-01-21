@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { color, space } from 'styled-system';
-import { motion, PanInfo } from 'framer-motion';
+import { motion, PanInfo, useMotionValue, animate } from 'framer-motion';
 
 import { ThemeProps } from '@t3n/theme';
 import { Text } from '../Text';
@@ -126,7 +126,7 @@ const SliderLabels = ({
   </>
 );
 
-export const Slider = ({
+export const Slider: React.FC<SliderProps> = ({
   name,
   min = 0,
   max,
@@ -134,66 +134,99 @@ export const Slider = ({
   value = 0,
   labels = [],
   onChange,
-}: SliderProps) => {
-  const [initialized, setInitialized] = useState(value === min);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isTouched, setIsTouched] = useState(false);
+}) => {
+  const [initialized, setInitialized] = useState(false);
   const [stepWidth, setStepWidth] = useState(0);
 
-  const stepWidthRef = useRef(stepWidth);
   const trackRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const shouldAnimateRef = useRef(false);
+
+  const getPointerRelativePositionX = (info: PanInfo) => {
+    const trackX = trackRef.current?.getBoundingClientRect().x || 0;
+    const trackWidth = trackRef.current?.getBoundingClientRect().width || 0;
+
+    return clamp(info.point.x - trackX, 0, trackWidth);
+  };
+
+  const getPointerStepPositionX = useCallback(
+    (index: number) => (index / step) * stepWidth,
+    [step, stepWidth]
+  );
+
+  const x = useMotionValue(getPointerStepPositionX(value));
+
+  const updateStepWidth = useCallback(() => {
+    if (!trackRef.current) return;
+
+    const trackWidth = trackRef.current.getBoundingClientRect().width;
+    const nextStepWidth = trackWidth / ((max - min) / step);
+
+    if (nextStepWidth !== stepWidth) shouldAnimateRef.current = false;
+
+    setStepWidth(nextStepWidth);
+  }, [max, min, step, stepWidth]);
 
   useEffect(() => {
-    const updateStepWidth = () => {
-      if (!trackRef.current) return;
+    if (!initialized) setInitialized(true);
 
-      const trackWidth = trackRef.current.getBoundingClientRect().width;
-
-      stepWidthRef.current = trackWidth / ((max - min) / step);
-
-      // random micro adsustement to force the animation
-      const rnd = Math.random() / 1000 + 1;
-
-      setStepWidth(stepWidthRef.current * rnd);
-
-      if (!initialized) setInitialized(true);
-    };
     updateStepWidth();
 
     window.addEventListener('resize', updateStepWidth);
     return () => window.removeEventListener('resize', updateStepWidth);
-  }, [initialized, max, min, step]);
+  }, [
+    getPointerStepPositionX,
+    initialized,
+    max,
+    min,
+    step,
+    stepWidth,
+    updateStepWidth,
+    x,
+  ]);
+
+  useEffect(() => {
+    if (!isDraggingRef.current) {
+      const pointerX = getPointerStepPositionX(value);
+      if (shouldAnimateRef.current) {
+        animate(x, pointerX);
+      } else {
+        x.set(pointerX);
+        if (stepWidth) shouldAnimateRef.current = true;
+      }
+    }
+  }, [getPointerStepPositionX, stepWidth, value, x]);
 
   const handleMarkerClick = (i: number) => {
-    onChange(i * ((max - min) / (labels.length - 1)) + min);
+    const nextValue = i * ((max - min) / (labels.length - 1)) + min;
+
+    onChange(nextValue);
   };
 
   const handleThumbDragStart = useCallback(() => {
-    setIsDragging(true);
     document.body.style.cursor = 'pointer';
-  }, [setIsDragging]);
+    isDraggingRef.current = true;
+  }, []);
 
   const handleThumbDrag = useCallback(
     (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-      const trackX = trackRef.current?.getBoundingClientRect().x || 0;
+      const pointerX = getPointerRelativePositionX(info);
 
       const nextValue = clamp(
-        (Math.round((info.point.x - trackX) / stepWidthRef.current) + 1) *
-          step +
-          (min - step),
+        (Math.round(pointerX / stepWidth) + 1) * step + (min - step),
         min,
         max
       );
 
       onChange(nextValue);
     },
-    [max, min, onChange, step]
+    [max, min, onChange, step, stepWidth]
   );
 
   const handleThumbDragEnd = useCallback(() => {
-    setIsDragging(false);
     document.body.style.cursor = 'initial';
-  }, [setIsDragging]);
+    isDraggingRef.current = false;
+  }, []);
 
   return (
     <StyledSliderContainer>
@@ -219,15 +252,17 @@ export const Slider = ({
         {initialized && (
           <motion.button
             drag="x"
+            dragElastic={0.01}
+            dragMomentum={false}
             dragConstraints={trackRef}
-            dragElastic={0}
-            onTapStart={() => setIsTouched(true)}
-            onTap={() => setIsTouched(false)}
-            onTapCancel={() => setIsTouched(false)}
+            dragTransition={{
+              timeConstant: 100,
+              modifyTarget: () => getPointerStepPositionX(value),
+            }}
+            initial={false}
             onDragStart={handleThumbDragStart}
             onDrag={handleThumbDrag}
             onDragEnd={handleThumbDragEnd}
-            dragMomentum={false}
             style={{
               position: 'absolute',
               top: '50%',
@@ -238,12 +273,17 @@ export const Slider = ({
               height: 1,
               background: 'transparent',
               border: 'none',
+              x,
             }}
-            animate={{
-              x: isDragging ? undefined : stepWidth * ((value - min) / step),
-              scale: isTouched ? 0.75 : 1,
+            whileHover={{
+              scale: 1.1,
             }}
-            initial={false}
+            whileTap={{
+              scale: 0.75,
+            }}
+            whileDrag={{
+              scale: 0.75,
+            }}
           >
             <StyledSliderThumb />
           </motion.button>
