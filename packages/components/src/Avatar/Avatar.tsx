@@ -130,17 +130,15 @@ export const Avatar: React.FC<AvatarProps> = ({
   textColor,
   children,
   ...rest
-}) => {
-  return (
-    <StyledAvatar>
-      <StyledAvatarImage {...rest} />
-      {label && label.length > 0 && (
-        <AvatarLabel textColor={textColor}>{label}</AvatarLabel>
-      )}
-      {children}
-    </StyledAvatar>
-  );
-};
+}) => (
+  <StyledAvatar>
+    <StyledAvatarImage {...rest} />
+    {label && label.length > 0 && (
+      <AvatarLabel textColor={textColor}>{label}</AvatarLabel>
+    )}
+    {children}
+  </StyledAvatar>
+);
 
 Avatar.defaultProps = {
   label: '',
