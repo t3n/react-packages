@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import Select, { components, OptionsType } from 'react-select';
-import styled from 'styled-components';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
@@ -10,8 +9,6 @@ import { theme } from '@t3n/theme';
 import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
-
-const Wrapper = styled(Box)``;
 
 const getCustomStyles = (error: boolean) => ({
   container: (provided: any) => ({
@@ -77,8 +74,23 @@ const getCustomStyles = (error: boolean) => ({
   option: (provided: any, state: any) => ({
     ...provided,
     cursor: 'pointer',
-    backgroundColor: state.isFocused ? theme.colors.shades.grey204 : null,
+    backgroundColor: state.isSelected
+      ? theme.colors.shades.grey143
+      : state.isFocused
+      ? theme.colors.shades.grey204
+      : null,
+    color: state.isSelected
+      ? theme.colors.text.inverse
+      : theme.colors.text.primary,
+    ':active': {
+      backgroundColor: state.isSelected
+        ? theme.colors.shades.grey143
+        : state.isFocused
+        ? theme.colors.shades.grey204
+        : null,
+    },
   }),
+  noOptionsMessage: (provided: any) => ({ ...provided, textAlign: 'left' }),
 });
 
 const ClearIndicator = (props: any) => {
@@ -150,6 +162,7 @@ export interface SelectBoxProps<S> extends WidthProps {
   loading?: boolean;
   multiSelect?: boolean;
   name?: string;
+  noOptionsMessage?: string;
   options: OptionsType<S>;
   placeholder?: string;
   searchable?: boolean;
@@ -173,6 +186,7 @@ function SelectBox<S>({
   loading,
   multiSelect,
   name,
+  noOptionsMessage,
   options,
   placeholder,
   searchable,
@@ -186,7 +200,7 @@ function SelectBox<S>({
   onToggleOpen,
 }: SelectBoxProps<S>): JSX.Element {
   return (
-    <Wrapper width={width}>
+    <Box width={width}>
       <Select
         autoFocus={autoFocus}
         isDisabled={disabled}
@@ -198,6 +212,7 @@ function SelectBox<S>({
         isLoading={loading}
         isMulti={multiSelect}
         name={name}
+        noOptionsMessage={() => noOptionsMessage || null}
         options={options}
         placeholder={placeholder}
         isSearchable={searchable}
@@ -224,12 +239,13 @@ function SelectBox<S>({
           MultiValueRemove,
         }}
       />
-    </Wrapper>
+    </Box>
   );
 }
 
 SelectBox.defaultProps = {
   placeholder: 'Wählen...',
+  noOptionsMessage: 'Keine Optionen gefunden.',
   loading: false,
 };
 
