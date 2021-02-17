@@ -65,7 +65,7 @@ const categorizedSuggestions: GroupedSuggestions<TSuggestion>[] = [
   },
 ];
 
-const SearchBoxWithData: React.FC<{
+export const SearchBoxWithData: React.FC<{
   isLoading: boolean;
   width: any;
   variant: SearchBoxVariantType;
