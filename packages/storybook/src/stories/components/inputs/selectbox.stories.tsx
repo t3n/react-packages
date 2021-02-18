@@ -7,7 +7,6 @@ import { Formik, FormikHelpers, FormikProps } from 'formik';
 
 import { ThemeProps } from '@t3n/theme';
 import {
-  Box,
   Button,
   Card,
   CardSplitContent,
@@ -17,12 +16,6 @@ import {
 } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
-
-const Wrapper = styled(Box)`
-  width: 61.25rem;
-  margin: auto auto 0;
-  position: relative;
-`;
 
 const DebugValues = styled.pre<ThemeProps>`
   overflow: hidden;
@@ -68,21 +61,19 @@ const groupedOptions = [
 ];
 
 export const defaultStory = () => (
-  <Wrapper>
-    <SelectBox
-      options={groupedOptions}
-      autoFocus={boolean('Autofocus?', false)}
-      disabled={boolean('Disabled?', false)}
-      hideReset={boolean('Hide reset?', false)}
-      loading={boolean('Loading?', false)}
-      multiSelect={boolean('MultiSelect?', true)}
-      closeMenuOnSelect={boolean('Close Menu on Select?', false)}
-      placeholder={text('Placeholder', 'Auswählen')}
-      searchable={boolean('Searchable?', true)}
-      error={boolean('Error?', false)}
-      width={[1, 1, 1 / 2]}
-    />
-  </Wrapper>
+  <SelectBox
+    options={groupedOptions}
+    autoFocus={boolean('Autofocus?', false)}
+    disabled={boolean('Disabled?', false)}
+    hideReset={boolean('Hide reset?', false)}
+    loading={boolean('Loading?', false)}
+    multiSelect={boolean('MultiSelect?', true)}
+    closeMenuOnSelect={boolean('Close Menu on Select?', false)}
+    placeholder={text('Placeholder', 'Auswählen')}
+    searchable={boolean('Searchable?', true)}
+    error={boolean('Error?', false)}
+    width={[1, 1, 1 / 2]}
+  />
 );
 
 defaultStory.story = {
@@ -90,13 +81,11 @@ defaultStory.story = {
 };
 
 export const valueStory = () => (
-  <Wrapper>
-    <SelectBox
-      options={colorOptions}
-      defaultValue={colorOptions[3] as any}
-      width={[1, 1, 1 / 2]}
-    />
-  </Wrapper>
+  <SelectBox
+    options={colorOptions}
+    defaultValue={colorOptions[3] as any}
+    width={[1, 1, 1 / 2]}
+  />
 );
 
 valueStory.story = {
@@ -104,9 +93,7 @@ valueStory.story = {
 };
 
 export const noGroupsStory = () => (
-  <Wrapper>
-    <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
 );
 
 noGroupsStory.story = {
@@ -114,14 +101,12 @@ noGroupsStory.story = {
 };
 
 export const multiSelectStory = () => (
-  <Wrapper>
-    <SelectBox
-      options={groupedOptions}
-      multiSelect
-      closeMenuOnSelect={false}
-      width={[1, 1, 1 / 2]}
-    />
-  </Wrapper>
+  <SelectBox
+    options={groupedOptions}
+    multiSelect
+    closeMenuOnSelect={false}
+    width={[1, 1, 1 / 2]}
+  />
 );
 
 multiSelectStory.story = {
@@ -129,9 +114,7 @@ multiSelectStory.story = {
 };
 
 export const disabledStory = () => (
-  <Wrapper>
-    <SelectBox options={groupedOptions} disabled width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={groupedOptions} disabled width={[1, 1, 1 / 2]} />
 );
 
 disabledStory.story = {
@@ -139,9 +122,7 @@ disabledStory.story = {
 };
 
 export const autoFocusStory = () => (
-  <Wrapper>
-    <SelectBox options={groupedOptions} autoFocus width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={groupedOptions} autoFocus width={[1, 1, 1 / 2]} />
 );
 
 autoFocusStory.story = {
@@ -149,9 +130,7 @@ autoFocusStory.story = {
 };
 
 export const searchableStory = () => (
-  <Wrapper>
-    <SelectBox options={groupedOptions} searchable width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={groupedOptions} searchable width={[1, 1, 1 / 2]} />
 );
 
 searchableStory.story = {
@@ -159,9 +138,7 @@ searchableStory.story = {
 };
 
 export const hideResetStory = () => (
-  <Wrapper>
-    <SelectBox options={groupedOptions} hideReset width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={groupedOptions} hideReset width={[1, 1, 1 / 2]} />
 );
 
 hideResetStory.story = {
@@ -169,9 +146,7 @@ hideResetStory.story = {
 };
 
 export const disabledOptionStory = () => (
-  <Wrapper>
-    <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
 );
 
 disabledOptionStory.story = {
@@ -179,9 +154,7 @@ disabledOptionStory.story = {
 };
 
 export const loadingStory = () => (
-  <Wrapper>
-    <SelectBox options={groupedOptions} loading width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={groupedOptions} loading width={[1, 1, 1 / 2]} />
 );
 
 loadingStory.story = {
@@ -189,9 +162,7 @@ loadingStory.story = {
 };
 
 export const errorStory = () => (
-  <Wrapper>
-    <SelectBox options={groupedOptions} error width={[1, 1, 1 / 2]} />
-  </Wrapper>
+  <SelectBox options={groupedOptions} error width={[1, 1, 1 / 2]} />
 );
 
 errorStory.story = {
@@ -236,74 +207,72 @@ export const formStory = () => {
   };
 
   return (
-    <Wrapper>
-      <Formik
-        initialValues={{
-          tags: [] as any[],
-        }}
-        validationSchema={formValidation}
-        isInitialValid={false}
-        onSubmit={onSubmit}
-        render={({
-          values,
-          touched,
-          errors,
-          handleSubmit,
-          isValid,
-          isSubmitting,
-          handleReset,
-          setFieldValue,
-          setFieldTouched,
-        }: FormikProps<FormValues>) => {
-          return (
-            <Card splitted>
-              <CardSplitContent variant="secondary">
-                <>
-                  <Heading styleAs="h4">Debug-Daten</Heading>
-                  <p>Values:</p>
-                  <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
-                  <p>Errors:</p>
-                  <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
-                  <p>Touched:</p>
-                  <DebugValues>{JSON.stringify(touched, null, 2)}</DebugValues>
-                  <Button variant="secondary" onClick={handleReset}>
-                    Formular zurücksetzen
-                  </Button>
-                </>
-              </CardSplitContent>
-              <CardSplitContent>
-                <>
-                  <Heading styleAs="h4">Tags setzen</Heading>
-                  <form onSubmit={handleSubmit}>
-                    <FormGroup label="Tags">
-                      <SelectBox
-                        name="tags"
-                        multiSelect
-                        closeMenuOnSelect={false}
-                        options={colorOptions}
-                        onChange={(value) => setFieldValue('tags', value)}
-                        onBlur={() => setFieldTouched('tags', true)}
-                        error={!errors}
-                        loading={isSubmitting}
-                        value={values.tags}
-                      />
-                    </FormGroup>
+    <Formik
+      initialValues={{
+        tags: [] as any[],
+      }}
+      validationSchema={formValidation}
+      isInitialValid={false}
+      onSubmit={onSubmit}
+      render={({
+        values,
+        touched,
+        errors,
+        handleSubmit,
+        isValid,
+        isSubmitting,
+        handleReset,
+        setFieldValue,
+        setFieldTouched,
+      }: FormikProps<FormValues>) => {
+        return (
+          <Card splitted>
+            <CardSplitContent variant="secondary">
+              <>
+                <Heading styleAs="h4">Debug-Daten</Heading>
+                <p>Values:</p>
+                <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
+                <p>Errors:</p>
+                <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
+                <p>Touched:</p>
+                <DebugValues>{JSON.stringify(touched, null, 2)}</DebugValues>
+                <Button variant="secondary" onClick={handleReset}>
+                  Formular zurücksetzen
+                </Button>
+              </>
+            </CardSplitContent>
+            <CardSplitContent>
+              <>
+                <Heading styleAs="h4">Tags setzen</Heading>
+                <form onSubmit={handleSubmit}>
+                  <FormGroup label="Tags">
+                    <SelectBox
+                      name="tags"
+                      multiSelect
+                      closeMenuOnSelect={false}
+                      options={colorOptions}
+                      onChange={(value) => setFieldValue('tags', value)}
+                      onBlur={() => setFieldTouched('tags', true)}
+                      error={!errors}
+                      loading={isSubmitting}
+                      value={values.tags}
+                    />
+                  </FormGroup>
 
-                    <Button
-                      mt={2}
-                      type="submit"
-                      disabled={!isValid || isSubmitting}
-                    >
-                      Speichern
-                    </Button>
-                  </form>
-                </>
-              </CardSplitContent>
-            </Card>
-          );
-        }}
-      />
-    </Wrapper>
+                  <Button
+                    mt={2}
+                    type="submit"
+                    disabled={!isValid || isSubmitting}
+                  >
+                    Speichern
+                  </Button>
+                </form>
+              </>
+            </CardSplitContent>
+          </Card>
+        );
+      }}
+    />
   );
 };
 
