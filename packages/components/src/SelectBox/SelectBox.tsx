@@ -95,7 +95,7 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
 });
 
 const ClearIndicator = (props: any) => {
-  const theme = useTheme();
+  const theme = useTheme() as Theme;
 
   return (
     <components.ClearIndicator {...props}>
@@ -135,7 +135,7 @@ const DropdownIndicator = (error: boolean, theme: Theme & DefaultTheme) => (
 };
 
 const MultiValueRemove = (props: any) => {
-  const theme = useTheme();
+  const theme = useTheme() as Theme;
 
   return (
     <components.MultiValueRemove {...props}>
@@ -241,10 +241,10 @@ function SelectBox<S>({
         onKeyDown={onKeyDown}
         onToggleOpen={onToggleOpen}
         width={width}
-        styles={getCustomStyles(!!error, theme)}
+        styles={getCustomStyles(!!error, theme as Theme)}
         components={{
           ClearIndicator,
-          DropdownIndicator: DropdownIndicator(!!error, theme),
+          DropdownIndicator: DropdownIndicator(!!error, theme as Theme),
           MultiValueRemove,
         }}
       />

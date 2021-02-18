@@ -78,7 +78,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
             ? theme.colors.shades.grey143
             : checked
             ? theme.colors.shades.white
-            : theme.colors.shades.grey242,
+            : theme.colors.shades.grey244,
         },
       },
     })}

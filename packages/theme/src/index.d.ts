@@ -1,4 +1,3 @@
-import 'styled-components';
 import { ThemeFonts } from './theme/font/fonts.d';
 import * as theme from './theme';
 import { ThemeBreakpoints } from './theme/layout/breakpoints';
@@ -29,6 +28,3 @@ export interface ThemeProps {
 }
 export { composeTextStyle, getThemeColor, getColorForBackground, hexToRgb, } from './utils';
 export { theme };
-declare module 'styled-components' {
-  export interface DefaultTheme extends Theme {}
-}
