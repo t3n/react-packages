@@ -7,14 +7,17 @@ import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
 import { Theme } from '@t3n/theme';
 
 import { DefaultTheme, useTheme } from 'styled-components';
-import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
 const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
-  container: (provided: any) => ({
+  container: (provided: any, state: any) => ({
     ...provided,
     outline: '0',
+    pointerEvents: state.isDisabled && 'all',
+    '*': {
+      cursor: state.isDisabled && 'not-allowed !important',
+    },
   }),
   control: (provided: any, state: any) => {
     return {
@@ -74,24 +77,34 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
   dropdownIndicator: (provided: any) => ({ ...provided, cursor: 'pointer' }),
   option: (provided: any, state: any) => ({
     ...provided,
-    cursor: 'pointer',
-    backgroundColor: state.isSelected
-      ? theme.colors.shades.grey143
+    backgroundColor: state.isDisabled
+      ? null
+      : state.isSelected
+      ? theme.colors.shades.grey232
       : state.isFocused
-      ? theme.colors.shades.grey204
+      ? theme.colors.shades.grey244
       : null,
-    color: state.isSelected
-      ? theme.colors.text.inverse
-      : theme.colors.text.primary,
+    color: state.isDisabled ? theme.colors.shades.grey232 : null,
+    cursor: state.isDisabled ? 'not-allowed' : 'default',
     ':active': {
-      backgroundColor: state.isSelected
-        ? theme.colors.shades.grey143
-        : state.isFocused
-        ? theme.colors.shades.grey204
-        : null,
+      backgroundColor:
+        !state.isDisabled &&
+        (state.isSelected
+          ? theme.colors.shades.grey232
+          : state.isFocused
+          ? theme.colors.shades.grey244
+          : null),
     },
   }),
   noOptionsMessage: (provided: any) => ({ ...provided, textAlign: 'left' }),
+  group: (provided: any) => ({
+    ...provided,
+    ':not(:last-child)': {
+      borderBottom: '1px solid',
+      borderBottomColor: theme.colors.shades.grey232,
+      marginBottom: theme.space[2],
+    },
+  }),
 });
 
 const ClearIndicator = (props: any) => {
@@ -150,16 +163,19 @@ const MultiValueRemove = (props: any) => {
 };
 
 const formatGroupLabel = (data: any) => (
-  <Box display="flex" alignItems="center" justifyContent="space-between">
+  <Box
+    display="flex"
+    alignItems="center"
+    justifyContent="space-between"
+    color="text.secondary"
+  >
     {data.label}
-    <Badge small variant="secondary" rounded>
-      {data.options.length}
-    </Badge>
   </Box>
 );
 
 export interface SelectBoxProps<S> extends WidthProps {
   autoFocus?: boolean;
+  closeMenuOnSelect?: boolean;
   defaultValue?: OptionsType<S>;
   disabled?: boolean;
   error?: boolean;
@@ -184,6 +200,7 @@ export interface SelectBoxProps<S> extends WidthProps {
 
 function SelectBox<S>({
   autoFocus,
+  closeMenuOnSelect,
   defaultValue,
   disabled,
   error,
@@ -212,7 +229,8 @@ function SelectBox<S>({
     <Box width={width}>
       <Select
         autoFocus={autoFocus}
-        isDisabled={disabled}
+        closeMenuOnSelect={closeMenuOnSelect}
+        isDisabled={disabled || loading}
         defaultValue={defaultValue}
         formatGroupLabel={formatGroupLabel}
         isClearable={!hideReset}
@@ -253,9 +271,10 @@ function SelectBox<S>({
 }
 
 SelectBox.defaultProps = {
-  placeholder: 'Wählen...',
-  noOptionsMessage: 'Keine Optionen gefunden.',
+  placeholder: 'Auswählen',
+  noOptionsMessage: 'Keine Auswahl gefunden.',
   loading: false,
+  searchable: false,
 };
 
 export { SelectBox };

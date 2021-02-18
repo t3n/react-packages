@@ -41,7 +41,7 @@ const colorOptions = [
   { value: 'blue', label: 'Blue' },
   { value: 'purple', label: 'Purple' },
   { value: 'red', label: 'Red' },
-  { value: 'orange', label: 'Orange' },
+  { value: 'orange', label: 'Orange', isDisabled: true },
   { value: 'yellow', label: 'Yellow' },
   { value: 'green', label: 'Green' },
   { value: 'forest', label: 'Forest' },
@@ -75,11 +75,12 @@ export const defaultStory = () => (
       disabled={boolean('Disabled?', false)}
       hideReset={boolean('Hide reset?', false)}
       loading={boolean('Loading?', false)}
-      multiSelect={boolean('MultiSelect?', false)}
+      multiSelect={boolean('MultiSelect?', true)}
+      closeMenuOnSelect={boolean('Close Menu on Select?', false)}
       placeholder={text('Placeholder', 'Auswählen')}
       searchable={boolean('Searchable?', true)}
       error={boolean('Error?', false)}
-      width={1 / 2}
+      width={[1, 1, 1 / 2]}
     />
   </Wrapper>
 );
@@ -88,9 +89,23 @@ defaultStory.story = {
   name: 'Default',
 };
 
+export const valueStory = () => (
+  <Wrapper>
+    <SelectBox
+      options={colorOptions}
+      defaultValue={colorOptions[3] as any}
+      width={[1, 1, 1 / 2]}
+    />
+  </Wrapper>
+);
+
+valueStory.story = {
+  name: 'Value',
+};
+
 export const noGroupsStory = () => (
   <Wrapper>
-    <SelectBox options={colorOptions} width={1 / 2} />
+    <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
   </Wrapper>
 );
 
@@ -100,7 +115,12 @@ noGroupsStory.story = {
 
 export const multiSelectStory = () => (
   <Wrapper>
-    <SelectBox options={groupedOptions} multiSelect width={1 / 2} />
+    <SelectBox
+      options={groupedOptions}
+      multiSelect
+      closeMenuOnSelect={false}
+      width={[1, 1, 1 / 2]}
+    />
   </Wrapper>
 );
 
@@ -110,7 +130,7 @@ multiSelectStory.story = {
 
 export const disabledStory = () => (
   <Wrapper>
-    <SelectBox options={groupedOptions} disabled width={1 / 2} />
+    <SelectBox options={groupedOptions} disabled width={[1, 1, 1 / 2]} />
   </Wrapper>
 );
 
@@ -120,7 +140,7 @@ disabledStory.story = {
 
 export const autoFocusStory = () => (
   <Wrapper>
-    <SelectBox options={groupedOptions} autoFocus width={1 / 2} />
+    <SelectBox options={groupedOptions} autoFocus width={[1, 1, 1 / 2]} />
   </Wrapper>
 );
 
@@ -128,9 +148,19 @@ autoFocusStory.story = {
   name: 'Autofocus',
 };
 
+export const searchableStory = () => (
+  <Wrapper>
+    <SelectBox options={groupedOptions} searchable width={[1, 1, 1 / 2]} />
+  </Wrapper>
+);
+
+searchableStory.story = {
+  name: 'Searchable',
+};
+
 export const hideResetStory = () => (
   <Wrapper>
-    <SelectBox options={groupedOptions} hideReset width={1 / 2} />
+    <SelectBox options={groupedOptions} hideReset width={[1, 1, 1 / 2]} />
   </Wrapper>
 );
 
@@ -138,9 +168,19 @@ hideResetStory.story = {
   name: 'Hide Reset',
 };
 
+export const disabledOptionStory = () => (
+  <Wrapper>
+    <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
+  </Wrapper>
+);
+
+disabledOptionStory.story = {
+  name: 'Disabled Option',
+};
+
 export const loadingStory = () => (
   <Wrapper>
-    <SelectBox options={groupedOptions} loading width={1 / 2} />
+    <SelectBox options={groupedOptions} loading width={[1, 1, 1 / 2]} />
   </Wrapper>
 );
 
@@ -150,7 +190,7 @@ loadingStory.story = {
 
 export const errorStory = () => (
   <Wrapper>
-    <SelectBox options={groupedOptions} error width={1 / 2} />
+    <SelectBox options={groupedOptions} error width={[1, 1, 1 / 2]} />
   </Wrapper>
 );
 
@@ -192,7 +232,7 @@ export const formStory = () => {
             ${JSON.stringify(payload, null, 2)}`
       );
       setSubmitting(false);
-    }, 300);
+    }, 500);
   };
 
   return (
@@ -239,10 +279,12 @@ export const formStory = () => {
                       <SelectBox
                         name="tags"
                         multiSelect
+                        closeMenuOnSelect={false}
                         options={colorOptions}
                         onChange={(value) => setFieldValue('tags', value)}
                         onBlur={() => setFieldTouched('tags', true)}
                         error={!errors}
+                        loading={isSubmitting}
                         value={values.tags}
                       />
                     </FormGroup>
