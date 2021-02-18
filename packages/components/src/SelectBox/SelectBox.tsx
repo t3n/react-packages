@@ -4,13 +4,14 @@ import Select, { components, OptionsType } from 'react-select';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
-import { theme } from '@t3n/theme';
+import { Theme } from '@t3n/theme';
 
+import { DefaultTheme, useTheme } from 'styled-components';
 import { Badge } from '../Badge';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-const getCustomStyles = (error: boolean) => ({
+const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
   container: (provided: any) => ({
     ...provided,
     outline: '0',
@@ -94,6 +95,8 @@ const getCustomStyles = (error: boolean) => ({
 });
 
 const ClearIndicator = (props: any) => {
+  const theme = useTheme();
+
   return (
     <components.ClearIndicator {...props}>
       <Icon
@@ -106,7 +109,9 @@ const ClearIndicator = (props: any) => {
   );
 };
 
-const DropdownIndicator = (error: boolean) => (props: any) => {
+const DropdownIndicator = (error: boolean, theme: Theme & DefaultTheme) => (
+  props: any
+) => {
   return (
     <components.DropdownIndicator {...props}>
       <Icon
@@ -130,6 +135,8 @@ const DropdownIndicator = (error: boolean) => (props: any) => {
 };
 
 const MultiValueRemove = (props: any) => {
+  const theme = useTheme();
+
   return (
     <components.MultiValueRemove {...props}>
       <Icon
@@ -199,6 +206,8 @@ function SelectBox<S>({
   onKeyDown,
   onToggleOpen,
 }: SelectBoxProps<S>): JSX.Element {
+  const theme = useTheme();
+
   return (
     <Box width={width}>
       <Select
@@ -232,10 +241,10 @@ function SelectBox<S>({
         onKeyDown={onKeyDown}
         onToggleOpen={onToggleOpen}
         width={width}
-        styles={getCustomStyles(!!error)}
+        styles={getCustomStyles(!!error, theme)}
         components={{
           ClearIndicator,
-          DropdownIndicator: DropdownIndicator(!!error),
+          DropdownIndicator: DropdownIndicator(!!error, theme),
           MultiValueRemove,
         }}
       />
