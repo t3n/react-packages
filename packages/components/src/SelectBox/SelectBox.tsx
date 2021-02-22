@@ -122,9 +122,10 @@ const ClearIndicator = (props: any) => {
   );
 };
 
-const DropdownIndicator = (error: boolean, theme: Theme & DefaultTheme) => (
-  props: any
-) => {
+const createDropdownIndicator = (
+  error: boolean,
+  theme: Theme & DefaultTheme
+) => (props: any) => {
   return (
     <components.DropdownIndicator {...props}>
       <Icon
@@ -262,7 +263,7 @@ function SelectBox<S>({
         styles={getCustomStyles(!!error, theme as Theme)}
         components={{
           ClearIndicator,
-          DropdownIndicator: DropdownIndicator(!!error, theme as Theme),
+          DropdownIndicator: createDropdownIndicator(!!error, theme as Theme),
           MultiValueRemove,
         }}
       />
