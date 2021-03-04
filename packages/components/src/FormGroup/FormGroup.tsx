@@ -32,6 +32,10 @@ const StyledFormGroup = styled.label<Omit<FormGroupProps, 'label'>>`
   ${margin}
 `;
 
+const SecondaryLabel = styled(Text)`
+  line-height: normal;
+`;
+
 export const FormGroup = ({
   label,
   labelSecondary,
@@ -44,9 +48,9 @@ export const FormGroup = ({
     <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>
       {labelSecondary && (
-        <Text inline secondary>
+        <SecondaryLabel inline secondary>
           {labelSecondary}
-        </Text>
+        </SecondaryLabel>
       )}
       {labelEndContent && <LabelEnd>{labelEndContent}</LabelEnd>}
     </Box>

@@ -118,7 +118,6 @@ const Wrapper = styled.div<
   position: relative;
   border-radius: ${({ theme }: ThemeProps) => `${theme.border.radii[1]}`};
   display: flex;
-  max-width: 500px;
   height: 40px;
 
   ${({ theme }) => space({ theme, px: 2 })}
