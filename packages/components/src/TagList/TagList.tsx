@@ -46,7 +46,7 @@ export const TagList: React.FC<TagListProps> = ({
   colorVariant,
   tags,
 }) => {
-  const [collapsed, setCollapsed] = useState(initialCollapsed || true);
+  const [collapsed, setCollapsed] = useState<boolean>(initialCollapsed || true);
 
   if (tags.length <= collapseAfter) {
     return (
