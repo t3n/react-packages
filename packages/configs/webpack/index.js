@@ -79,10 +79,7 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
         {
           enforce: 'pre',
-          exclude: [
-            /[\\/]node_modules[\\/](?!(toasted-notes|react-spring|react-imgix|framer-motion)[\\/])/,
-            /\.test\.jsx?$/,
-          ],
+          exclude: [/node_modules/, /\.test\.tsx?$/],
           test: /\.jsx?$/,
           use: [
             {
