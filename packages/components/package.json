@@ -21,7 +21,7 @@
     "react-dates": "^21.8.0",
     "react-imgix": "^9.0.1",
     "react-select": "^4.1.0",
-    "react-slick": "^0.27.13",
+    "react-slick": "^0.28.1",
     "react-spring": "^8.0.27",
     "react-use-scroll-position": "github:neo/react-use-scroll-position",
     "styled-system": "^5.1.4",
