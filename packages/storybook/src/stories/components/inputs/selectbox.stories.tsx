@@ -169,6 +169,14 @@ errorStory.story = {
   name: 'Error',
 };
 
+export const creatableStory = () => (
+  <SelectBox creatable options={colorOptions} width={[1, 1, 1 / 2]} />
+);
+
+creatableStory.story = {
+  name: 'Creatable',
+};
+
 interface FormValues {
   tags: {
     label: string;

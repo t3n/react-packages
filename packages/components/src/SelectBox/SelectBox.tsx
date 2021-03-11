@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import Select, { components, OptionsType } from 'react-select';
+import Select, { components, GroupTypeBase, OptionsType } from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
@@ -9,6 +10,7 @@ import { Theme } from '@t3n/theme';
 import { DefaultTheme, useTheme } from 'styled-components';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
+import { Text } from '../Text';
 
 const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
   container: (provided: any, state: any) => ({
@@ -163,15 +165,24 @@ const MultiValueRemove = (props: any) => {
   );
 };
 
-const formatGroupLabel = (data: any) => (
+const GroupLabel = ({ label }: { label: string }) => (
   <Box
     display="flex"
     alignItems="center"
     justifyContent="space-between"
     color="text.secondary"
   >
-    {data.label}
+    {label}
   </Box>
+);
+
+const CreateLabel = ({ label }: { label: string }) => (
+  <Text inline>
+    <Text inline bold>
+      {label}
+    </Text>{' '}
+    hinzufügen
+  </Text>
 );
 
 export interface SelectBoxProps<S> extends WidthProps {
@@ -190,6 +201,7 @@ export interface SelectBoxProps<S> extends WidthProps {
   options: OptionsType<S>;
   placeholder?: string;
   searchable?: boolean;
+  creatable?: boolean;
   tabIndex?: string;
   value?: OptionsType<S>;
   onBlur?: () => void;
@@ -199,77 +211,57 @@ export interface SelectBoxProps<S> extends WidthProps {
   onToggleOpen?: () => void;
 }
 
-function SelectBox<S>({
-  autoFocus,
-  closeMenuOnSelect,
-  defaultValue,
-  disabled,
+const SelectBox = <S,>({
   error,
-  hideReset,
-  id,
-  inputValue,
-  loading,
-  multiSelect,
-  name,
   noOptionsMessage,
-  options,
-  placeholder,
-  searchable,
-  tabIndex,
-  value,
-  width,
-  onBlur,
+  creatable,
   onChange,
-  onFocus,
-  onKeyDown,
-  onToggleOpen,
-}: SelectBoxProps<S>): JSX.Element {
+  disabled,
+  loading,
+  hideReset,
+  multiSelect,
+  searchable,
+  ...props
+}: SelectBoxProps<S>): JSX.Element => {
   const theme = useTheme();
 
-  return (
-    <Box width={width}>
-      <Select
-        autoFocus={autoFocus}
-        closeMenuOnSelect={closeMenuOnSelect}
-        isDisabled={disabled || loading}
-        defaultValue={defaultValue}
-        formatGroupLabel={formatGroupLabel}
-        isClearable={!hideReset}
-        id={id}
-        inputValue={inputValue}
-        isLoading={loading}
-        isMulti={multiSelect}
-        name={name}
-        noOptionsMessage={() => noOptionsMessage || null}
-        options={options}
-        placeholder={placeholder}
-        isSearchable={searchable}
-        tabIndex={tabIndex}
-        value={value}
-        onBlur={onBlur}
-        onChange={(values) =>
-          onChange?.(
-            (Array.isArray(values)
-              ? values
-              : values === null
-              ? []
-              : [values]) as OptionsType<S>
-          )
-        }
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        onToggleOpen={onToggleOpen}
-        width={width}
-        styles={getCustomStyles(!!error, theme as Theme)}
-        components={{
-          ClearIndicator,
-          DropdownIndicator: createDropdownIndicator(!!error, theme as Theme),
-          MultiValueRemove,
-        }}
+  const commonProps = {
+    ...props,
+    isDisabled: disabled || loading,
+    isClearable: !hideReset,
+    isLoading: loading,
+    isMulti: multiSelect,
+    formatGroupLabel: ({ label }: GroupTypeBase<S>) => (
+      <GroupLabel label={label} />
+    ),
+    noOptionsMessage: () => noOptionsMessage || null,
+    onChange: (values: S | OptionsType<S> | null) =>
+      onChange?.(
+        (Array.isArray(values)
+          ? values
+          : values === null
+          ? []
+          : [values]) as OptionsType<S>
+      ),
+    styles: getCustomStyles(!!error, theme as Theme),
+    components: {
+      ClearIndicator,
+      DropdownIndicator: createDropdownIndicator(!!error, theme as Theme),
+      MultiValueRemove,
+    },
+  };
+
+  if (creatable) {
+    return (
+      <CreatableSelect
+        {...commonProps}
+        formatCreateLabel={(label) => <CreateLabel label={label} />}
       />
-    </Box>
-  );
-}
+    );
+  }
+
+  return <Select {...commonProps} isSearchable={searchable} />;
+};
 
 SelectBox.defaultProps = {
   placeholder: 'Auswählen',

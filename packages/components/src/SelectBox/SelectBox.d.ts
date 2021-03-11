@@ -16,6 +16,7 @@ export interface SelectBoxProps<S> extends WidthProps {
     options: OptionsType<S>;
     placeholder?: string;
     searchable?: boolean;
+    creatable?: boolean;
     tabIndex?: string;
     value?: OptionsType<S>;
     onBlur?: () => void;
@@ -24,13 +25,13 @@ export interface SelectBoxProps<S> extends WidthProps {
     onKeyDown?: () => void;
     onToggleOpen?: () => void;
 }
-declare function SelectBox<S>({ autoFocus, closeMenuOnSelect, defaultValue, disabled, error, hideReset, id, inputValue, loading, multiSelect, name, noOptionsMessage, options, placeholder, searchable, tabIndex, value, width, onBlur, onChange, onFocus, onKeyDown, onToggleOpen, }: SelectBoxProps<S>): JSX.Element;
-declare namespace SelectBox {
-    var defaultProps: {
+declare const SelectBox: {
+    <S>({ error, noOptionsMessage, creatable, onChange, disabled, loading, hideReset, multiSelect, searchable, ...props }: SelectBoxProps<S>): JSX.Element;
+    defaultProps: {
         placeholder: string;
         noOptionsMessage: string;
         loading: boolean;
         searchable: boolean;
     };
-}
+};
 export { SelectBox };
