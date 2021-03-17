@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { ReactNode } from 'react';
+import styled, { css } from 'styled-components';
 import {
   space,
   width,
@@ -12,7 +12,9 @@ import {
 import { ThemeProps } from '@t3n/theme';
 import { CardHeader, CardHeaderContent } from '../CardHeader';
 
-export interface CardProps extends MarginProps {
+export interface CardProps
+  extends MarginProps,
+    React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
   rounded?: boolean;
   big?: boolean;
   stretch?: boolean;
@@ -58,11 +60,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps & ThemeProps) => {
   return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
-export const Card = styled.div.attrs(({ href, targetBlank }: CardProps) => ({
-  href,
-  as: href ? 'a' : 'div',
-  target: href && targetBlank ? '_blank' : undefined,
-}))<CardProps>`
+const cardStyles = css<CardProps>`
   display: block;
   background-color: white;
   display: flex;
@@ -83,12 +81,6 @@ export const Card = styled.div.attrs(({ href, targetBlank }: CardProps) => ({
   ${shadow.default}
   ${space}
 
-  &:hover {
-    ${shadow.hover}
-    ${({ href }: CardProps) =>
-      href ? `transform: translate3d(0,-2px, 0);` : ''}
-  }
-
   ${CardHeader} {
     ${headerMargin}
 
@@ -97,6 +89,36 @@ export const Card = styled.div.attrs(({ href, targetBlank }: CardProps) => ({
     }
   }
 `;
+
+const StyledCard = styled.div<CardProps>`
+  ${cardStyles}
+`;
+
+const StyledLinkCard = styled.a<CardProps>`
+  ${cardStyles}
+
+  &:hover {
+    ${shadow.hover}
+    ${({ href }: CardProps) =>
+      href ? `transform: translate3d(0,-2px, 0);` : ''}
+  }
+`;
+
+export const Card = React.forwardRef<
+  HTMLAnchorElement | HTMLDivElement,
+  CardProps
+>(({ href, targetBlank, ...props }, ref) =>
+  href ? (
+    <StyledLinkCard
+      href={href}
+      target={targetBlank ? '_blank' : undefined}
+      {...props}
+      ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+    />
+  ) : (
+    <StyledCard {...props} ref={ref as React.ForwardedRef<HTMLDivElement>} />
+  )
+);
 
 Card.displayName = 'Card';
 

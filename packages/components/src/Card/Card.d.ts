@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { SizeProps, MarginProps } from 'styled-system';
-export interface CardProps extends MarginProps {
+export interface CardProps extends MarginProps, React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
     rounded?: boolean;
     big?: boolean;
     stretch?: boolean;
@@ -13,8 +13,4 @@ export interface CardProps extends MarginProps {
     width?: SizeProps['size'];
     children?: ReactNode;
 }
-export declare const Card: import("styled-components").StyledComponent<"div", any, {
-    href: string | false | undefined;
-    as: string;
-    target: string | undefined;
-} & CardProps, "target" | "href" | "as">;
+export declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLAnchorElement | HTMLDivElement>>;
