@@ -39,13 +39,6 @@ exports[`Author Card matches snapshot 1`] = `
   margin-bottom: 16px;
 }
 
-.c0:hover {
-  box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
-  -webkit-transform: translate3d(0,-2px,0);
-  -ms-transform: translate3d(0,-2px,0);
-  transform: translate3d(0,-2px,0);
-}
-
 .c0 .sc-hKgILt {
   margin-left: -24px;
   margin-right: -24px;
@@ -55,6 +48,13 @@ exports[`Author Card matches snapshot 1`] = `
 
 .c0 .sc-hKgILt .sc-gsTCUz {
   padding: 16px;
+}
+
+.c0:hover {
+  box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
+  -webkit-transform: translate3d(0,-2px,0);
+  -ms-transform: translate3d(0,-2px,0);
+  transform: translate3d(0,-2px,0);
 }
 
 .c1 {
