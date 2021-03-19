@@ -182,8 +182,8 @@ export const Input = forwardRef(
     useEffect(() => {
       if (focused && inputRef !== null && inputRef.current !== null) {
         inputRef.current.focus();
-        if (type !== 'email') {
-          // E-Mail type does not support selectionStart
+        if (type !== 'email' && type !== 'number') {
+          // E-Mail type and number type do not support selectionStart
           inputRef.current.selectionStart = inputRef.current.value.length;
         }
       }
