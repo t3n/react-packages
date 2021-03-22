@@ -1,6 +1,6 @@
 {
   "name": "@t3n/theme",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/t3n/react-packages.git"
