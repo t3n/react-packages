@@ -40,7 +40,9 @@ moment.updateLocale('de', {
   weekdaysMin: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
 });
 
-const SingleDatePickerGlobalStyles = createGlobalStyle`
+const SingleDatePickerGlobalStyles = createGlobalStyle<{
+  highlightToday?: boolean;
+}>`
   .SingleDatePickerInput__withBorder {
     border: none;
   }
@@ -215,6 +217,13 @@ const SingleDatePickerGlobalStyles = createGlobalStyle`
     }
   }
 
+  .CalendarDay__today {
+    ${({ theme, highlightToday }) =>
+      color({
+        theme,
+        bg: highlightToday ? 'background.secondary' : 'background.primary',
+      })}
+  }
 
   .CalendarDay__blocked_out_of_range, .CalendarDay__blocked_out_of_range:active, .CalendarDay__blocked_out_of_range:hover {
     ${({ theme }) => border({ theme, color: 'shades.grey204' })}
@@ -376,14 +385,22 @@ export const DatePicker: React.FC<{
   date: moment.Moment | null;
   onChange: (date: moment.Moment | null) => void;
   isOutsideRange?: (day: moment.Moment) => boolean;
-}> = ({ id, withTime = false, date, onChange, isOutsideRange }) => {
+  highlightToday?: boolean;
+}> = ({
+  id,
+  withTime = false,
+  date,
+  onChange,
+  isOutsideRange,
+  highlightToday = true,
+}) => {
   const [focus, setFocus] = useState(false);
   const isMobile = useIsMobile();
   const falseFunc = () => false;
 
   return (
     <>
-      <SingleDatePickerGlobalStyles />
+      <SingleDatePickerGlobalStyles highlightToday={highlightToday} />
       <SingleDatePicker
         readOnly={isMobile}
         withFullScreenPortal={isMobile}
