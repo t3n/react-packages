@@ -12,7 +12,9 @@ import {
   position,
   flexbox,
 } from 'styled-system';
+
 import { ThemeProps } from '@t3n/theme';
+
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Input } from '../Input';
@@ -40,9 +42,11 @@ moment.updateLocale('de', {
   weekdaysMin: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
 });
 
-const SingleDatePickerGlobalStyles = createGlobalStyle<{
-  highlightToday?: boolean;
-}>`
+const SingleDatePickerGlobalStyles = createGlobalStyle<
+  {
+    highlightToday?: boolean;
+  } & ThemeProps
+>`
   .SingleDatePickerInput__withBorder {
     border: none;
   }
