@@ -12,6 +12,7 @@ import {
   CardSplitContent,
   FormGroup,
   Heading,
+  Text,
   SelectBox,
 } from '@t3n/components';
 
@@ -175,6 +176,47 @@ export const creatableStory = () => (
 
 creatableStory.story = {
   name: 'Creatable',
+};
+
+const AsyncSelectBoxComponent = () => {
+  const handleLoadOptions = (
+    e: any,
+    callback: (options: { value: string; label: string }[]) => void
+  ) => {
+    setTimeout(() => {
+      callback([
+        { value: 'blue', label: 'Blau' },
+        { value: 'yellow', label: 'Gelb' },
+        { value: 'red', label: 'Rot' },
+      ]);
+    }, 1000);
+  };
+
+  const renderLoadingMessage = () => {
+    return 'Lade mehr Daten ...';
+  };
+
+  return (
+    <>
+      <Text>Bei Eingabe werden Daten nachgeladen</Text>
+      <SelectBox
+        async
+        loadOptions={handleLoadOptions}
+        loadingMessage={renderLoadingMessage}
+        creatable
+        options={colorOptions}
+        width={[1, 1, 1 / 2]}
+      />
+    </>
+  );
+};
+
+export const asyncStory = () => {
+  return <AsyncSelectBoxComponent />;
+};
+
+asyncStory.story = {
+  name: 'Optionen nachladen',
 };
 
 interface FormValues {

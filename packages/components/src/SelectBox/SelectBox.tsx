@@ -2,7 +2,9 @@
 import React from 'react';
 import Select, { components, GroupTypeBase, OptionsType } from 'react-select';
 import CreatableSelect from 'react-select/creatable';
+import AsyncSelect from 'react-select/async';
 import { WidthProps } from 'styled-system';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
 import { Theme } from '@t3n/theme';
@@ -209,6 +211,13 @@ export interface SelectBoxProps<S> extends WidthProps {
   onFocus?: () => void;
   onKeyDown?: () => void;
   onToggleOpen?: () => void;
+  async?: boolean;
+  loadOptions?: (
+    inputValue: string,
+    callback: (options: OptionsType<S>) => void
+  ) => void;
+  loadingMessage?: (obj: { inputValue: string }) => string;
+  onInputChange?: (newValue: string) => string;
 }
 
 const SelectBox = <S,>({
@@ -221,9 +230,15 @@ const SelectBox = <S,>({
   hideReset,
   multiSelect,
   searchable,
+  async,
+  loadOptions,
   ...props
 }: SelectBoxProps<S>): JSX.Element => {
   const theme = useTheme();
+  const debouncedLoading = useDebouncedCallback(
+    loadOptions || (() => null),
+    400
+  );
 
   const commonProps = {
     ...props,
@@ -250,6 +265,10 @@ const SelectBox = <S,>({
       MultiValueRemove,
     },
   };
+
+  if (async) {
+    return <AsyncSelect {...commonProps} loadOptions={debouncedLoading} />;
+  }
 
   if (creatable) {
     return (
