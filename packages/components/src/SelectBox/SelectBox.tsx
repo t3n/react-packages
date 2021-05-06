@@ -4,7 +4,6 @@ import Select, { components, GroupTypeBase, OptionsType } from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import AsyncSelect from 'react-select/async';
 import { WidthProps } from 'styled-system';
-import { useDebouncedCallback } from 'use-debounce';
 
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
 import { Theme } from '@t3n/theme';
@@ -201,6 +200,7 @@ export interface SelectBoxProps<S> extends WidthProps {
   name?: string;
   noOptionsMessage?: string;
   options: OptionsType<S>;
+  defaultOptions?: OptionsType<S>;
   placeholder?: string;
   searchable?: boolean;
   creatable?: boolean;
@@ -235,10 +235,6 @@ const SelectBox = <S,>({
   ...props
 }: SelectBoxProps<S>): JSX.Element => {
   const theme = useTheme();
-  const debouncedLoading = useDebouncedCallback(
-    loadOptions || (() => null),
-    400
-  );
 
   const commonProps = {
     ...props,
@@ -267,7 +263,8 @@ const SelectBox = <S,>({
   };
 
   if (async) {
-    return <AsyncSelect {...commonProps} loadOptions={debouncedLoading} />;
+    const { options, ...rest } = commonProps;
+    return <AsyncSelect {...rest} loadOptions={loadOptions} />;
   }
 
   if (creatable) {
