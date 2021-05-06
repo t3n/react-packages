@@ -263,7 +263,7 @@ const SelectBox = <S,>({
   };
 
   if (async) {
-    const { defaultOptions, ...rest} = commonProps;
+    const { options, ...rest } = commonProps;
     return <AsyncSelect {...rest} loadOptions={loadOptions} />;
   }
 

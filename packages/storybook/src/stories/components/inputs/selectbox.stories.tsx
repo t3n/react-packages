@@ -180,15 +180,13 @@ creatableStory.story = {
 
 const AsyncSelectBoxComponent = () => {
   const handleLoadOptions = (
-    e: any,
+    input: string,
     callback: (options: { value: string; label: string }[]) => void
   ) => {
     setTimeout(() => {
-      callback([
-        { value: 'blue', label: 'Blau' },
-        { value: 'yellow', label: 'Gelb' },
-        { value: 'red', label: 'Rot' },
-      ]);
+      callback(
+        colorOptions.filter((e) => e.label.toLowerCase().includes(input))
+      );
     }, 1000);
   };
 
@@ -203,6 +201,7 @@ const AsyncSelectBoxComponent = () => {
         async
         loadOptions={handleLoadOptions}
         loadingMessage={renderLoadingMessage}
+        defaultOptions={[]}
         options={[]}
         width={[1, 1, 1 / 2]}
       />
