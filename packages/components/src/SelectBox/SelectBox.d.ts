@@ -14,6 +14,7 @@ export interface SelectBoxProps<S> extends WidthProps {
     name?: string;
     noOptionsMessage?: string;
     options: OptionsType<S>;
+    defaultOptions?: OptionsType<S>;
     placeholder?: string;
     searchable?: boolean;
     creatable?: boolean;

@@ -203,8 +203,7 @@ const AsyncSelectBoxComponent = () => {
         async
         loadOptions={handleLoadOptions}
         loadingMessage={renderLoadingMessage}
-        creatable
-        options={colorOptions}
+        options={[]}
         width={[1, 1, 1 / 2]}
       />
     </>
