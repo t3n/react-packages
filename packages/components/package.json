@@ -15,11 +15,11 @@
     "@types/react-select": "^4.0.13",
     "@types/react-slick": "^0.23.4",
     "btoa": "^1.2.1",
-    "framer-motion": "^4.0.0",
+    "framer-motion": "^4.1.13",
     "polished": "^4.1.1",
     "react-autosuggest": "^10.1.0",
     "react-dates": "^21.8.0",
-    "react-imgix": "^9.0.3",
+    "react-imgix": "^9.1.1",
     "react-select": "^4.3.0",
     "react-slick": "^0.28.1",
     "react-spring": "^8.0.27",
@@ -58,8 +58,8 @@
     "react-test-renderer": "^17.0.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "ts-jest": "^26.5.4",
-    "typescript": "^4.2.3"
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "@t3n/icons": ">=0.2",
