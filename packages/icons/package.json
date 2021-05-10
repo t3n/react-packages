@@ -30,7 +30,7 @@
     "@types/prettier": "^2.2.3",
     "@types/react": "^17.0.3",
     "chalk": "^4.1.0",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "material-design-icons": "^3.0.1",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
