@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { renderWithTheme } from '../helper/renderWithTheme';
 import { Alert, AlertText } from './Alert';
 

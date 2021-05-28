@@ -5,16 +5,16 @@ import { border, color } from 'styled-system';
 import {
   SocialEmail,
   SocialFacebook,
-  SocialInstagram,
-  SocialLinkedin,
-  SocialTwitter,
-  SocialWhatsapp,
-  SocialXing,
   SocialFlipboard,
   SocialGithub,
   SocialGoogle,
+  SocialInstagram,
+  SocialLinkedin,
   SocialPocket,
   SocialSlack,
+  SocialTwitter,
+  SocialWhatsapp,
+  SocialXing,
   SocialYoutube,
 } from '@t3n/icons';
 import { getThemeColor } from '@t3n/theme';

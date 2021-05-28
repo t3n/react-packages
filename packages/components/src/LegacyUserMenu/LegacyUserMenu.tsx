@@ -2,18 +2,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  color,
-  space,
   border,
+  color,
   layout,
   position,
+  space,
   typography,
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box/Box';
 import { Avatar } from '../Avatar/Avatar';
+import { Box } from '../Box/Box';
 
 const ArrowDownIcon: React.FC = () => (
   <svg

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-named-default
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
-import { space, display, layout } from 'styled-system';
+import styled from 'styled-components';
+import { display, layout, space } from 'styled-system';
+
 import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 

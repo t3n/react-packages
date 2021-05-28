@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Section, Box, DatePicker } from '@t3n/components';
+import { Box, DatePicker, Section } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

@@ -1,6 +1,7 @@
-import { Theme } from '@t3n/theme';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
+
+import { Theme } from '@t3n/theme';
 
 const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);

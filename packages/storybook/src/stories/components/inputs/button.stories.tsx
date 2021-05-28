@@ -1,8 +1,9 @@
 import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
 
-import { Button, Grid, GridItem, Section, H3 } from '@t3n/components';
+import { Button, Grid, GridItem, H3, Section } from '@t3n/components';
 import { MaterialCheck } from '@t3n/icons';
+
 import StoryContainer from '../../../components/StoryContainer';
 
 export default {

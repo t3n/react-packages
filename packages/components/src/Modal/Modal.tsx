@@ -5,8 +5,8 @@ import { WidthProps } from 'styled-system';
 import { MaterialClear } from '@t3n/icons';
 import { theme } from '@t3n/theme';
 
-import { Card } from '../Card';
 import { Box } from '../Box';
+import { Card } from '../Card';
 import { Heading } from '../Heading';
 
 export interface ModalProps extends WidthProps {

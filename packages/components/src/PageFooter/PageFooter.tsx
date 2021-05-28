@@ -1,23 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styled from 'styled-components';
-import { border, flexbox, BorderProps } from 'styled-system';
+import { border, BorderProps, flexbox } from 'styled-system';
 
 import {
   SocialFacebook,
+  SocialGithub,
+  SocialInstagram,
+  SocialLinkedin,
+  SocialMedium,
   SocialTwitter,
   SocialXing,
-  SocialLinkedin,
-  SocialInstagram,
-  SocialGithub,
-  SocialMedium,
 } from '@t3n/icons';
 
+import { Box } from '../Box';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
-import { Link, createLinkStyle } from '../Link';
+import { createLinkStyle, Link } from '../Link';
 import { Text } from '../Text';
-import { Box } from '../Box';
 
 export interface PageFooterProps {
   contactLink: string;

@@ -1,14 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import Select, { components, GroupTypeBase, OptionsType } from 'react-select';
-import CreatableSelect from 'react-select/creatable';
 import AsyncSelect from 'react-select/async';
+import CreatableSelect from 'react-select/creatable';
+import { DefaultTheme, useTheme } from 'styled-components';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
 import { Theme } from '@t3n/theme';
 
-import { DefaultTheme, useTheme } from 'styled-components';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Text } from '../Text';
@@ -125,31 +125,29 @@ const ClearIndicator = (props: any) => {
   );
 };
 
-const createDropdownIndicator = (
-  error: boolean,
-  theme: Theme & DefaultTheme
-) => (props: any) => {
-  return (
-    <components.DropdownIndicator {...props}>
-      <Icon
-        component={MaterialExpandMore}
-        width="23px"
-        height="23px"
-        fill={
-          error
-            ? theme.colors.feedback.error
-            : // eslint-disable-next-line react/destructuring-assignment
-            props.isDisabled
-            ? theme.colors.shades.grey204
-            : // eslint-disable-next-line react/destructuring-assignment
-            props.isFocused
-            ? theme.colors.shades.grey42
-            : theme.colors.shades.grey143
-        }
-      />
-    </components.DropdownIndicator>
-  );
-};
+const createDropdownIndicator =
+  (error: boolean, theme: Theme & DefaultTheme) => (props: any) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <Icon
+          component={MaterialExpandMore}
+          width="23px"
+          height="23px"
+          fill={
+            error
+              ? theme.colors.feedback.error
+              : // eslint-disable-next-line react/destructuring-assignment
+              props.isDisabled
+              ? theme.colors.shades.grey204
+              : // eslint-disable-next-line react/destructuring-assignment
+              props.isFocused
+              ? theme.colors.shades.grey42
+              : theme.colors.shades.grey143
+          }
+        />
+      </components.DropdownIndicator>
+    );
+  };
 
 const MultiValueRemove = (props: any) => {
   const theme = useTheme() as Theme;

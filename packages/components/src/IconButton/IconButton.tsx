@@ -1,19 +1,21 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import {
-  space,
-  margin,
-  width,
-  lineHeight,
-  MarginProps,
-  WidthProps,
-  variant,
   color as systemColor,
+  lineHeight,
+  margin,
+  MarginProps,
+  space,
+  variant,
+  width,
+  WidthProps,
 } from 'styled-system';
+
 import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
-import { Loader } from '../Loader';
+
 import { Icon } from '../Icon';
+import { Loader } from '../Loader';
 
 export type IconButtonAsType = 'button' | 'a';
 export type IconButtonVariant = 'primary' | 'secondary';

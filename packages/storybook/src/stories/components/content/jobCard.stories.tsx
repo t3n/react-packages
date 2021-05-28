@@ -1,5 +1,6 @@
 import React from 'react';
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
+
 import { Grid, GridItem, JobCard } from '@t3n/components';
 import { JobCardType } from '@t3n/components/src/JobCard';
 

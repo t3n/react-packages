@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { space, variant } from 'styled-system';
+
 import { MaterialCheck } from '@t3n/icons';
-import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import { ThemeProps } from '@t3n/theme';
-import { Text } from '../Text/Text';
+import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
+
 import { Box } from '../Box/Box';
+import { Text } from '../Text/Text';
 
 type VariantType = 'light' | 'dark';
 

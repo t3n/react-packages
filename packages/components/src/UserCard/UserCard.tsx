@@ -2,22 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
 import {
-  SocialXing,
+  SocialEmail,
+  SocialGithub,
   SocialLinkedin,
   SocialTwitter,
-  SocialGithub,
-  SocialEmail,
+  SocialXing,
 } from '@t3n/icons';
+import { ThemeProps } from '@t3n/theme';
 
-import { Link } from '../Link';
-import { Card } from '../Card';
-import { Text } from '../Text';
-import { Box } from '../Box';
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
+import { Box } from '../Box';
 import { Button } from '../Button';
+import { Card } from '../Card';
+import { Link } from '../Link';
+import { Text } from '../Text';
 
 const StyledCard = styled(Card)`
   position: relative;

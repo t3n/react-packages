@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { variant, padding, color, MarginProps, margin } from 'styled-system';
-import { Theme, composeTextStyle } from '@t3n/theme';
+import { color, margin, MarginProps, padding, variant } from 'styled-system';
+
+import { composeTextStyle, Theme } from '@t3n/theme';
 
 export type TagColorVariant =
   | 'primary'

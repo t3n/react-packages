@@ -5,9 +5,9 @@ import { border, color, layout, space } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../Box';
-import { Logo } from '../Logo';
 import { Image } from '../Image';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
+import { Logo } from '../Logo';
 import LegacyMobileNav from './components/LegacyMobileNav';
 import { HeaderCampaign } from './LegacyHeader';
 

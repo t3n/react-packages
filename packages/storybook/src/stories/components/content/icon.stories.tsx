@@ -1,5 +1,6 @@
 import React from 'react';
-import { select, number } from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
+
 import { Icon } from '@t3n/components';
 import {
   MaterialCheck,

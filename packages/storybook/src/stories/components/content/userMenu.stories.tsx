@@ -1,7 +1,9 @@
 import React from 'react';
-import { text, boolean } from '@storybook/addon-knobs';
-import { UserMenu, PageHeader, Text } from '@t3n/components';
+import { boolean, text } from '@storybook/addon-knobs';
+
+import { PageHeader, Text, UserMenu } from '@t3n/components';
 import { UserMenuProps } from '@t3n/components/src/UserMenu';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
