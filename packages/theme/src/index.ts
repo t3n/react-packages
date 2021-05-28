@@ -1,5 +1,5 @@
-import { ThemeFonts } from './theme/font/fonts.d';
 import * as theme from './theme';
+import { ThemeFonts } from './theme/font/fonts';
 import { ThemeBreakpoints } from './theme/layout/breakpoints';
 import { ThemeSpaces } from './theme/layout/space';
 import { ThemeColors } from './theme/colors/colors';
