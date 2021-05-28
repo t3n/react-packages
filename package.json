@@ -52,7 +52,7 @@
     "webpack-notifier": "^1.12.0"
   },
   "scripts": {
-    "clean": "lerna clean --yes && rm -rf node_modules && lerna run clean --parallel",
+    "clean": "lerna run clean --parallel && lerna clean --yes && rm -rf node_modules",
     "prepare": "lerna clean --yes && lerna bootstrap --hoist",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
