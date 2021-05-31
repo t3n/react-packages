@@ -1,7 +1,7 @@
+import 'jest-styled-components';
 import React from 'react';
 import { RenderOptions } from '@testing-library/react';
 import { Theme } from '@t3n/theme';
-import 'jest-styled-components';
 interface OptionalTheme {
     theme?: Theme;
 }

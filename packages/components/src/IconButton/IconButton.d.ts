@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 export declare type IconButtonAsType = 'button' | 'a';

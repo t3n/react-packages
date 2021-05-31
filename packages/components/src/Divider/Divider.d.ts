@@ -1,5 +1,5 @@
 import React from 'react';
-import { WidthProps, MarginProps } from 'styled-system';
+import { MarginProps, WidthProps } from 'styled-system';
 export declare type DividerVariants = 'primary' | 'inverse';
 export interface DividerProps extends WidthProps, MarginProps {
     variant?: DividerVariants;

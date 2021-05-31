@@ -1,15 +1,15 @@
 import * as theme from './theme';
-import { ThemeFonts } from './theme/font/fonts';
-import { ThemeBreakpoints } from './theme/layout/breakpoints';
-import { ThemeSpaces } from './theme/layout/space';
-import { ThemeColors } from './theme/colors/colors';
 import { ThemeBorder } from './theme/border';
+import { ThemeButtonStyles } from './theme/buttonStyles';
+import { ThemeColors } from './theme/colors/colors';
+import { ThemeFonts } from './theme/font/fonts';
 import { ThemeFontSizes } from './theme/font/fontSizes';
 import { ThemeLineHeights } from './theme/font/lineHeights';
 import { ThemeTextStyles } from './theme/font/textStyles';
-import { ThemeShadows } from './theme/shadows';
-import { ThemeButtonStyles } from './theme/buttonStyles';
+import { ThemeBreakpoints } from './theme/layout/breakpoints';
+import { ThemeSpaces } from './theme/layout/space';
 import { ThemeLinkStyles } from './theme/linkStyles';
+import { ThemeShadows } from './theme/shadows';
 export interface Theme {
     breakpoints: ThemeBreakpoints;
     space: ThemeSpaces;
@@ -26,5 +26,5 @@ export interface Theme {
 export interface ThemeProps {
     theme: Theme;
 }
-export { composeTextStyle, getThemeColor, getColorForBackground, hexToRgb, } from './utils';
+export { composeTextStyle, getColorForBackground, getThemeColor, hexToRgb, } from './utils';
 export { theme };
