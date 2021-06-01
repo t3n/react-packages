@@ -8,15 +8,16 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
-    "@storybook/addon-a11y": "^6.1.21",
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-docs": "^6.1.21",
-    "@storybook/addon-knobs": "^6.1.21",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/addon-viewport": "^6.1.21",
-    "@storybook/addons": "^6.1.21",
-    "@storybook/react": "^6.1.21",
-    "@storybook/theming": "^6.1.21",
+    "@storybook/addon-a11y": "^6.3.0-beta.5",
+    "@storybook/addon-actions": "^6.3.0-beta.5",
+    "@storybook/addon-controls": "^6.3.0-beta.5",
+    "@storybook/addon-docs": "^6.3.0-beta.5",
+    "@storybook/addon-essentials": "^6.3.0-beta.5",
+    "@storybook/addon-links": "^6.3.0-beta.5",
+    "@storybook/addon-viewport": "^6.3.0-beta.5",
+    "@storybook/addons": "^6.3.0-beta.5",
+    "@storybook/react": "^6.3.0-beta.5",
+    "@storybook/theming": "^6.3.0-beta.5",
     "@t3n/components": "^0.4.36",
     "@t3n/icons": "^0.4.8",
     "@t3n/theme": "^0.4.8",
@@ -51,7 +52,7 @@
   "scripts": {
     "clean": "rm -rf storybook-static && rm -rf .awcache",
     "start": "start-storybook -p 9009 -s public --quiet",
-    "build": "build-storybook -s public --quiet",
+    "build": "build-storybook -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "npx http-server -p 8080 storybook-static/"
@@ -63,6 +64,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/builder-webpack5": "^6.3.0-beta.5",
+    "@storybook/manager-webpack5": "^6.3.0-beta.5",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@t3n/configs": "^0.4.5",
     "babel-loader": "^8.2.2",
