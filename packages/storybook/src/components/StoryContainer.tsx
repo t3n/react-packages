@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { space, color } from 'styled-system';
+import { color, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 

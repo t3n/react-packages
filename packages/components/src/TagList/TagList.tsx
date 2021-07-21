@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
 import { layout, margin } from 'styled-system';
+
+import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
-import { Tag, TagColorVariant } from '../Tag/Tag';
+
 import { Box } from '../Box';
+import { Tag, TagColorVariant } from '../Tag/Tag';
 
 export interface TagListProps {
   tags: JSX.Element[];

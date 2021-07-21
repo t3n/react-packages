@@ -1,7 +1,7 @@
 import React from 'react';
+import { boolean } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 
-import { boolean } from '@storybook/addon-knobs';
 import { PageHeader, UserMenu } from '@t3n/components';
 import { UserMenuProps } from '@t3n/components/src/UserMenu';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Story } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
+import type { Story } from '@storybook/react';
 
 import { LegacyAd } from '@t3n/components';
 import { LegacyAdName } from '@t3n/components/src/LegacyAd/LegacyAd';

@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { animate, motion, PanInfo, useMotionValue } from 'framer-motion';
 import styled from 'styled-components';
 import { color, space } from 'styled-system';
-import { motion, PanInfo, useMotionValue, animate } from 'framer-motion';
 
 import { ThemeProps } from '@t3n/theme';
+
 import { Text } from '../Text';
 
 export interface SliderProps {

@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { ThemeProps } from '@t3n/theme';
 import { space, SpaceProps } from 'styled-system';
+
+import { ThemeProps } from '@t3n/theme';
+
 import { Content } from '../Content/Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';

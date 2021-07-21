@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  color,
-  size,
   BackgroundColorProps,
-  space,
+  color,
   MarginProps,
+  size,
+  space,
 } from 'styled-system';
 
 export interface LoaderProps extends MarginProps {

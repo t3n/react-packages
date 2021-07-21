@@ -1,7 +1,7 @@
 import React from 'react';
-import { text, select } from '@storybook/addon-knobs';
-
+import { select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+
 import { FormGroup, Input } from '@t3n/components';
 
 import StoryContainer from '../../../components/StoryContainer';

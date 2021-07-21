@@ -1,5 +1,5 @@
 import React from 'react';
-import { RenderSuggestion, SuggestionsFetchRequested, OnSuggestionsClearRequested, GetSuggestionValue, OnSuggestionSelected } from 'react-autosuggest';
+import { GetSuggestionValue, OnSuggestionsClearRequested, OnSuggestionSelected, RenderSuggestion, SuggestionsFetchRequested } from 'react-autosuggest';
 import { WidthProps } from 'styled-system';
 export interface GroupedSuggestions<S> {
     title: string;

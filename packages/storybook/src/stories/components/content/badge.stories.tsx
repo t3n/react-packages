@@ -1,9 +1,10 @@
 import React from 'react';
-import { Badge, Heading, Grid, GridItem } from '@t3n/components';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
+
+import { Badge, Grid, GridItem, Heading } from '@t3n/components';
+import { theme } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
-import { theme } from '@t3n/theme';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

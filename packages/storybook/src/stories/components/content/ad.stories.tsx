@@ -1,6 +1,6 @@
 import React from 'react';
+import { boolean, text } from '@storybook/addon-knobs';
 import type { Story } from '@storybook/react';
-import { text, boolean } from '@storybook/addon-knobs';
 
 import { Ad } from '@t3n/components';
 

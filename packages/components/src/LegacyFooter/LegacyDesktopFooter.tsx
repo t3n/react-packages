@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, border, space, layout, typography } from 'styled-system';
+import { border, color, layout, space, typography } from 'styled-system';
 
+import { Box } from '../Box';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
-import { Text } from '../Text';
-import { Box } from '../Box';
 import { Heading } from '../Heading';
 import { Image } from '../Image';
+import { Text } from '../Text';
 
 const FooterLink = styled.a`
   text-decoration: none;

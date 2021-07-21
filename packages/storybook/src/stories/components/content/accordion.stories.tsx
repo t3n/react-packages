@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+
 import {
   Accordion,
-  Section,
   Button,
-  Image,
-  Text,
   Grid,
   GridItem,
+  Image,
+  Section,
+  Text,
 } from '@t3n/components';
 
 export default {

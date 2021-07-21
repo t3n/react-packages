@@ -1,11 +1,11 @@
 import React from 'react';
+import { number, withKnobs } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
-import { number, withKnobs } from '@storybook/addon-knobs';
 import { Box, LegacyHeader } from '@t3n/components';
-import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
+import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 
 const Wrapper = styled(Box)`
   min-height: 200vh;

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from '../Card';
+
 import { Badge } from '../Badge';
+import { Card } from '../Card';
 import { Heading } from '../Heading';
 
 export interface AuthorCardProps {

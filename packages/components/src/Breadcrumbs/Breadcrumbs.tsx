@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { padding, lineHeight } from 'styled-system';
+import { lineHeight, padding } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
-import { Text } from '../Text';
 
 import { Link, LinkProps } from '../Link';
+import { Text } from '../Text';
 
 // TODO: Finish variant implementation
 

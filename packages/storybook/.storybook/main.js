@@ -93,4 +93,7 @@ module.exports = {
     '@storybook/addon-knobs',
     '@storybook/addon-a11y',
   ],
+  core: {
+    builder: 'webpack5',
+  },
 };

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { Card } from '../Card';
-import { Text } from '../Text';
 import { Image } from '../Image';
 import { Placeholder } from '../Placeholder';
+import { Text } from '../Text';
 
 export type JobCardType = 'CARD' | 'LIST';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { WidthProps, HeightProps, ColorProps, MarginProps, PositionProps } from 'styled-system';
+import { ColorProps, HeightProps, MarginProps, PositionProps, WidthProps } from 'styled-system';
 export interface BaseIconProps extends React.SVGProps<SVGSVGElement>, MarginProps, PositionProps {
     component: React.FC<React.SVGProps<SVGSVGElement>>;
 }

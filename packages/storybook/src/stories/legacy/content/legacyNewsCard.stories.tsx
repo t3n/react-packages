@@ -1,10 +1,10 @@
 import React from 'react';
-import { boolean, text, number } from '@storybook/addon-knobs';
+import { useQuery } from '@apollo/react-hooks';
+import { boolean, number, text } from '@storybook/addon-knobs';
+import gql from 'graphql-tag';
 
 import { Box, Grid, GridItem, LegacyNewsCard } from '@t3n/components';
 
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 import {
   recentNews,

@@ -1,4 +1,4 @@
-import { JustifyContentProps, SpaceProps, AlignItemsProps, HeightProps } from 'styled-system';
+import { AlignItemsProps, HeightProps, JustifyContentProps, SpaceProps } from 'styled-system';
 export interface GridProps extends JustifyContentProps, AlignItemsProps, HeightProps, SpaceProps {
     vertical?: boolean;
     reverse?: boolean;

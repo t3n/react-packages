@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { variant } from 'styled-system';
+
 import { ThemeProps } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 

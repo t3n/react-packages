@@ -1,6 +1,8 @@
 import React from 'react';
 import { number, text } from '@storybook/addon-knobs';
-import { Textarea, Text } from '@t3n/components';
+
+import { Text, Textarea } from '@t3n/components';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

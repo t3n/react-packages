@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  system,
-  space,
-  position,
-  WidthProps,
-  HeightProps,
   ColorProps,
+  HeightProps,
   MarginProps,
+  position,
   PositionProps,
+  space,
+  system,
+  WidthProps,
 } from 'styled-system';
 
 export interface BaseIconProps

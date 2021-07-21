@@ -1,4 +1,4 @@
-import { boolean, text, number } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 
 const mapPropToKnob = (name = '', value: any = '', groupId = '') => {
   const propType = typeof value;
@@ -16,26 +16,24 @@ const mapPropToKnob = (name = '', value: any = '', groupId = '') => {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const knobsFromProps = (c: any) => (
-  props: any = {},
-  groupId = '',
-  filterPropNames: string[] = []
-) =>
-  Object.keys({ ...c.defaultProps, ...props })
-    .filter((propName) => !filterPropNames.includes(propName))
-    .map((propName) => {
-      const defaultProp = c.defaultProps[propName];
-      const prop = Object.prototype.hasOwnProperty.call(props, propName)
-        ? props[propName]
-        : defaultProp;
-      const knob = mapPropToKnob(propName, prop, groupId);
+export const knobsFromProps =
+  (c: any) =>
+  (props: any = {}, groupId = '', filterPropNames: string[] = []) =>
+    Object.keys({ ...c.defaultProps, ...props })
+      .filter((propName) => !filterPropNames.includes(propName))
+      .map((propName) => {
+        const defaultProp = c.defaultProps[propName];
+        const prop = Object.prototype.hasOwnProperty.call(props, propName)
+          ? props[propName]
+          : defaultProp;
+        const knob = mapPropToKnob(propName, prop, groupId);
 
-      return {
-        propName,
-        knob,
-      };
-    })
-    .reduce(
-      (knobs, { propName, knob }) => ({ ...knobs, [propName]: knob }),
-      {}
-    );
+        return {
+          propName,
+          knob,
+        };
+      })
+      .reduce(
+        (knobs, { propName, knob }) => ({ ...knobs, [propName]: knob }),
+        {}
+      );

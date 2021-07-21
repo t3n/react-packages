@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variant, WidthProps, MarginProps } from 'styled-system';
+import { MarginProps, variant, WidthProps } from 'styled-system';
+
 import { getThemeColor } from '@t3n/theme';
+
 import { Box } from '../Box/Box';
-import { Text } from '../Text/Text';
 import { Icon } from '../Icon';
+import { Text } from '../Text/Text';
 
 export type DividerVariants = 'primary' | 'inverse';
 

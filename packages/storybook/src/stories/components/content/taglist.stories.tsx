@@ -1,6 +1,8 @@
 import React from 'react';
-import { TagList, Tag } from '@t3n/components';
 import { select } from '@storybook/addon-knobs';
+
+import { Tag, TagList } from '@t3n/components';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

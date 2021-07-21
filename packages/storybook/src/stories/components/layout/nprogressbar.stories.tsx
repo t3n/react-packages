@@ -1,10 +1,10 @@
 import React from 'react';
+import { done, inc, start } from 'nprogress';
 
-import { start, inc, done } from 'nprogress';
 import {
-  NProgressBarGlobalStyle,
-  Button,
   Box,
+  Button,
+  NProgressBarGlobalStyle,
   PageLayout,
 } from '@t3n/components';
 

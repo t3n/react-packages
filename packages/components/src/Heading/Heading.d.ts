@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SpaceProps, SizeProps, TextAlignProps } from 'styled-system';
+import { SizeProps, SpaceProps, TextAlignProps } from 'styled-system';
 export declare type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface HeadingProps extends SpaceProps, SizeProps {
     as?: HeadingElements;

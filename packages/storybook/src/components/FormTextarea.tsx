@@ -1,5 +1,6 @@
 import React from 'react';
 import { useField, useFormikContext } from 'formik';
+
 import { FormGroup, Textarea } from '@t3n/components';
 
 interface FormTextareaProps {
@@ -9,9 +10,8 @@ interface FormTextareaProps {
 }
 
 const FormTextarea = ({ name, label, maxLength }: FormTextareaProps) => {
-  const [{ value, name: fieldName, ...rest }, { touched, error }] = useField(
-    name
-  );
+  const [{ value, name: fieldName, ...rest }, { touched, error }] =
+    useField(name);
   const { setFieldValue } = useFormikContext<any>();
 
   const hasErrors = !!(touched && error);

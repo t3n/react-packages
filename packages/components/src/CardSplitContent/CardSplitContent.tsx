@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  space,
-  SpaceProps,
-  layout,
-  LayoutProps,
   color,
   ColorProps,
+  layout,
+  LayoutProps,
   size,
+  space,
+  SpaceProps,
   WidthProps,
 } from 'styled-system';
+
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`

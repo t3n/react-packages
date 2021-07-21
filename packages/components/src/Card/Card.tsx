@@ -1,15 +1,16 @@
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import {
+  boxShadow as styledBoxShadow,
+  color as styledColor,
+  MarginProps,
+  SizeProps,
   space,
   width,
-  color as styledColor,
-  boxShadow as styledBoxShadow,
-  SizeProps,
-  MarginProps,
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
+
 import { CardHeader, CardHeaderContent } from '../CardHeader';
 
 export interface CardProps

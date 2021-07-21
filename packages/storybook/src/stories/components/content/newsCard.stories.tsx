@@ -1,6 +1,6 @@
 import React from 'react';
-import { number, select, boolean, text } from '@storybook/addon-knobs';
 import { useQuery } from '@apollo/react-hooks';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import gql from 'graphql-tag';
 
 import { Grid, GridItem, NewsCard } from '@t3n/components';

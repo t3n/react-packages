@@ -1,23 +1,24 @@
-import React, { useState, FormEvent, useEffect } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import AutoSuggest, {
-  RenderSuggestion,
-  SuggestionsFetchRequested,
-  OnSuggestionsClearRequested,
   GetSuggestionValue,
-  RenderSuggestionsContainerParams,
+  OnSuggestionsClearRequested,
   OnSuggestionSelected,
+  RenderSuggestion,
+  RenderSuggestionsContainerParams,
   SuggestionSelectedEventData,
+  SuggestionsFetchRequested,
 } from 'react-autosuggest';
-import styled from 'styled-components';
-
 import { darken } from 'polished';
-import { ThemeProps, composeTextStyle, theme as t3nTheme } from '@t3n/theme';
-import { space, WidthProps, layout, variant } from 'styled-system';
-import { MaterialClear, T3nLoupe } from '@t3n/icons';
+import styled from 'styled-components';
+import { layout, space, variant, WidthProps } from 'styled-system';
 import { useDebouncedCallback } from 'use-debounce';
+
+import { MaterialClear, T3nLoupe } from '@t3n/icons';
+import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
+
+import { Box } from '../Box';
 import { Loader } from '../Loader';
 import { Text } from '../Text';
-import { Box } from '../Box';
 
 const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   width: 25px;

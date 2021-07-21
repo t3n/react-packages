@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { MaterialArrowDropDown } from '@t3n/icons';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { SpaceProps, space, MarginProps, color } from 'styled-system';
+import { color, MarginProps, space, SpaceProps } from 'styled-system';
+
+import { MaterialArrowDropDown } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
-import { Icon } from '../Icon';
-import { Heading } from '../Heading';
+
 import { Box } from '../Box';
+import { Heading } from '../Heading';
+import { Icon } from '../Icon';
 
 export interface AccordionProps extends MarginProps {
   title: string;

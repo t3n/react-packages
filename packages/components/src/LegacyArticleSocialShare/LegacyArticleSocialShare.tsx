@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+import { space } from 'styled-system';
+
 import {
+  MaterialAdd,
   MaterialLocalPostOffice,
   MaterialNotifications,
   MaterialRssFeed,
-  MaterialAdd,
   SocialFlipboard,
   SocialInstagram,
   SocialLinkedin,
@@ -12,11 +14,10 @@ import {
   SocialTwitter,
   SocialXing,
 } from '@t3n/icons';
-
 import { getThemeColor } from '@t3n/theme';
-import { space } from 'styled-system';
-import { Icon } from '../Icon';
+
 import { Box } from '../Box';
+import { Icon } from '../Icon';
 
 const OldFacebookIcon = () => (
   <svg

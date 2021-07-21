@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { number, array } from '@storybook/addon-knobs';
-
-import { Slider, Text, H3, Button, Box } from '@t3n/components';
-
+import { array, number } from '@storybook/addon-knobs';
 import { Formik } from 'formik';
+
+import { Box, Button, H3, Slider, Text } from '@t3n/components';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

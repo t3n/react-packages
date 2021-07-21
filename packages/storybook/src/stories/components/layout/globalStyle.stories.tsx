@@ -1,7 +1,7 @@
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
 
-import { GlobalStyle, Box } from '@t3n/components';
+import { Box, GlobalStyle } from '@t3n/components';
 
 export default {
   title: 'Components/Layout/GlobalStyle',

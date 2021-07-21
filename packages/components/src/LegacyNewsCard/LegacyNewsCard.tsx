@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
-
 import styled from 'styled-components';
 import { border, space, typography } from 'styled-system';
-import { Text } from '../Text';
-import { Placeholder } from '../Placeholder';
+
 import { Box } from '../Box';
 import { Heading } from '../Heading';
 import { Image } from '../Image';
 import { LegacyArticleSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyCard } from '../LegacyCard';
+import { Placeholder } from '../Placeholder';
+import { Text } from '../Text';
 
 export interface LegacyNewsCardProps {
   loading: boolean;

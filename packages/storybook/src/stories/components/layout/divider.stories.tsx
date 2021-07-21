@@ -1,10 +1,11 @@
 import React from 'react';
-import { select, text, number } from '@storybook/addon-knobs';
-import { Divider, Section, Text, Heading } from '@t3n/components';
+import { number, select, text } from '@storybook/addon-knobs';
+
+import { Divider, Heading, Section, Text } from '@t3n/components';
 import { DividerVariants } from '@t3n/components/src/Divider/Divider';
 import { MaterialInfo } from '@t3n/icons';
-
 import { theme } from '@t3n/theme';
+
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {

@@ -2,11 +2,11 @@ import React from 'react';
 import Imgix from 'react-imgix';
 import styled from 'styled-components';
 import {
+  HeightProps,
+  layout,
   margin,
   MarginProps,
-  layout,
   WidthProps,
-  HeightProps,
 } from 'styled-system';
 
 type FitTypes = 'crop' | 'faces' | 'facearea';

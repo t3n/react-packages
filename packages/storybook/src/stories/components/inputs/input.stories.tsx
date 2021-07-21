@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Input, Text } from '@t3n/components';
+
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {

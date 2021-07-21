@@ -37,14 +37,15 @@ module.exports = ({ title = '', dirname = '' }) => {
           exclude: [/node_modules/, /\.test\.tsx?$/],
           use: [
             {
-              loader: 'awesome-typescript-loader',
+              loader: 'babel-loader',
+              options: babelConfig,
+            },
+            {
+              loader: 'ts-loader',
               options: {
-                forceIsolatedModules: true,
-                useCache: true,
-                useBabel: true,
-                babelCore: '@babel/core',
-                babelOptions: babelConfig,
-                reportFiles: ['src/**/*.{ts,tsx}'],
+                compilerOptions: {
+                  noEmit: false,
+                },
               },
             },
           ],

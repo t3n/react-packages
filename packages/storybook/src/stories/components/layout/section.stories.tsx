@@ -2,11 +2,11 @@ import React from 'react';
 import { number } from '@storybook/addon-knobs';
 
 import {
-  Heading,
-  Text,
-  Section,
-  VisualSection,
   Content,
+  Heading,
+  Section,
+  Text,
+  VisualSection,
 } from '@t3n/components';
 
 export default {

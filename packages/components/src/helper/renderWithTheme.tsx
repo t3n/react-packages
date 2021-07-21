@@ -1,9 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import 'jest-styled-components';
+
 import React from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
+
 import { Theme, theme as originalTheme } from '@t3n/theme';
-import 'jest-styled-components';
 
 interface OptionalTheme {
   theme?: Theme;

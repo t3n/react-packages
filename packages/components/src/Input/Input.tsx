@@ -1,25 +1,26 @@
 import React, {
-  useState,
-  useRef,
-  useEffect,
   forwardRef,
+  useEffect,
   useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
 import styled, { css } from 'styled-components';
 import {
+  position,
+  size,
   space,
   width as styledWidth,
   WidthProps,
-  size,
-  position,
 } from 'styled-system';
 
-import { ThemeProps, getThemeColor } from '@t3n/theme';
 import {
   MaterialClear,
   MaterialVisibility,
   MaterialVisibilityOff,
 } from '@t3n/icons';
+import { getThemeColor, ThemeProps } from '@t3n/theme';
+
 import { Icon } from '../Icon';
 
 export type InputTypes = 'text' | 'email' | 'password' | 'number' | 'tel';

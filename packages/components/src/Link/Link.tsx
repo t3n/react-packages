@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
-import { color, TextColorProps, SpaceProps } from 'styled-system';
 import btoa from 'btoa';
+import styled, { css } from 'styled-components';
+import { color, SpaceProps, TextColorProps } from 'styled-system';
 
-import { ThemeProps, hexToRgb, getThemeColor } from '@t3n/theme';
+import { getThemeColor, hexToRgb, ThemeProps } from '@t3n/theme';
 import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
 
-import { textStyle, TextProps } from '../Text/Text';
+import { TextProps, textStyle } from '../Text/Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 
@@ -24,14 +24,16 @@ const underline = (rgbColor: string) =>
     `<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="${rgbColor}"><rect x="0" y="0" width="1" height="1" /></g></svg>`
   )}');`;
 
-const underlineColor = (value: string) => ({ theme }: ThemeProps) => {
-  const c = getThemeColor(value)({ theme }) || value;
+const underlineColor =
+  (value: string) =>
+  ({ theme }: ThemeProps) => {
+    const c = getThemeColor(value)({ theme }) || value;
 
-  if (/^rgb/.test(c)) return c;
-  if (/^#/.test(c)) return hexToRgb(c);
+    if (/^rgb/.test(c)) return c;
+    if (/^#/.test(c)) return hexToRgb(c);
 
-  return 'rgb(255,255,255)';
-};
+    return 'rgb(255,255,255)';
+  };
 
 export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
   Omit<LinkProps, 'children'>

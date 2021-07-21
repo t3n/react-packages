@@ -1,9 +1,10 @@
 import React from 'react';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
+
 import { TitleCard } from '@t3n/components';
+import { HeadingElements } from '@t3n/components/src/Heading';
 import { theme } from '@t3n/theme';
 
-import { HeadingElements } from '@t3n/components/src/Heading';
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {

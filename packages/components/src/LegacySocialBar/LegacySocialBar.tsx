@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { color, space } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
 import {
-  SocialTwitter,
-  SocialXing,
-  SocialLinkedin,
-  SocialInstagram,
+  MaterialAdd,
   MaterialLocalPostOffice,
   MaterialNotifications,
   MaterialRssFeed,
-  MaterialAdd,
+  SocialInstagram,
+  SocialLinkedin,
+  SocialTwitter,
+  SocialXing,
 } from '@t3n/icons';
+import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../Box';
 

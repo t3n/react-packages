@@ -13,8 +13,8 @@
     "check-types": "tsc",
     "start": "webpack --watch",
     "build": "npm run clean && npm run generate && NODE_ENV=production webpack",
-    "start:generate": "ts-node-dev -P tsconfig.node.json --respawn --transpile-only src/lib/generate.ts",
-    "generate": "ts-node-dev -P tsconfig.node.json --files src/lib/generate.ts"
+    "start:generate": "ts-node-dev -P tsconfig.node.json --respawn --transpile-only src/lib/generate.ts && eslint './src/components/index.ts' --fix",
+    "generate": "ts-node-dev -P tsconfig.node.json --files src/lib/generate.ts  && eslint './src/components/index.ts' --fix"
   },
   "peerDependencies": {
     "react": ">=16.10"
@@ -26,16 +26,16 @@
     "@svgr/plugin-svgo": "^5.5.0",
     "@t3n/configs": "^0.4.5",
     "@types/fs-extra": "^9.0.8",
-    "@types/node": "^14.14.35",
+    "@types/node": "^15.6.1",
     "@types/prettier": "^2.2.3",
     "@types/react": "^17.0.3",
     "chalk": "^4.1.0",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "material-design-icons": "^3.0.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "react": "^17.0.1",
     "ts-node-dev": "^1.1.6",
-    "typescript": "^4.2.3"
+    "typescript": "^4.3.2"
   },
   "sideEffects": false,
   "publishConfig": {

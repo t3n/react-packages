@@ -1,9 +1,9 @@
 import React from 'react';
-import { text, select, number } from '@storybook/addon-knobs';
-
-import { Avatar, Text, Center, PageLayout } from '@t3n/components';
 import { useQuery } from '@apollo/react-hooks';
+import { number, select, text } from '@storybook/addon-knobs';
 import gql from 'graphql-tag';
+
+import { Avatar, Center, PageLayout, Text } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

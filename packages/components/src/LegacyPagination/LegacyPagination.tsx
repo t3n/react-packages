@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MaterialPlayArrow } from '@t3n/icons';
 import { color, space, typography } from 'styled-system';
+
+import { MaterialPlayArrow } from '@t3n/icons';
+
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { Text } from '../Text';

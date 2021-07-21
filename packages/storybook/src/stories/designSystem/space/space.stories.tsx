@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { ThemeConsumer } from 'styled-components';
-import { Theme } from '@t3n/theme';
-import { ColorProps, color, WidthProps, width } from 'styled-system';
+import { color, ColorProps, width, WidthProps } from 'styled-system';
 
-import { GridItem, Grid } from '@t3n/components';
+import { Grid, GridItem } from '@t3n/components';
+import { Theme } from '@t3n/theme';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

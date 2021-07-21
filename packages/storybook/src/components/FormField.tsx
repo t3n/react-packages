@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField, useFormikContext } from 'formik';
-import { FormGroup, Input, PasswordLostLabel } from '@t3n/components';
 
+import { FormGroup, Input, PasswordLostLabel } from '@t3n/components';
 import { InputTypes } from '@t3n/components/src/Input/Input';
 
 interface FormInputProps {
@@ -11,9 +11,8 @@ interface FormInputProps {
 }
 
 const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
-  const [{ value, name: fieldName, ...rest }, { touched, error }] = useField(
-    name
-  );
+  const [{ value, name: fieldName, ...rest }, { touched, error }] =
+    useField(name);
   const { setFieldValue } = useFormikContext<any>();
 
   const hasErrors = !!(touched && error);

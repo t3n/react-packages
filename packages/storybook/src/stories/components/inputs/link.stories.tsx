@@ -1,7 +1,7 @@
 import React from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
-import { Link, Section, Heading } from '@t3n/components';
+import { Heading, Link, Section } from '@t3n/components';
 
 export default {
   title: 'Components/Inputs/Link',

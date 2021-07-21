@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { SearchBox, PageHeader, Avatar, Section, Text } from '@t3n/components';
 import {
-  SuggestionsFetchRequestedParams,
   SuggestionSelectedEventData,
+  SuggestionsFetchRequestedParams,
 } from 'react-autosuggest';
+
+import { Avatar, PageHeader, SearchBox, Section, Text } from '@t3n/components';
 import {
   GroupedSuggestions,
   SearchBoxVariantType,
 } from '@t3n/components/src/SearchBox';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 const placeholderText = 'Suche nach digitialen Pionieren, News und mehr';
@@ -283,9 +285,8 @@ keepSelectionStory.story = {
 
 const SearchBoxWithCategorizedData: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [suggestions, setSuggestions] = useState<
-    GroupedSuggestions<TSuggestion>[] | null
-  >(null);
+  const [suggestions, setSuggestions] =
+    useState<GroupedSuggestions<TSuggestion>[] | null>(null);
 
   const handleSuggestionChange = (r: SuggestionsFetchRequestedParams) => {
     if (r.reason === 'input-changed' && r.value.length > 2) {

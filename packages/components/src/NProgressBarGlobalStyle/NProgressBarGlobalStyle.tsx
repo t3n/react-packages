@@ -1,9 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import {
-  ThemeShadeColor,
-  ThemeBrandColor,
-} from '@t3n/theme/src/theme/colors/colors';
+
 import { ThemeProps } from '@t3n/theme';
+import {
+  ThemeBrandColor,
+  ThemeShadeColor,
+} from '@t3n/theme/src/theme/colors/colors';
 
 export const NProgressBarGlobalStyle = createGlobalStyle<
   { barColor?: ThemeShadeColor | ThemeBrandColor } & ThemeProps

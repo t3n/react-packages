@@ -1,12 +1,13 @@
 import styled, { keyframes } from 'styled-components';
 import {
-  SpaceProps,
-  LayoutProps,
-  layout,
-  BorderRadiusProps,
   borderRadius,
+  BorderRadiusProps,
+  layout,
+  LayoutProps,
   space,
+  SpaceProps,
 } from 'styled-system';
+
 import { ThemeProps } from '@t3n/theme';
 
 export interface PlaceholderProps

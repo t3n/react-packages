@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Text, H6 } from '@t3n/components';
+import { H6, Text } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../../utils/decorators';
 

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TextColorProps, SpaceProps } from 'styled-system';
+import { SpaceProps, TextColorProps } from 'styled-system';
 import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
 import { TextProps } from '../Text/Text';
 export declare type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { SizeProps, MarginProps } from 'styled-system';
+import { MarginProps, SizeProps } from 'styled-system';
 export interface CardProps extends MarginProps, React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
     rounded?: boolean;
     big?: boolean;
