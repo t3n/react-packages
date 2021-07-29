@@ -2,7 +2,7 @@ import React from 'react';
 export declare type SocialNetworkType = 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube';
 export interface SocialButtonProps {
     network: SocialNetworkType;
-    textInFront?: string;
+    $textBefore?: string;
 }
 export interface SocialNetworksProps {
     [key: string]: {
