@@ -27,7 +27,7 @@ export const defaultStory = () => {
       href="https://www.t3n.de"
       target="_blank"
       network={selectedNetwork as SocialNetworkType}
-      textBefore={text('Text vor Label', '')}
+      textInFront={text('Text vor Label', '')}
     />
   );
 };
