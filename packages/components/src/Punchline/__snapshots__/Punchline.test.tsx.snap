@@ -2,7 +2,7 @@
 
 exports[`Punchline machtes snapshot 1`] = `
 .c0 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1.5rem;
   line-height: 1.333em;
 }

@@ -2,7 +2,7 @@
 
 exports[`Avatar matches snapshot and renders label 1`] = `
 .c3 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5em;
   font-weight: bold;
@@ -83,7 +83,7 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 
 exports[`Avatar renders without label 1`] = `
 .c3 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 0.875rem;
   line-height: 1.5em;
   font-weight: bold;

@@ -2,7 +2,7 @@
 
 exports[`Switch variants matches snapshot 1`] = `
 .c1 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
 }

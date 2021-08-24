@@ -24,7 +24,7 @@ exports[`Button in default state matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -138,7 +138,7 @@ exports[`Button in loading state matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: no-drop;
@@ -225,7 +225,7 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -309,7 +309,7 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -394,7 +394,7 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -478,7 +478,7 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -562,7 +562,7 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -646,7 +646,7 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
@@ -760,7 +760,7 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 4px;
   padding-bottom: 4px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: no-drop;
@@ -847,7 +847,7 @@ exports[`Small Button matches snapshot 1`] = `
   padding-right: 16px;
   padding-top: 4px;
   padding-bottom: 4px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   cursor: pointer;
