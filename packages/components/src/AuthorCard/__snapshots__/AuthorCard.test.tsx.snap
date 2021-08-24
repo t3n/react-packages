@@ -56,7 +56,7 @@ exports[`Author Card matches snapshot 1`] = `
 }
 
 .c2 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1.125rem;
   line-height: 1.5em;
   margin-top: 8px;

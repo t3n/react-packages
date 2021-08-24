@@ -1,6 +1,7 @@
-export const fontDefault = '"adelle-sans", sans-serif';
+export const fontDefault =
+  '-apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif';
 
-export type ThemeDefaultFont = '"adelle-sans", sans-serif';
+export type ThemeDefaultFont = '-apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;';
 
 export interface ThemeFonts {
   default: ThemeDefaultFont;

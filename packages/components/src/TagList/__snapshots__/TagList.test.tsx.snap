@@ -11,7 +11,7 @@ exports[`TagList matches snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   padding-left: 16px;
@@ -38,7 +38,7 @@ exports[`TagList matches snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   padding-left: 16px;

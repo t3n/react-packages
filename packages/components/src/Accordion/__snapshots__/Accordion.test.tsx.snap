@@ -9,7 +9,7 @@ exports[`Accordion machtes snapshot 1`] = `
 }
 
 .c3 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1.125rem;
   line-height: 1.5em;
   margin: 0;

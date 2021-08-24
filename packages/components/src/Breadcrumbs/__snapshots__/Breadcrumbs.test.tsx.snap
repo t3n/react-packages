@@ -2,7 +2,7 @@
 
 exports[`Breadcrumbs matches snapshot 1`] = `
 .c3 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   font-weight: bold;
@@ -17,7 +17,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   background-size: 1px 1px;
   background-position: 0 100%;
   cursor: pointer;
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   color: #2a2a2a;
@@ -159,7 +159,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
 
 exports[`BreadcrumbsItems render custom link component if provided through props 1`] = `
 .c2 {
-  font-family: "adelle-sans",sans-serif;
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   line-height: 1.5em;
   font-weight: bold;
