@@ -1,10 +1,11 @@
+import { rem } from 'polished';
 import styled from 'styled-components';
 import {
   maxWidth as styledMaxWidth,
   padding,
   PaddingProps,
 } from 'styled-system';
-import { rem } from 'polished';
+
 import { ThemeProps } from '@t3n/theme';
 
 export interface ContentProps extends ThemeProps, PaddingProps {

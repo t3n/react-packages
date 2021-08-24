@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { space, typography, color } from 'styled-system';
+import { color, space, typography } from 'styled-system';
+
 import { Heading } from '../Heading';
 
 export const Punchline = styled(Heading)`

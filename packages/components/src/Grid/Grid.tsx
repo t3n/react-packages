@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import {
-  space,
-  justifyContent,
   alignItems,
-  JustifyContentProps,
-  SpaceProps,
   AlignItemsProps,
   HeightProps,
+  justifyContent,
+  JustifyContentProps,
   layout,
+  space,
+  SpaceProps,
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
+
 import { GridItem } from '../GridItem';
 
 export interface GridProps

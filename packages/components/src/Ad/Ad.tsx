@@ -30,7 +30,10 @@ export const Ad = forwardRef<HTMLDivElement, AdProps>(
     >
       <Box id={name} width={1} {...(preview ? previewAdStyles : {})}>
         {preview ? (
-          <Text color="text.inverse">Ad Unit ID: {name}</Text>
+          <Text color="text.inverse">
+            Ad Unit ID:
+            {name}
+          </Text>
         ) : (
           children
         )}

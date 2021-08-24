@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space, color, compose } from 'styled-system';
+import { color, compose, space } from 'styled-system';
+
 import { ThemeProps } from '@t3n/theme';
+
 import { Logo } from '../Logo';
 
 export interface PageHeaderProps {

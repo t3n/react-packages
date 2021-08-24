@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { border, color, space } from 'styled-system';
 import styled from 'styled-components';
+import { border, color, space } from 'styled-system';
 
 import { Box } from '../Box';
 

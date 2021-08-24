@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { color, space } from 'styled-system';
 
-import { Text } from '../Text';
 import { Box } from '../Box';
 import { LegacySocialBar } from '../LegacySocialBar';
+import { Text } from '../Text';
 
 const FooterLink = styled.a`
   text-decoration: none;

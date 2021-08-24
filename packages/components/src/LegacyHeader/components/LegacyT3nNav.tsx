@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { space, typography } from 'styled-system';
 
 import { Box } from '../../Box';
-import { Text } from '../../Text';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../../LegacyUserMenu';
+import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
 
 const T3nNav = styled(Box)`

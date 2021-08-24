@@ -1,9 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
-import { TagList } from './TagList';
+
 import { renderWithTheme } from '../helper/renderWithTheme';
 import { Tag } from '../Tag/Tag';
+import { TagList } from './TagList';
 
 test('TagList matches snapshot', () => {
   const tagLabels = ['foo', 'bar', 'baz'];

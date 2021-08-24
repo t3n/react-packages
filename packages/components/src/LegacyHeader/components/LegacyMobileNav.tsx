@@ -1,9 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import { MaterialClose, MaterialMenu } from '@t3n/icons';
-import { getColorForBackground, ThemeProps } from '@t3n/theme';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, position, space } from 'styled-system';
+
+import { MaterialClose, MaterialMenu } from '@t3n/icons';
+import { getColorForBackground, ThemeProps } from '@t3n/theme';
 
 import { Box } from '../../Box';
 import { Button } from '../../Button';

@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { MaterialClear } from '@t3n/icons';
-import { Tag } from './Tag';
+
 import { renderWithTheme } from '../helper/renderWithTheme';
+import { Tag } from './Tag';
 
 test('Tag Variants matches snapshot', () => {
   const { container } = renderWithTheme(

@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, space, border, layout, position } from 'styled-system';
+import { border, color, layout, position, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
-import { Box } from '../Box/Box';
+
 import { Avatar } from '../Avatar/Avatar';
+import { Box } from '../Box/Box';
+import { Link } from '../Link/Link';
 import { Placeholder } from '../Placeholder/Placeholder';
 import { Text } from '../Text/Text';
-import { Link } from '../Link/Link';
 
 const UserMenuWrapper = styled(Box)`
   cursor: pointer;

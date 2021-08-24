@@ -1,20 +1,22 @@
 import React, {
-  useEffect,
-  useState,
   forwardRef,
-  useRef,
+  useEffect,
   useImperativeHandle,
+  useRef,
+  useState,
 } from 'react';
+import styled, { css } from 'styled-components';
 import {
-  WidthProps,
+  position,
+  size,
   space,
   width as styledWidth,
-  size,
-  position,
+  WidthProps,
 } from 'styled-system';
-import styled, { css } from 'styled-components';
+
 import { MaterialClear } from '@t3n/icons';
-import { ThemeProps, getThemeColor } from '@t3n/theme';
+import { getThemeColor, ThemeProps } from '@t3n/theme';
+
 import { Icon } from '../Icon';
 import { Text } from '../Text';
 
@@ -225,7 +227,8 @@ export const Textarea = forwardRef(
         ) : null}
         {typeof maxLength !== 'undefined' && maxLength >= 1 && (
           <StyledText>
-            {value.length} / {maxLength}
+            {value.length} /
+{maxLength}
           </StyledText>
         )}
       </StyledTextarea>
