@@ -1,4 +1,4 @@
-import { fontSize, fontFamily, lineHeight } from 'styled-system';
+import { fontFamily, fontSize, lineHeight } from 'styled-system';
 
 interface Theme {
   textStyles: {
