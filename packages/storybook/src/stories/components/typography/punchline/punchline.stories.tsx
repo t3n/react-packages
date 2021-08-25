@@ -1,12 +1,14 @@
 import React from 'react';
+
 import {
-  Punchline,
+  Box,
   Grid,
   GridItem,
-  VisualSection,
-  Box,
+  Punchline,
   Section,
+  VisualSection,
 } from '@t3n/components';
+
 import { storyContainerContentDecorator } from '../../../../utils/decorators';
 
 export default {

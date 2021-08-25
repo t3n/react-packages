@@ -1,7 +1,9 @@
 import React from 'react';
-import { UserCard, Grid, GridItem, H2 } from '@t3n/components';
-import { text, boolean } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
+
+import { Grid, GridItem, H2, UserCard } from '@t3n/components';
 import { UserCardProps } from '@t3n/components/src/UserCard';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

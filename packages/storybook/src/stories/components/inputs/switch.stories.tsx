@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
-import { Switch, Section, Grid, GridItem } from '@t3n/components';
+import { Grid, GridItem, Section, Switch } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

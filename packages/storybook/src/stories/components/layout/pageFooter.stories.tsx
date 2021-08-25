@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PageFooter, Box, FooterLink } from '@t3n/components';
+import { Box, FooterLink, PageFooter } from '@t3n/components';
 
 export default {
   title: 'Components/Layout/PageFooter',

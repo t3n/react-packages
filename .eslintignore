@@ -7,3 +7,4 @@
 *.mdx
 build/
 dist/
+packages/icons/src/components

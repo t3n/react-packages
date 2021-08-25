@@ -1,8 +1,8 @@
 import React from 'react';
+import { boolean, number, withKnobs } from '@storybook/addon-knobs';
+import { Story } from '@storybook/react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
-import { Story } from '@storybook/react';
-import { boolean, number, withKnobs } from '@storybook/addon-knobs';
 
 import {
   Box,
@@ -10,11 +10,11 @@ import {
   H1,
   LegacyPageLayout,
   Section,
-  VisualSection,
   Text,
+  VisualSection,
 } from '@t3n/components';
-import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
+import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 
 const Wrapper = styled(Box)`
   ${({ theme }) => color({ theme, bg: 'shades.grey204' })}

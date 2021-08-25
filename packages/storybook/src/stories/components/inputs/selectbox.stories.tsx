@@ -1,20 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
-import { space, color } from 'styled-system';
-import * as Yup from 'yup';
 import { boolean, text } from '@storybook/addon-knobs';
 import { Formik, FormikHelpers, FormikProps } from 'formik';
+import styled from 'styled-components';
+import { color, space } from 'styled-system';
+import * as Yup from 'yup';
 
-import { ThemeProps } from '@t3n/theme';
 import {
   Button,
   Card,
   CardSplitContent,
   FormGroup,
   Heading,
-  Text,
   SelectBox,
+  Text,
 } from '@t3n/components';
+import { ThemeProps } from '@t3n/theme';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

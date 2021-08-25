@@ -1,7 +1,8 @@
 import React from 'react';
-import { text, number, boolean } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 
-import { Image, Text, Grid, GridItem, H3, Box } from '@t3n/components';
+import { Box, Grid, GridItem, H3, Image, Text } from '@t3n/components';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

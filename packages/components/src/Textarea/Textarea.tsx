@@ -227,8 +227,7 @@ export const Textarea = forwardRef(
         ) : null}
         {typeof maxLength !== 'undefined' && maxLength >= 1 && (
           <StyledText>
-            {value.length} /
-{maxLength}
+            {value.length} / {maxLength}
           </StyledText>
         )}
       </StyledTextarea>

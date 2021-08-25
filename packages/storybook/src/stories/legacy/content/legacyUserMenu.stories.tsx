@@ -1,9 +1,9 @@
 import React from 'react';
+import { boolean, text } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
-import { text, boolean } from '@storybook/addon-knobs';
-import { LegacyUserMenu, Text, Box } from '@t3n/components';
+import { Box, LegacyUserMenu, Text } from '@t3n/components';
 import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
