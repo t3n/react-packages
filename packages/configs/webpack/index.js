@@ -4,6 +4,7 @@ const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const babelConfig = require('../babel');
 
@@ -37,14 +38,19 @@ module.exports = ({ title = '', dirname = '' }) => {
           exclude: [/node_modules/, /\.test\.tsx?$/],
           use: [
             {
-              loader: 'awesome-typescript-loader',
+              loader: 'babel-loader',
+              options: babelConfig,
+            },
+            {
+              loader: 'ts-loader',
               options: {
-                forceIsolatedModules: true,
-                useCache: true,
-                useBabel: true,
-                babelCore: '@babel/core',
-                babelOptions: babelConfig,
-                reportFiles: ['src/**/*.{ts,tsx}'],
+                // transpileOnly: true,
+                // forceIsolatedModules: true,
+                // useCache: true,
+                // useBabel: true,
+                // babelCore: '@babel/core',
+                // babelOptions: babelConfig,
+                // reportFiles: ['src/**/*.{ts,tsx}'],
               },
             },
           ],
@@ -84,9 +90,7 @@ module.exports = ({ title = '', dirname = '' }) => {
           use: [
             {
               loader: 'babel-loader',
-              options: {
-                ...babelConfig,
-              },
+              options: babelConfig,
             },
             {
               loader: 'source-map-loader',
@@ -95,7 +99,10 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
       ],
     },
-    plugins: [new WebpackNotifierPlugin({ title })],
+    plugins: [
+      // new ForkTsCheckerWebpackPlugin(),
+      new WebpackNotifierPlugin({ title }),
+    ],
   };
 
   if (isProd) {
@@ -105,9 +112,9 @@ module.exports = ({ title = '', dirname = '' }) => {
         openAnalyzer: false,
         reportFilename: './report/report.html',
       }),
-      new ESLintPlugin({
-        extensions: ['ts', 'tsx', 'js', 'jsx'],
-      }),
+      // new ESLintPlugin({
+      //   extensions: ['ts', 'tsx', 'js', 'jsx'],
+      // }),
       ...config.plugins,
     ];
   }
