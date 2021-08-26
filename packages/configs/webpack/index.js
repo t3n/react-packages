@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
+
 const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const babelConfig = require('../babel');
 
@@ -43,15 +43,6 @@ module.exports = ({ title = '', dirname = '' }) => {
             },
             {
               loader: 'ts-loader',
-              options: {
-                // transpileOnly: true,
-                // forceIsolatedModules: true,
-                // useCache: true,
-                // useBabel: true,
-                // babelCore: '@babel/core',
-                // babelOptions: babelConfig,
-                // reportFiles: ['src/**/*.{ts,tsx}'],
-              },
             },
           ],
         },
@@ -99,10 +90,7 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
       ],
     },
-    plugins: [
-      // new ForkTsCheckerWebpackPlugin(),
-      new WebpackNotifierPlugin({ title }),
-    ],
+    plugins: [new WebpackNotifierPlugin({ title })],
   };
 
   if (isProd) {
@@ -112,9 +100,9 @@ module.exports = ({ title = '', dirname = '' }) => {
         openAnalyzer: false,
         reportFilename: './report/report.html',
       }),
-      // new ESLintPlugin({
-      //   extensions: ['ts', 'tsx', 'js', 'jsx'],
-      // }),
+      new ESLintPlugin({
+        extensions: ['ts', 'tsx', 'js', 'jsx'],
+      }),
       ...config.plugins,
     ];
   }

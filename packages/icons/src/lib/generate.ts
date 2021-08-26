@@ -1,12 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import svgr from '@svgr/core';
 import chalk from 'chalk';
+import { ESLint } from 'eslint';
 import fs from 'fs-extra';
 import path from 'path';
-import prettier from 'prettier';
 
 import materialIconsConfig from '../../materialicons.config.json';
 import template from './template';
+
+const eslint = new ESLint({ fix: true });
 
 interface MaterialIconsConfig {
   renameRules: {
@@ -89,13 +91,14 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
     { componentName }
   );
 
-  return prettier.format(
+  const formatted = await eslint.lintText(
     component.replace(
       `const ${componentName}`,
       `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`
-    ),
-    { singleQuote: true, parser: 'typescript' }
+    )
   );
+
+  return formatted[0].output as string;
 };
 
 const generateIconComponents = async (
@@ -247,11 +250,8 @@ const createIndexFile = async (components: IconComponents) => {
     })
     .join('\n');
 
-  const prettierOptions = await prettier.resolveConfig(__dirname);
-  const formattedIndex = await prettier.format(index, {
-    ...(prettierOptions || {}),
-    parser: 'babel',
-  });
+  const formatted = await eslint.lintText(index);
+  const formattedIndex = formatted[0].output as string;
   await fs.writeFile(INDEX_FILE_PATH, formattedIndex);
 };
 
