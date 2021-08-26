@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+const webpack = require('webpack');
 const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -90,7 +91,10 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
       ],
     },
-    plugins: [new WebpackNotifierPlugin({ title })],
+    plugins: [
+      new webpack.WatchIgnorePlugin([/\.d\.ts$/]),
+      new WebpackNotifierPlugin({ title }),
+    ],
   };
 
   if (isProd) {

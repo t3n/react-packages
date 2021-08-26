@@ -1,5 +1,5 @@
 import React from 'react';
-import { MarginProps, WidthProps, HeightProps } from 'styled-system';
+import { HeightProps, MarginProps, WidthProps } from 'styled-system';
 declare type FitTypes = 'crop' | 'faces' | 'facearea';
 export interface BaseImageProps extends Pick<React.HTMLAttributes<HTMLImageElement>, 'onLoad'> {
     alt: string;
