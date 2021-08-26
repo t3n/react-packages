@@ -14,8 +14,6 @@ export interface AccordionProps extends MarginProps {
   initialOpen?: boolean;
 }
 
-
-
 const StyledAccordion = styled.div<SpaceProps>`
   border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
   border: 1px solid ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
