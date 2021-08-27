@@ -1,5 +1,5 @@
 import React from 'react';
-import Imgix from 'react-imgix';
+import Imgix, { SharedImigixAndSourceProps } from 'react-imgix';
 import styled from 'styled-components';
 import {
   HeightProps,
@@ -37,21 +37,35 @@ const BaseImage = ({
   onLoad,
   ...props
 }: BaseImageProps) => {
-  const params: { [key: string]: any } = {
-    fit: processConfiguration && processConfiguration.fit,
-    q: processConfiguration && processConfiguration.quality,
-    crop: processConfiguration && processConfiguration.crop,
-    facepad: processConfiguration && processConfiguration.facepad,
-    ar: processConfiguration && processConfiguration.aspectRatio,
-    w: processConfiguration && processConfiguration.width,
-    h: processConfiguration && processConfiguration.height,
-  };
+  const params: SharedImigixAndSourceProps['imgixParams'] = {};
 
-  Object.keys(params).forEach((key) => {
-    if (!params[key]) {
-      delete params[key];
-    }
-  });
+  if (processConfiguration?.fit) {
+    params.fit = processConfiguration.fit;
+  }
+
+  if (processConfiguration?.quality) {
+    params.q = processConfiguration.quality;
+  }
+
+  if (processConfiguration?.crop) {
+    params.crop = processConfiguration.crop;
+  }
+
+  if (processConfiguration?.facepad) {
+    params.facepad = processConfiguration.facepad;
+  }
+
+  if (processConfiguration?.aspectRatio) {
+    params.ar = processConfiguration.aspectRatio;
+  }
+
+  if (processConfiguration?.width) {
+    params.w = processConfiguration.width;
+  }
+
+  if (processConfiguration?.height) {
+    params.h = processConfiguration.height;
+  }
 
   return (
     <Imgix
