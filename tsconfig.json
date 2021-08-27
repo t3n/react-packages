@@ -9,7 +9,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
     "jsx": "preserve",
     "sourceMap": true,
     "experimentalDecorators": true,

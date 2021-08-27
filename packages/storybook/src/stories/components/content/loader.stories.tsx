@@ -1,7 +1,9 @@
 import React from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
+
 import { Loader } from '@t3n/components';
 import { theme } from '@t3n/theme';
+
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 export default {

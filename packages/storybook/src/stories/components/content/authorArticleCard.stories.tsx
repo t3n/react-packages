@@ -1,6 +1,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs';
-import { Grid, GridItem, AuthorCard } from '@t3n/components';
+
+import { AuthorCard, Grid, GridItem } from '@t3n/components';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 

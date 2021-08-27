@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import { Box } from '../Box';
-import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import useIsMobile from '../hooks/useIsMobile';
-import LegacyMobileHeader from './LegacyMobileHeader';
-import { LegacyDesktopHeader } from './LegacyDesktopHeader';
+import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { TagNavTagsType } from './components/LegacyTagNav';
+import { LegacyDesktopHeader } from './LegacyDesktopHeader';
+import LegacyMobileHeader from './LegacyMobileHeader';
 
 export const HeaderCampaign = styled(Box)`
   overflow: hidden;

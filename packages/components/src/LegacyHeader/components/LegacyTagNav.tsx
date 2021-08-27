@@ -1,11 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled from 'styled-components';
-import { border, color, space, typography, layout } from 'styled-system';
+import { border, color, layout, space, typography } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
-import { Tag, TagColorVariant } from '../../Tag';
+
 import { Box } from '../../Box';
+import { Tag, TagColorVariant } from '../../Tag';
 
 export const SearchIcon: React.FC = () => (
   <svg

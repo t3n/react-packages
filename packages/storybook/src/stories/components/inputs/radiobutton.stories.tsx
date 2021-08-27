@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
+import { RadioButton, Section } from '@t3n/components';
 import { theme } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
-import { RadioButton, Section } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

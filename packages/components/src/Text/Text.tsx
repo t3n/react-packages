@@ -2,15 +2,16 @@ import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import {
   color,
-  space,
-  width,
-  textAlign,
   ColorProps,
+  space,
   SpaceProps,
-  WidthProps,
+  textAlign,
   TextAlignProps,
+  width,
+  WidthProps,
 } from 'styled-system';
-import { ThemeProps, composeTextStyle } from '@t3n/theme';
+
+import { composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   as?: 'p' | 'span';

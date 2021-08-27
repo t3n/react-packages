@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
 import { useScrollYPosition } from 'react-use-scroll-position';
-import { PageHeader } from '../PageHeader';
-import { PageHeaderProps } from '../PageHeader/PageHeader';
+import styled from 'styled-components';
+
 import { Content } from '../Content';
 import { PageFooter } from '../PageFooter';
+import { PageHeader } from '../PageHeader';
+import { PageHeaderProps } from '../PageHeader/PageHeader';
 
 export interface PageLayoutProps extends PageHeaderProps {
   showHeader?: boolean;
@@ -44,9 +45,8 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   children,
 }) => {
   const y = useScrollYPosition();
-  const [transparentHeader, setTransparentHeader] = useState(
-    initialTransparent
-  );
+  const [transparentHeader, setTransparentHeader] =
+    useState(initialTransparent);
 
   useEffect(() => {
     // if the header is initial transparent we need to track the scroll position

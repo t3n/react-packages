@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-alert */
 import React from 'react';
-import { text, boolean } from '@storybook/addon-knobs';
-import { Button, ConfirmDialog } from '@t3n/components';
+import { boolean, text } from '@storybook/addon-knobs';
 import { useState } from '@storybook/addons';
+
+import { Button, ConfirmDialog } from '@t3n/components';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
-import { ThemeProps, getColorForBackground } from '@t3n/theme';
 import { space, typography } from 'styled-system';
+
+import { getColorForBackground, ThemeProps } from '@t3n/theme';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 export interface BadgeProps {
   variant?: ThemeBackgroundColor;

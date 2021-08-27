@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
+
+const webpack = require('webpack');
 const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -37,15 +39,11 @@ module.exports = ({ title = '', dirname = '' }) => {
           exclude: [/node_modules/, /\.test\.tsx?$/],
           use: [
             {
-              loader: 'awesome-typescript-loader',
-              options: {
-                forceIsolatedModules: true,
-                useCache: true,
-                useBabel: true,
-                babelCore: '@babel/core',
-                babelOptions: babelConfig,
-                reportFiles: ['src/**/*.{ts,tsx}'],
-              },
+              loader: 'babel-loader',
+              options: babelConfig,
+            },
+            {
+              loader: 'ts-loader',
             },
           ],
         },
@@ -84,9 +82,7 @@ module.exports = ({ title = '', dirname = '' }) => {
           use: [
             {
               loader: 'babel-loader',
-              options: {
-                ...babelConfig,
-              },
+              options: babelConfig,
             },
             {
               loader: 'source-map-loader',
@@ -95,7 +91,10 @@ module.exports = ({ title = '', dirname = '' }) => {
         },
       ],
     },
-    plugins: [new WebpackNotifierPlugin({ title })],
+    plugins: [
+      new webpack.WatchIgnorePlugin([/\.d\.ts$/]),
+      new WebpackNotifierPlugin({ title }),
+    ],
   };
 
   if (isProd) {

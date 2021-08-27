@@ -2,13 +2,13 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import {
+  Avatar,
+  Content,
+  H1,
   PageLayout,
   Section,
   Text,
-  H1,
-  Avatar,
   VisualSection,
-  Content,
 } from '@t3n/components';
 
 export default {

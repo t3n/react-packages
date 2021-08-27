@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { ThemeProps } from '@t3n/theme';
 import { BackgroundColorProps } from 'styled-system';
+import { ThemeProps } from '@t3n/theme';
 export interface RatioProps extends ThemeProps, BackgroundColorProps {
     ratio?: 'auto' | number;
     as?: keyof JSX.IntrinsicElements;

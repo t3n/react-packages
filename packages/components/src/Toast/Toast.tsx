@@ -1,11 +1,12 @@
 import React from 'react';
-import toaster, { Position } from 'toasted-notes';
-import { MaterialClear } from '@t3n/icons';
 import styled, { ThemeProvider } from 'styled-components';
-import { theme } from '@t3n/theme';
-import { MarginLeftProps, margin, variant } from 'styled-system';
+import { margin, MarginLeftProps, variant } from 'styled-system';
+import toaster, { Position } from 'toasted-notes';
 
-import { AlertStatus, AlertText, Alert } from '../Alert';
+import { MaterialClear } from '@t3n/icons';
+import { theme } from '@t3n/theme';
+
+import { Alert, AlertStatus, AlertText } from '../Alert';
 import { Box } from '../Box';
 
 interface ToastProps {

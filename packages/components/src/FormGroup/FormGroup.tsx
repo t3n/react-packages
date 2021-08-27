@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { space, margin, MarginProps } from 'styled-system';
+import { margin, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
+
 import { Box } from '../Box';
 import { Text } from '../Text';
 

@@ -5,12 +5,12 @@ import {
   Card,
   CardHeader,
   CardSplitContent,
-  Heading,
-  Text,
   Grid,
   GridItem,
-  Logo,
   H3,
+  Heading,
+  Logo,
+  Text,
 } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';

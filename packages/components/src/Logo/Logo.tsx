@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { T3nLogo } from '@t3n/icons';
 
 export type LogoVariant = 'default';

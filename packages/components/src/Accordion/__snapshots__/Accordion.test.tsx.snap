@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accordion machtes snapshot 1`] = `
-.c7 {
-  width: 2rem;
-  height: 2rem;
-  fill: #8F8F8F;
-  position: relative;
+.c1 {
+  padding: 16px;
+}
+
+.c4 {
+  margin-left: 8px;
+  background-color: #f4f4f4;
 }
 
 .c3 {
@@ -15,13 +17,11 @@ exports[`Accordion machtes snapshot 1`] = `
   margin: 0;
 }
 
-.c1 {
-  padding: 16px;
-}
-
-.c4 {
-  margin-left: 8px;
-  background-color: #f4f4f4;
+.c7 {
+  width: 2rem;
+  height: 2rem;
+  fill: #8F8F8F;
+  position: relative;
 }
 
 .c0 {
@@ -75,6 +75,26 @@ exports[`Accordion machtes snapshot 1`] = `
 }
 
 @media screen and (min-width:30rem) {
+  .c1 {
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c1 {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width:30rem) {
+
+}
+
+@media screen and (min-width:48rem) {
+
+}
+
+@media screen and (min-width:30rem) {
   .c3 {
     font-size: 1.125rem;
   }
@@ -120,26 +140,6 @@ exports[`Accordion machtes snapshot 1`] = `
   .c3 {
     line-height: 1.333em;
   }
-}
-
-@media screen and (min-width:30rem) {
-  .c1 {
-    padding: 16px;
-  }
-}
-
-@media screen and (min-width:48rem) {
-  .c1 {
-    padding: 24px;
-  }
-}
-
-@media screen and (min-width:30rem) {
-
-}
-
-@media screen and (min-width:48rem) {
-
 }
 
 <div

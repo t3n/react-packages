@@ -1,9 +1,10 @@
 /* eslint-disable react/require-default-props */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { space, color, ColorProps } from 'styled-system';
+import { color, ColorProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
+
 import { Ratio, RatioProps } from '../Ratio';
 
 interface CardHeaderProps extends ThemeProps {

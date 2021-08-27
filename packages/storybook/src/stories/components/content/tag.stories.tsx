@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Tag, Button, Box } from '@t3n/components';
-import { MaterialClear } from '@t3n/icons';
 import { boolean } from '@storybook/addon-knobs';
+
+import { Box, Button, Tag } from '@t3n/components';
 import { TagColorVariant } from '@t3n/components/src/Tag';
+import { MaterialClear } from '@t3n/icons';
+
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 const variants: TagColorVariant[] = [

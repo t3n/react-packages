@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { ThemeProps } from '@t3n/theme';
+
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Modal, ModalProps } from '../Modal';

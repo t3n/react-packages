@@ -1,24 +1,24 @@
 import React from 'react';
-import { Formik, FormikProps, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
+import { Formik, FormikHelpers, FormikProps } from 'formik';
 import styled from 'styled-components';
-import { space, color } from 'styled-system';
+import { color, space } from 'styled-system';
+import * as Yup from 'yup';
 
-import { ThemeProps } from '@t3n/theme';
 import {
-  Text,
+  Button,
   Card,
   CardSplitContent,
-  Heading,
   Grid,
   GridItem,
-  Button,
   H5,
+  Heading,
+  Text,
 } from '@t3n/components';
+import { ThemeProps } from '@t3n/theme';
 
 import { FormInput } from '../../../components/FormField';
-import { storyContainerDecorator } from '../../../utils/decorators';
 import { FormTextarea } from '../../../components/FormTextarea';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
   title: 'Components/Form/Formulare',

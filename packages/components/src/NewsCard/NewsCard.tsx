@@ -1,9 +1,10 @@
 import React from 'react';
+
+import { AuthorCard } from '../AuthorCard';
 import { Card } from '../Card';
-import { Placeholder } from '../Placeholder';
 import { CardHeader } from '../CardHeader';
 import { HeroCard } from '../HeroCard';
-import { AuthorCard } from '../AuthorCard';
+import { Placeholder } from '../Placeholder';
 
 export type NewsCardType = 'HERO' | 'AUTHOR';
 

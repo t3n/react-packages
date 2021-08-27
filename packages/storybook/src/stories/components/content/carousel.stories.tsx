@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
+import { number, text } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 import { layout } from 'styled-system';
 
-import { text, number } from '@storybook/addon-knobs';
 import {
-  Carousel,
   Box,
-  Image,
-  Text,
-  Heading,
-  Modal,
   Button,
+  Carousel,
+  Heading,
+  Image,
+  Modal,
+  Text,
 } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';

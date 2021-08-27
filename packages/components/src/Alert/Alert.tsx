@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { variant, SpaceProps, space } from 'styled-system';
+import { space, SpaceProps, variant } from 'styled-system';
+
 import { ThemeProps } from '@t3n/theme';
+
 import { Box } from '../Box';
 import { Text } from '../Text';
 

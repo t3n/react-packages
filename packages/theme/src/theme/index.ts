@@ -1,11 +1,11 @@
-export { default as breakpoints } from './layout/breakpoints';
-export { default as space } from './layout/space';
-export { default as colors } from './colors/colors';
 export { default as border } from './border';
+export { default as buttonStyles } from './buttonStyles';
+export { default as colors } from './colors/colors';
+export { default as fonts } from './font/fonts';
 export { default as fontSizes } from './font/fontSizes';
 export { default as lineHeights } from './font/lineHeights';
-export { default as fonts } from './font/fonts';
 export { default as textStyles } from './font/textStyles';
-export { default as shadows } from './shadows';
-export { default as buttonStyles } from './buttonStyles';
+export { default as breakpoints } from './layout/breakpoints';
+export { default as space } from './layout/space';
 export { default as linkStyles } from './linkStyles';
+export { default as shadows } from './shadows';

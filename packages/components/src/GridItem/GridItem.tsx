@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import {
-  width,
-  space,
-  order,
   display,
-  flexbox,
-  OrderProps,
-  SpaceProps,
-  WidthProps,
   DisplayProps,
+  flexbox,
   FlexboxProps,
+  order,
+  OrderProps,
+  space,
+  SpaceProps,
+  width,
+  WidthProps,
 } from 'styled-system';
 
 export interface GridItemProps

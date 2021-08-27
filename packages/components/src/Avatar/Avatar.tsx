@@ -1,17 +1,18 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import styled from 'styled-components';
 import Imgix from 'react-imgix';
+import styled from 'styled-components';
 import {
-  space,
-  color as styledColor,
-  TextColorProps,
   border,
   color,
+  color as styledColor,
+  space,
+  TextColorProps,
 } from 'styled-system';
-import { Text } from '../Text/Text';
+
 import { Box } from '../Box/Box';
 import { Placeholder } from '../Placeholder/Placeholder';
+import { Text } from '../Text/Text';
 
 const AvatarPlaceholder = styled((props) => <Placeholder {...props} />)`
   ${({ theme }) =>

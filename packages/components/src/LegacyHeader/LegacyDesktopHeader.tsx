@@ -1,15 +1,18 @@
 import React from 'react';
+import { useScrollYPosition } from 'react-use-scroll-position';
 import styled from 'styled-components';
 import { border, color, layout, space } from 'styled-system';
-import { useScrollYPosition } from 'react-use-scroll-position';
 
 import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../Box';
-import { Logo } from '../Logo';
 import { Image } from '../Image';
+import { LegacyAd } from '../LegacyAd';
+import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
+import { Logo } from '../Logo';
 import LegacyMainNav from './components/LegacyMainNav';
+import LegacyT3nNav from './components/LegacyT3nNav';
 import {
   LegacyTagNav,
   SearchButton,
@@ -18,10 +21,7 @@ import {
   SearchInput,
   TagNavTagsType,
 } from './components/LegacyTagNav';
-import LegacyT3nNav from './components/LegacyT3nNav';
 import { HeaderCampaign } from './LegacyHeader';
-import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
-import { LegacyAd } from '../LegacyAd';
 
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">

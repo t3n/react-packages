@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Card } from './Card';
 import { renderWithTheme } from '../helper/renderWithTheme';
+import { Card } from './Card';
 
 test('Default Card matches snapshot', () => {
   const { container } = renderWithTheme(<Card>Default Card</Card>, {});

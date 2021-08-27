@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input, FormGroup, Box, Text, Link, Textarea } from '@t3n/components';
+import { Box, FormGroup, Input, Link, Text, Textarea } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 

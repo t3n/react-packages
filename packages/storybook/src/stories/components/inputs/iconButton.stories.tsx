@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { Grid, GridItem, H3, IconButton, Section } from '@t3n/components';
 
+import { Grid, GridItem, H3, IconButton, Section } from '@t3n/components';
 import {
   MaterialCheck,
   MaterialClear,

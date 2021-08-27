@@ -1,16 +1,17 @@
 import React from 'react';
-import { ThemeConsumer } from 'styled-components';
 import { parseToRgb } from 'polished';
+import { RgbaColor, RgbColor } from 'polished/lib/types/color';
+import { ThemeConsumer } from 'styled-components';
+
 import {
   Card,
   CardHeader,
-  Heading,
-  Text,
   Grid,
   GridItem,
+  Heading,
   Section,
+  Text,
 } from '@t3n/components';
-import { RgbColor, RgbaColor } from 'polished/lib/types/color';
 
 export default {
   title: 'Design System/Colors',

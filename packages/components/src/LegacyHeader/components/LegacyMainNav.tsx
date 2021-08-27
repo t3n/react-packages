@@ -1,15 +1,16 @@
 /* eslint-disable react/no-array-index-key */
-import { ThemeProps } from '@t3n/theme';
 import React from 'react';
 import styled from 'styled-components';
 import {
-  color,
-  space,
   border,
+  color,
   layout,
   position,
+  space,
   typography,
 } from 'styled-system';
+
+import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../../Box';
 import { Text } from '../../Text';
