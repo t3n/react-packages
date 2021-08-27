@@ -45,7 +45,7 @@
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
-    "@types/react-imgix": "^9.0.3",
+    "@types/react-imgix": "^9.0.4",
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.10",
     "babel-jest": "^27.0.6",

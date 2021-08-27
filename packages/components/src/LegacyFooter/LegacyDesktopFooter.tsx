@@ -299,7 +299,7 @@ const LegacyDesktopBottom = () => {
                   rel="noreferrer noopener"
                 >
                   <Image
-                    src="//storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/agof-logo.png"
+                    src="https://storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/agof-logo.png"
                     width="80px"
                     alt="agof"
                   />
@@ -312,7 +312,7 @@ const LegacyDesktopBottom = () => {
                 rel="noreferrer noopener"
               >
                 <Image
-                  src="//storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/ivw.png"
+                  src="https://storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/ivw.png"
                   width="50px"
                   height="50px"
                   alt="IVW"
@@ -335,7 +335,7 @@ const LegacyDesktopBottom = () => {
                   title="Die externe Seite im neuen Tab/Fenster öffnen"
                 >
                   <Image
-                    src="//storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/kununu-top-company.png"
+                    src="https://storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/kununu-top-company.png"
                     width="87px"
                     alt="kununu Top Company"
                   />
@@ -348,7 +348,7 @@ const LegacyDesktopBottom = () => {
                 title="Die externe Seite im neuen Tab/Fenster öffnen"
               >
                 <Image
-                  src="//storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/kununu-open-company.png"
+                  src="https://storage.googleapis.com/t3n-de/assets/t3n/2018/images/logos/kununu-open-company.png"
                   width="87px"
                   alt="kununu Open Company"
                 />
