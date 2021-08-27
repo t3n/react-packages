@@ -1,6 +1,3 @@
 module.exports = {
-  projects: [
-    '<rootDir>/packages/theme/package.json',
-    '<rootDir>/packages/components/package.json',
-  ],
+  projects: ['<rootDir>/packages/theme', '<rootDir>/packages/components'],
 };

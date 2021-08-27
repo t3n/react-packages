@@ -1,6 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Author Card matches snapshot 1`] = `
+.c1 {
+  font-weight: bold;
+  color: #fff;
+  background-color: #f9423a;
+  padding: 0 2px;
+  font-size: 0.875rem;
+  border-radius: 0;
+}
+
 .c0 {
   display: block;
   background-color: white;
@@ -44,15 +53,6 @@ exports[`Author Card matches snapshot 1`] = `
   -webkit-transform: translate3d(0,-2px,0);
   -ms-transform: translate3d(0,-2px,0);
   transform: translate3d(0,-2px,0);
-}
-
-.c1 {
-  font-weight: bold;
-  color: #fff;
-  background-color: #f9423a;
-  padding: 0 2px;
-  font-size: 0.875rem;
-  border-radius: 0;
 }
 
 .c2 {
