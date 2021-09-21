@@ -36,8 +36,10 @@ jobs:
       - checkout
       - restore_cache: *restore_js_packages
 
-      - run: |
-          npm ci --unsafe-perm
+      - run:
+          name: npm ci --unsafe-perm
+          command: npm ci --unsafe-perm
+          no_output_timeout: 20m
 
       - run: |
           npm run build
