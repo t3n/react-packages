@@ -59,7 +59,7 @@ const LegacyUserMenuList = styled.ul`
   list-style-type: none;
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => space({ theme, m: '1px', py: 2, px: 3 })};
-  ${({ theme }) => layout({ theme, width: ['97%', '165px'] })};
+  ${({ theme }) => layout({ theme, width: ['97%', '132px'] })};
   ${({ theme }) =>
     position({
       theme,
@@ -149,6 +149,7 @@ export interface LegacyUserMenuProps {
 
   user?: {
     name: string;
+    nickName: string;
     avatarUrl: string;
   };
 

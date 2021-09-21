@@ -38,9 +38,10 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
   {
     item: [
       <a href={`https://t3n.de/pioneers/profile/${nickName}`}>
-        Mein Pioneers-Profil
+        Pioneers-Profil
       </a>,
-      <a href="https://t3n.de/account">Mein Konto / Pro</a>,
+      <a href="https://t3n.de/account">Konto / Pro</a>,
+      <a href="https://t3n.de/account/merkliste">Merkliste</a>,
     ],
   },
   {

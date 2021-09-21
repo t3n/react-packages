@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, space } from 'styled-system';
+import { color, space, typography } from 'styled-system';
 
 import { Box } from '../Box';
 import { LegacySocialBar } from '../LegacySocialBar';
@@ -9,6 +9,12 @@ import { Text } from '../Text';
 const FooterLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
+  ${({ theme }) =>
+    typography({
+      theme,
+      fontSize: 0,
+    })};
+  ${({ theme }) => space({ mb: 2, theme })};
 
   &:hover,
   &:focus {
@@ -19,16 +25,30 @@ const FooterLink = styled.a`
 
 const LinkLabel = styled(Text)`
   white-space: nowrap;
+  ${({ theme }) =>
+    typography({
+      theme,
+      fontSize: 0,
+    })};
 `;
 
 const MobileLinksWrapper = styled(Box)`
   text-align: center;
 `;
 
+const SmallerText = styled(Text)`
+  ${({ theme }) =>
+    typography({
+      theme,
+      fontSize: 0,
+    })};
+`;
+
 type MobileLinkType = {
   label: string;
   url: string;
   bold?: boolean;
+  onClick?: string;
 }[];
 
 const legacyMobileLinks: MobileLinkType = [
@@ -38,16 +58,20 @@ const legacyMobileLinks: MobileLinkType = [
     bold: true,
   },
   {
+    label: 'Team',
+    url: '/team',
+  },
+  {
     label: 'Jobs bei t3n',
-    url: '/jobs-bei-t3n',
+    url: '/jobs-bei-t3n/',
   },
   {
     label: 'Unterstütze t3n',
-    url: '/unterstuetze-t3n',
+    url: '/unterstuetze-t3n/',
   },
   {
     label: 'Mediadaten',
-    url: '/mediadaten/de',
+    url: '/mediadaten/de/',
   },
   {
     label: 'Impressum',
@@ -64,6 +88,11 @@ const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Datenschutz',
     url: '/datenschutz/',
+  },
+  {
+    label: 'Datenschutzeinstellungen',
+    url: '#',
+    onClick: 'window._sp_.loadPrivacyManagerModal(399880); return false;',
   },
 ];
 
@@ -86,16 +115,12 @@ const LegacyMobileLinks = () => {
   );
 };
 
-const StyledLegacySocialBar = styled(LegacySocialBar)`
-  ${({ theme }) => space({ my: 4, theme })};
-`;
-
 const LegacyMobileFooter = () => {
   return (
     <>
       <LegacyMobileLinks />
-      <StyledLegacySocialBar />
-      <Text align="center" mt={0}>
+      <LegacySocialBar isInFooter />
+      <SmallerText align="center">
         ©{' '}
         <FooterLink
           href="https://yeebase.com/"
@@ -106,7 +131,7 @@ const LegacyMobileFooter = () => {
           yeebase media GmbH
         </FooterLink>{' '}
         2005 - 2020
-      </Text>
+      </SmallerText>
       <Text align="center">
         <FooterLink href="/" className="js-switch-to-desktop">
           Desktop-Seite

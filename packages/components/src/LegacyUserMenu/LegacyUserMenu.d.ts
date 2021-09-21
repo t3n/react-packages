@@ -7,6 +7,7 @@ export interface LegacyUserMenuProps {
     labelUrl?: string;
     user?: {
         name: string;
+        nickName: string;
         avatarUrl: string;
     };
     itemGroups?: {
