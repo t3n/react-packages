@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, typography } from 'styled-system';
+import { color } from 'styled-system';
 
 import { Box } from '../Box';
 import LegacyDesktopFooter from './LegacyDesktopFooter';
@@ -9,13 +9,6 @@ import LegacyMobileFooter from './LegacyMobileFooter';
 const Footer = styled(Box)`
   ${({ theme }) =>
     color({ theme, bg: 'shades.grey232', color: 'text.secondary' })};
-  *:not(h3) {
-    ${({ theme }) =>
-      typography({
-        theme,
-        fontSize: '12px',
-      })};
-  }
 `;
 
 // eslint-disable-next-line import/prefer-default-export

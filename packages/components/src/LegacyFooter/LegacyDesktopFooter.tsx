@@ -9,6 +9,16 @@ import { Heading } from '../Heading';
 import { Image } from '../Image';
 import { Text } from '../Text';
 
+const LegacyDesktopFooterWrapper = styled(Box)`
+  *:not(h3) {
+    ${({ theme }) =>
+      typography({
+        theme,
+        fontSize: '12px',
+      })};
+  }
+`;
+
 const FooterLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
@@ -85,6 +95,7 @@ type DesktopLinkGroupsType = {
     target?: string;
     rel?: string;
     bold?: boolean;
+    onClick?: string;
   }[];
 }[];
 
@@ -98,10 +109,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Team',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'https://yeebase.com/team',
-        target: '_blank',
-        rel: 'noreferrer noopener',
+        url: '/team',
       },
       {
         label: 'Jobs bei t3n',
@@ -129,6 +137,11 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       {
         label: 'Datenschutz',
         url: '/datenschutz/',
+      },
+      {
+        label: 'Datenschutzeinstellungen',
+        url: '#',
+        onClick: 'window._sp_.loadPrivacyManagerModal(399880); return false;',
       },
       {
         label: 'Impressum',
@@ -171,10 +184,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       {
         label: 'Firmen',
         url: '/firmen/',
-      },
-      {
-        label: 'Deals',
-        url: '/deals/',
       },
       {
         label: 'Events',
@@ -380,7 +389,7 @@ const LegacyDesktopBottom = () => {
 
 const LegacyDesktopFooter = () => {
   return (
-    <>
+    <LegacyDesktopFooterWrapper>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
           <MissonStatement as="h3" mt={0}>
@@ -390,7 +399,7 @@ const LegacyDesktopFooter = () => {
         <LegacyDesktopLinks />
       </Box>
       <LegacyDesktopBottom />
-    </>
+    </LegacyDesktopFooterWrapper>
   );
 };
 

@@ -109,12 +109,13 @@ const legacySocialLinks: SocialLinkType = [
   },
 ];
 
-export const LegacySocialBar: React.FC<{ className?: string }> = ({
-  className,
-}) => (
+export const LegacySocialBar: React.FC<{
+  className?: string;
+  isInFooter?: boolean;
+}> = ({ className, isInFooter }) => (
   <Box
     display="flex"
-    justifyContent="flex-end"
+    justifyContent={isInFooter ? 'center' : 'flex-end'}
     className={className}
     alignItems="center"
   >

@@ -39,10 +39,11 @@ const MainNavDropdown = styled.ul`
   right: 0;
   z-index: 1;
   list-style-type: none;
+  letter-spacing: 0;
 
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
-  ${({ theme }) => space({ theme, m: '1px', py: 2, px: 3 })};
-  ${({ theme }) => layout({ theme, width: ['97%', '200px'] })};
+  ${({ theme }) => space({ theme, m: '1px', py: '0.625rem', px: '1.25rem' })};
+  ${({ theme }) => layout({ theme, width: ['97%', 'max-content'] })};
   ${({ theme }) =>
     position({
       theme,
@@ -152,6 +153,14 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/guides/',
       },
       {
+        label: 'Ratgeber',
+        url: '/ratgeber/',
+      },
+      {
+        label: 'Tests & Tools',
+        url: '/tests-tools/',
+      },
+      {
         label: 'Podcast',
         url: '/podcast/',
       },
@@ -159,16 +168,16 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         label: 'Newsletter',
         url: '/info/t3n-newsletter/',
       },
+      {
+        label: 'Quiz',
+        url: '/quiz/',
+      },
     ],
   },
   {
     label: 'Themen',
     url: '/tag/',
     dropdownLinks: [
-      {
-        label: 'Digitale Wirtschaft',
-        url: '/tag/digitale-wirtschaft/',
-      },
       {
         label: 'Software & Infrastruktur',
         url: '/tag/software-infrastruktur/',
@@ -186,8 +195,8 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/tag/gadgets-lifestyle/',
       },
       {
-        label: 'Startups',
-        url: '/tag/startups/',
+        label: 'Startups & Wirtschaft',
+        url: '/tag/startups-wirtschaft/',
       },
       {
         label: 'Karriere',
@@ -198,7 +207,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/tag/e-commerce/',
       },
       {
-        label: 'Finance',
+        label: 'New Finance',
         url: '/tag/finance/',
       },
       {
@@ -210,8 +219,12 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/tag/mobilitaet/',
       },
       {
-        label: 'Digitale Gesellschaft',
-        url: '/tag/digitale-gesellschaft/',
+        label: 'Future & Science',
+        url: '/tag/future-science/',
+      },
+      {
+        label: 'Buzz & Memes',
+        url: '/tag/buzz-memes/',
       },
     ],
   },

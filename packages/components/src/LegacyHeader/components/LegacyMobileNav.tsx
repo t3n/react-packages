@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, position, space } from 'styled-system';
 
-import { MaterialClose, MaterialMenu } from '@t3n/icons';
+import {
+  MaterialBookmarkBorder,
+  MaterialClose,
+  MaterialMenu,
+} from '@t3n/icons';
 import { getColorForBackground, ThemeProps } from '@t3n/theme';
 
 import { Box } from '../../Box';
@@ -60,17 +64,17 @@ const MobileMenuContainer = styled(Box)<{ menuOpen: boolean }>`
     })}
 `;
 
-const MobileMenuItem = styled.a<ThemeProps>`
+const MobileMenuItem = styled.a<{ borderTopThick?: boolean }>`
   height: 50px;
   display: flex;
   align-items: center;
   padding-left: 12px;
   text-decoration: none;
 
-  ${({ theme }) =>
+  ${({ theme, borderTopThick }) =>
     border({
       theme,
-      borderTop: '1px solid',
+      borderTop: borderTopThick ? '4px solid' : '1px solid',
       borderTopColor: 'background.secondary',
       borderLeft: '4px solid',
       borderLeftColor: 'background.primary',
@@ -105,6 +109,17 @@ const MobileMenuItem = styled.a<ThemeProps>`
         bg: 'background.primary',
       })}
   }
+
+  &:hover svg {
+    fill: ${({ theme }: ThemeProps) => theme.colors.text.primary};
+  }
+`;
+
+const BookMarkText = styled(Text)`
+  display: flex;
+  align-items: center;
+
+  ${({ theme }) => space({ theme, ml: '-5px' })};
 `;
 
 const Overlay = styled(Box)`
@@ -158,8 +173,20 @@ const mobileNavLinks: MobileNavLinksType[] = [
     url: '/guides/',
   },
   {
+    label: 'Ratgeber',
+    url: '/ratgeber/',
+  },
+  {
+    label: 'Tests & Tools',
+    url: '/tests-tools/',
+  },
+  {
     label: 'Podcast',
     url: '/podcast/',
+  },
+  {
+    label: 'Quiz',
+    url: '/quiz/',
   },
   {
     label: 'Themen',
@@ -258,20 +285,39 @@ const LegacyMobileNav: React.FC<{
         ))}
         {user ? (
           <>
-            <MobileMenuItem>
-              <HeaderLink href="/account/" title="Mein Konto / Pro">
-                <Text m={0}>Mein Konto / Pro</Text>
+            <MobileMenuItem borderTopThick>
+              <HeaderLink
+                href={`/pioneers/profile/${user.nickName}`}
+                title="Pioneers-Profil"
+              >
+                <Text m={0}>Pioneers-Profil</Text>
               </HeaderLink>
             </MobileMenuItem>
             <MobileMenuItem>
-              <HeaderLink href="/account/logout/" title="Abmelden">
+              <HeaderLink href="/account" title="Konto / Pro">
+                <Text m={0}>Konto / Pro</Text>
+              </HeaderLink>
+            </MobileMenuItem>
+            <MobileMenuItem>
+              <HeaderLink href="/account/merkliste" title="Merkliste">
+                <BookMarkText m={0}>
+                  <Icon
+                    component={MaterialBookmarkBorder}
+                    fill="shades.grey143"
+                  />{' '}
+                  Merkliste
+                </BookMarkText>
+              </HeaderLink>
+            </MobileMenuItem>
+            <MobileMenuItem>
+              <HeaderLink href="/account/logout" title="Abmelden">
                 <Text m={0}>Abmelden</Text>
               </HeaderLink>
             </MobileMenuItem>
           </>
         ) : (
-          <MobileMenuItem>
-            <HeaderLink href="/account/login/" title="Abmelden">
+          <MobileMenuItem borderTopThick>
+            <HeaderLink href="/account/login" title="Abmelden">
               <Text m={0}>Anmelden</Text>
             </HeaderLink>
           </MobileMenuItem>
