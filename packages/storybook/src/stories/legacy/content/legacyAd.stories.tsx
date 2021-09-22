@@ -43,6 +43,8 @@ export const defaultStory: Story = () => (
       ) as LegacyAdName
     }
     preview={boolean('Preview', true)}
+    forceBackground={boolean('Force Background?', false)}
+    forceHint={boolean('Force Hint?', false)}
   />
 );
 

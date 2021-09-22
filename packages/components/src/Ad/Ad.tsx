@@ -14,8 +14,7 @@ const previewAdStyles = {
   height: '100%',
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
-  bg: '#894BA8',
+  alignItems: 'flex-start',
 };
 
 export const Ad = forwardRef<HTMLDivElement, AdProps>(
@@ -28,9 +27,14 @@ export const Ad = forwardRef<HTMLDivElement, AdProps>(
       {...boxProps}
       ref={ref}
     >
-      <Box id={name} width={1} {...(preview ? previewAdStyles : {})}>
+      <Box
+        id={name}
+        width={1}
+        {...(preview ? previewAdStyles : {})}
+        bg={preview ? 'background.secondary' : undefined}
+      >
         {preview ? (
-          <Text color="text.inverse">
+          <Text small color="text.secondary">
             Ad Unit ID:
             {name}
           </Text>
