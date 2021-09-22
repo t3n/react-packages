@@ -60,16 +60,8 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         showAds={showP2}
         adsPreview={previewP2}
       />
-      {!isMobile && showP1 && (
-        <>
-          <LegacyAd name="p1" preview={previewP1} />
-        </>
-      )}
-      {isMobile && showP13 && (
-        <>
-          <LegacyAd name="p13" preview={previewP13} />
-        </>
-      )}
+      {!isMobile && showP1 && <LegacyAd name="p1" preview={previewP1} />}
+      {isMobile && showP13 && <LegacyAd name="p13" preview={previewP13} />}
       {children}
       <LegacyFooter />
     </Wrapper>
