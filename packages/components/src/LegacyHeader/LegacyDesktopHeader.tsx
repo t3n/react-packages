@@ -138,6 +138,7 @@ export const LegacyDesktopHeader: React.FC<{
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
   tags: TagNavTagsType[];
+  tagsLoading?: boolean;
   headerCampaignUrl: string;
   headerCampaignImage: string;
   newsIndicator?: number;
@@ -148,6 +149,7 @@ export const LegacyDesktopHeader: React.FC<{
   userMenuLabelUrl,
   userMenuLinkGroups,
   tags,
+  tagsLoading,
   headerCampaignUrl,
   headerCampaignImage,
   newsIndicator,
@@ -199,7 +201,7 @@ export const LegacyDesktopHeader: React.FC<{
 
         <Box display="flex" flexDirection="column">
           <LegacyMainNav newsIndicator={newsIndicator} />
-          <LegacyTagNav tags={tags} />
+          <LegacyTagNav tags={tags} loading={tagsLoading} />
         </Box>
       </HeaderWrapper>
       {isStickyVisible && (

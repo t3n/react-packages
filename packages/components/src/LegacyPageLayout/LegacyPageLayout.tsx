@@ -29,6 +29,7 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   userMenuLabelUrl,
   userMenuLinkGroups,
   tags,
+  tagsLoading,
   headerCampaignUrl,
   headerCampaignImage,
   headerCampaignImageMobile,
@@ -53,6 +54,7 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         userMenuLabelUrl={userMenuLabelUrl}
         userMenuLinkGroups={userMenuLinkGroups}
         tags={tags}
+        tagsLoading={tagsLoading}
         headerCampaignUrl={headerCampaignUrl}
         headerCampaignImage={headerCampaignImage}
         headerCampaignImageMobile={headerCampaignImageMobile}

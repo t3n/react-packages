@@ -6,7 +6,8 @@ import { border, color, layout, space, typography } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../../Box';
-import { Tag, TagColorVariant } from '../../Tag';
+import { backgroundAnimation } from '../../helper/animation';
+import { Tag, TagColorVariant, TagProps } from '../../Tag';
 
 export const SearchIcon: React.FC = () => (
   <svg
@@ -23,6 +24,12 @@ const StyledTag = styled(Tag)`
   ${({ theme }) => space({ mr: '5px', py: '7px', px: '15px', theme })};
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
   ${({ theme }) => typography({ fontSize: 0, letterSpacing: '1px', theme })};
+`;
+
+const LoadingTag = styled(StyledTag)<TagProps & { width: number }>`
+  ${backgroundAnimation}
+  width: ${({ width }) => width}px;
+  height: 37px;
 `;
 
 export const SearchInput = styled.input`
@@ -104,27 +111,37 @@ export type TagNavTagsType = {
   variant?: TagColorVariant;
 };
 
-export const LegacyTagNav: React.FC<{ tags: TagNavTagsType[] }> = ({
-  tags,
-}) => {
+export const LegacyTagNav: React.FC<{
+  tags: TagNavTagsType[];
+  loading?: boolean;
+}> = ({ tags, loading }) => {
   return (
     <Box position="relative" mb={4}>
       <Box
-        display={['block', 'block', 'block', 'flex']}
+        display={['block', 'block', 'flex', 'flex']}
         justifyContent="center"
         position="relative"
         className="tg-submenu"
       >
-        {tags.map((tag, idx) => (
-          <StyledTag
-            link={tag.url}
-            colorVariant={tag.variant || 'secondary'}
-            key={idx}
-            mb={[2, 2, 2, 0]}
-          >
-            {tag.label}
-          </StyledTag>
-        ))}
+        {loading
+          ? Array(7)
+              .fill(null)
+              .map((e, i) => (
+                <LoadingTag
+                  width={Math.round(50 + ((i + 1) % 3) * 30)}
+                  key={i}
+                />
+              ))
+          : tags.map((tag, idx) => (
+              <StyledTag
+                link={tag.url}
+                colorVariant={tag.variant || 'secondary'}
+                key={idx}
+                mb={[2, 2, 2, 0]}
+              >
+                {tag.label}
+              </StyledTag>
+            ))}
       </Box>
       <SearchForm action="/suche" method="get">
         <SearchInput
