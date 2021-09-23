@@ -44,7 +44,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
           flex-direction: column;
           justify-content: center;
           ${color({ theme, bg: 'background.secondary' })}
-          /* The backround image svg is not the same as in styleguide-rebrush, so be careful when updating! */
+          /* The background image svg is not the same as in styleguide-rebrush, so be careful when updating! */
           background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='44px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
           background-position: center center;
           background-repeat: no-repeat;
@@ -53,7 +53,6 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
             text-align: center;
             padding: 5px;
             position: relative;
-            z-index: 10;
           }
         `
       : ''}
@@ -64,7 +63,6 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
             position: absolute;
             top: 0;
             left: 61.25rem;
-            z-index: 12;
           }
         `
       : ''}
