@@ -11,4 +11,5 @@ export declare type TagNavTagsType = {
 };
 export declare const LegacyTagNav: React.FC<{
     tags: TagNavTagsType[];
+    loading?: boolean;
 }>;

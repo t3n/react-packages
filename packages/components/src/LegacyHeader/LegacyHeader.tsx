@@ -34,6 +34,7 @@ export interface LegacyHeaderProps {
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
   tags: TagNavTagsType[];
+  tagsLoading?: boolean;
   headerCampaignUrl: string;
   headerCampaignImage: string;
   headerCampaignImageMobile?: string;
@@ -47,6 +48,7 @@ export const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   userMenuLabelUrl,
   userMenuLinkGroups,
   tags,
+  tagsLoading,
   headerCampaignUrl,
   headerCampaignImage,
   headerCampaignImageMobile,
@@ -73,6 +75,7 @@ export const LegacyHeader: React.FC<LegacyHeaderProps> = ({
       userMenuLabelUrl={userMenuLabelUrl}
       userMenuLinkGroups={userMenuLinkGroups}
       tags={tags}
+      tagsLoading={tagsLoading}
       headerCampaignUrl={headerCampaignUrl}
       headerCampaignImage={headerCampaignImage}
       newsIndicator={newsIndicator}
