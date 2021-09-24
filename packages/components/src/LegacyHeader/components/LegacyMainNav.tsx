@@ -63,14 +63,14 @@ const MainNavDropdown = styled.ul`
 const MainNavItem = styled(Box)`
   position: relative;
   cursor: pointer;
-  letter-spacing: 1px;
+  letter-spacing: normal;
 
   * {
     ${({ theme }) => typography({ theme, fontSize: 2 })};
   }
 
   svg {
-    ${({ theme }) => space({ theme, mt: '10px', ml: 1 })};
+    ${({ theme }) => space({ theme, mt: '9px', ml: 1 })};
     fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
   }
 
@@ -269,7 +269,7 @@ const LegacyMainNav: React.FC<{
       <Box
         display="flex"
         justifyContent="space-between"
-        width="100%"
+        width="94%"
         mt="14px"
         mb="13px"
         pr={isSticky ? 7 : 0}
@@ -285,7 +285,7 @@ const LegacyMainNav: React.FC<{
                     color={group.bold ? 'text.primary' : 'inherit'}
                   >
                     {group.label}
-                    {group.indicator && (
+                    {group.indicator && newsIndicator && (
                       <NewsIndicator className="tg-notification-bubble">
                         {newsIndicator}
                       </NewsIndicator>
