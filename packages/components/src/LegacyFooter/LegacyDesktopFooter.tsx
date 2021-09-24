@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
@@ -95,7 +95,7 @@ type DesktopLinkGroupsType = {
     target?: string;
     rel?: string;
     bold?: boolean;
-    onClick?: string;
+    onClick?: MouseEventHandler<HTMLAnchorElement>;
   }[];
 }[];
 
@@ -141,7 +141,11 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       {
         label: 'Datenschutzeinstellungen',
         url: '#',
-        onClick: 'window._sp_.loadPrivacyManagerModal(399880); return false;',
+        onClick: (e: any) => {
+          e.preventDefault();
+          // eslint-disable-next-line no-underscore-dangle
+          (window as any)._sp_.loadPrivacyManagerModal(399880);
+        },
       },
       {
         label: 'Impressum',
@@ -274,6 +278,7 @@ const LegacyDesktopLinks = () => {
               target={link.target || '_self'}
               rel={link.rel || undefined}
               title={link.title || undefined}
+              onClick={link.onClick || undefined}
             >
               <LinkLabel
                 m={0}

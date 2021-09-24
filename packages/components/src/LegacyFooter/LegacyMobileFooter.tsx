@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
@@ -48,7 +48,7 @@ type MobileLinkType = {
   label: string;
   url: string;
   bold?: boolean;
-  onClick?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }[];
 
 const legacyMobileLinks: MobileLinkType = [
@@ -92,7 +92,11 @@ const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Datenschutzeinstellungen',
     url: '#',
-    onClick: 'window._sp_.loadPrivacyManagerModal(399880); return false;',
+    onClick: (e: any) => {
+      e.preventDefault();
+      // eslint-disable-next-line no-underscore-dangle
+      (window as any)._sp_.loadPrivacyManagerModal(399880);
+    },
   },
 ];
 
@@ -100,7 +104,7 @@ const LegacyMobileLinks = () => {
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
       {legacyMobileLinks.map((link) => (
-        <FooterLink href={link.url}>
+        <FooterLink href={link.url} onClick={link.onClick || undefined}>
           <LinkLabel
             mt={0}
             mb={1}
