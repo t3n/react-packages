@@ -63,6 +63,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
           ${preview ? 'height: auto !important;' : ''}
 
           #${name} {
+            width: auto !important;
             ${preview ? 'width: 180px !important;' : ''}
             ${preview ? 'height: 480px !important;' : ''}
             position: absolute;
