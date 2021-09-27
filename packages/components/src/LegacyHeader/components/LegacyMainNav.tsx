@@ -285,11 +285,13 @@ const LegacyMainNav: React.FC<{
                     color={group.bold ? 'text.primary' : 'inherit'}
                   >
                     {group.label}
-                    {group.indicator && newsIndicator && (
-                      <NewsIndicator className="tg-notification-bubble">
-                        {newsIndicator}
-                      </NewsIndicator>
-                    )}
+                    {group.indicator &&
+                      typeof newsIndicator === 'number' &&
+                      newsIndicator > 0 && (
+                        <NewsIndicator className="tg-notification-bubble">
+                          {newsIndicator}
+                        </NewsIndicator>
+                      )}
                   </Text>
                 </HeaderLink>
               ) : (
