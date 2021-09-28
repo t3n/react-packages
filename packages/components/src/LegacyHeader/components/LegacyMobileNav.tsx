@@ -232,7 +232,7 @@ const LegacyMobileNav: React.FC<{
           component={MaterialMenu}
           onClick={() => setMenuOpen(!menuOpen)}
         />
-        {newsIndicator && (
+        {typeof newsIndicator === 'number' && newsIndicator > 0 && (
           <NewsIndicator className="tg-notification-bubble">
             {newsIndicator}
           </NewsIndicator>
