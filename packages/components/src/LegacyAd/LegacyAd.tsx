@@ -36,6 +36,13 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
     border: none !important;
   }
 
+  ${({ name }) =>
+    name === 'p0'
+      ? css`
+          background-color: rgb(223, 223, 223);
+        `
+      : ''}
+
   ${({ name, theme }) =>
     name === 'p1'
       ? css`
@@ -45,7 +52,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
           justify-content: center;
           ${color({ theme, bg: 'background.secondary' })}
           /* The background image svg is not the same as in styleguide-rebrush, so be careful when updating! */
-          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='44px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='46px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
           background-position: center center;
           background-repeat: no-repeat;
 
@@ -117,7 +124,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
           #${name} {
             ${color({ theme, bg: 'background.secondary' })}
             /* The backround image svg is not the same as in styleguide-rebrush, so be careful when updating! */
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='44px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='46px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
             background-position: center center;
             background-repeat: no-repeat;
           }
@@ -146,7 +153,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
       ? css`
           #${name} {
             /* The backround image svg is not the same as in styleguide-rebrush, so be careful when updating! */
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='44px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='46px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
             background-position: center center;
             background-repeat: no-repeat;
           }
@@ -206,7 +213,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
           @media screen and (max-width: ${theme.breakpoints[1]}) {
             #${name} {
               /* The backround image svg is not the same as in styleguide-rebrush, so be careful when updating! */
-              background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='44px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
+              background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='46px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
               background-position: center center;
               background-repeat: no-repeat;
             }
