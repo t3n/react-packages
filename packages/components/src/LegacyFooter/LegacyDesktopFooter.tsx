@@ -43,25 +43,21 @@ const DesktopLinkWrapper = styled(Grid)`
 const DesktopLinkGroup = styled(GridItem)`
   width: auto;
   ${({ theme }) =>
+    border({
+      theme,
+      borderWidth: 0,
+      borderColor: 'shades.grey143',
+      borderStyle: 'solid',
+      borderLeftWidth: 1,
+    })};
+  ${({ theme }) =>
     space({
       theme,
       mx: 0,
     })}
 
-  &:last-child {
-    border: none;
-  }
-
   &:not(:first-child) {
     width: 150px;
-    ${({ theme }) =>
-      border({
-        theme,
-        borderWidth: 0,
-        borderColor: 'shades.grey143',
-        borderStyle: 'solid',
-        borderLeftWidth: 1,
-      })};
   }
 `;
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   border,
   color,
@@ -27,17 +27,34 @@ const ArrowDownIcon: React.FC = () => (
   </svg>
 );
 
-const MainNavWrapper = styled(Box)<{ isSticky?: boolean }>`
+const MainNavWrapper = styled.nav<{ isSticky?: boolean }>`
   width: 100%;
   margin: 0 auto;
+  display: flex;
 
   ${({ theme, isSticky }) =>
-    space({ theme, p: ['0', '0', '0', isSticky ? '0 40px 0 10px' : '0 10%'] })};
+    space({ theme, p: ['0', '0', isSticky ? '0 40px 0 10px' : '0 10%'] })};
+`;
+
+const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
+  width: 100%;
+  margin-top: 14px;
+  margin-bottom: 13px;
+  display: flex;
+
+  ${({ isSticky }) =>
+    isSticky
+      ? css`
+          justify-content: flex-start;
+        `
+      : css`
+          justify-content: space-between;
+        `}
 `;
 
 const MainNavDropdown = styled.ul`
   right: 0;
-  z-index: 1;
+  z-index: 10;
   list-style-type: none;
   letter-spacing: 0;
 
@@ -60,10 +77,16 @@ const MainNavDropdown = styled.ul`
     })};
 `;
 
-const MainNavItem = styled(Box)`
+const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
   position: relative;
   cursor: pointer;
   letter-spacing: normal;
+
+  ${({ isSticky, theme }) => space({ theme, mr: isSticky ? '.938rem' : 0 })}
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   * {
     ${({ theme }) => typography({ theme, fontSize: 2 })};
@@ -265,17 +288,10 @@ const LegacyMainNav: React.FC<{
   newsIndicator?: number;
 }> = ({ isSticky, newsIndicator }) => {
   return (
-    <MainNavWrapper display="flex" className="tg-menu" isSticky={isSticky}>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        width="94%"
-        mt="14px"
-        mb="13px"
-        pr={isSticky ? 7 : 0}
-      >
+    <MainNavWrapper className="tg-menu" isSticky={isSticky}>
+      <MainNavInnerWrapper isSticky={isSticky}>
         {mainNavLinkGroups.map((group, idx) => (
-          <MainNavItem key={idx}>
+          <MainNavItem key={idx} isSticky={isSticky}>
             <Box display="flex">
               {group.url ? (
                 <HeaderLink href={group.url} title={group.label}>
@@ -317,7 +333,7 @@ const LegacyMainNav: React.FC<{
             )}
           </MainNavItem>
         ))}
-      </Box>
+      </MainNavInnerWrapper>
     </MainNavWrapper>
   );
 };
