@@ -90,7 +90,7 @@ const legacyMobileLinks: MobileLinkType = [
     url: '/datenschutz/',
   },
   {
-    label: 'Datenschutzeinstellungen',
+    label: 'Cookie-Einstellungen',
     url: '#',
     onClick: (e: any) => {
       e.preventDefault();
