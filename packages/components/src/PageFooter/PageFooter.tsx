@@ -255,7 +255,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                       (window as any)._sp_.loadPrivacyManagerModal(399880);
                     }}
                   >
-                    Datenschutzeinstellungen
+                    Cookie-Einstellungen
                   </FooterLink>
                 </Text>
               )}

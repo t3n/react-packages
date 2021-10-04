@@ -135,7 +135,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/datenschutz/',
       },
       {
-        label: 'Datenschutzeinstellungen',
+        label: 'Cookie-Einstellungen',
         url: '#',
         onClick: (e: any) => {
           e.preventDefault();
