@@ -1,6 +1,5 @@
-import React from 'react';
-import { useScrollYPosition } from 'react-use-scroll-position';
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
 import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -29,11 +28,25 @@ const T3nLogoSmall: React.FC = () => (
   </svg>
 );
 
-const StickyHeaderWrapper = styled(Box)`
+const StickyHeaderWrapper = styled(Box)<{ show: boolean }>`
   z-index: 300;
   position: fixed;
   top: 0;
   width: 61.25rem;
+  transition: opacity 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+
+  ${({ show }) =>
+    show
+      ? css`
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+        `
+      : css`
+          visibility: hidden;
+          opacity: 0;
+          transform: translateY(-100%);
+        `}
 `;
 
 export const StickyHeader = styled(Box)`
@@ -68,7 +81,7 @@ export const StickyHeader = styled(Box)`
   }
 
   ${SearchForm} {
-    ${({ theme }) => space({ px: 6, py: '10px', theme })}
+    ${({ theme }) => space({ pr: 6, py: '10px', theme })}
     ${({ theme }) => layout({ theme, height: '56px' })};
   }
 
@@ -87,7 +100,7 @@ const StickyNavBox = styled(Box)`
   }
 
   button {
-    ${({ theme }) => space({ mr: '6px', mt: '-2px', theme })}
+    ${({ theme }) => space({ mr: '6px', mt: '4px', theme })}
   }
 `;
 
@@ -158,13 +171,29 @@ export const LegacyDesktopHeader: React.FC<{
   showAds,
   adsPreview,
 }) => {
-  const y = useScrollYPosition();
-  // 280 is the height of regular LegacyHeader
-  const p0Height = document.querySelector('#p0')?.clientHeight ?? 0;
-  const isStickyVisible = y > p0Height + 280;
+  const [displaySticky, setDisplaySticky] = useState(false);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const testDisplaySticky = () => {
+      if (!headerRef.current) return;
+
+      const { scrollY } = window;
+      const headerOffsetTop = headerRef.current.offsetTop;
+      const headerHeight = headerRef.current.offsetHeight;
+
+      setDisplaySticky(scrollY > headerHeight + headerOffsetTop);
+    };
+
+    window.addEventListener('scroll', testDisplaySticky);
+
+    return () => {
+      window.removeEventListener('scroll', testDisplaySticky);
+    };
+  }, []);
 
   return (
-    <Box position="relative">
+    <Box position="relative" ref={headerRef}>
       {showAds && <LegacyAd name="p2" preview={adsPreview} />}
       <HeaderWrapper className="tg-header">
         <VisualHeader display="flex" alignItems="center">
@@ -209,46 +238,44 @@ export const LegacyDesktopHeader: React.FC<{
           <LegacyTagNav tags={tags} loading={tagsLoading} />
         </Box>
       </HeaderWrapper>
-      {isStickyVisible && (
-        <StickyHeaderWrapper>
-          <StickyHeader className="tg-header">
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              px={2}
-            >
-              <a href="/" title="t3n - digital pioneers">
-                <T3nLogoSmall />
-              </a>
-              <StickyNavBox width="100%" position="relative">
-                <LegacyMainNav
-                  isSticky
-                  newsIndicator={newsIndicator}
-                  proIndicator={proIndicator}
-                />
-                <SearchForm action="/suche" method="get">
-                  <SearchInput
-                    type="text"
-                    placeholder="t3n.de durchsuchen"
-                    name="q"
-                    id="js-search-box"
-                  />
-                  <SearchButton type="submit">
-                    <SearchIcon />
-                  </SearchButton>
-                </SearchForm>
-              </StickyNavBox>
-              <LegacyUserMenu
-                loading={!user}
-                user={user}
-                labelUrl={userMenuLabelUrl}
-                itemGroups={userMenuLinkGroups}
+      <StickyHeaderWrapper show={displaySticky}>
+        <StickyHeader className="tg-header">
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            px={2}
+          >
+            <a href="/" title="t3n - digital pioneers">
+              <T3nLogoSmall />
+            </a>
+            <StickyNavBox width="100%" position="relative">
+              <LegacyMainNav
+                isSticky
+                newsIndicator={newsIndicator}
+                proIndicator={proIndicator}
               />
-            </Box>
-          </StickyHeader>
-        </StickyHeaderWrapper>
-      )}
+              <SearchForm action="/suche" method="get">
+                <SearchInput
+                  type="text"
+                  placeholder="t3n.de durchsuchen"
+                  name="q"
+                  id="js-search-box"
+                />
+                <SearchButton type="submit">
+                  <SearchIcon />
+                </SearchButton>
+              </SearchForm>
+            </StickyNavBox>
+            <LegacyUserMenu
+              loading={!user}
+              user={user}
+              labelUrl={userMenuLabelUrl}
+              itemGroups={userMenuLinkGroups}
+            />
+          </Box>
+        </StickyHeader>
+      </StickyHeaderWrapper>
     </Box>
   );
 };

@@ -38,7 +38,7 @@ export const SearchInput = styled.input`
   cursor: pointer;
   transform: translateX(42px);
   opacity: 0;
-  z-index: 150;
+  z-index: 5;
 
   ${({ theme }) =>
     border({
@@ -67,6 +67,7 @@ export const SearchForm = styled.form`
     transition: all 0.4s cubic-bezier(0, 0.795, 0, 1);
     transform: translateX(0);
     opacity: 1;
+    cursor: initial;
 
     ${({ theme }) => typography({ fontSize: 1, theme })};
 
@@ -120,6 +121,7 @@ export const LegacyTagNav: React.FC<{
       <Box
         display={['block', 'block', 'flex', 'flex']}
         justifyContent="center"
+        alignItems="center"
         position="relative"
         className="tg-submenu"
       >

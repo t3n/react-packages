@@ -234,7 +234,7 @@ const LegacyMobileNav: React.FC<{
           component={MaterialMenu}
           onClick={() => setMenuOpen(!menuOpen)}
         />
-        {(newsIndicator || proIndicator) && (
+        {typeof newsIndicator === 'number' && newsIndicator > 0 && (
           <Indicator className="tg-notification-bubble">
             {newsIndicator && proIndicator
               ? newsIndicator + proIndicator
@@ -244,7 +244,6 @@ const LegacyMobileNav: React.FC<{
           </Indicator>
         )}
       </MobileMenuToggleBox>
-
       <MobileMenuContainer menuOpen={menuOpen}>
         <Box
           height="58px"
