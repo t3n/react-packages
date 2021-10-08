@@ -36,7 +36,7 @@ const MainNavWrapper = styled.nav<{ isSticky?: boolean }>`
     space({ theme, p: ['0', '0', isSticky ? '0 40px 0 10px' : '0 10%'] })};
 `;
 
-const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
+export const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
   width: 100%;
   margin-top: 14px;
   margin-bottom: 13px;
@@ -52,7 +52,7 @@ const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
         `}
 `;
 
-const MainNavDropdown = styled.ul`
+export const MainNavDropdown = styled.ul`
   right: 0;
   z-index: 10;
   list-style-type: none;
@@ -77,7 +77,7 @@ const MainNavDropdown = styled.ul`
     })};
 `;
 
-const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
+export const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
   position: relative;
   cursor: pointer;
   letter-spacing: normal;
@@ -321,7 +321,6 @@ const LegacyMainNav: React.FC<{
               )}
               {group.dropdownLinks && <ArrowDownIcon />}
             </Box>
-
             {group.dropdownLinks && (
               <MainNavDropdown>
                 {group.dropdownLinks.map((link, index) => (
