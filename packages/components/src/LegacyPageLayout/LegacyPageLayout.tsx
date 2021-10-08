@@ -59,6 +59,7 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         headerCampaignImage={headerCampaignImage}
         headerCampaignImageMobile={headerCampaignImageMobile}
         newsIndicator={newsIndicator}
+        proIndicator={proIndicator}
         showAds={showP2}
         adsPreview={previewP2}
       />

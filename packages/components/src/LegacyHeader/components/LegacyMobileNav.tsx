@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -17,7 +18,7 @@ import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
-import { NewsIndicator } from './LegacyMainNav';
+import { Indicator } from './LegacyMainNav';
 
 const MobileMenuToggleBox = styled(Box)`
   span {
@@ -156,8 +157,8 @@ type MobileNavLinksType = {
 const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
-    url: '/pro/',
-    bold: true,
+    url: '/pro-artikel/',
+    indicator: true,
   },
   {
     label: 'News',
@@ -217,7 +218,8 @@ const mobileNavLinks: MobileNavLinksType[] = [
 const LegacyMobileNav: React.FC<{
   user: LegacyUserMenuProps['user'];
   newsIndicator?: number;
-}> = ({ user, newsIndicator }) => {
+  proIndicator?: number;
+}> = ({ user, newsIndicator, proIndicator }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -232,10 +234,14 @@ const LegacyMobileNav: React.FC<{
           component={MaterialMenu}
           onClick={() => setMenuOpen(!menuOpen)}
         />
-        {newsIndicator && (
-          <NewsIndicator className="tg-notification-bubble">
-            {newsIndicator}
-          </NewsIndicator>
+        {(newsIndicator || proIndicator) && (
+          <Indicator className="tg-notification-bubble">
+            {newsIndicator && proIndicator
+              ? newsIndicator + proIndicator
+              : newsIndicator && !proIndicator
+              ? newsIndicator
+              : proIndicator}
+          </Indicator>
         )}
       </MobileMenuToggleBox>
 
@@ -274,10 +280,15 @@ const LegacyMobileNav: React.FC<{
                 color={link.bold ? 'text.primary' : 'inherit'}
               >
                 {link.label}
-                {link.indicator && (
-                  <NewsIndicator className="tg-notification-bubble">
+                {link.label === 'News' && link.indicator && (
+                  <Indicator className="tg-notification-bubble">
                     {newsIndicator}
-                  </NewsIndicator>
+                  </Indicator>
+                )}
+                {link.label === 'Pro' && link.indicator && (
+                  <Indicator className="tg-notification-bubble">
+                    {proIndicator}
+                  </Indicator>
                 )}
               </Text>
             </HeaderLink>

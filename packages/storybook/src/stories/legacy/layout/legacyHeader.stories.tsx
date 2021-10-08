@@ -94,7 +94,8 @@ export const defaultStory = () => (
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
         headerCampaignImageMobile={variants[randomNumber].imageMobile}
-        newsIndicator={number('Indikator', 3)}
+        newsIndicator={number('News Indikator', 3)}
+        proIndicator={number('Pro Indikator', 1)}
       />
     </LegacyHeaderWrapper>
   </Wrapper>

@@ -50,11 +50,13 @@ const LegacyMobileHeader: React.FC<{
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
   newsIndicator?: number;
+  proIndicator?: number;
 }> = ({
   user,
   headerCampaignUrl,
   headerCampaignImageMobile,
   newsIndicator,
+  proIndicator,
 }) => {
   return (
     <MobileHeader
@@ -77,7 +79,11 @@ const LegacyMobileHeader: React.FC<{
           />
         </a>
       </HeaderCampaign>
-      <LegacyMobileNav user={user} newsIndicator={newsIndicator} />
+      <LegacyMobileNav
+        user={user}
+        newsIndicator={newsIndicator}
+        proIndicator={proIndicator}
+      />
     </MobileHeader>
   );
 };

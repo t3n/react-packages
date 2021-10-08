@@ -158,8 +158,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Pro',
-        url: '/pro/',
-        bold: true,
+        url: '/pro-artikel/',
       },
       {
         label: 'News',
