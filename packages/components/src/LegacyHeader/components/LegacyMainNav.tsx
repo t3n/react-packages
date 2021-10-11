@@ -36,7 +36,7 @@ const MainNavWrapper = styled.nav<{ isSticky?: boolean }>`
     space({ theme, p: ['0', '0', isSticky ? '0 40px 0 10px' : '0 10%'] })};
 `;
 
-export const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
+const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
   width: 100%;
   margin-top: 14px;
   margin-bottom: 13px;
@@ -77,7 +77,7 @@ export const MainNavDropdown = styled.ul`
     })};
 `;
 
-export const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
+const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
   position: relative;
   cursor: pointer;
   letter-spacing: normal;

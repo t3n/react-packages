@@ -9,16 +9,7 @@ import { Box } from '../../Box';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Text } from '../../Text';
 import { HeaderLink } from '../LegacyHeader';
-import { MainNavDropdown, MainNavInnerWrapper } from './LegacyMainNav';
-
-const MainNavWrapper = styled.nav<{ isSticky?: boolean }>`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-
-  ${({ theme, isSticky }) =>
-    space({ theme, p: ['0', '0', isSticky ? '0 40px 0 10px' : '0 0'] })};
-`;
+import { MainNavDropdown } from './LegacyMainNav';
 
 const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
   position: relative;
@@ -134,39 +125,31 @@ const LegacyT3nNav: React.FC<{
       justifyContent="flex-end"
       pb="2px"
     >
-      <MainNavWrapper className="tg-menu">
-        <MainNavInnerWrapper>
-          {t3nNavLinks.map((link, idx) => (
-            <MainNavItem key={idx}>
-              <HeaderLink href={link.url} title={link.label} key={idx}>
-                <Box
-                  display="flex"
-                  justifyContent="between"
-                  alignItems="center"
+      {t3nNavLinks.map((link, idx) => (
+        <MainNavItem key={idx}>
+          <HeaderLink href={link.url} title={link.label} key={idx}>
+            <Box display="flex" justifyContent="between" alignItems="center">
+              <Text>
+                {link.label}
+                {link.dropdownLinks && <ArrowDownIcon />}
+              </Text>
+            </Box>
+          </HeaderLink>
+          {link.dropdownLinks && (
+            <MainNavDropdown>
+              {link.dropdownLinks.map((dropdownlink, index) => (
+                <HeaderLink
+                  href={dropdownlink.url}
+                  title={dropdownlink.label}
+                  key={index}
                 >
-                  <Text>
-                    {link.label}
-                    {link.dropdownLinks && <ArrowDownIcon />}
-                  </Text>
-                </Box>
-              </HeaderLink>
-              {link.dropdownLinks && (
-                <MainNavDropdown>
-                  {link.dropdownLinks.map((dropdownlink, index) => (
-                    <HeaderLink
-                      href={dropdownlink.url}
-                      title={dropdownlink.label}
-                      key={index}
-                    >
-                      <Text my={2}>{dropdownlink.label}</Text>
-                    </HeaderLink>
-                  ))}
-                </MainNavDropdown>
-              )}
-            </MainNavItem>
-          ))}
-        </MainNavInnerWrapper>
-      </MainNavWrapper>
+                  <Text>{dropdownlink.label}</Text>
+                </HeaderLink>
+              ))}
+            </MainNavDropdown>
+          )}
+        </MainNavItem>
+      ))}
       <LegacyUserMenu
         loading={!user}
         user={user}
