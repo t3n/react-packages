@@ -55,7 +55,7 @@ const AvatarLink = styled.a`
 
 const LegacyUserMenuList = styled.ul`
   right: 0;
-  z-index: 1;
+  z-index: 10;
   list-style-type: none;
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => space({ theme, m: '1px', py: 2, px: 3 })};

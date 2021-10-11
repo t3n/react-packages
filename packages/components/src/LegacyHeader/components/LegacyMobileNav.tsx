@@ -14,10 +14,12 @@ import { getColorForBackground, ThemeProps } from '@t3n/theme';
 import { Box } from '../../Box';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
+import { Image } from '../../Image';
 import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
+import { Logo } from '../../Logo';
 import { Text } from '../../Text';
-import { HeaderLink } from '../LegacyHeader';
+import { HeaderCampaign, HeaderLink } from '../LegacyHeader';
 import { Indicator } from './LegacyMainNav';
 
 const MobileMenuToggleBox = styled(Box)`
@@ -144,7 +146,7 @@ const SearchForm = styled.form`
       bg: 'background.secondary',
     })};
 
-  ${({ theme }) => space({ theme, p: 3 })};
+  ${({ theme }) => space({ theme, p: 3, mt: -1 })};
 `;
 
 type MobileNavLinksType = {
@@ -219,7 +221,15 @@ const LegacyMobileNav: React.FC<{
   user: LegacyUserMenuProps['user'];
   newsIndicator?: number;
   proIndicator?: number;
-}> = ({ user, newsIndicator, proIndicator }) => {
+  headerCampaignUrl: string;
+  headerCampaignImageMobile?: string;
+}> = ({
+  user,
+  newsIndicator,
+  proIndicator,
+  headerCampaignUrl,
+  headerCampaignImageMobile,
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -252,6 +262,20 @@ const LegacyMobileNav: React.FC<{
           justifyContent="flex-end"
           mr={2}
         >
+          <Box flexGrow={1} ml="3px" mb="1px">
+            <a href="/" title="t3n - digital pioneers">
+              <Logo />
+            </a>
+          </Box>
+          <HeaderCampaign mr={5}>
+            <a href={headerCampaignUrl}>
+              <Image
+                src={headerCampaignImageMobile}
+                width={[80, 80, 250, 320]}
+                height={[50, 50, 120, 160]}
+              />
+            </a>
+          </HeaderCampaign>
           <MobileMenuToggle
             fill="shades.grey42"
             width="2rem"
