@@ -83,6 +83,8 @@ const LegacyMobileHeader: React.FC<{
         user={user}
         newsIndicator={newsIndicator}
         proIndicator={proIndicator}
+        headerCampaignUrl={headerCampaignUrl}
+        headerCampaignImageMobile={headerCampaignImageMobile}
       />
     </MobileHeader>
   );
