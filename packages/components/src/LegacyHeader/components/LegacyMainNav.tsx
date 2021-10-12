@@ -122,7 +122,7 @@ const StyledText = styled(Text)`
   }
 `;
 
-export const NewsIndicator = styled.span`
+export const Indicator = styled.span`
   display: inline-block;
   text-align: center;
   letter-spacing: 0;
@@ -156,8 +156,8 @@ type MainNavLinkGroupsType = {
 const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   {
     label: 'Pro',
-    url: '/pro/',
-    bold: true,
+    url: '/pro-artikel/',
+    indicator: true,
   },
   {
     label: 'News',
@@ -286,7 +286,8 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
 const LegacyMainNav: React.FC<{
   isSticky?: boolean;
   newsIndicator?: number;
-}> = ({ isSticky, newsIndicator }) => {
+  proIndicator?: number;
+}> = ({ isSticky, newsIndicator, proIndicator }) => {
   return (
     <MainNavWrapper className="tg-menu" isSticky={isSticky}>
       <MainNavInnerWrapper isSticky={isSticky}>
@@ -301,12 +302,21 @@ const LegacyMainNav: React.FC<{
                     color={group.bold ? 'text.primary' : 'inherit'}
                   >
                     {group.label}
-                    {group.indicator &&
+                    {group.label === 'News' &&
+                      group.indicator &&
                       typeof newsIndicator === 'number' &&
                       newsIndicator > 0 && (
-                        <NewsIndicator className="tg-notification-bubble">
+                        <Indicator className="tg-notification-bubble">
                           {newsIndicator}
-                        </NewsIndicator>
+                        </Indicator>
+                      )}
+                    {group.label === 'Pro' &&
+                      group.indicator &&
+                      typeof proIndicator === 'number' &&
+                      proIndicator > 0 && (
+                        <Indicator className="tg-notification-bubble">
+                          {proIndicator}
+                        </Indicator>
                       )}
                   </Text>
                 </HeaderLink>

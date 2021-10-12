@@ -5,5 +5,6 @@ declare const LegacyMobileHeader: React.FC<{
     headerCampaignUrl: string;
     headerCampaignImageMobile?: string;
     newsIndicator?: number;
+    proIndicator?: number;
 }>;
 export default LegacyMobileHeader;

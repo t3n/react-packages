@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -13,11 +14,13 @@ import { getColorForBackground, ThemeProps } from '@t3n/theme';
 import { Box } from '../../Box';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
+import { Image } from '../../Image';
 import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
+import { Logo } from '../../Logo';
 import { Text } from '../../Text';
-import { HeaderLink } from '../LegacyHeader';
-import { NewsIndicator } from './LegacyMainNav';
+import { HeaderCampaign, HeaderLink } from '../LegacyHeader';
+import { Indicator } from './LegacyMainNav';
 
 const MobileMenuToggleBox = styled(Box)`
   span {
@@ -143,7 +146,7 @@ const SearchForm = styled.form`
       bg: 'background.secondary',
     })};
 
-  ${({ theme }) => space({ theme, p: 3 })};
+  ${({ theme }) => space({ theme, p: 3, mt: -1 })};
 `;
 
 type MobileNavLinksType = {
@@ -156,8 +159,8 @@ type MobileNavLinksType = {
 const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
-    url: '/pro/',
-    bold: true,
+    url: '/pro-artikel/',
+    indicator: true,
   },
   {
     label: 'News',
@@ -217,7 +220,16 @@ const mobileNavLinks: MobileNavLinksType[] = [
 const LegacyMobileNav: React.FC<{
   user: LegacyUserMenuProps['user'];
   newsIndicator?: number;
-}> = ({ user, newsIndicator }) => {
+  proIndicator?: number;
+  headerCampaignUrl: string;
+  headerCampaignImageMobile?: string;
+}> = ({
+  user,
+  newsIndicator,
+  proIndicator,
+  headerCampaignUrl,
+  headerCampaignImageMobile,
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -233,12 +245,15 @@ const LegacyMobileNav: React.FC<{
           onClick={() => setMenuOpen(!menuOpen)}
         />
         {typeof newsIndicator === 'number' && newsIndicator > 0 && (
-          <NewsIndicator className="tg-notification-bubble">
-            {newsIndicator}
-          </NewsIndicator>
+          <Indicator className="tg-notification-bubble">
+            {newsIndicator && proIndicator
+              ? newsIndicator + proIndicator
+              : newsIndicator && !proIndicator
+              ? newsIndicator
+              : proIndicator}
+          </Indicator>
         )}
       </MobileMenuToggleBox>
-
       <MobileMenuContainer menuOpen={menuOpen}>
         <Box
           height="58px"
@@ -247,6 +262,20 @@ const LegacyMobileNav: React.FC<{
           justifyContent="flex-end"
           mr={2}
         >
+          <Box flexGrow={1} ml="3px" mb="1px">
+            <a href="/" title="t3n - digital pioneers">
+              <Logo />
+            </a>
+          </Box>
+          <HeaderCampaign mr={5}>
+            <a href={headerCampaignUrl}>
+              <Image
+                src={headerCampaignImageMobile}
+                width={[80, 80, 250, 320]}
+                height={[50, 50, 120, 160]}
+              />
+            </a>
+          </HeaderCampaign>
           <MobileMenuToggle
             fill="shades.grey42"
             width="2rem"
@@ -274,10 +303,15 @@ const LegacyMobileNav: React.FC<{
                 color={link.bold ? 'text.primary' : 'inherit'}
               >
                 {link.label}
-                {link.indicator && (
-                  <NewsIndicator className="tg-notification-bubble">
+                {link.label === 'News' && link.indicator && (
+                  <Indicator className="tg-notification-bubble">
                     {newsIndicator}
-                  </NewsIndicator>
+                  </Indicator>
+                )}
+                {link.label === 'Pro' && link.indicator && (
+                  <Indicator className="tg-notification-bubble">
+                    {proIndicator}
+                  </Indicator>
                 )}
               </Text>
             </HeaderLink>

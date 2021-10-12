@@ -54,8 +54,7 @@ type MobileLinkType = {
 const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Pro',
-    url: '/pro/',
-    bold: true,
+    url: '/pro-artikel/',
   },
   {
     label: 'Team',
