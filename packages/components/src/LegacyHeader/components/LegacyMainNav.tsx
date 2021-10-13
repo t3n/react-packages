@@ -52,7 +52,7 @@ const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
         `}
 `;
 
-const MainNavDropdown = styled.ul`
+export const MainNavDropdown = styled.ul`
   right: 0;
   z-index: 10;
   list-style-type: none;
@@ -331,7 +331,6 @@ const LegacyMainNav: React.FC<{
               )}
               {group.dropdownLinks && <ArrowDownIcon />}
             </Box>
-
             {group.dropdownLinks && (
               <MainNavDropdown>
                 {group.dropdownLinks.map((link, index) => (
