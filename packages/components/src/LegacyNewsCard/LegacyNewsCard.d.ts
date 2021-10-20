@@ -3,6 +3,8 @@ export interface LegacyNewsCardProps {
     popular?: boolean;
     sponsored?: boolean;
     hero?: boolean;
+    pro?: boolean;
+    onBookmarkClick: () => void;
     news?: {
         title: string;
         type: string;
@@ -14,9 +16,10 @@ export interface LegacyNewsCardProps {
         imageUrl: string;
         publishedAt: Date;
         url: string;
+        readingTime?: number;
     };
 }
 export declare const LegacyLoadingHeroCard: () => JSX.Element;
 export declare const LegacyLoadingFeedCard: () => JSX.Element;
 export declare const LegacyLoadingMobileCard: () => JSX.Element;
-export declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, }: LegacyNewsCardProps) => JSX.Element | null;
+export declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, pro, onBookmarkClick, }: LegacyNewsCardProps) => JSX.Element | null;

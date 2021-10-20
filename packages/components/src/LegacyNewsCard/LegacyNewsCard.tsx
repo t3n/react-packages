@@ -3,19 +3,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { border, space, typography } from 'styled-system';
 
+import { T3nPro } from '@t3n/icons';
+
 import { Box } from '../Box';
 import { Heading } from '../Heading';
 import { Image } from '../Image';
-import { LegacyArticleSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyCard } from '../LegacyCard';
 import { Placeholder } from '../Placeholder';
 import { Text } from '../Text';
+import LegacyNewsCardMetaData from './LegacyNewsCardMetaData';
 
 export interface LegacyNewsCardProps {
   loading: boolean;
   popular?: boolean;
   sponsored?: boolean;
   hero?: boolean;
+  pro?: boolean;
+  onBookmarkClick: () => void;
 
   news?: {
     title: string;
@@ -28,15 +32,9 @@ export interface LegacyNewsCardProps {
     imageUrl: string;
     publishedAt: Date;
     url: string;
+    readingTime?: number;
   };
 }
-
-const LegacyNewsCardHeadline = styled(Heading)<
-  Pick<LegacyNewsCardProps, 'hero'>
->`
-  ${({ theme, hero }) => typography({ theme, fontSize: hero ? '2.65rem' : 3 })}
-  ${({ theme, hero }) => space({ theme, ml: !hero ? '216px' : '' })}
-`;
 
 const LegacyNewsCardMobileHeadline = styled(Heading)`
   ${({ theme }) => typography({ theme, fontSize: 2 })}
@@ -58,32 +56,22 @@ const LegacyMobileNewsCard = styled(Box)`
       borderBottom: '2px solid',
       borderColor: 'shades.grey232',
     })}
-`;
-
-const LegacyNewsCardMeta = styled(Box)`
-  display: flex;
-  justify-content: space-between;
-
-  p {
-    font-size: 12px;
-  }
+  ${({ theme }) => space({ theme, px: 3 })}
 `;
 
 export const LegacyLoadingHeroCard = () => (
   <LegacyCard display={['none', 'none', 'block']}>
-    <Placeholder width="90%" height="3rem" mt={1} mb={2} />
-    <Placeholder width={1 / 2} height="3rem" mt={1} mb={5} />
-    <Box display="flex">
-      <Box mr={3}>
-        <Placeholder width="380px" height="215px" />
-      </Box>
-      <Box width={1}>
-        <Placeholder height="1.5rem" mt={1} mb={2} />
-        <Placeholder height="1.5rem" mt={1} mb={2} />
-        <Placeholder height="1.5rem" mt={1} mb={2} />
-        <Placeholder height="1.5rem" mt={1} mb={2} width={3 / 4} />
-      </Box>
-    </Box>
+    <Placeholder
+      width="calc(100% + 2 * 16px)"
+      height="calc(344px + 16px)"
+      ml={-3}
+      mt={-3}
+      mb={3}
+    />
+    <Placeholder width="90%" height="2rem" mt={3} mb={2} />
+    <Placeholder height="1.5rem" mt={1} mb={2} />
+    <Placeholder height="1.5rem" mt={1} mb={2} width={3 / 4} />
+    <Placeholder height="0.9rem" mt={3} mb={2} width="100%" />
   </LegacyCard>
 );
 
@@ -99,19 +87,18 @@ export const LegacyLoadingFeedCard = () => (
         <Placeholder height="0.875rem" mt={1} mb={1} width="95%" />
         <Placeholder height="0.875rem" mt={1} mb={1} />
         <Placeholder height="0.875rem" mt={1} width={3 / 4} />
+        <Placeholder height="0.9rem" mt={4} mb={2} width="100%" />
       </Box>
     </Box>
   </LegacyCard>
 );
 
 export const LegacyLoadingMobileCard = () => (
-  <LegacyMobileNewsCard px={3}>
-    <Placeholder height="1.5rem" mt={1} mb={4} width="90%" />
-    <Placeholder height="190px" width="320px" />
-    <LegacyNewsCardMeta mt={2}>
-      <Placeholder height="0.875rem" mt={1} mb={1} width="10%" />
-      <Placeholder height="0.875rem" mt={1} mb={1} width="10%" />
-    </LegacyNewsCardMeta>
+  <LegacyMobileNewsCard>
+    <Placeholder height="1.25rem" mt={1} mb={2} width="100%" />
+    <Placeholder height="1.25rem" mt={1} mb={4} width="100%" />
+    <Placeholder height="230px" width="350px" />
+    <Placeholder height="0.9rem" mt={3} mb={3} width="100%" />
   </LegacyMobileNewsCard>
 );
 
@@ -121,6 +108,8 @@ export const LegacyNewsCard = ({
   hero,
   sponsored,
   popular,
+  pro,
+  onBookmarkClick,
 }: LegacyNewsCardProps) => {
   if (!loading && !news) {
     return <Text>Keine Daten vorhanden</Text>;
@@ -142,26 +131,35 @@ export const LegacyNewsCard = ({
   return news ? (
     <>
       <LegacyCard display={['none', 'none', 'block']}>
-        <a href={news.url}>
-          {sponsored && (
-            <SponsoredInfo as="span" secondary small hero={hero}>
-              Anzeige
-            </SponsoredInfo>
-          )}
-          <LegacyNewsCardHeadline hero={hero} as={hero ? 'h2' : 'h3'} mt={0}>
-            {news.title}
-          </LegacyNewsCardHeadline>
-        </a>
-        <Box display="flex">
+        {!hero && (
+          <a href={news.url}>
+            {sponsored && (
+              <SponsoredInfo as="span" secondary small hero={hero}>
+                Anzeige
+              </SponsoredInfo>
+            )}
+            <Heading as="h4" mt={0} mb={2} ml="216px">
+              {pro && (
+                <>
+                  <T3nPro height="12" width="25" />{' '}
+                </>
+              )}
+              {news.title}
+            </Heading>
+          </a>
+        )}
+        <Box display="flex" flexDirection={hero ? 'column' : 'row'}>
           <Box
-            mr={3}
+            ml={hero ? -3 : 0}
+            mt={hero ? -3 : 0}
             position={hero ? 'initial' : 'absolute'}
             top={hero ? '' : '16px'}
+            mb={hero ? 3 : 0}
           >
             <a href={news.url}>
               <Image
-                width={hero ? '380px' : '200px'}
-                height={hero ? '215px' : '120px'}
+                width={hero ? 'calc(100% + 16px)' : '200px'}
+                height={hero ? 'calc(344px + 16px)' : '120px'}
                 fit="crop"
                 src={news.imageUrl}
               />
@@ -169,8 +167,24 @@ export const LegacyNewsCard = ({
           </Box>
           <Box ml={hero ? '0' : '216px'}>
             <a href={news.url}>
+              {hero && (
+                <>
+                  {sponsored && (
+                    <SponsoredInfo as="span" secondary small hero={hero}>
+                      Anzeige
+                    </SponsoredInfo>
+                  )}
+                  <Heading as="h4" mt={0} mb={3}>
+                    {pro && (
+                      <>
+                        <T3nPro height="12" width="25" />{' '}
+                      </>
+                    )}
+                    {news.title}
+                  </Heading>
+                </>
+              )}
               <LegacyHeroTeaser mt={0} mb={0}>
-                <strong>{news.type} </strong>
                 {news.teaser}
               </LegacyHeroTeaser>
             </a>
@@ -179,12 +193,22 @@ export const LegacyNewsCard = ({
                 Dieser Artikel hat besonders viele Leser interessiert
               </Text>
             )}
-            <LegacyArticleSocialShare url={news.url} title={news.title} />
+            <LegacyNewsCardMetaData
+              type={news.type}
+              publishedAt={news.publishedAt}
+              readingTime={news.readingTime}
+              onClick={onBookmarkClick}
+            />
           </Box>
         </Box>
       </LegacyCard>
-      <LegacyMobileNewsCard display={['block', 'block', 'none']} px={3}>
+      <LegacyMobileNewsCard display={['block', 'block', 'none']}>
         <LegacyNewsCardMobileHeadline as="h3" mt={0}>
+          {pro && (
+            <>
+              <T3nPro height="12" width="25" />{' '}
+            </>
+          )}
           {news.title}
         </LegacyNewsCardMobileHeadline>
         <a href={news.url}>
@@ -196,18 +220,12 @@ export const LegacyNewsCard = ({
             src={news.imageUrl}
           />
         </a>
-        <LegacyNewsCardMeta mt={2}>
-          <Text bold mt={0}>
-            {news.type}
-          </Text>
-          <Text mt={0}>
-            {news.publishedAt.toLocaleDateString('de-DE', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-            })}
-          </Text>
-        </LegacyNewsCardMeta>
+        <LegacyNewsCardMetaData
+          type={news.type}
+          publishedAt={news.publishedAt}
+          readingTime={news.readingTime}
+          onClick={onBookmarkClick}
+        />
       </LegacyMobileNewsCard>
     </>
   ) : null;
