@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { boolean, number, text } from '@storybook/addon-knobs';
@@ -5,7 +6,6 @@ import gql from 'graphql-tag';
 
 import { Box, Grid, GridItem, LegacyNewsCard } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
 import {
   recentNews,
   recentNewsVariables,
@@ -14,7 +14,6 @@ import {
 export default {
   title: 'Legacy/Content/News-Card',
   component: LegacyNewsCard,
-  decorators: [storyContainerContentDecorator],
 };
 
 const RECENT_NEWS = gql`
@@ -59,19 +58,25 @@ const LegacyArticleCardWithData = ({
   );
 
   return (
-    <Grid wide justifyContent="center">
+    <Grid wide justifyContent="center" p={0}>
       {loading || fakeLoading
         ? new Array(limit).fill(null).map((el, idx) => (
             // eslint-disable-next-line react/no-array-index-key
             <GridItem key={idx} width={1} mb={4}>
-              <LegacyNewsCard loading hero={hero} />
+              <LegacyNewsCard
+                loading
+                hero={hero}
+                onBookmarkClick={() =>
+                  alert('Du hast auf "Artikel merken" geklickt!')
+                }
+              />
             </GridItem>
           ))
         : data &&
           data.article &&
           data.article.recentNews &&
           data.article.recentNews.map((news) => (
-            <GridItem key={news.identifier} width={1} mb={4}>
+            <GridItem key={news.identifier} width={1} mb={4} p={0}>
               <LegacyNewsCard
                 news={{
                   ...news,
@@ -85,6 +90,9 @@ const LegacyArticleCardWithData = ({
                 }}
                 loading={false}
                 hero={hero}
+                onBookmarkClick={() =>
+                  alert('Du hast auf "Artikel merken" geklickt!')
+                }
               />
             </GridItem>
           ))}
@@ -135,6 +143,8 @@ export const defaultStory = () => {
       news={news}
       popular={boolean('Popular', false, 'card')}
       sponsored={boolean('Sponsored', false, 'card')}
+      pro={boolean('Pro-Artikel?', false, 'card')}
+      onBookmarkClick={() => alert('Du hast auf "Artikel merken" geklickt!')}
     />
   );
 };
@@ -187,6 +197,9 @@ export const heroLayout = () => {
           hero
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
+          onBookmarkClick={() =>
+            alert('Du hast auf "Artikel merken" geklickt!')
+          }
         />
       </Box>
       <Box>
@@ -195,6 +208,9 @@ export const heroLayout = () => {
           hero
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
+          onBookmarkClick={() =>
+            alert('Du hast auf "Artikel merken" geklickt!')
+          }
         />
       </Box>
     </>
@@ -249,6 +265,9 @@ export const feedLayout = () => {
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
           popular={boolean('Popular', false, 'card')}
+          onBookmarkClick={() =>
+            alert('Du hast auf "Artikel merken" geklickt!')
+          }
         />
       </Box>
       <Box>
@@ -257,6 +276,9 @@ export const feedLayout = () => {
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
           popular={boolean('Popular', false, 'card')}
+          onBookmarkClick={() =>
+            alert('Du hast auf "Artikel merken" geklickt!')
+          }
         />
       </Box>
     </>

@@ -77,6 +77,7 @@ module.exports = {
 
     // Legacy - Content
     '../src/stories/legacy/content/legacyAd.stories',
+    '../src/stories/legacy/content/legacyBookmarkModal.stories',
     '../src/stories/legacy/content/legacyUserMenu.stories',
     '../src/stories/legacy/content/legacyNewsCard.stories',
     '../src/stories/legacy/content/legacySocialBar.stories',

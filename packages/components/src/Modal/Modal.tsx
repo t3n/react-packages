@@ -7,12 +7,18 @@ import { theme } from '@t3n/theme';
 
 import { Box } from '../Box';
 import { Card } from '../Card';
-import { Heading } from '../Heading';
+import { Heading, HeadingProps } from '../Heading';
+import { Icon } from '../Icon';
 
 export interface ModalProps extends WidthProps {
   headline: string;
+  headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
   wide?: boolean;
   onClose: () => void;
+}
+
+export interface ModalHeadingProps extends HeadingProps {
+  headlineIcon: boolean;
 }
 
 const ModalWrapper = styled(Box)`
@@ -52,8 +58,10 @@ const StyledModal = styled(Card)<{ wide: boolean }>`
     `}
 `;
 
-const StyledHeading = styled(Heading)`
+const StyledHeading = styled(Heading)<ModalHeadingProps>`
   width: 85%;
+
+  display: ${({ headlineIcon }) => (headlineIcon ? 'flex' : 'block')};
 `;
 
 const StyledIconContainer = styled(Box)`
@@ -89,6 +97,7 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
 export const Modal: React.FC<ModalProps> = ({
   headline,
+  headlineIcon,
   wide = false,
   width: widthProp,
   onClose,
@@ -102,7 +111,14 @@ export const Modal: React.FC<ModalProps> = ({
     >
       <StyledModal elevate wide={wide} width={widthProp || [1, 2 / 3, 2 / 5]}>
         <CloseIcon onClick={onClose} />
-        <StyledHeading styleAs="h4" as="h4" mt={1} mb={3}>
+        <StyledHeading
+          styleAs="h4"
+          as="h4"
+          mt={1}
+          mb={3}
+          headlineIcon={!!headlineIcon}
+        >
+          {headlineIcon && <Icon component={headlineIcon} mr={1} />}
           {headline}
         </StyledHeading>
         {children}

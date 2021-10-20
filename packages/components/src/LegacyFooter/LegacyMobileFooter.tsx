@@ -103,7 +103,11 @@ const LegacyMobileLinks = () => {
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
       {legacyMobileLinks.map((link) => (
-        <FooterLink href={link.url} onClick={link.onClick || undefined}>
+        <FooterLink
+          href={link.url}
+          onClick={link.onClick || undefined}
+          key={link.url}
+        >
           <LinkLabel
             mt={0}
             mb={1}

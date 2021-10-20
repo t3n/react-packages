@@ -3,6 +3,7 @@ export declare type SocialNetworkType = 'email' | 'facebook' | 'flipboard' | 'gi
 export interface SocialButtonProps {
     network: SocialNetworkType;
     $textBefore?: string;
+    $alternativeText?: string;
 }
 export interface SocialNetworksProps {
     [key: string]: {

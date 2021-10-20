@@ -40,6 +40,7 @@ export type SocialNetworkType =
 export interface SocialButtonProps {
   network: SocialNetworkType;
   $textBefore?: string;
+  $alternativeText?: string;
 }
 
 export interface SocialNetworksProps {
@@ -142,11 +143,14 @@ const socialButtonStyle = css<SocialButtonProps>`
 const mapSocialButtonAttributes = ({
   network,
   $textBefore,
+  $alternativeText,
 }: SocialButtonProps) => ({
   iconLeft: socialNetworksConfig[network].icon,
-  children: `${$textBefore ? `${$textBefore} ` : ''}${
-    socialNetworksConfig[network].name
-  }`,
+  children:
+    $alternativeText ||
+    `${$textBefore ? `${$textBefore} ` : ''}${
+      socialNetworksConfig[network].name
+    }`,
 });
 
 export const SocialButton = styled(Button).attrs(
