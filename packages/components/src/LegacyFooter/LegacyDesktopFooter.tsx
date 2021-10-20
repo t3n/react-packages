@@ -263,6 +263,7 @@ const LegacyDesktopLinks = () => {
           flexDirection="column"
           px="10px"
           pb="12px"
+          key={group.label}
         >
           <Text mt={0} bold>
             {group.label}
@@ -274,6 +275,7 @@ const LegacyDesktopLinks = () => {
               rel={link.rel || undefined}
               title={link.title || undefined}
               onClick={link.onClick || undefined}
+              key={link.url}
             >
               <LinkLabel
                 m={0}
