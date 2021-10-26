@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import styled from 'styled-components';
-import { border, space, typography } from 'styled-system';
+import { border, lineHeight, space, typography } from 'styled-system';
 
 import { T3nPro } from '@t3n/icons';
 
@@ -36,8 +36,13 @@ export interface LegacyNewsCardProps {
   };
 }
 
+const LineHeightHeading = styled(Heading)`
+  ${({ theme }) => lineHeight({ theme, lineHeight: 1 })}
+`;
+
 const LegacyNewsCardMobileHeadline = styled(Heading)`
   ${({ theme }) => typography({ theme, fontSize: 2 })}
+  ${({ theme }) => lineHeight({ theme, lineHeight: 1 })}
 `;
 
 const SponsoredInfo = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
@@ -46,7 +51,7 @@ const SponsoredInfo = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
 `;
 
 const LegacyHeroTeaser = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
-  ${({ theme, hero }) => typography({ theme, fontSize: hero ? 2 : 1 })}
+  ${({ theme, hero }) => typography({ theme, fontSize: hero ? 2 : '14px' })}
 `;
 
 const LegacyMobileNewsCard = styled(Box)`
@@ -138,14 +143,14 @@ export const LegacyNewsCard = ({
                 Anzeige
               </SponsoredInfo>
             )}
-            <Heading as="h4" mt={0} mb={2} ml="216px">
+            <LineHeightHeading as="h4" mt={0} mb={2} ml="216px">
               {pro && (
                 <>
                   <T3nPro height="12" width="25" />{' '}
                 </>
               )}
               {news.title}
-            </Heading>
+            </LineHeightHeading>
           </a>
         )}
         <Box display="flex" flexDirection={hero ? 'column' : 'row'}>
@@ -174,14 +179,14 @@ export const LegacyNewsCard = ({
                       Anzeige
                     </SponsoredInfo>
                   )}
-                  <Heading as="h4" mt={0} mb={3}>
+                  <LineHeightHeading as="h4" mt={0} mb={3}>
                     {pro && (
                       <>
                         <T3nPro height="12" width="25" />{' '}
                       </>
                     )}
                     {news.title}
-                  </Heading>
+                  </LineHeightHeading>
                 </>
               )}
               <LegacyHeroTeaser mt={0} mb={0}>
@@ -203,7 +208,7 @@ export const LegacyNewsCard = ({
         </Box>
       </LegacyCard>
       <LegacyMobileNewsCard display={['block', 'block', 'none']}>
-        <LegacyNewsCardMobileHeadline as="h3" mt={0}>
+        <LegacyNewsCardMobileHeadline as="h3" mt={0} mb="15px">
           {pro && (
             <>
               <T3nPro height="12" width="25" />{' '}
