@@ -22,7 +22,7 @@ const LegacyNewsCardMetaData: React.FC<{
     <LegacyNewsCardMeta
       display="flex"
       justifyContent="space-between"
-      mt={2}
+      mt={3}
       mb={[2, 2, 2, 0]}
     >
       <Box display="flex">

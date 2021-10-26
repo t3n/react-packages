@@ -33,6 +33,7 @@ export { Image } from './Image';
 export { Input } from './Input';
 export { JobCard } from './JobCard';
 export { LegacyAd } from './LegacyAd';
+export { LegacyBigRoundButton } from './LegacyBigRoundButton';
 export { LegacyBookmarkModal } from './LegacyBookmarkModal';
 export { LegacyFooter } from './LegacyFooter';
 export { LegacyHeader } from './LegacyHeader';

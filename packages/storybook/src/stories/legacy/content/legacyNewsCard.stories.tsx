@@ -34,6 +34,7 @@ const RECENT_NEWS = gql`
           lastName
           avatarUrl
         }
+        readingTime
       }
     }
   }
@@ -87,6 +88,7 @@ const LegacyArticleCardWithData = ({
                     avatar: news.author.avatarUrl || '',
                   },
                   publishedAt: new Date(news.date),
+                  readingTime: 3,
                 }}
                 loading={false}
                 hero={hero}

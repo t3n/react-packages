@@ -6,7 +6,7 @@ import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBo
 
 import { Box } from '../Box';
 
-const TooltipContainer = styled(Box)`
+export const TooltipContainer = styled(Box)`
   cursor: pointer;
   z-index: 50;
 
@@ -23,7 +23,7 @@ const TooltipContainer = styled(Box)`
   }
 `;
 
-const Tooltip = styled.span`
+export const Tooltip = styled.span`
   position: absolute;
   opacity: 0;
   transition: all 0.1s ease-out;
