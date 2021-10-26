@@ -19,6 +19,7 @@ export interface LegacyNewsCardProps {
   sponsored?: boolean;
   hero?: boolean;
   pro?: boolean;
+  isBookmarked?: boolean;
   onBookmarkClick: () => void;
 
   news?: {
@@ -114,6 +115,7 @@ export const LegacyNewsCard = ({
   sponsored,
   popular,
   pro,
+  isBookmarked = false,
   onBookmarkClick,
 }: LegacyNewsCardProps) => {
   if (!loading && !news) {
@@ -202,6 +204,7 @@ export const LegacyNewsCard = ({
               type={news.type}
               publishedAt={news.publishedAt}
               readingTime={news.readingTime}
+              isBookmarked={isBookmarked}
               onClick={onBookmarkClick}
             />
           </Box>
@@ -229,6 +232,7 @@ export const LegacyNewsCard = ({
           type={news.type}
           publishedAt={news.publishedAt}
           readingTime={news.readingTime}
+          isBookmarked={isBookmarked}
           onClick={onBookmarkClick}
         />
       </LegacyMobileNewsCard>

@@ -16,8 +16,9 @@ const LegacyNewsCardMetaData: React.FC<{
   type: string;
   publishedAt: Date;
   readingTime?: number;
+  isBookmarked: boolean;
   onClick: () => void;
-}> = ({ type, publishedAt, readingTime, onClick }) => {
+}> = ({ type, publishedAt, readingTime, isBookmarked, onClick }) => {
   return (
     <LegacyNewsCardMeta
       display="flex"
@@ -42,7 +43,7 @@ const LegacyNewsCardMetaData: React.FC<{
               })}
         </Text>
       </Box>
-      <LegacyBookmark onClick={onClick} />
+      <LegacyBookmark onClick={onClick} isBookmarked={isBookmarked} />
     </LegacyNewsCardMeta>
   );
 };

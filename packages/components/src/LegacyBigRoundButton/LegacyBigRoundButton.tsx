@@ -20,7 +20,7 @@ const BigRoundButton = styled(Button)`
   ${({ theme }) => layout({ theme, width: '50px', height: '50px' })};
 
   > svg {
-    ${({ theme }) => layout({ theme, width: '30px', height: '30px' })};
+    ${({ theme }) => layout({ theme, width: '25px', height: '25px' })};
     fill: #9b9b9b !important;
   }
 

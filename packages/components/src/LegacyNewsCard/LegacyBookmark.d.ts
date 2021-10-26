@@ -3,5 +3,6 @@ export declare const TooltipContainer: import("styled-components").StyledCompone
 export declare const Tooltip: import("styled-components").StyledComponent<"span", any, {}, never>;
 declare const LegacyBookmark: React.FC<{
     onClick: () => void;
+    isBookmarked: boolean;
 }>;
 export default LegacyBookmark;

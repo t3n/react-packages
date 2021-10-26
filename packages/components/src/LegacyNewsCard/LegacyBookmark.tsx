@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
+import Bookmark from '@t3n/icons/src/components/material/action/Bookmark';
 import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
 
 import { Box } from '../Box';
@@ -45,15 +46,20 @@ export const Tooltip = styled.span`
   ${({ theme }) => typography({ theme, fontSize: '12px' })}
 `;
 
-const LegacyBookmark: React.FC<{ onClick: () => void }> = ({ onClick }) => {
-  return (
-    <TooltipContainer display="inline-block" position="relative">
-      <Box id="bookmark" onClick={onClick}>
-        <BookmarkBorder fill="#8F8F8F" width="20" height="20" />
-      </Box>
-      <Tooltip>Artikel merken</Tooltip>
-    </TooltipContainer>
-  );
-};
+const LegacyBookmark: React.FC<{ onClick: () => void; isBookmarked: boolean }> =
+  ({ onClick, isBookmarked }) => {
+    return (
+      <TooltipContainer display="inline-block" position="relative">
+        <Box onClick={onClick}>
+          {isBookmarked ? (
+            <Bookmark fill="#8F8F8F" width="20" height="20" />
+          ) : (
+            <BookmarkBorder fill="#8F8F8F" width="20" height="20" />
+          )}
+        </Box>
+        <Tooltip>Artikel merken</Tooltip>
+      </TooltipContainer>
+    );
+  };
 
 export default LegacyBookmark;

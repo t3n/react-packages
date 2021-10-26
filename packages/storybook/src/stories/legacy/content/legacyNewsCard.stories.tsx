@@ -146,6 +146,7 @@ export const defaultStory = () => {
       popular={boolean('Popular', false, 'card')}
       sponsored={boolean('Sponsored', false, 'card')}
       pro={boolean('Pro-Artikel?', false, 'card')}
+      isBookmarked={boolean('Auf Merkliste?', false, 'card')}
       onBookmarkClick={() => alert('Du hast auf "Artikel merken" geklickt!')}
     />
   );
