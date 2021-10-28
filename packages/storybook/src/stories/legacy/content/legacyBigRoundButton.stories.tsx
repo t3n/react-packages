@@ -6,7 +6,7 @@ import { MaterialRssFeed } from '@t3n/icons';
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 export default {
-  title: 'Legacy/Content/Big Round Button',
+  title: 'Legacy/Content/BigRoundButton',
   component: LegacyBigRoundButton,
   decorators: [storyContainerDecorator],
 };
