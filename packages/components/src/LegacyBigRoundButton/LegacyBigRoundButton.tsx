@@ -45,9 +45,14 @@ export const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
   icon,
   url,
   tooltipText,
+  ...marginProps
 }) => {
   return (
-    <TooltipContainer display="inline-block" position="relative">
+    <TooltipContainer
+      display="inline-block"
+      position="relative"
+      {...marginProps}
+    >
       <BigRoundButton href={url}>
         <Icon component={icon} />
       </BigRoundButton>
