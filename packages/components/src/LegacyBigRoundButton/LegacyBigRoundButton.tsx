@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, layout, space } from 'styled-system';
+import { color, layout, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Tooltip, TooltipContainer } from '../LegacyNewsCard/LegacyBookmark';
+
+export interface LegacyBigRoundButtonProps extends MarginProps {
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  url: string;
+  tooltipText: string;
+}
 
 const MarginTopTooltip = styled(Tooltip)`
   ${({ theme }) => space({ theme, mt: 3 })};
@@ -35,11 +41,11 @@ const BigRoundButton = styled(Button)`
 `;
 
 // eslint-disable-next-line import/prefer-default-export
-export const LegacyBigRoundButton: React.FC<{
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  url: string;
-  tooltipText: string;
-}> = ({ icon, url, tooltipText }) => {
+export const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
+  icon,
+  url,
+  tooltipText,
+}) => {
   return (
     <TooltipContainer display="inline-block" position="relative">
       <BigRoundButton href={url}>
