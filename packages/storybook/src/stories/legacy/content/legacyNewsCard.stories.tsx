@@ -2,6 +2,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { boolean, number, text } from '@storybook/addon-knobs';
+import { useState } from '@storybook/addons';
 import gql from 'graphql-tag';
 
 import { Box, Grid, GridItem, LegacyNewsCard } from '@t3n/components';
@@ -103,6 +104,9 @@ const LegacyArticleCardWithData = ({
 };
 
 export const defaultStory = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const news = {
     title: text(
       'Titel',
@@ -146,8 +150,8 @@ export const defaultStory = () => {
       popular={boolean('Popular', false, 'card')}
       sponsored={boolean('Sponsored', false, 'card')}
       pro={boolean('Pro-Artikel?', false, 'card')}
-      isBookmarked={boolean('Auf Merkliste?', false, 'card')}
-      onBookmarkClick={() => alert('Du hast auf "Artikel merken" geklickt!')}
+      isBookmarked={isBookmarked}
+      onBookmarkClick={() => setIsBookmarked(!isBookmarked)}
     />
   );
 };
@@ -157,6 +161,9 @@ defaultStory.story = {
 };
 
 export const heroLayout = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const news = {
     title: text(
       'Titel',
@@ -200,9 +207,8 @@ export const heroLayout = () => {
           hero
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
-          onBookmarkClick={() =>
-            alert('Du hast auf "Artikel merken" geklickt!')
-          }
+          isBookmarked={isBookmarked}
+          onBookmarkClick={() => setIsBookmarked(!isBookmarked)}
         />
       </Box>
       <Box>
@@ -211,9 +217,8 @@ export const heroLayout = () => {
           hero
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
-          onBookmarkClick={() =>
-            alert('Du hast auf "Artikel merken" geklickt!')
-          }
+          isBookmarked={isBookmarked}
+          onBookmarkClick={() => setIsBookmarked(!isBookmarked)}
         />
       </Box>
     </>
@@ -225,6 +230,9 @@ heroLayout.story = {
 };
 
 export const feedLayout = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const news = {
     title: text(
       'Titel',
@@ -268,9 +276,8 @@ export const feedLayout = () => {
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
           popular={boolean('Popular', false, 'card')}
-          onBookmarkClick={() =>
-            alert('Du hast auf "Artikel merken" geklickt!')
-          }
+          isBookmarked={isBookmarked}
+          onBookmarkClick={() => setIsBookmarked(!isBookmarked)}
         />
       </Box>
       <Box>
@@ -279,9 +286,8 @@ export const feedLayout = () => {
           news={news}
           sponsored={boolean('Sponsored', false, 'card')}
           popular={boolean('Popular', false, 'card')}
-          onBookmarkClick={() =>
-            alert('Du hast auf "Artikel merken" geklickt!')
-          }
+          isBookmarked={isBookmarked}
+          onBookmarkClick={() => setIsBookmarked(!isBookmarked)}
         />
       </Box>
     </>
