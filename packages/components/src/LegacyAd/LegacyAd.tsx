@@ -36,10 +36,17 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
     border: none !important;
   }
 
-  ${({ name }) =>
+  ${({ name, theme }) =>
     name === 'p0'
       ? css`
-          background-color: rgb(223, 223, 223);
+          ${color({
+            theme,
+            bg: [
+              'background.primary',
+              'background.primary',
+              'background.secondary',
+            ],
+          })}
         `
       : ''}
 
@@ -50,7 +57,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
           display: flex;
           flex-direction: column;
           justify-content: center;
-          ${color({ theme, bg: 'background.secondary' })}
+          ${color({
+            theme,
+            bg: [
+              'background.primary',
+              'background.primary',
+              'background.secondary',
+            ],
+          })}
           /* The background image svg is not the same as in styleguide-rebrush, so be careful when updating! */
           background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='46px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
           background-position: center center;
@@ -122,7 +136,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
     ['p3', 'p5', 'p7', 'p3', 'p4', 'p6'].includes(name)
       ? css`
           #${name} {
-            ${color({ theme, bg: 'background.secondary' })}
+            ${color({
+              theme,
+              bg: [
+                'background.primary',
+                'background.primary',
+                'background.secondary',
+              ],
+            })}
             /* The backround image svg is not the same as in styleguide-rebrush, so be careful when updating! */
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='46px'><text x='0' y='12px' fill='%238f8f8f' font-size='12px' font-family='-apple-system, system-UI, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif'>Anzeige</text></svg>");
             background-position: center center;
@@ -144,7 +165,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
     forceBackground
       ? css`
           #${name} {
-            ${color({ theme, bg: 'background.secondary' })}
+            ${color({
+              theme,
+              bg: [
+                'background.primary',
+                'background.primary',
+                'background.secondary',
+              ],
+            })}
           }
         `
       : ''}
@@ -192,7 +220,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
       ? css`
           @media screen and (max-width: ${theme.breakpoints[1]}) {
             #${name} {
-              ${color({ theme, bg: 'background.secondary' })}
+              ${color({
+                theme,
+                bg: [
+                  'background.primary',
+                  'background.primary',
+                  'background.secondary',
+                ],
+              })}
             }
           }
         `
@@ -202,7 +237,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
       ? css`
           @media screen and (max-width: ${theme.breakpoints[1]}) {
             #${name} {
-              ${color({ theme, bg: 'background.secondary' })}
+              ${color({
+                theme,
+                bg: [
+                  'background.primary',
+                  'background.primary',
+                  'background.secondary',
+                ],
+              })}
             }
           }
         `

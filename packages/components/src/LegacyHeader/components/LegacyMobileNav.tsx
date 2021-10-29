@@ -244,7 +244,8 @@ const LegacyMobileNav: React.FC<{
           component={MaterialMenu}
           onClick={() => setMenuOpen(!menuOpen)}
         />
-        {typeof newsIndicator === 'number' && newsIndicator > 0 && (
+        {((typeof newsIndicator === 'number' && newsIndicator > 0) ||
+          (typeof proIndicator === 'number' && proIndicator > 0)) && (
           <Indicator className="tg-notification-bubble">
             {newsIndicator && proIndicator
               ? newsIndicator + proIndicator
@@ -303,16 +304,22 @@ const LegacyMobileNav: React.FC<{
                 color={link.bold ? 'text.primary' : 'inherit'}
               >
                 {link.label}
-                {link.label === 'News' && link.indicator && (
-                  <Indicator className="tg-notification-bubble">
-                    {newsIndicator}
-                  </Indicator>
-                )}
-                {link.label === 'Pro' && link.indicator && (
-                  <Indicator className="tg-notification-bubble">
-                    {proIndicator}
-                  </Indicator>
-                )}
+                {link.label === 'News' &&
+                  link.indicator &&
+                  typeof newsIndicator === 'number' &&
+                  newsIndicator > 0 && (
+                    <Indicator className="tg-notification-bubble">
+                      {newsIndicator}
+                    </Indicator>
+                  )}
+                {link.label === 'Pro' &&
+                  link.indicator &&
+                  typeof proIndicator === 'number' &&
+                  proIndicator > 0 && (
+                    <Indicator className="tg-notification-bubble">
+                      {proIndicator}
+                    </Indicator>
+                  )}
               </Text>
             </HeaderLink>
           </MobileMenuItem>

@@ -35,6 +35,8 @@ export { JobCard } from './JobCard';
 export { LegacyAd } from './LegacyAd';
 export { LegacyBigRoundButton } from './LegacyBigRoundButton';
 export { LegacyBookmarkModal } from './LegacyBookmarkModal';
+export { LegacyBreadcrumb } from './LegacyBreadcrumb';
+export { LegacyBreadcrumbItem } from './LegacyBreadcrumbItem';
 export { LegacyFooter } from './LegacyFooter';
 export { LegacyHeader } from './LegacyHeader';
 export { LegacyNewsCard } from './LegacyNewsCard';

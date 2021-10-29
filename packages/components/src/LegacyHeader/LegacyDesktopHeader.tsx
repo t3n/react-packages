@@ -144,6 +144,17 @@ const VisualHeader = styled(Box)`
 const HeaderWrapper = styled(Header)`
   ${({ theme }) =>
     border({ theme, borderTop: '1px solid', borderTopColor: '#dfdfdf' })}
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 1.25rem;
+    right: 1.25rem;
+    background-color: #e8e8e8;
+    height: 2px;
+  }
 `;
 
 export const LegacyDesktopHeader: React.FC<{
