@@ -70,6 +70,7 @@ module.exports = {
     '../src/stories/components/form/form.stories',
 
     // Legacy - Layout
+    '../src/stories/legacy/layout/legacyBreadcrumb.stories',
     '../src/stories/legacy/layout/legacyFooter.stories',
     '../src/stories/legacy/layout/legacyHeader.stories',
     '../src/stories/legacy/layout/legacyPagination.stories',
