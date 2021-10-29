@@ -108,11 +108,13 @@ export const defaultStory: Story = () => {
           newsIndicator={number('News Indikator', 3)}
           proIndicator={number('Pro Indikator', 1)}
         >
-          <LegacyBreadcrumb>
-            <LegacyBreadcrumbItem label="Home" href="/" />
-            <LegacyBreadcrumbItem label="News" href="/news/" />
-            <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
-          </LegacyBreadcrumb>
+          <Content>
+            <LegacyBreadcrumb>
+              <LegacyBreadcrumbItem label="Home" href="/" />
+              <LegacyBreadcrumbItem label="News" href="/news/" />
+              <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
+            </LegacyBreadcrumb>
+          </Content>
           <VisualSection variant="highlight">
             <Content>
               <H1 mb={8} color="shades.white">
@@ -211,8 +213,6 @@ export const adZonesStory: Story = () => {
           newsIndicator={number('Indikator', 3)}
           showP0={boolean('Show p0', true)}
           previewP0={boolean('Preview p0', true)}
-          showP1={boolean('Show p1', true)}
-          previewP1={boolean('Preview p1', true)}
           showP2={boolean('Show p2', true)}
           previewP2={boolean('Preview p2', true)}
           showP13={boolean('Show p13', true)}
