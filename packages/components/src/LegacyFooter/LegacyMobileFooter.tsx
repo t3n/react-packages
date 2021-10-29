@@ -137,7 +137,7 @@ const LegacyMobileFooter = () => {
         >
           yeebase media GmbH
         </FooterLink>{' '}
-        2005 - 2020
+        2005 - {new Date().getFullYear()}
       </SmallerText>
       <Text align="center">
         <FooterLink href="/" className="js-switch-to-desktop">
