@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import { Box } from '../Box';
-import useIsMobile from '../hooks/useIsMobile';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { TagNavTagsType } from './components/LegacyTagNav';
 import { LegacyDesktopHeader } from './LegacyDesktopHeader';
@@ -58,33 +57,32 @@ export const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   showAds,
   adsPreview,
 }) => {
-  const isMobile = useIsMobile();
-
-  if (isMobile) {
-    return (
-      <LegacyMobileHeader
-        user={user}
-        headerCampaignUrl={headerCampaignUrl}
-        headerCampaignImageMobile={headerCampaignImageMobile}
-        newsIndicator={newsIndicator}
-        proIndicator={proIndicator}
-      />
-    );
-  }
-
   return (
-    <LegacyDesktopHeader
-      user={user}
-      userMenuLabelUrl={userMenuLabelUrl}
-      userMenuLinkGroups={userMenuLinkGroups}
-      tags={tags}
-      tagsLoading={tagsLoading}
-      headerCampaignUrl={headerCampaignUrl}
-      headerCampaignImage={headerCampaignImage}
-      newsIndicator={newsIndicator}
-      proIndicator={proIndicator}
-      showAds={showAds}
-      adsPreview={adsPreview}
-    />
+    <>
+      <Box display={['block', 'block', 'none']}>
+        <LegacyMobileHeader
+          user={user}
+          headerCampaignUrl={headerCampaignUrl}
+          headerCampaignImageMobile={headerCampaignImageMobile}
+          newsIndicator={newsIndicator}
+          proIndicator={proIndicator}
+        />
+      </Box>
+      <Box display={['none', 'none', 'block']}>
+        <LegacyDesktopHeader
+          user={user}
+          userMenuLabelUrl={userMenuLabelUrl}
+          userMenuLinkGroups={userMenuLinkGroups}
+          tags={tags}
+          tagsLoading={tagsLoading}
+          headerCampaignUrl={headerCampaignUrl}
+          headerCampaignImage={headerCampaignImage}
+          newsIndicator={newsIndicator}
+          proIndicator={proIndicator}
+          showAds={showAds}
+          adsPreview={adsPreview}
+        />
+      </Box>
+    </>
   );
 };
