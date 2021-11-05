@@ -17,7 +17,7 @@
     "generate": "ts-node-dev -P tsconfig.node.json --files src/lib/generate.ts"
   },
   "peerDependencies": {
-    "react": ">=16.10"
+    "react": ">=16.8"
   },
   "devDependencies": {
     "@svgr/core": "^5.5.0",
