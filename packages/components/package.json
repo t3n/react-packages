@@ -1,6 +1,6 @@
 {
   "name": "@t3n/components",
-  "version": "0.5.16",
+  "version": "0.5.17",
   "description": "t3n react components",
   "repository": {
     "type": "git",
@@ -38,9 +38,9 @@
     "test-watch": "jest --watch"
   },
   "devDependencies": {
-    "@t3n/configs": "^0.5.1",
-    "@t3n/icons": "^0.5.2",
-    "@t3n/theme": "^0.5.1",
+    "@t3n/configs": "^0.5.2",
+    "@t3n/icons": "^0.5.3",
+    "@t3n/theme": "^0.5.2",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.3",
