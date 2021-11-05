@@ -71,6 +71,7 @@ export const SearchBoxWithData: React.FC<{
   isLoading: boolean;
   width: any;
   variant: SearchBoxVariantType;
+  // eslint-disable-next-line react/no-unused-prop-types
   initialSuggestions: TSuggestion[];
   withMore?: boolean;
   onSearchTermChange?: (term: string) => void;
