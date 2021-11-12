@@ -37,8 +37,8 @@ jobs:
       - restore_cache: *restore_js_packages
 
       - run:
-          name: npm ci --unsafe-perm --legacy-peer-deps
-          command: npm ci --unsafe-perm --legacy-peer-deps
+          name: npm install
+          command: npm ci --unsafe-perm --legacy-peer-deps --allow-root
           no_output_timeout: 20m
 
       - run: |
