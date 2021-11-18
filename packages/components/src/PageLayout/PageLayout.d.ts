@@ -5,6 +5,7 @@ export interface PageLayoutProps extends PageHeaderProps {
     noContentPadding?: boolean;
     logoHref?: string;
     initialTransparent?: boolean;
+    light?: boolean;
     contactLink?: string;
     showPrivacySettingsLink?: boolean;
     headerContent?: JSX.Element;

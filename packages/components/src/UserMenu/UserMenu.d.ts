@@ -6,6 +6,7 @@ export interface UserMenuProps {
     loginLink?: string;
     logoutLink?: string;
     labelLink?: string;
+    light?: boolean;
     user?: {
         label: string;
         name: string;

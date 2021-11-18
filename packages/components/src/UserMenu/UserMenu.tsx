@@ -136,6 +136,7 @@ export interface UserMenuProps {
   loginLink?: string;
   logoutLink?: string;
   labelLink?: string;
+  light?: boolean;
 
   user?: {
     label: string;
@@ -156,6 +157,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   labelLink,
   loading,
   loggedIn,
+  light,
 }) => {
   const UserLabel = () => (
     <>
@@ -224,7 +226,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
       </UserMenuList>
     </UserMenuWrapper>
   ) : (
-    <Link href={loginLink} variant="highlight">
+    <Link href={loginLink} variant={light ? 'primary' : 'highlight'}>
       Anmelden
     </Link>
   );

@@ -44,7 +44,10 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
 
 export const defaultStory = () => (
   <>
-    <PageHeader transparent={boolean('Transparenter Hintergrund', false)} />
+    <PageHeader
+      transparent={boolean('Transparenter Hintergrund', false)}
+      light={boolean('Helle Variante', false)}
+    />
   </>
 );
 
@@ -53,10 +56,14 @@ defaultStory.story = {
 };
 
 export const displayUserMenu = () => (
-  <PageHeader>
+  <PageHeader
+    transparent={boolean('Transparenter Hintergrund', false)}
+    light={boolean('Helle Variante', false)}
+  >
     <UserMenu
       loading={false}
-      loggedIn
+      light={boolean('Helle Variante Usermenu', false)}
+      loggedIn={boolean('Eingeloggt', true)}
       user={standardUser}
       itemGroups={standardLinkGroups}
     />
