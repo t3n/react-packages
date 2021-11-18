@@ -12,6 +12,7 @@ export interface PageLayoutProps extends PageHeaderProps {
   noContentPadding?: boolean;
   logoHref?: string;
   initialTransparent?: boolean;
+  light?: boolean;
   contactLink?: string;
   showPrivacySettingsLink?: boolean;
   headerContent?: JSX.Element;
@@ -42,6 +43,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   footerContent,
   contactLink = 'mailto:support@t3n.de',
   showPrivacySettingsLink,
+  light,
   children,
 }) => {
   const y = useScrollYPosition();
@@ -62,7 +64,11 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   return (
     <PageLayoutContainer>
       {showHeader && (
-        <PageHeader logoHref={logoHref} transparent={transparentHeader}>
+        <PageHeader
+          logoHref={logoHref}
+          transparent={transparentHeader}
+          light={light}
+        >
           {headerContent}
         </PageHeader>
       )}

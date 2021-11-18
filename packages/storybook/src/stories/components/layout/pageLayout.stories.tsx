@@ -26,6 +26,7 @@ export const defaultStory = () => {
       noContentPadding={noContentPadding}
       showHeader={showHeader}
       contactLink={contactLink}
+      light={boolean('Helle Variante Header', false)}
     >
       Content
     </PageLayout>
