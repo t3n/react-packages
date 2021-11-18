@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, compose, space } from 'styled-system';
+import { border, color, compose, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -8,6 +8,7 @@ import { Logo } from '../Logo';
 
 export interface PageHeaderProps {
   transparent?: boolean;
+  light?: boolean;
   logoHref?: string;
 }
 
@@ -21,30 +22,50 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${({ theme, transparent }) =>
+
+  ${({ theme, light }) =>
+    border({
+      theme,
+      borderBottom: light ? '1px solid' : 'none',
+      borderBottomColor: 'shades.grey232',
+    })}
+
+  ${({ theme, transparent, light }) =>
     compose(
       color,
       space
     )({
       theme,
       color: 'text.inverse',
-      bg: transparent ? 'transparent' : 'background.highlight',
+      bg:
+        // eslint-disable-next-line no-nested-ternary
+        transparent
+          ? 'transparent'
+          : light
+          ? 'brand.white'
+          : 'background.highlight',
       px: [3, 3, 3, 3, 8],
     })}
 
   ${Logo} {
     width: 7.5rem;
     height: 2.5rem;
+
+    > path {
+      fill: ${({ theme, light }) =>
+        light ? theme.colors.brand.red : theme.colors.brand.white};
+    }
   }
 `;
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
   transparent,
+  light,
   logoHref,
   children,
 }) => {
   return (
-    <PageHeaderWrapper transparent={transparent}>
+    <PageHeaderWrapper transparent={transparent} light={light}>
       {logoHref ? (
         <a style={{ display: 'flex' }} href={logoHref}>
           <Logo />
