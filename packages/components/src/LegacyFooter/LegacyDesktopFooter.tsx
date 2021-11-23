@@ -124,7 +124,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Mediadaten',
-        url: '/mediadaten/de',
+        url: '/werbeformate/',
       },
       {
         label: 'AGB',
