@@ -89,7 +89,11 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
             ${preview ? 'height: 480px !important;' : ''}
             position: absolute;
             top: 0;
-            left: 61.25rem;
+            left: calc(50% + 30.625rem);
+
+            @media screen and (max-width: 1330px) {
+              left: 61.25rem;
+            }
           }
         `
       : ''}
