@@ -23,7 +23,8 @@ export type LegacyAdName =
   | 'p17'
   | 'p18'
   | 'p19'
-  | 'p20';
+  | 'p20'
+  | 'Ads_BA_SKY';
 
 export interface LegacyAdProps extends Pick<AdProps, 'preview'> {
   name: LegacyAdName;
@@ -78,7 +79,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
   ${({ name, preview }) =>
-    name === 'p2'
+    name === 'p2' || name === 'Ads_BA_SKY'
       ? css`
           width: auto !important;
           ${preview ? 'height: auto !important;' : ''}
