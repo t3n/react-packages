@@ -153,6 +153,10 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     label: 't3n',
     links: [
       {
+        label: 'Pur',
+        url: '/pur/',
+      },
+      {
         label: 'Pro',
         url: '/pro-artikel/',
       },
