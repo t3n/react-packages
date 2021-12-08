@@ -252,10 +252,10 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                     onClick={(e) => {
                       e.preventDefault();
                       // eslint-disable-next-line no-underscore-dangle
-                      (window as any)._sp_.loadPrivacyManagerModal(399880);
+                      (window as any)._sp_.loadPrivacyManagerModal(578887);
                     }}
                   >
-                    Cookie-Einstellungen
+                    Cookies & Tracking
                   </FooterLink>
                 </Text>
               )}

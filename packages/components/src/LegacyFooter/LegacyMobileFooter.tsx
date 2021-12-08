@@ -53,6 +53,10 @@ type MobileLinkType = {
 
 const legacyMobileLinks: MobileLinkType = [
   {
+    label: 'Pur',
+    url: '/pur/',
+  },
+  {
     label: 'Pro',
     url: '/pro-artikel/',
   },
@@ -89,12 +93,12 @@ const legacyMobileLinks: MobileLinkType = [
     url: '/datenschutz/',
   },
   {
-    label: 'Cookie-Einstellungen',
+    label: 'Cookies & Tracking',
     url: '#',
     onClick: (e: any) => {
       e.preventDefault();
       // eslint-disable-next-line no-underscore-dangle
-      (window as any)._sp_.loadPrivacyManagerModal(399880);
+      (window as any)._sp_.loadPrivacyManagerModal(578887);
     },
   },
 ];
