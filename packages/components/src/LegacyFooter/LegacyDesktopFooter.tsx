@@ -140,7 +140,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         onClick: (e: any) => {
           e.preventDefault();
           // eslint-disable-next-line no-underscore-dangle
-          (window as any)._sp_.loadPrivacyManagerModal(578887);
+          (window as any)._sp_.loadPrivacyManagerModal(574850);
         },
       },
       {
