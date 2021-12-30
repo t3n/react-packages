@@ -119,10 +119,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         rel: 'noreferrer noopener',
       },
       {
-        label: 'Unterstütze t3n',
-        url: '/unterstuetze-t3n',
-      },
-      {
         label: 'Mediadaten',
         url: '/mediadaten/de',
       },

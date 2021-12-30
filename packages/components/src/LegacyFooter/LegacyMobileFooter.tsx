@@ -65,10 +65,6 @@ const legacyMobileLinks: MobileLinkType = [
     url: '/jobs-bei-t3n/',
   },
   {
-    label: 'Unterstütze t3n',
-    url: '/unterstuetze-t3n/',
-  },
-  {
     label: 'Mediadaten',
     url: '/mediadaten/de/',
   },
