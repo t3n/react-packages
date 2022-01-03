@@ -3,7 +3,7 @@ import { useScrollYPosition } from 'react-use-scroll-position';
 import styled from 'styled-components';
 
 import { Content } from '../Content';
-import { PageFooter } from '../PageFooter';
+import { PageFooter, PrivacyManagerType } from '../PageFooter';
 import { PageHeader } from '../PageHeader';
 import { PageHeaderProps } from '../PageHeader/PageHeader';
 
@@ -15,6 +15,7 @@ export interface PageLayoutProps extends PageHeaderProps {
   light?: boolean;
   contactLink?: string;
   showPrivacySettingsLink?: boolean;
+  privacySettingsModal?: PrivacyManagerType;
   headerContent?: JSX.Element;
   footerContent?: JSX.Element;
 }
@@ -43,6 +44,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   footerContent,
   contactLink = 'mailto:support@t3n.de',
   showPrivacySettingsLink,
+  privacySettingsModal,
   light,
   children,
 }) => {
@@ -89,6 +91,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
       <PageFooter
         contactLink={contactLink}
         showPrivacySettingsLink={showPrivacySettingsLink}
+        privacySettingsModal={privacySettingsModal}
       >
         {footerContent}
       </PageFooter>

@@ -1,9 +1,10 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
 import { Box } from '../Box';
 import { LegacySocialBar } from '../LegacySocialBar';
+import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
 import { Text } from '../Text';
 
 const FooterLink = styled.a`
@@ -48,7 +49,10 @@ type MobileLinkType = {
   label: string;
   url: string;
   bold?: boolean;
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  onClick?: (
+    e: React.MouseEvent,
+    privacySettingsModal?: PrivacyManagerType
+  ) => void;
 }[];
 
 const legacyMobileLinks: MobileLinkType = [
@@ -91,21 +95,25 @@ const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Cookies & Tracking',
     url: '#',
-    onClick: (e: any) => {
+    onClick: (e, type = 'Standard') => {
       e.preventDefault();
       // eslint-disable-next-line no-underscore-dangle
-      (window as any)._sp_.loadPrivacyManagerModal(574850);
+      (window as any)._sp_.loadPrivacyManagerModal(
+        privacyManagerIdByType[type]
+      );
     },
   },
 ];
 
-const LegacyMobileLinks = () => {
+const LegacyMobileLinks: React.FC<{
+  privacySettingsModal?: PrivacyManagerType;
+}> = ({ privacySettingsModal }) => {
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
       {legacyMobileLinks.map((link) => (
         <FooterLink
           href={link.url}
-          onClick={link.onClick || undefined}
+          onClick={(e) => link.onClick?.(e, privacySettingsModal) || undefined}
           key={link.url}
         >
           <LinkLabel
@@ -122,10 +130,12 @@ const LegacyMobileLinks = () => {
   );
 };
 
-const LegacyMobileFooter = () => {
+const LegacyMobileFooter: React.FC<{
+  privacySettingsModal?: PrivacyManagerType;
+}> = ({ privacySettingsModal }) => {
   return (
     <>
-      <LegacyMobileLinks />
+      <LegacyMobileLinks privacySettingsModal={privacySettingsModal} />
       <LegacySocialBar isInFooter />
       <SmallerText align="center">
         ©{' '}

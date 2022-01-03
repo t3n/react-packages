@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
@@ -7,6 +7,7 @@ import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 import { Heading } from '../Heading';
 import { Image } from '../Image';
+import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
 import { Text } from '../Text';
 
 const LegacyDesktopFooterWrapper = styled(Box)`
@@ -91,7 +92,10 @@ type DesktopLinkGroupsType = {
     target?: string;
     rel?: string;
     bold?: boolean;
-    onClick?: MouseEventHandler<HTMLAnchorElement>;
+    onClick?: (
+      e: React.MouseEvent,
+      privacySettingsModal?: PrivacyManagerType
+    ) => void;
   }[];
 }[];
 
@@ -133,10 +137,12 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       {
         label: 'Cookies & Tracking',
         url: '#',
-        onClick: (e: any) => {
+        onClick: (e, type = 'Standard') => {
           e.preventDefault();
           // eslint-disable-next-line no-underscore-dangle
-          (window as any)._sp_.loadPrivacyManagerModal(574850);
+          (window as any)._sp_.loadPrivacyManagerModal(
+            privacyManagerIdByType[type]
+          );
         },
       },
       {
@@ -254,7 +260,9 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
   },
 ];
 
-const LegacyDesktopLinks = () => {
+const LegacyDesktopLinks: React.FC<{
+  privacySettingsModal?: PrivacyManagerType;
+}> = ({ privacySettingsModal }) => {
   return (
     <DesktopLinkWrapper>
       {legacyDesktopLinkGroups.map((group) => (
@@ -274,7 +282,9 @@ const LegacyDesktopLinks = () => {
               target={link.target || '_self'}
               rel={link.rel || undefined}
               title={link.title || undefined}
-              onClick={link.onClick || undefined}
+              onClick={(e) =>
+                link.onClick?.(e, privacySettingsModal) || undefined
+              }
               key={link.url}
             >
               <LinkLabel
@@ -389,7 +399,9 @@ const LegacyDesktopBottom = () => {
   );
 };
 
-const LegacyDesktopFooter = () => {
+const LegacyDesktopFooter: React.FC<{
+  privacySettingsModal?: PrivacyManagerType;
+}> = ({ privacySettingsModal }) => {
   return (
     <LegacyDesktopFooterWrapper>
       <Box display="flex" m="10px">
@@ -398,7 +410,7 @@ const LegacyDesktopFooter = () => {
             Wir helfen digitalen Pionieren, glücklich zu arbeiten und zu leben.
           </MissonStatement>
         </GridItem>
-        <LegacyDesktopLinks />
+        <LegacyDesktopLinks privacySettingsModal={privacySettingsModal} />
       </Box>
       <LegacyDesktopBottom />
     </LegacyDesktopFooterWrapper>

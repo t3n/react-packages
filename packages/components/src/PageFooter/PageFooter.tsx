@@ -22,7 +22,15 @@ import { Text } from '../Text';
 export interface PageFooterProps {
   contactLink: string;
   showPrivacySettingsLink?: boolean;
+  privacySettingsModal?: PrivacyManagerType;
 }
+
+export type PrivacyManagerType = 'Pur' | 'Standard';
+
+export const privacyManagerIdByType = {
+  Pur: 574850,
+  Standard: 585431,
+};
 
 const FooterLinks = styled(Box)`
   width: 100%;
@@ -105,6 +113,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
   children,
   contactLink,
   showPrivacySettingsLink,
+  privacySettingsModal,
 }) => {
   return (
     <Box width="100%" bg="black">
@@ -252,7 +261,11 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                     onClick={(e) => {
                       e.preventDefault();
                       // eslint-disable-next-line no-underscore-dangle
-                      (window as any)._sp_.loadPrivacyManagerModal(574850);
+                      (window as any)._sp_.loadPrivacyManagerModal(
+                        privacyManagerIdByType[
+                          privacySettingsModal || 'Standard'
+                        ]
+                      );
                     }}
                   >
                     Cookies & Tracking
