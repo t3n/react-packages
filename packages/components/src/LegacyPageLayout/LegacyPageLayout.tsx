@@ -7,6 +7,7 @@ import useIsMobile from '../hooks/useIsMobile';
 import { LegacyAd } from '../LegacyAd';
 import { LegacyFooter } from '../LegacyFooter';
 import { LegacyHeader, LegacyHeaderProps } from '../LegacyHeader';
+import { PrivacyManagerType } from '../PageFooter';
 
 const Wrapper = styled(Box)`
   ${({ theme }) => color({ theme, bg: 'background.primary' })}
@@ -19,6 +20,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   previewP2?: boolean;
   showP13?: boolean;
   previewP13?: boolean;
+  privacySettingsModal?: PrivacyManagerType;
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -39,6 +41,7 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   previewP2,
   showP13,
   previewP13,
+  privacySettingsModal,
   children,
 }) => {
   const isMobile = useIsMobile();
@@ -62,7 +65,7 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
       />
       {isMobile && showP13 && <LegacyAd name="p13" preview={previewP13} />}
       {children}
-      <LegacyFooter />
+      <LegacyFooter privacySettingsModal={privacySettingsModal} />
     </Wrapper>
   );
 };
