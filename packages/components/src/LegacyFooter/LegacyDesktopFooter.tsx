@@ -207,7 +207,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/archive/',
       },
       {
-        label: 'BrandHub',
+        label: 'BrandHubs',
         url: '/brandhub/',
       },
     ],
