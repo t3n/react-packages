@@ -1,4 +1,5 @@
 import React from 'react';
+import { PrivacyManagerType } from '../PageFooter';
 import { PageHeaderProps } from '../PageHeader/PageHeader';
 export interface PageLayoutProps extends PageHeaderProps {
     showHeader?: boolean;
@@ -8,6 +9,7 @@ export interface PageLayoutProps extends PageHeaderProps {
     light?: boolean;
     contactLink?: string;
     showPrivacySettingsLink?: boolean;
+    privacySettingsModal?: PrivacyManagerType;
     headerContent?: JSX.Element;
     footerContent?: JSX.Element;
 }
