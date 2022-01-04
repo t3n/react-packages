@@ -113,7 +113,7 @@ const LegacyMobileLinks: React.FC<{
       {legacyMobileLinks.map((link) => (
         <FooterLink
           href={link.url}
-          onClick={(e) => link.onClick?.(e, privacySettingsModal) || undefined}
+          onClick={(e) => link.onClick?.(e, privacySettingsModal)}
           key={link.url}
         >
           <LinkLabel

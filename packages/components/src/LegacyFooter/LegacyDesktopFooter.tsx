@@ -282,9 +282,7 @@ const LegacyDesktopLinks: React.FC<{
               target={link.target || '_self'}
               rel={link.rel || undefined}
               title={link.title || undefined}
-              onClick={(e) =>
-                link.onClick?.(e, privacySettingsModal) || undefined
-              }
+              onClick={(e) => link.onClick?.(e, privacySettingsModal)}
               key={link.url}
             >
               <LinkLabel
