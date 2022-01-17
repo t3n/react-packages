@@ -9,6 +9,9 @@ import { theme } from '@t3n/theme';
 import { Alert, AlertStatus, AlertText } from '../Alert';
 import { Box } from '../Box';
 
+// TODO: Use a different library than 'toasted-notes' because it's not
+// maintained anymore and relies on an outdated version of react-spring
+
 interface ToastProps {
   // eslint-disable-next-line react/no-unused-prop-types
   id: string;
