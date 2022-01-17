@@ -126,6 +126,7 @@ const ClearIndicator = (props: any) => {
 };
 
 const createDropdownIndicator =
+  // eslint-disable-next-line react/function-component-definition
   (error: boolean, theme: Theme & DefaultTheme) => (props: any) => {
     return (
       <components.DropdownIndicator {...props}>
@@ -240,6 +241,8 @@ const SelectBox = <S,>({
     isClearable: !hideReset,
     isLoading: loading,
     isMulti: multiSelect,
+    // TODO: Fix lint issue
+    // eslint-disable-next-line react/no-unstable-nested-components
     formatGroupLabel: ({ label }: GroupTypeBase<S>) => (
       <GroupLabel label={label} />
     ),
@@ -269,6 +272,8 @@ const SelectBox = <S,>({
     return (
       <CreatableSelect
         {...commonProps}
+        // TODO: Fix lint issue
+        // eslint-disable-next-line react/no-unstable-nested-components
         formatCreateLabel={(label) => <CreateLabel label={label} />}
       />
     );

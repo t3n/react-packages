@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import svgr from '@svgr/core';
+import { transform } from '@svgr/core';
 import chalk from 'chalk';
 import { ESLint } from 'eslint';
 import fs from 'fs-extra';
@@ -80,7 +80,7 @@ const filterFilesBySvg = (files: string[]) =>
   files.filter((file) => /\.svg$/.test(file));
 
 const svgToReactComponent = async (svg: string, componentName: string) => {
-  const component = await svgr(
+  const component = await transform(
     svg,
     {
       plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],

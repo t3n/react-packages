@@ -1,5 +1,5 @@
 import React from 'react';
-import Imgix, { SharedImigixAndSourceProps } from 'react-imgix';
+import Imgix, { SharedImgixAndSourceProps } from 'react-imgix';
 import styled from 'styled-components';
 import {
   HeightProps,
@@ -37,7 +37,7 @@ const BaseImage = ({
   onLoad,
   ...props
 }: BaseImageProps) => {
-  const params: SharedImigixAndSourceProps['imgixParams'] = {};
+  const params: SharedImgixAndSourceProps['imgixParams'] = {};
 
   if (processConfiguration?.fit) {
     params.fit = processConfiguration.fit;

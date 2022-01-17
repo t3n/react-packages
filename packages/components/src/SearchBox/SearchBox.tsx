@@ -183,6 +183,7 @@ export interface SearchBoxProps<S> extends WidthProps {
   onSearchTermChange?: (term: string) => void;
 }
 
+// eslint-disable-next-line react/function-component-definition
 function SearchBox<S>({
   variant: variantProp,
   width,
@@ -313,14 +314,10 @@ function SearchBox<S>({
             }
             small
           />
+        ) : !term || term.length === 0 ? (
+          <T3nLoupe />
         ) : (
-          <>
-            {!term || term.length === 0 ? (
-              <T3nLoupe />
-            ) : (
-              <MaterialClear onClick={() => setTerm('')} />
-            )}
-          </>
+          <MaterialClear onClick={() => setTerm('')} />
         )}
       </IconWrapper>
     </Wrapper>

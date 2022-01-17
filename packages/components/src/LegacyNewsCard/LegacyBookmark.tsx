@@ -84,28 +84,30 @@ const BookmarkContainer = styled(Box)<{
   }
 `;
 
-const LegacyBookmark: React.FC<{ onClick: () => void; isBookmarked: boolean }> =
-  ({ onClick, isBookmarked }) => {
-    const [isBookmarkedClick, setIsBookmarkedClick] = useState(false);
+const LegacyBookmark: React.FC<{
+  onClick: () => void;
+  isBookmarked: boolean;
+}> = ({ onClick, isBookmarked }) => {
+  const [isBookmarkedClick, setIsBookmarkedClick] = useState(false);
 
-    return (
-      <TooltipContainer display="inline-block" position="relative">
-        <BookmarkContainer
-          onClick={() => {
-            onClick();
-            setIsBookmarkedClick(!isBookmarked);
-          }}
-          isBookmarkedClick={isBookmarkedClick}
-        >
-          {isBookmarked ? (
-            <Bookmark fill="#8F8F8F" width="20" height="20" />
-          ) : (
-            <BookmarkBorder fill="#8F8F8F" width="20" height="20" />
-          )}
-        </BookmarkContainer>
-        <Tooltip>Artikel merken</Tooltip>
-      </TooltipContainer>
-    );
-  };
+  return (
+    <TooltipContainer display="inline-block" position="relative">
+      <BookmarkContainer
+        onClick={() => {
+          onClick();
+          setIsBookmarkedClick(!isBookmarked);
+        }}
+        isBookmarkedClick={isBookmarkedClick}
+      >
+        {isBookmarked ? (
+          <Bookmark fill="#8F8F8F" width="20" height="20" />
+        ) : (
+          <BookmarkBorder fill="#8F8F8F" width="20" height="20" />
+        )}
+      </BookmarkContainer>
+      <Tooltip>Artikel merken</Tooltip>
+    </TooltipContainer>
+  );
+};
 
 export default LegacyBookmark;
