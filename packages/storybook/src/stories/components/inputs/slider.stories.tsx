@@ -153,21 +153,19 @@ export const fixedContainer = () => {
   const [value, setValue] = useState(1);
 
   return (
-    <>
-      <Box display="flex" justifyContent="center">
-        <Box width="300px">
-          <Slider
-            value={value}
-            max={2}
-            min={0}
-            step={1}
-            onChange={(v) => setValue(v)}
-            name="slider"
-            labels={['0', '1', '2']}
-          />
-        </Box>
+    <Box display="flex" justifyContent="center">
+      <Box width="300px">
+        <Slider
+          value={value}
+          max={2}
+          min={0}
+          step={1}
+          onChange={(v) => setValue(v)}
+          name="slider"
+          labels={['0', '1', '2']}
+        />
       </Box>
-    </>
+    </Box>
   );
 };
 

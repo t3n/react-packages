@@ -24,17 +24,15 @@ defaultStory.story = {
 };
 
 export const lineBreakStory = () => (
-  <>
-    <Section variant="primary" innerGap={9}>
-      <Grid>
-        <GridItem>
-          <Box width="500px" pl={3}>
-            <Punchline>Punchline mit Zeilenumbruch</Punchline>
-          </Box>
-        </GridItem>
-      </Grid>
-    </Section>
-  </>
+  <Section variant="primary" innerGap={9}>
+    <Grid>
+      <GridItem>
+        <Box width="500px" pl={3}>
+          <Punchline>Punchline mit Zeilenumbruch</Punchline>
+        </Box>
+      </GridItem>
+    </Grid>
+  </Section>
 );
 
 lineBreakStory.story = {

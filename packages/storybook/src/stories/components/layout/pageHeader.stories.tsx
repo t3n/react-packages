@@ -43,12 +43,10 @@ const standardLinkGroups: UserMenuProps['itemGroups'] = [
 ];
 
 export const defaultStory = () => (
-  <>
-    <PageHeader
-      transparent={boolean('Transparenter Hintergrund', false)}
-      light={boolean('Helle Variante', false)}
-    />
-  </>
+  <PageHeader
+    transparent={boolean('Transparenter Hintergrund', false)}
+    light={boolean('Helle Variante', false)}
+  />
 );
 
 defaultStory.story = {

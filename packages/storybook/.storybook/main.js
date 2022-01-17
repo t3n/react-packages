@@ -1,4 +1,9 @@
+const webpack = require('webpack');
+
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: [
     '../src/stories/storybook/introduction.story.mdx',
 
@@ -96,4 +101,18 @@ module.exports = {
     '@storybook/addon-knobs',
     '@storybook/addon-a11y',
   ],
+  webpackFinal: async (config) => {
+    // Since webpack 5 we need to polyfill some modules
+    config.resolve.fallback.crypto = false;
+    config.resolve.fallback.buffer = require.resolve('buffer');
+
+    config.plugins = [
+      ...config.plugins,
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
+      }),
+    ];
+
+    return config;
+  },
 };

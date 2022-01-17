@@ -181,16 +181,14 @@ lightStory.story = {
 };
 
 export const greyStory = () => (
-  <>
-    <Section variant="primary">
-      <SearchBoxWithData
-        variant="grey"
-        width="auto"
-        initialSuggestions={[]}
-        isLoading={false}
-      />
-    </Section>
-  </>
+  <Section variant="primary">
+    <SearchBoxWithData
+      variant="grey"
+      width="auto"
+      initialSuggestions={[]}
+      isLoading={false}
+    />
+  </Section>
 );
 
 greyStory.story = {

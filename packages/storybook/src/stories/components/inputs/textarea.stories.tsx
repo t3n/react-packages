@@ -15,19 +15,17 @@ export const defaultStory = () => {
   const maxLength = number('Maximale Länge', 200, { min: 1 });
 
   return (
-    <>
-      <Textarea
-        width={number('Width', 0.5, {
-          range: true,
-          min: 0.1,
-          max: 1,
-          step: 0.1,
-        })}
-        rows={number('Rows', 6)}
-        maxLength={maxLength}
-        placeholder={text('Placeholder', '')}
-      />
-    </>
+    <Textarea
+      width={number('Width', 0.5, {
+        range: true,
+        min: 0.1,
+        max: 1,
+        step: 0.1,
+      })}
+      rows={number('Rows', 6)}
+      maxLength={maxLength}
+      placeholder={text('Placeholder', '')}
+    />
   );
 };
 

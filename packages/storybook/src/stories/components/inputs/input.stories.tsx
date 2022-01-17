@@ -58,7 +58,5 @@ types.story = {
 };
 
 export const errorStates = () => (
-  <>
-    <Input error width={0.5} defaultValue="Invalid" />
-  </>
+  <Input error width={0.5} defaultValue="Invalid" />
 );

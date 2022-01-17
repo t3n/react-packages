@@ -950,13 +950,11 @@ expandedStory.story = {
 };
 
 export const sideBySide = () => (
-  <>
-    <Section variant="primary">
-      <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
-      <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
-      <IconButton icon={MaterialCheck} label="Speichern" />
-    </Section>
-  </>
+  <Section variant="primary">
+    <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
+    <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
+    <IconButton icon={MaterialCheck} label="Speichern" />
+  </Section>
 );
 
 sideBySide.story = {
