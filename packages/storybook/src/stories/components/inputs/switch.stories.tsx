@@ -36,9 +36,7 @@ export const DefaultStory = () => {
   );
 };
 
-DefaultStory.story = {
-  name: 'Default',
-};
+DefaultStory.storyName = 'Default';
 
 export const ReadOnlyStory = () => {
   return (
@@ -99,6 +97,4 @@ export const ReadOnlyStory = () => {
   );
 };
 
-ReadOnlyStory.story = {
-  name: 'Read Only',
-};
+ReadOnlyStory.storyName = 'Read Only';

@@ -21,9 +21,7 @@ export const defaultStory = () => (
   </Box>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const errorState = () => (
   <Box width={[1, 1, 0.5]}>
@@ -36,9 +34,7 @@ export const errorState = () => (
   </Box>
 );
 
-errorState.story = {
-  name: 'Mit Error',
-};
+errorState.storyName = 'Mit Error';
 
 export const labelVariants = () => (
   <Box width={[1, 1, 0.5]}>
@@ -61,6 +57,4 @@ export const labelVariants = () => (
   </Box>
 );
 
-labelVariants.story = {
-  name: 'Label-Varianten',
-};
+labelVariants.storyName = 'Label-Varianten';

@@ -77,9 +77,7 @@ export const defaultStory = () => (
   />
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const valueStory = () => (
   <SelectBox
@@ -89,17 +87,13 @@ export const valueStory = () => (
   />
 );
 
-valueStory.story = {
-  name: 'Value',
-};
+valueStory.storyName = 'Value';
 
 export const noGroupsStory = () => (
   <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
 );
 
-noGroupsStory.story = {
-  name: 'No Option Groups',
-};
+noGroupsStory.storyName = 'No Option Groups';
 
 export const multiSelectStory = () => (
   <SelectBox
@@ -110,73 +104,55 @@ export const multiSelectStory = () => (
   />
 );
 
-multiSelectStory.story = {
-  name: 'MultiSelect',
-};
+multiSelectStory.storyName = 'MultiSelect';
 
 export const disabledStory = () => (
   <SelectBox options={groupedOptions} disabled width={[1, 1, 1 / 2]} />
 );
 
-disabledStory.story = {
-  name: 'Disabled',
-};
+disabledStory.storyName = 'Disabled';
 
 export const autoFocusStory = () => (
   <SelectBox options={groupedOptions} autoFocus width={[1, 1, 1 / 2]} />
 );
 
-autoFocusStory.story = {
-  name: 'Autofocus',
-};
+autoFocusStory.storyName = 'Autofocus';
 
 export const searchableStory = () => (
   <SelectBox options={groupedOptions} searchable width={[1, 1, 1 / 2]} />
 );
 
-searchableStory.story = {
-  name: 'Searchable',
-};
+searchableStory.storyName = 'Searchable';
 
 export const hideResetStory = () => (
   <SelectBox options={groupedOptions} hideReset width={[1, 1, 1 / 2]} />
 );
 
-hideResetStory.story = {
-  name: 'Hide Reset',
-};
+hideResetStory.storyName = 'Hide Reset';
 
 export const disabledOptionStory = () => (
   <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
 );
 
-disabledOptionStory.story = {
-  name: 'Disabled Option',
-};
+disabledOptionStory.storyName = 'Disabled Option';
 
 export const loadingStory = () => (
   <SelectBox options={groupedOptions} loading width={[1, 1, 1 / 2]} />
 );
 
-loadingStory.story = {
-  name: 'Loading',
-};
+loadingStory.storyName = 'Loading';
 
 export const errorStory = () => (
   <SelectBox options={groupedOptions} error width={[1, 1, 1 / 2]} />
 );
 
-errorStory.story = {
-  name: 'Error',
-};
+errorStory.storyName = 'Error';
 
 export const creatableStory = () => (
   <SelectBox creatable options={colorOptions} width={[1, 1, 1 / 2]} />
 );
 
-creatableStory.story = {
-  name: 'Creatable',
-};
+creatableStory.storyName = 'Creatable';
 
 const AsyncSelectBoxComponent = () => {
   const handleLoadOptions = (
@@ -213,9 +189,7 @@ export const asyncStory = () => {
   return <AsyncSelectBoxComponent />;
 };
 
-asyncStory.story = {
-  name: 'Optionen nachladen',
-};
+asyncStory.storyName = 'Optionen nachladen';
 
 interface FormValues {
   tags: {
@@ -324,6 +298,4 @@ export const formStory = () => {
   );
 };
 
-formStory.story = {
-  name: 'Form',
-};
+formStory.storyName = 'Form';

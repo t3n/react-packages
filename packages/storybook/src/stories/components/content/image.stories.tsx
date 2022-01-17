@@ -36,9 +36,7 @@ export const defaultStory = () => (
   />
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const CropModes = () => {
   const directions = ['top', 'right', 'bottom', 'left'];

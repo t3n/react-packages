@@ -284,9 +284,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const compactStory = () => {
   return (
@@ -298,9 +296,7 @@ export const compactStory = () => {
   );
 };
 
-compactStory.story = {
-  name: 'Compact',
-};
+compactStory.storyName = 'Compact';
 
 export const flagStory = () => {
   return (
@@ -325,9 +321,7 @@ export const flagStory = () => {
   );
 };
 
-flagStory.story = {
-  name: 'Flag',
-};
+flagStory.storyName = 'Flag';
 
 export const variantStory = () => {
   return (
@@ -429,9 +423,7 @@ export const variantStory = () => {
   );
 };
 
-variantStory.story = {
-  name: 'Varianten',
-};
+variantStory.storyName = 'Varianten';
 
 export const wholeCardLinked = () => {
   const minimalUser: Pick<UserCardProps, 'user' | 'link'> = {
@@ -471,6 +463,4 @@ export const wholeCardLinked = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

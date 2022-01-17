@@ -27,9 +27,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const variants = () => {
   const colors = Object.keys(theme.colors.background) as ThemeBackgroundColor[];
@@ -87,6 +85,4 @@ export const variants = () => {
   );
 };
 
-variants.story = {
-  name: 'Varianten',
-};
+variants.storyName = 'Varianten';

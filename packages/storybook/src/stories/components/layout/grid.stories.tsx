@@ -35,6 +35,4 @@ export const defaultStory = () => (
   </Grid>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

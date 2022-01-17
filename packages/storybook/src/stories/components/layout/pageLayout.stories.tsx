@@ -33,9 +33,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const withTransparentHeader = () => {
   const noContentPadding = boolean('Kein Inhaltsabstand', false);
@@ -87,6 +85,4 @@ export const withTransparentHeader = () => {
   );
 };
 
-withTransparentHeader.story = {
-  name: 'Transparenter Header',
-};
+withTransparentHeader.storyName = 'Transparenter Header';

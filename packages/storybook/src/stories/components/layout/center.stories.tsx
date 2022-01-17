@@ -18,6 +18,4 @@ export const defaultStory = () => (
   </Center>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

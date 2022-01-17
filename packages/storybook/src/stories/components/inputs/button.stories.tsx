@@ -39,9 +39,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const variants = () => (
   <>
@@ -188,9 +186,7 @@ export const variants = () => (
   </>
 );
 
-variants.story = {
-  name: 'Alle Varianten',
-};
+variants.storyName = 'Alle Varianten';
 
 export const loading = () => (
   <>
@@ -225,9 +221,7 @@ export const loading = () => (
   </>
 );
 
-loading.story = {
-  name: 'Ladend',
-};
+loading.storyName = 'Ladend';
 
 export const disabled = () => (
   <>
@@ -276,9 +270,7 @@ export const disabled = () => (
   </>
 );
 
-disabled.story = {
-  name: 'Disabled status',
-};
+disabled.storyName = 'Disabled status';
 
 export const icon = () => (
   <>
@@ -461,6 +453,4 @@ export const icon = () => (
     </Section>
   </>
 );
-icon.story = {
-  name: 'Mit Icon',
-};
+icon.storyName = 'Mit Icon';

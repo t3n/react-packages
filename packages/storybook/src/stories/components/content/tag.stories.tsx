@@ -33,9 +33,7 @@ export const defaultStory = () => {
   ));
 };
 
-defaultStory.story = {
-  name: 'Tag',
-};
+defaultStory.storyName = 'Tag';
 
 export const smallTags = () => {
   return variants.map((variant) => (
@@ -47,9 +45,7 @@ export const smallTags = () => {
   ));
 };
 
-smallTags.story = {
-  name: 'Kleine Tags',
-};
+smallTags.storyName = 'Kleine Tags';
 
 export const linkedTags = () => {
   const smallTag = boolean('Kleine Tags', false);
@@ -63,9 +59,7 @@ export const linkedTags = () => {
   ));
 };
 
-linkedTags.story = {
-  name: 'Verlinkte Tags',
-};
+linkedTags.storyName = 'Verlinkte Tags';
 
 const ClicakbleTagList: React.FC = () => {
   const defaultTags = ['Google', 'Facebook', 'Amazon', 'Twitter'];
@@ -100,6 +94,4 @@ const ClicakbleTagList: React.FC = () => {
 
 export const clickableTags = () => <ClicakbleTagList />;
 
-clickableTags.story = {
-  name: 'Tags mit Klick-Event',
-};
+clickableTags.storyName = 'Tags mit Klick-Event';

@@ -29,9 +29,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const placeholderStory = () => {
   const maxLength = number('Maximale Länge', 200, { min: 1 });
@@ -48,9 +46,7 @@ export const placeholderStory = () => {
   );
 };
 
-placeholderStory.story = {
-  name: 'Placeholder',
-};
+placeholderStory.storyName = 'Placeholder';
 
 export const valueStory = () => {
   const maxLength = number('Maximale Länge', 200, { min: 1 });
@@ -67,9 +63,7 @@ export const valueStory = () => {
   );
 };
 
-valueStory.story = {
-  name: 'Value',
-};
+valueStory.storyName = 'Value';
 
 export const disabled = () => {
   return (
@@ -103,9 +97,7 @@ export const focused = () => (
   />
 );
 
-focused.story = {
-  name: 'Focus',
-};
+focused.storyName = 'Focus';
 
 export const errorStates = () => (
   <Textarea error width={0.5} defaultValue="Invalid" maxLength={200} />

@@ -32,6 +32,4 @@ export const defaultStory = () => {
   return <Pagination />;
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

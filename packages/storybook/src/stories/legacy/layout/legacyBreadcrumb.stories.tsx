@@ -36,9 +36,7 @@ export const defaultStory = () => (
   </Wrapper>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const scrollingStory = () => (
   <Wrapper display="flex" justifyContent="center">
@@ -54,6 +52,4 @@ export const scrollingStory = () => (
   </Wrapper>
 );
 
-scrollingStory.story = {
-  name: 'Scrolling',
-};
+scrollingStory.storyName = 'Scrolling';

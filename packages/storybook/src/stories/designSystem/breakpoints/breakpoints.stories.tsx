@@ -20,4 +20,4 @@ export const allBreakpoints = () => (
   </ThemeConsumer>
 );
 
-allBreakpoints.story = { name: 'Alle Breakpoints' };
+allBreakpoints.storyName = 'Alle Breakpoints';

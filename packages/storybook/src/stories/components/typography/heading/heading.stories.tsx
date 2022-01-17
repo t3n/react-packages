@@ -27,6 +27,4 @@ export const sizes = () => (
   </>
 );
 
-sizes.story = {
-  name: 'Größen',
-};
+sizes.storyName = 'Größen';

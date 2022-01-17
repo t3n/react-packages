@@ -26,6 +26,4 @@ export const defaultStory = () => (
   </Wrapper>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

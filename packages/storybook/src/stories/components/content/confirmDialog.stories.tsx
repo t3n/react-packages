@@ -43,9 +43,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const deleteStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
@@ -72,9 +70,7 @@ export const deleteStory = () => {
   );
 };
 
-deleteStory.story = {
-  name: 'Delete',
-};
+deleteStory.storyName = 'Delete';
 
 export const disabledStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
@@ -102,9 +98,7 @@ export const disabledStory = () => {
   );
 };
 
-disabledStory.story = {
-  name: 'Disabled Button',
-};
+disabledStory.storyName = 'Disabled Button';
 
 export const loadingStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
@@ -132,9 +126,7 @@ export const loadingStory = () => {
   );
 };
 
-loadingStory.story = {
-  name: 'Loading',
-};
+loadingStory.storyName = 'Loading';
 
 export const widthStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
@@ -163,6 +155,4 @@ export const widthStory = () => {
   );
 };
 
-widthStory.story = {
-  name: 'Width',
-};
+widthStory.storyName = 'Width';

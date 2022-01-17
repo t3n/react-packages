@@ -32,9 +32,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const isOpenStory = () => {
   return (
@@ -51,9 +49,7 @@ export const isOpenStory = () => {
   );
 };
 
-isOpenStory.story = {
-  name: 'Initial geöffnet',
-};
+isOpenStory.storyName = 'Initial geöffnet';
 
 const MultiAccordions = () => {
   const [open, setOpen] = useState(true);
@@ -132,6 +128,4 @@ const MultiAccordions = () => {
 
 export const multipleStory = () => <MultiAccordions />;
 
-multipleStory.story = {
-  name: 'Mehrere Akkordeons',
-};
+multipleStory.storyName = 'Mehrere Akkordeons';

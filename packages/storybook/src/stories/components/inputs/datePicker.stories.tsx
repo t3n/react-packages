@@ -26,9 +26,7 @@ export const DefaultStory = () => {
   );
 };
 
-DefaultStory.story = {
-  name: 'Default',
-};
+DefaultStory.storyName = 'Default';
 
 export const TimePickerStory = () => {
   const [date, setDate] = useState<moment.Moment | null>(null);
@@ -47,6 +45,4 @@ export const TimePickerStory = () => {
   );
 };
 
-TimePickerStory.story = {
-  name: 'mit Timepicker',
-};
+TimePickerStory.storyName = 'mit Timepicker';

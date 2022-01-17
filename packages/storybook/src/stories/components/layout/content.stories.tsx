@@ -9,6 +9,4 @@ export default {
 
 export const defaultStory = () => <Content>Hello</Content>;
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

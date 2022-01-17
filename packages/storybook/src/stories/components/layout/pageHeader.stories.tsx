@@ -49,9 +49,7 @@ export const defaultStory = () => (
   />
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const displayUserMenu = () => (
   <PageHeader
@@ -68,12 +66,8 @@ export const displayUserMenu = () => (
   </PageHeader>
 );
 
-displayUserMenu.story = {
-  name: 'Mit Usermenü',
-};
+displayUserMenu.storyName = 'Mit Usermenü';
 
 export const linkedLogo = () => <PageHeader logoHref="https://t3n.de" />;
 
-linkedLogo.story = {
-  name: 'Verlinktes Logo',
-};
+linkedLogo.storyName = 'Verlinktes Logo';

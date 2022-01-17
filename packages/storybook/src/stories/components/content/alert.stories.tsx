@@ -97,6 +97,4 @@ export const ToastStory = () => {
   );
 };
 
-ToastStory.story = {
-  name: 'Als Toast',
-};
+ToastStory.storyName = 'Als Toast';

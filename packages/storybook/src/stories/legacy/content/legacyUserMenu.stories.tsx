@@ -109,9 +109,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const loadingStory = () => {
   return (
@@ -128,9 +126,7 @@ export const loadingStory = () => {
   );
 };
 
-loadingStory.story = {
-  name: 'Loading',
-};
+loadingStory.storyName = 'Loading';
 
 export const notLoggedInStory = () => {
   return (
@@ -143,9 +139,7 @@ export const notLoggedInStory = () => {
   );
 };
 
-notLoggedInStory.story = {
-  name: 'Not Logged In',
-};
+notLoggedInStory.storyName = 'Not Logged In';
 
 export const extraContentStory = () => {
   return (
@@ -163,6 +157,4 @@ export const extraContentStory = () => {
   );
 };
 
-extraContentStory.story = {
-  name: 'Extra Content',
-};
+extraContentStory.storyName = 'Extra Content';

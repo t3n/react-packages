@@ -134,9 +134,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const heroLayout = () => {
   const news = {
@@ -236,6 +234,4 @@ export const liveData = () => {
   return <ArticleCardWithData limit={limit} fakeLoading={fakeLoading} />;
 };
 
-liveData.story = {
-  name: 'Live-Daten',
-};
+liveData.storyName = 'Live-Daten';
