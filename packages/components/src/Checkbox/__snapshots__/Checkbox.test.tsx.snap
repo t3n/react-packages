@@ -252,7 +252,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -281,7 +281,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -310,7 +310,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -339,7 +339,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -368,7 +368,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -397,7 +397,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -426,7 +426,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>
@@ -455,7 +455,7 @@ exports[`Checkbox has feedback styles 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+            d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
           />
         </svg>
       </span>

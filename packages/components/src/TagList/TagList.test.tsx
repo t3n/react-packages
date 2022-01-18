@@ -10,14 +10,12 @@ test('TagList matches snapshot', () => {
   const tagLabels = ['foo', 'bar', 'baz'];
 
   const { container } = renderWithTheme(
-    <>
-      <TagList
-        collapseAfter={2}
-        tags={tagLabels.map((tag) => (
-          <Tag>{tag}</Tag>
-        ))}
-      />
-    </>,
+    <TagList
+      collapseAfter={2}
+      tags={tagLabels.map((tag) => (
+        <Tag>{tag}</Tag>
+      ))}
+    />,
     {}
   );
 
@@ -28,14 +26,12 @@ test('TagList has no toggle if there are not enough items', () => {
   const tagLabels = ['foo', 'bar', 'baz'];
 
   const { queryByLabelText } = renderWithTheme(
-    <>
-      <TagList
-        collapseAfter={3}
-        tags={tagLabels.map((tag) => (
-          <Tag>{tag}</Tag>
-        ))}
-      />
-    </>,
+    <TagList
+      collapseAfter={3}
+      tags={tagLabels.map((tag) => (
+        <Tag>{tag}</Tag>
+      ))}
+    />,
     {}
   );
 
@@ -46,14 +42,12 @@ test('TagList will collapse tags', () => {
   const tagLabels = ['foo', 'bar', 'baz'];
 
   const { queryByText, getByLabelText } = renderWithTheme(
-    <>
-      <TagList
-        collapseAfter={2}
-        tags={tagLabels.map((tag) => (
-          <Tag>{tag}</Tag>
-        ))}
-      />
-    </>,
+    <TagList
+      collapseAfter={2}
+      tags={tagLabels.map((tag) => (
+        <Tag>{tag}</Tag>
+      ))}
+    />,
     {}
   );
 
