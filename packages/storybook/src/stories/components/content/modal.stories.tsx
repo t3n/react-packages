@@ -37,9 +37,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const wideStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
@@ -62,9 +60,7 @@ export const wideStory = () => {
   );
 };
 
-wideStory.story = {
-  name: 'Wide',
-};
+wideStory.storyName = 'Wide';
 
 export const widthStory = () => {
   const [modalOpen, setModalOpen] = useState(true);
@@ -95,6 +91,4 @@ export const widthStory = () => {
   );
 };
 
-widthStory.story = {
-  name: 'Width',
-};
+widthStory.storyName = 'Width';

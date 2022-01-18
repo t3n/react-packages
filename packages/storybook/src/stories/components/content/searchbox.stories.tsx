@@ -151,9 +151,7 @@ export const defaultStory = () => (
   />
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const lightStory = () => (
   <>
@@ -176,26 +174,20 @@ export const lightStory = () => (
   </>
 );
 
-lightStory.story = {
-  name: 'Helle Variante',
-};
+lightStory.storyName = 'Helle Variante';
 
 export const greyStory = () => (
-  <>
-    <Section variant="primary">
-      <SearchBoxWithData
-        variant="grey"
-        width="auto"
-        initialSuggestions={[]}
-        isLoading={false}
-      />
-    </Section>
-  </>
+  <Section variant="primary">
+    <SearchBoxWithData
+      variant="grey"
+      width="auto"
+      initialSuggestions={[]}
+      isLoading={false}
+    />
+  </Section>
 );
 
-greyStory.story = {
-  name: 'Graue Variante',
-};
+greyStory.storyName = 'Graue Variante';
 
 export const loadingStory = () => {
   return (
@@ -208,9 +200,7 @@ export const loadingStory = () => {
   );
 };
 
-loadingStory.story = {
-  name: 'Ladend',
-};
+loadingStory.storyName = 'Ladend';
 
 const SearchBoxWithNoData: React.FC<{
   renderSuggestionsEmpty?: React.ReactNode;
@@ -250,9 +240,7 @@ export const noResults = () => {
   return <SearchBoxWithNoData />;
 };
 
-noResults.story = {
-  name: 'Ohne Treffer',
-};
+noResults.storyName = 'Ohne Treffer';
 
 export const customNoResults = () => {
   return (
@@ -266,9 +254,7 @@ export const customNoResults = () => {
   );
 };
 
-customNoResults.story = {
-  name: 'Individuelle Fehlermeldung',
-};
+customNoResults.storyName = 'Individuelle Fehlermeldung';
 
 export const keepSelectionStory = () => (
   <SearchBoxWithData
@@ -280,9 +266,7 @@ export const keepSelectionStory = () => (
   />
 );
 
-keepSelectionStory.story = {
-  name: 'Auswahl nicht zurücksetzen',
-};
+keepSelectionStory.storyName = 'Auswahl nicht zurücksetzen';
 
 const SearchBoxWithCategorizedData: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -322,9 +306,7 @@ export const withCategorizedData = () => {
   return <SearchBoxWithCategorizedData />;
 };
 
-withCategorizedData.story = {
-  name: 'Ergebnisse in Kategorien',
-};
+withCategorizedData.storyName = 'Ergebnisse in Kategorien';
 
 export const inHeaderStory = () => {
   return (
@@ -343,9 +325,7 @@ export const inHeaderStory = () => {
   );
 };
 
-inHeaderStory.story = {
-  name: 'Im Header',
-};
+inHeaderStory.storyName = 'Im Header';
 
 export const withMoreLinkStory = () => (
   <SearchBoxWithData
@@ -357,9 +337,7 @@ export const withMoreLinkStory = () => (
   />
 );
 
-withMoreLinkStory.story = {
-  name: 'Mit Mehr Link',
-};
+withMoreLinkStory.storyName = 'Mit Mehr Link';
 
 const SearchTermChangeStory = () => {
   const [term, setTerm] = useState('');
@@ -381,6 +359,4 @@ const SearchTermChangeStory = () => {
 
 export const withSearchTermChangeStory = () => <SearchTermChangeStory />;
 
-withSearchTermChangeStory.story = {
-  name: 'Auslesen des Suchbegriffs',
-};
+withSearchTermChangeStory.storyName = 'Auslesen des Suchbegriffs';

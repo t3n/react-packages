@@ -156,9 +156,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const heroLayout = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -225,9 +223,7 @@ export const heroLayout = () => {
   );
 };
 
-heroLayout.story = {
-  name: 'Hero Layout',
-};
+heroLayout.storyName = 'Hero Layout';
 
 export const feedLayout = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -294,9 +290,7 @@ export const feedLayout = () => {
   );
 };
 
-feedLayout.story = {
-  name: 'Feed Layout',
-};
+feedLayout.storyName = 'Feed Layout';
 
 export const liveData = () => {
   const limit = number('Anzahl der Kacheln', 6, {
@@ -310,6 +304,4 @@ export const liveData = () => {
   return <LegacyArticleCardWithData limit={limit} fakeLoading={fakeLoading} />;
 };
 
-liveData.story = {
-  name: 'Live-Daten',
-};
+liveData.storyName = 'Live-Daten';

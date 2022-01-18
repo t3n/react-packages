@@ -10,7 +10,8 @@ interface FormInputProps {
   type: InputTypes;
 }
 
-const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
+// eslint-disable-next-line import/prefer-default-export
+export const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
   const [{ value, name: fieldName, ...rest }, { touched, error }] =
     useField(name);
   const { setFieldValue } = useFormikContext<any>();
@@ -22,22 +23,18 @@ const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
   };
 
   return (
-    <>
-      <FormGroup
-        label={label}
-        errorMessage={touched && error ? error : ''}
-        labelEndContent={name === 'password' && <PasswordLostLabel />}
-      >
-        <Input
-          name={fieldName}
-          error={hasErrors}
-          type={type}
-          onReset={handleReset}
-          {...rest}
-        />
-      </FormGroup>
-    </>
+    <FormGroup
+      label={label}
+      errorMessage={touched && error ? error : ''}
+      labelEndContent={name === 'password' && <PasswordLostLabel />}
+    >
+      <Input
+        name={fieldName}
+        error={hasErrors}
+        type={type}
+        onReset={handleReset}
+        {...rest}
+      />
+    </FormGroup>
   );
 };
-
-export { FormInput };

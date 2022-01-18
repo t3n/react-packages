@@ -36,9 +36,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const range = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -87,9 +85,7 @@ export const syncedSlider = () => {
   );
 };
 
-syncedSlider.story = {
-  name: 'Sync mehrere Slider',
-};
+syncedSlider.storyName = 'Sync mehrere Slider';
 
 export const inForm = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -144,33 +140,27 @@ export const inForm = () => {
   );
 };
 
-inForm.story = {
-  name: 'Slider im Formular',
-};
+inForm.storyName = 'Slider im Formular';
 
 export const fixedContainer = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [value, setValue] = useState(1);
 
   return (
-    <>
-      <Box display="flex" justifyContent="center">
-        <Box width="300px">
-          <Slider
-            value={value}
-            max={2}
-            min={0}
-            step={1}
-            onChange={(v) => setValue(v)}
-            name="slider"
-            labels={['0', '1', '2']}
-          />
-        </Box>
+    <Box display="flex" justifyContent="center">
+      <Box width="300px">
+        <Slider
+          value={value}
+          max={2}
+          min={0}
+          step={1}
+          onChange={(v) => setValue(v)}
+          name="slider"
+          labels={['0', '1', '2']}
+        />
       </Box>
-    </>
+    </Box>
   );
 };
 
-fixedContainer.story = {
-  name: 'Slider in fixed Container',
-};
+fixedContainer.storyName = 'Slider in fixed Container';

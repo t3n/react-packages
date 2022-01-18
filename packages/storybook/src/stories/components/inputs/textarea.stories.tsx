@@ -15,25 +15,21 @@ export const defaultStory = () => {
   const maxLength = number('Maximale Länge', 200, { min: 1 });
 
   return (
-    <>
-      <Textarea
-        width={number('Width', 0.5, {
-          range: true,
-          min: 0.1,
-          max: 1,
-          step: 0.1,
-        })}
-        rows={number('Rows', 6)}
-        maxLength={maxLength}
-        placeholder={text('Placeholder', '')}
-      />
-    </>
+    <Textarea
+      width={number('Width', 0.5, {
+        range: true,
+        min: 0.1,
+        max: 1,
+        step: 0.1,
+      })}
+      rows={number('Rows', 6)}
+      maxLength={maxLength}
+      placeholder={text('Placeholder', '')}
+    />
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const placeholderStory = () => {
   const maxLength = number('Maximale Länge', 200, { min: 1 });
@@ -50,9 +46,7 @@ export const placeholderStory = () => {
   );
 };
 
-placeholderStory.story = {
-  name: 'Placeholder',
-};
+placeholderStory.storyName = 'Placeholder';
 
 export const valueStory = () => {
   const maxLength = number('Maximale Länge', 200, { min: 1 });
@@ -69,9 +63,7 @@ export const valueStory = () => {
   );
 };
 
-valueStory.story = {
-  name: 'Value',
-};
+valueStory.storyName = 'Value';
 
 export const disabled = () => {
   return (
@@ -105,9 +97,7 @@ export const focused = () => (
   />
 );
 
-focused.story = {
-  name: 'Focus',
-};
+focused.storyName = 'Focus';
 
 export const errorStates = () => (
   <Textarea error width={0.5} defaultValue="Invalid" maxLength={200} />

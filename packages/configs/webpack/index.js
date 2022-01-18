@@ -92,7 +92,7 @@ module.exports = ({ title = '', dirname = '' }) => {
       ],
     },
     plugins: [
-      new webpack.WatchIgnorePlugin([/\.d\.ts$/]),
+      new webpack.WatchIgnorePlugin({ paths: [/\.d\.ts$/] }),
       new WebpackNotifierPlugin({ title }),
     ],
   };

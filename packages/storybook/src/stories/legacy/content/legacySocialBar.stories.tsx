@@ -14,6 +14,4 @@ export const defaultStory = () => {
   return <LegacySocialBar />;
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

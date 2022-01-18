@@ -171,6 +171,4 @@ export const register = () => {
   );
 };
 
-register.story = {
-  name: 'Registrierung',
-};
+register.storyName = 'Registrierung';

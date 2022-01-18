@@ -12,6 +12,4 @@ export default {
 
 export const defaultStory = () => <Placeholder height="2rem" p={3} />;
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

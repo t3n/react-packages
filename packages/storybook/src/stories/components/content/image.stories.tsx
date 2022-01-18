@@ -36,9 +36,7 @@ export const defaultStory = () => (
   />
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const CropModes = () => {
   const directions = ['top', 'right', 'bottom', 'left'];
@@ -109,24 +107,22 @@ export const QualityConfiguration = () => {
   const q = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
   return (
-    <>
-      <Grid>
-        {q.map((el) => (
-          <GridItem width={[1 / 3]}>
-            <Text>Qualität: {el}</Text>
-            <Image
-              alt="Crop faces example"
-              src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292"
-              width={300}
-              disableSrcSet
-              processConfiguration={{
-                quality: el,
-              }}
-            />
-          </GridItem>
-        ))}
-      </Grid>
-    </>
+    <Grid>
+      {q.map((el) => (
+        <GridItem width={[1 / 3]}>
+          <Text>Qualität: {el}</Text>
+          <Image
+            alt="Crop faces example"
+            src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292"
+            width={300}
+            disableSrcSet
+            processConfiguration={{
+              quality: el,
+            }}
+          />
+        </GridItem>
+      ))}
+    </Grid>
   );
 };
 

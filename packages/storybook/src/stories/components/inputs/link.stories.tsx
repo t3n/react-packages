@@ -25,9 +25,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const variants = () => (
   <>
@@ -118,9 +116,7 @@ export const variants = () => (
   </>
 );
 
-variants.story = {
-  name: 'Alle Varianten',
-};
+variants.storyName = 'Alle Varianten';
 
 export const disabledStory = () => (
   <>
@@ -159,6 +155,4 @@ export const disabledStory = () => (
   </>
 );
 
-disabledStory.story = {
-  name: 'Disabled Status',
-};
+disabledStory.storyName = 'Disabled Status';

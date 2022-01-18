@@ -91,6 +91,4 @@ export const groups = () => (
   </ThemeConsumer>
 );
 
-groups.story = {
-  name: 'Gruppen',
-};
+groups.storyName = 'Gruppen';

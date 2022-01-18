@@ -149,6 +149,24 @@ export interface UserMenuProps {
   }[];
 }
 
+const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
+  loading,
+  user,
+}) => (
+  <>
+    <Text my={0}>Angemeldet als</Text>
+    {loading ? (
+      <Placeholder height="21px" width="100%" />
+    ) : (
+      user && (
+        <StyledUserLabel my={0} bold>
+          {user.label}
+        </StyledUserLabel>
+      )
+    )}
+  </>
+);
+
 export const UserMenu: React.FC<UserMenuProps> = ({
   user,
   itemGroups,
@@ -159,21 +177,6 @@ export const UserMenu: React.FC<UserMenuProps> = ({
   loggedIn,
   light,
 }) => {
-  const UserLabel = () => (
-    <>
-      <Text my={0}>Angemeldet als</Text>
-      {loading ? (
-        <Placeholder height="21px" width="100%" />
-      ) : (
-        user && (
-          <StyledUserLabel my={0} bold>
-            {user.label}
-          </StyledUserLabel>
-        )
-      )}
-    </>
-  );
-
   return loggedIn ? (
     <UserMenuWrapper>
       {user && (
@@ -184,10 +187,10 @@ export const UserMenu: React.FC<UserMenuProps> = ({
         <UserMenuListItemText>
           {labelLink ? (
             <a href={labelLink}>
-              <UserLabel />
+              <UserLabel loading={loading} user={user} />
             </a>
           ) : (
-            <UserLabel />
+            <UserLabel loading={loading} user={user} />
           )}
         </UserMenuListItemText>
         <UserMenuListDivider />

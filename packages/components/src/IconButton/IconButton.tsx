@@ -316,9 +316,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
       {...rest}
     >
       {loading ? (
-        <>
-          <Loader loaderSize={getLoaderSize(size)} />
-        </>
+        <Loader loaderSize={getLoaderSize(size)} />
       ) : (
         <>
           <Icon

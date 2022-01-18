@@ -149,9 +149,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const infiniteStory = () => {
   return (
@@ -179,9 +177,7 @@ export const infiniteStory = () => {
   );
 };
 
-infiniteStory.story = {
-  name: 'Infinite',
-};
+infiniteStory.storyName = 'Infinite';
 
 export const autoplayStory = () => {
   return (
@@ -213,9 +209,7 @@ export const autoplayStory = () => {
   );
 };
 
-autoplayStory.story = {
-  name: 'Autoplay',
-};
+autoplayStory.storyName = 'Autoplay';
 
 export const responsiveStory = () => {
   return (
@@ -277,9 +271,7 @@ export const responsiveStory = () => {
   );
 };
 
-responsiveStory.story = {
-  name: 'Responsive',
-};
+responsiveStory.storyName = 'Responsive';
 
 export const sliderInModalStory = () => {
   const [showOnboardingModal, setShowOnboardingModal] = useState(true);
@@ -335,6 +327,4 @@ export const sliderInModalStory = () => {
   );
 };
 
-sliderInModalStory.story = {
-  name: 'In Modal',
-};
+sliderInModalStory.storyName = 'In Modal';

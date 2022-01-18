@@ -107,9 +107,7 @@ export const defaultStory = () => (
   </>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const VisualSections = () => (
   <>
@@ -168,6 +166,4 @@ export const VisualSections = () => (
   </>
 );
 
-VisualSections.story = {
-  name: 'Visual Sections',
-};
+VisualSections.storyName = 'Visual Sections';

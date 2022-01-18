@@ -32,13 +32,12 @@ export const defaultStory = () => (
   />
 );
 
-defaultStory.story = {
-  name: 'Default',
-  decorators: [
-    (story: any) => (
-      <Grid justifyContent="center">
-        <GridItem width={1 / 3}>{story()}</GridItem>
-      </Grid>
-    ),
-  ],
-};
+defaultStory.storyName = 'Default';
+
+defaultStory.decorators = [
+  (story: any) => (
+    <Grid justifyContent="center">
+      <GridItem width={1 / 3}>{story()}</GridItem>
+    </Grid>
+  ),
+];

@@ -68,9 +68,7 @@ export const defaultStory = () => (
   </div>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const withText = () => (
   <div>
@@ -87,9 +85,7 @@ export const withText = () => (
   </div>
 );
 
-withText.story = {
-  name: 'Mit Text',
-};
+withText.storyName = 'Mit Text';
 
 export const liveData = () => (
   <PageLayout showHeader headerContent={<UserAvatar />}>
@@ -102,9 +98,7 @@ export const liveData = () => (
   </PageLayout>
 );
 
-liveData.story = {
-  name: 'Live-Daten',
-};
+liveData.storyName = 'Live-Daten';
 
 export const loading = () => (
   <div>
@@ -112,9 +106,7 @@ export const loading = () => (
   </div>
 );
 
-loading.story = {
-  name: 'Loading',
-};
+loading.storyName = 'Loading';
 
 export const noAvatar = () => (
   <div>
@@ -122,12 +114,4 @@ export const noAvatar = () => (
   </div>
 );
 
-noAvatar.story = {
-  name: 'No Avatar',
-};
-
-// {
-//   options: {
-//     showPanel: true
-//   }
-// }
+noAvatar.storyName = 'No Avatar';

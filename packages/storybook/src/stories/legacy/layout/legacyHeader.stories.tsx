@@ -101,9 +101,7 @@ export const defaultStory = () => (
   </Wrapper>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const notLoggedInStory = () => (
   <Wrapper display="flex">
@@ -120,6 +118,4 @@ export const notLoggedInStory = () => (
   </Wrapper>
 );
 
-notLoggedInStory.story = {
-  name: 'Not logged in',
-};
+notLoggedInStory.storyName = 'Not logged in';

@@ -35,9 +35,7 @@ export const defaultStory = () => {
   return <TagList colorVariant={colorVariant} collapseAfter={3} tags={tags} />;
 };
 
-defaultStory.story = {
-  name: 'Liste mit Tags',
-};
+defaultStory.storyName = 'Liste mit Tags';
 
 export const smallStory = () => {
   const colorVariant = select(
@@ -65,6 +63,4 @@ export const smallStory = () => {
   );
 };
 
-smallStory.story = {
-  name: 'Liste mit kleinen Tags',
-};
+smallStory.storyName = 'Liste mit kleinen Tags';

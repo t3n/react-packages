@@ -13,16 +13,12 @@ export default {
 
 export const defaultStory = () => {
   return (
-    <>
-      <LegacyBigRoundButton
-        icon={MaterialRssFeed}
-        url="https://t3n.de"
-        tooltipText="Das ist der Tooltip-Text!"
-      />
-    </>
+    <LegacyBigRoundButton
+      icon={MaterialRssFeed}
+      url="https://t3n.de"
+      tooltipText="Das ist der Tooltip-Text!"
+    />
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

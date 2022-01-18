@@ -31,10 +31,8 @@ export const defaultStory = () => (
   </Divider>
 );
 
-defaultStory.story = {
-  name: 'Default',
-  decorators: [storyContainerContentDecorator],
-};
+defaultStory.storyName = 'Default';
+defaultStory.decorators = [storyContainerContentDecorator];
 
 export const variantStory = () => (
   <>
@@ -133,9 +131,7 @@ export const variantStory = () => (
   </>
 );
 
-variantStory.story = {
-  name: 'Alle Varianten',
-};
+variantStory.storyName = 'Alle Varianten';
 
 export const textVariantStory = () => (
   <Section variant="primary">
@@ -159,9 +155,7 @@ export const textVariantStory = () => (
   </Section>
 );
 
-textVariantStory.story = {
-  name: 'Text Variante',
-};
+textVariantStory.storyName = 'Text Variante';
 
 export const iconVariant = () => (
   <Section variant="primary">
@@ -185,6 +179,4 @@ export const iconVariant = () => (
   </Section>
 );
 
-iconVariant.story = {
-  name: 'Icon Variante',
-};
+iconVariant.storyName = 'Icon Variante';

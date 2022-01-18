@@ -9,7 +9,8 @@ interface FormTextareaProps {
   maxLength: number;
 }
 
-const FormTextarea = ({ name, label, maxLength }: FormTextareaProps) => {
+// eslint-disable-next-line import/prefer-default-export
+export const FormTextarea = ({ name, label, maxLength }: FormTextareaProps) => {
   const [{ value, name: fieldName, ...rest }, { touched, error }] =
     useField(name);
   const { setFieldValue } = useFormikContext<any>();
@@ -21,18 +22,14 @@ const FormTextarea = ({ name, label, maxLength }: FormTextareaProps) => {
   };
 
   return (
-    <>
-      <FormGroup label={label} errorMessage={touched && error ? error : ''}>
-        <Textarea
-          name={fieldName}
-          error={hasErrors}
-          onReset={handleReset}
-          maxLength={maxLength}
-          {...rest}
-        />
-      </FormGroup>
-    </>
+    <FormGroup label={label} errorMessage={touched && error ? error : ''}>
+      <Textarea
+        name={fieldName}
+        error={hasErrors}
+        onReset={handleReset}
+        maxLength={maxLength}
+        {...rest}
+      />
+    </FormGroup>
   );
 };
-
-export { FormTextarea };

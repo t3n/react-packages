@@ -34,9 +34,7 @@ export const defaultStory = () => (
   </>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const headerStory = () => (
   <PageLayout>
@@ -47,6 +45,4 @@ export const headerStory = () => (
   </PageLayout>
 );
 
-headerStory.story = {
-  name: 'Mit Header',
-};
+headerStory.storyName = 'Mit Header';

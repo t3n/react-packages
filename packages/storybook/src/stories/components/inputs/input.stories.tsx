@@ -21,9 +21,7 @@ export const defaultStory = () => (
   </>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const disabled = () => (
   <>
@@ -38,9 +36,7 @@ export const disabled = () => (
 
 export const focused = () => <Input isFocused width={0.5} />;
 
-focused.story = {
-  name: 'Focus',
-};
+focused.storyName = 'Focus';
 
 export const types = () => (
   <>
@@ -53,12 +49,8 @@ export const types = () => (
   </>
 );
 
-types.story = {
-  name: 'Types',
-};
+types.storyName = 'Types';
 
 export const errorStates = () => (
-  <>
-    <Input error width={0.5} defaultValue="Invalid" />
-  </>
+  <Input error width={0.5} defaultValue="Invalid" />
 );

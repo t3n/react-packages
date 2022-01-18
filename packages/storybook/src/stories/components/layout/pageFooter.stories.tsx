@@ -9,9 +9,7 @@ export default {
 
 export const defaultStory = () => <PageFooter contactLink="mailto:hi@t3n.de" />;
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const footerLinkStory = () => (
   <PageFooter contactLink="mailto:hi@t3n.de">
@@ -24,6 +22,4 @@ export const footerLinkStory = () => (
   </PageFooter>
 );
 
-footerLinkStory.story = {
-  name: 'Footer Link',
-};
+footerLinkStory.storyName = 'Footer Link';

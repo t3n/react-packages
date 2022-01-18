@@ -47,6 +47,4 @@ export const spaces = () => (
   </ThemeConsumer>
 );
 
-spaces.story = {
-  name: 'Abstände',
-};
+spaces.storyName = 'Abstände';

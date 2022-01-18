@@ -18,28 +18,22 @@ export default {
 
 export const defaultStory = () => <Punchline>Punchline</Punchline>;
 
-defaultStory.story = {
-  name: 'Default',
-  decorators: [storyContainerContentDecorator],
-};
+defaultStory.storyName = 'Default';
+defaultStory.decorators = [storyContainerContentDecorator];
 
 export const lineBreakStory = () => (
-  <>
-    <Section variant="primary" innerGap={9}>
-      <Grid>
-        <GridItem>
-          <Box width="500px" pl={3}>
-            <Punchline>Punchline mit Zeilenumbruch</Punchline>
-          </Box>
-        </GridItem>
-      </Grid>
-    </Section>
-  </>
+  <Section variant="primary" innerGap={9}>
+    <Grid>
+      <GridItem>
+        <Box width="500px" pl={3}>
+          <Punchline>Punchline mit Zeilenumbruch</Punchline>
+        </Box>
+      </GridItem>
+    </Grid>
+  </Section>
 );
 
-lineBreakStory.story = {
-  name: 'Zeilenumbruch',
-};
+lineBreakStory.storyName = 'Zeilenumbruch';
 
 export const visualSectionStory = () => (
   <Grid>
@@ -53,6 +47,4 @@ export const visualSectionStory = () => (
   </Grid>
 );
 
-visualSectionStory.story = {
-  name: 'Visual Section',
-};
+visualSectionStory.storyName = 'Visual Section';

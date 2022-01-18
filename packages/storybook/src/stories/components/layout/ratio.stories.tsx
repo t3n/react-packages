@@ -15,6 +15,4 @@ export const defaultStory = () => (
   <Ratio ratio={number('Verhältnis', 16 / 9)} bg="background.secondary" />
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';

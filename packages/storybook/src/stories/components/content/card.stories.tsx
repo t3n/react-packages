@@ -49,9 +49,7 @@ export const defaultStory = () => (
   </Card>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const link = () => (
   <Card {...cardKnobs({ href: '#', targetBlank: false }, KNOBS_CATEGORY_CARD)}>

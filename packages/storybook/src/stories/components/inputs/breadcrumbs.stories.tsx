@@ -21,9 +21,7 @@ export const defaultStory = () => (
   </Breadcrumbs>
 );
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const item = () => {
   const label = text('Label', 'Label');

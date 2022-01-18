@@ -1,2 +1,2 @@
-declare const tsxTemplate: ({ template }: any, opts: any, { componentName, jsx }: any) => any;
-export default tsxTemplate;
+declare const template: (variables: any, { tpl }: any) => any;
+export default template;

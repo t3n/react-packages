@@ -55,30 +55,30 @@ const NextButton: React.FC<{
   show: boolean;
   label: string;
   customOnClick?: () => void;
-}> = ({ onClick, show = true, label, customOnClick }) => (
-  <>
-    {show && (
-      <StyledNextButton onClick={customOnClick || onClick}>
-        {label}
-      </StyledNextButton>
-    )}
-  </>
-);
+}> = ({ onClick, show = true, label, customOnClick }) => {
+  if (!show) return null;
+
+  return (
+    <StyledNextButton onClick={customOnClick || onClick}>
+      {label}
+    </StyledNextButton>
+  );
+};
 
 const PrevButton: React.FC<{
   onClick?: () => void;
   show: boolean;
   label: string;
   customOnClick?: () => void;
-}> = ({ onClick, show = true, label, customOnClick }) => (
-  <>
-    {show && (
-      <StyledPrevButton onClick={customOnClick || onClick} variant="secondary">
-        {label}
-      </StyledPrevButton>
-    )}
-  </>
-);
+}> = ({ onClick, show = true, label, customOnClick }) => {
+  if (!show) return null;
+
+  return (
+    <StyledPrevButton onClick={customOnClick || onClick} variant="secondary">
+      {label}
+    </StyledPrevButton>
+  );
+};
 
 export interface CarouselProps {
   slidesToShow?: number;

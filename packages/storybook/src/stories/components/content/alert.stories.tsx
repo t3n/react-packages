@@ -37,18 +37,18 @@ export const defaultStory = () => (
   </>
 );
 
-const AsToastStory = () => {
+export const ToastStory = () => {
   const [status, setStatus] = useState('success');
   const [text, setText] = useState('Deine Registrierung war erfolgreich');
   const [notify] = useToast();
 
-  const positons = [
-    { positon: 'top', label: 'Oben' },
-    { positon: 'top-right', label: 'Oben rechts' },
-    { positon: 'bottom-right', label: 'Unten rechts' },
-    { positon: 'bottom', label: 'Unten' },
-    { positon: 'bottom-left', label: 'Unten links' },
-    { positon: 'top-left', label: 'Oben links' },
+  const positions = [
+    { position: 'top', label: 'Oben' },
+    { position: 'top-right', label: 'Oben rechts' },
+    { position: 'bottom-right', label: 'Unten rechts' },
+    { position: 'bottom', label: 'Unten' },
+    { position: 'bottom-left', label: 'Unten links' },
+    { position: 'top-left', label: 'Oben links' },
   ];
 
   return (
@@ -76,9 +76,9 @@ const AsToastStory = () => {
       </Box>
 
       <Text>Wo soll der Toast angezeigt werden?</Text>
-      {positons.map((el) => (
+      {positions.map((el) => (
         <Button
-          key={el.positon}
+          key={el.position}
           m={2}
           onClick={() =>
             notify({
@@ -86,7 +86,7 @@ const AsToastStory = () => {
               status: status as AlertStatus,
               isClosable: true,
               duration: 9000,
-              position: el.positon as keyof typeof Position,
+              position: el.position as keyof typeof Position,
             })
           }
         >
@@ -97,8 +97,4 @@ const AsToastStory = () => {
   );
 };
 
-export const asToast = () => <AsToastStory />;
-
-asToast.story = {
-  name: 'Als Toast',
-};
+ToastStory.storyName = 'Als Toast';

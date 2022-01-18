@@ -65,9 +65,7 @@ export const defaultStory = () => {
   );
 };
 
-defaultStory.story = {
-  name: 'Default',
-};
+defaultStory.storyName = 'Default';
 
 export const variants = () => (
   <>
@@ -274,9 +272,7 @@ export const variants = () => (
   </>
 );
 
-variants.story = {
-  name: 'Alle Varianten',
-};
+variants.storyName = 'Alle Varianten';
 
 export const loadingStory = () => {
   return (
@@ -533,9 +529,7 @@ export const loadingStory = () => {
   );
 };
 
-loadingStory.story = {
-  name: 'Ladend',
-};
+loadingStory.storyName = 'Ladend';
 
 export const iconOnlyStory = () => {
   return (
@@ -686,9 +680,7 @@ export const iconOnlyStory = () => {
   );
 };
 
-iconOnlyStory.story = {
-  name: 'Icon Only',
-};
+iconOnlyStory.storyName = 'Icon Only';
 
 export const expandedStory = () => {
   return (
@@ -945,20 +937,14 @@ export const expandedStory = () => {
   );
 };
 
-expandedStory.story = {
-  name: 'Expanded',
-};
+expandedStory.storyName = 'Expanded';
 
 export const sideBySide = () => (
-  <>
-    <Section variant="primary">
-      <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
-      <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
-      <IconButton icon={MaterialCheck} label="Speichern" />
-    </Section>
-  </>
+  <Section variant="primary">
+    <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
+    <IconButton icon={MaterialCheck} label="Speichern" mr={1} />
+    <IconButton icon={MaterialCheck} label="Speichern" />
+  </Section>
 );
 
-sideBySide.story = {
-  name: 'Side By Side',
-};
+sideBySide.storyName = 'Side By Side';
