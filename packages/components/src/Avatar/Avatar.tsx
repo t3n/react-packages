@@ -49,6 +49,7 @@ const StyledText = styled((props) => <Text {...props} />)`
 `;
 
 interface AvatarImageProps {
+  optimizeSrc?: boolean;
   src?: string;
   size?: number;
   className?: string;
@@ -58,6 +59,7 @@ interface AvatarImageProps {
 
 const AvatarImage = ({
   src,
+  optimizeSrc = true,
   size,
   className,
   alt,
@@ -72,15 +74,25 @@ const AvatarImage = ({
   return loading ? (
     <AvatarPlaceholder height={`${size}px`} width={`${size}px`} />
   ) : src ? (
-    <Imgix
-      src={src}
-      className={className}
-      imgixParams={{ fit: 'crop', h: size, w: size }}
-      width={size}
-      height={size}
-      htmlAttributes={{ alt: alt || 'Kein Avatar' }}
-      disableSrcSet
-    />
+    optimizeSrc ? (
+      <Imgix
+        src={src}
+        className={className}
+        imgixParams={{ fit: 'crop', h: size, w: size }}
+        width={size}
+        height={size}
+        htmlAttributes={{ alt: alt || 'Kein Avatar' }}
+        disableSrcSet
+      />
+    ) : (
+      <img
+        src={src}
+        className={className}
+        width={size}
+        height={size}
+        alt={alt || 'Kein Avatar'}
+      />
+    )
   ) : (
     <DefaultAvatar
       display="flex"
