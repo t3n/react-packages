@@ -286,6 +286,28 @@ export const defaultStory = () => {
 
 defaultStory.storyName = 'Default';
 
+export const customAvatarStory = () => {
+  return (
+    <Grid justifyContent="center">
+      <GridItem width={[1, 1, 2 / 5]}>
+        <UserCard
+          compact={boolean('Compact', false, 'card')}
+          user={{
+            ...defaultUserStatic.user,
+            avatarUrl:
+              'https://assets.t3n.de/t3n-de/pioneers/a3c85b2024286bca1e622fdc4a3c32d7f8f9c412/t3n-andreas-weck-home-office-heimarbeit-remote-erfahrungsbericht.jpg?class=avatar-large',
+          }}
+          link={defaultUserStatic.link}
+          optimizeAvatar={false}
+          secondary={boolean('Secondary', false, 'card')}
+        />
+      </GridItem>
+    </Grid>
+  );
+};
+
+customAvatarStory.storyName = 'Custom Avatar-URL';
+
 export const compactStory = () => {
   return (
     <Grid justifyContent="center">

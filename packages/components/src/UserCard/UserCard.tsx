@@ -104,6 +104,7 @@ export type UserCardProps = {
     phone?: string;
     socialLinks: SocialLink[];
   };
+  optimizeAvatar?: boolean;
   link?: {
     fullCard?: boolean;
     url?: string;
@@ -145,11 +146,9 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, cardLinked }) => {
   );
 };
 
-const CompactUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
-  user,
-  link,
-  children,
-}) => {
+const CompactUserCard: React.FC<
+  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar'>
+> = ({ user, link, optimizeAvatar, children }) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
       {link && link.url ? (
@@ -159,21 +158,29 @@ const CompactUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
           target={link.target ?? '_blank'}
           rel="noreferrer"
         >
-          <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+          <Avatar
+            optimizeSrc={optimizeAvatar}
+            src={user.avatarUrl}
+            size={80}
+            alt={user.name}
+          />
         </a>
       ) : (
-        <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+        <Avatar
+          optimizeSrc={optimizeAvatar}
+          src={user.avatarUrl}
+          size={80}
+          alt={user.name}
+        />
       )}
       {children}
     </StyledCompactBox>
   );
 };
 
-const DefaultUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
-  user,
-  link,
-  children,
-}) => {
+const DefaultUserCard: React.FC<
+  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar'>
+> = ({ user, link, optimizeAvatar, children }) => {
   return (
     <Box display={['unset', 'flex']} m="0 auto">
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
@@ -185,10 +192,20 @@ const DefaultUserCard: React.FC<Pick<UserCardProps, 'user' | 'link'>> = ({
               target={link.target ?? '_blank'}
               rel="noreferrer"
             >
-              <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+              <Avatar
+                optimizeSrc={optimizeAvatar}
+                src={user.avatarUrl}
+                size={80}
+                alt={user.name}
+              />
             </a>
           ) : (
-            <Avatar src={user.avatarUrl} size={80} alt={user.name} />
+            <Avatar
+              optimizeSrc={optimizeAvatar}
+              src={user.avatarUrl}
+              size={80}
+              alt={user.name}
+            />
           )}
         </Box>
       </Box>
@@ -256,6 +273,7 @@ const UserCardContent: React.FC<
 
 export const UserCard: React.FC<UserCardProps> = ({
   user,
+  optimizeAvatar,
   link,
   compact,
   secondary,
@@ -264,12 +282,20 @@ export const UserCard: React.FC<UserCardProps> = ({
   return (
     <StyledCard href={!link?.fullCard || !link?.url ? undefined : link?.url}>
       {compact ? (
-        <CompactUserCard user={user} link={link}>
+        <CompactUserCard
+          user={user}
+          link={link}
+          optimizeAvatar={optimizeAvatar}
+        >
           <UserCardContent user={user} link={link} secondary={secondary} />
           {children}
         </CompactUserCard>
       ) : (
-        <DefaultUserCard user={user} link={link}>
+        <DefaultUserCard
+          user={user}
+          link={link}
+          optimizeAvatar={optimizeAvatar}
+        >
           <UserCardContent user={user} link={link} secondary={secondary} />
           {children}
         </DefaultUserCard>
