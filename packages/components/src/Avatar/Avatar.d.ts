@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextColorProps } from 'styled-system';
 interface AvatarImageProps {
+    optimizeSrc?: boolean;
     src?: string;
     size?: number;
     className?: string;

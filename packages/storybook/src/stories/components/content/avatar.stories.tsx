@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { number, select, text } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import gql from 'graphql-tag';
 
 import { Avatar, Center, PageLayout, Text } from '@t3n/components';
@@ -56,10 +56,11 @@ const UserAvatar = () => {
 export const defaultStory = () => (
   <div>
     <Avatar
+      optimizeSrc={boolean('Imgix nutzen?', true)}
       size={number('Größe', 40)}
       src={text(
         'Image URL',
-        'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
+        'https://storage.googleapis.com/t3n-de/pioneers/b3dc709a91716ae96282e57ac4988f1803ea59fa/t3n-gregor-2019-03.jpg'
       )}
       label={text('Label', '')}
       textColor={select('Textfarbe', options, 'black')}
