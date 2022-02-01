@@ -227,6 +227,14 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                   AGB
                 </FooterLink>
               </Text>
+              <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
+                <FooterLink
+                  href="https://t3n.de/agb/#widerrufsbelehrung"
+                  mx={2}
+                >
+                  Widerrufsbelehrung
+                </FooterLink>
+              </Text>
               <Text
                 as="span"
                 width={[1 / 2, 'auto']}

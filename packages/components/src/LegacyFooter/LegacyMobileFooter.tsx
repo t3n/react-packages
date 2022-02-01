@@ -89,6 +89,10 @@ const legacyMobileLinks: MobileLinkType = [
     url: '/agb/',
   },
   {
+    label: 'Widerrufsbelehrung',
+    url: '/agb/#widerrufsbelehrung',
+  },
+  {
     label: 'Datenschutz',
     url: '/datenschutz/',
   },

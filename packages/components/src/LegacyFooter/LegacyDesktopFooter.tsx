@@ -131,6 +131,10 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/agb/',
       },
       {
+        label: 'Widerrufsbelehrung',
+        url: '/agb/#widerrufsbelehrung',
+      },
+      {
         label: 'Datenschutz',
         url: '/datenschutz/',
       },
