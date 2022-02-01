@@ -320,7 +320,7 @@ const LegacyDesktopBottom = () => {
             <Box pt="20px" display="flex" alignItems="center">
               <Box mr="23px">
                 <FooterLink
-                  href="http://www.agof.de/"
+                  href="https://www.agof.de"
                   target="_blank"
                   title="Die externe Seite im neuen Tab/Fenster öffnen"
                   rel="noreferrer noopener"
@@ -333,7 +333,7 @@ const LegacyDesktopBottom = () => {
                 </FooterLink>
               </Box>
               <FooterLink
-                href="http://www.ivw.de/"
+                href="https://www.ivw.de"
                 target="_blank"
                 title="Die externe Seite im neuen Tab/Fenster öffnen"
                 rel="noreferrer noopener"
@@ -356,7 +356,7 @@ const LegacyDesktopBottom = () => {
             <Box pt="20px">
               <Box mr="20px" display="inline">
                 <FooterLink
-                  href="https://www.kununu.com/de/t3n/"
+                  href="https://www.kununu.com/de/t3n"
                   rel="nofollow noopener noreferrer"
                   target="_blank"
                   title="Die externe Seite im neuen Tab/Fenster öffnen"
@@ -369,7 +369,7 @@ const LegacyDesktopBottom = () => {
                 </FooterLink>
               </Box>
               <FooterLink
-                href="https://www.kununu.com/de/t3n/"
+                href="https://www.kununu.com/de/t3n"
                 rel="nofollow noopener noreferrer"
                 target="_blank"
                 title="Die externe Seite im neuen Tab/Fenster öffnen"
