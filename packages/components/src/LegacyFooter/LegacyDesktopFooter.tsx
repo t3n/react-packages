@@ -320,7 +320,7 @@ const LegacyDesktopBottom = () => {
             <Box pt="20px" display="flex" alignItems="center">
               <Box mr="23px">
                 <FooterLink
-                  href="http://www.agof.de/"
+                  href="https://www.agof.de/"
                   target="_blank"
                   title="Die externe Seite im neuen Tab/Fenster öffnen"
                   rel="noreferrer noopener"
@@ -333,7 +333,7 @@ const LegacyDesktopBottom = () => {
                 </FooterLink>
               </Box>
               <FooterLink
-                href="http://www.ivw.de/"
+                href="https://www.ivw.de/"
                 target="_blank"
                 title="Die externe Seite im neuen Tab/Fenster öffnen"
                 rel="noreferrer noopener"
