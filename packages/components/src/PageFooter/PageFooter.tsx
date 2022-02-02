@@ -130,7 +130,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
         borderColor="shades.grey44"
       >
         <Grid justifyContent="space-between" alignItems="center">
-          <GridItem width={[1, 1, 1, 1, 1 / 3]} order={[1, 1, 1, 1, 0]}>
+          <GridItem width={[1, 1, 1, 1, 2 / 5]} order={[1, 1, 1, 1, 0]}>
             <Text
               color="shades.grey143"
               small
@@ -141,7 +141,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               {new Date().getFullYear()}
             </Text>
           </GridItem>
-          <GridItem width={[1, 1, 1, 1, 1 / 3]} mb={[2, 2, 2, 2, 0]}>
+          <GridItem width={[1, 1, 1, 1, 1 / 5]} mb={[2, 2, 2, 2, 0]}>
             <SocialLinks>
               <SocialLink
                 href="https://facebook.com/t3nMagazin"
@@ -201,7 +201,7 @@ export const PageFooter: React.FC<PageFooterProps> = ({
               </SocialLink>
             </SocialLinks>
           </GridItem>
-          <GridItem width={[1, 1, 1, 1, 1 / 3]} my={[2, 2, 2, 2, 0]}>
+          <GridItem width={[1, 1, 1, 1, 2 / 5]} my={[2, 2, 2, 2, 0]}>
             <FooterLinks
               justifyContent={[
                 'center',
@@ -227,7 +227,12 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                   AGB
                 </FooterLink>
               </Text>
-              <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
+              <Text
+                as="span"
+                width={[1 / 2, 'auto']}
+                align={['right', 'left']}
+                my={[1, 0]}
+              >
                 <FooterLink
                   href="https://t3n.de/agb/#widerrufsbelehrung"
                   mx={2}
@@ -235,17 +240,21 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                   Widerrufsbelehrung
                 </FooterLink>
               </Text>
-              <Text
-                as="span"
-                width={[1 / 2, 'auto']}
-                align={['right', 'left']}
-                my={[1, 0]}
-              >
+              <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
                 <FooterLink href="https://t3n.de/impressum/" mx={2}>
                   Impressum
                 </FooterLink>
               </Text>
-              <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
+              <Text
+                as="span"
+                width={[1 / 2, 'auto']}
+                my={[1, 0]}
+                align={
+                  showPrivacySettingsLink
+                    ? ['right', 'left']
+                    : ['center', 'left']
+                }
+              >
                 <FooterLink
                   href="https://t3n.de/datenschutz/"
                   {...(showPrivacySettingsLink
@@ -261,11 +270,11 @@ export const PageFooter: React.FC<PageFooterProps> = ({
                 </FooterLink>
               </Text>
               {showPrivacySettingsLink && (
-                <Text as="span" my={[1, 0]}>
+                <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
                   <FooterLink
                     href="#"
                     mr={[2, 2, 2, 0]}
-                    ml={2}
+                    mx={2}
                     onClick={(e) => {
                       e.preventDefault();
                       // eslint-disable-next-line no-underscore-dangle
