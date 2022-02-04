@@ -413,7 +413,8 @@ const LegacyDesktopFooter: React.FC<{
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
           <MissonStatement as="h3" mt={0}>
-            Wir helfen digitalen Pionieren, glücklich zu arbeiten und zu leben.
+            Wir helfen digitalen Pionier:innen, die Zukunft positiv zu
+            gestalten.
           </MissonStatement>
         </GridItem>
         <LegacyDesktopLinks privacySettingsModal={privacySettingsModal} />
