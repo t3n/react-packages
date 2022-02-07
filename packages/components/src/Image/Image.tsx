@@ -137,13 +137,16 @@ const Image: React.FC<ImageProps> = ({
     setImageNode(node);
   }, []);
 
+  // Resolve url and translate to fastly url if possible
   const defaultSrc = generateFastlySrc(src, optimizationClass);
   const isFastlyImage = src !== defaultSrc;
 
+  // Use transparent image as placeholder if image can't be served via fastly
   const placeholderSrc = isFastlyImage
     ? `${src}?class=blur`
     : 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 
+  // If image comes from fastly, resolve srcSet based on classMapping
   const mappedSrcSet = isFastlyImage
     ? generateSrcSet(src, classMapping)
     : undefined;
@@ -152,6 +155,9 @@ const Image: React.FC<ImageProps> = ({
     (lazy && placeholder && !wasInViewport) ||
     (!lazy && placeholder && !initialized);
 
+  // If sizes is passed as array via props, resolve entries based on breakpoints
+  // from theme and construct valid html sizes attribute value
+  //
   // eslint-disable-next-line no-nested-ternary
   const imgSizes = Array.isArray(sizes)
     ? sizes
