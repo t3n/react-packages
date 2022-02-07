@@ -96,6 +96,7 @@ module.exports = {
   ],
   addons: [
     '@storybook/preset-create-react-app',
+    '@storybook/addon-controls',
     '@storybook/addon-docs',
     '@storybook/addon-links',
     '@storybook/addon-viewport',

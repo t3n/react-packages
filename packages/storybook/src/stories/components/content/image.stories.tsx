@@ -1,16 +1,61 @@
 import React, { useState } from 'react';
 
-// import { boolean, number, text } from '@storybook/addon-knobs';
 import { Box, Image, Text } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
-
-// TODO: Add knobs
 
 export default {
   title: 'Components/Content/Image',
   component: Image,
   decorators: [storyContainerDecorator],
+  argTypes: {
+    src: {
+      description: 'The image source url',
+      type: { name: 'string', required: true },
+    },
+    width: {
+      description: 'Display width of image set on styles',
+    },
+    height: {
+      description: 'Display height of image set on styles',
+    },
+    imageWidth: {
+      description: 'Native width of image element',
+      type: 'number',
+    },
+    imageHeight: {
+      description: 'Native height of image element',
+      type: 'number',
+    },
+    optimizationClass: {
+      description: 'Fastly image optimization class to apply by default',
+      defaultValue: 'default',
+    },
+    sizes: {
+      description:
+        'Sizes configuration for responsive images, can be string or array of strings or numbers. Must be set for a srcSet to be applied to the image.',
+    },
+    placeholder: {
+      description:
+        'Displays blur placeholder image as long as image is not loaded',
+      defaultValue: true,
+      type: 'boolean',
+    },
+    lazy: {
+      description: 'Displays placeholder image until image is in viewport',
+      defaultValue: true,
+      type: 'boolean',
+    },
+  },
+};
+
+const defaultOptimizationClassMapping = {
+  '240': 'responsive-extrasmall',
+  '420': 'responsive-small',
+  '640': 'responsive-medium',
+  '980': 'responsive-default',
+  '1280': 'responsive-large',
+  '1620': 'responsive-extralarge',
 };
 
 const exampleImageSrc =
@@ -49,24 +94,39 @@ const ResponsiveImageHint = ({ src }: { src: string }) => (
   </Box>
 );
 
-// All props customizable
-export const defaultStory = () => (
+export const defaultStory = (args: {
+  src: string;
+  width: string;
+  height: string;
+  imageWidth: number;
+  imageHeight: number;
+  optimizationClass: string;
+  sizes: string;
+  placeholder: boolean;
+  lazy: boolean;
+}) => (
   <Image
-    src={exampleImageSrc}
-    width="80%"
-    height="auto"
-    imageWidth={1100}
-    imageHeight={685}
-    sizes="calc(80vw - 4rem)"
+    {...args}
+    width={args.width.split(',').map((i) => i.trim())}
+    height={args.height.split(',').map((i) => i.trim())}
   />
 );
 
-// Simple image without responsive sizes
+defaultStory.args = {
+  src: exampleImageSrc,
+  width: '80%',
+  height: 'auto',
+  imageWidth: 1100,
+  imageHeight: 685,
+  optimizationClass: 'default',
+  classMapping: defaultOptimizationClassMapping,
+  sizes: 'calc(80vw - 4rem)',
+};
+
 export const SimpleImage = () => (
   <Image src={exampleImageSrc} imageWidth={800} imageHeight={450} />
 );
 
-// External image
 export const ExternalImage = () => (
   <Image
     src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -75,7 +135,6 @@ export const ExternalImage = () => (
   />
 );
 
-// Simple image without responsive sizes
 export const OptimizationClass = () => (
   <Image
     src={exampleImageSrc}
@@ -85,7 +144,6 @@ export const OptimizationClass = () => (
   />
 );
 
-// Lazy demonstration
 export const Lazy = () => {
   const [loadedSrc, setLoadedSrc] = useState('');
 
@@ -112,13 +170,14 @@ export const Lazy = () => {
         imageWidth={1100}
         imageHeight={685}
         sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
-        onLoad={(e) => setLoadedSrc(e.currentTarget.currentSrc)}
+        onLoad={(e: React.SyntheticEvent<HTMLImageElement>) =>
+          setLoadedSrc(e.currentTarget.currentSrc)
+        }
       />
     </Box>
   );
 };
 
-// Responsive image
 export const Responsive = () => {
   const [loadedSrc, setLoadedSrc] = useState('');
 
@@ -138,7 +197,6 @@ export const Responsive = () => {
   );
 };
 
-// Responsive image with custom class mapping
 export const CustomClassMapping = () => {
   const [loadedSrc, setLoadedSrc] = useState('');
 

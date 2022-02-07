@@ -18,5 +18,6 @@ export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElemen
     imageWidth?: number;
     imageHeight?: number;
 }
+export declare const defaultOptimizationClassMapping: OptimizationClassMapping;
 declare const Image: React.FC<ImageProps>;
 export default Image;

@@ -39,7 +39,7 @@ export interface ImageProps
   imageHeight?: number;
 }
 
-const defaultOptimizationClassMapping: OptimizationClassMapping = {
+export const defaultOptimizationClassMapping: OptimizationClassMapping = {
   '240': 'responsive-extrasmall',
   '420': 'responsive-small',
   '640': 'responsive-medium',
