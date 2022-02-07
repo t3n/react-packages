@@ -3,6 +3,8 @@ import styled, { useTheme } from 'styled-components';
 import {
   height as styledHeight,
   HeightProps,
+  space,
+  SpaceProps,
   width as styledWidth,
   WidthProps,
 } from 'styled-system';
@@ -10,10 +12,6 @@ import {
 import { Theme } from '@t3n/theme';
 
 import useInViewport from '../hooks/useInViewport';
-
-// TODO:
-// - Finalize prop namings
-// - Add lazy offset prop
 
 export interface OptimizationClassMapping {
   [key: string]: string;
@@ -25,11 +23,12 @@ export interface FastlyHostnameMapping {
 
 export interface ImageProps
   extends Omit<
-    React.ImgHTMLAttributes<HTMLImageElement>,
-    'placeholder' | 'sizes' | 'width' | 'height'
-  > {
+      React.ImgHTMLAttributes<HTMLImageElement>,
+      'placeholder' | 'sizes' | 'width' | 'height'
+    >,
+    SpaceProps {
   src: string;
-  sizes?: string | Array<string | number>;
+  sizes?: string | number | Array<string | number>;
   placeholder?: boolean;
   lazy?: boolean;
   optimizationClass?: string;
@@ -108,6 +107,7 @@ const NativeImage = styled.img<
   ${({ displayWidth, theme }) => styledWidth({ width: displayWidth, theme })}
   ${({ displayHeight, theme }) =>
     styledHeight({ height: displayHeight, theme })}
+  ${space}
 `;
 
 const Image: React.FC<ImageProps> = ({
@@ -152,17 +152,22 @@ const Image: React.FC<ImageProps> = ({
     (lazy && placeholder && !wasInViewport) ||
     (!lazy && placeholder && !initialized);
 
+  // eslint-disable-next-line no-nested-ternary
   const imgSizes = Array.isArray(sizes)
     ? sizes
         .map((size, i) => {
-          if (i < 1) return size;
+          const parsedSize = typeof size === 'number' ? `${size}px` : size;
+
+          if (i < 1) return parsedSize;
 
           const breakpoint = theme.breakpoints[i - 1];
 
-          return `(min-width: ${breakpoint}) ${size}`;
+          return `(min-width: ${breakpoint}) ${parsedSize}`;
         })
         .reverse()
         .join(', ')
+    : typeof sizes === 'number'
+    ? `${sizes}px`
     : sizes;
 
   return (

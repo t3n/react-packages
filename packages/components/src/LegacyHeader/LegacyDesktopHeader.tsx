@@ -1,20 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  border,
-  color,
-  // height,
-  // HeightProps,
-  layout,
-  space,
-  // width,
-  // WidthProps,
-} from 'styled-system';
+import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../Box';
-import { ImgixImage as Image } from '../Image';
+import { Image } from '../Image';
 import { LegacyAd } from '../LegacyAd';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
@@ -30,8 +21,6 @@ import {
   SearchInput,
   TagNavTagsType,
 } from './components/LegacyTagNav';
-
-// TODO: Use fastly image instead Imgix
 
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">
@@ -168,16 +157,6 @@ const HeaderWrapper = styled(Header)`
   }
 `;
 
-// interface HeaderCampaignImageProps
-//   extends Omit<HTMLImageElement, 'width' | 'height'>,
-//     WidthProps,
-//     HeightProps {}
-
-// const HeaderCampaignImage = styled.img<HeaderCampaignImageProps>`
-//   ${width}
-//   ${height}
-// `;
-
 export const LegacyDesktopHeader: React.FC<{
   user: LegacyUserMenuProps['user'];
   userMenuLabelUrl: string;
@@ -243,15 +222,12 @@ export const LegacyDesktopHeader: React.FC<{
           </Box>
           <HeaderCampaign>
             <a href={headerCampaignUrl}>
-              {/* <HeaderCampaignImage
-                src="https://assets.t3n.de/t3n-media/t3n-headercampaign.png?class=content-small"
-                width={[80, 80, 250, 320]}
-                height={[50, 50, 120, 160]}
-              /> */}
               <Image
                 src={headerCampaignImage}
                 width={[80, 80, 250, 320]}
                 height={[50, 50, 120, 160]}
+                sizes={[80, 80, 250, 320]}
+                lazy={false}
               />
             </a>
           </HeaderCampaign>

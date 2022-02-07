@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Card } from '../Card';
-import { ImgixImage as Image } from '../Image';
+import { Image } from '../Image';
 import { Placeholder } from '../Placeholder';
 import { Text } from '../Text';
-
-// TODO: Use fastly image instead of Imgix
 
 export type JobCardType = 'CARD' | 'LIST';
 
@@ -73,7 +71,13 @@ const JobCardItem = ({
     </div>
 
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <BorderImage alt={companyName} src={imageUrl} width={80} height={80} />
+      <BorderImage
+        alt={companyName}
+        src={imageUrl}
+        width={80}
+        height={80}
+        sizes={80}
+      />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Text width="auto" inline bold small>
           {companyName}
@@ -96,7 +100,13 @@ const JobListItem = ({
 }: Job) => (
   <Card href={url} stretch rounded={false} elevate={false}>
     <div style={{ display: 'flex' }}>
-      <BorderImage alt={companyName} src={imageUrl} width={80} height={80} />
+      <BorderImage
+        alt={companyName}
+        src={imageUrl}
+        width={80}
+        height={80}
+        sizes={80}
+      />
       <div>
         <Text width="auto" bold mt={0} mb={0}>
           {title}

@@ -14,7 +14,7 @@ import { getColorForBackground, ThemeProps } from '@t3n/theme';
 import { Box } from '../../Box';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
-import { ImgixImage as Image } from '../../Image';
+import { Image } from '../../Image';
 import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Logo } from '../../Logo';
@@ -22,8 +22,6 @@ import { Text } from '../../Text';
 import { HeaderCampaign } from './LegacyHeaderCampaign';
 import { HeaderLink } from './LegacyHeaderLink';
 import { Indicator } from './LegacyMainNav';
-
-// TODO: Use fastly image instead of Imgix
 
 const MobileMenuToggleBox = styled(Box)`
   span {
@@ -272,13 +270,18 @@ const LegacyMobileNav: React.FC<{
             </a>
           </Box>
           <HeaderCampaign mr={5}>
-            <a href={headerCampaignUrl}>
-              <Image
-                src={headerCampaignImageMobile}
-                width={[80, 80, 250, 320]}
-                height={[50, 50, 120, 160]}
-              />
-            </a>
+            {headerCampaignImageMobile && (
+              <a href={headerCampaignUrl}>
+                <Image
+                  src={headerCampaignImageMobile}
+                  width={[80, 80, 250, 320]}
+                  height={[50, 50, 120, 160]}
+                  imageWidth={80}
+                  imageHeight={50}
+                  sizes={[80, 80, 250, 320]}
+                />
+              </a>
+            )}
           </HeaderCampaign>
           <MobileMenuToggle
             fill="shades.grey42"

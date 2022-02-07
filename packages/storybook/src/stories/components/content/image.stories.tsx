@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 
 // import { boolean, number, text } from '@storybook/addon-knobs';
-import {
-  Box,
-  Image,
-  // Grid, GridItem, H3,
-  Text,
-} from '@t3n/components';
+import { Box, Image, Text } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
+
+// TODO: Add knobs
 
 export default {
   title: 'Components/Content/Image',
