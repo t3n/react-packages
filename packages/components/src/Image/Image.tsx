@@ -53,33 +53,44 @@ const fastlyHostnameMapping = {
   't3n.de': 'images.t3n.de',
 };
 
+// Try to resolve fastly url from image src
 const generateFastlySrc = (src: string, imageClass: string) => {
   const [baseSrc, urlParams] = src.split('?');
 
   const fastlyOrigins = Object.keys(fastlyHostnameMapping);
   const fastlyDestinations = Object.values(fastlyHostnameMapping);
 
+  // If if already is a fastly url, simply apply optimization class name
+  // and reapply all possible url params
   if (fastlyDestinations.find((destination) => src.includes(destination))) {
     return `${baseSrc}?class=${imageClass}${urlParams ? `&${urlParams}` : ''}`;
   }
 
   const origin = fastlyOrigins.find((destination) => src.includes(destination));
 
+  // If it's not a fastly compatible url, simply return the original src
   if (!origin) return src;
 
   const index = fastlyOrigins.indexOf(origin);
   const destination = fastlyDestinations[index];
   const destinationSrc = baseSrc.replace(origin, destination);
 
+  // Resolve fastly origin for url and return url with optimization class
+  // and original url params applied
   return `${destinationSrc}?class=${imageClass}${
     urlParams ? `&${urlParams}` : ''
   }`;
 };
 
+// Takes a raw src and a fastly image optimization class mapping and
+// automatically generates srcSet for responsive images
 const generateSrcSet = (
   src: string,
   optimizationClassMapping: OptimizationClassMapping
 ): string =>
+  // Keys from class mapping always describe the size of the optimized image
+  //
+  // Take keys and transform output for each size
   Object.keys(optimizationClassMapping)
     .map((k) => {
       const key = Number(k);
@@ -89,10 +100,13 @@ const generateSrcSet = (
 
       return key;
     })
+    // We need to make sure the array is sorted from smallest size to largest
     .sort((a, b) => a - b)
     .map((w) => {
+      // Get value for size from class mapping
       const optimizationClassName = optimizationClassMapping[w.toString()];
 
+      // Return value that looks like 'http://t3n.de/image?class=optimized 640w'
       return `${generateFastlySrc(src, optimizationClassName)} ${w}w`;
     })
     .join(', ');
