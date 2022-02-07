@@ -8,8 +8,8 @@ import { Box } from '../Box';
 import { Image } from '../Image';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { Logo } from '../Logo';
+import { HeaderCampaign } from './components/LegacyHeaderCampaign';
 import LegacyMobileNav from './components/LegacyMobileNav';
-import { HeaderCampaign } from './LegacyHeader';
 
 const MobileHeader = styled(Box)`
   width: 100%;
@@ -71,13 +71,19 @@ const LegacyMobileHeader: React.FC<{
         </a>
       </Box>
       <HeaderCampaign mr={5}>
-        <a href={headerCampaignUrl}>
-          <Image
-            src={headerCampaignImageMobile}
-            width={[80, 80, 250, 320]}
-            height={[50, 50, 120, 160]}
-          />
-        </a>
+        {headerCampaignImageMobile && (
+          <a href={headerCampaignUrl}>
+            <Image
+              src={headerCampaignImageMobile}
+              width={[80, 80, 250, 320]}
+              height={[50, 50, 120, 160]}
+              imageWidth={320}
+              imageHeight={160}
+              sizes={[80, 80, 250, 320]}
+              lazy={false}
+            />
+          </a>
+        )}
       </HeaderCampaign>
       <LegacyMobileNav
         user={user}

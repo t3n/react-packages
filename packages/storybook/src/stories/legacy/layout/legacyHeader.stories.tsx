@@ -68,9 +68,9 @@ const tagNavTags: TagNavTagsType[] = [
 
 const variants = [
   {
-    image: 'https://storage.googleapis.com/t3n-media/t3n-headercampaign.png',
+    image: 'https://assets.t3n.de/t3n-media/t3n-headercampaign.png',
     imageMobile:
-      'https://storage.googleapis.com/t3n-media/t3n-headercampaign-mobile.png',
+      'https://assets.t3n.de/t3n-media/t3n-headercampaign-mobile.png',
     href: 'https://t3n.de/headercampaign',
   },
 ];

@@ -19,7 +19,8 @@ import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Logo } from '../../Logo';
 import { Text } from '../../Text';
-import { HeaderCampaign, HeaderLink } from '../LegacyHeader';
+import { HeaderCampaign } from './LegacyHeaderCampaign';
+import { HeaderLink } from './LegacyHeaderLink';
 import { Indicator } from './LegacyMainNav';
 
 const MobileMenuToggleBox = styled(Box)`
@@ -269,13 +270,18 @@ const LegacyMobileNav: React.FC<{
             </a>
           </Box>
           <HeaderCampaign mr={5}>
-            <a href={headerCampaignUrl}>
-              <Image
-                src={headerCampaignImageMobile}
-                width={[80, 80, 250, 320]}
-                height={[50, 50, 120, 160]}
-              />
-            </a>
+            {headerCampaignImageMobile && (
+              <a href={headerCampaignUrl}>
+                <Image
+                  src={headerCampaignImageMobile}
+                  width={[80, 80, 250, 320]}
+                  height={[50, 50, 120, 160]}
+                  imageWidth={80}
+                  imageHeight={50}
+                  sizes={[80, 80, 250, 320]}
+                />
+              </a>
+            )}
           </HeaderCampaign>
           <MobileMenuToggle
             fill="shades.grey42"

@@ -5,7 +5,7 @@ import {
   Button,
   Grid,
   GridItem,
-  Image,
+  ImgixImage,
   Section,
   Text,
 } from '@t3n/components';
@@ -103,7 +103,7 @@ const MultiAccordions = () => {
       >
         <Grid>
           <GridItem width={[1, 1, 1 / 4]}>
-            <Image
+            <ImgixImage
               width="200px"
               alt="Bild"
               src="https://images.unsplash.com/photo-1559116674-71fae8b32c95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=663&q=80"

@@ -34,6 +34,7 @@ export const parameters = {
       ...INITIAL_VIEWPORTS,
     },
   },
+  controls: { expanded: true },
 };
 
 export const decorators = [

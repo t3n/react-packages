@@ -44,6 +44,7 @@ module.exports = {
     '../src/stories/components/content/heroArticleCard.stories',
     '../src/stories/components/content/icon.stories',
     '../src/stories/components/content/image.stories',
+    '../src/stories/components/content/imgixImage.stories',
     '../src/stories/components/content/jobCard.stories',
     '../src/stories/components/content/loader.stories',
     '../src/stories/components/content/modal.stories',
@@ -95,6 +96,7 @@ module.exports = {
   ],
   addons: [
     '@storybook/preset-create-react-app',
+    '@storybook/addon-controls',
     '@storybook/addon-docs',
     '@storybook/addon-links',
     '@storybook/addon-viewport',

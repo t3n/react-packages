@@ -71,7 +71,13 @@ const JobCardItem = ({
     </div>
 
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <BorderImage alt={companyName} src={imageUrl} width={80} height={80} />
+      <BorderImage
+        alt={companyName}
+        src={imageUrl}
+        width={80}
+        height={80}
+        sizes={80}
+      />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Text width="auto" inline bold small>
           {companyName}
@@ -94,7 +100,13 @@ const JobListItem = ({
 }: Job) => (
   <Card href={url} stretch rounded={false} elevate={false}>
     <div style={{ display: 'flex' }}>
-      <BorderImage alt={companyName} src={imageUrl} width={80} height={80} />
+      <BorderImage
+        alt={companyName}
+        src={imageUrl}
+        width={80}
+        height={80}
+        sizes={80}
+      />
       <div>
         <Text width="auto" bold mt={0} mb={0}>
           {title}

@@ -10,6 +10,7 @@ import { LegacyAd } from '../LegacyAd';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
 import { Logo } from '../Logo';
+import { HeaderCampaign } from './components/LegacyHeaderCampaign';
 import LegacyMainNav from './components/LegacyMainNav';
 import LegacyT3nNav from './components/LegacyT3nNav';
 import {
@@ -20,7 +21,6 @@ import {
   SearchInput,
   TagNavTagsType,
 } from './components/LegacyTagNav';
-import { HeaderCampaign } from './LegacyHeader';
 
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">
@@ -226,6 +226,8 @@ export const LegacyDesktopHeader: React.FC<{
                 src={headerCampaignImage}
                 width={[80, 80, 250, 320]}
                 height={[50, 50, 120, 160]}
+                sizes={[80, 80, 250, 320]}
+                lazy={false}
               />
             </a>
           </HeaderCampaign>

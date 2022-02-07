@@ -1,24 +1,23 @@
 import React from 'react';
-import { HeightProps, MarginProps, WidthProps } from 'styled-system';
-declare type FitTypes = 'crop' | 'faces' | 'facearea';
-export interface BaseImageProps extends Pick<React.HTMLAttributes<HTMLImageElement>, 'onLoad'> {
-    alt: string;
+import { HeightProps, SpaceProps, WidthProps } from 'styled-system';
+export interface OptimizationClassMapping {
+    [key: string]: string;
+}
+export interface FastlyHostnameMapping {
+    [key: string]: string;
+}
+export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'placeholder' | 'sizes' | 'width' | 'height'>, SpaceProps {
     src: string;
-    sizes?: string;
-    disableSrcSet?: boolean;
-    className?: string;
-    processConfiguration?: {
-        fit?: FitTypes;
-        facepad?: number;
-        quality?: number;
-        aspectRatio?: string;
-        crop?: string;
-        width?: number;
-        height?: number;
-    };
-    style?: React.CSSProperties;
+    sizes?: string | number | Array<string | number>;
+    placeholder?: boolean;
+    lazy?: boolean;
+    optimizationClass?: string;
+    classMapping?: OptimizationClassMapping;
+    width?: WidthProps['width'];
+    height?: HeightProps['height'];
+    imageWidth?: number;
+    imageHeight?: number;
 }
-export interface ImageProps extends BaseImageProps, MarginProps, WidthProps, HeightProps {
-}
-export declare const Image: import("styled-components").StyledComponent<({ width, height, ...props }: any) => JSX.Element, any, ImageProps, never>;
-export {};
+export declare const defaultOptimizationClassMapping: OptimizationClassMapping;
+declare const Image: React.FC<ImageProps>;
+export default Image;

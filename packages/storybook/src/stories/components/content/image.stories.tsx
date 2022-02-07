@@ -1,146 +1,234 @@
-import React from 'react';
-import { boolean, number, text } from '@storybook/addon-knobs';
+import React, { useState } from 'react';
+import { Meta, Story } from '@storybook/react';
 
-import { Box, Grid, GridItem, H3, Image, Text } from '@t3n/components';
+import { Box, Image, Text } from '@t3n/components';
+import { OptimizationClassMapping } from '@t3n/components/src/Image/Image';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
-export default {
+const meta: Meta = {
   title: 'Components/Content/Image',
   component: Image,
   decorators: [storyContainerDecorator],
+  argTypes: {
+    src: {
+      description: 'The image source url',
+      type: { name: 'string', required: true },
+    },
+    width: {
+      description: 'Display width of image set on styles',
+    },
+    height: {
+      description: 'Display height of image set on styles',
+    },
+    imageWidth: {
+      description: 'Native width of image element',
+      type: 'number',
+    },
+    imageHeight: {
+      description: 'Native height of image element',
+      type: 'number',
+    },
+    optimizationClass: {
+      description: 'Fastly image optimization class to apply by default',
+      defaultValue: 'default',
+    },
+    classMapping: {
+      description: 'Optional class mapping to automatically generate srcSet',
+    },
+    sizes: {
+      description:
+        'Sizes configuration for responsive images, can be string or array of strings or numbers. Must be set for a srcSet to be applied to the image.',
+    },
+    placeholder: {
+      description:
+        'Displays blur placeholder image as long as image is not loaded',
+      defaultValue: true,
+      type: 'boolean',
+    },
+    lazy: {
+      description: 'Displays placeholder image until image is in viewport',
+      defaultValue: true,
+      type: 'boolean',
+    },
+  },
 };
 
-const options = {
-  range: true,
-  min: 0,
-  max: 100,
-  step: 5,
+export default meta;
+
+const defaultOptimizationClassMapping = {
+  '240': 'responsive-extrasmall',
+  '420': 'responsive-small',
+  '640': 'responsive-medium',
+  '980': 'responsive-default',
+  '1280': 'responsive-large',
+  '1620': 'responsive-extralarge',
 };
 
-export const defaultStory = () => (
+const exampleImageSrc =
+  'https://images.t3n.de/news/wp-content/uploads/2021/11/shutterstock-1453899434-Internationale-Raumstation-ISS.jpg';
+
+const getFastlyClassFormSrc = (src: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, fastlyClass] = src.split('?class=');
+
+  return fastlyClass;
+};
+
+const CurrentFastlyClassText = ({ src }: { src: string }) => (
+  <Text>
+    Currently used image optimization class:{' '}
+    <strong>
+      <code>{getFastlyClassFormSrc(src)}</code>
+    </strong>
+  </Text>
+);
+
+const ResponsiveImageHint = ({ src }: { src: string }) => (
+  <Box>
+    <Text>
+      Resize the window from smallest to largest to see the best otimized image
+      src being used depending on viewport width
+    </Text>
+    <CurrentFastlyClassText src={src} />
+    <Text>
+      💡{' '}
+      <em>
+        Hint: if you always see the same image class being used, reload the page
+        with cache disabled, because the largest option might be cached already
+      </em>
+    </Text>
+  </Box>
+);
+
+export const defaultStory: Story<{
+  src: string;
+  width: string;
+  height: string;
+  imageWidth: number;
+  imageHeight: number;
+  optimizationClass: string;
+  classMapping: OptimizationClassMapping;
+  sizes: string;
+  placeholder: boolean;
+  lazy: boolean;
+}> = (args) => (
   <Image
-    src={text(
-      'Bild-URL',
-      'https://assets.t3n.sc/news/wp-content/uploads/2019/08/tier-e-scooter-hero.jpg'
-    )}
-    alt={text('Alt-Text', '')}
-    width={400}
-    height={200}
-    processConfiguration={{
-      fit: boolean('Crop?', true) ? 'crop' : undefined,
-      quality: number('Qualität', 65, options),
-      aspectRatio: '16:9',
-      crop: 'faces',
-    }}
+    {...args}
+    width={args.width.split(',').map((i) => i.trim())}
+    height={args.height.split(',').map((i) => i.trim())}
   />
 );
 
-defaultStory.storyName = 'Default';
+defaultStory.args = {
+  src: exampleImageSrc,
+  width: '80%',
+  height: 'auto',
+  imageWidth: 1100,
+  imageHeight: 685,
+  optimizationClass: 'default',
+  classMapping: defaultOptimizationClassMapping,
+  sizes: 'calc(80vw - 4rem)',
+};
 
-export const CropModes = () => {
-  const directions = ['top', 'right', 'bottom', 'left'];
+export const SimpleImage: Story = () => (
+  <Image src={exampleImageSrc} imageWidth={800} imageHeight={450} />
+);
+
+export const ExternalImage: Story = () => (
+  <Image
+    src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    imageWidth={840}
+    imageHeight={560}
+  />
+);
+
+export const OptimizationClass: Story = () => (
+  <Image
+    src={exampleImageSrc}
+    optimizationClass="hero-wide"
+    imageWidth={800}
+    imageHeight={367}
+  />
+);
+
+export const Lazy: Story = () => {
+  const [loadedSrc, setLoadedSrc] = useState('');
 
   return (
-    <>
-      <H3>Crop Mode - direktional</H3>
-      <Grid>
-        <GridItem width={[1, 1, 1 / 2]}>
-          <Text bold>Original</Text>
-          <Image
-            alt="Crop directional"
-            src="https://images.unsplash.com/photo-1492158244976-29b84ba93025"
-            width={400}
-          />
-        </GridItem>
-        <GridItem width={[1, 1 / 2]}>
-          <Grid>
-            {directions.map((direction) => (
-              <GridItem key={direction} width={[1 / 2]}>
-                <Text bold>{direction}</Text>
-                <Image
-                  alt="Crop faces example"
-                  src="https://images.unsplash.com/photo-1492158244976-29b84ba93025"
-                  width={100}
-                  height={100}
-                  processConfiguration={{
-                    fit: 'crop',
-                    crop: direction,
-                  }}
-                />
-              </GridItem>
-            ))}
-          </Grid>
-        </GridItem>
-      </Grid>
-
-      <H3>Crop mode auf Gesichter</H3>
-      <Grid>
-        <GridItem width={1 / 2}>
-          <Text bold>Original</Text>
-          <Image
-            alt="Crop faces example"
-            src="https://images.unsplash.com/photo-1521119989659-a83eee488004"
-            width={200}
-          />
-        </GridItem>
-        <GridItem width={1 / 2}>
-          <Text bold>Crop auf das Gesicht</Text>
-          <Image
-            alt="Crop faces example"
-            src="https://images.unsplash.com/photo-1521119989659-a83eee488004"
-            width={200}
-            height={200}
-            processConfiguration={{
-              crop: 'faces',
-              fit: 'facearea',
-              facepad: 2.0,
-            }}
-          />
-        </GridItem>
-      </Grid>
-    </>
+    <Box
+      height="200vh"
+      display="flex"
+      justifyContent="flex-start"
+      alignItems="flex-end"
+      position="relative"
+    >
+      <Box position="fixed" top="2rem" left="2rem">
+        <Text>
+          Scroll down to see the image. Once the image passes the viewport
+          threshold, the full image will be loaded instead of the blur
+          placeholder.
+        </Text>
+        <CurrentFastlyClassText src={loadedSrc} />
+      </Box>
+      <Image
+        src={exampleImageSrc}
+        width={['100%', '80%', '80%']}
+        height="auto"
+        imageWidth={1100}
+        imageHeight={685}
+        sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
+        onLoad={(e: React.SyntheticEvent<HTMLImageElement>) =>
+          setLoadedSrc(e.currentTarget.currentSrc)
+        }
+      />
+    </Box>
   );
 };
 
-export const QualityConfiguration = () => {
-  const q = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+export const Responsive: Story = () => {
+  const [loadedSrc, setLoadedSrc] = useState('');
 
-  return (
-    <Grid>
-      {q.map((el) => (
-        <GridItem width={[1 / 3]}>
-          <Text>Qualität: {el}</Text>
-          <Image
-            alt="Crop faces example"
-            src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292"
-            width={300}
-            disableSrcSet
-            processConfiguration={{
-              quality: el,
-            }}
-          />
-        </GridItem>
-      ))}
-    </Grid>
-  );
-};
-
-export const Responsive = () => {
   return (
     <Box>
+      <ResponsiveImageHint src={loadedSrc} />
       <Image
-        src="https://images.unsplash.com/photo-1575315599174-f0c6d26625eb"
-        sizes="50vw"
-        width={[1, 1, 1 / 2, 1 / 3]}
-        alt="Responsive Image"
+        src={exampleImageSrc}
+        width={['100%', '80%', '80%']}
+        height="auto"
+        imageWidth={1100}
+        imageHeight={685}
+        sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
+        onLoad={(e: React.SyntheticEvent<HTMLImageElement>) =>
+          setLoadedSrc(e.currentTarget.currentSrc)
+        }
       />
-      <Text small secondary>
-        Open the &quot;Network&quot; tab in your browser and check the
-        downloaded image file size. Now resize the window and check again. The
-        browser picks the appropriate size for the viewport and fetches the
-        corresponding image.
-      </Text>
+    </Box>
+  );
+};
+
+export const CustomClassMapping: Story = () => {
+  const [loadedSrc, setLoadedSrc] = useState('');
+
+  return (
+    <Box>
+      <ResponsiveImageHint src={loadedSrc} />
+      <Image
+        src={exampleImageSrc}
+        width={['100%', '80%', '80%']}
+        height="auto"
+        imageWidth={1200}
+        imageHeight={675}
+        sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
+        classMapping={{
+          '630': 'hero-small',
+          '930': 'hero',
+          '1470': 'hero-large',
+        }}
+        onLoad={(e: React.SyntheticEvent<HTMLImageElement>) =>
+          setLoadedSrc(e.currentTarget.currentSrc)
+        }
+      />
     </Box>
   );
 };

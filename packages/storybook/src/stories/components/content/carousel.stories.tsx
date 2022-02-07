@@ -134,6 +134,7 @@ export const defaultStory = () => {
             src={el.imageSrc}
             alt={el.headline}
             title={el.headline}
+            lazy={false}
           />
 
           <Text bold mt={3} mb={2}>
@@ -162,6 +163,7 @@ export const infiniteStory = () => {
             src={el.imageSrc}
             alt={el.headline}
             title={el.headline}
+            lazy={false}
           />
 
           <Text bold mt={3} mb={2}>
@@ -194,6 +196,7 @@ export const autoplayStory = () => {
             src={el.imageSrc}
             alt={el.headline}
             title={el.headline}
+            lazy={false}
           />
 
           <Text bold mt={3} mb={2}>
@@ -256,6 +259,7 @@ export const responsiveStory = () => {
             src={el.imageSrc}
             alt={el.headline}
             title={el.headline}
+            lazy={false}
           />
 
           <Text bold mt={3} mb={2}>
@@ -308,6 +312,7 @@ export const sliderInModalStory = () => {
                     src={el.imageSrc}
                     alt={el.headline}
                     title={el.headline}
+                    lazy={false}
                   />
 
                   <Text bold mt={3} mb={2}>
