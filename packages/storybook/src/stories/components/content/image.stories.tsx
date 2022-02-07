@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Meta, Story } from '@storybook/react';
 
 import { Box, Image, Text } from '@t3n/components';
+import { OptimizationClassMapping } from '@t3n/components/src/Image/Image';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
-export default {
+const meta: Meta = {
   title: 'Components/Content/Image',
   component: Image,
   decorators: [storyContainerDecorator],
@@ -31,6 +33,9 @@ export default {
       description: 'Fastly image optimization class to apply by default',
       defaultValue: 'default',
     },
+    classMapping: {
+      description: 'Optional class mapping to automatically generate srcSet',
+    },
     sizes: {
       description:
         'Sizes configuration for responsive images, can be string or array of strings or numbers. Must be set for a srcSet to be applied to the image.',
@@ -48,6 +53,8 @@ export default {
     },
   },
 };
+
+export default meta;
 
 const defaultOptimizationClassMapping = {
   '240': 'responsive-extrasmall',
@@ -94,17 +101,18 @@ const ResponsiveImageHint = ({ src }: { src: string }) => (
   </Box>
 );
 
-export const defaultStory = (args: {
+export const defaultStory: Story<{
   src: string;
   width: string;
   height: string;
   imageWidth: number;
   imageHeight: number;
   optimizationClass: string;
+  classMapping: OptimizationClassMapping;
   sizes: string;
   placeholder: boolean;
   lazy: boolean;
-}) => (
+}> = (args) => (
   <Image
     {...args}
     width={args.width.split(',').map((i) => i.trim())}
@@ -123,11 +131,11 @@ defaultStory.args = {
   sizes: 'calc(80vw - 4rem)',
 };
 
-export const SimpleImage = () => (
+export const SimpleImage: Story = () => (
   <Image src={exampleImageSrc} imageWidth={800} imageHeight={450} />
 );
 
-export const ExternalImage = () => (
+export const ExternalImage: Story = () => (
   <Image
     src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     imageWidth={840}
@@ -135,7 +143,7 @@ export const ExternalImage = () => (
   />
 );
 
-export const OptimizationClass = () => (
+export const OptimizationClass: Story = () => (
   <Image
     src={exampleImageSrc}
     optimizationClass="hero-wide"
@@ -144,7 +152,7 @@ export const OptimizationClass = () => (
   />
 );
 
-export const Lazy = () => {
+export const Lazy: Story = () => {
   const [loadedSrc, setLoadedSrc] = useState('');
 
   return (
@@ -178,7 +186,7 @@ export const Lazy = () => {
   );
 };
 
-export const Responsive = () => {
+export const Responsive: Story = () => {
   const [loadedSrc, setLoadedSrc] = useState('');
 
   return (
@@ -191,13 +199,15 @@ export const Responsive = () => {
         imageWidth={1100}
         imageHeight={685}
         sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
-        onLoad={(e) => setLoadedSrc(e.currentTarget.currentSrc)}
+        onLoad={(e: React.SyntheticEvent<HTMLImageElement>) =>
+          setLoadedSrc(e.currentTarget.currentSrc)
+        }
       />
     </Box>
   );
 };
 
-export const CustomClassMapping = () => {
+export const CustomClassMapping: Story = () => {
   const [loadedSrc, setLoadedSrc] = useState('');
 
   return (
@@ -215,7 +225,9 @@ export const CustomClassMapping = () => {
           '930': 'hero',
           '1470': 'hero-large',
         }}
-        onLoad={(e) => setLoadedSrc(e.currentTarget.currentSrc)}
+        onLoad={(e: React.SyntheticEvent<HTMLImageElement>) =>
+          setLoadedSrc(e.currentTarget.currentSrc)
+        }
       />
     </Box>
   );
