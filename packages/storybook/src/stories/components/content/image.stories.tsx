@@ -56,25 +56,25 @@ const ResponsiveImageHint = ({ src }: { src: string }) => (
 export const defaultStory = () => (
   <Image
     src={exampleImageSrc}
-    width={1100}
-    height={685}
+    width="80%"
+    height="auto"
+    imageWidth={1100}
+    imageHeight={685}
     sizes="calc(80vw - 4rem)"
-    displayWidth="80%"
-    displayHeight="auto"
   />
 );
 
 // Simple image without responsive sizes
 export const SimpleImage = () => (
-  <Image src={exampleImageSrc} width={800} height={450} />
+  <Image src={exampleImageSrc} imageWidth={800} imageHeight={450} />
 );
 
 // External image
 export const ExternalImage = () => (
   <Image
     src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-    width={840}
-    height={560}
+    imageWidth={840}
+    imageHeight={560}
   />
 );
 
@@ -83,8 +83,8 @@ export const OptimizationClass = () => (
   <Image
     src={exampleImageSrc}
     optimizationClass="hero-wide"
-    width={800}
-    height={367}
+    imageWidth={800}
+    imageHeight={367}
   />
 );
 
@@ -110,11 +110,11 @@ export const Lazy = () => {
       </Box>
       <Image
         src={exampleImageSrc}
-        width={1100}
-        height={685}
+        width={['100%', '80%', '80%']}
+        height="auto"
+        imageWidth={1100}
+        imageHeight={685}
         sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
-        displayWidth={['100%', '80%', '80%']}
-        displayHeight="auto"
         onLoad={(e) => setLoadedSrc(e.currentTarget.currentSrc)}
       />
     </Box>
@@ -130,11 +130,11 @@ export const Responsive = () => {
       <ResponsiveImageHint src={loadedSrc} />
       <Image
         src={exampleImageSrc}
-        width={1100}
-        height={685}
+        width={['100%', '80%', '80%']}
+        height="auto"
+        imageWidth={1100}
+        imageHeight={685}
         sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
-        displayWidth={['100%', '80%', '80%']}
-        displayHeight="auto"
         onLoad={(e) => setLoadedSrc(e.currentTarget.currentSrc)}
       />
     </Box>
@@ -150,16 +150,16 @@ export const CustomClassMapping = () => {
       <ResponsiveImageHint src={loadedSrc} />
       <Image
         src={exampleImageSrc}
-        width={1200}
-        height={675}
+        width={['100%', '80%', '80%']}
+        height="auto"
+        imageWidth={1200}
+        imageHeight={675}
         sizes={['calc(100vw - 4rem)', 'calc(80vw - 4rem)', 'calc(80vw - 4rem)']}
         classMapping={{
           '630': 'hero-small',
           '930': 'hero',
           '1470': 'hero-large',
         }}
-        displayWidth={['100%', '80%', '80%']}
-        displayHeight="auto"
         onLoad={(e) => setLoadedSrc(e.currentTarget.currentSrc)}
       />
     </Box>

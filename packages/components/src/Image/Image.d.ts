@@ -6,15 +6,17 @@ export interface OptimizationClassMapping {
 export interface FastlyHostnameMapping {
     [key: string]: string;
 }
-export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'placeholder' | 'sizes'> {
+export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'placeholder' | 'sizes' | 'width' | 'height'> {
     src: string;
     sizes?: string | Array<string | number>;
     placeholder?: boolean;
     lazy?: boolean;
     optimizationClass?: string;
     classMapping?: OptimizationClassMapping;
-    displayWidth?: WidthProps['width'];
-    displayHeight?: HeightProps['height'];
+    width?: WidthProps['width'];
+    height?: HeightProps['height'];
+    imageWidth?: number;
+    imageHeight?: number;
 }
 declare const Image: React.FC<ImageProps>;
 export default Image;

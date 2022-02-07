@@ -1,6 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
-import { height, HeightProps, width, WidthProps } from 'styled-system';
+import {
+  height as styledHeight,
+  HeightProps,
+  width as styledWidth,
+  WidthProps,
+} from 'styled-system';
 
 import { Theme } from '@t3n/theme';
 
@@ -21,7 +26,7 @@ export interface FastlyHostnameMapping {
 export interface ImageProps
   extends Omit<
     React.ImgHTMLAttributes<HTMLImageElement>,
-    'placeholder' | 'sizes'
+    'placeholder' | 'sizes' | 'width' | 'height'
   > {
   src: string;
   sizes?: string | Array<string | number>;
@@ -29,8 +34,10 @@ export interface ImageProps
   lazy?: boolean;
   optimizationClass?: string;
   classMapping?: OptimizationClassMapping;
-  displayWidth?: WidthProps['width'];
-  displayHeight?: HeightProps['height'];
+  width?: WidthProps['width'];
+  height?: HeightProps['height'];
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const defaultOptimizationClassMapping: OptimizationClassMapping = {
@@ -91,9 +98,16 @@ const generateSrcSet = (
     })
     .join(', ');
 
-const NativeImage = styled.img<Omit<ImageProps, 'sizes'> & { sizes?: string }>`
-  ${({ displayWidth, theme }) => width({ width: displayWidth, theme })}
-  ${({ displayHeight, theme }) => height({ height: displayHeight, theme })}
+const NativeImage = styled.img<
+  Omit<ImageProps, 'sizes' | 'width' | 'height'> & {
+    sizes?: string;
+    displayWidth: WidthProps['width'];
+    displayHeight: HeightProps['height'];
+  }
+>`
+  ${({ displayWidth, theme }) => styledWidth({ width: displayWidth, theme })}
+  ${({ displayHeight, theme }) =>
+    styledHeight({ height: displayHeight, theme })}
 `;
 
 const Image: React.FC<ImageProps> = ({
@@ -104,6 +118,10 @@ const Image: React.FC<ImageProps> = ({
   src,
   srcSet,
   sizes,
+  width,
+  height,
+  imageWidth,
+  imageHeight,
   ...props
 }) => {
   const [initialized, setInitialized] = useState(false);
@@ -154,6 +172,10 @@ const Image: React.FC<ImageProps> = ({
       data-src={defaultSrc}
       srcSet={!sizes || showPlaceholder ? undefined : srcSet || mappedSrcSet}
       sizes={showPlaceholder ? undefined : imgSizes}
+      width={imageWidth}
+      height={imageHeight}
+      displayWidth={width}
+      displayHeight={height}
       {...props}
     />
   );
