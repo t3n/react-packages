@@ -7,7 +7,7 @@ import { T3nPro } from '@t3n/icons';
 
 import { Box } from '../Box';
 import { Heading } from '../Heading';
-import { Image } from '../Image';
+import { ImgixImage as Image } from '../Image';
 import { LegacyCard } from '../LegacyCard';
 import { Placeholder } from '../Placeholder';
 import { Text } from '../Text';

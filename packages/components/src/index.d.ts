@@ -27,7 +27,7 @@ export { H1, H2, H3, H4, H5, H6, Heading } from './Heading';
 export { HeroCard } from './HeroCard';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
-export { FastlyImage, Image } from './Image';
+export { Image, ImgixImage } from './Image';
 export { Input } from './Input';
 export { JobCard } from './JobCard';
 export { LegacyAd } from './LegacyAd';

@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Card } from '../Card';
-import { Image } from '../Image';
+import { ImgixImage as Image } from '../Image';
 import { Placeholder } from '../Placeholder';
 import { Text } from '../Text';
+
+// TODO: Use fastly image instead of Imgix
 
 export type JobCardType = 'CARD' | 'LIST';
 

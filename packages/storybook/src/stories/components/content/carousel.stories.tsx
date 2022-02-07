@@ -9,12 +9,14 @@ import {
   Button,
   Carousel,
   Heading,
-  Image,
+  ImgixImage,
   Modal,
   Text,
 } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
+
+// TODO: Use fastly image instead of Imgix
 
 export default {
   component: Carousel,
@@ -128,7 +130,7 @@ export const defaultStory = () => {
     >
       {defaultData.map((el) => (
         <Box key={el.id} mb={8} overflow="hidden">
-          <Image
+          <ImgixImage
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
             src={el.imageSrc}
@@ -156,7 +158,7 @@ export const infiniteStory = () => {
     <Carousel infinite>
       {defaultData.map((el) => (
         <Box key={el.id} mb={8} overflow="hidden">
-          <Image
+          <ImgixImage
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
             src={el.imageSrc}
@@ -188,7 +190,7 @@ export const autoplayStory = () => {
     >
       {defaultData.map((el) => (
         <Box key={el.id} mb={8} overflow="hidden">
-          <Image
+          <ImgixImage
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
             src={el.imageSrc}
@@ -250,7 +252,7 @@ export const responsiveStory = () => {
     >
       {defaultData.map((el) => (
         <Box key={el.id} mb={8} overflow="hidden">
-          <Image
+          <ImgixImage
             m="0 auto"
             height={['165px', '180px', '150px', '200px', '250px']}
             src={el.imageSrc}
@@ -302,7 +304,7 @@ export const sliderInModalStory = () => {
             >
               {defaultData.map((el) => (
                 <Box key={el.id} mt={2} mb={8} overflow="hidden">
-                  <Image
+                  <ImgixImage
                     m="0 auto"
                     height={['165px', '180px', '150px', '200px', '250px']}
                     src={el.imageSrc}

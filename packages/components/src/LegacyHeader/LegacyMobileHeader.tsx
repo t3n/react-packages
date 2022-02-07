@@ -5,11 +5,13 @@ import { border, color, layout, space } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 
 import { Box } from '../Box';
-import { Image } from '../Image';
+import { ImgixImage as Image } from '../Image';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { Logo } from '../Logo';
+import { HeaderCampaign } from './components/LegacyHeaderCampaign';
 import LegacyMobileNav from './components/LegacyMobileNav';
-import { HeaderCampaign } from './LegacyHeader';
+
+// TODO: Use fastly image instead of Imgix
 
 const MobileHeader = styled(Box)`
   width: 100%;

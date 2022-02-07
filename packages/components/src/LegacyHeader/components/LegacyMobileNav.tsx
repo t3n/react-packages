@@ -14,13 +14,16 @@ import { getColorForBackground, ThemeProps } from '@t3n/theme';
 import { Box } from '../../Box';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
-import { Image } from '../../Image';
+import { ImgixImage as Image } from '../../Image';
 import { Input } from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import { Logo } from '../../Logo';
 import { Text } from '../../Text';
-import { HeaderCampaign, HeaderLink } from '../LegacyHeader';
+import { HeaderCampaign } from './LegacyHeaderCampaign';
+import { HeaderLink } from './LegacyHeaderLink';
 import { Indicator } from './LegacyMainNav';
+
+// TODO: Use fastly image instead of Imgix
 
 const MobileMenuToggleBox = styled(Box)`
   span {

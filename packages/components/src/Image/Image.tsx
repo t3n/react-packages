@@ -1,99 +1,162 @@
-import React from 'react';
-import Imgix, { SharedImigixAndSourceProps } from 'react-imgix';
-import styled from 'styled-components';
-import {
-  HeightProps,
-  layout,
-  margin,
-  MarginProps,
-  WidthProps,
-} from 'styled-system';
+import React, { useCallback, useEffect, useState } from 'react';
+import styled, { useTheme } from 'styled-components';
+import { height, HeightProps, width, WidthProps } from 'styled-system';
 
-type FitTypes = 'crop' | 'faces' | 'facearea';
+import { Theme } from '@t3n/theme';
 
-export interface BaseImageProps
-  extends Pick<React.HTMLAttributes<HTMLImageElement>, 'onLoad'> {
-  alt: string;
-  src: string;
-  sizes?: string;
-  disableSrcSet?: boolean;
-  className?: string;
-  processConfiguration?: {
-    fit?: FitTypes;
-    facepad?: number;
-    quality?: number;
-    aspectRatio?: string;
-    crop?: string;
-    width?: number;
-    height?: number;
-  };
-  style?: React.CSSProperties;
+import useInViewport from '../hooks/useInViewport';
+
+// TODO:
+// - Finalize prop namings
+// - Add lazy offset prop
+
+export interface OptimizationClassMapping {
+  [key: string]: string;
 }
 
-const BaseImage = ({
+export interface FastlyHostnameMapping {
+  [key: string]: string;
+}
+
+export interface ImageProps
+  extends Omit<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    'placeholder' | 'sizes'
+  > {
+  src: string;
+  sizes?: string | Array<string | number>;
+  placeholder?: boolean;
+  lazy?: boolean;
+  optimizationClass?: string;
+  classMapping?: OptimizationClassMapping;
+  displayWidth?: WidthProps['width'];
+  displayHeight?: HeightProps['height'];
+}
+
+const defaultOptimizationClassMapping: OptimizationClassMapping = {
+  '240': 'responsive-extrasmall',
+  '420': 'responsive-small',
+  '640': 'responsive-medium',
+  '980': 'responsive-default',
+  '1280': 'responsive-large',
+  '1620': 'responsive-extralarge',
+};
+
+const fastlyHostnameMapping = {
+  'storage.googleapis.com': 'assets.t3n.de',
+  't3n.de': 'images.t3n.de',
+};
+
+const generateFastlySrc = (src: string, imageClass: string) => {
+  const [baseSrc, urlParams] = src.split('?');
+
+  const fastlyOrigins = Object.keys(fastlyHostnameMapping);
+  const fastlyDestinations = Object.values(fastlyHostnameMapping);
+
+  if (fastlyDestinations.find((destination) => src.includes(destination))) {
+    return `${baseSrc}?class=${imageClass}${urlParams ? `&${urlParams}` : ''}`;
+  }
+
+  const origin = fastlyOrigins.find((destination) => src.includes(destination));
+
+  if (!origin) return src;
+
+  const index = fastlyOrigins.indexOf(origin);
+  const destination = fastlyDestinations[index];
+  const destinationSrc = baseSrc.replace(origin, destination);
+
+  return `${destinationSrc}?class=${imageClass}${
+    urlParams ? `&${urlParams}` : ''
+  }`;
+};
+
+const generateSrcSet = (
+  src: string,
+  optimizationClassMapping: OptimizationClassMapping
+): string =>
+  Object.keys(optimizationClassMapping)
+    .map((k) => {
+      const key = Number(k);
+
+      if (`${key}` !== k)
+        throw new Error('Key must be a string that contains only numbers!');
+
+      return key;
+    })
+    .sort((a, b) => a - b)
+    .map((w) => {
+      const optimizationClassName = optimizationClassMapping[w.toString()];
+
+      return `${generateFastlySrc(src, optimizationClassName)} ${w}w`;
+    })
+    .join(', ');
+
+const NativeImage = styled.img<Omit<ImageProps, 'sizes'> & { sizes?: string }>`
+  ${({ displayWidth, theme }) => width({ width: displayWidth, theme })}
+  ${({ displayHeight, theme }) => height({ height: displayHeight, theme })}
+`;
+
+const Image: React.FC<ImageProps> = ({
+  placeholder = true,
+  lazy = true,
+  optimizationClass = 'default',
+  classMapping = defaultOptimizationClassMapping,
   src,
-  alt,
-  processConfiguration,
-  onLoad,
+  srcSet,
+  sizes,
   ...props
-}: BaseImageProps) => {
-  const params: SharedImigixAndSourceProps['imgixParams'] = {};
+}) => {
+  const [initialized, setInitialized] = useState(false);
+  const [imageNode, setImageNode] = useState<HTMLImageElement | null>(null);
+  const { wasInViewport } = useInViewport(imageNode);
+  const theme = useTheme() as Theme;
 
-  if (processConfiguration?.fit) {
-    params.fit = processConfiguration.fit;
-  }
+  useEffect(() => {
+    setInitialized(true);
+  }, []);
 
-  if (processConfiguration?.quality) {
-    params.q = processConfiguration.quality;
-  }
+  const getImageNode = useCallback((node: HTMLImageElement) => {
+    setImageNode(node);
+  }, []);
 
-  if (processConfiguration?.crop) {
-    params.crop = processConfiguration.crop;
-  }
+  const defaultSrc = generateFastlySrc(src, optimizationClass);
+  const isFastlyImage = src !== defaultSrc;
 
-  if (processConfiguration?.facepad) {
-    params.facepad = processConfiguration.facepad;
-  }
+  const placeholderSrc = isFastlyImage
+    ? `${src}?class=blur`
+    : 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 
-  if (processConfiguration?.aspectRatio) {
-    params.ar = processConfiguration.aspectRatio;
-  }
+  const mappedSrcSet = isFastlyImage
+    ? generateSrcSet(src, classMapping)
+    : undefined;
 
-  if (processConfiguration?.width) {
-    params.w = processConfiguration.width;
-  }
+  const showPlaceholder =
+    (lazy && placeholder && !wasInViewport) ||
+    (!lazy && placeholder && !initialized);
 
-  if (processConfiguration?.height) {
-    params.h = processConfiguration.height;
-  }
+  const imgSizes = Array.isArray(sizes)
+    ? sizes
+        .map((size, i) => {
+          if (i < 1) return size;
+
+          const breakpoint = theme.breakpoints[i - 1];
+
+          return `(min-width: ${breakpoint}) ${size}`;
+        })
+        .reverse()
+        .join(', ')
+    : sizes;
 
   return (
-    <Imgix
-      src={src}
-      imgixParams={params}
-      htmlAttributes={{
-        alt,
-        onLoad,
-      }}
+    <NativeImage
+      ref={getImageNode}
+      src={showPlaceholder ? placeholderSrc : defaultSrc}
+      data-src={defaultSrc}
+      srcSet={!sizes || showPlaceholder ? undefined : srcSet || mappedSrcSet}
+      sizes={showPlaceholder ? undefined : imgSizes}
       {...props}
     />
   );
 };
 
-BaseImage.defaultProps = {
-  disableSrcSet: false,
-  sizes: '100vw',
-};
-
-export interface ImageProps
-  extends BaseImageProps,
-    MarginProps,
-    WidthProps,
-    HeightProps {}
-
-export const Image = styled(({ width, height, ...props }) => (
-  <BaseImage {...props} />
-))<ImageProps>`
-  ${margin}
-  ${layout}
-`;
+export default Image;

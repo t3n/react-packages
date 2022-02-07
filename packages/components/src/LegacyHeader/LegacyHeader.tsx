@@ -1,32 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import styled from 'styled-components';
-import { color } from 'styled-system';
 
 import { Box } from '../Box';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { TagNavTagsType } from './components/LegacyTagNav';
 import { LegacyDesktopHeader } from './LegacyDesktopHeader';
 import LegacyMobileHeader from './LegacyMobileHeader';
-
-export const HeaderCampaign = styled(Box)`
-  overflow: hidden;
-
-  > a {
-    display: flex;
-  }
-`;
-
-export const HeaderLink = styled.a`
-  text-decoration: none;
-  ${({ theme }) => color({ theme, color: 'text.secondary' })};
-
-  &:hover,
-  &:focus {
-    ${({ theme }) => color({ theme, color: 'text.primary' })};
-    text-decoration: none;
-  }
-`;
 
 export interface LegacyHeaderProps {
   user?: LegacyUserMenuProps['user'];

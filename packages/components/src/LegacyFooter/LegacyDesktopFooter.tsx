@@ -6,9 +6,11 @@ import { Box } from '../Box';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 import { Heading } from '../Heading';
-import { Image } from '../Image';
+import { ImgixImage as Image } from '../Image';
 import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
 import { Text } from '../Text';
+
+// TODO: Use fastly image instead of Imgix
 
 const LegacyDesktopFooterWrapper = styled(Box)`
   *:not(h3) {
