@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   core: {
@@ -96,18 +97,67 @@ module.exports = {
   ],
   addons: [
     '@storybook/preset-create-react-app',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+      },
+    },
     '@storybook/addon-controls',
-    '@storybook/addon-docs',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-knobs',
     '@storybook/addon-a11y',
   ],
+  typescript: {
+    check: false,
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
+      },
+    },
+  },
   webpackFinal: async (config) => {
     // Since webpack 5 we need to polyfill some modules
     config.resolve.fallback.crypto = false;
     config.resolve.fallback.buffer = require.resolve('buffer');
 
+    // Alias our own packages so they get included in bundling
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@t3n/components': path.resolve(__dirname, '../../components/src'),
+      '@t3n/theme': path.resolve(__dirname, '../../theme/src'),
+    };
+
+    // Include our own packages in the loader
+    config.module.rules = config.module.rules.map((rule) => {
+      if (Array.isArray(rule.oneOf)) {
+        return {
+          ...rule,
+          oneOf: rule.oneOf.map((r) => {
+            if (r.test && r.test instanceof RegExp && '.tsx'.match(r.test)) {
+              return {
+                ...r,
+                include: [
+                  ...r.include,
+                  path.resolve(__dirname, '../../components/src'),
+                  path.resolve(__dirname, '../../icons/src'),
+                  path.resolve(__dirname, '../../theme/src'),
+                ],
+              };
+            }
+
+            return r;
+          }),
+        };
+      }
+
+      return rule;
+    });
+
+    // Add webpack 5 polyfills
     config.plugins = [
       ...config.plugins,
       new webpack.ProvidePlugin({
