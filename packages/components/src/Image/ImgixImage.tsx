@@ -91,9 +91,11 @@ export interface ImgixImageProps
     WidthProps,
     HeightProps {}
 
-export const ImgixImage = styled(({ width, height, ...props }) => (
+const ImgixImage = styled(({ width, height, ...props }) => (
   <BaseImgixImage {...props} />
 ))<ImgixImageProps>`
   ${margin}
   ${layout}
 `;
+
+export default ImgixImage;

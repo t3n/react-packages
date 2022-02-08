@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Link } from '../Link';
+import Link from '../Link';
 
 interface Props {
   // eslint-disable-next-line react/require-default-props
   href?: string;
 }
 
-export const PasswordLostLabel = ({ href }: Props) => (
+const PasswordLostLabel = ({ href }: Props) => (
   <Link
     href={href || 'https://t3n.de/account/lostpassword'}
     title="Passwort vergessen?"
@@ -16,3 +16,5 @@ export const PasswordLostLabel = ({ href }: Props) => (
     Passwort vergessen?
   </Link>
 );
+
+export default PasswordLostLabel;

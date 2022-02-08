@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { color } from 'styled-system';
 
-import { Ad, AdProps } from '../Ad';
+import Ad, { AdProps } from '../Ad';
 
 export type LegacyAdName =
   | 'p0'
@@ -268,8 +268,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
       : ''}
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyAd: React.FC<LegacyAdProps> = ({
+const LegacyAd: React.FC<LegacyAdProps> = ({
   name,
   preview,
   forceBackground = false,
@@ -282,3 +281,5 @@ export const LegacyAd: React.FC<LegacyAdProps> = ({
     forceHint={forceHint}
   />
 );
+
+export default LegacyAd;

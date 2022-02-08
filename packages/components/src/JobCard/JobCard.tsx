@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Card } from '../Card';
-import { Image } from '../Image';
-import { Placeholder } from '../Placeholder';
-import { Text } from '../Text';
+import Card from '../Card';
+import Image from '../Image';
+import Placeholder from '../Placeholder';
+import Text from '../Text';
 
 export type JobCardType = 'CARD' | 'LIST';
 
@@ -123,7 +123,7 @@ const JobListItem = ({
   </Card>
 );
 
-export const JobCard = ({ job, loading, type }: JobCardProps) => {
+const JobCard = ({ job, loading, type }: JobCardProps) => {
   if (!job) {
     return null;
   }
@@ -138,3 +138,5 @@ export const JobCard = ({ job, loading, type }: JobCardProps) => {
 
   return null;
 };
+
+export default JobCard;

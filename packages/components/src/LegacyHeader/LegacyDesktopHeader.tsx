@@ -4,17 +4,16 @@ import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Image } from '../Image';
-import { LegacyAd } from '../LegacyAd';
+import Box from '../Box';
+import Image from '../Image';
+import LegacyAd from '../LegacyAd';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
-import { LegacyUserMenu, LegacyUserMenuProps } from '../LegacyUserMenu';
-import { Logo } from '../Logo';
-import { HeaderCampaign } from './components/LegacyHeaderCampaign';
+import LegacyUserMenu, { LegacyUserMenuProps } from '../LegacyUserMenu';
+import Logo from '../Logo';
+import HeaderCampaign from './components/LegacyHeaderCampaign';
 import LegacyMainNav from './components/LegacyMainNav';
 import LegacyT3nNav from './components/LegacyT3nNav';
-import {
-  LegacyTagNav,
+import LegacyTagNav, {
   SearchButton,
   SearchForm,
   SearchIcon,
@@ -157,7 +156,7 @@ const HeaderWrapper = styled(Header)`
   }
 `;
 
-export const LegacyDesktopHeader: React.FC<{
+const LegacyDesktopHeader: React.FC<{
   user: LegacyUserMenuProps['user'];
   userMenuLabelUrl: string;
   userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
@@ -292,3 +291,5 @@ export const LegacyDesktopHeader: React.FC<{
     </Box>
   );
 };
+
+export default LegacyDesktopHeader;

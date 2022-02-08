@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { AuthorCard } from '../AuthorCard';
-import { Card } from '../Card';
-import { CardHeader } from '../CardHeader';
-import { HeroCard } from '../HeroCard';
-import { Placeholder } from '../Placeholder';
+import AuthorCard from '../AuthorCard';
+import Card from '../Card';
+import CardHeader from '../CardHeader';
+import HeroCard from '../HeroCard';
+import Placeholder from '../Placeholder';
 
 export type NewsCardType = 'HERO' | 'AUTHOR';
 
@@ -46,7 +46,7 @@ const LoadingAuthorCard = () => (
   </Card>
 );
 
-export const NewsCard = ({ loading, type, news }: NewsCardProps) => {
+const NewsCard = ({ loading, type, news }: NewsCardProps) => {
   if (!loading && !news) {
     return <p>Keine Daten</p>;
   }
@@ -81,3 +81,5 @@ export const NewsCard = ({ loading, type, news }: NewsCardProps) => {
 NewsCard.defaultProps = {
   loading: true,
 };
+
+export default NewsCard;

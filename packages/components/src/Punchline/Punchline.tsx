@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
-import { Heading } from '../Heading';
+import Heading from '../Heading';
 
-export const Punchline = styled(Heading)`
+const Punchline = styled(Heading)`
   ${({ theme }) =>
     typography({
       theme,
@@ -17,3 +17,5 @@ export const Punchline = styled(Heading)`
   box-shadow: 0.625rem 0 0 #000, -0.625rem 0 0 #000;
   display: inline;
 `;
+
+export default Punchline;

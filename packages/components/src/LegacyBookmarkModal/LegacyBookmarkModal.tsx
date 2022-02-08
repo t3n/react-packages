@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import { MaterialBookmarkBorder } from '@t3n/icons';
 
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Divider } from '../Divider';
-import { Link } from '../Link';
-import { Modal } from '../Modal';
-import { SocialButton } from '../SocialButton';
-import { Text } from '../Text';
+import Box from '../Box';
+import Button from '../Button';
+import Divider from '../Divider';
+import Link from '../Link';
+import Modal from '../Modal';
+import SocialButton from '../SocialButton';
+import Text from '../Text';
 
 const OverflowModalWrapper = styled(Box)`
   > div > div {
@@ -22,8 +22,7 @@ const OverflowModalWrapper = styled(Box)`
   }
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyBookmarkModal: React.FC<{
+const LegacyBookmarkModal: React.FC<{
   pocketLink: string;
   onClose: () => void;
 }> = ({ pocketLink, onClose }) => {
@@ -62,3 +61,5 @@ export const LegacyBookmarkModal: React.FC<{
     </OverflowModalWrapper>
   );
 };
+
+export default LegacyBookmarkModal;

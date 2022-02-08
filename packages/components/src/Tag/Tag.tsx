@@ -110,7 +110,7 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
     `}
 `;
 
-export const Tag: React.FC<TagProps> = ({
+const Tag: React.FC<TagProps> = ({
   children,
   link,
   colorVariant,
@@ -134,3 +134,5 @@ export const Tag: React.FC<TagProps> = ({
     </StyledTag>
   );
 };
+
+export default Tag;

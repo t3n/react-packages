@@ -16,13 +16,13 @@ import {
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Grid } from '../Grid';
-import { GridItem } from '../GridItem';
+import Box from '../Box';
+import Button from '../Button';
+import Grid from '../Grid';
+import GridItem from '../GridItem';
 import useIsMobile from '../hooks/useIsMobile';
-import { Input } from '../Input';
-import { Text } from '../Text';
+import Input from '../Input';
+import Text from '../Text';
 
 moment.locale('de');
 moment.updateLocale('de', {
@@ -384,7 +384,7 @@ const TimePicker: React.FC<{
   );
 };
 
-export const DatePicker: React.FC<{
+const DatePicker: React.FC<{
   id: string;
   withTime?: boolean;
   date: moment.Moment | null;
@@ -454,3 +454,5 @@ export const DatePicker: React.FC<{
     </>
   );
 };
+
+export default DatePicker;

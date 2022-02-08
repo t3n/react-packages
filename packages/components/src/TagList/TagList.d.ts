@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagColorVariant } from '../Tag/Tag';
+import { TagColorVariant } from '../Tag';
 export interface TagListProps {
     tags: JSX.Element[];
     collapseAfter: number;
@@ -7,4 +7,5 @@ export interface TagListProps {
     colorVariant?: TagColorVariant;
     initialCollapsed?: boolean;
 }
-export declare const TagList: React.FC<TagListProps>;
+declare const TagList: React.FC<TagListProps>;
+export default TagList;

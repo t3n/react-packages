@@ -8,10 +8,11 @@ export interface SectionProps {
     children: ReactNode;
     innerGap?: SpaceProps['py'];
 }
-export declare const Section: {
+declare const Section: {
     ({ variant, wide, small, children, innerGap, }: SectionProps): JSX.Element;
     displayName: string;
     defaultProps: {
         innerGap: number;
     };
 };
+export default Section;

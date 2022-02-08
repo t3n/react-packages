@@ -5,4 +5,5 @@ export interface AlertProps extends SpaceProps {
     status: AlertStatus;
 }
 export declare const AlertText: React.FC;
-export declare const Alert: React.FC<AlertProps>;
+declare const Alert: React.FC<AlertProps>;
+export default Alert;

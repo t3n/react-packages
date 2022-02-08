@@ -12,9 +12,9 @@ import {
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../../Box';
-import { Text } from '../../Text';
-import { HeaderLink } from './LegacyHeaderLink';
+import Box from '../../Box';
+import Text from '../../Text';
+import HeaderLink from './LegacyHeaderLink';
 
 const ArrowDownIcon: React.FC = () => (
   <svg

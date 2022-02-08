@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Button } from './Button';
+import Button from './Button';
 
 test('Button in default state matches snapshot', () => {
   const { container } = renderWithTheme(<Button>text</Button>, {});

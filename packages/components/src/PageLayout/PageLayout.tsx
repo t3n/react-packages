@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useScrollYPosition } from 'react-use-scroll-position';
 import styled from 'styled-components';
 
-import { Content } from '../Content';
-import { PageFooter, PrivacyManagerType } from '../PageFooter';
-import { PageHeader } from '../PageHeader';
-import { PageHeaderProps } from '../PageHeader/PageHeader';
+import Content from '../Content';
+import PageFooter, { PrivacyManagerType } from '../PageFooter';
+import PageHeader, { PageHeaderProps } from '../PageHeader';
 
 export interface PageLayoutProps extends PageHeaderProps {
   showHeader?: boolean;
@@ -35,7 +34,7 @@ const PageLayoutContainer = styled.div`
   }
 `;
 
-export const PageLayout: React.FC<PageLayoutProps> = ({
+const PageLayout: React.FC<PageLayoutProps> = ({
   showHeader = true,
   logoHref,
   noContentPadding,
@@ -99,6 +98,4 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
   );
 };
 
-PageLayout.defaultProps = {
-  contactLink: 'mailto:support@t3n.de',
-};
+export default PageLayout;

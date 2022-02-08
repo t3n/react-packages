@@ -10,7 +10,7 @@ export interface RatioProps extends ThemeProps, BackgroundColorProps {
   children?: ReactNode;
 }
 
-export const Ratio = styled.div<RatioProps>`
+const Ratio = styled.div<RatioProps>`
   ${color}
 
   ${({ ratio }: RatioProps) =>
@@ -37,3 +37,5 @@ Ratio.defaultProps = {
   ratio: 16 / 9,
 };
 Ratio.displayName = 'Ratio';
+
+export default Ratio;

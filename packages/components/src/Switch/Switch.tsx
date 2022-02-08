@@ -4,8 +4,8 @@ import { MarginProps, space, variant, width, WidthProps } from 'styled-system';
 
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
-import { Box } from '../Box/Box';
-import { Text } from '../Text/Text';
+import Box from '../Box';
+import Text from '../Text';
 
 export type VariantType = 'light' | 'dark';
 
@@ -172,7 +172,7 @@ const PlainSwitch = ({
   );
 };
 
-export const Switch: React.FC<SwitchProps> = ({
+const Switch: React.FC<SwitchProps> = ({
   checked,
   readOnly,
   onChange,
@@ -209,3 +209,5 @@ export const Switch: React.FC<SwitchProps> = ({
 Switch.defaultProps = {
   variant: 'light',
 };
+
+export default Switch;

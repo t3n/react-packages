@@ -24,7 +24,7 @@ interface CardSplitContentProps {
   variant?: ThemeBackgroundColor;
 }
 
-export const CardSplitContent: React.FC<CardSplitContentProps> = ({
+const CardSplitContent: React.FC<CardSplitContentProps> = ({
   children,
   variant,
 }) => {
@@ -38,3 +38,5 @@ export const CardSplitContent: React.FC<CardSplitContentProps> = ({
     </Wrapper>
   );
 };
+
+export default CardSplitContent;

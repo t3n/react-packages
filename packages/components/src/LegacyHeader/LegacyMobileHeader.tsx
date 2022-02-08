@@ -4,11 +4,11 @@ import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Image } from '../Image';
+import Box from '../Box';
+import Image from '../Image';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
-import { Logo } from '../Logo';
-import { HeaderCampaign } from './components/LegacyHeaderCampaign';
+import Logo from '../Logo';
+import HeaderCampaign from './components/LegacyHeaderCampaign';
 import LegacyMobileNav from './components/LegacyMobileNav';
 
 const MobileHeader = styled(Box)`

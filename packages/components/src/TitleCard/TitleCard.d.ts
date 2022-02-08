@@ -6,4 +6,5 @@ export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
     titleAs?: HeadingElements;
     centerTitle?: boolean;
 }
-export declare const TitleCard: React.FC<TitleCardProps>;
+declare const TitleCard: React.FC<TitleCardProps>;
+export default TitleCard;

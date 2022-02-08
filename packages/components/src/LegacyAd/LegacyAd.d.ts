@@ -6,4 +6,5 @@ export interface LegacyAdProps extends Pick<AdProps, 'preview'> {
     forceBackground?: boolean;
     forceHint?: boolean;
 }
-export declare const LegacyAd: React.FC<LegacyAdProps>;
+declare const LegacyAd: React.FC<LegacyAdProps>;
+export default LegacyAd;

@@ -15,4 +15,5 @@ export interface LegacyHeaderProps {
     showAds?: boolean;
     adsPreview?: boolean;
 }
-export declare const LegacyHeader: React.FC<LegacyHeaderProps>;
+declare const LegacyHeader: React.FC<LegacyHeaderProps>;
+export default LegacyHeader;

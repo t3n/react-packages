@@ -1,10 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { TagNavTagsType } from './components/LegacyTagNav';
-import { LegacyDesktopHeader } from './LegacyDesktopHeader';
+import LegacyDesktopHeader from './LegacyDesktopHeader';
 import LegacyMobileHeader from './LegacyMobileHeader';
 
 export interface LegacyHeaderProps {
@@ -22,7 +22,7 @@ export interface LegacyHeaderProps {
   adsPreview?: boolean;
 }
 
-export const LegacyHeader: React.FC<LegacyHeaderProps> = ({
+const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,
@@ -65,3 +65,5 @@ export const LegacyHeader: React.FC<LegacyHeaderProps> = ({
     </>
   );
 };
+
+export default LegacyHeader;

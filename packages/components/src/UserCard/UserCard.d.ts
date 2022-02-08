@@ -25,5 +25,5 @@ export declare type UserCardProps = {
     compact: boolean;
     secondary?: boolean;
 };
-export declare const UserCard: React.FC<UserCardProps>;
-export {};
+declare const UserCard: React.FC<UserCardProps>;
+export default UserCard;

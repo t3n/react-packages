@@ -32,11 +32,12 @@ const LegacyBreadcrumbList = styled.ul`
   ${({ theme }) => space({ pl: 0, m: 0, pb: 3, pr: 6, theme })}
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyBreadcrumb: React.FC = ({ children }) => {
+const LegacyBreadcrumb: React.FC = ({ children }) => {
   return (
     <LegacyBreadcrumbWrapper aria-label="Breadcrumb">
       <LegacyBreadcrumbList>{children}</LegacyBreadcrumbList>
     </LegacyBreadcrumbWrapper>
   );
 };
+
+export default LegacyBreadcrumb;

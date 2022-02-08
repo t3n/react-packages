@@ -14,4 +14,5 @@ export interface LegacyUserMenuProps {
         item: (JSX.Element | string)[];
     }[];
 }
-export declare const LegacyUserMenu: React.FC<LegacyUserMenuProps>;
+declare const LegacyUserMenu: React.FC<LegacyUserMenuProps>;
+export default LegacyUserMenu;

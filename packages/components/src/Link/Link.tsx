@@ -6,7 +6,7 @@ import { color, SpaceProps, TextColorProps } from 'styled-system';
 import { getThemeColor, hexToRgb, ThemeProps } from '@t3n/theme';
 import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
 
-import { TextProps, textStyle } from '../Text/Text';
+import { TextProps, textStyle } from '../Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 
@@ -102,10 +102,12 @@ export const linkStyle = css<LinkProps>`
   }}
 `;
 
-export const Link = styled.a<LinkProps>`
+const Link = styled.a<LinkProps>`
   ${linkStyle}
 `;
 
 Link.defaultProps = {
   variant: 'primary',
 };
+
+export default Link;

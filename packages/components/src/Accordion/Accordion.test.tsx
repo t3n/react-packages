@@ -3,7 +3,7 @@ import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Accordion } from './Accordion';
+import Accordion from './Accordion';
 
 test('Accordion machtes snapshot', () => {
   const { container } = renderWithTheme(

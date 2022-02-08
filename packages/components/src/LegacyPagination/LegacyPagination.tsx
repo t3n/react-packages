@@ -4,9 +4,9 @@ import { color, space, typography } from 'styled-system';
 
 import { MaterialPlayArrow } from '@t3n/icons';
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
-import { Text } from '../Text';
+import Box from '../Box';
+import Icon from '../Icon';
+import Text from '../Text';
 
 export interface LegacyPaginationProps {
   currentPage: number;
@@ -65,7 +65,7 @@ const LegacyPaginationElipses = () => (
   </Box>
 );
 
-export const LegacyPagination: React.FC<LegacyPaginationProps> = ({
+const LegacyPagination: React.FC<LegacyPaginationProps> = ({
   currentPage,
   totalPages,
   maxPageLinks,
@@ -157,3 +157,5 @@ export const LegacyPagination: React.FC<LegacyPaginationProps> = ({
     </Box>
   );
 };
+
+export default LegacyPagination;

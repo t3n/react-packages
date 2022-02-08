@@ -4,8 +4,8 @@ import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import styled from 'styled-components';
 import { display, layout, space } from 'styled-system';
 
-import { Box } from '../Box/Box';
-import { Button } from '../Button/Button';
+import Box from '../Box';
+import Button from '../Button';
 
 const StyledSlider = styled(SlickSlider)`
   > .slick-dots {
@@ -97,7 +97,7 @@ export interface CarouselProps {
   onChange?: (currentIndex: number) => void;
 }
 
-export const Carousel: React.FC<CarouselProps> = ({
+const Carousel: React.FC<CarouselProps> = ({
   slidesToShow = 1,
   slidesToScroll = 1,
   responsive,
@@ -163,3 +163,5 @@ export const Carousel: React.FC<CarouselProps> = ({
     </Box>
   );
 };
+
+export default Carousel;

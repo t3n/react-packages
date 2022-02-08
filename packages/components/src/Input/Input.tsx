@@ -21,7 +21,7 @@ import {
 } from '@t3n/icons';
 import { getThemeColor, ThemeProps } from '@t3n/theme';
 
-import { Icon } from '../Icon';
+import Icon from '../Icon';
 
 export type InputTypes = 'text' | 'email' | 'password' | 'number' | 'tel';
 
@@ -116,7 +116,7 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
-export const Input = forwardRef(
+const Input = forwardRef(
   (
     {
       disabled,
@@ -243,3 +243,5 @@ Input.defaultProps = {
   hideReset: false,
   width: '100%',
 };
+
+export default Input;

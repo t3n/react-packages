@@ -4,8 +4,8 @@ import { space, SpaceProps, variant } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
+import Box from '../Box';
+import Text from '../Text';
 
 export type AlertStatus = 'success' | 'notice' | 'warning' | 'error';
 
@@ -47,7 +47,7 @@ export const AlertText: React.FC = ({ children }) => {
   );
 };
 
-export const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
+const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
   return (
     <AlertBox
       display="flex"
@@ -60,3 +60,5 @@ export const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
     </AlertBox>
   );
 };
+
+export default Alert;

@@ -1,2 +1,3 @@
 import React from 'react';
-export declare const LegacyBreadcrumb: React.FC;
+declare const LegacyBreadcrumb: React.FC;
+export default LegacyBreadcrumb;

@@ -14,8 +14,8 @@ import {
 
 import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
 
-import { Icon } from '../Icon';
-import { Loader } from '../Loader';
+import Icon from '../Icon';
+import Loader from '../Loader';
 
 export type IconButtonAsType = 'button' | 'a';
 export type IconButtonVariant = 'primary' | 'secondary';
@@ -286,7 +286,7 @@ const getLoaderSize = (
   }
 };
 
-export const IconButton: React.FC<IconButtonProps> = (props) => {
+const IconButton: React.FC<IconButtonProps> = (props) => {
   const {
     children,
     loading,
@@ -337,3 +337,5 @@ IconButton.defaultProps = {
   color: 'default',
   variant: 'primary',
 };
+
+export default IconButton;

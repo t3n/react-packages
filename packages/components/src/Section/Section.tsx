@@ -4,7 +4,7 @@ import { space, SpaceProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Content } from '../Content/Content';
+import Content from '../Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
@@ -35,7 +35,7 @@ const SectionOuter = styled.div<SectionProps>`
     space({ py: innerGap, theme })}
 `;
 
-export const Section = ({
+const Section = ({
   variant,
   wide,
   small,
@@ -54,3 +54,5 @@ Section.displayName = 'Section';
 Section.defaultProps = {
   innerGap: 6,
 };
+
+export default Section;

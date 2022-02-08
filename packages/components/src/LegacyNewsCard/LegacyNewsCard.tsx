@@ -5,13 +5,15 @@ import { border, lineHeight, space, typography } from 'styled-system';
 
 import { T3nPro } from '@t3n/icons';
 
-import { Box } from '../Box';
-import { Heading } from '../Heading';
+import Box from '../Box';
+import Heading from '../Heading';
 import { ImgixImage as Image } from '../Image';
-import { LegacyCard } from '../LegacyCard';
-import { Placeholder } from '../Placeholder';
-import { Text } from '../Text';
+import LegacyCard from '../LegacyCard';
+import Placeholder from '../Placeholder';
+import Text from '../Text';
 import LegacyNewsCardMetaData from './LegacyNewsCardMetaData';
+
+// TODO: Use fastly image
 
 export interface LegacyNewsCardProps {
   loading: boolean;
@@ -108,7 +110,7 @@ export const LegacyLoadingMobileCard = () => (
   </LegacyMobileNewsCard>
 );
 
-export const LegacyNewsCard = ({
+const LegacyNewsCard = ({
   news,
   loading,
   hero,
@@ -239,3 +241,5 @@ export const LegacyNewsCard = ({
     </>
   ) : null;
 };
+
+export default LegacyNewsCard;

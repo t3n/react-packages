@@ -5,10 +5,10 @@ import { WidthProps } from 'styled-system';
 import { MaterialClear } from '@t3n/icons';
 import { theme } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Card } from '../Card';
-import { Heading, HeadingProps } from '../Heading';
-import { Icon } from '../Icon';
+import Box from '../Box';
+import Card from '../Card';
+import Heading, { HeadingProps } from '../Heading';
+import Icon from '../Icon';
 
 export interface ModalProps extends WidthProps {
   headline: string;
@@ -95,7 +95,7 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   );
 };
 
-export const Modal: React.FC<ModalProps> = ({
+const Modal: React.FC<ModalProps> = ({
   headline,
   headlineIcon,
   wide = false,
@@ -127,3 +127,5 @@ export const Modal: React.FC<ModalProps> = ({
     </ModalWrapper>
   );
 };
+
+export default Modal;

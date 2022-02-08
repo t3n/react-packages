@@ -12,4 +12,5 @@ export interface JobCardProps {
     type: JobCardType;
     job?: Job;
 }
-export declare const JobCard: ({ job, loading, type }: JobCardProps) => JSX.Element | null;
+declare const JobCard: ({ job, loading, type }: JobCardProps) => JSX.Element | null;
+export default JobCard;

@@ -5,8 +5,8 @@ import { border, space, variant } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
-import { Box } from '../Box/Box';
-import { Text } from '../Text/Text';
+import Box from '../Box';
+import Text from '../Text';
 
 type VariantType = 'light' | 'dark';
 
@@ -177,7 +177,7 @@ const PlainRadioButton = ({
   );
 };
 
-export const RadioButton = ({
+const RadioButton = ({
   checked,
   onChange,
   label,
@@ -210,3 +210,5 @@ export const RadioButton = ({
 RadioButton.defaultProps = {
   variant: 'light',
 };
+
+export default RadioButton;

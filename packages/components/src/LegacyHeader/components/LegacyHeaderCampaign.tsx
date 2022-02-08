@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
-import { Box } from '../..';
+import Box from '../../Box';
 
 // eslint-disable-next-line import/prefer-default-export
-export const HeaderCampaign = styled(Box)`
+const LegacyHeaderCampaign = styled(Box)`
   overflow: hidden;
 
   > a {
     display: flex;
   }
 `;
+
+export default LegacyHeaderCampaign;

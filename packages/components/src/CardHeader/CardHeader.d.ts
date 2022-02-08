@@ -12,5 +12,5 @@ interface CardHeaderProps extends ThemeProps {
     children?: ReactNode;
 }
 export declare const CardHeaderContent: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const CardHeader: import("styled-components").StyledComponent<({ big, ratio, bg, image, children, ...props }: CardHeaderProps) => JSX.Element, any, CardHeaderProps, never>;
-export {};
+declare const CardHeader: import("styled-components").StyledComponent<({ big, ratio, bg, image, children, ...props }: CardHeaderProps) => JSX.Element, any, CardHeaderProps, never>;
+export default CardHeader;

@@ -20,5 +20,5 @@ export interface BaseImgixImageProps extends Pick<React.HTMLAttributes<HTMLImage
 }
 export interface ImgixImageProps extends BaseImgixImageProps, MarginProps, WidthProps, HeightProps {
 }
-export declare const ImgixImage: import("styled-components").StyledComponent<({ width, height, ...props }: any) => JSX.Element, any, ImgixImageProps, never>;
-export {};
+declare const ImgixImage: import("styled-components").StyledComponent<({ width, height, ...props }: any) => JSX.Element, any, ImgixImageProps, never>;
+export default ImgixImage;

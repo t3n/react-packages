@@ -13,11 +13,11 @@ import {
   SocialXing,
 } from '@t3n/icons';
 
-import { Box } from '../Box';
-import { Grid } from '../Grid';
-import { GridItem } from '../GridItem';
-import { createLinkStyle, Link } from '../Link';
-import { Text } from '../Text';
+import Box from '../Box';
+import Grid from '../Grid';
+import GridItem from '../GridItem';
+import Link, { createLinkStyle } from '../Link';
+import Text from '../Text';
 
 export interface PageFooterProps {
   contactLink: string;
@@ -109,7 +109,7 @@ const SocialLink = styled(Link)`
   }
 `;
 
-export const PageFooter: React.FC<PageFooterProps> = ({
+const PageFooter: React.FC<PageFooterProps> = ({
   children,
   contactLink,
   showPrivacySettingsLink,
@@ -296,3 +296,5 @@ export const PageFooter: React.FC<PageFooterProps> = ({
     </Box>
   );
 };
+
+export default PageFooter;

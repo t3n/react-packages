@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { AuthorCard } from './AuthorCard';
+import AuthorCard from './AuthorCard';
 
 const card = (
   <AuthorCard

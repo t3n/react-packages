@@ -16,4 +16,5 @@ export interface UserMenuProps {
         item: (JSX.Element | string)[];
     }[];
 }
-export declare const UserMenu: React.FC<UserMenuProps>;
+declare const UserMenu: React.FC<UserMenuProps>;
+export default UserMenu;

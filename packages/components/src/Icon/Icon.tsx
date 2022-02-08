@@ -50,7 +50,7 @@ export interface IconProps
   fill?: ColorProps['color'];
 }
 
-export const Icon = styled(BaseIcon)<IconProps>`
+const Icon = styled(BaseIcon)<IconProps>`
   ${system({
     fill: {
       property: 'fill',

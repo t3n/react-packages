@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
-import { Box } from '../Box';
-import { Grid } from '../Grid';
-import { GridItem } from '../GridItem';
-import { Heading } from '../Heading';
-import { Image } from '../Image';
+import Box from '../Box';
+import Grid from '../Grid';
+import GridItem from '../GridItem';
+import Heading from '../Heading';
+import Image from '../Image';
 import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
-import { Text } from '../Text';
+import Text from '../Text';
 
 const LegacyDesktopFooterWrapper = styled(Box)`
   *:not(h3) {

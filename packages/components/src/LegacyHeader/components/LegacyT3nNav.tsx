@@ -5,10 +5,10 @@ import { space, typography } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../../Box';
-import { LegacyUserMenu, LegacyUserMenuProps } from '../../LegacyUserMenu';
-import { Text } from '../../Text';
-import { HeaderLink } from './LegacyHeaderLink';
+import Box from '../../Box';
+import LegacyUserMenu, { LegacyUserMenuProps } from '../../LegacyUserMenu';
+import Text from '../../Text';
+import HeaderLink from './LegacyHeaderLink';
 import { MainNavDropdown } from './LegacyMainNav';
 
 const MainNavItem = styled(Box)<{ isSticky?: boolean }>`

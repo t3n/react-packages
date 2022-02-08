@@ -5,7 +5,7 @@ import { color, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Text } from '../Text';
+import Text from '../Text';
 
 export interface SliderProps {
   name: string;
@@ -127,7 +127,7 @@ const SliderLabels = ({
   </>
 );
 
-export const Slider: React.FC<SliderProps> = ({
+const Slider: React.FC<SliderProps> = ({
   name,
   min = 0,
   max,
@@ -293,3 +293,5 @@ export const Slider: React.FC<SliderProps> = ({
     </StyledSliderContainer>
   );
 };
+
+export default Slider;

@@ -11,13 +11,13 @@ import {
 } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
-import { Avatar } from '../Avatar';
-import { Badge } from '../Badge';
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Card } from '../Card';
-import { Link } from '../Link';
-import { Text } from '../Text';
+import Avatar from '../Avatar';
+import Badge from '../Badge';
+import Box from '../Box';
+import Button from '../Button';
+import Card from '../Card';
+import Link from '../Link';
+import Text from '../Text';
 
 const StyledCard = styled(Card)`
   position: relative;
@@ -271,7 +271,7 @@ const UserCardContent: React.FC<
   );
 };
 
-export const UserCard: React.FC<UserCardProps> = ({
+const UserCard: React.FC<UserCardProps> = ({
   user,
   optimizeAvatar,
   link,
@@ -303,3 +303,5 @@ export const UserCard: React.FC<UserCardProps> = ({
     </StyledCard>
   );
 };
+
+export default UserCard;

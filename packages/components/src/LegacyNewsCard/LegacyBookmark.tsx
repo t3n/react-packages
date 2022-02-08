@@ -5,7 +5,7 @@ import { border, color, space, typography } from 'styled-system';
 import Bookmark from '@t3n/icons/src/components/material/action/Bookmark';
 import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 export const TooltipContainer = styled(Box)`
   cursor: pointer;

@@ -6,7 +6,7 @@ import {
   ThemeShadeColor,
 } from '@t3n/theme/src/theme/colors/colors';
 
-export const NProgressBarGlobalStyle = createGlobalStyle<
+const NProgressBarGlobalStyle = createGlobalStyle<
   { barColor?: ThemeShadeColor | ThemeBrandColor } & ThemeProps
 >`
   #nprogress {
@@ -39,3 +39,5 @@ export const NProgressBarGlobalStyle = createGlobalStyle<
     display: 'none';
   }
 `;
+
+export default NProgressBarGlobalStyle;

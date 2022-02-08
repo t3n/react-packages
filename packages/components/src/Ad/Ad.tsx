@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
-import { Box, BoxProps } from '../Box';
-import { Text } from '../Text';
+import Box, { BoxProps } from '../Box';
+import Text from '../Text';
 
 export interface AdProps extends BoxProps {
   name: string;
@@ -17,7 +17,7 @@ const previewAdStyles = {
   alignItems: 'flex-start',
 };
 
-export const Ad = forwardRef<HTMLDivElement, AdProps>(
+const Ad = forwardRef<HTMLDivElement, AdProps>(
   ({ name, preview, style, className, children, color, ...boxProps }, ref) => (
     <Box
       style={style}
@@ -45,3 +45,5 @@ export const Ad = forwardRef<HTMLDivElement, AdProps>(
     </Box>
   )
 );
+
+export default Ad;

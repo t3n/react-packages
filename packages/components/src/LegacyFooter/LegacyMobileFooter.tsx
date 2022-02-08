@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
-import { Box } from '../Box';
-import { LegacySocialBar } from '../LegacySocialBar';
+import Box from '../Box';
+import LegacySocialBar from '../LegacySocialBar';
 import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
-import { Text } from '../Text';
+import Text from '../Text';
 
 const FooterLink = styled.a`
   text-decoration: none;

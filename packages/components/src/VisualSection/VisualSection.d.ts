@@ -6,4 +6,5 @@ export interface VisualSectionProps {
     innerGap?: SpaceProps['py'];
     wide?: boolean;
 }
-export declare const VisualSection: React.FC<VisualSectionProps>;
+declare const VisualSection: React.FC<VisualSectionProps>;
+export default VisualSection;

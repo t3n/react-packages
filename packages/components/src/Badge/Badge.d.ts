@@ -4,4 +4,5 @@ export interface BadgeProps {
     small?: boolean;
     rounded?: boolean;
 }
-export declare const Badge: import("styled-components").StyledComponent<"span", any, BadgeProps, never>;
+declare const Badge: import("styled-components").StyledComponent<"span", any, BadgeProps, never>;
+export default Badge;

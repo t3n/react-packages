@@ -1,1 +1,2 @@
-export declare const HeaderCampaign: import("styled-components").StyledComponent<"div", any, import("../../Box").BoxProps, never>;
+declare const LegacyHeaderCampaign: import("styled-components").StyledComponent<"div", any, import("../../Box").BoxProps, never>;
+export default LegacyHeaderCampaign;

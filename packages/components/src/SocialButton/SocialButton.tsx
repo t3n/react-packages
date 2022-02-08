@@ -19,8 +19,8 @@ import {
 } from '@t3n/icons';
 import { getThemeColor } from '@t3n/theme';
 
-import { Button } from '../Button';
-import { Icon } from '../Icon';
+import Button from '../Button';
+import Icon from '../Icon';
 
 export type SocialNetworkType =
   | 'email'
@@ -153,8 +153,10 @@ const mapSocialButtonAttributes = ({
     }`,
 });
 
-export const SocialButton = styled(Button).attrs(
+const SocialButton = styled(Button).attrs(
   mapSocialButtonAttributes
 )<SocialButtonProps>`
   ${socialButtonStyle}
 `;
+
+export default SocialButton;

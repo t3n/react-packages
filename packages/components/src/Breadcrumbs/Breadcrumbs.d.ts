@@ -12,4 +12,5 @@ export declare const BreadcrumbsItem: import("styled-components").StyledComponen
 export interface BreadcrumbsProps {
     children: ReactNode;
 }
-export declare const Breadcrumbs: ({ children }: BreadcrumbsProps) => JSX.Element;
+declare const Breadcrumbs: ({ children }: BreadcrumbsProps) => JSX.Element;
+export default Breadcrumbs;

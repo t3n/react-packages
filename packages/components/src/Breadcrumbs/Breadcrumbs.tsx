@@ -4,8 +4,8 @@ import { lineHeight, padding } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Link, LinkProps } from '../Link';
-import { Text } from '../Text';
+import Link, { LinkProps } from '../Link';
+import Text from '../Text';
 
 // TODO: Finish variant implementation
 
@@ -86,10 +86,12 @@ export interface BreadcrumbsProps {
   children: ReactNode;
 }
 
-export const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
+const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
   return (
     <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>
     </nav>
   );
 };
+
+export default Breadcrumbs;

@@ -4,9 +4,9 @@ import { MarginProps, variant, WidthProps } from 'styled-system';
 
 import { getThemeColor } from '@t3n/theme';
 
-import { Box } from '../Box/Box';
-import { Icon } from '../Icon';
-import { Text } from '../Text/Text';
+import Box from '../Box';
+import Icon from '../Icon';
+import Text from '../Text';
 
 export type DividerVariants = 'primary' | 'inverse';
 
@@ -53,7 +53,7 @@ const StyledIcon = styled(Icon)<Pick<DividerProps, 'variant'>>`
     })};
 `;
 
-export const Divider: React.FC<DividerProps> = ({
+const Divider: React.FC<DividerProps> = ({
   children,
   variant: variantProp,
   iconComponent,
@@ -84,3 +84,5 @@ Divider.defaultProps = {
   variant: 'primary',
   my: 3,
 };
+
+export default Divider;

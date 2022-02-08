@@ -10,4 +10,5 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
     previewP13?: boolean;
     privacySettingsModal?: PrivacyManagerType;
 }
-export declare const LegacyPageLayout: React.FC<LegacyPageLayoutProps>;
+declare const LegacyPageLayout: React.FC<LegacyPageLayoutProps>;
+export default LegacyPageLayout;

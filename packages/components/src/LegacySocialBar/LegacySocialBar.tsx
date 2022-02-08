@@ -14,7 +14,7 @@ import {
 } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
 const OldFacebookIcon: React.FC = () => (
   <svg
@@ -109,7 +109,7 @@ const legacySocialLinks: SocialLinkType = [
   },
 ];
 
-export const LegacySocialBar: React.FC<{
+const LegacySocialBar: React.FC<{
   className?: string;
   isInFooter?: boolean;
 }> = ({ className, isInFooter }) => (

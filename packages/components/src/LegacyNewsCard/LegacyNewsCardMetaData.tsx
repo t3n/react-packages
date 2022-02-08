@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { typography } from 'styled-system';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
+import Box from '../Box';
+import Text from '../Text';
 import LegacyBookmark from './LegacyBookmark';
 
 const LegacyNewsCardMeta = styled(Box)`

@@ -2,9 +2,9 @@
 import styled from 'styled-components';
 import { border, color, space } from 'styled-system';
 
-import { Box } from '../Box';
+import Box from '../Box';
 
-export const LegacyCard = styled(Box)`
+const LegacyCard = styled(Box)`
   position: relative;
   ${({ theme }) =>
     border({ theme, border: '2px solid', borderColor: 'shades.grey232' })}
@@ -21,3 +21,5 @@ export const LegacyCard = styled(Box)`
     }
   }
 `;
+
+export default LegacyCard;

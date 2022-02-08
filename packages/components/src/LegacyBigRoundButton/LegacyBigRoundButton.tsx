@@ -4,8 +4,8 @@ import { color, layout, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Button } from '../Button';
-import { Icon } from '../Icon';
+import Button from '../Button';
+import Icon from '../Icon';
 import { Tooltip, TooltipContainer } from '../LegacyNewsCard/LegacyBookmark';
 
 export interface LegacyBigRoundButtonProps extends MarginProps {
@@ -40,8 +40,7 @@ const BigRoundButton = styled(Button)`
   }
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
+const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
   icon,
   url,
   tooltipText,
@@ -60,3 +59,5 @@ export const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
     </TooltipContainer>
   );
 };
+
+export default LegacyBigRoundButton;

@@ -4,7 +4,7 @@ import { border, color, compose, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Logo } from '../Logo';
+import Logo from '../Logo';
 
 export interface PageHeaderProps {
   transparent?: boolean;
@@ -58,7 +58,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
   }
 `;
 
-export const PageHeader: React.FC<PageHeaderProps> = ({
+const PageHeader: React.FC<PageHeaderProps> = ({
   transparent,
   light,
   logoHref,
@@ -77,3 +77,5 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     </PageHeaderWrapper>
   );
 };
+
+export default PageHeader;

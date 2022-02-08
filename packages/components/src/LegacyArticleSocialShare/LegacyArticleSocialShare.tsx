@@ -16,8 +16,8 @@ import {
 } from '@t3n/icons';
 import { getThemeColor } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
+import Box from '../Box';
+import Icon from '../Icon';
 
 const OldFacebookIcon = () => (
   <svg
@@ -157,7 +157,30 @@ const SocialIcon = styled(LegacySocialIcon).attrs(
   }
 `;
 
-export const LegacyArticleSocialShare: React.FC<{
+export const LegacyHeaderSocialShare: React.FC = () => (
+  <Box mt="5px" display="flex" justifyContent="flex-end">
+    <SocialIcon url="https://facebook.com/t3nMagazin" network="facebook" />
+    <SocialIcon url="https://instagram.com/t3n_magazin/" network="instagram" />
+    <SocialIcon url="https://twitter.com/t3n" network="twitter" />
+    <SocialIcon
+      url="https://xing.com/news/pages/t3n-magazin-67"
+      network="xing"
+    />
+    <SocialIcon
+      url="https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
+      network="linkedin"
+    />
+    <SocialIcon url="/info/t3n-newsletter/" network="newsletter" />
+    <SocialIcon url="/info/push-notifications/" network="notifications" />
+    <SocialIcon
+      url="/social-media#RSS-Feeds:_Immer_up_to_date"
+      network="rssfeed"
+    />
+    <SocialIcon url="/social-media/" network="socialmedia" />
+  </Box>
+);
+
+const LegacyArticleSocialShare: React.FC<{
   url: string;
   title: string;
 }> = ({ url, title }) => (
@@ -189,25 +212,4 @@ export const LegacyArticleSocialShare: React.FC<{
   </Box>
 );
 
-export const LegacyHeaderSocialShare: React.FC = () => (
-  <Box mt="5px" display="flex" justifyContent="flex-end">
-    <SocialIcon url="https://facebook.com/t3nMagazin" network="facebook" />
-    <SocialIcon url="https://instagram.com/t3n_magazin/" network="instagram" />
-    <SocialIcon url="https://twitter.com/t3n" network="twitter" />
-    <SocialIcon
-      url="https://xing.com/news/pages/t3n-magazin-67"
-      network="xing"
-    />
-    <SocialIcon
-      url="https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
-      network="linkedin"
-    />
-    <SocialIcon url="/info/t3n-newsletter/" network="newsletter" />
-    <SocialIcon url="/info/push-notifications/" network="notifications" />
-    <SocialIcon
-      url="/social-media#RSS-Feeds:_Immer_up_to_date"
-      network="rssfeed"
-    />
-    <SocialIcon url="/social-media/" network="socialmedia" />
-  </Box>
-);
+export default LegacyArticleSocialShare;

@@ -17,8 +17,8 @@ import {
 import { MaterialClear } from '@t3n/icons';
 import { getThemeColor, ThemeProps } from '@t3n/theme';
 
-import { Icon } from '../Icon';
-import { Text } from '../Text';
+import Icon from '../Icon';
+import Text from '../Text';
 
 export interface TextareaProps
   extends Omit<
@@ -135,7 +135,7 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
-export const Textarea = forwardRef(
+const Textarea = forwardRef(
   (
     {
       disabled,
@@ -239,3 +239,5 @@ Textarea.defaultProps = {
   isFocused: false,
   width: '100%',
 };
+
+export default Textarea;

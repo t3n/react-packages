@@ -8,4 +8,5 @@ export interface LegacyPaginationProps {
 export interface LegacyPaginationContainerProps {
     disabled?: boolean;
 }
-export declare const LegacyPagination: React.FC<LegacyPaginationProps>;
+declare const LegacyPagination: React.FC<LegacyPaginationProps>;
+export default LegacyPagination;

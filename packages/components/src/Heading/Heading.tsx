@@ -31,7 +31,7 @@ const align = ({ align: alignProp, theme }: HeadingProps & ThemeProps) =>
 const textColor = ({ color: colorProp, theme }: HeadingProps & ThemeProps) =>
   color({ color: colorProp, theme });
 
-export const Heading = styled.h1<HeadingProps>`
+const Heading = styled.h1<HeadingProps>`
   ${font}
   ${space}
   ${size}
@@ -59,3 +59,5 @@ export const H5 = ({ as, ...props }: HeadingProps) => (
 export const H6 = ({ as, ...props }: HeadingProps) => (
   <Heading as="h6" {...props} />
 );
+
+export default Heading;

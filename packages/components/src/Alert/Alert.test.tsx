@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Alert, AlertText } from './Alert';
+import Alert, { AlertText } from './Alert';
 
 test('Alert Status matches Snapshot', () => {
   const { container } = renderWithTheme(

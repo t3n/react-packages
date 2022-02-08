@@ -12,8 +12,8 @@ import {
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Avatar } from '../Avatar/Avatar';
-import { Box } from '../Box/Box';
+import Avatar from '../Avatar';
+import Box from '../Box';
 
 const ArrowDownIcon: React.FC = () => (
   <svg
@@ -158,7 +158,7 @@ export interface LegacyUserMenuProps {
   }[];
 }
 
-export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
+const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
   user,
   itemGroups,
   loginUrl = '/account/login',
@@ -207,3 +207,5 @@ export const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
     </LegacyUserMenuWrapper>
   );
 };
+
+export default LegacyUserMenu;

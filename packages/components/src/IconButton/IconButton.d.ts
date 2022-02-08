@@ -22,5 +22,5 @@ interface IconButtonATypeProps extends IconButtonBaseProps, Omit<AnchorHTMLAttri
 }
 export declare type IconButtonProps = IconButtonATypeProps | IconButtonButtonTypeProps;
 export declare const iconButtonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & IconButtonProps, any>>;
-export declare const IconButton: React.FC<IconButtonProps>;
-export {};
+declare const IconButton: React.FC<IconButtonProps>;
+export default IconButton;

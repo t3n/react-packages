@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Modal, ModalProps } from '../Modal';
+import Box from '../Box';
+import Button from '../Button';
+import Modal, { ModalProps } from '../Modal';
 
 export interface ConfirmDialogProps extends ModalProps {
   onConfirm: () => void;
@@ -21,7 +21,7 @@ const StyledButtonBox = styled(Box)`
   }
 `;
 
-export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
+const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   headline,
   onConfirm,
   onClose,
@@ -61,3 +61,5 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
     </Modal>
   );
 };
+
+export default ConfirmDialog;

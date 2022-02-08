@@ -5,4 +5,5 @@ export interface LegacyBigRoundButtonProps extends MarginProps {
     url: string;
     tooltipText: string;
 }
-export declare const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps>;
+declare const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps>;
+export default LegacyBigRoundButton;

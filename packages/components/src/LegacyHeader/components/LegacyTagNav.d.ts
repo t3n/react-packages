@@ -9,7 +9,8 @@ export declare type TagNavTagsType = {
     url: string;
     variant?: TagColorVariant;
 };
-export declare const LegacyTagNav: React.FC<{
+declare const LegacyTagNav: React.FC<{
     tags: TagNavTagsType[];
     loading?: boolean;
 }>;
+export default LegacyTagNav;

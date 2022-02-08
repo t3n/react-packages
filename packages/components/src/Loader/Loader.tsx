@@ -52,7 +52,7 @@ const LoaderWrapper = styled.span<
   }
 `;
 
-export const Loader = styled(
+const Loader = styled(
   ({ small, loaderSize, color: bg, ...marginProps }: LoaderProps) => (
     <LoaderWrapper
       small={small}
@@ -70,3 +70,5 @@ export const Loader = styled(
 Loader.defaultProps = {
   color: 'background.secondary',
 };
+
+export default Loader;

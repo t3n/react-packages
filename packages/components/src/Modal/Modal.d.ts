@@ -10,4 +10,5 @@ export interface ModalProps extends WidthProps {
 export interface ModalHeadingProps extends HeadingProps {
     headlineIcon: boolean;
 }
-export declare const Modal: React.FC<ModalProps>;
+declare const Modal: React.FC<ModalProps>;
+export default Modal;

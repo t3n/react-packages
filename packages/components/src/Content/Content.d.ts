@@ -4,4 +4,5 @@ export interface ContentProps extends ThemeProps, PaddingProps {
     wide?: boolean;
     small?: boolean;
 }
-export declare const Content: import("styled-components").StyledComponent<"div", any, ContentProps, never>;
+declare const Content: import("styled-components").StyledComponent<"div", any, ContentProps, never>;
+export default Content;

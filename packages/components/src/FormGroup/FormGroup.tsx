@@ -5,8 +5,8 @@ import { margin, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface FormGroupProps
   extends React.LabelHTMLAttributes<HTMLLabelElement>,
@@ -37,7 +37,7 @@ const SecondaryLabel = styled(Text)`
   line-height: normal;
 `;
 
-export const FormGroup = ({
+const FormGroup = ({
   label,
   labelSecondary,
   labelEndContent,
@@ -67,3 +67,5 @@ export const FormGroup = ({
 FormGroup.defaultProps = {
   my: 4,
 };
+
+export default FormGroup;

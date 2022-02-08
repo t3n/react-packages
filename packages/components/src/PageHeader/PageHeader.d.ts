@@ -4,4 +4,5 @@ export interface PageHeaderProps {
     light?: boolean;
     logoHref?: string;
 }
-export declare const PageHeader: React.FC<PageHeaderProps>;
+declare const PageHeader: React.FC<PageHeaderProps>;
+export default PageHeader;

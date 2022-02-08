@@ -4,11 +4,11 @@ import { border, color, layout, position, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Avatar } from '../Avatar/Avatar';
-import { Box } from '../Box/Box';
-import { Link } from '../Link/Link';
-import { Placeholder } from '../Placeholder/Placeholder';
-import { Text } from '../Text/Text';
+import Avatar from '../Avatar/Avatar';
+import Box from '../Box/Box';
+import Link from '../Link/Link';
+import Placeholder from '../Placeholder/Placeholder';
+import Text from '../Text/Text';
 
 const UserMenuWrapper = styled(Box)`
   cursor: pointer;
@@ -167,7 +167,7 @@ const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
   </>
 );
 
-export const UserMenu: React.FC<UserMenuProps> = ({
+const UserMenu: React.FC<UserMenuProps> = ({
   user,
   itemGroups,
   loginLink = '/account/login',
@@ -234,3 +234,5 @@ export const UserMenu: React.FC<UserMenuProps> = ({
     </Link>
   );
 };
+
+export default UserMenu;

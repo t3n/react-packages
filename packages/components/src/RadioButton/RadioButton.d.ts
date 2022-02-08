@@ -11,10 +11,10 @@ export interface RadioButtonProps {
     feedbackColor?: ThemeFeedbackColor;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-export declare const RadioButton: {
+declare const RadioButton: {
     ({ checked, onChange, label, disabled, feedbackColor, name, value, variant: variantProp, }: RadioButtonProps): JSX.Element;
     defaultProps: {
         variant: string;
     };
 };
-export {};
+export default RadioButton;

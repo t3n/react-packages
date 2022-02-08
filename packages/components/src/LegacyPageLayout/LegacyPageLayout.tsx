@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import useIsMobile from '../hooks/useIsMobile';
-import { LegacyAd } from '../LegacyAd';
-import { LegacyFooter } from '../LegacyFooter';
-import { LegacyHeader, LegacyHeaderProps } from '../LegacyHeader';
+import LegacyAd from '../LegacyAd';
+import LegacyFooter from '../LegacyFooter';
+import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
 import { PrivacyManagerType } from '../PageFooter';
 
 const Wrapper = styled(Box)`
@@ -23,8 +23,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   privacySettingsModal?: PrivacyManagerType;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
+const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,
@@ -69,3 +68,5 @@ export const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
     </Wrapper>
   );
 };
+
+export default LegacyPageLayout;

@@ -8,4 +8,5 @@ export interface TagProps extends MarginProps {
     icon?: JSX.Element;
     onClick?: () => void;
 }
-export declare const Tag: React.FC<TagProps>;
+declare const Tag: React.FC<TagProps>;
+export default Tag;

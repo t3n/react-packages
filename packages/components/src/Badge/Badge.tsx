@@ -26,7 +26,7 @@ const fontSize = ({ small, theme }: BadgeProps & ThemeProps) =>
 const borderRadius = ({ rounded, theme }: BadgeProps & ThemeProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
-export const Badge = styled.span<BadgeProps>`
+const Badge = styled.span<BadgeProps>`
   font-weight: bold;
   color: ${(props) => getColorForBackground(props.variant || 'highlight')};
   ${background};
@@ -34,3 +34,5 @@ export const Badge = styled.span<BadgeProps>`
   ${fontSize};
   ${borderRadius};
 `;
+
+export default Badge;

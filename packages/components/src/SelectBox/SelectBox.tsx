@@ -9,9 +9,9 @@ import { WidthProps } from 'styled-system';
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
 import { Theme } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
-import { Text } from '../Text';
+import Box from '../Box';
+import Icon from '../Icon';
+import Text from '../Text';
 
 const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
   container: (provided: any, state: any) => ({
@@ -289,4 +289,4 @@ SelectBox.defaultProps = {
   searchable: false,
 };
 
-export { SelectBox };
+export default SelectBox;

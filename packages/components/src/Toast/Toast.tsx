@@ -6,8 +6,8 @@ import toaster, { Position } from 'toasted-notes';
 import { MaterialClear } from '@t3n/icons';
 import { theme } from '@t3n/theme';
 
-import { Alert, AlertStatus, AlertText } from '../Alert';
-import { Box } from '../Box';
+import Alert, { AlertStatus, AlertText } from '../Alert';
+import Box from '../Box';
 
 // TODO: Use a different library than 'toasted-notes' because it's not
 // maintained anymore and relies on an outdated version of react-spring
@@ -19,6 +19,14 @@ interface ToastProps {
   text: string;
   isClosable: boolean;
   onClose: () => void;
+}
+
+interface NotifyOptions {
+  status: AlertStatus;
+  text: string;
+  duration: number | null;
+  position: keyof typeof Position;
+  isClosable: boolean;
 }
 
 const StyledIcon = styled(MaterialClear)<
@@ -46,7 +54,7 @@ const StyledIcon = styled(MaterialClear)<
   })}
 `;
 
-export const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
+const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
   return (
     <Box m={1}>
       <Alert status={status}>
@@ -60,14 +68,6 @@ export const Toast = ({ status, text, isClosable, onClose }: ToastProps) => {
     </Box>
   );
 };
-
-interface NotifyOptions {
-  status: AlertStatus;
-  text: string;
-  duration: number | null;
-  position: keyof typeof Position;
-  isClosable: boolean;
-}
 
 export const useToast = () => {
   const notify = ({ text, status, duration, position }: NotifyOptions) => {
@@ -89,3 +89,5 @@ export const useToast = () => {
 
   return [notify];
 };
+
+export default Toast;

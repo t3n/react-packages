@@ -16,9 +16,9 @@ import { useDebouncedCallback } from 'use-debounce';
 import { MaterialClear, T3nLoupe } from '@t3n/icons';
 import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Loader } from '../Loader';
-import { Text } from '../Text';
+import Box from '../Box';
+import Loader from '../Loader';
+import Text from '../Text';
 
 const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   width: 25px;
@@ -332,4 +332,4 @@ SearchBox.defaultProps = {
   clearOnSelect: true,
 };
 
-export { SearchBox };
+export default SearchBox;

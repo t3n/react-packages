@@ -14,9 +14,10 @@ export interface NewsCardProps {
         url: string;
     };
 }
-export declare const NewsCard: {
+declare const NewsCard: {
     ({ loading, type, news }: NewsCardProps): JSX.Element | null;
     defaultProps: {
         loading: boolean;
     };
 };
+export default NewsCard;

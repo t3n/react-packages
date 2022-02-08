@@ -10,9 +10,9 @@ import {
   TextColorProps,
 } from 'styled-system';
 
-import { Box } from '../Box/Box';
-import { Placeholder } from '../Placeholder/Placeholder';
-import { Text } from '../Text/Text';
+import Box from '../Box';
+import Placeholder from '../Placeholder';
+import Text from '../Text';
 
 const AvatarPlaceholder = styled((props) => <Placeholder {...props} />)`
   ${({ theme }) =>
@@ -71,10 +71,31 @@ const AvatarImage = ({
       ? `${parts[0][0]}${parts.length > 1 ? parts[parts.length - 1][0] : ''}`
       : '?';
 
-  return loading ? (
-    <AvatarPlaceholder height={`${size}px`} width={`${size}px`} />
-  ) : src ? (
-    optimizeSrc ? (
+  if (loading)
+    return <AvatarPlaceholder height={`${size}px`} width={`${size}px`} />;
+
+  if (!src)
+    return (
+      <DefaultAvatar
+        display="flex"
+        alignItems="center"
+        height={`${size}px`}
+        width={`${size}px`}
+      >
+        {alt ? (
+          <StyledText bold p={1} mx="auto" my={0} small>
+            {initials}
+          </StyledText>
+        ) : (
+          <StyledText bold p={1} mx="auto" my={0} small>
+            ?
+          </StyledText>
+        )}
+      </DefaultAvatar>
+    );
+
+  if (optimizeSrc)
+    return (
       <Imgix
         src={src}
         className={className}
@@ -84,32 +105,16 @@ const AvatarImage = ({
         htmlAttributes={{ alt: alt || 'Kein Avatar' }}
         disableSrcSet
       />
-    ) : (
-      <img
-        src={src}
-        className={className}
-        width={size}
-        height={size}
-        alt={alt || 'Kein Avatar'}
-      />
-    )
-  ) : (
-    <DefaultAvatar
-      display="flex"
-      alignItems="center"
-      height={`${size}px`}
-      width={`${size}px`}
-    >
-      {alt ? (
-        <StyledText bold p={1} mx="auto" my={0} small>
-          {initials}
-        </StyledText>
-      ) : (
-        <StyledText bold p={1} mx="auto" my={0} small>
-          ?
-        </StyledText>
-      )}
-    </DefaultAvatar>
+    );
+
+  return (
+    <img
+      src={src}
+      className={className}
+      width={size}
+      height={size}
+      alt={alt || 'Kein Avatar'}
+    />
   );
 };
 
@@ -138,7 +143,7 @@ const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
   ${({ textColor, theme }) => styledColor({ color: textColor, theme })}
 `;
 
-export const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<AvatarProps> = ({
   label,
   textColor,
   children,
@@ -156,3 +161,5 @@ export const Avatar: React.FC<AvatarProps> = ({
 Avatar.defaultProps = {
   label: '',
 };
+
+export default Avatar;
