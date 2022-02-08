@@ -112,12 +112,6 @@ module.exports = {
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      compilerOptions: {
-        allowSyntheticDefaultImports: false,
-        esModuleInterop: false,
-      },
-    },
   },
   webpackFinal: async (config) => {
     // Since webpack 5 we need to polyfill some modules

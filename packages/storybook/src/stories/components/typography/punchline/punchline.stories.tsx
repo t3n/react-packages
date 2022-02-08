@@ -13,7 +13,7 @@ import { storyContainerContentDecorator } from '../../../../utils/decorators';
 
 export default {
   title: 'Components/Typografie/Punchline',
-  component: Text,
+  component: Punchline,
 };
 
 export const defaultStory = () => <Punchline>Punchline</Punchline>;
