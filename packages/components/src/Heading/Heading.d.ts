@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import { SizeProps, SpaceProps, TextAlignProps } from 'styled-system';
 export declare type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface HeadingProps extends SpaceProps, SizeProps {
@@ -6,13 +6,12 @@ export interface HeadingProps extends SpaceProps, SizeProps {
     styleAs?: HeadingElements;
     color?: string;
     align?: TextAlignProps['textAlign'];
-    children?: ReactNode;
 }
 declare const Heading: import("styled-components").StyledComponent<"h1", any, HeadingProps, never>;
-export declare const H1: ({ as, ...props }: HeadingProps) => JSX.Element;
-export declare const H2: ({ as, ...props }: HeadingProps) => JSX.Element;
-export declare const H3: ({ as, ...props }: HeadingProps) => JSX.Element;
-export declare const H4: ({ as, ...props }: HeadingProps) => JSX.Element;
-export declare const H5: ({ as, ...props }: HeadingProps) => JSX.Element;
-export declare const H6: ({ as, ...props }: HeadingProps) => JSX.Element;
+export declare const H1: React.FC<HeadingProps>;
+export declare const H2: React.FC<HeadingProps>;
+export declare const H3: React.FC<HeadingProps>;
+export declare const H4: React.FC<HeadingProps>;
+export declare const H5: React.FC<HeadingProps>;
+export declare const H6: React.FC<HeadingProps>;
 export default Heading;

@@ -9,10 +9,6 @@ import LegacyFooter from '../LegacyFooter';
 import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
 import { PrivacyManagerType } from '../PageFooter';
 
-const Wrapper = styled(Box)`
-  ${({ theme }) => color({ theme, bg: 'background.primary' })}
-`;
-
 export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   showP0?: boolean;
   previewP0?: boolean;
@@ -22,6 +18,10 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   previewP13?: boolean;
   privacySettingsModal?: PrivacyManagerType;
 }
+
+const Wrapper = styled(Box)`
+  ${({ theme }) => color({ theme, bg: 'background.primary' })}
+`;
 
 const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   user,

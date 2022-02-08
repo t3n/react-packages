@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { ColorProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { RatioProps } from '../Ratio';
-interface CardHeaderProps extends ThemeProps {
+export interface CardHeaderProps extends ThemeProps {
     as?: 'div' | 'a';
     big?: boolean;
     ratio?: RatioProps['ratio'];

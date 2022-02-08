@@ -33,6 +33,10 @@ export interface TextareaProps
   className?: string;
 }
 
+interface StyledNativeTextareaProps extends TextareaProps {
+  isFocused: boolean;
+}
+
 const color = css`
   color: ${({
     isFocused,
@@ -56,10 +60,6 @@ const StyledTextarea = styled.div<TextareaProps>`
   ${styledWidth}
   ${color}
 `;
-
-interface StyledNativeTextareaProps extends TextareaProps {
-  isFocused: boolean;
-}
 
 const padding = ({ theme }: ThemeProps) =>
   space({ pl: 2, pr: 6, pt: 1, pb: 1, theme });

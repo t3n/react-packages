@@ -63,19 +63,17 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   light,
   logoHref,
   children,
-}) => {
-  return (
-    <PageHeaderWrapper transparent={transparent} light={light}>
-      {logoHref ? (
-        <a style={{ display: 'flex' }} href={logoHref}>
-          <Logo />
-        </a>
-      ) : (
+}) => (
+  <PageHeaderWrapper transparent={transparent} light={light}>
+    {logoHref ? (
+      <a style={{ display: 'flex' }} href={logoHref}>
         <Logo />
-      )}
-      {children}
-    </PageHeaderWrapper>
-  );
-};
+      </a>
+    ) : (
+      <Logo />
+    )}
+    {children}
+  </PageHeaderWrapper>
+);
 
 export default PageHeader;

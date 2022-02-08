@@ -14,6 +14,20 @@ import Box from '../Box';
 import Placeholder from '../Placeholder';
 import Text from '../Text';
 
+export interface AvatarImageProps {
+  optimizeSrc?: boolean;
+  src?: string;
+  size?: number;
+  className?: string;
+  alt?: string;
+  loading?: boolean;
+}
+
+export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
+  label?: string;
+  textColor?: TextColorProps['color'];
+}
+
 const AvatarPlaceholder = styled((props) => <Placeholder {...props} />)`
   ${({ theme }) =>
     border({
@@ -47,15 +61,6 @@ const StyledText = styled((props) => <Text {...props} />)`
   user-select: none;
   text-transform: uppercase;
 `;
-
-interface AvatarImageProps {
-  optimizeSrc?: boolean;
-  src?: string;
-  size?: number;
-  className?: string;
-  alt?: string;
-  loading?: boolean;
-}
 
 const AvatarImage = ({
   src,
@@ -128,11 +133,6 @@ const StyledAvatarImage = styled(AvatarImage)<{ src?: string }>`
   box-sizing: border-box;
 `;
 
-export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
-  label?: string;
-  textColor?: TextColorProps['color'];
-}
-
 const StyledAvatar = styled.div`
   display: flex;
   align-items: center;
@@ -144,7 +144,7 @@ const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
 `;
 
 const Avatar: React.FC<AvatarProps> = ({
-  label,
+  label = '',
   textColor,
   children,
   ...rest
@@ -157,9 +157,5 @@ const Avatar: React.FC<AvatarProps> = ({
     {children}
   </StyledAvatar>
 );
-
-Avatar.defaultProps = {
-  label: '',
-};
 
 export default Avatar;

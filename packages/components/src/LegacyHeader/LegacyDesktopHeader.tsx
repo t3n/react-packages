@@ -21,6 +21,20 @@ import LegacyTagNav, {
   TagNavTagsType,
 } from './components/LegacyTagNav';
 
+export interface LegacyDesktopHeaderProps {
+  user: LegacyUserMenuProps['user'];
+  userMenuLabelUrl: string;
+  userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
+  tags: TagNavTagsType[];
+  tagsLoading?: boolean;
+  headerCampaignUrl: string;
+  headerCampaignImage: string;
+  newsIndicator?: number;
+  proIndicator?: number;
+  showAds?: boolean;
+  adsPreview?: boolean;
+}
+
 const T3nLogoSmall: React.FC = () => (
   <svg viewBox="0 0 72 42" xmlns="http://www.w3.org/2000/svg">
     <path d="M56.977.208a16.954 16.954 0 0 0-6.635 2.702 24.07 24.07 0 0 0-.52-2.72h-8.835a13.473 13.473 0 0 1-1.455 14.117 14.197 14.197 0 0 1 2.62 16.702h9.828V12.362c1.1-1.192 2.85-2.702 5.006-3.036 2.769-.43 5.004 1.455 5.004 4.29v17.393H72V13.082C72 4.576 65.272-1.188 56.977.208zM29.462 10.481a4.403 4.403 0 1 0-4.289-4.4v4.4h4.289zm.715 8.799h-5.004v5.132c0 2.833 2.24 5.132 5.004 5.132 2.765 0 5.004-2.299 5.004-5.132 0-2.833-2.239-5.132-5.004-5.132zm-5.004 0v-8.799h-8.581V.19H6.582v10.292H0v8.799h6.582v5.132a24.422 24.422 0 0 0 6.913 17.109l7.075-7.257a14.073 14.073 0 0 1-3.978-9.85V19.28h8.581z" />
@@ -156,19 +170,7 @@ const HeaderWrapper = styled(Header)`
   }
 `;
 
-const LegacyDesktopHeader: React.FC<{
-  user: LegacyUserMenuProps['user'];
-  userMenuLabelUrl: string;
-  userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
-  tags: TagNavTagsType[];
-  tagsLoading?: boolean;
-  headerCampaignUrl: string;
-  headerCampaignImage: string;
-  newsIndicator?: number;
-  proIndicator?: number;
-  showAds?: boolean;
-  adsPreview?: boolean;
-}> = ({
+const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,

@@ -10,6 +10,25 @@ import Link from '../Link/Link';
 import Placeholder from '../Placeholder/Placeholder';
 import Text from '../Text/Text';
 
+export interface UserMenuProps {
+  loading: boolean;
+  loggedIn: boolean;
+  loginLink?: string;
+  logoutLink?: string;
+  labelLink?: string;
+  light?: boolean;
+
+  user?: {
+    label: string;
+    name: string;
+    avatarUrl: string;
+  };
+
+  itemGroups?: {
+    item: (JSX.Element | string)[];
+  }[];
+}
+
 const UserMenuWrapper = styled(Box)`
   cursor: pointer;
   position: relative;
@@ -129,25 +148,6 @@ const StyledUserLabel = styled(Text)`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
-
-export interface UserMenuProps {
-  loading: boolean;
-  loggedIn: boolean;
-  loginLink?: string;
-  logoutLink?: string;
-  labelLink?: string;
-  light?: boolean;
-
-  user?: {
-    label: string;
-    name: string;
-    avatarUrl: string;
-  };
-
-  itemGroups?: {
-    item: (JSX.Element | string)[];
-  }[];
-}
 
 const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
   loading,

@@ -16,9 +16,10 @@ export interface SocialNetworkProps {
 export declare type SocialNetworksProps = {
     [key in SocialNetworkType]: SocialNetworkProps;
 };
-export declare const LegacyHeaderSocialShare: React.FC;
-declare const LegacyArticleSocialShare: React.FC<{
+export interface LegacyArticleSocialShareProps {
     url: string;
     title: string;
-}>;
+}
+export declare const LegacyHeaderSocialShare: React.FC;
+declare const LegacyArticleSocialShare: React.FC<LegacyArticleSocialShareProps>;
 export default LegacyArticleSocialShare;

@@ -7,14 +7,18 @@ import { PrivacyManagerType } from '../PageFooter';
 import LegacyDesktopFooter from './LegacyDesktopFooter';
 import LegacyMobileFooter from './LegacyMobileFooter';
 
+export interface LegacyFooterProps {
+  privacySettingsModal?: PrivacyManagerType;
+}
+
 const Footer = styled(Box)`
   ${({ theme }) =>
     color({ theme, bg: 'shades.grey232', color: 'text.secondary' })};
 `;
 
-const LegacyFooter: React.FC<{
-  privacySettingsModal?: PrivacyManagerType;
-}> = ({ privacySettingsModal }) => {
+const LegacyFooter: React.FC<LegacyFooterProps> = ({
+  privacySettingsModal,
+}) => {
   return (
     <Footer
       className="tg-footer"

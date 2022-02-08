@@ -1,13 +1,13 @@
 import { Position } from 'toasted-notes';
 import { AlertStatus } from '../Alert';
-interface ToastProps {
+export interface ToastProps {
     id: string;
     status: AlertStatus;
     text: string;
     isClosable: boolean;
     onClose: () => void;
 }
-interface NotifyOptions {
+export interface NotifyOptions {
     status: AlertStatus;
     text: string;
     duration: number | null;

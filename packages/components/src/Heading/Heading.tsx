@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {
   color,
@@ -19,7 +19,6 @@ export interface HeadingProps extends SpaceProps, SizeProps {
   styleAs?: HeadingElements;
   color?: string;
   align?: TextAlignProps['textAlign'];
-  children?: ReactNode;
 }
 
 const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>
@@ -41,22 +40,22 @@ const Heading = styled.h1<HeadingProps>`
 
 Heading.displayName = 'Heading';
 
-export const H1 = ({ as, ...props }: HeadingProps) => (
+export const H1: React.FC<HeadingProps> = ({ as, ...props }) => (
   <Heading as="h1" {...props} />
 );
-export const H2 = ({ as, ...props }: HeadingProps) => (
+export const H2: React.FC<HeadingProps> = ({ as, ...props }) => (
   <Heading as="h2" {...props} />
 );
-export const H3 = ({ as, ...props }: HeadingProps) => (
+export const H3: React.FC<HeadingProps> = ({ as, ...props }) => (
   <Heading as="h3" {...props} />
 );
-export const H4 = ({ as, ...props }: HeadingProps) => (
+export const H4: React.FC<HeadingProps> = ({ as, ...props }) => (
   <Heading as="h4" {...props} />
 );
-export const H5 = ({ as, ...props }: HeadingProps) => (
+export const H5: React.FC<HeadingProps> = ({ as, ...props }) => (
   <Heading as="h5" {...props} />
 );
-export const H6 = ({ as, ...props }: HeadingProps) => (
+export const H6: React.FC<HeadingProps> = ({ as, ...props }) => (
   <Heading as="h6" {...props} />
 );
 

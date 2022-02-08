@@ -12,7 +12,7 @@ import Box from '../Box';
 // TODO: Use a different library than 'toasted-notes' because it's not
 // maintained anymore and relies on an outdated version of react-spring
 
-interface ToastProps {
+export interface ToastProps {
   // eslint-disable-next-line react/no-unused-prop-types
   id: string;
   status: AlertStatus;
@@ -21,7 +21,7 @@ interface ToastProps {
   onClose: () => void;
 }
 
-interface NotifyOptions {
+export interface NotifyOptions {
   status: AlertStatus;
   text: string;
   duration: number | null;

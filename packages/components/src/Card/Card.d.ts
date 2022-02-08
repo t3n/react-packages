@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { MarginProps, SizeProps } from 'styled-system';
 export interface CardProps extends MarginProps, React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
     rounded?: boolean;
@@ -11,7 +11,6 @@ export interface CardProps extends MarginProps, React.HTMLAttributes<HTMLAnchorE
     targetBlank?: boolean;
     color?: string;
     width?: SizeProps['size'];
-    children?: ReactNode;
 }
-declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement | HTMLAnchorElement>>;
+declare const Card: React.FC<CardProps>;
 export default Card;

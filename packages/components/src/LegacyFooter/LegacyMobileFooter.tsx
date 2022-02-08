@@ -7,6 +7,20 @@ import LegacySocialBar from '../LegacySocialBar';
 import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
 import Text from '../Text';
 
+export type MobileLinkType = {
+  label: string;
+  url: string;
+  bold?: boolean;
+  onClick?: (
+    e: React.MouseEvent,
+    privacySettingsModal?: PrivacyManagerType
+  ) => void;
+}[];
+
+export interface LegacyMobileFooterProps {
+  privacySettingsModal?: PrivacyManagerType;
+}
+
 const FooterLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
@@ -44,16 +58,6 @@ const SmallerText = styled(Text)`
       fontSize: 0,
     })};
 `;
-
-type MobileLinkType = {
-  label: string;
-  url: string;
-  bold?: boolean;
-  onClick?: (
-    e: React.MouseEvent,
-    privacySettingsModal?: PrivacyManagerType
-  ) => void;
-}[];
 
 const legacyMobileLinks: MobileLinkType = [
   {
@@ -109,9 +113,9 @@ const legacyMobileLinks: MobileLinkType = [
   },
 ];
 
-const LegacyMobileLinks: React.FC<{
-  privacySettingsModal?: PrivacyManagerType;
-}> = ({ privacySettingsModal }) => {
+const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
+  privacySettingsModal,
+}) => {
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
       {legacyMobileLinks.map((link) => (
@@ -134,9 +138,9 @@ const LegacyMobileLinks: React.FC<{
   );
 };
 
-const LegacyMobileFooter: React.FC<{
-  privacySettingsModal?: PrivacyManagerType;
-}> = ({ privacySettingsModal }) => {
+const LegacyMobileFooter: React.FC<LegacyMobileFooterProps> = ({
+  privacySettingsModal,
+}) => {
   return (
     <>
       <LegacyMobileLinks privacySettingsModal={privacySettingsModal} />

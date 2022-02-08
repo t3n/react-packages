@@ -7,6 +7,23 @@ import { display, layout, space } from 'styled-system';
 import Box from '../Box';
 import Button from '../Button';
 
+export interface CarouselProps {
+  slidesToShow?: number;
+  slidesToScroll?: number;
+  responsive?: ResponsiveObject[];
+  speed?: number;
+  infinite?: boolean;
+  autoplay?: boolean;
+  autoplaySpeed?: number;
+  nextLabel?: string;
+  prevLabel?: string;
+  onNextClick?: () => void;
+  onPrevClick?: () => void;
+  hideNextButton?: boolean;
+  hidePrevButton?: boolean;
+  onChange?: (currentIndex: number) => void;
+}
+
 const StyledSlider = styled(SlickSlider)`
   > .slick-dots {
     bottom: 10px;
@@ -79,23 +96,6 @@ const PrevButton: React.FC<{
     </StyledPrevButton>
   );
 };
-
-export interface CarouselProps {
-  slidesToShow?: number;
-  slidesToScroll?: number;
-  responsive?: ResponsiveObject[];
-  speed?: number;
-  infinite?: boolean;
-  autoplay?: boolean;
-  autoplaySpeed?: number;
-  nextLabel?: string;
-  prevLabel?: string;
-  onNextClick?: () => void;
-  onPrevClick?: () => void;
-  hideNextButton?: boolean;
-  hidePrevButton?: boolean;
-  onChange?: (currentIndex: number) => void;
-}
 
 const Carousel: React.FC<CarouselProps> = ({
   slidesToShow = 1,

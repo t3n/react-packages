@@ -1,10 +1,11 @@
+export interface AuthorValues {
+    name: string;
+    avatar: string;
+}
 export interface AuthorCardProps {
     title: string;
     articleType: string;
-    author: {
-        name: string;
-        avatar: string;
-    };
+    author: AuthorValues;
     url: string;
 }
 declare const AuthorCard: ({ title, articleType, author, url }: AuthorCardProps) => JSX.Element;

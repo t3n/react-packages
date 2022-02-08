@@ -118,21 +118,19 @@ const Tag: React.FC<TagProps> = ({
   icon,
   small,
   ...rest
-}) => {
-  return (
-    <StyledTag
-      as={link ? 'a' : 'div'}
-      link={link}
-      clickable={!!link || !!onClick}
-      variant={colorVariant || 'secondary'}
-      onClick={onClick}
-      small={small || false}
-      {...rest}
-    >
-      {children}
-      {icon}
-    </StyledTag>
-  );
-};
+}) => (
+  <StyledTag
+    as={link ? 'a' : 'div'}
+    link={link}
+    clickable={!!link || !!onClick}
+    variant={colorVariant || 'secondary'}
+    onClick={onClick}
+    small={small || false}
+    {...rest}
+  >
+    {children}
+    {icon}
+  </StyledTag>
+);
 
 export default Tag;

@@ -13,16 +13,16 @@ import {
 
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
+export interface CardSplitContentProps {
+  variant?: ThemeBackgroundColor;
+}
+
 const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
   ${space}
   ${layout}
   ${color}
   ${size}
 `;
-
-interface CardSplitContentProps {
-  variant?: ThemeBackgroundColor;
-}
 
 const CardSplitContent: React.FC<CardSplitContentProps> = ({
   children,

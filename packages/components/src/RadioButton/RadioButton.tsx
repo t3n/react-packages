@@ -8,7 +8,7 @@ import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 import Box from '../Box';
 import Text from '../Text';
 
-type VariantType = 'light' | 'dark';
+export type VariantType = 'light' | 'dark';
 
 export interface RadioButtonProps {
   name: string;
@@ -186,26 +186,24 @@ const RadioButton = ({
   name,
   value,
   variant: variantProp,
-}: RadioButtonProps) => {
-  return (
-    <StyledLabel disabled={disabled} variant={variantProp}>
-      <PlainRadioButton
-        variant={variantProp}
-        checked={checked}
-        disabled={disabled}
-        onChange={onChange}
-        feedbackColor={feedbackColor}
-        name={name}
-        value={value}
-      />
-      {label && (
-        <Text small inline>
-          {label}
-        </Text>
-      )}
-    </StyledLabel>
-  );
-};
+}: RadioButtonProps) => (
+  <StyledLabel disabled={disabled} variant={variantProp}>
+    <PlainRadioButton
+      variant={variantProp}
+      checked={checked}
+      disabled={disabled}
+      onChange={onChange}
+      feedbackColor={feedbackColor}
+      name={name}
+      value={value}
+    />
+    {label && (
+      <Text small inline>
+        {label}
+      </Text>
+    )}
+  </StyledLabel>
+);
 
 RadioButton.defaultProps = {
   variant: 'light',

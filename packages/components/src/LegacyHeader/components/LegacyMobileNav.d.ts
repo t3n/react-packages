@@ -1,10 +1,17 @@
 import React from 'react';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
-declare const LegacyMobileNav: React.FC<{
+export interface LegacyMobileNavProps {
     user: LegacyUserMenuProps['user'];
     newsIndicator?: number;
     proIndicator?: number;
     headerCampaignUrl: string;
     headerCampaignImageMobile?: string;
-}>;
+}
+export declare type MobileNavLinksType = {
+    label: string;
+    url: string;
+    indicator?: boolean;
+    bold?: boolean;
+};
+declare const LegacyMobileNav: React.FC<LegacyMobileNavProps>;
 export default LegacyMobileNav;

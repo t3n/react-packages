@@ -15,6 +15,23 @@ import { ThemeProps } from '@t3n/theme';
 import Avatar from '../Avatar';
 import Box from '../Box';
 
+export interface LegacyUserMenuProps {
+  loading: boolean;
+  loginUrl?: string;
+  logoutUrl?: string;
+  labelUrl?: string;
+
+  user?: {
+    name: string;
+    nickName: string;
+    avatarUrl: string;
+  };
+
+  itemGroups?: {
+    item: (JSX.Element | string)[];
+  }[];
+}
+
 const ArrowDownIcon: React.FC = () => (
   <svg
     viewBox="0 0 12 7"
@@ -140,23 +157,6 @@ const LoginLink = styled.a`
     ${({ theme }) => color({ theme, color: 'text.primary' })};
   }
 `;
-
-export interface LegacyUserMenuProps {
-  loading: boolean;
-  loginUrl?: string;
-  logoutUrl?: string;
-  labelUrl?: string;
-
-  user?: {
-    name: string;
-    nickName: string;
-    avatarUrl: string;
-  };
-
-  itemGroups?: {
-    item: (JSX.Element | string)[];
-  }[];
-}
 
 const LegacyUserMenu: React.FC<LegacyUserMenuProps> = ({
   user,

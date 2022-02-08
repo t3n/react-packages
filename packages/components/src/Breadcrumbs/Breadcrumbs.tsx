@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
@@ -82,11 +82,7 @@ const BreadcrumbsList = styled.ul`
   flex-wrap: wrap;
 `;
 
-export interface BreadcrumbsProps {
-  children: ReactNode;
-}
-
-const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
+const Breadcrumbs: React.FC = ({ children }) => {
   return (
     <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>

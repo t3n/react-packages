@@ -16,6 +16,23 @@ import Box from '../../Box';
 import Text from '../../Text';
 import HeaderLink from './LegacyHeaderLink';
 
+export interface LegacyMainNavProps {
+  isSticky?: boolean;
+  newsIndicator?: number;
+  proIndicator?: number;
+}
+
+export type MainNavLinkGroupsType = {
+  label: string;
+  url?: string;
+  bold?: boolean;
+  indicator?: boolean;
+  dropdownLinks?: {
+    label: string;
+    url: string;
+  }[];
+};
+
 const ArrowDownIcon: React.FC = () => (
   <svg
     viewBox="0 0 12 7"
@@ -27,7 +44,7 @@ const ArrowDownIcon: React.FC = () => (
   </svg>
 );
 
-const MainNavWrapper = styled.nav<{ isSticky?: boolean }>`
+const MainNavWrapper = styled.nav<Pick<LegacyMainNavProps, 'isSticky'>>`
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -36,7 +53,7 @@ const MainNavWrapper = styled.nav<{ isSticky?: boolean }>`
     space({ theme, p: ['0', '0', isSticky ? '0 40px 0 10px' : '0 10%'] })};
 `;
 
-const MainNavInnerWrapper = styled(Box)<{ isSticky?: boolean }>`
+const MainNavInnerWrapper = styled(Box)<Pick<LegacyMainNavProps, 'isSticky'>>`
   width: 100%;
   margin-top: 14px;
   margin-bottom: 13px;
@@ -77,7 +94,7 @@ export const MainNavDropdown = styled.ul`
     })};
 `;
 
-const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
+const MainNavItem = styled(Box)<Pick<LegacyMainNavProps, 'isSticky'>>`
   position: relative;
   cursor: pointer;
   letter-spacing: normal;
@@ -141,17 +158,6 @@ export const Indicator = styled.span`
   ${({ theme }) =>
     color({ theme, color: 'shades.white', bg: 'background.highlight' })};
 `;
-
-type MainNavLinkGroupsType = {
-  label: string;
-  url?: string;
-  bold?: boolean;
-  indicator?: boolean;
-  dropdownLinks?: {
-    label: string;
-    url: string;
-  }[];
-};
 
 const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   {
@@ -283,11 +289,11 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   },
 ];
 
-const LegacyMainNav: React.FC<{
-  isSticky?: boolean;
-  newsIndicator?: number;
-  proIndicator?: number;
-}> = ({ isSticky, newsIndicator, proIndicator }) => {
+const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
+  isSticky,
+  newsIndicator,
+  proIndicator,
+}) => {
   return (
     <MainNavWrapper className="tg-menu" isSticky={isSticky}>
       <MainNavInnerWrapper isSticky={isSticky}>

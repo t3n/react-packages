@@ -20,6 +20,8 @@ export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 
+// TODO: Fix polymorphic interface
+
 export interface ButtonProps
   extends ButtonHTMLAttributes<any>,
     Omit<AnchorHTMLAttributes<any>, 'type'>,

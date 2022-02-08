@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import {
   boxShadow as styledBoxShadow,
@@ -13,6 +13,8 @@ import { ThemeProps } from '@t3n/theme';
 
 import CardHeader, { CardHeaderContent } from '../CardHeader';
 
+// TODO: Fix polymorphic interface
+
 export interface CardProps
   extends MarginProps,
     React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
@@ -26,7 +28,6 @@ export interface CardProps
   targetBlank?: boolean;
   color?: string;
   width?: SizeProps['size'];
-  children?: ReactNode;
 }
 
 const borderRadius = ({ rounded, theme }: CardProps & ThemeProps) =>
@@ -105,7 +106,10 @@ const StyledLinkCard = styled.a<CardProps>`
   }
 `;
 
-const Card = React.forwardRef<HTMLAnchorElement | HTMLDivElement, CardProps>(
+const Card: React.FC<CardProps> = React.forwardRef<
+  HTMLAnchorElement | HTMLDivElement,
+  CardProps
+>(
   (
     {
       href,

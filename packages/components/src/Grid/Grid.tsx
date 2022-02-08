@@ -28,21 +28,28 @@ export interface GridProps
 const flexDirection = ({ vertical, reverse }: GridProps) =>
   `flex-direction: ${vertical ? 'column' : 'row'}${reverse ? '-reverse' : ''};`;
 
-const indent = ({ noGap, wide, theme }: GridProps & ThemeProps) =>
-  noGap
-    ? space({ mx: 0 })
-    : wide
-    ? space({
-        mx: [0, -4],
-        theme,
-      })
-    : space({
-        mx: [0, -2],
-        theme,
-      });
+const indent = ({ noGap, wide, theme }: GridProps & ThemeProps) => {
+  if (noGap) return space({ mx: 0 });
 
-const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string =>
-  noGap ? space({ px: 0, theme }) : wide ? space({ px: 4, theme }) : '';
+  if (wide)
+    return space({
+      mx: [0, -4],
+      theme,
+    });
+
+  return space({
+    mx: [0, -2],
+    theme,
+  });
+};
+
+const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string => {
+  if (noGap) return space({ px: 0, theme });
+
+  if (wide) return space({ px: 4, theme });
+
+  return '';
+};
 
 const Grid = styled.div<GridProps>`
   display: flex;

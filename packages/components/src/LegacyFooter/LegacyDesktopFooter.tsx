@@ -10,6 +10,26 @@ import Image from '../Image';
 import { privacyManagerIdByType, PrivacyManagerType } from '../PageFooter';
 import Text from '../Text';
 
+export type DesktopLinkGroupsType = {
+  label: string;
+  links: {
+    label: string;
+    title?: string;
+    url: string;
+    target?: string;
+    rel?: string;
+    bold?: boolean;
+    onClick?: (
+      e: React.MouseEvent,
+      privacySettingsModal?: PrivacyManagerType
+    ) => void;
+  }[];
+}[];
+
+export interface LegacyDesktopFooterProps {
+  privacySettingsModal?: PrivacyManagerType;
+}
+
 const LegacyDesktopFooterWrapper = styled(Box)`
   *:not(h3) {
     ${({ theme }) =>
@@ -82,22 +102,6 @@ const LegacyExtraSmallText = styled(Text)`
   ${({ theme }) => typography({ theme, fontSize: '12px', lineHeight: '1.5em' })}
   line-height: 1.5em !important;
 `;
-
-type DesktopLinkGroupsType = {
-  label: string;
-  links: {
-    label: string;
-    title?: string;
-    url: string;
-    target?: string;
-    rel?: string;
-    bold?: boolean;
-    onClick?: (
-      e: React.MouseEvent,
-      privacySettingsModal?: PrivacyManagerType
-    ) => void;
-  }[];
-}[];
 
 const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
   {
@@ -268,9 +272,9 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
   },
 ];
 
-const LegacyDesktopLinks: React.FC<{
-  privacySettingsModal?: PrivacyManagerType;
-}> = ({ privacySettingsModal }) => {
+const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
+  privacySettingsModal,
+}) => {
   return (
     <DesktopLinkWrapper>
       {legacyDesktopLinkGroups.map((group) => (
@@ -409,9 +413,9 @@ const LegacyDesktopBottom = () => {
   );
 };
 
-const LegacyDesktopFooter: React.FC<{
-  privacySettingsModal?: PrivacyManagerType;
-}> = ({ privacySettingsModal }) => {
+const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
+  privacySettingsModal,
+}) => {
   return (
     <LegacyDesktopFooterWrapper>
       <Box display="flex" m="10px">

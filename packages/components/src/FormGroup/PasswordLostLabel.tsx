@@ -2,12 +2,11 @@ import React from 'react';
 
 import Link from '../Link';
 
-interface Props {
-  // eslint-disable-next-line react/require-default-props
+export interface PasswordLostLabelProps {
   href?: string;
 }
 
-const PasswordLostLabel = ({ href }: Props) => (
+const PasswordLostLabel = ({ href }: PasswordLostLabelProps) => (
   <Link
     href={href || 'https://t3n.de/account/lostpassword'}
     title="Passwort vergessen?"

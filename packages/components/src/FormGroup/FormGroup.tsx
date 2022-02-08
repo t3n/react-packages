@@ -15,7 +15,6 @@ export interface FormGroupProps
   labelSecondary?: string;
   labelEndContent?: ReactNode;
   errorMessage?: string;
-  children: ReactNode;
 }
 
 const Label = styled.span`
@@ -37,14 +36,14 @@ const SecondaryLabel = styled(Text)`
   line-height: normal;
 `;
 
-const FormGroup = ({
+const FormGroup: React.FC<FormGroupProps> = ({
   label,
   labelSecondary,
   labelEndContent,
   errorMessage,
   children,
   ...props
-}: FormGroupProps) => (
+}) => (
   <StyledFormGroup {...props}>
     <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>

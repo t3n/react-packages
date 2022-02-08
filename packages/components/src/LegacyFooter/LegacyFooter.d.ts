@@ -1,6 +1,7 @@
 import React from 'react';
 import { PrivacyManagerType } from '../PageFooter';
-declare const LegacyFooter: React.FC<{
+export interface LegacyFooterProps {
     privacySettingsModal?: PrivacyManagerType;
-}>;
+}
+declare const LegacyFooter: React.FC<LegacyFooterProps>;
 export default LegacyFooter;

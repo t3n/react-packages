@@ -11,6 +11,11 @@ import Modal from '../Modal';
 import SocialButton from '../SocialButton';
 import Text from '../Text';
 
+export interface LegacyBookmarkModalProps {
+  pocketLink: string;
+  onClose: () => void;
+}
+
 const OverflowModalWrapper = styled(Box)`
   > div > div {
     overflow: visible;
@@ -22,10 +27,10 @@ const OverflowModalWrapper = styled(Box)`
   }
 `;
 
-const LegacyBookmarkModal: React.FC<{
-  pocketLink: string;
-  onClose: () => void;
-}> = ({ pocketLink, onClose }) => {
+const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps> = ({
+  pocketLink,
+  onClose,
+}) => {
   return (
     <OverflowModalWrapper>
       <Modal

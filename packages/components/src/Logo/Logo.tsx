@@ -5,7 +5,7 @@ import { T3nLogo } from '@t3n/icons';
 
 export type LogoVariant = 'default';
 
-interface LogoProps extends React.SVGAttributes<SVGElement> {
+export interface LogoProps extends React.SVGAttributes<SVGElement> {
   variant?: LogoVariant;
 }
 

@@ -38,16 +38,16 @@ export interface InputProps
   hideReset?: boolean;
 }
 
+interface StyledNativeInputProps extends InputProps {
+  isFocused: boolean;
+}
+
 const StyledInput = styled.div<InputProps>`
   position: relative;
   display: flex;
   align-items: center;
   ${styledWidth};
 `;
-
-interface StyledNativeInputProps extends InputProps {
-  isFocused: boolean;
-}
 
 const border = css`
   border: 1px solid

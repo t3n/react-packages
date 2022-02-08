@@ -52,9 +52,11 @@ const NewsCard = ({ loading, type, news }: NewsCardProps) => {
   }
 
   if (type === 'HERO') {
-    return loading ? (
-      <LoadingHeroCard />
-    ) : news ? (
+    if (loading) return <LoadingHeroCard />;
+
+    if (!news) return null;
+
+    return (
       <HeroCard
         author={news.author.name}
         imageUrl={news.imageUrl}
@@ -62,20 +64,21 @@ const NewsCard = ({ loading, type, news }: NewsCardProps) => {
         title={news.title}
         url={news.url}
       />
-    ) : null;
+    );
   }
 
-  // Author-Card
-  return loading ? (
-    <LoadingAuthorCard />
-  ) : news ? (
+  if (loading) return <LoadingAuthorCard />;
+
+  if (!news) return null;
+
+  return (
     <AuthorCard
       articleType={news.type}
       author={news.author}
       title={news.title}
       url={news.url}
     />
-  ) : null;
+  );
 };
 
 NewsCard.defaultProps = {

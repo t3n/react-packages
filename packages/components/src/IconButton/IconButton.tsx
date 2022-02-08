@@ -22,7 +22,7 @@ export type IconButtonVariant = 'primary' | 'secondary';
 export type IconButtonColorVariant = 'default' | 'inverse' | 'highlight';
 export type IconButtonSizeVariant = 'small' | 'regular' | 'big';
 
-interface IconButtonBaseProps extends MarginProps, WidthProps {
+export interface IconButtonBaseProps extends MarginProps, WidthProps {
   size?: IconButtonSizeVariant;
   variant?: IconButtonVariant;
   color?: IconButtonColorVariant;
@@ -32,13 +32,13 @@ interface IconButtonBaseProps extends MarginProps, WidthProps {
   expanded?: boolean;
 }
 
-interface IconButtonButtonTypeProps
+export interface IconButtonButtonTypeProps
   extends IconButtonBaseProps,
     Omit<ButtonHTMLAttributes<any>, 'color'> {
   as?: 'button';
 }
 
-interface IconButtonATypeProps
+export interface IconButtonATypeProps
   extends IconButtonBaseProps,
     Omit<AnchorHTMLAttributes<any>, 'color' | 'type'> {
   as?: 'a';

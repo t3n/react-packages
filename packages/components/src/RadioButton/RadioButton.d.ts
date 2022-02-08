@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
-declare type VariantType = 'light' | 'dark';
+export declare type VariantType = 'light' | 'dark';
 export interface RadioButtonProps {
     name: string;
     value: any;

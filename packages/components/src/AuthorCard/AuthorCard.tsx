@@ -5,13 +5,15 @@ import Badge from '../Badge';
 import Card from '../Card';
 import Heading from '../Heading';
 
+export interface AuthorValues {
+  name: string;
+  avatar: string;
+}
+
 export interface AuthorCardProps {
   title: string;
   articleType: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
+  author: AuthorValues;
   url: string;
 }
 

@@ -7,7 +7,7 @@ import { ThemeProps } from '@t3n/theme';
 
 import Ratio, { RatioProps } from '../Ratio';
 
-interface CardHeaderProps extends ThemeProps {
+export interface CardHeaderProps extends ThemeProps {
   as?: 'div' | 'a';
   big?: boolean;
   ratio?: RatioProps['ratio'];

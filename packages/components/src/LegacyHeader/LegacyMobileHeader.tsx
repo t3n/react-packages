@@ -11,6 +11,14 @@ import Logo from '../Logo';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
 import LegacyMobileNav from './components/LegacyMobileNav';
 
+export interface LegacyMobileHeaderProps {
+  user: LegacyUserMenuProps['user'];
+  headerCampaignUrl: string;
+  headerCampaignImageMobile?: string;
+  newsIndicator?: number;
+  proIndicator?: number;
+}
+
 const MobileHeader = styled(Box)`
   width: 100%;
   position: fixed;
@@ -45,13 +53,7 @@ const MobileHeader = styled(Box)`
   }
 `;
 
-const LegacyMobileHeader: React.FC<{
-  user: LegacyUserMenuProps['user'];
-  headerCampaignUrl: string;
-  headerCampaignImageMobile?: string;
-  newsIndicator?: number;
-  proIndicator?: number;
-}> = ({
+const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
   user,
   headerCampaignUrl,
   headerCampaignImageMobile,

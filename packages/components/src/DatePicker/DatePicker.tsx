@@ -24,6 +24,30 @@ import useIsMobile from '../hooks/useIsMobile';
 import Input from '../Input';
 import Text from '../Text';
 
+export interface DatePickerProps {
+  id: string;
+  withTime?: boolean;
+  date: moment.Moment | null;
+  onChange: (date: moment.Moment | null) => void;
+  isOutsideRange?: (day: moment.Moment) => boolean;
+  highlightToday?: boolean;
+}
+
+export interface TimePickerProps {
+  focus: boolean;
+  date: moment.Moment | null;
+  onChange: (date: moment.Moment | null) => void;
+  onFocusChange: (focus: boolean) => void;
+}
+
+export interface TimeInputProps {
+  name: string;
+  value: string | undefined;
+  placeholder: string;
+  showValue: boolean;
+  onChange: (value: string) => void;
+}
+
 moment.locale('de');
 moment.updateLocale('de', {
   months: [
@@ -44,9 +68,7 @@ moment.updateLocale('de', {
 });
 
 const SingleDatePickerGlobalStyles = createGlobalStyle<
-  {
-    highlightToday?: boolean;
-  } & ThemeProps
+  Pick<DatePickerProps, 'highlightToday'> & ThemeProps
 >`
   .SingleDatePickerInput__withBorder {
     border: none;
@@ -236,13 +258,13 @@ const SingleDatePickerGlobalStyles = createGlobalStyle<
   }
 `;
 
-const TimeInput: React.FC<{
-  name: string;
-  value: string | undefined;
-  placeholder: string;
-  showValue: boolean;
-  onChange: (value: string) => void;
-}> = ({ name, value, placeholder, onChange, showValue }) => (
+const TimeInput: React.FC<TimeInputProps> = ({
+  name,
+  value,
+  placeholder,
+  onChange,
+  showValue,
+}) => (
   <Input
     name={name}
     value={showValue ? value : ''}
@@ -254,12 +276,12 @@ const TimeInput: React.FC<{
   />
 );
 
-const TimePicker: React.FC<{
-  focus: boolean;
-  date: moment.Moment | null;
-  onChange: (date: moment.Moment | null) => void;
-  onFocusChange: (focus: boolean) => void;
-}> = ({ focus, date, onFocusChange, onChange }) => {
+const TimePicker: React.FC<TimePickerProps> = ({
+  focus,
+  date,
+  onFocusChange,
+  onChange,
+}) => {
   const getParsedValue = (value?: string) => {
     if (!value) {
       return '';
@@ -384,14 +406,7 @@ const TimePicker: React.FC<{
   );
 };
 
-const DatePicker: React.FC<{
-  id: string;
-  withTime?: boolean;
-  date: moment.Moment | null;
-  onChange: (date: moment.Moment | null) => void;
-  isOutsideRange?: (day: moment.Moment) => boolean;
-  highlightToday?: boolean;
-}> = ({
+const DatePicker: React.FC<DatePickerProps> = ({
   id,
   withTime = false,
   date,

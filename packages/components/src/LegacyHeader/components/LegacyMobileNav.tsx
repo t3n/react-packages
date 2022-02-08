@@ -23,6 +23,21 @@ import HeaderCampaign from './LegacyHeaderCampaign';
 import HeaderLink from './LegacyHeaderLink';
 import { Indicator } from './LegacyMainNav';
 
+export interface LegacyMobileNavProps {
+  user: LegacyUserMenuProps['user'];
+  newsIndicator?: number;
+  proIndicator?: number;
+  headerCampaignUrl: string;
+  headerCampaignImageMobile?: string;
+}
+
+export type MobileNavLinksType = {
+  label: string;
+  url: string;
+  indicator?: boolean;
+  bold?: boolean;
+};
+
 const MobileMenuToggleBox = styled(Box)`
   span {
     ${({ theme }) =>
@@ -150,13 +165,6 @@ const SearchForm = styled.form`
   ${({ theme }) => space({ theme, p: 3, mt: -1 })};
 `;
 
-type MobileNavLinksType = {
-  label: string;
-  url: string;
-  indicator?: boolean;
-  bold?: boolean;
-};
-
 const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
@@ -218,13 +226,7 @@ const mobileNavLinks: MobileNavLinksType[] = [
   },
 ];
 
-const LegacyMobileNav: React.FC<{
-  user: LegacyUserMenuProps['user'];
-  newsIndicator?: number;
-  proIndicator?: number;
-  headerCampaignUrl: string;
-  headerCampaignImageMobile?: string;
-}> = ({
+const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
   user,
   newsIndicator,
   proIndicator,

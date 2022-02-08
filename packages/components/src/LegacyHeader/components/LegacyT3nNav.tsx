@@ -11,6 +11,21 @@ import Text from '../../Text';
 import HeaderLink from './LegacyHeaderLink';
 import { MainNavDropdown } from './LegacyMainNav';
 
+export interface LegacyT3nNavProps {
+  user: LegacyUserMenuProps['user'];
+  labelUrl: string;
+  itemGroups: LegacyUserMenuProps['itemGroups'];
+}
+
+export type T3nNavLinksType = {
+  label: string;
+  url: string;
+  dropdownLinks?: {
+    label: string;
+    url: string;
+  }[];
+};
+
 const MainNavItem = styled(Box)<{ isSticky?: boolean }>`
   position: relative;
   cursor: pointer;
@@ -67,15 +82,6 @@ const ArrowDownIcon: React.FC = () => (
   </svg>
 );
 
-type T3nNavLinksType = {
-  label: string;
-  url: string;
-  dropdownLinks?: {
-    label: string;
-    url: string;
-  }[];
-};
-
 const t3nNavLinks: T3nNavLinksType[] = [
   {
     label: 'Über t3n',
@@ -113,11 +119,11 @@ const t3nNavLinks: T3nNavLinksType[] = [
   },
 ];
 
-const LegacyT3nNav: React.FC<{
-  user: LegacyUserMenuProps['user'];
-  labelUrl: string;
-  itemGroups: LegacyUserMenuProps['itemGroups'];
-}> = ({ user, labelUrl, itemGroups }) => {
+const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
+  user,
+  labelUrl,
+  itemGroups,
+}) => {
   return (
     <T3nNav
       display="flex"

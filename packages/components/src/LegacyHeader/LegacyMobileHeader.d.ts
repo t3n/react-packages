@@ -1,10 +1,11 @@
 import React from 'react';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
-declare const LegacyMobileHeader: React.FC<{
+export interface LegacyMobileHeaderProps {
     user: LegacyUserMenuProps['user'];
     headerCampaignUrl: string;
     headerCampaignImageMobile?: string;
     newsIndicator?: number;
     proIndicator?: number;
-}>;
+}
+declare const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps>;
 export default LegacyMobileHeader;
