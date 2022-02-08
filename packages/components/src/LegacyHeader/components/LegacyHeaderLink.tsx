@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
-const HeaderLink = styled.a`
+const LegacyHeaderLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 
@@ -12,4 +12,4 @@ const HeaderLink = styled.a`
   }
 `;
 
-export default HeaderLink;
+export default LegacyHeaderLink;
