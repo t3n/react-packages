@@ -134,7 +134,14 @@ const Card: React.FC<CardProps> = React.forwardRef<
         ref={ref as React.ForwardedRef<HTMLAnchorElement>}
       />
     ) : (
-      <StyledCard {...props} ref={ref as React.ForwardedRef<HTMLDivElement>} />
+      <StyledCard
+        rounded={rounded}
+        color={color}
+        width={width}
+        mb={mb}
+        {...props}
+        ref={ref as React.ForwardedRef<HTMLDivElement>}
+      />
     )
 );
 
