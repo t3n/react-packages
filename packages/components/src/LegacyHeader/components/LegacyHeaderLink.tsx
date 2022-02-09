@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
-// eslint-disable-next-line import/prefer-default-export
-export const HeaderLink = styled.a`
+const LegacyHeaderLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 
@@ -12,3 +11,5 @@ export const HeaderLink = styled.a`
     text-decoration: none;
   }
 `;
+
+export default LegacyHeaderLink;

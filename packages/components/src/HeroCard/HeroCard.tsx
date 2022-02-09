@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Card } from '../Card';
-import { CardHeader } from '../CardHeader';
-import { Heading } from '../Heading';
-import { Text } from '../Text';
+import Card from '../Card';
+import CardHeader from '../CardHeader';
+import Heading from '../Heading';
+import Text from '../Text';
 
 export interface HeroCardProps {
   title: string;
@@ -19,7 +19,7 @@ const CardFooter = styled.div`
   justify-content: space-between;
 `;
 
-export const HeroCard = ({
+const HeroCard = ({
   title,
   imageUrl,
   publishedAt,
@@ -49,3 +49,5 @@ export const HeroCard = ({
     </CardFooter>
   </Card>
 );
+
+export default HeroCard;

@@ -7,4 +7,5 @@ export interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTex
     error?: boolean;
     className?: string;
 }
-export declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
+declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
+export default Textarea;

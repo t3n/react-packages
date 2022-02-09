@@ -1,6 +1,6 @@
 import React from 'react';
 import { PrivacyManagerType } from '../PageFooter';
-import { PageHeaderProps } from '../PageHeader/PageHeader';
+import { PageHeaderProps } from '../PageHeader';
 export interface PageLayoutProps extends PageHeaderProps {
     showHeader?: boolean;
     noContentPadding?: boolean;
@@ -13,4 +13,5 @@ export interface PageLayoutProps extends PageHeaderProps {
     headerContent?: JSX.Element;
     footerContent?: JSX.Element;
 }
-export declare const PageLayout: React.FC<PageLayoutProps>;
+declare const PageLayout: React.FC<PageLayoutProps>;
+export default PageLayout;

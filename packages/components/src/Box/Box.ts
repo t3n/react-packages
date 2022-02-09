@@ -19,10 +19,12 @@ export interface BoxProps
     FlexboxProps,
     PositionProps {}
 
-export const Box = styled.div<BoxProps>`
+const Box = styled.div<BoxProps>`
   ${space}
   ${color}
   ${layout}
   ${flexbox}
   ${position}
 `;
+
+export default Box;

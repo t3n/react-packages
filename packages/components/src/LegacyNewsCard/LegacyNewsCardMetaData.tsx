@@ -2,9 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { typography } from 'styled-system';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
+import Box from '../Box';
+import Text from '../Text';
 import LegacyBookmark from './LegacyBookmark';
+
+export interface LegacyNewsCardMetaDataProps {
+  type: string;
+  publishedAt: Date;
+  readingTime?: number;
+  isBookmarked: boolean;
+  onClick: () => void;
+}
 
 const LegacyNewsCardMeta = styled(Box)`
   p {
@@ -12,13 +20,13 @@ const LegacyNewsCardMeta = styled(Box)`
   }
 `;
 
-const LegacyNewsCardMetaData: React.FC<{
-  type: string;
-  publishedAt: Date;
-  readingTime?: number;
-  isBookmarked: boolean;
-  onClick: () => void;
-}> = ({ type, publishedAt, readingTime, isBookmarked, onClick }) => {
+const LegacyNewsCardMetaData: React.FC<LegacyNewsCardMetaDataProps> = ({
+  type,
+  publishedAt,
+  readingTime,
+  isBookmarked,
+  onClick,
+}) => {
   return (
     <LegacyNewsCardMeta
       display="flex"

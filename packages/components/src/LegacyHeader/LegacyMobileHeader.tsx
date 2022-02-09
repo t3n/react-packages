@@ -4,12 +4,20 @@ import { border, color, layout, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Image } from '../Image';
+import Box from '../Box';
+import Image from '../Image';
 import { LegacyUserMenuProps } from '../LegacyUserMenu';
-import { Logo } from '../Logo';
-import { HeaderCampaign } from './components/LegacyHeaderCampaign';
+import Logo from '../Logo';
+import HeaderCampaign from './components/LegacyHeaderCampaign';
 import LegacyMobileNav from './components/LegacyMobileNav';
+
+export interface LegacyMobileHeaderProps {
+  user: LegacyUserMenuProps['user'];
+  headerCampaignUrl: string;
+  headerCampaignImageMobile?: string;
+  newsIndicator?: number;
+  proIndicator?: number;
+}
 
 const MobileHeader = styled(Box)`
   width: 100%;
@@ -45,13 +53,7 @@ const MobileHeader = styled(Box)`
   }
 `;
 
-const LegacyMobileHeader: React.FC<{
-  user: LegacyUserMenuProps['user'];
-  headerCampaignUrl: string;
-  headerCampaignImageMobile?: string;
-  newsIndicator?: number;
-  proIndicator?: number;
-}> = ({
+const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
   user,
   headerCampaignUrl,
   headerCampaignImageMobile,

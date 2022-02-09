@@ -31,11 +31,8 @@ exports[`Big Card matches snapshot 1`] = `
   transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
   position: relative;
   border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  width: 100%;
+  border-radius: 0;
   padding: 24px;
-  color: #2a2a2a;
-  margin-bottom: 16px;
 }
 
 @media screen and (min-width:30rem) {
@@ -54,8 +51,6 @@ exports[`Big Card matches snapshot 1`] = `
 
 <div
   class="c0"
-  color="text.primary"
-  width="1"
 >
   Big card
 </div>
@@ -92,11 +87,8 @@ exports[`Dashed Card matches snapshot 1`] = `
   transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
   position: relative;
   border: 2px dashed #e8e8e8;
-  border-radius: 4px;
-  width: 100%;
+  border-radius: 0;
   padding: 16px;
-  color: #2a2a2a;
-  margin-bottom: 16px;
 }
 
 @media screen and (min-width:30rem) {
@@ -111,8 +103,6 @@ exports[`Dashed Card matches snapshot 1`] = `
 
 <div
   class="c0"
-  color="text.primary"
-  width="1"
 >
   Dashed card
 </div>
@@ -149,11 +139,8 @@ exports[`Default Card matches snapshot 1`] = `
   transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
   position: relative;
   border: 1px solid #e8e8e8;
-  border-radius: 4px;
-  width: 100%;
+  border-radius: 0;
   padding: 16px;
-  color: #2a2a2a;
-  margin-bottom: 16px;
 }
 
 @media screen and (min-width:30rem) {
@@ -168,8 +155,6 @@ exports[`Default Card matches snapshot 1`] = `
 
 <div
   class="c0"
-  color="text.primary"
-  width="1"
 >
   Default Card
 </div>

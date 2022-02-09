@@ -2,20 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
-import { Box } from '../Box';
+import Box from '../Box';
 import { PrivacyManagerType } from '../PageFooter';
 import LegacyDesktopFooter from './LegacyDesktopFooter';
 import LegacyMobileFooter from './LegacyMobileFooter';
+
+export interface LegacyFooterProps {
+  privacySettingsModal?: PrivacyManagerType;
+}
 
 const Footer = styled(Box)`
   ${({ theme }) =>
     color({ theme, bg: 'shades.grey232', color: 'text.secondary' })};
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyFooter: React.FC<{
-  privacySettingsModal?: PrivacyManagerType;
-}> = ({ privacySettingsModal }) => {
+const LegacyFooter: React.FC<LegacyFooterProps> = ({
+  privacySettingsModal,
+}) => {
   return (
     <Footer
       className="tg-footer"
@@ -32,3 +35,5 @@ export const LegacyFooter: React.FC<{
     </Footer>
   );
 };
+
+export default LegacyFooter;

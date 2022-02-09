@@ -110,7 +110,7 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
     `}
 `;
 
-export const Tag: React.FC<TagProps> = ({
+const Tag: React.FC<TagProps> = ({
   children,
   link,
   colorVariant,
@@ -118,19 +118,19 @@ export const Tag: React.FC<TagProps> = ({
   icon,
   small,
   ...rest
-}) => {
-  return (
-    <StyledTag
-      as={link ? 'a' : 'div'}
-      link={link}
-      clickable={!!link || !!onClick}
-      variant={colorVariant || 'secondary'}
-      onClick={onClick}
-      small={small || false}
-      {...rest}
-    >
-      {children}
-      {icon}
-    </StyledTag>
-  );
-};
+}) => (
+  <StyledTag
+    as={link ? 'a' : 'div'}
+    link={link}
+    clickable={!!link || !!onClick}
+    variant={colorVariant || 'secondary'}
+    onClick={onClick}
+    small={small || false}
+    {...rest}
+  >
+    {children}
+    {icon}
+  </StyledTag>
+);
+
+export default Tag;

@@ -13,7 +13,8 @@ export interface SocialNetworksProps {
     };
 }
 export declare const socialNetworksConfig: SocialNetworksProps;
-export declare const SocialButton: import("styled-components").StyledComponent<React.FC<import("../Button").ButtonProps>, any, {
+declare const SocialButton: import("styled-components").StyledComponent<React.FC<import("../Button").ButtonProps>, any, {
     iconLeft: React.FC<React.SVGProps<SVGSVGElement>>;
     children: string;
 } & SocialButtonProps, "children" | "iconLeft">;
+export default SocialButton;

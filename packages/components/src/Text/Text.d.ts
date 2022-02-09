@@ -11,6 +11,7 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
     children: ReactNode;
 }
 export declare const textStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<TextProps, any>>;
-export declare const Text: import("styled-components").StyledComponent<"p", any, {
+declare const Text: import("styled-components").StyledComponent<"p", any, {
     as: "p" | "span";
 } & TextProps, "as">;
+export default Text;

@@ -5,7 +5,12 @@ import { border, color, space, typography } from 'styled-system';
 import Bookmark from '@t3n/icons/src/components/material/action/Bookmark';
 import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
 
-import { Box } from '../Box';
+import Box from '../Box';
+
+export interface LegacyBookmarkProps {
+  onClick: () => void;
+  isBookmarked: boolean;
+}
 
 export const TooltipContainer = styled(Box)`
   cursor: pointer;
@@ -84,10 +89,10 @@ const BookmarkContainer = styled(Box)<{
   }
 `;
 
-const LegacyBookmark: React.FC<{
-  onClick: () => void;
-  isBookmarked: boolean;
-}> = ({ onClick, isBookmarked }) => {
+const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
+  onClick,
+  isBookmarked,
+}) => {
   const [isBookmarkedClick, setIsBookmarkedClick] = useState(false);
 
   return (

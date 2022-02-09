@@ -1,1 +1,2 @@
-export declare const HeaderLink: import("styled-components").StyledComponent<"a", any, {}, never>;
+declare const LegacyHeaderLink: import("styled-components").StyledComponent<"a", any, {}, never>;
+export default LegacyHeaderLink;

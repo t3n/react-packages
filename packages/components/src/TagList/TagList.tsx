@@ -5,8 +5,8 @@ import { layout, margin } from 'styled-system';
 import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Tag, TagColorVariant } from '../Tag/Tag';
+import Box from '../Box';
+import Tag, { TagColorVariant } from '../Tag';
 
 export interface TagListProps {
   tags: JSX.Element[];
@@ -41,7 +41,7 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
   }
 `;
 
-export const TagList: React.FC<TagListProps> = ({
+const TagList: React.FC<TagListProps> = ({
   initialCollapsed,
   collapseAfter,
   small = false,
@@ -109,3 +109,5 @@ TagList.defaultProps = {
   initialCollapsed: true,
   colorVariant: 'secondary',
 };
+
+export default TagList;

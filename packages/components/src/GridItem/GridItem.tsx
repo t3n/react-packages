@@ -19,7 +19,7 @@ export interface GridItemProps
     DisplayProps,
     FlexboxProps {}
 
-export const GridItem = styled.div<GridItemProps>`
+const GridItem = styled.div<GridItemProps>`
   ${width}
   ${space}
   ${order}
@@ -31,3 +31,5 @@ GridItem.defaultProps = {
   px: [0, 2],
   width: 1,
 };
+
+export default GridItem;

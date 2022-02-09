@@ -6,4 +6,5 @@ export interface AdProps extends BoxProps {
     className?: string;
     style?: React.CSSProperties;
 }
-export declare const Ad: React.ForwardRefExoticComponent<AdProps & React.RefAttributes<HTMLDivElement>>;
+declare const Ad: React.ForwardRefExoticComponent<AdProps & React.RefAttributes<HTMLDivElement>>;
+export default Ad;

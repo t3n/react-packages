@@ -16,9 +16,33 @@ import { useDebouncedCallback } from 'use-debounce';
 import { MaterialClear, T3nLoupe } from '@t3n/icons';
 import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Loader } from '../Loader';
-import { Text } from '../Text';
+import Box from '../Box';
+import Loader from '../Loader';
+import Text from '../Text';
+
+export interface GroupedSuggestions<S> {
+  title: string;
+  suggestions: S[];
+}
+
+export type SearchBoxVariantType = 'red' | 'light' | 'grey';
+
+export interface SearchBoxProps<S> extends WidthProps {
+  variant: SearchBoxVariantType;
+  placeholder: string;
+  isLoading: boolean;
+  defaultValue?: string;
+  multiSection?: boolean;
+  suggestions: GroupedSuggestions<S>[] | S[] | null;
+  getSuggestionValue: GetSuggestionValue<S>;
+  handleSuggestionFetchRequested: SuggestionsFetchRequested;
+  handleSuggestionClearRequested: OnSuggestionsClearRequested;
+  renderSuggestion: RenderSuggestion<S>;
+  renderSuggestionsEmpty?: React.ReactNode;
+  onSelect: OnSuggestionSelected<S>;
+  clearOnSelect?: boolean;
+  onSearchTermChange?: (term: string) => void;
+}
 
 const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   width: 25px;
@@ -158,30 +182,6 @@ const SuggestionItem = styled.div`
       theme.colors.background.secondary};
   }
 `;
-
-export interface GroupedSuggestions<S> {
-  title: string;
-  suggestions: S[];
-}
-
-export type SearchBoxVariantType = 'red' | 'light' | 'grey';
-
-export interface SearchBoxProps<S> extends WidthProps {
-  variant: SearchBoxVariantType;
-  placeholder: string;
-  isLoading: boolean;
-  defaultValue?: string;
-  multiSection?: boolean;
-  suggestions: GroupedSuggestions<S>[] | S[] | null;
-  getSuggestionValue: GetSuggestionValue<S>;
-  handleSuggestionFetchRequested: SuggestionsFetchRequested;
-  handleSuggestionClearRequested: OnSuggestionsClearRequested;
-  renderSuggestion: RenderSuggestion<S>;
-  renderSuggestionsEmpty?: React.ReactNode;
-  onSelect: OnSuggestionSelected<S>;
-  clearOnSelect?: boolean;
-  onSearchTermChange?: (term: string) => void;
-}
 
 // eslint-disable-next-line react/function-component-definition
 function SearchBox<S>({
@@ -332,4 +332,4 @@ SearchBox.defaultProps = {
   clearOnSelect: true,
 };
 
-export { SearchBox };
+export default SearchBox;

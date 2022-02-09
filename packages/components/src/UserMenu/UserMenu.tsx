@@ -4,11 +4,30 @@ import { border, color, layout, position, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Avatar } from '../Avatar/Avatar';
-import { Box } from '../Box/Box';
-import { Link } from '../Link/Link';
-import { Placeholder } from '../Placeholder/Placeholder';
-import { Text } from '../Text/Text';
+import Avatar from '../Avatar/Avatar';
+import Box from '../Box/Box';
+import Link from '../Link/Link';
+import Placeholder from '../Placeholder/Placeholder';
+import Text from '../Text/Text';
+
+export interface UserMenuProps {
+  loading: boolean;
+  loggedIn: boolean;
+  loginLink?: string;
+  logoutLink?: string;
+  labelLink?: string;
+  light?: boolean;
+
+  user?: {
+    label: string;
+    name: string;
+    avatarUrl: string;
+  };
+
+  itemGroups?: {
+    item: (JSX.Element | string)[];
+  }[];
+}
 
 const UserMenuWrapper = styled(Box)`
   cursor: pointer;
@@ -130,25 +149,6 @@ const StyledUserLabel = styled(Text)`
   text-overflow: ellipsis;
 `;
 
-export interface UserMenuProps {
-  loading: boolean;
-  loggedIn: boolean;
-  loginLink?: string;
-  logoutLink?: string;
-  labelLink?: string;
-  light?: boolean;
-
-  user?: {
-    label: string;
-    name: string;
-    avatarUrl: string;
-  };
-
-  itemGroups?: {
-    item: (JSX.Element | string)[];
-  }[];
-}
-
 const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
   loading,
   user,
@@ -167,7 +167,7 @@ const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
   </>
 );
 
-export const UserMenu: React.FC<UserMenuProps> = ({
+const UserMenu: React.FC<UserMenuProps> = ({
   user,
   itemGroups,
   loginLink = '/account/login',
@@ -234,3 +234,5 @@ export const UserMenu: React.FC<UserMenuProps> = ({
     </Link>
   );
 };
+
+export default UserMenu;

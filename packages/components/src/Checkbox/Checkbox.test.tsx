@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Checkbox } from './Checkbox';
+import Checkbox from './Checkbox';
 
 test('Label is present on checkbox', () => {
   const { getByText } = renderWithTheme(

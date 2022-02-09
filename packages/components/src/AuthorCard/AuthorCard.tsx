@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Badge } from '../Badge';
-import { Card } from '../Card';
-import { Heading } from '../Heading';
+import Badge from '../Badge';
+import Card from '../Card';
+import Heading from '../Heading';
+
+export interface AuthorValues {
+  name: string;
+  avatar: string;
+}
 
 export interface AuthorCardProps {
   title: string;
   articleType: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
+  author: AuthorValues;
   url: string;
 }
 
@@ -20,12 +22,7 @@ const Author = styled.div`
   align-items: center;
 `;
 
-export const AuthorCard = ({
-  title,
-  articleType,
-  author,
-  url,
-}: AuthorCardProps) => (
+const AuthorCard = ({ title, articleType, author, url }: AuthorCardProps) => (
   <Card href={url} stretch>
     <div>
       <Badge variant="highlight" small>
@@ -50,3 +47,5 @@ export const AuthorCard = ({
     </Author>
   </Card>
 );
+
+export default AuthorCard;

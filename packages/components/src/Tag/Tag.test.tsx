@@ -3,7 +3,7 @@ import React from 'react';
 import { MaterialClear } from '@t3n/icons';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Tag } from './Tag';
+import Tag from './Tag';
 
 test('Tag Variants matches snapshot', () => {
   const { container } = renderWithTheme(

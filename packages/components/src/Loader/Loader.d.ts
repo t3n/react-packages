@@ -4,4 +4,5 @@ export interface LoaderProps extends MarginProps {
     loaderSize?: string;
     color?: BackgroundColorProps['bg'];
 }
-export declare const Loader: import("styled-components").StyledComponent<({ small, loaderSize, color: bg, ...marginProps }: LoaderProps) => JSX.Element, any, {}, never>;
+declare const Loader: import("styled-components").StyledComponent<({ small, loaderSize, color: bg, ...marginProps }: LoaderProps) => JSX.Element, any, {}, never>;
+export default Loader;

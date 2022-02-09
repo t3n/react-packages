@@ -9,9 +9,43 @@ import { WidthProps } from 'styled-system';
 import { MaterialClear, MaterialExpandMore } from '@t3n/icons';
 import { Theme } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
-import { Text } from '../Text';
+import Box from '../Box';
+import Icon from '../Icon';
+import Text from '../Text';
+
+export interface SelectBoxProps<S> extends WidthProps {
+  autoFocus?: boolean;
+  closeMenuOnSelect?: boolean;
+  defaultValue?: OptionsType<S>;
+  disabled?: boolean;
+  error?: boolean;
+  hideReset?: boolean;
+  id?: string;
+  inputValue?: string;
+  loading?: boolean;
+  multiSelect?: boolean;
+  name?: string;
+  noOptionsMessage?: string;
+  options: OptionsType<S>;
+  defaultOptions?: OptionsType<S>;
+  placeholder?: string;
+  searchable?: boolean;
+  creatable?: boolean;
+  tabIndex?: string;
+  value?: OptionsType<S>;
+  onBlur?: () => void;
+  onChange?: (value: OptionsType<S>) => void;
+  onFocus?: () => void;
+  onKeyDown?: () => void;
+  onToggleOpen?: () => void;
+  async?: boolean;
+  loadOptions?: (
+    inputValue: string,
+    callback: (options: OptionsType<S>) => void
+  ) => void;
+  loadingMessage?: (obj: { inputValue: string }) => string;
+  onInputChange?: (newValue: string) => string;
+}
 
 const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
   container: (provided: any, state: any) => ({
@@ -185,40 +219,6 @@ const CreateLabel = ({ label }: { label: string }) => (
   </Text>
 );
 
-export interface SelectBoxProps<S> extends WidthProps {
-  autoFocus?: boolean;
-  closeMenuOnSelect?: boolean;
-  defaultValue?: OptionsType<S>;
-  disabled?: boolean;
-  error?: boolean;
-  hideReset?: boolean;
-  id?: string;
-  inputValue?: string;
-  loading?: boolean;
-  multiSelect?: boolean;
-  name?: string;
-  noOptionsMessage?: string;
-  options: OptionsType<S>;
-  defaultOptions?: OptionsType<S>;
-  placeholder?: string;
-  searchable?: boolean;
-  creatable?: boolean;
-  tabIndex?: string;
-  value?: OptionsType<S>;
-  onBlur?: () => void;
-  onChange?: (value: OptionsType<S>) => void;
-  onFocus?: () => void;
-  onKeyDown?: () => void;
-  onToggleOpen?: () => void;
-  async?: boolean;
-  loadOptions?: (
-    inputValue: string,
-    callback: (options: OptionsType<S>) => void
-  ) => void;
-  loadingMessage?: (obj: { inputValue: string }) => string;
-  onInputChange?: (newValue: string) => string;
-}
-
 const SelectBox = <S,>({
   error,
   noOptionsMessage,
@@ -289,4 +289,4 @@ SelectBox.defaultProps = {
   searchable: false,
 };
 
-export { SelectBox };
+export default SelectBox;

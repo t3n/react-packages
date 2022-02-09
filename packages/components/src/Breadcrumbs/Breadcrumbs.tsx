@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Link, LinkProps } from '../Link';
-import { Text } from '../Text';
+import Link, { LinkProps } from '../Link';
+import Text from '../Text';
 
 // TODO: Finish variant implementation
 
@@ -82,14 +82,12 @@ const BreadcrumbsList = styled.ul`
   flex-wrap: wrap;
 `;
 
-export interface BreadcrumbsProps {
-  children: ReactNode;
-}
-
-export const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
+const Breadcrumbs: React.FC = ({ children }) => {
   return (
     <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>
     </nav>
   );
 };
+
+export default Breadcrumbs;

@@ -18,6 +18,13 @@ export interface BaseIconProps
   component: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
+export interface IconProps
+  extends Omit<BaseIconProps, 'width' | 'height' | 'fill'>,
+    WidthProps,
+    HeightProps {
+  fill?: ColorProps['color'];
+}
+
 const BaseIcon = ({
   component: IconComponent,
   width,
@@ -43,14 +50,7 @@ const BaseIcon = ({
   <IconComponent width={undefined} height={undefined} {...props} />
 );
 
-export interface IconProps
-  extends Omit<BaseIconProps, 'width' | 'height' | 'fill'>,
-    WidthProps,
-    HeightProps {
-  fill?: ColorProps['color'];
-}
-
-export const Icon = styled(BaseIcon)<IconProps>`
+const Icon = styled(BaseIcon)<IconProps>`
   ${system({
     fill: {
       property: 'fill',

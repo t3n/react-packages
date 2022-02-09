@@ -5,9 +5,9 @@ import { color, ColorProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Ratio, RatioProps } from '../Ratio';
+import Ratio, { RatioProps } from '../Ratio';
 
-interface CardHeaderProps extends ThemeProps {
+export interface CardHeaderProps extends ThemeProps {
   as?: 'div' | 'a';
   big?: boolean;
   ratio?: RatioProps['ratio'];
@@ -45,7 +45,7 @@ const CardHeaderComponent = ({
 const padding = ({ big, theme }: CardHeaderProps): string =>
   big ? space({ p: [4, 7], theme }) : space({ 3: 5, theme });
 
-export const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`
+const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`
   position: relative;
   overflow: hidden;
   display: flex;
@@ -74,3 +74,5 @@ CardHeader.defaultProps = {
   bg: 'background.secondary',
 };
 CardHeader.displayName = 'CardHeader';
+
+export default CardHeader;

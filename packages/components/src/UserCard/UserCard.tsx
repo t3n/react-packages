@@ -11,13 +11,49 @@ import {
 } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
-import { Avatar } from '../Avatar';
-import { Badge } from '../Badge';
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Card } from '../Card';
-import { Link } from '../Link';
-import { Text } from '../Text';
+import Avatar from '../Avatar';
+import Badge from '../Badge';
+import Box from '../Box';
+import Button from '../Button';
+import Card from '../Card';
+import Link from '../Link';
+import Text from '../Text';
+
+export type SocialLinkType =
+  | 'TWITTER'
+  | 'GITHUB'
+  | 'XING'
+  | 'HOMEPAGE'
+  | 'LINKEDIN';
+
+export type SocialLink = { url: string; type: SocialLinkType };
+
+export type UserCardProps = {
+  user: {
+    id: number;
+    name: string;
+    avatarUrl: string;
+    email?: string;
+    position?: string;
+    flag?: string;
+    phone?: string;
+    socialLinks: SocialLink[];
+  };
+  optimizeAvatar?: boolean;
+  link?: {
+    fullCard?: boolean;
+    url?: string;
+    target?: string;
+    title?: string;
+  };
+  compact: boolean;
+  secondary?: boolean;
+};
+
+export type SocialLinksProps = {
+  links: SocialLink[];
+  cardLinked?: boolean;
+};
 
 const StyledCard = styled(Card)`
   position: relative;
@@ -83,42 +119,6 @@ const SocialLinksBox = styled(Box)`
     justify-content: center;
   }
 `;
-
-export type SocialLinkType =
-  | 'TWITTER'
-  | 'GITHUB'
-  | 'XING'
-  | 'HOMEPAGE'
-  | 'LINKEDIN';
-
-type SocialLink = { url: string; type: SocialLinkType };
-
-export type UserCardProps = {
-  user: {
-    id: number;
-    name: string;
-    avatarUrl: string;
-    email?: string;
-    position?: string;
-    flag?: string;
-    phone?: string;
-    socialLinks: SocialLink[];
-  };
-  optimizeAvatar?: boolean;
-  link?: {
-    fullCard?: boolean;
-    url?: string;
-    target?: string;
-    title?: string;
-  };
-  compact: boolean;
-  secondary?: boolean;
-};
-
-type SocialLinksProps = {
-  links: SocialLink[];
-  cardLinked?: boolean;
-};
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ links, cardLinked }) => {
   return (
@@ -271,7 +271,7 @@ const UserCardContent: React.FC<
   );
 };
 
-export const UserCard: React.FC<UserCardProps> = ({
+const UserCard: React.FC<UserCardProps> = ({
   user,
   optimizeAvatar,
   link,
@@ -303,3 +303,5 @@ export const UserCard: React.FC<UserCardProps> = ({
     </StyledCard>
   );
 };
+
+export default UserCard;

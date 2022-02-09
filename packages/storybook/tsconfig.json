@@ -2,25 +2,12 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "build/lib",
-    "lib": [
-      "es5",
-      "es6",
-      "es7",
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    ".babelrc.js"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "scripts", ".babelrc.js"]
 }

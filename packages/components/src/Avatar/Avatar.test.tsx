@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Avatar } from './Avatar';
+import Avatar from './Avatar';
 
 test('Avatar matches snapshot and renders label', () => {
   const { container, getByText } = renderWithTheme(

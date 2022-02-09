@@ -32,4 +32,4 @@ declare namespace SearchBox {
         clearOnSelect: boolean;
     };
 }
-export { SearchBox };
+export default SearchBox;

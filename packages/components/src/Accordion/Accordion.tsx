@@ -5,9 +5,9 @@ import { color, MarginProps, space, SpaceProps } from 'styled-system';
 import { MaterialArrowDropDown } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Heading } from '../Heading';
-import { Icon } from '../Icon';
+import Box from '../Box';
+import Heading from '../Heading';
+import Icon from '../Icon';
 
 export interface AccordionProps extends MarginProps {
   title: string;
@@ -46,7 +46,7 @@ const StyledIconBox = styled(Box)<{ collapsed: boolean }>`
   }
 `;
 
-export const Accordion: React.FC<AccordionProps> = ({
+const Accordion: React.FC<AccordionProps> = ({
   children,
   title,
   initialOpen,
@@ -90,3 +90,5 @@ export const Accordion: React.FC<AccordionProps> = ({
     </StyledAccordion>
   );
 };
+
+export default Accordion;

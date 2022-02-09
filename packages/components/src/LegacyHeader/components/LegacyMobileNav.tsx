@@ -11,17 +11,32 @@ import {
 } from '@t3n/icons';
 import { getColorForBackground, ThemeProps } from '@t3n/theme';
 
-import { Box } from '../../Box';
-import { Button } from '../../Button';
-import { Icon } from '../../Icon';
-import { Image } from '../../Image';
-import { Input } from '../../Input';
+import Box from '../../Box';
+import Button from '../../Button';
+import Icon from '../../Icon';
+import Image from '../../Image';
+import Input from '../../Input';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
-import { Logo } from '../../Logo';
-import { Text } from '../../Text';
-import { HeaderCampaign } from './LegacyHeaderCampaign';
-import { HeaderLink } from './LegacyHeaderLink';
+import Logo from '../../Logo';
+import Text from '../../Text';
+import HeaderCampaign from './LegacyHeaderCampaign';
+import HeaderLink from './LegacyHeaderLink';
 import { Indicator } from './LegacyMainNav';
+
+export interface LegacyMobileNavProps {
+  user: LegacyUserMenuProps['user'];
+  newsIndicator?: number;
+  proIndicator?: number;
+  headerCampaignUrl: string;
+  headerCampaignImageMobile?: string;
+}
+
+export type MobileNavLinksType = {
+  label: string;
+  url: string;
+  indicator?: boolean;
+  bold?: boolean;
+};
 
 const MobileMenuToggleBox = styled(Box)`
   span {
@@ -150,13 +165,6 @@ const SearchForm = styled.form`
   ${({ theme }) => space({ theme, p: 3, mt: -1 })};
 `;
 
-type MobileNavLinksType = {
-  label: string;
-  url: string;
-  indicator?: boolean;
-  bold?: boolean;
-};
-
 const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
@@ -218,13 +226,7 @@ const mobileNavLinks: MobileNavLinksType[] = [
   },
 ];
 
-const LegacyMobileNav: React.FC<{
-  user: LegacyUserMenuProps['user'];
-  newsIndicator?: number;
-  proIndicator?: number;
-  headerCampaignUrl: string;
-  headerCampaignImageMobile?: string;
-}> = ({
+const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
   user,
   newsIndicator,
   proIndicator,

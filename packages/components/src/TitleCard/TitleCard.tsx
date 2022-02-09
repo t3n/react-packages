@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Card, CardProps } from '../Card';
-import { Heading, HeadingElements } from '../Heading';
+import Card, { CardProps } from '../Card';
+import Heading, { HeadingElements } from '../Heading';
 
 export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
   title: string;
@@ -9,7 +9,7 @@ export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
   centerTitle?: boolean;
 }
 
-export const TitleCard: React.FC<TitleCardProps> = ({
+const TitleCard: React.FC<TitleCardProps> = ({
   children,
   title,
   titleAs,
@@ -31,3 +31,5 @@ export const TitleCard: React.FC<TitleCardProps> = ({
     </Card>
   );
 };
+
+export default TitleCard;

@@ -14,7 +14,20 @@ import {
 } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
+import Box from '../Box';
+
+export interface LegacySocialBarProps {
+  className?: string;
+  isInFooter?: boolean;
+}
+
+export type SocialLinkType = {
+  title: string;
+  url: string;
+  icon: JSX.Element;
+  rel?: string;
+  target?: string;
+}[];
 
 const OldFacebookIcon: React.FC = () => (
   <svg
@@ -43,14 +56,6 @@ const SocialLink = styled.a`
     text-decoration: none;
   }
 `;
-
-type SocialLinkType = {
-  title: string;
-  url: string;
-  icon: JSX.Element;
-  rel?: string;
-  target?: string;
-}[];
 
 const legacySocialLinks: SocialLinkType = [
   {
@@ -109,10 +114,10 @@ const legacySocialLinks: SocialLinkType = [
   },
 ];
 
-export const LegacySocialBar: React.FC<{
-  className?: string;
-  isInFooter?: boolean;
-}> = ({ className, isInFooter }) => (
+const LegacySocialBar: React.FC<LegacySocialBarProps> = ({
+  className,
+  isInFooter,
+}) => (
   <Box
     display="flex"
     justifyContent={isInFooter ? 'center' : 'flex-end'}

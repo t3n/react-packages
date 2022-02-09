@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import { Switch } from './Switch';
+import Switch from './Switch';
 
 test('readonly is set as HTML Attribute', () => {
   const { getByRole } = renderWithTheme(

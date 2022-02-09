@@ -5,8 +5,8 @@ import { margin, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../Box';
-import { Text } from '../Text';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface FormGroupProps
   extends React.LabelHTMLAttributes<HTMLLabelElement>,
@@ -15,7 +15,6 @@ export interface FormGroupProps
   labelSecondary?: string;
   labelEndContent?: ReactNode;
   errorMessage?: string;
-  children: ReactNode;
 }
 
 const Label = styled.span`
@@ -37,14 +36,14 @@ const SecondaryLabel = styled(Text)`
   line-height: normal;
 `;
 
-export const FormGroup = ({
+const FormGroup: React.FC<FormGroupProps> = ({
   label,
   labelSecondary,
   labelEndContent,
   errorMessage,
   children,
   ...props
-}: FormGroupProps) => (
+}) => (
   <StyledFormGroup {...props}>
     <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>
@@ -67,3 +66,5 @@ export const FormGroup = ({
 FormGroup.defaultProps = {
   my: 4,
 };
+
+export default FormGroup;

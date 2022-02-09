@@ -1,5 +1,7 @@
 import React from 'react';
-export declare const LegacyBookmarkModal: React.FC<{
+export interface LegacyBookmarkModalProps {
     pocketLink: string;
     onClose: () => void;
-}>;
+}
+declare const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps>;
+export default LegacyBookmarkModal;

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { space, typography } from 'styled-system';
 
@@ -26,7 +27,7 @@ const fontSize = ({ small, theme }: BadgeProps & ThemeProps) =>
 const borderRadius = ({ rounded, theme }: BadgeProps & ThemeProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
-export const Badge = styled.span<BadgeProps>`
+const StyledBadge = styled.span<BadgeProps>`
   font-weight: bold;
   color: ${(props) => getColorForBackground(props.variant || 'highlight')};
   ${background};
@@ -34,3 +35,7 @@ export const Badge = styled.span<BadgeProps>`
   ${fontSize};
   ${borderRadius};
 `;
+
+const Badge: React.FC<BadgeProps> = (props) => <StyledBadge {...props} />;
+
+export default Badge;

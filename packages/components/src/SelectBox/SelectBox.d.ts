@@ -41,4 +41,4 @@ declare const SelectBox: {
         searchable: boolean;
     };
 };
-export { SelectBox };
+export default SelectBox;

@@ -4,8 +4,25 @@ import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import styled from 'styled-components';
 import { display, layout, space } from 'styled-system';
 
-import { Box } from '../Box/Box';
-import { Button } from '../Button/Button';
+import Box from '../Box';
+import Button from '../Button';
+
+export interface CarouselProps {
+  slidesToShow?: number;
+  slidesToScroll?: number;
+  responsive?: ResponsiveObject[];
+  speed?: number;
+  infinite?: boolean;
+  autoplay?: boolean;
+  autoplaySpeed?: number;
+  nextLabel?: string;
+  prevLabel?: string;
+  onNextClick?: () => void;
+  onPrevClick?: () => void;
+  hideNextButton?: boolean;
+  hidePrevButton?: boolean;
+  onChange?: (currentIndex: number) => void;
+}
 
 const StyledSlider = styled(SlickSlider)`
   > .slick-dots {
@@ -80,24 +97,7 @@ const PrevButton: React.FC<{
   );
 };
 
-export interface CarouselProps {
-  slidesToShow?: number;
-  slidesToScroll?: number;
-  responsive?: ResponsiveObject[];
-  speed?: number;
-  infinite?: boolean;
-  autoplay?: boolean;
-  autoplaySpeed?: number;
-  nextLabel?: string;
-  prevLabel?: string;
-  onNextClick?: () => void;
-  onPrevClick?: () => void;
-  hideNextButton?: boolean;
-  hidePrevButton?: boolean;
-  onChange?: (currentIndex: number) => void;
-}
-
-export const Carousel: React.FC<CarouselProps> = ({
+const Carousel: React.FC<CarouselProps> = ({
   slidesToShow = 1,
   slidesToScroll = 1,
   responsive,
@@ -163,3 +163,5 @@ export const Carousel: React.FC<CarouselProps> = ({
     </Box>
   );
 };
+
+export default Carousel;

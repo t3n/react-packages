@@ -3,5 +3,5 @@ interface LegacyBreadcrumbItemProps {
     href?: string;
     label: string;
 }
-export declare const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps>;
-export {};
+declare const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps>;
+export default LegacyBreadcrumbItem;

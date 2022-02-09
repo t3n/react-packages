@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BackgroundColorProps, color } from 'styled-system';
 
@@ -7,10 +6,9 @@ import { ThemeProps } from '@t3n/theme';
 export interface RatioProps extends ThemeProps, BackgroundColorProps {
   ratio?: 'auto' | number;
   as?: keyof JSX.IntrinsicElements;
-  children?: ReactNode;
 }
 
-export const Ratio = styled.div<RatioProps>`
+const Ratio = styled.div<RatioProps>`
   ${color}
 
   ${({ ratio }: RatioProps) =>
@@ -37,3 +35,5 @@ Ratio.defaultProps = {
   ratio: 16 / 9,
 };
 Ratio.displayName = 'Ratio';
+
+export default Ratio;

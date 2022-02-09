@@ -5,20 +5,22 @@ import {
   margin,
   MarginProps,
   space,
-  variant,
+  variant as styledVariant,
   width,
   WidthProps,
 } from 'styled-system';
 
 import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
 
-import { Icon } from '../Icon';
-import { Loader } from '../Loader';
+import Icon from '../Icon';
+import Loader from '../Loader';
 
 export type ButtonAsType = 'button' | 'a';
 export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
+
+// TODO: Fix polymorphic interface
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<any>,
@@ -95,14 +97,14 @@ export const buttonStyles = css`
     lineHeight: ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
   })}
   ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
-    variant({
+    styledVariant({
       prop: 'color',
       variants: buildColorVariants(variantProp, 'default', theme),
     })}
 
   &:hover :not(:disabled), &:focus :not(:disabled) {
     ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
-      variant({
+      styledVariant({
         prop: 'color',
         variants: buildColorVariants(variantProp, 'hover', theme),
       })}
@@ -179,12 +181,14 @@ const StyledButton = styled(
   ${buttonStyles}
 `;
 
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   loading,
   iconLeft,
   iconRight,
-  size,
+  size = 'regular',
+  color = 'default',
+  variant = 'primary',
   href,
   as,
   onClick,
@@ -195,6 +199,8 @@ export const Button: React.FC<ButtonProps> = ({
     href={href}
     as={href ? 'a' : as}
     size={size}
+    color={color}
+    variant={variant}
     loading={loading}
     disabled={loading || disabled}
     onClick={(e: any) => !loading && onClick && onClick(e)}
@@ -225,8 +231,4 @@ export const Button: React.FC<ButtonProps> = ({
   </StyledButton>
 );
 
-Button.defaultProps = {
-  size: 'regular',
-  color: 'default',
-  variant: 'primary',
-};
+export default Button;

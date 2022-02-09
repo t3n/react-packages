@@ -4,4 +4,5 @@ export interface AccordionProps extends MarginProps {
     title: string;
     initialOpen?: boolean;
 }
-export declare const Accordion: React.FC<AccordionProps>;
+declare const Accordion: React.FC<AccordionProps>;
+export default Accordion;

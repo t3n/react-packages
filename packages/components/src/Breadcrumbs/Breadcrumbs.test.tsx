@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
-import {
-  Breadcrumbs,
+import Breadcrumbs, {
   BreadcrumbsItem,
   BreadcrumbsItemProps,
 } from './Breadcrumbs';

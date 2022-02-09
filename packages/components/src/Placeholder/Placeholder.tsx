@@ -15,9 +15,11 @@ export interface PlaceholderProps
     LayoutProps,
     BorderRadiusProps {}
 
-export const Placeholder = styled.div<PlaceholderProps>`
+const Placeholder = styled.div<PlaceholderProps>`
   ${backgroundAnimation}
   ${layout};
   ${space};
   ${borderRadius}
 `;
+
+export default Placeholder;

@@ -6,4 +6,5 @@ export interface DividerProps extends WidthProps, MarginProps {
     iconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
     children?: string;
 }
-export declare const Divider: React.FC<DividerProps>;
+declare const Divider: React.FC<DividerProps>;
+export default Divider;

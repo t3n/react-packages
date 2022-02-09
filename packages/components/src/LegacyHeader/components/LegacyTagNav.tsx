@@ -5,9 +5,9 @@ import { border, color, layout, space, typography } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { Box } from '../../Box';
+import Box from '../../Box';
 import { backgroundAnimation } from '../../helper/animation';
-import { Tag, TagColorVariant, TagProps } from '../../Tag';
+import Tag, { TagColorVariant, TagProps } from '../../Tag';
 
 export const SearchIcon: React.FC = () => (
   <svg
@@ -112,7 +112,7 @@ export type TagNavTagsType = {
   variant?: TagColorVariant;
 };
 
-export const LegacyTagNav: React.FC<{
+const LegacyTagNav: React.FC<{
   tags: TagNavTagsType[];
   loading?: boolean;
 }> = ({ tags, loading }) => {
@@ -159,3 +159,5 @@ export const LegacyTagNav: React.FC<{
     </Box>
   );
 };
+
+export default LegacyTagNav;

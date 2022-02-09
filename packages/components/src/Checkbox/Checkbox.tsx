@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { space, variant } from 'styled-system';
+import { space, variant as styledVariant } from 'styled-system';
 
 import { MaterialCheck } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
-import { Box } from '../Box/Box';
-import { Text } from '../Text/Text';
+import Box from '../Box';
+import Text from '../Text';
 
 type VariantType = 'light' | 'dark';
 
@@ -44,7 +44,7 @@ const StyledCheckbox = styled(Box)<
   ${({ theme }) => space({ mr: 2, theme })}
 
   ${({ checked, disabled, feedbackColor, focused }) =>
-    variant({
+    styledVariant({
       variants: {
         light: {
           bg:
@@ -104,7 +104,7 @@ const StyledIcon = styled.span<
 
   svg {
     ${({ feedbackColor }) =>
-      variant({
+      styledVariant({
         variants: {
           light: {
             fill: feedbackColor ? `feedback.${feedbackColor}` : 'shades.white',
@@ -125,7 +125,7 @@ const StyledLabel = styled.label<
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   ${({ disabled }) =>
-    variant({
+    styledVariant({
       variants: {
         light: {
           color: disabled ? 'shades.grey143' : 'black',
@@ -176,7 +176,7 @@ const PlainCheckbox = ({
   );
 };
 
-export const Checkbox = ({
+const Checkbox = ({
   checked,
   onChange,
   label,
@@ -184,12 +184,12 @@ export const Checkbox = ({
   feedbackColor,
   name,
   value,
-  variant: variantProp,
+  variant = 'light',
 }: CheckboxProps) => {
   return (
-    <StyledLabel disabled={disabled} variant={variantProp}>
+    <StyledLabel disabled={disabled} variant={variant}>
       <PlainCheckbox
-        variant={variantProp}
+        variant={variant}
         checked={checked}
         disabled={disabled}
         onChange={onChange}
@@ -206,6 +206,4 @@ export const Checkbox = ({
   );
 };
 
-Checkbox.defaultProps = {
-  variant: 'light',
-};
+export default Checkbox;

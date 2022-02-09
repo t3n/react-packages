@@ -52,8 +52,10 @@ export const textStyle = css<TextProps>`
   ${align}
 `;
 
-export const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
+const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
   as: as || (inline ? 'span' : 'p'),
 }))<TextProps>`
   ${textStyle}
 `;
+
+export default Text;

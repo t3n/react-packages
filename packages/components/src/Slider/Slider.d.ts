@@ -8,4 +8,5 @@ export interface SliderProps {
     labels?: string[];
     onChange: (value: number) => void;
 }
-export declare const Slider: React.FC<SliderProps>;
+declare const Slider: React.FC<SliderProps>;
+export default Slider;

@@ -29,4 +29,4 @@ First, install all dependencies by running `npm install`.
 
 Before starting development the first time, you need to run `npm run build` from the main package. This will run the build script of each package in the correct order, as **@t3n/storybook** depends on **@t3n/components**, which itself depends on **@t3n/theme** and **@t3n/icons**.
 
-After, you can run `npm run start` to start storybook and watch file changes in all packages.
+To develop components in Storybook, run `npm run start:storybook`. This will start storybook and handle local bundling of packages in the monorepo to enable the quickest development workflow possible. This will however **NOT** create bundles for all packages, so before committing changes, you should **ALWAYS** run `npm run build` to build all packages and prepare for releasing.

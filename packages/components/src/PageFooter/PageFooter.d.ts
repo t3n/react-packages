@@ -12,4 +12,5 @@ export declare const privacyManagerIdByType: {
 export declare const FooterLink: import("styled-components").StyledComponent<"a", any, import("../Link").LinkProps & {
     small: boolean;
 }, "small">;
-export declare const PageFooter: React.FC<PageFooterProps>;
+declare const PageFooter: React.FC<PageFooterProps>;
+export default PageFooter;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import {
   boxShadow as styledBoxShadow,
@@ -6,12 +6,14 @@ import {
   MarginProps,
   SizeProps,
   space,
-  width,
+  width as styledWidth,
 } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-import { CardHeader, CardHeaderContent } from '../CardHeader';
+import CardHeader, { CardHeaderContent } from '../CardHeader';
+
+// TODO: Fix polymorphic interface
 
 export interface CardProps
   extends MarginProps,
@@ -26,7 +28,6 @@ export interface CardProps
   targetBlank?: boolean;
   color?: string;
   width?: SizeProps['size'];
-  children?: ReactNode;
 }
 
 const borderRadius = ({ rounded, theme }: CardProps & ThemeProps) =>
@@ -39,7 +40,7 @@ const padding = ({ big, splitted, theme }: CardProps & ThemeProps) =>
     ? space({ p: 0, theme })
     : space({ p: [3, 4], theme });
 
-const color = ({ color: c, theme }: CardProps & ThemeProps) =>
+const cardColor = ({ color: c, theme }: CardProps & ThemeProps) =>
   styledColor({ color: c, theme });
 
 const shadow = {
@@ -76,9 +77,9 @@ const cardStyles = css<CardProps>`
   position: relative;
   ${border};
   ${borderRadius}
-  ${width}
+  ${styledWidth}
   ${padding}
-  ${color}
+  ${cardColor}
   ${shadow.default}
   ${space}
 
@@ -105,27 +106,38 @@ const StyledLinkCard = styled.a<CardProps>`
   }
 `;
 
-export const Card = React.forwardRef<
+const Card: React.FC<CardProps> = React.forwardRef<
   HTMLAnchorElement | HTMLDivElement,
   CardProps
->(({ href, targetBlank, ...props }, ref) =>
-  href ? (
-    <StyledLinkCard
-      href={href}
-      target={targetBlank ? '_blank' : undefined}
-      {...props}
-      ref={ref as React.ForwardedRef<HTMLAnchorElement>}
-    />
-  ) : (
-    <StyledCard {...props} ref={ref as React.ForwardedRef<HTMLDivElement>} />
-  )
+>(
+  (
+    {
+      href,
+      targetBlank,
+      rounded = true,
+      color = 'text.primary',
+      width = 1,
+      mb = 3,
+      ...props
+    },
+    ref
+  ) =>
+    href ? (
+      <StyledLinkCard
+        href={href}
+        target={targetBlank ? '_blank' : undefined}
+        rounded={rounded}
+        color={color}
+        width={width}
+        mb={mb}
+        {...props}
+        ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+      />
+    ) : (
+      <StyledCard {...props} ref={ref as React.ForwardedRef<HTMLDivElement>} />
+    )
 );
 
 Card.displayName = 'Card';
 
-Card.defaultProps = {
-  rounded: true,
-  color: 'text.primary',
-  width: 1,
-  mb: 3,
-};
+export default Card;

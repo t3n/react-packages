@@ -1,5 +1,4 @@
 import React from 'react';
-export declare const UserMenuListItem: import("styled-components").StyledComponent<"li", any, {}, never>;
 export interface UserMenuProps {
     loading: boolean;
     loggedIn: boolean;
@@ -16,4 +15,6 @@ export interface UserMenuProps {
         item: (JSX.Element | string)[];
     }[];
 }
-export declare const UserMenu: React.FC<UserMenuProps>;
+export declare const UserMenuListItem: import("styled-components").StyledComponent<"li", any, {}, never>;
+declare const UserMenu: React.FC<UserMenuProps>;
+export default UserMenu;

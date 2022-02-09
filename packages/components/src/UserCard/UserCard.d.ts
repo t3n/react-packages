@@ -1,6 +1,6 @@
 import React from 'react';
 export declare type SocialLinkType = 'TWITTER' | 'GITHUB' | 'XING' | 'HOMEPAGE' | 'LINKEDIN';
-declare type SocialLink = {
+export declare type SocialLink = {
     url: string;
     type: SocialLinkType;
 };
@@ -25,5 +25,9 @@ export declare type UserCardProps = {
     compact: boolean;
     secondary?: boolean;
 };
-export declare const UserCard: React.FC<UserCardProps>;
-export {};
+export declare type SocialLinksProps = {
+    links: SocialLink[];
+    cardLinked?: boolean;
+};
+declare const UserCard: React.FC<UserCardProps>;
+export default UserCard;

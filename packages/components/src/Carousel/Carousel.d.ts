@@ -16,4 +16,5 @@ export interface CarouselProps {
     hidePrevButton?: boolean;
     onChange?: (currentIndex: number) => void;
 }
-export declare const Carousel: React.FC<CarouselProps>;
+declare const Carousel: React.FC<CarouselProps>;
+export default Carousel;

@@ -56,8 +56,7 @@ const LegacyBreadcrumbLink = styled.li`
   }
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps> = ({
+const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps> = ({
   href,
   label,
 }) => {
@@ -73,3 +72,5 @@ export const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps> = ({
     </LegacyBreadcrumbLink>
   );
 };
+
+export default LegacyBreadcrumbItem;
