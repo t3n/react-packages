@@ -18,6 +18,7 @@ const previewAdStyles = {
 };
 
 const Ad = forwardRef<HTMLDivElement, AdProps>(
+  // eslint-disable-next-line react/prop-types
   ({ name, preview, style, className, children, color, ...boxProps }, ref) => (
     <Box
       style={style}
