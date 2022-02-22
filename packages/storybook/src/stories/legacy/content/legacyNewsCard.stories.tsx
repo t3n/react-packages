@@ -28,7 +28,7 @@ const RECENT_NEWS = gql`
         date
         url
         date
-        imageUrl
+        imageUrl(class: "default")
         author {
           identifier
           firstName
