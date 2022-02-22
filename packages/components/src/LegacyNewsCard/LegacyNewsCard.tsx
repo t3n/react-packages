@@ -7,7 +7,7 @@ import { T3nPro } from '@t3n/icons';
 
 import Box from '../Box';
 import Heading from '../Heading';
-import { ImgixImage as Image } from '../Image';
+import Image from '../Image';
 import LegacyCard from '../LegacyCard';
 import Placeholder from '../Placeholder';
 import Text from '../Text';
@@ -167,9 +167,11 @@ const LegacyNewsCard = ({
           >
             <a href={news.url}>
               <Image
-                width={hero ? 'calc(100% + 16px)' : '200px'}
-                height={hero ? 'calc(344px + 16px)' : '120px'}
-                fit="crop"
+                imageWidth={hero ? 900 : 300}
+                imageHeight={hero ? 506 : 169}
+                width={hero ? '100%' : '200px'}
+                height="auto"
+                optimizationClass={`news-card-${hero ? 'large' : 'small'}`}
                 src={news.imageUrl}
               />
             </a>
@@ -223,10 +225,11 @@ const LegacyNewsCard = ({
         </LegacyNewsCardMobileHeadline>
         <a href={news.url}>
           <Image
-            width={1}
+            imageWidth={900}
+            imageHeight={506}
+            width={['100%']}
             height="auto"
-            maxWidth="500px"
-            fit="crop"
+            optimizationClass="news-card-large"
             src={news.imageUrl}
           />
         </a>
