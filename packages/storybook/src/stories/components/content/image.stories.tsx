@@ -66,7 +66,7 @@ const defaultOptimizationClassMapping = {
 };
 
 const exampleImageSrc =
-  'https://images.t3n.de/news/wp-content/uploads/2021/11/shutterstock-1453899434-Internationale-Raumstation-ISS.jpg';
+  'https://t3n.de/news/wp-content/uploads/2021/11/shutterstock-1453899434-Internationale-Raumstation-ISS.jpg';
 
 const getFastlyClassFormSrc = (src: string) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

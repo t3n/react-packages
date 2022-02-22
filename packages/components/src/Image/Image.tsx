@@ -55,15 +55,17 @@ const fastlyHostnameMapping = {
 
 // Try to resolve fastly url from image src
 const generateFastlySrc = (src: string, imageClass: string) => {
-  const [baseSrc, urlParams] = src.split('?');
+  const url = new URL(src);
+  const urlParams = url.searchParams;
 
   const fastlyOrigins = Object.keys(fastlyHostnameMapping);
   const fastlyDestinations = Object.values(fastlyHostnameMapping);
 
-  // If if already is a fastly url, simply apply optimization class name
+  // If already is a fastly url, simply apply optimization class name
   // and reapply all possible url params
   if (fastlyDestinations.find((destination) => src.includes(destination))) {
-    return `${baseSrc}?class=${imageClass}${urlParams ? `&${urlParams}` : ''}`;
+    urlParams.set('class', imageClass);
+    return url.toString();
   }
 
   const origin = fastlyOrigins.find((destination) => src.includes(destination));
@@ -73,13 +75,11 @@ const generateFastlySrc = (src: string, imageClass: string) => {
 
   const index = fastlyOrigins.indexOf(origin);
   const destination = fastlyDestinations[index];
-  const destinationSrc = baseSrc.replace(origin, destination);
-
+  url.host = destination;
+  urlParams.set('class', imageClass);
   // Resolve fastly origin for url and return url with optimization class
   // and original url params applied
-  return `${destinationSrc}?class=${imageClass}${
-    urlParams ? `&${urlParams}` : ''
-  }`;
+  return url.toString();
 };
 
 // Takes a raw src and a fastly image optimization class mapping and
