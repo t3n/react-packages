@@ -7,7 +7,7 @@ import { T3nPro } from '@t3n/icons';
 
 import Box from '../Box';
 import Heading from '../Heading';
-import { ImgixImage as Image } from '../Image';
+import Image from '../Image';
 import LegacyCard from '../LegacyCard';
 import Placeholder from '../Placeholder';
 import Text from '../Text';
@@ -73,6 +73,7 @@ export const LegacyLoadingHeroCard = () => (
       width="calc(100% + 2 * 16px)"
       height="calc(344px + 16px)"
       ml={-3}
+      mr={-3}
       mt={-3}
       mb={3}
     />
@@ -105,7 +106,7 @@ export const LegacyLoadingMobileCard = () => (
   <LegacyMobileNewsCard>
     <Placeholder height="1.25rem" mt={1} mb={2} width="100%" />
     <Placeholder height="1.25rem" mt={1} mb={4} width="100%" />
-    <Placeholder height="230px" width="350px" />
+    <Placeholder height="230px" width="350px" maxWidth="100%" />
     <Placeholder height="0.9rem" mt={3} mb={3} width="100%" />
   </LegacyMobileNewsCard>
 );
@@ -160,6 +161,7 @@ const LegacyNewsCard = ({
         <Box display="flex" flexDirection={hero ? 'column' : 'row'}>
           <Box
             ml={hero ? -3 : 0}
+            mr={hero ? -3 : 0}
             mt={hero ? -3 : 0}
             position={hero ? 'initial' : 'absolute'}
             top={hero ? '' : '16px'}
@@ -167,9 +169,11 @@ const LegacyNewsCard = ({
           >
             <a href={news.url}>
               <Image
-                width={hero ? 'calc(100% + 16px)' : '200px'}
-                height={hero ? 'calc(344px + 16px)' : '120px'}
-                fit="crop"
+                imageWidth={hero ? 900 : 300}
+                imageHeight={hero ? 506 : 169}
+                width={hero ? '100%' : '200px'}
+                height="auto"
+                optimizationClass={`news-card-${hero ? 'large' : 'small'}`}
                 src={news.imageUrl}
               />
             </a>
@@ -223,10 +227,11 @@ const LegacyNewsCard = ({
         </LegacyNewsCardMobileHeadline>
         <a href={news.url}>
           <Image
-            width={1}
+            imageWidth={900}
+            imageHeight={506}
+            width={['100%']}
             height="auto"
-            maxWidth="500px"
-            fit="crop"
+            optimizationClass="news-card-large"
             src={news.imageUrl}
           />
         </a>
