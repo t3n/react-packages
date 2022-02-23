@@ -6,7 +6,6 @@ const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const babelConfig = require('../babel');
 
@@ -108,7 +107,6 @@ module.exports = ({ title = '', dirname = '' }) => {
       new ESLintPlugin({
         extensions: ['ts', 'tsx', 'js', 'jsx'],
       }),
-      new ForkTsCheckerWebpackPlugin(),
       ...config.plugins,
     ];
   }
