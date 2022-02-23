@@ -73,6 +73,7 @@ export const LegacyLoadingHeroCard = () => (
       width="calc(100% + 2 * 16px)"
       height="calc(344px + 16px)"
       ml={-3}
+      mr={-3}
       mt={-3}
       mb={3}
     />
@@ -105,7 +106,7 @@ export const LegacyLoadingMobileCard = () => (
   <LegacyMobileNewsCard>
     <Placeholder height="1.25rem" mt={1} mb={2} width="100%" />
     <Placeholder height="1.25rem" mt={1} mb={4} width="100%" />
-    <Placeholder height="230px" width="350px" />
+    <Placeholder height="230px" width="350px" maxWidth="100%" />
     <Placeholder height="0.9rem" mt={3} mb={3} width="100%" />
   </LegacyMobileNewsCard>
 );
@@ -160,6 +161,7 @@ const LegacyNewsCard = ({
         <Box display="flex" flexDirection={hero ? 'column' : 'row'}>
           <Box
             ml={hero ? -3 : 0}
+            mr={hero ? -3 : 0}
             mt={hero ? -3 : 0}
             position={hero ? 'initial' : 'absolute'}
             top={hero ? '' : '16px'}
