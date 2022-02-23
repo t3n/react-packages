@@ -236,7 +236,8 @@ export const formStory = () => {
       validationSchema={formValidation}
       isInitialValid={false}
       onSubmit={onSubmit}
-      render={({
+    >
+      {({
         values,
         touched,
         errors,
@@ -246,55 +247,53 @@ export const formStory = () => {
         handleReset,
         setFieldValue,
         setFieldTouched,
-      }: FormikProps<FormValues>) => {
-        return (
-          <Card splitted>
-            <CardSplitContent variant="secondary">
-              <>
-                <Heading styleAs="h4">Debug-Daten</Heading>
-                <p>Values:</p>
-                <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
-                <p>Errors:</p>
-                <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
-                <p>Touched:</p>
-                <DebugValues>{JSON.stringify(touched, null, 2)}</DebugValues>
-                <Button variant="secondary" onClick={handleReset}>
-                  Formular zurücksetzen
-                </Button>
-              </>
-            </CardSplitContent>
-            <CardSplitContent>
-              <>
-                <Heading styleAs="h4">Tags setzen</Heading>
-                <form onSubmit={handleSubmit}>
-                  <FormGroup label="Tags">
-                    <SelectBox
-                      name="tags"
-                      multiSelect
-                      closeMenuOnSelect={false}
-                      options={colorOptions}
-                      onChange={(value) => setFieldValue('tags', value)}
-                      onBlur={() => setFieldTouched('tags', true)}
-                      error={!errors}
-                      loading={isSubmitting}
-                      value={values.tags}
-                    />
-                  </FormGroup>
+      }: FormikProps<FormValues>) => (
+        <Card splitted>
+          <CardSplitContent variant="secondary">
+            <>
+              <Heading styleAs="h4">Debug-Daten</Heading>
+              <p>Values:</p>
+              <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
+              <p>Errors:</p>
+              <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
+              <p>Touched:</p>
+              <DebugValues>{JSON.stringify(touched, null, 2)}</DebugValues>
+              <Button variant="secondary" onClick={handleReset}>
+                Formular zurücksetzen
+              </Button>
+            </>
+          </CardSplitContent>
+          <CardSplitContent>
+            <>
+              <Heading styleAs="h4">Tags setzen</Heading>
+              <form onSubmit={handleSubmit}>
+                <FormGroup label="Tags">
+                  <SelectBox
+                    name="tags"
+                    multiSelect
+                    closeMenuOnSelect={false}
+                    options={colorOptions}
+                    onChange={(value) => setFieldValue('tags', value)}
+                    onBlur={() => setFieldTouched('tags', true)}
+                    error={!errors}
+                    loading={isSubmitting}
+                    value={values.tags}
+                  />
+                </FormGroup>
 
-                  <Button
-                    mt={2}
-                    type="submit"
-                    disabled={!isValid || isSubmitting}
-                  >
-                    Speichern
-                  </Button>
-                </form>
-              </>
-            </CardSplitContent>
-          </Card>
-        );
-      }}
-    />
+                <Button
+                  mt={2}
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                >
+                  Speichern
+                </Button>
+              </form>
+            </>
+          </CardSplitContent>
+        </Card>
+      )}
+    </Formik>
   );
 };
 

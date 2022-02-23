@@ -93,7 +93,8 @@ export const register = () => {
           validationSchema={registerFormValidation}
           isInitialValid={false}
           onSubmit={onSubmit}
-          render={({
+        >
+          {({
             values,
             touched,
             errors,
@@ -101,71 +102,67 @@ export const register = () => {
             isValid,
             isSubmitting,
             handleReset,
-          }: FormikProps<RegisterValues>) => {
-            return (
-              <Card splitted>
-                <CardSplitContent variant="secondary">
-                  <>
-                    <Heading styleAs="h4">Beispiel-Formular</Heading>
-                    <Text>
-                      Dies ist ein beispielhaftes Formular mit Feldern wie sie
-                      bei einer Registrierung inkl. entsprechender Validierung
-                      benötigt werden könnten
-                    </Text>
+          }: FormikProps<RegisterValues>) => (
+            <Card splitted>
+              <CardSplitContent variant="secondary">
+                <>
+                  <Heading styleAs="h4">Beispiel-Formular</Heading>
+                  <Text>
+                    Dies ist ein beispielhaftes Formular mit Feldern wie sie bei
+                    einer Registrierung inkl. entsprechender Validierung
+                    benötigt werden könnten
+                  </Text>
 
-                    <H5>Debug-Daten</H5>
-                    <p>Values:</p>
-                    <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
-                    <p>Errors:</p>
-                    <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
-                    <p>Touched:</p>
-                    <DebugValues>
-                      {JSON.stringify(touched, null, 2)}
-                    </DebugValues>
-                    <Button variant="secondary" onClick={handleReset}>
-                      Formular zurücksetzen
+                  <H5>Debug-Daten</H5>
+                  <p>Values:</p>
+                  <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
+                  <p>Errors:</p>
+                  <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
+                  <p>Touched:</p>
+                  <DebugValues>{JSON.stringify(touched, null, 2)}</DebugValues>
+                  <Button variant="secondary" onClick={handleReset}>
+                    Formular zurücksetzen
+                  </Button>
+                </>
+              </CardSplitContent>
+
+              <CardSplitContent>
+                <>
+                  <Heading styleAs="h4">Registrierung</Heading>
+                  <form onSubmit={handleSubmit}>
+                    <FormInput type="text" name="firstName" label="Vorname" />
+                    <FormInput type="text" name="lastName" label="Nachname" />
+                    <FormInput type="text" name="email" label="E-Mail" />
+                    <FormInput
+                      type="password"
+                      name="password"
+                      label="Passwort"
+                    />
+                    <FormInput
+                      type="password"
+                      name="passwordConfirm"
+                      label="Passwort wiederholen"
+                    />
+                    <FormTextarea
+                      name="message"
+                      label="Nachricht"
+                      maxLength={200}
+                    />
+                    <Button
+                      mt={2}
+                      type="submit"
+                      disabled={!isValid || isSubmitting}
+                    >
+                      {isValid && !isSubmitting
+                        ? 'Abschicken'
+                        : 'Bitte alle Felder ausfüllen'}
                     </Button>
-                  </>
-                </CardSplitContent>
-
-                <CardSplitContent>
-                  <>
-                    <Heading styleAs="h4">Registrierung</Heading>
-                    <form onSubmit={handleSubmit}>
-                      <FormInput type="text" name="firstName" label="Vorname" />
-                      <FormInput type="text" name="lastName" label="Nachname" />
-                      <FormInput type="text" name="email" label="E-Mail" />
-                      <FormInput
-                        type="password"
-                        name="password"
-                        label="Passwort"
-                      />
-                      <FormInput
-                        type="password"
-                        name="passwordConfirm"
-                        label="Passwort wiederholen"
-                      />
-                      <FormTextarea
-                        name="message"
-                        label="Nachricht"
-                        maxLength={200}
-                      />
-                      <Button
-                        mt={2}
-                        type="submit"
-                        disabled={!isValid || isSubmitting}
-                      >
-                        {isValid && !isSubmitting
-                          ? 'Abschicken'
-                          : 'Bitte alle Felder ausfüllen'}
-                      </Button>
-                    </form>
-                  </>
-                </CardSplitContent>
-              </Card>
-            );
-          }}
-        />
+                  </form>
+                </>
+              </CardSplitContent>
+            </Card>
+          )}
+        </Formik>
       </GridItem>
     </Grid>
   );

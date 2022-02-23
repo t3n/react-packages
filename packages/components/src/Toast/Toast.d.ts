@@ -1,7 +1,8 @@
-import { Position } from 'toasted-notes';
+/// <reference types="react" />
+import { ToastId, ToastPosition } from '@chakra-ui/toast';
 import { AlertStatus } from '../Alert';
 export interface ToastProps {
-    id: string;
+    id: ToastId;
     status: AlertStatus;
     text: string;
     isClosable: boolean;
@@ -11,9 +12,9 @@ export interface NotifyOptions {
     status: AlertStatus;
     text: string;
     duration: number | null;
-    position: keyof typeof Position;
+    position: ToastPosition;
     isClosable: boolean;
 }
 declare const Toast: ({ status, text, isClosable, onClose }: ToastProps) => JSX.Element;
-export declare const useToast: () => (({ text, status, duration, position }: NotifyOptions) => any)[];
+export declare const useToast: () => (({ text, status, duration, position }: NotifyOptions) => void)[];
 export default Toast;

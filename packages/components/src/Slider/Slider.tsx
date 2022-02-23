@@ -198,11 +198,14 @@ const Slider: React.FC<SliderProps> = ({
     }
   }, [getPointerStepPositionX, stepWidth, value, x]);
 
-  const handleMarkerClick = (i: number) => {
-    const nextValue = i * ((max - min) / (labels.length - 1)) + min;
+  const handleMarkerClick = useCallback(
+    (i: number) => {
+      const nextValue = i * ((max - min) / (labels.length - 1)) + min;
 
-    onChange(nextValue);
-  };
+      if (nextValue !== value) onChange(nextValue);
+    },
+    [labels.length, max, min, onChange, value]
+  );
 
   const handleThumbDragStart = useCallback(() => {
     document.body.style.cursor = 'pointer';
@@ -219,9 +222,9 @@ const Slider: React.FC<SliderProps> = ({
         max
       );
 
-      onChange(nextValue);
+      if (nextValue !== value) onChange(nextValue);
     },
-    [max, min, onChange, step, stepWidth]
+    [max, min, onChange, step, stepWidth, value]
   );
 
   const handleThumbDragEnd = useCallback(() => {
