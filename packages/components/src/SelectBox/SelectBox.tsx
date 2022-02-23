@@ -1,6 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import Select, { components, GroupTypeBase, OptionsType } from 'react-select';
+import Select, {
+  components,
+  GroupBase,
+  OnChangeValue,
+  Options,
+} from 'react-select';
 import AsyncSelect from 'react-select/async';
 import CreatableSelect from 'react-select/creatable';
 import { DefaultTheme, useTheme } from 'styled-components';
@@ -16,7 +22,7 @@ import Text from '../Text';
 export interface SelectBoxProps<S> extends WidthProps {
   autoFocus?: boolean;
   closeMenuOnSelect?: boolean;
-  defaultValue?: OptionsType<S>;
+  defaultValue?: Options<S>;
   disabled?: boolean;
   error?: boolean;
   hideReset?: boolean;
@@ -26,22 +32,22 @@ export interface SelectBoxProps<S> extends WidthProps {
   multiSelect?: boolean;
   name?: string;
   noOptionsMessage?: string;
-  options: OptionsType<S>;
-  defaultOptions?: OptionsType<S>;
+  options: Options<S>;
+  defaultOptions?: Options<S>;
   placeholder?: string;
   searchable?: boolean;
   creatable?: boolean;
-  tabIndex?: string;
-  value?: OptionsType<S>;
+  tabIndex?: string | number;
+  value?: Options<S>;
   onBlur?: () => void;
-  onChange?: (value: OptionsType<S>) => void;
+  onChange?: (value: Options<S>) => void;
   onFocus?: () => void;
   onKeyDown?: () => void;
   onToggleOpen?: () => void;
   async?: boolean;
   loadOptions?: (
     inputValue: string,
-    callback: (options: OptionsType<S>) => void
+    callback: (options: Options<S>) => void
   ) => void;
   loadingMessage?: (obj: { inputValue: string }) => string;
   onInputChange?: (newValue: string) => string;
@@ -227,7 +233,7 @@ const SelectBox = <S,>({
   disabled,
   loading,
   hideReset,
-  multiSelect,
+  multiSelect = false,
   searchable,
   async,
   loadOptions,
@@ -237,23 +243,27 @@ const SelectBox = <S,>({
 
   const commonProps = {
     ...props,
+    tabIndex:
+      typeof props.tabIndex === 'string'
+        ? parseInt(props.tabIndex, 10)
+        : props.tabIndex,
     isDisabled: disabled || loading,
     isClearable: !hideReset,
     isLoading: loading,
     isMulti: multiSelect,
     // TODO: Fix lint issue
     // eslint-disable-next-line react/no-unstable-nested-components
-    formatGroupLabel: ({ label }: GroupTypeBase<S>) => (
-      <GroupLabel label={label} />
+    formatGroupLabel: ({ label }: GroupBase<S>) => (
+      <GroupLabel label={label || ''} />
     ),
     noOptionsMessage: () => noOptionsMessage || null,
-    onChange: (values: S | OptionsType<S> | null) =>
+    onChange: (values: OnChangeValue<S, typeof multiSelect>) =>
       onChange?.(
         (Array.isArray(values)
           ? values
           : values === null
           ? []
-          : [values]) as OptionsType<S>
+          : [values]) as Options<S>
       ),
     styles: getCustomStyles(!!error, theme as Theme),
     components: {

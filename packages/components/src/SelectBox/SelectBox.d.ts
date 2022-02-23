@@ -1,10 +1,9 @@
-/// <reference types="react" />
-import { OptionsType } from 'react-select';
+import { Options } from 'react-select';
 import { WidthProps } from 'styled-system';
 export interface SelectBoxProps<S> extends WidthProps {
     autoFocus?: boolean;
     closeMenuOnSelect?: boolean;
-    defaultValue?: OptionsType<S>;
+    defaultValue?: Options<S>;
     disabled?: boolean;
     error?: boolean;
     hideReset?: boolean;
@@ -14,20 +13,20 @@ export interface SelectBoxProps<S> extends WidthProps {
     multiSelect?: boolean;
     name?: string;
     noOptionsMessage?: string;
-    options: OptionsType<S>;
-    defaultOptions?: OptionsType<S>;
+    options: Options<S>;
+    defaultOptions?: Options<S>;
     placeholder?: string;
     searchable?: boolean;
     creatable?: boolean;
-    tabIndex?: string;
-    value?: OptionsType<S>;
+    tabIndex?: string | number;
+    value?: Options<S>;
     onBlur?: () => void;
-    onChange?: (value: OptionsType<S>) => void;
+    onChange?: (value: Options<S>) => void;
     onFocus?: () => void;
     onKeyDown?: () => void;
     onToggleOpen?: () => void;
     async?: boolean;
-    loadOptions?: (inputValue: string, callback: (options: OptionsType<S>) => void) => void;
+    loadOptions?: (inputValue: string, callback: (options: Options<S>) => void) => void;
     loadingMessage?: (obj: {
         inputValue: string;
     }) => string;
