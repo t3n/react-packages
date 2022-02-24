@@ -232,3 +232,11 @@ export const CustomClassMapping: Story = () => {
     </Box>
   );
 };
+
+export const Relative: Story = () => {
+  return (
+    <Box>
+      <Image src="/static/pro/pro-badge.svg" height="13px" alt="Pro Badge" />
+    </Box>
+  );
+};

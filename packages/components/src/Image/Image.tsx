@@ -55,31 +55,40 @@ const fastlyHostnameMapping = {
 
 // Try to resolve fastly url from image src
 const generateFastlySrc = (src: string, imageClass: string) => {
-  const url = new URL(src);
-  const urlParams = url.searchParams;
+  try {
+    const url = new URL(src);
+    const urlParams = url.searchParams;
 
-  const fastlyOrigins = Object.keys(fastlyHostnameMapping);
-  const fastlyDestinations = Object.values(fastlyHostnameMapping);
+    const fastlyOrigins = Object.keys(fastlyHostnameMapping);
+    const fastlyDestinations = Object.values(fastlyHostnameMapping);
 
-  // If already is a fastly url, simply apply optimization class name
-  // and reapply all possible url params
-  if (fastlyDestinations.find((destination) => src.includes(destination))) {
+    // If already is a fastly url, simply apply optimization class name
+    // and reapply all possible url params
+    if (fastlyDestinations.find((destination) => src.includes(destination))) {
+      urlParams.set('class', imageClass);
+      return url.toString();
+    }
+
+    const origin = fastlyOrigins.find((destination) =>
+      src.includes(destination)
+    );
+
+    // If it's not a fastly compatible url, simply return the original src
+    if (!origin) return src;
+
+    const index = fastlyOrigins.indexOf(origin);
+    const destination = fastlyDestinations[index];
+    url.host = destination;
     urlParams.set('class', imageClass);
+    // Resolve fastly origin for url and return url with optimization class
+    // and original url params applied
     return url.toString();
+  } catch (e) {
+    // Simply return src if we cannot construct an url object from src
+    // This might be the case for relative URLs where we don't know how to
+    // map them
+    return src;
   }
-
-  const origin = fastlyOrigins.find((destination) => src.includes(destination));
-
-  // If it's not a fastly compatible url, simply return the original src
-  if (!origin) return src;
-
-  const index = fastlyOrigins.indexOf(origin);
-  const destination = fastlyDestinations[index];
-  url.host = destination;
-  urlParams.set('class', imageClass);
-  // Resolve fastly origin for url and return url with optimization class
-  // and original url params applied
-  return url.toString();
 };
 
 // Takes a raw src and a fastly image optimization class mapping and
