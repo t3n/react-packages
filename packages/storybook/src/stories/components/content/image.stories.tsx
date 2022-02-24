@@ -236,6 +236,7 @@ export const CustomClassMapping: Story = () => {
 export const Relative: Story = () => {
   return (
     <Box>
+      <Text>Das Bild hier rendert nicht, da es eine relative URL ist!</Text>
       <Image src="/static/pro/pro-badge.svg" height="13px" alt="Pro Badge" />
     </Box>
   );
