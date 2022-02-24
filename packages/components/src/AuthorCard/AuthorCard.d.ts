@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface AuthorValues {
     name: string;
     avatar: string;

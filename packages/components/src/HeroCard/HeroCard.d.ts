@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export interface HeroCardProps {
     title: string;
     imageUrl: string;

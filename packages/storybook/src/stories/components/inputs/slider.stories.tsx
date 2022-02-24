@@ -95,46 +95,45 @@ export const inForm = () => {
     <>
       <Formik
         onSubmit={() => setSubmitted(true)}
-        initialValues={{ statisfied: 2 }}
-        render={({
-          handleReset,
-          dirty,
-          values,
-          setFieldValue,
-          handleSubmit,
-        }) => {
-          return (
-            <>
-              <Slider
-                name="statisfied"
-                max={10}
-                step={2}
-                value={values.statisfied}
-                labels={['0', '2', '4', '6', '8', '10']}
-                onChange={(val) => setFieldValue('statisfied', val)}
-              />
-              <Button mr={3} variant="primary" onClick={() => handleSubmit()}>
-                Submit
-              </Button>
-              {dirty && (
-                <>
-                  <Button
-                    variant="secondary"
-                    onClick={() => {
-                      handleReset();
-                      setSubmitted(false);
-                    }}
-                  >
-                    Reset
-                  </Button>
-                  <pre>{JSON.stringify(values)}</pre>
-                </>
-              )}
-            </>
-          );
-        }}
-      />
-
+        initialValues={{ satisfied: 2 }}
+      >
+        {({ handleReset, dirty, values, setFieldValue, handleSubmit }) => (
+          <>
+            <Slider
+              name="satisfied"
+              max={10}
+              step={2}
+              value={values.satisfied}
+              labels={['0', '2', '4', '6', '8', '10']}
+              onChange={(val) => {
+                setFieldValue('satisfied', val);
+              }}
+            />
+            <Button
+              type="submit"
+              mr={3}
+              variant="primary"
+              onClick={() => handleSubmit()}
+            >
+              Submit
+            </Button>
+            {dirty && (
+              <>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    handleReset();
+                    setSubmitted(false);
+                  }}
+                >
+                  Reset
+                </Button>
+                <pre>{JSON.stringify(values)}</pre>
+              </>
+            )}
+          </>
+        )}
+      </Formik>
       {submitted && <Text>Du hast das Formular abgeschickt :)</Text>}
     </>
   );
