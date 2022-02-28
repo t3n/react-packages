@@ -62,7 +62,7 @@ const SmallerText = styled(Text)`
 const legacyMobileLinks: MobileLinkType = [
   {
     label: 'Pur',
-    url: '/pur/',
+    url: '/pur',
   },
   {
     label: 'Pro',
