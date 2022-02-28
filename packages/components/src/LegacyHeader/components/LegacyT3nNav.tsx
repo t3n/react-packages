@@ -93,7 +93,7 @@ const t3nNavLinks: T3nNavLinksType[] = [
       },
       {
         label: 'Meet the Team',
-        url: '/team/',
+        url: '/team',
       },
       {
         label: 't3n Backstage Blog',
