@@ -164,7 +164,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     links: [
       {
         label: 'Pur',
-        url: '/pur/',
+        url: '/pur',
       },
       {
         label: 'Pro',
