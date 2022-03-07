@@ -45,7 +45,6 @@ module.exports = {
     '../src/stories/components/content/heroArticleCard.stories',
     '../src/stories/components/content/icon.stories',
     '../src/stories/components/content/image.stories',
-    '../src/stories/components/content/imgixImage.stories',
     '../src/stories/components/content/jobCard.stories',
     '../src/stories/components/content/loader.stories',
     '../src/stories/components/content/modal.stories',

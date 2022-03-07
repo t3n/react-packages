@@ -56,7 +56,7 @@ const UserAvatar = () => {
 export const defaultStory = () => (
   <div>
     <Avatar
-      optimizeSrc={boolean('Imgix nutzen?', true)}
+      optimizeSrc={boolean('Bildoptimierung?', true)}
       size={number('Größe', 40)}
       src={text(
         'Image URL',

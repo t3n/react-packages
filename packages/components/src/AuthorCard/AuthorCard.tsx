@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Badge from '../Badge';
 import Card from '../Card';
 import Heading from '../Heading';
+import Image from '../Image';
 
 export interface AuthorValues {
   name: string;
@@ -37,7 +38,7 @@ const AuthorCard = ({ title, articleType, author, url }: AuthorCardProps) => (
     </div>
 
     <Author>
-      <img
+      <Image
         src={author.avatar}
         width={40}
         style={{ marginRight: '1rem', borderRadius: '50%' }}

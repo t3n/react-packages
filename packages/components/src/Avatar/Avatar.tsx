@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import Imgix from 'react-imgix';
 import styled from 'styled-components';
 import {
   border,
@@ -11,6 +10,7 @@ import {
 } from 'styled-system';
 
 import Box from '../Box';
+import Image from '../Image';
 import Placeholder from '../Placeholder';
 import Text from '../Text';
 
@@ -101,14 +101,12 @@ const AvatarImage = ({
 
   if (optimizeSrc)
     return (
-      <Imgix
+      <Image
         src={src}
         className={className}
-        imgixParams={{ fit: 'crop', h: size, w: size }}
         width={size}
         height={size}
-        htmlAttributes={{ alt: alt || 'Kein Avatar' }}
-        disableSrcSet
+        alt={alt || 'Avatar'}
       />
     );
 
