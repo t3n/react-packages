@@ -78,7 +78,7 @@ const legacyMobileLinks: MobileLinkType = [
   },
   {
     label: 'Mediadaten',
-    url: '/werbeformate/',
+    url: '/mediadaten/de/',
   },
   {
     label: 'Impressum',

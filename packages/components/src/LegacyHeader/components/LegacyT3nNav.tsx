@@ -115,7 +115,7 @@ const t3nNavLinks: T3nNavLinksType[] = [
   },
   {
     label: 'Mediadaten',
-    url: '/werbeformate/',
+    url: '/mediadaten/de/',
   },
 ];
 
