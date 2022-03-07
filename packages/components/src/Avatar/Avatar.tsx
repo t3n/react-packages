@@ -122,7 +122,7 @@ const AvatarImage = ({
 };
 
 AvatarImage.defaultProps = {
-  size: '40',
+  size: '40px',
 };
 
 const StyledAvatarImage = styled(AvatarImage)<{ src?: string }>`
