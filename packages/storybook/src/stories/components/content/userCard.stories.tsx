@@ -15,30 +15,30 @@ export default {
 const defaultUserStatic: Pick<UserCardProps, 'user' | 'link'> = {
   user: {
     id: 1,
-    name: 'Björn Assmann',
+    name: 'Jörg Mugke',
     avatarUrl:
-      'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
+      'https://storage.googleapis.com/t3n-de/pioneers/12b8bf4426d98e112345838a22e6cc7434204ff9/joerg%20Kopie.jpg',
     email: 'beispiel@t3n.de',
-    position: 'Geschäftsführer | CFO',
+    position: 'Geschäftsführer',
     phone: '01234/567890',
     flag: '',
     socialLinks: [
       {
-        url: 'https://www.linkedin.com/in/bjoernassmann',
+        url: 'https://de.linkedin.com/company/t3n-magazin-yeebase-media-gmbh',
         type: 'LINKEDIN',
       },
       {
-        url: 'https://twitter.com/BjoernAssmann',
+        url: 'https://twitter.com/t3n',
         type: 'TWITTER',
       },
       {
-        url: 'https://www.xing.com/profile/Bjoern_Assmann',
+        url: 'https://www.xing.com/pages/t3nmagazin-yeebasemediagmbh',
         type: 'XING',
       },
     ],
   },
   link: {
-    url: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
+    url: 'https://t3n.de/pioneers/profile/joerg-mugke/',
     title: 'Pioneers-Profil',
   },
 };
@@ -46,30 +46,30 @@ const defaultUserStatic: Pick<UserCardProps, 'user' | 'link'> = {
 const compactUser: Pick<UserCardProps, 'user' | 'link'> = {
   user: {
     id: 2,
-    name: 'Björn Assmann',
+    name: 'Jörg Mugke',
     avatarUrl:
-      'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
+      'https://storage.googleapis.com/t3n-de/pioneers/12b8bf4426d98e112345838a22e6cc7434204ff9/joerg%20Kopie.jpg',
     email: '',
-    position: 'Geschäftsführer | CFO',
+    position: 'Geschäftsführer',
     phone: '',
     flag: '',
     socialLinks: [
       {
-        url: 'https://www.linkedin.com/in/bjoernassmann',
+        url: 'https://de.linkedin.com/company/t3n-magazin-yeebase-media-gmbh',
         type: 'LINKEDIN',
       },
       {
-        url: 'https://twitter.com/BjoernAssmann',
+        url: 'https://twitter.com/t3n',
         type: 'TWITTER',
       },
       {
-        url: 'https://www.xing.com/profile/Bjoern_Assmann',
+        url: 'https://www.xing.com/pages/t3nmagazin-yeebasemediagmbh',
         type: 'XING',
       },
     ],
   },
   link: {
-    url: 'https://t3n.de/pioneers/profile/bjoern.assmann/',
+    url: 'https://t3n.de/pioneers/profile/joerg-mugke/',
     title: 'Pioneers-Profil',
   },
 };
@@ -81,7 +81,7 @@ const flagUser: Pick<UserCardProps, 'user' | 'link'> = {
     avatarUrl:
       'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined',
     email: 'beispiel@t3n.de',
-    position: 'Geschäftsführer | CCO & CPO',
+    position: 'Gründer & Management Advisor',
     phone: '01234/567890',
     flag: 'Elternzeit',
     socialLinks: [
@@ -112,7 +112,7 @@ const compactFlagUser: Pick<UserCardProps, 'user' | 'link'> = {
     avatarUrl:
       'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined',
     email: '',
-    position: 'Geschäftsführer | CCO & CPO',
+    position: 'Gründer & Management Advisor',
     phone: '',
     flag: 'Elternzeit',
     socialLinks: [
@@ -143,7 +143,7 @@ const thirdUser: Pick<UserCardProps, 'user' | 'link'> = {
     avatarUrl:
       'https://storage.googleapis.com/t3n-de/neos/e80a662daac7dc2d910550e0a6bba514dd56d699/andy%20small.png',
     email: 'beispiel@t3n.de',
-    position: 'Geschäftsführer | CEO',
+    position: 'Gründer & Management Advisor',
     phone: '01234/567890',
     flag: '',
     socialLinks: [
@@ -174,7 +174,7 @@ const compactThirdUser: Pick<UserCardProps, 'user' | 'link'> = {
     avatarUrl:
       'https://storage.googleapis.com/t3n-de/neos/e80a662daac7dc2d910550e0a6bba514dd56d699/andy%20small.png',
     email: '',
-    position: 'Geschäftsführer | CEO',
+    position: 'Gründer & Management Advisor',
     phone: '',
     flag: '',
     socialLinks: [
@@ -201,30 +201,30 @@ const compactThirdUser: Pick<UserCardProps, 'user' | 'link'> = {
 const fourthUser: Pick<UserCardProps, 'user' | 'link'> = {
   user: {
     id: 3,
-    name: 'Martin Brüggemann',
+    name: 'Tobias Schäffer',
     avatarUrl:
-      'https://storage.googleapis.com/t3n-de/pioneers/2e2e317ae61957e8178c4cfd60b4afb1fa72582c/brgmn-profile-500.jpg',
+      'https://storage.googleapis.com/t3n-de/pioneers/64480da599b81e03e34fa5fed5d2eec2456ff443/IMG_TS_Quer.jpg',
     email: '',
-    position: 'Mitgründer',
+    position: 'Geschäftsführer',
     phone: '',
     flag: '',
     socialLinks: [
       {
-        url: 'https://www.linkedin.com/in/martin-brueggemann-45b438185',
+        url: 'https://de.linkedin.com/company/t3n-magazin-yeebase-media-gmbh',
         type: 'LINKEDIN',
       },
       {
-        url: 'https://twitter.com/brgmn',
+        url: 'https://twitter.com/t3n',
         type: 'TWITTER',
       },
       {
-        url: 'https://www.xing.com/profile/Martin_Brueggemann7/cv',
+        url: 'https://www.xing.com/pages/t3nmagazin-yeebasemediagmbh',
         type: 'XING',
       },
     ],
   },
   link: {
-    url: 'https://t3n.de/pioneers/profile/brgmn/',
+    url: 'https://t3n.de/pioneers/profile/tobias-schaeffer/',
     title: 'Pioneers-Profil',
   },
 };
@@ -233,27 +233,27 @@ export const defaultStory = () => {
   const defaultUser: Pick<UserCardProps, 'user' | 'link'> = {
     user: {
       id: 1,
-      name: text('Name', 'Björn Assmann', 'user'),
+      name: text('Name', 'Jörg Mugke', 'user'),
       avatarUrl: text(
         'Avatar URL',
-        'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
+        'https://storage.googleapis.com/t3n-de/pioneers/12b8bf4426d98e112345838a22e6cc7434204ff9/joerg%20Kopie.jpg',
         'user'
       ),
       email: text('E-Mail Adresse', 'beispiel@t3n.de', 'user'),
-      position: text('Position', 'Geschäftsführer | CFO', 'user'),
+      position: text('Position', 'Geschäftsführer', 'user'),
       phone: text('Telefon', '01234/567890', 'user'),
       flag: text('Flag', '', 'user'),
       socialLinks: [
         {
-          url: 'https://www.linkedin.com/in/bjoernassmann',
+          url: 'https://www.linkedin.com/company/t3n-magazin-yeebase-media-gmbh',
           type: 'LINKEDIN',
         },
         {
-          url: 'https://twitter.com/BjoernAssmann',
+          url: 'https://twitter.com/t3n',
           type: 'TWITTER',
         },
         {
-          url: 'https://www.xing.com/profile/Bjoern_Assmann',
+          url: 'https://www.xing.com/pages/t3nmagazin-yeebasemediagmbh',
           type: 'XING',
         },
       ],
@@ -262,7 +262,7 @@ export const defaultStory = () => {
       fullCard: boolean('Ganze Card verlinkt', true, 'user'),
       url: text(
         'Pioneers Network Profil',
-        'https://t3n.de/pioneers/profile/bjoern.assmann/',
+        'https://t3n.de/pioneers/profile/joerg-mugke/',
         'user'
       ),
       target: text('Target (default is target: _blank)', '_self', 'user'),
@@ -295,7 +295,7 @@ export const customAvatarStory = () => {
           user={{
             ...defaultUserStatic.user,
             avatarUrl:
-              'https://assets.t3n.de/t3n-de/pioneers/a3c85b2024286bca1e622fdc4a3c32d7f8f9c412/t3n-andreas-weck-home-office-heimarbeit-remote-erfahrungsbericht.jpg?class=avatar-large',
+              'https://assets.t3n.de/t3n-de/pioneers/12b8bf4426d98e112345838a22e6cc7434204ff9/joerg%20Kopie.jpg?class=avatar-large',
           }}
           link={defaultUserStatic.link}
           optimizeAvatar={false}
@@ -451,22 +451,18 @@ export const wholeCardLinked = () => {
   const minimalUser: Pick<UserCardProps, 'user' | 'link'> = {
     user: {
       id: 1,
-      name: text('Name', 'Björn Assmann', 'user'),
+      name: text('Name', 'Jörg Mugke', 'user'),
       avatarUrl: text(
         'Avatar URL',
-        'https://storage.googleapis.com/t3n-de/pioneers/f9f2668d807b632523c9a8ffefe481719c15b0a8/BAN_sw.png',
+        'https://storage.googleapis.com/t3n-de/pioneers/12b8bf4426d98e112345838a22e6cc7434204ff9/joerg%20Kopie.jpg',
         'user'
       ),
-      position: text('Position', 'Geschäftsführer | CFO', 'user'),
+      position: text('Position', 'Geschäftsführer', 'user'),
       socialLinks: [],
     },
     link: {
       fullCard: boolean('Ganze Card verlinkt', true, 'user'),
-      url: text(
-        'Link',
-        'https://t3n.de/pioneers/profile/bjoern.assmann/',
-        'user'
-      ),
+      url: text('Link', 'https://t3n.de/pioneers/profile/joerg-mugke/', 'user'),
       title: text('URL Title', 'Pioneers Profil', 'user'),
     },
   };
