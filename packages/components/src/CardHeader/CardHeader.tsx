@@ -5,6 +5,7 @@ import { color, ColorProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
+import Image from '../Image';
 import Ratio, { RatioProps } from '../Ratio';
 
 export interface CardHeaderProps extends ThemeProps {
@@ -36,7 +37,7 @@ const CardHeaderComponent = ({
 }: CardHeaderProps) => (
   <CardHeaderContainer {...props}>
     <Ratio ratio={ratio}>
-      {image && <img src={image} alt="" />}
+      {image && <Image src={image} alt="" />}
       <CardHeaderContent>{children}</CardHeaderContent>
     </Ratio>
   </CardHeaderContainer>

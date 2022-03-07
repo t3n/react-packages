@@ -28,7 +28,7 @@ export { H1, H2, H3, H4, H5, H6, default as Heading } from './Heading';
 export { default as HeroCard } from './HeroCard';
 export { default as Icon } from './Icon';
 export { default as IconButton } from './IconButton';
-export { default as Image, ImgixImage } from './Image';
+export { default as Image } from './Image';
 export { default as Input } from './Input';
 export { default as JobCard } from './JobCard';
 export { default as LegacyAd } from './LegacyAd';

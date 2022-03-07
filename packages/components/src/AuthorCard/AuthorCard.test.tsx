@@ -3,10 +3,20 @@ import React from 'react';
 import { renderWithTheme } from '../helper/renderWithTheme';
 import AuthorCard from './AuthorCard';
 
+const mockObserveFn = () => {
+  return {
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+  };
+};
+
+window.IntersectionObserver = jest.fn().mockImplementation(mockObserveFn);
+
 const card = (
   <AuthorCard
     articleType="News"
-    title="Auhor Card"
+    title="Author Card"
     url="https://t3n.de"
     author={{ name: 't3n Redaktion', avatar: '' }}
   />
