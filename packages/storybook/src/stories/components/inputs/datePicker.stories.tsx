@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { boolean } from '@storybook/addon-knobs';
 
 import { Box, DatePicker, Section } from '@t3n/components';
 
@@ -20,6 +21,7 @@ export const DefaultStory = () => {
           id="test datepicker"
           date={date}
           onChange={(newDate: moment.Moment | null) => setDate(newDate)}
+          hideReset={boolean('Ohne Reset', false)}
         />
       </Box>
     </Section>

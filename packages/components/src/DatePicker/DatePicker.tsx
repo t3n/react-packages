@@ -31,6 +31,7 @@ export interface DatePickerProps {
   onChange: (date: moment.Moment | null) => void;
   isOutsideRange?: (day: moment.Moment) => boolean;
   highlightToday?: boolean;
+  hideReset?: boolean;
 }
 
 export interface TimePickerProps {
@@ -116,6 +117,16 @@ const SingleDatePickerGlobalStyles = createGlobalStyle<
 
   .SingleDatePicker_picker {
     ${({ theme }) => position({ theme, top: ['0', '0', '49px !important'] })}
+  }
+
+  .SingleDatePickerInput__showClearDate,
+  .SingleDatePickerInput_clearDate {
+    ${({ theme }) => space({ theme, pr: 'unset' })}
+  }
+
+  .SingleDatePickerInput_clearDate:focus,
+  .SingleDatePickerInput_clearDate:hover {
+    ${({ theme }) => color({ theme, bg: 'transparent' })}
   }
 
   .DateInput_fang {
@@ -327,6 +338,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
                   showValue={showTime}
                   onChange={(value) => {
                     const parsedValue =
+                      // eslint-disable-next-line no-nested-ternary
                       value.length > 2 && value[0] === '0'
                         ? value.substring(1, 3)
                         : value.length > 2
@@ -362,6 +374,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
                   showValue={showTime}
                   onChange={(value) => {
                     const parsedValue =
+                      // eslint-disable-next-line no-nested-ternary
                       value.length > 2 && value[0] === '0'
                         ? value.substring(1, 3)
                         : value.length > 2
@@ -413,6 +426,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
   onChange,
   isOutsideRange,
   highlightToday = true,
+  hideReset = false,
 }) => {
   const [focus, setFocus] = useState(false);
   const isMobile = useIsMobile();
@@ -464,6 +478,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
         }
         focused={focus}
         onFocusChange={() => setFocus(!focus)}
+        showClearDate={!hideReset}
         id={id}
       />
     </>
