@@ -5,11 +5,11 @@ import { Theme } from '@t3n/theme';
 
 const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(false);
+  const [initialFontSize, setIntitialFontSize] = useState('16');
 
   const theme: Theme = useContext(ThemeContext);
-  const fontSize = window
-    .getComputedStyle(window.document.body)
-    .getPropertyValue('font-size');
+  const fontSize = initialFontSize;
+
   const mobileBreakpoint =
     parseInt(theme.breakpoints[1], 10) * parseInt(fontSize, 10);
 
@@ -20,6 +20,14 @@ const useIsMobile = (): boolean => {
       setIsMobile(false);
     }
   }, [mobileBreakpoint]);
+
+  useEffect(() => {
+    setIntitialFontSize(
+      window
+        .getComputedStyle(window.document.body)
+        .getPropertyValue('font-size')
+    );
+  }, []);
 
   useEffect(() => {
     testIsMobile();
