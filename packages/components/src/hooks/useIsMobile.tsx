@@ -3,15 +3,14 @@ import { ThemeContext } from 'styled-components';
 
 import { Theme } from '@t3n/theme';
 
+// try to avoid using this hook for everything that happens serverside
 const useIsMobile = (): boolean => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
+  const [fontSize, setFontSize] = useState(16);
 
   const theme: Theme = useContext(ThemeContext);
-  const fontSize = window
-    .getComputedStyle(window.document.body)
-    .getPropertyValue('font-size');
-  const mobileBreakpoint =
-    parseInt(theme.breakpoints[1], 10) * parseInt(fontSize, 10);
+
+  const mobileBreakpoint = parseInt(theme.breakpoints[1], 10) * fontSize;
 
   const testIsMobile = useCallback(() => {
     if (window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches) {
@@ -20,6 +19,17 @@ const useIsMobile = (): boolean => {
       setIsMobile(false);
     }
   }, [mobileBreakpoint]);
+
+  useEffect(() => {
+    setFontSize(
+      parseInt(
+        window
+          .getComputedStyle(window.document.body)
+          .getPropertyValue('font-size'),
+        10
+      )
+    );
+  }, []);
 
   useEffect(() => {
     testIsMobile();
