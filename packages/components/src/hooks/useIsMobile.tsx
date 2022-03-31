@@ -3,6 +3,7 @@ import { ThemeContext } from 'styled-components';
 
 import { Theme } from '@t3n/theme';
 
+// try to avoid using this hook for everything that happens serverside
 const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(true);
   const [fontSize, setFontSize] = useState(16);
