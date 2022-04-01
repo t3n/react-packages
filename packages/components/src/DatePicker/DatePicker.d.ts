@@ -8,6 +8,7 @@ export interface DatePickerProps {
     onChange: (date: moment.Moment | null) => void;
     isOutsideRange?: (day: moment.Moment) => boolean;
     highlightToday?: boolean;
+    hideReset?: boolean;
 }
 export interface TimePickerProps {
     focus: boolean;
