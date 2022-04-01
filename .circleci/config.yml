@@ -37,6 +37,10 @@ jobs:
       - restore_cache: *restore_js_packages
 
       - run:
+          name: node version control
+          command: npm -v && node -v
+
+      - run:
           name: npm install
           command: npm ci --unsafe-perm --legacy-peer-deps --allow-root
           no_output_timeout: 20m
@@ -107,7 +111,7 @@ jobs:
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run: ./node_modules/.bin/lerna publish patch --no-verify-access --ignore-scripts --yes
+      - run: ./node_modules/.bin/lerna publish patch --no-verify-access --ignore-scripts --no-git-reset --yes
 
   publishMinor:
     working_directory: *workspace_root
@@ -123,7 +127,7 @@ jobs:
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run: ./node_modules/.bin/lerna publish minor --no-verify-access --force-publish --yes
+      - run: ./node_modules/.bin/lerna publish minor --no-verify-access --ignore-scripts --no-git-reset --yes
 
   publishMajor:
     working_directory: *workspace_root
@@ -139,7 +143,7 @@ jobs:
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run: ./node_modules/.bin/lerna publish major --no-verify-access --force-publish --yes
+      - run: ./node_modules/.bin/lerna publish major --no-verify-access --ignore-scripts --no-git-reset --yes
 
 workflows:
   version: 2
