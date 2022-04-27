@@ -12,8 +12,6 @@ export interface AdProps extends BoxProps {
 
 const previewAdStyles = {
   height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
   alignItems: 'flex-start',
 };
 
@@ -31,6 +29,8 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
       <Box
         id={name}
         width={1}
+        display="flex"
+        justifyContent="center"
         {...(preview ? previewAdStyles : {})}
         bg={preview ? 'background.secondary' : undefined}
       >
