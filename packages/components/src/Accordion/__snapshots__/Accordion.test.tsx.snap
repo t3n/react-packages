@@ -1,6 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Accordion machtes snapshot 1`] = `
+exports[`Accordion matches snapchot with JSX.Element 1`] = `
+.c1 {
+  padding: 16px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c7 {
+  margin-left: 8px;
+  background-color: #f4f4f4;
+}
+
+.c5 {
+  fill: #2a2a2a;
+  width: 1.5rem;
+  position: relative;
+  margin-right: 8px;
+}
+
+.c9 {
+  width: 2rem;
+  height: 2rem;
+  fill: #8F8F8F;
+  position: relative;
+}
+
+.c6 {
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  font-weight: bold;
+}
+
+.c0 {
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c8 {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}
+
+.c8 .c4 {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  -webkit-transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+}
+
+@media screen and (min-width:30rem) {
+  .c1 {
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c1 {
+    padding: 24px;
+  }
+}
+
+@media screen and (min-width:30rem) {
+  .c6 {
+    line-height: 1.5em;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c6 {
+    line-height: 1.666em;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1 c2"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="c3"
+      display="flex"
+    >
+      <svg
+        class="c4 c5"
+        fill="text.primary"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm3 6V7h3V4h7l1.83 2H21c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V10h3zm7 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-3.2-5c0 1.77 1.43 3.2 3.2 3.2s3.2-1.43 3.2-3.2-1.43-3.2-3.2-3.2-3.2 1.43-3.2 3.2z"
+        />
+      </svg>
+      <p
+        class="c6"
+      >
+        Das hier ist ein JSX.Element
+      </p>
+    </div>
+    <div
+      class="c7 c8"
+    >
+      <svg
+        class="c4 c9"
+        fill="shades.grey143"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m7 10 5 5 5-5z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion matches snapshot 1`] = `
 .c1 {
   padding: 16px;
 }
@@ -10,18 +159,18 @@ exports[`Accordion machtes snapshot 1`] = `
   background-color: #f4f4f4;
 }
 
-.c3 {
-  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.5em;
-  margin: 0;
-}
-
 .c7 {
   width: 2rem;
   height: 2rem;
   fill: #8F8F8F;
   position: relative;
+}
+
+.c3 {
+  font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5em;
+  margin: 0;
 }
 
 .c0 {

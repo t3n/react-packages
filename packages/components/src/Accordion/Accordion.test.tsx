@@ -2,10 +2,15 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 
+import { MaterialAddAPhoto } from '@t3n/icons';
+
+import Box from '../Box';
 import { renderWithTheme } from '../helper/renderWithTheme';
+import Icon from '../Icon';
+import Text from '../Text';
 import Accordion from './Accordion';
 
-test('Accordion machtes snapshot', () => {
+test('Accordion matches snapshot', () => {
   const { container } = renderWithTheme(
     <>
       <Accordion title="Some Accordion">
@@ -43,4 +48,22 @@ test('Accoridion can be collapsed', () => {
   expect(queryByText(/content/i)).toBeNull();
   fireEvent.click(getByRole('button'));
   expect(queryByText(/content/i)).not.toBeNull();
+});
+
+test('Accordion matches snapchot with JSX.Element', () => {
+  const { container } = renderWithTheme(
+    <Accordion
+      title={
+        <Box display="flex">
+          <Icon component={MaterialAddAPhoto} mr={2} />
+          <Text bold>Das hier ist ein JSX.Element</Text>
+        </Box>
+      }
+    >
+      <p>Content</p>
+    </Accordion>,
+    {}
+  );
+
+  expect(container.firstChild).toMatchSnapshot();
 });
