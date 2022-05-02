@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 
 import {
   Accordion,
+  Box,
   Button,
   Grid,
   GridItem,
+  Icon,
   Image,
   Section,
   Text,
 } from '@t3n/components';
+import { MaterialAddAPhoto } from '@t3n/icons';
 
 export default {
   title: 'Components/Content/Accordion',
@@ -50,6 +53,29 @@ export const isOpenStory = () => {
 };
 
 isOpenStory.storyName = 'Initial geöffnet';
+
+export const isJSXElementStory = () => {
+  return (
+    <Section variant="secondary">
+      <Accordion
+        title={
+          <Box display="flex">
+            <Icon component={MaterialAddAPhoto} mr={2} />
+            <Text my={0} bold>
+              Das hier ist ein JSX.Element
+            </Text>
+          </Box>
+        }
+      >
+        Damit dein Profil in der Suche erscheint, muss es zu einem bestimmten
+        Grad ausgefüllt sein. Füll es einfach so gut es geht aus, damit du
+        möglichst gut gefunden werden kannst.
+      </Accordion>
+    </Section>
+  );
+};
+
+isJSXElementStory.storyName = 'Mit JSX.Element statt String als Title';
 
 const MultiAccordions = () => {
   const [open, setOpen] = useState(true);

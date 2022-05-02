@@ -10,7 +10,7 @@ import Heading from '../Heading';
 import Icon from '../Icon';
 
 export interface AccordionProps extends MarginProps {
-  title: string;
+  title: string | JSX.Element;
   initialOpen?: boolean;
 }
 
@@ -69,9 +69,13 @@ const Accordion: React.FC<AccordionProps> = ({
         role="button"
         tabIndex={0}
       >
-        <Heading as="h3" styleAs="h4" m={0}>
-          {title}
-        </Heading>
+        {typeof title === 'string' ? (
+          <Heading as="h3" styleAs="h4" m={0}>
+            {title}
+          </Heading>
+        ) : (
+          title
+        )}
 
         <StyledIconBox bg="shades.grey244" collapsed={collapsed} ml={2}>
           <Icon
