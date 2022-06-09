@@ -185,6 +185,10 @@ const mobileNavLinks: MobileNavLinksType[] = [
     url: '/guides/',
   },
   {
+    label: 'Online-Kurse',
+    url: '/online-kurse/',
+  },
+  {
     label: 'Ratgeber',
     url: '/ratgeber/',
   },

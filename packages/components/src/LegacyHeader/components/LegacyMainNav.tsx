@@ -182,6 +182,10 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/guides/',
       },
       {
+        label: 'Online-Kurse',
+        url: '/online-kurse/',
+      },
+      {
         label: 'Ratgeber',
         url: '/ratgeber/',
       },
