@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { boolean } from '@storybook/addon-knobs';
+import moment from 'moment';
 
 import { Box, DatePicker, Section } from '@t3n/components';
 
@@ -48,3 +49,29 @@ export const TimePickerStory = () => {
 };
 
 TimePickerStory.storyName = 'mit Timepicker';
+
+export const DateRangeStory = () => {
+  const [startDate, setStartDate] = useState<moment.Moment | null>(null);
+  const [endDate, setEndDate] = useState<moment.Moment | null>(null);
+
+  return (
+    <Section>
+      <Box width={[1, 1 / 2]}>
+        <DatePicker
+          isDateRange
+          startDateId="start"
+          endDateId="end"
+          startDate={startDate}
+          endDate={endDate}
+          onChange={(newStartDate, newEndDate) => {
+            setStartDate(newStartDate);
+            setEndDate(newEndDate);
+          }}
+          hideReset={boolean('Ohne Reset', false)}
+        />
+      </Box>
+    </Section>
+  );
+};
+
+DateRangeStory.storyName = 'DateRange';
