@@ -59,8 +59,8 @@ export const DateRangeStory = () => {
       <Box width={[1, 1 / 2]}>
         <DatePicker
           isDateRange
-          startDateId="start"
-          endDateId="end"
+          startDateId="startid"
+          endDateId="endid"
           startDate={startDate}
           endDate={endDate}
           onChange={(newStartDate, newEndDate) => {
