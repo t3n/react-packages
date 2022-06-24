@@ -132,7 +132,7 @@ export declare const socialColors: {
     newsletter: string;
     notifications: string;
 };
-export declare const success = "#34e88f";
+export declare const success = "#3DFF9F";
 export declare const notice = "#5bd6ff";
 export declare const warn = "#ffef4f";
 export declare const error = "#f9423a";

@@ -188,7 +188,7 @@ export const socialColors = {
 };
 
 // FEEDBACK
-export const success = '#34e88f';
+export const success = '#3DFF9F';
 export const notice = '#5bd6ff';
 export const warn = '#ffef4f';
 export const error = red;

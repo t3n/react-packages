@@ -86,3 +86,17 @@ export const variants = () => {
 };
 
 variants.storyName = 'Varianten';
+
+export const greenStory = () => {
+  return (
+    <Badge
+      rounded={boolean('Abgerundet?', false)}
+      small={boolean('Klein?', false)}
+      variant="success"
+    >
+      {text('Badge Text', 'Ratgeber')}
+    </Badge>
+  );
+};
+
+greenStory.storyName = 'Green';

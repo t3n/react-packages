@@ -32,9 +32,9 @@ exports[`Switch variants matches snapshot 1`] = `
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   margin-left: 16px;
-  background-color: #34e88f;
+  background-color: #3DFF9F;
   border: 2px solid;
-  border-color: #34e88f;
+  border-color: #3DFF9F;
 }
 
 .c8 {
@@ -113,7 +113,7 @@ exports[`Switch variants matches snapshot 1`] = `
   transform: translateX(1rem);
   background-color: #fff;
   border: 2px solid;
-  border-color: #34e88f;
+  border-color: #3DFF9F;
 }
 
 .c9 {
@@ -181,7 +181,7 @@ exports[`Switch variants matches snapshot 1`] = `
   transform: translateX(1rem);
   background-color: #2a2a2a;
   border: 2px solid;
-  border-color: #34e88f;
+  border-color: #3DFF9F;
 }
 
 .c17 {
