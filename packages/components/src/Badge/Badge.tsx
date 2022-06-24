@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { space, typography } from 'styled-system';
 
-import { getColorForBackground, ThemeProps } from '@t3n/theme';
+import { getColorForBackground, getThemeColor, ThemeProps } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 export interface BadgeProps {
-  variant?: ThemeBackgroundColor;
+  variant?: ThemeBackgroundColor | 'success';
   small?: boolean;
   rounded?: boolean;
 }
@@ -15,7 +15,11 @@ const background = ({
   variant = 'highlight',
   theme,
 }: BadgeProps & ThemeProps) => `
-  background-color: ${theme.colors.background[variant]};
+  background-color: ${
+    variant === 'success'
+      ? theme.colors.feedback.success
+      : theme.colors.background[variant]
+  };
 `;
 
 const padding = ({ theme, small }: BadgeProps & ThemeProps) =>
@@ -29,7 +33,10 @@ const borderRadius = ({ rounded, theme }: BadgeProps & ThemeProps) =>
 
 const StyledBadge = styled.span<BadgeProps>`
   font-weight: bold;
-  color: ${(props) => getColorForBackground(props.variant || 'highlight')};
+  color: ${(props) =>
+    props.variant === 'success'
+      ? getThemeColor('text.primary')
+      : getColorForBackground(props.variant || 'highlight')};
   ${background};
   ${padding};
   ${fontSize};
