@@ -56,5 +56,17 @@ module.exports = {
       amd: 'moment',
       umd: 'moment',
     },
+    '@emotion/react': {
+      commonjs2: '@emotion/react',
+      commonjs: '@emotion/react',
+      amd: '@emotion/react',
+      umd: '@emotion/react',
+    },
+    '@emotion/styled': {
+      commonjs2: '@emotion/styled',
+      commonjs: '@emotion/styled',
+      amd: '@emotion/styled',
+      umd: '@emotion/styled',
+    },
   },
 };

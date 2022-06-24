@@ -1,15 +1,27 @@
 import 'react-dates/initialize';
 import React from 'react';
 import moment from 'moment';
-export interface DatePickerProps {
+export interface BaseDatePickerProps {
+    highlightToday?: boolean;
+    hideReset?: boolean;
+}
+export interface SingleDatePickerProps extends BaseDatePickerProps {
+    isDateRange?: false;
     id: string;
     withTime?: boolean;
     date: moment.Moment | null;
     onChange: (date: moment.Moment | null) => void;
     isOutsideRange?: (day: moment.Moment) => boolean;
-    highlightToday?: boolean;
-    hideReset?: boolean;
 }
+export interface DateRangePickerProps extends BaseDatePickerProps {
+    isDateRange: true;
+    startDateId: string;
+    endDateId: string;
+    startDate: moment.Moment | null;
+    endDate: moment.Moment | null;
+    onChange: (startDate: moment.Moment | null, endDate: moment.Moment | null) => void;
+}
+export declare type DatePickerProps = SingleDatePickerProps | DateRangePickerProps;
 export interface TimePickerProps {
     focus: boolean;
     date: moment.Moment | null;

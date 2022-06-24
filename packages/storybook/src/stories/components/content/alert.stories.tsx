@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Position } from 'toasted-notes';
 
 import {
   Alert,
@@ -11,6 +10,7 @@ import {
   useToast,
 } from '@t3n/components';
 import { AlertStatus } from '@t3n/components/src/Alert';
+import { NotifyOptions } from '@t3n/components/src/Toast';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
@@ -37,40 +37,33 @@ export const defaultStory = () => (
   </>
 );
 
+const positions = [
+  { position: 'top', label: 'Oben' },
+  { position: 'top-right', label: 'Oben rechts' },
+  { position: 'bottom-right', label: 'Unten rechts' },
+  { position: 'bottom', label: 'Unten' },
+  { position: 'bottom-left', label: 'Unten links' },
+  { position: 'top-left', label: 'Oben links' },
+];
+
 export const ToastStory = () => {
   const [status, setStatus] = useState('success');
   const [text, setText] = useState('Deine Registrierung war erfolgreich');
   const [notify] = useToast();
-
-  const positions = [
-    { position: 'top', label: 'Oben' },
-    { position: 'top-right', label: 'Oben rechts' },
-    { position: 'bottom-right', label: 'Unten rechts' },
-    { position: 'bottom', label: 'Unten' },
-    { position: 'bottom-left', label: 'Unten links' },
-    { position: 'top-left', label: 'Oben links' },
-  ];
 
   return (
     <>
       <Text>Konfiguriere den Toast;</Text>
       <Box display="flex" alignItems="center">
         <select
+          value={status}
           onChange={(e) => setStatus(e.target.value)}
           style={{ marginRight: '2rem' }}
         >
-          <option selected={status === 'warning'} value="warning">
-            Warnung
-          </option>
-          <option selected={status === 'notice'} value="notice">
-            Info
-          </option>
-          <option selected={status === 'success'} value="success">
-            Erfolg
-          </option>
-          <option selected={status === 'error'} value="error">
-            Error
-          </option>
+          <option value="warning">Warnung</option>
+          <option value="notice">Info</option>
+          <option value="success">Erfolg</option>
+          <option value="error">Error</option>
         </select>
         <Input defaultValue={text} onChange={(e) => setText(e.target.value)} />
       </Box>
@@ -80,15 +73,15 @@ export const ToastStory = () => {
         <Button
           key={el.position}
           m={2}
-          onClick={() =>
+          onClick={() => {
             notify({
               text,
               status: status as AlertStatus,
               isClosable: true,
               duration: 9000,
-              position: el.position as keyof typeof Position,
-            })
-          }
+              position: el.position as NotifyOptions['position'],
+            });
+          }}
         >
           {el.label}
         </Button>
