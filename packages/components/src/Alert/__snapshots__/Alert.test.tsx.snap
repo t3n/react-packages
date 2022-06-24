@@ -24,7 +24,7 @@ exports[`Alert Status matches Snapshot 1`] = `
 
 .c1 {
   border-radius: 4px;
-  background-color: #34e88f;
+  background-color: #3DFF9F;
   padding: 16px;
   margin: 8px;
 }
