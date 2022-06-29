@@ -13,8 +13,12 @@ const Wrapper = styled(Box)`
   ${({ theme }) => color({ theme, bg: 'background.secondary' })}
 `;
 
-const LegacyBreadcrumbWrapper = styled(Box)`
-  ${({ theme }) => color({ theme, bg: 'background.primary' })}
+const LegacyBreadcrumbWrapper = styled(Box)<{ secondary?: boolean }>`
+  ${({ theme, secondary }) =>
+    color({
+      theme,
+      bg: secondary ? 'background.secondary' : 'background.primary',
+    })}
   height: 30rem;
 `;
 
@@ -53,3 +57,19 @@ export const scrollingStory = () => (
 );
 
 scrollingStory.storyName = 'Scrolling';
+
+export const greyBackgroundStory = () => (
+  <Wrapper display="flex" justifyContent="center">
+    <Content small>
+      <LegacyBreadcrumbWrapper secondary>
+        <LegacyBreadcrumb secondary>
+          <LegacyBreadcrumbItem label="Home" href="/" />
+          <LegacyBreadcrumbItem label="News" href="/news/" />
+          <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
+        </LegacyBreadcrumb>
+      </LegacyBreadcrumbWrapper>
+    </Content>
+  </Wrapper>
+);
+
+greyBackgroundStory.storyName = 'Grauer Hintergrund';
