@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import {
@@ -102,7 +103,7 @@ export const buttonStyles = css`
       variants: buildColorVariants(variantProp, 'default', theme),
     })}
 
-  &:hover :not(:disabled), &:focus :not(:disabled) {
+  &:hover:not(:disabled), &:focus:not(:disabled) {
     ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
       styledVariant({
         prop: 'color',
