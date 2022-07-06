@@ -8,8 +8,6 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-controls": "^6.4.18",
