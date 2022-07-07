@@ -42,6 +42,7 @@ export interface DateRangePickerProps extends BaseDatePickerProps {
     startDate: moment.Moment | null,
     endDate: moment.Moment | null
   ) => void;
+  isOutsideRange?: (day: moment.Moment) => boolean;
 }
 
 export type DatePickerProps = SingleDatePickerProps | DateRangePickerProps;
@@ -251,6 +252,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
       hideReset,
       highlightToday,
       onChange,
+      isOutsideRange,
     } = props;
 
     return (
@@ -259,6 +261,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
         <DateRangePicker
           readOnly={isMobile}
           withFullScreenPortal={isMobile}
+          isOutsideRange={isOutsideRange || falseFunc}
           orientation={isMobile ? 'vertical' : 'horizontal'}
           numberOfMonths={isMobile ? 1 : 2}
           startDatePlaceholderText="Startdatum"
