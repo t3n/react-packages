@@ -20,7 +20,7 @@ const DateRangePickerGlobalStyles = createGlobalStyle<
   }
 
   .DateInput {
-    width: 45%;
+    width: 47%;
   }
 
   .DateRangePickerInput, .DateRangePicker {
