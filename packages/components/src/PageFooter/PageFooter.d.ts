@@ -1,6 +1,5 @@
 import React from 'react';
 export interface PageFooterProps {
-    contactLink: string;
     showPrivacySettingsLink?: boolean;
     privacySettingsModal?: PrivacyManagerType;
 }
