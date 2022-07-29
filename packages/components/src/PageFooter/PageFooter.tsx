@@ -16,11 +16,11 @@ import {
 import Box from '../Box';
 import Grid from '../Grid';
 import GridItem from '../GridItem';
+import Heading from '../Heading';
 import Link, { createLinkStyle } from '../Link';
 import Text from '../Text';
 
 export interface PageFooterProps {
-  contactLink: string;
   showPrivacySettingsLink?: boolean;
   privacySettingsModal?: PrivacyManagerType;
 }
@@ -75,7 +75,6 @@ const FooterBottom = styled(Box)<BorderProps>`
 
 const SocialLinks = styled(Box)`
   display: flex;
-  justify-content: center;
   align-items: center;
   line-height: 0;
 
@@ -111,7 +110,6 @@ const SocialLink = styled(Link)`
 
 const PageFooter: React.FC<PageFooterProps> = ({
   children,
-  contactLink,
   showPrivacySettingsLink,
   privacySettingsModal,
 }) => (
@@ -124,24 +122,30 @@ const PageFooter: React.FC<PageFooterProps> = ({
     <FooterBottom
       px={[3, 3, 3, 3, 8]}
       py={[4, 4, 4, 4, 0]}
-      height={['auto', 'auto', 'auto', 'auto', '2.5rem']}
       borderTop="1px solid"
       borderColor="shades.grey44"
     >
       <Grid justifyContent="space-between" alignItems="center">
-        <GridItem width={[1, 1, 1, 1, 2 / 5]} order={[1, 1, 1, 1, 0]}>
-          <Text
+        <GridItem width={[1, 1, 1, 1, 2 / 5]}>
+          <Heading
+            as="h5"
             color="shades.grey143"
-            small
-            m={0}
+            my={4}
             align={['center', 'center', 'center', 'center', 'left']}
           >
-            © yeebase media GmbH 2005-
-            {new Date().getFullYear()}
-          </Text>
+            Spreading knowledge & future optimism.
+          </Heading>
         </GridItem>
         <GridItem width={[1, 1, 1, 1, 1 / 5]} mb={[2, 2, 2, 2, 0]}>
-          <SocialLinks>
+          <SocialLinks
+            justifyContent={[
+              'center',
+              'center',
+              'center',
+              'center',
+              'flex-end',
+            ]}
+          >
             <SocialLink
               href="https://facebook.com/t3nMagazin"
               title="Facebook"
@@ -193,14 +197,35 @@ const PageFooter: React.FC<PageFooterProps> = ({
             <SocialLink
               href="https://medium.com/@t3nbackstageblog"
               title="Medium"
-              mx={2}
+              ml={2}
               target="_blank"
             >
               <SocialMedium fill="white" />
             </SocialLink>
           </SocialLinks>
         </GridItem>
-        <GridItem width={[1, 1, 1, 1, 2 / 5]} my={[2, 2, 2, 2, 0]}>
+      </Grid>
+    </FooterBottom>
+    <FooterBottom
+      px={[3, 3, 3, 3, 8]}
+      py={[4, 4, 4, 4, 0]}
+      height={['auto', 'auto', 'auto', 'auto', '2.5rem']}
+      borderTop="1px solid"
+      borderColor="shades.grey44"
+    >
+      <Grid justifyContent="space-between" alignItems="center">
+        <GridItem width={[1, 1, 1, 1, 2 / 5]} order={[1, 1, 1, 1, 0]}>
+          <Text
+            color="shades.grey143"
+            small
+            m={0}
+            align={['center', 'center', 'center', 'center', 'left']}
+          >
+            © yeebase media GmbH 2005-
+            {new Date().getFullYear()}
+          </Text>
+        </GridItem>
+        <GridItem width={[1, 1, 1, 1, 3 / 5]} my={[2, 2, 2, 2, 0]}>
           <FooterLinks
             justifyContent={[
               'center',
@@ -214,52 +239,10 @@ const PageFooter: React.FC<PageFooterProps> = ({
             <Text
               as="span"
               width={[1 / 2, 'auto']}
+              my={[1, 0]}
               align={['right', 'left']}
-              my={[1, 0]}
             >
-              <FooterLink href={contactLink} ml={[2, 2, 2, 0]} mr={2}>
-                Kontakt
-              </FooterLink>
-            </Text>
-            <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
-              <FooterLink href="https://t3n.de/agb/" mx={2}>
-                AGB
-              </FooterLink>
-            </Text>
-            <Text
-              as="span"
-              width={[1 / 2, 'auto']}
-              align={['right', 'left']}
-              my={[1, 0]}
-            >
-              <FooterLink href="https://t3n.de/agb/#widerrufsbelehrung" mx={2}>
-                Widerrufsbelehrung
-              </FooterLink>
-            </Text>
-            <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
-              <FooterLink href="https://t3n.de/impressum/" mx={2}>
-                Impressum
-              </FooterLink>
-            </Text>
-            <Text
-              as="span"
-              width={[1 / 2, 'auto']}
-              my={[1, 0]}
-              align={
-                showPrivacySettingsLink ? ['right', 'left'] : ['center', 'left']
-              }
-            >
-              <FooterLink
-                href="https://t3n.de/datenschutz/"
-                {...(showPrivacySettingsLink
-                  ? {
-                      mx: 2,
-                    }
-                  : {
-                      mr: [2, 2, 2, 0],
-                      ml: 2,
-                    })}
-              >
+              <FooterLink href="https://t3n.de/datenschutz/" mx={2}>
                 Datenschutz
               </FooterLink>
             </Text>
@@ -267,7 +250,6 @@ const PageFooter: React.FC<PageFooterProps> = ({
               <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
                 <FooterLink
                   href="#"
-                  mr={[2, 2, 2, 0]}
                   mx={2}
                   onClick={(e) => {
                     e.preventDefault();
@@ -281,6 +263,58 @@ const PageFooter: React.FC<PageFooterProps> = ({
                 </FooterLink>
               </Text>
             )}
+            <Text
+              as="span"
+              width={[1 / 2, 'auto']}
+              align={
+                showPrivacySettingsLink
+                  ? ['right', 'center']
+                  : ['left', 'center']
+              }
+              my={[1, 0]}
+            >
+              <FooterLink href="https://t3n.de/ab-kuendigen/" mx={2}>
+                Abo kündigen
+              </FooterLink>
+            </Text>
+            <Text
+              as="span"
+              width={[1 / 2, 'auto']}
+              align={
+                showPrivacySettingsLink
+                  ? ['left', 'center']
+                  : ['right', 'center']
+              }
+              my={[1, 0]}
+            >
+              <FooterLink href="https://t3n.de/agb/" mx={2}>
+                AGB
+              </FooterLink>
+            </Text>
+            <Text
+              as="span"
+              width={[1 / 2, 'auto']}
+              align={
+                showPrivacySettingsLink
+                  ? ['right', 'center']
+                  : ['left', 'center']
+              }
+              my={[1, 0]}
+            >
+              <FooterLink href="https://t3n.de/agb/#widerrufsbelehrung" mx={2}>
+                Widerrufsbelehrung
+              </FooterLink>
+            </Text>
+            <Text
+              as="span"
+              width={[1 / 2, 'auto']}
+              align={showPrivacySettingsLink ? ['left', 'center'] : ['center']}
+              my={[1, 0]}
+            >
+              <FooterLink href="https://t3n.de/impressum/" ml={2}>
+                Impressum
+              </FooterLink>
+            </Text>
           </FooterLinks>
         </GridItem>
       </Grid>

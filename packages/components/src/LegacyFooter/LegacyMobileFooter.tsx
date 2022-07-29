@@ -81,22 +81,6 @@ const legacyMobileLinks: MobileLinkType = [
     url: '/mediadaten/de/',
   },
   {
-    label: 'Impressum',
-    url: '/impressum/',
-  },
-  {
-    label: 'Nutzungsbedingungen',
-    url: '/nutzungsbedingungen/',
-  },
-  {
-    label: 'AGB',
-    url: '/agb/',
-  },
-  {
-    label: 'Widerrufsbelehrung',
-    url: '/agb/#widerrufsbelehrung',
-  },
-  {
     label: 'Datenschutz',
     url: '/datenschutz/',
   },
@@ -110,6 +94,22 @@ const legacyMobileLinks: MobileLinkType = [
         privacyManagerIdByType[type]
       );
     },
+  },
+  {
+    label: 'Abo kündigen',
+    url: '/abo-kuendigen/',
+  },
+  {
+    label: 'AGB',
+    url: '/agb/',
+  },
+  {
+    label: 'Widerrufsbelehrung',
+    url: '/agb/#widerrufsbelehrung',
+  },
+  {
+    label: 'Impressum',
+    url: '/impressum/',
   },
 ];
 

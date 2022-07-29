@@ -12,7 +12,6 @@ export interface PageLayoutProps extends PageHeaderProps {
   logoHref?: string;
   initialTransparent?: boolean;
   light?: boolean;
-  contactLink?: string;
   showPrivacySettingsLink?: boolean;
   privacySettingsModal?: PrivacyManagerType;
   headerContent?: JSX.Element;
@@ -41,7 +40,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   headerContent,
   initialTransparent = false,
   footerContent,
-  contactLink = 'mailto:support@t3n.de',
   showPrivacySettingsLink,
   privacySettingsModal,
   light,
@@ -88,7 +86,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         </Content>
       )}
       <PageFooter
-        contactLink={contactLink}
         showPrivacySettingsLink={showPrivacySettingsLink}
         privacySettingsModal={privacySettingsModal}
       >

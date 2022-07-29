@@ -131,14 +131,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/mediadaten/de/',
       },
       {
-        label: 'AGB',
-        url: '/agb/',
-      },
-      {
-        label: 'Widerrufsbelehrung',
-        url: '/agb/#widerrufsbelehrung',
-      },
-      {
         label: 'Datenschutz',
         url: '/datenschutz/',
       },
@@ -152,6 +144,18 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
             privacyManagerIdByType[type]
           );
         },
+      },
+      {
+        label: 'Abo kündigen',
+        url: '/abo-kuendigen/',
+      },
+      {
+        label: 'AGB',
+        url: '/agb/',
+      },
+      {
+        label: 'Widerrufsbelehrung',
+        url: '/agb/#widerrufsbelehrung',
       },
       {
         label: 'Impressum',
@@ -420,9 +424,8 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
     <LegacyDesktopFooterWrapper>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
-          <MissonStatement as="h3" mt={0}>
-            Wir helfen digitalen Pionier:innen, die Zukunft positiv zu
-            gestalten.
+          <MissonStatement as="h3" mt={0} mr={1}>
+            Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>
         <LegacyDesktopLinks privacySettingsModal={privacySettingsModal} />
