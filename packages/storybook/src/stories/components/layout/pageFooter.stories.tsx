@@ -7,12 +7,18 @@ export default {
   component: PageFooter,
 };
 
-export const defaultStory = () => <PageFooter contactLink="mailto:hi@t3n.de" />;
+export const defaultStory = () => <PageFooter />;
 
 defaultStory.storyName = 'Default';
 
+export const privacyManagerStory = () => (
+  <PageFooter showPrivacySettingsLink privacySettingsModal="Pur" />
+);
+
+privacyManagerStory.storyName = 'Privacy Manager';
+
 export const footerLinkStory = () => (
-  <PageFooter contactLink="mailto:hi@t3n.de">
+  <PageFooter>
     <Box display="flex" flexDirection="column" alignItems="flex-start">
       <FooterLink href="#">Testlink #1</FooterLink>
       <FooterLink href="#">Testlink #2</FooterLink>
