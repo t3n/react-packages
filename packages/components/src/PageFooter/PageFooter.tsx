@@ -273,7 +273,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
               }
               my={[1, 0]}
             >
-              <FooterLink href="https://t3n.de/ab-kuendigen/" mx={2}>
+              <FooterLink href="https://t3n.de/abo-kuendigen/" mx={2}>
                 Abo kündigen
               </FooterLink>
             </Text>
