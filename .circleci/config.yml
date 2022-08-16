@@ -103,7 +103,7 @@ jobs:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - 'eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd'
+            - '13:fe:84:a1:b8:4a:45:b3:97:6d:16:ff:de:09:b2:11'
       - run: git config user.email "circleci@t3n.de"
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -119,7 +119,7 @@ jobs:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - 'eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd'
+            - '13:fe:84:a1:b8:4a:45:b3:97:6d:16:ff:de:09:b2:11'
       - run: git config user.email "circleci@t3n.de"
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -135,7 +135,7 @@ jobs:
       - attach_workspace: *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - 'eb:4b:cb:a2:89:6c:87:b3:d7:dc:31:a4:16:8c:56:dd'
+            - '13:fe:84:a1:b8:4a:45:b3:97:6d:16:ff:de:09:b2:11'
       - run: git config user.email "circleci@t3n.de"
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
