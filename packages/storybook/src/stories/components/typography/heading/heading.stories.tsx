@@ -20,7 +20,7 @@ export const sizes = () => (
         <Text my={0}>{h.toUpperCase()}</Text>
         <Heading as={h} mt={0}>
           Private Cloud: Worauf du achten solltest, wenn du dich auf
-          Anbietersuche begibst
+          Anbietersuche begibst!
         </Heading>
       </div>
     ))}
