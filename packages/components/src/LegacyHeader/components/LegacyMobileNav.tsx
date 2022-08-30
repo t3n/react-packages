@@ -9,7 +9,7 @@ import {
   MaterialClose,
   MaterialMenu,
 } from '@t3n/icons';
-import { getColorForBackground, ThemeProps } from '@t3n/theme';
+import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
 import Button from '../../Button';
@@ -20,7 +20,6 @@ import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import Logo from '../../Logo';
 import Text from '../../Text';
 import HeaderCampaign from './LegacyHeaderCampaign';
-import HeaderLink from './LegacyHeaderLink';
 import { Indicator } from './LegacyMainNav';
 
 export interface LegacyMobileNavProps {
