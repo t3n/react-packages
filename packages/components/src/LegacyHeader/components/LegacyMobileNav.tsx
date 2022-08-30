@@ -103,7 +103,7 @@ const MobileMenuItem = styled.a<{ borderTopThick?: boolean }>`
     color({
       theme,
       bg: 'background.primary',
-      color: 'text.primary',
+      color: 'text.secondary',
     })}
 
   &:focus {
@@ -124,7 +124,7 @@ const MobileMenuItem = styled.a<{ borderTopThick?: boolean }>`
     ${({ theme }: ThemeProps) =>
       color({
         theme,
-        color: getColorForBackground('secondary'),
+        color: 'text.primary',
         bg: 'background.primary',
       })}
   }
@@ -308,71 +308,60 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
           </Button>
         </SearchForm>
         {mobileNavLinks.map((link, idx) => (
-          <MobileMenuItem key={idx}>
-            <HeaderLink href={link.url} title={link.label}>
-              <Text
-                m={0}
-                bold={!!link.bold}
-                color={link.bold ? 'text.primary' : 'inherit'}
-              >
-                {link.label}
-                {link.label === 'News' &&
-                  link.indicator &&
-                  typeof newsIndicator === 'number' &&
-                  newsIndicator > 0 && (
-                    <Indicator className="tg-notification-bubble">
-                      {newsIndicator}
-                    </Indicator>
-                  )}
-                {link.label === 'Pro' &&
-                  link.indicator &&
-                  typeof proIndicator === 'number' &&
-                  proIndicator > 0 && (
-                    <Indicator className="tg-notification-bubble">
-                      {proIndicator}
-                    </Indicator>
-                  )}
-              </Text>
-            </HeaderLink>
+          <MobileMenuItem key={idx} href={link.url} title={link.label}>
+            <Text
+              m={0}
+              bold={!!link.bold}
+              color={link.bold ? 'text.primary' : 'inherit'}
+            >
+              {link.label}
+              {link.label === 'News' &&
+                link.indicator &&
+                typeof newsIndicator === 'number' &&
+                newsIndicator > 0 && (
+                  <Indicator className="tg-notification-bubble">
+                    {newsIndicator}
+                  </Indicator>
+                )}
+              {link.label === 'Pro' &&
+                link.indicator &&
+                typeof proIndicator === 'number' &&
+                proIndicator > 0 && (
+                  <Indicator className="tg-notification-bubble">
+                    {proIndicator}
+                  </Indicator>
+                )}
+            </Text>
           </MobileMenuItem>
         ))}
         {user ? (
           <>
-            <MobileMenuItem borderTopThick>
-              <HeaderLink
-                href={`/pioneers/profile/${user.nickName}`}
-                title="Pioneers-Profil"
-              >
-                <Text m={0}>Pioneers-Profil</Text>
-              </HeaderLink>
+            <MobileMenuItem
+              borderTopThick
+              href={`/pioneers/profile/${user.nickName}`}
+              title="Pioneers-Profil"
+            >
+              <Text m={0}>Pioneers-Profil</Text>
             </MobileMenuItem>
-            <MobileMenuItem>
-              <HeaderLink href="/account" title="Konto / Pro">
-                <Text m={0}>Konto / Pro</Text>
-              </HeaderLink>
+            <MobileMenuItem href="/account" title="Konto / Pro">
+              <Text m={0}>Konto / Pro</Text>
             </MobileMenuItem>
-            <MobileMenuItem>
-              <HeaderLink href="/account/merkliste" title="Merkliste">
-                <BookMarkText m={0}>
-                  <Icon
-                    component={MaterialBookmarkBorder}
-                    fill="shades.grey143"
-                  />{' '}
-                  Merkliste
-                </BookMarkText>
-              </HeaderLink>
+            <MobileMenuItem href="/account/merkliste" title="Merkliste">
+              <BookMarkText m={0}>
+                <Icon
+                  component={MaterialBookmarkBorder}
+                  fill="shades.grey143"
+                />{' '}
+                Merkliste
+              </BookMarkText>
             </MobileMenuItem>
-            <MobileMenuItem>
-              <HeaderLink href="/account/logout" title="Abmelden">
-                <Text m={0}>Abmelden</Text>
-              </HeaderLink>
+            <MobileMenuItem href="/account/logout" title="Abmelden">
+              <Text m={0}>Abmelden</Text>
             </MobileMenuItem>
           </>
         ) : (
-          <MobileMenuItem borderTopThick>
-            <HeaderLink href="/account/login" title="Abmelden">
-              <Text m={0}>Anmelden</Text>
-            </HeaderLink>
+          <MobileMenuItem borderTopThick href="/account/login" title="Abmelden">
+            <Text m={0}>Anmelden</Text>
           </MobileMenuItem>
         )}
       </MobileMenuContainer>
