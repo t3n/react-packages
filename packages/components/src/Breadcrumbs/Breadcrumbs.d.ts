@@ -8,6 +8,6 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
         href: string;
     }) => JSX.Element;
 }
-export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => JSX.Element, any, {}, never>;
+export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent, }: BreadcrumbsItemProps) => JSX.Element, any, {}, never>;
 declare const Breadcrumbs: React.FC;
 export default Breadcrumbs;
