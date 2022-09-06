@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import Box from '../Box';
-import useIsMobile from '../hooks/useIsMobile';
 import LegacyAd from '../LegacyAd';
 import LegacyFooter from '../LegacyFooter';
 import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
@@ -43,11 +42,13 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   privacySettingsModal,
   children,
 }) => {
-  const isMobile = useIsMobile();
-
   return (
     <Wrapper>
-      {!isMobile && showP0 && <LegacyAd name="p0" preview={previewP0} />}
+      {showP0 && (
+        <Box display={['none', 'none', 'block']}>
+          <LegacyAd name="p0" preview={previewP0} />
+        </Box>
+      )}
       <LegacyHeader
         user={user}
         userMenuLabelUrl={userMenuLabelUrl}
@@ -62,7 +63,11 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         showAds={showP2}
         adsPreview={previewP2}
       />
-      {isMobile && showP13 && <LegacyAd name="p13" preview={previewP13} />}
+      {showP13 && (
+        <Box display={['block', 'block', 'none']}>
+          <LegacyAd name="p13" preview={previewP13} />
+        </Box>
+      )}
       {children}
       <LegacyFooter privacySettingsModal={privacySettingsModal} />
     </Wrapper>
