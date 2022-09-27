@@ -25,7 +25,7 @@ const MobileHeader = styled(Box)`
   height: 56px;
   top: 0;
   left: 0;
-  z-index: 300;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
