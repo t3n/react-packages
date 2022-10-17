@@ -107,6 +107,10 @@ const t3nNavLinks: T3nNavLinksType[] = [
         label: 'FAQ',
         url: 'https://faq.t3n.de',
       },
+      {
+        label: 'Redaktionelles Leitbild',
+        url: '/redaktion/redaktionelles-leitbild',
+      },
     ],
   },
   {
