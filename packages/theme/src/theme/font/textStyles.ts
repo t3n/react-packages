@@ -25,31 +25,31 @@ export const textBig = {
 export const h1 = {
   fontFamily: 'default',
   fontSize: [4, 5, 6, 7],
-  lineHeight: [1, 1, 1, 0, 0],
+  lineHeight: [1, 1, 1, 0],
 };
 
 export const h2 = {
   fontFamily: 'default',
   fontSize: [3, 4, 5, 5],
-  lineHeight: [1, 1, 1, 1, 1],
+  lineHeight: [1, 1, 1, 1],
 };
 
 export const h3 = {
   fontFamily: 'default',
   fontSize: [2, 3, 4, 4],
-  lineHeight: [2, 1, 1, 1, 1],
+  lineHeight: [2, 1, 1, 1],
 };
 
 export const h4 = {
   fontFamily: 'default',
   fontSize: [2, 2, 3, 3],
-  lineHeight: [2, 2, 1, 1, 1],
+  lineHeight: [2, 2, 1, 1],
 };
 
 export const h5 = {
   fontFamily: 'default',
   fontSize: [2, 2, 2, 2],
-  lineHeight: [2, 2, 2, 2, 1],
+  lineHeight: [2, 2, 2, 2],
 };
 
 export const h6 = {
