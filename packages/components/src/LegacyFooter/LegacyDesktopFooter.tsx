@@ -183,7 +183,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/magazin/',
       },
       {
-        label: 'Podcast',
+        label: 'Podcasts',
         url: '/podcast/',
       },
       {
