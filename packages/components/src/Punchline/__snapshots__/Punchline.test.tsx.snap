@@ -36,6 +36,12 @@ exports[`Punchline machtes snapshot 1`] = `
   }
 }
 
+@media screen and (min-width:90rem) {
+  .c0 {
+    font-size: 2.5rem;
+  }
+}
+
 @media screen and (min-width:30rem) {
   .c0 {
     line-height: 1.333em;
@@ -49,6 +55,12 @@ exports[`Punchline machtes snapshot 1`] = `
 }
 
 @media screen and (min-width:61.25rem) {
+  .c0 {
+    line-height: 1.25em;
+  }
+}
+
+@media screen and (min-width:90rem) {
   .c0 {
     line-height: 1.25em;
   }
