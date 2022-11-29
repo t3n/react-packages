@@ -261,12 +261,6 @@ exports[`Accordion matches snapshot 1`] = `
   }
 }
 
-@media screen and (min-width:90rem) {
-  .c3 {
-    font-size: 1.5rem;
-  }
-}
-
 @media screen and (min-width:30rem) {
   .c3 {
     line-height: 1.5em;
@@ -280,12 +274,6 @@ exports[`Accordion matches snapshot 1`] = `
 }
 
 @media screen and (min-width:61.25rem) {
-  .c3 {
-    line-height: 1.333em;
-  }
-}
-
-@media screen and (min-width:90rem) {
   .c3 {
     line-height: 1.333em;
   }
