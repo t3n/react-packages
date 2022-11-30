@@ -182,7 +182,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/guides/',
       },
       {
-        label: 'Online-Kurse',
+        label: 'Onlinekurse',
         url: '/online-kurse/',
       },
       {
@@ -194,7 +194,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/tests-tools/',
       },
       {
-        label: 'Podcast',
+        label: 'Podcasts',
         url: '/podcast/',
       },
       {
