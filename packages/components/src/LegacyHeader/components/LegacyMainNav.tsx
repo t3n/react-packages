@@ -212,28 +212,28 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
     url: '/tag/',
     dropdownLinks: [
       {
-        label: 'Software & Infrastruktur',
-        url: '/tag/software-infrastruktur/',
+        label: 'Software & Entwicklung',
+        url: '/tag/software-entwicklung/',
       },
       {
-        label: 'Entwicklung & Design',
-        url: '/tag/entwicklung-design/',
+        label: 'UX & Design',
+        url: '/tag/ux-and-design/',
       },
       {
         label: 'Marketing',
         url: '/tag/marketing/',
       },
       {
-        label: 'Gadgets & Lifestyle',
-        url: '/tag/gadgets-lifestyle/',
+        label: 'Hardware & Gadgets',
+        url: '/tag/hardware-gadgets/',
       },
       {
-        label: 'Startups & Wirtschaft',
-        url: '/tag/startups-wirtschaft/',
+        label: 'Startups & Econommy',
+        url: '/tag/startups-economy/',
       },
       {
-        label: 'Karriere',
-        url: '/tag/karriere/',
+        label: 'Arbeitswelt',
+        url: '/tag/arbeitswelt/',
       },
       {
         label: 'E-Commerce',
