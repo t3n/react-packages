@@ -172,7 +172,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Pro',
-        url: '/pro-artikel/',
+        url: '/pro-artikel',
       },
       {
         label: 'News',

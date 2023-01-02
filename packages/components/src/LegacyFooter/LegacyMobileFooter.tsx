@@ -66,7 +66,7 @@ const legacyMobileLinks: MobileLinkType = [
   },
   {
     label: 'Pro',
-    url: '/pro-artikel/',
+    url: '/pro-artikel',
   },
   {
     label: 'Team',
