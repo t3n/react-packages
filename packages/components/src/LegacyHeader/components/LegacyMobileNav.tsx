@@ -167,7 +167,7 @@ const SearchForm = styled.form`
 const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
-    url: '/pro-artikel/',
+    url: '/pro-artikel',
     indicator: true,
   },
   {
