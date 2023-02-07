@@ -133,7 +133,7 @@ export declare const socialColors: {
     notifications: string;
 };
 export declare const success = "#3DFF9F";
-export declare const notice = "#5bd6ff";
+export declare const notice = "#56FEFF";
 export declare const warn = "#ffef4f";
 export declare const error = "#f9423a";
 export declare type ThemeFeedbackColor = 'success' | 'notice' | 'warn' | 'error';
