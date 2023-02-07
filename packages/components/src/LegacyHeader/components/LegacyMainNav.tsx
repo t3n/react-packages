@@ -228,7 +228,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/tag/hardware-gadgets/',
       },
       {
-        label: 'Startups & Econommy',
+        label: 'Startups & Economy',
         url: '/tag/startups-economy/',
       },
       {
