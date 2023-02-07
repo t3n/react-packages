@@ -189,7 +189,7 @@ export const socialColors = {
 
 // FEEDBACK
 export const success = '#3DFF9F';
-export const notice = '#5bd6ff';
+export const notice = '#56FEFF';
 export const warn = '#ffef4f';
 export const error = red;
 

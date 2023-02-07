@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space, SpaceProps, variant } from 'styled-system';
+import { border, space, SpaceProps, variant } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -14,7 +14,14 @@ export interface AlertProps extends SpaceProps {
 }
 
 const AlertBox = styled(Box)<{ status: AlertStatus }>`
-  border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
+  ${({ theme }: ThemeProps) =>
+    border({
+      theme,
+      borderColor: 'shades.grey42',
+      borderWidth: '1px 2px 4px 1px',
+      borderStyle: 'solid',
+      borderRadius: theme.border.radii[1],
+    })}
 
   ${variant({
     prop: 'status',

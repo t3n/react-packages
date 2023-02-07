@@ -37,7 +37,7 @@ exports[`Checkbox has feedback styles 1`] = `
   margin-right: 8px;
   background-color: #fff;
   border: 1px solid;
-  border-color: #5bd6ff;
+  border-color: #56FEFF;
 }
 
 .c6 {
@@ -97,7 +97,7 @@ exports[`Checkbox has feedback styles 1`] = `
   margin-right: 8px;
   background-color: shades.grey44;
   border: 1px solid;
-  border-color: #5bd6ff;
+  border-color: #56FEFF;
 }
 
 .c13 {
@@ -163,7 +163,7 @@ exports[`Checkbox has feedback styles 1`] = `
 }
 
 .c5 svg {
-  fill: #5bd6ff;
+  fill: #56FEFF;
 }
 
 .c7 {
