@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: npm install
-          command: npm ci --unsafe-perm --legacy-peer-deps --allow-root
+          command: npm ci --legacy-peer-deps
           no_output_timeout: 20m
 
       - run: |
