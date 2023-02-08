@@ -21,7 +21,7 @@ export default {
 export const defaultStory = () => (
   <Wrapper display="flex">
     <LegacyFooterWrapper>
-      <LegacyFooter />
+      <LegacyFooter privacyManagerId="123456" />
     </LegacyFooterWrapper>
   </Wrapper>
 );

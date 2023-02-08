@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import Box from '../Box';
-import { PrivacyManagerType } from '../PageFooter';
 import LegacyDesktopFooter from './LegacyDesktopFooter';
 import LegacyMobileFooter from './LegacyMobileFooter';
 
 export interface LegacyFooterProps {
-  privacySettingsModal?: PrivacyManagerType;
+  privacyManagerId: string;
 }
 
 const Footer = styled(Box)`
@@ -16,9 +15,7 @@ const Footer = styled(Box)`
     color({ theme, bg: 'shades.grey232', color: 'text.secondary' })};
 `;
 
-const LegacyFooter: React.FC<LegacyFooterProps> = ({
-  privacySettingsModal,
-}) => {
+const LegacyFooter: React.FC<LegacyFooterProps> = ({ privacyManagerId }) => {
   return (
     <Footer
       className="tg-footer"
@@ -27,10 +24,10 @@ const LegacyFooter: React.FC<LegacyFooterProps> = ({
       pb={['5rem', '5rem', '1.5625rem']}
     >
       <Box display={['block', 'block', 'none']}>
-        <LegacyMobileFooter privacySettingsModal={privacySettingsModal} />
+        <LegacyMobileFooter privacyManagerId={privacyManagerId} />
       </Box>
       <Box display={['none', 'none', 'block']}>
-        <LegacyDesktopFooter privacySettingsModal={privacySettingsModal} />
+        <LegacyDesktopFooter privacyManagerId={privacyManagerId} />
       </Box>
     </Footer>
   );

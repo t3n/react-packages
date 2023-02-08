@@ -6,16 +6,15 @@ import Box from '../Box';
 import LegacyAd from '../LegacyAd';
 import LegacyFooter from '../LegacyFooter';
 import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
-import { PrivacyManagerType } from '../PageFooter';
 
 export interface LegacyPageLayoutProps extends LegacyHeaderProps {
+  privacyManagerId: string;
   showP0?: boolean;
   previewP0?: boolean;
   showP2?: boolean;
   previewP2?: boolean;
   showP13?: boolean;
   previewP13?: boolean;
-  privacySettingsModal?: PrivacyManagerType;
 }
 
 const Wrapper = styled(Box)`
@@ -23,6 +22,7 @@ const Wrapper = styled(Box)`
 `;
 
 const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
+  privacyManagerId,
   user,
   userMenuLabelUrl,
   userMenuLinkGroups,
@@ -39,7 +39,6 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   previewP2,
   showP13,
   previewP13,
-  privacySettingsModal,
   children,
 }) => {
   return (
@@ -69,7 +68,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         </Box>
       )}
       {children}
-      <LegacyFooter privacySettingsModal={privacySettingsModal} />
+      <LegacyFooter privacyManagerId={privacyManagerId} />
     </Wrapper>
   );
 };

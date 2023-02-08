@@ -12,7 +12,7 @@ export const defaultStory = () => <PageFooter />;
 defaultStory.storyName = 'Default';
 
 export const privacyManagerStory = () => (
-  <PageFooter showPrivacySettingsLink privacySettingsModal="Pur" />
+  <PageFooter showPrivacySettingsLink privacyManagerId="123456" />
 );
 
 privacyManagerStory.storyName = 'Privacy Manager';
