@@ -23,7 +23,7 @@ export default {
 export const defaultStory = () => (
   <>
     <Alert status="success" m={2}>
-      <AlertText>Dies ist eine Erolgsmeldung</AlertText>
+      <AlertText>Dies ist eine Erfolgsmeldung</AlertText>
     </Alert>
     <Alert status="notice" m={2}>
       <AlertText>Merke dir dies und das!</AlertText>

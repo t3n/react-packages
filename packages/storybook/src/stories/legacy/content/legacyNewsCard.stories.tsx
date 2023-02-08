@@ -13,7 +13,7 @@ import {
 } from '../../components/content/__generated__/recentNews';
 
 export default {
-  title: 'Legacy/Content/News-Card',
+  title: 'Legacy/Content/NewsCard',
   component: LegacyNewsCard,
 };
 
