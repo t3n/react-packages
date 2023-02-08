@@ -26,7 +26,7 @@ export const defaultStory = () => {
       showHeader={showHeader}
       light={boolean('Helle Variante Header', false)}
       showPrivacySettingsLink
-      privacySettingsModal="Pur"
+      privacyManagerId="123456"
     >
       Content
     </PageLayout>
@@ -51,7 +51,7 @@ export const withTransparentHeader = () => {
         />
       }
       showPrivacySettingsLink
-      privacySettingsModal="Pur"
+      privacyManagerId="123456"
     >
       <VisualSection variant="highlight">
         <Content>

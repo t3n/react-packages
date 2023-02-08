@@ -3,7 +3,7 @@ import { useScrollYPosition } from 'react-use-scroll-position';
 import styled from 'styled-components';
 
 import Content from '../Content';
-import PageFooter, { PrivacyManagerType } from '../PageFooter';
+import PageFooter from '../PageFooter';
 import PageHeader, { PageHeaderProps } from '../PageHeader';
 
 export interface PageLayoutProps extends PageHeaderProps {
@@ -13,7 +13,7 @@ export interface PageLayoutProps extends PageHeaderProps {
   initialTransparent?: boolean;
   light?: boolean;
   showPrivacySettingsLink?: boolean;
-  privacySettingsModal?: PrivacyManagerType;
+  privacyManagerId?: string;
   headerContent?: JSX.Element;
   footerContent?: JSX.Element;
 }
@@ -34,6 +34,7 @@ const PageLayoutContainer = styled.div`
 `;
 
 const PageLayout: React.FC<PageLayoutProps> = ({
+  privacyManagerId,
   showHeader = true,
   logoHref,
   noContentPadding,
@@ -41,7 +42,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   initialTransparent = false,
   footerContent,
   showPrivacySettingsLink,
-  privacySettingsModal,
   light,
   children,
 }) => {
@@ -87,7 +87,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       )}
       <PageFooter
         showPrivacySettingsLink={showPrivacySettingsLink}
-        privacySettingsModal={privacySettingsModal}
+        privacyManagerId={privacyManagerId}
       >
         {footerContent}
       </PageFooter>

@@ -98,6 +98,7 @@ export const defaultStory: Story = () => {
     <Wrapper display="flex">
       <LegacyPageLayoutWrapper>
         <LegacyPageLayout
+          privacyManagerId="123456"
           user={standardUser}
           userMenuLabelUrl="/account/"
           userMenuLinkGroups={standardLinkGroup}
@@ -155,6 +156,7 @@ export const notLoggedInStory: Story = () => (
   <Wrapper display="flex">
     <LegacyPageLayoutWrapper>
       <LegacyPageLayout
+        privacyManagerId="123456"
         userMenuLabelUrl="/account/"
         userMenuLinkGroups={standardLinkGroup}
         tags={tagNavTags}
@@ -203,6 +205,7 @@ export const adZonesStory: Story = () => {
     <Wrapper display="flex">
       <LegacyPageLayoutWrapper>
         <LegacyPageLayout
+          privacyManagerId="123456"
           user={standardUser}
           userMenuLabelUrl="/account/"
           userMenuLinkGroups={standardLinkGroup}

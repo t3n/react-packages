@@ -1,13 +1,8 @@
 import React from 'react';
 export interface PageFooterProps {
     showPrivacySettingsLink?: boolean;
-    privacySettingsModal?: PrivacyManagerType;
+    privacyManagerId?: string;
 }
-export declare type PrivacyManagerType = 'Pur' | 'Standard';
-export declare const privacyManagerIdByType: {
-    Pur: number;
-    Standard: number;
-};
 export declare const FooterLink: import("styled-components").StyledComponent<"a", any, import("../Link").LinkProps & {
     small: boolean;
 }, "small">;

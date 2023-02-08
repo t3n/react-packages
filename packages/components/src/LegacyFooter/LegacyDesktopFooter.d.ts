@@ -1,5 +1,4 @@
 import React from 'react';
-import { PrivacyManagerType } from '../PageFooter';
 export declare type DesktopLinkGroupsType = {
     label: string;
     links: {
@@ -9,11 +8,11 @@ export declare type DesktopLinkGroupsType = {
         target?: string;
         rel?: string;
         bold?: boolean;
-        onClick?: (e: React.MouseEvent, privacySettingsModal?: PrivacyManagerType) => void;
+        onClick?: (e: React.MouseEvent, privacyManagerId?: string) => void;
     }[];
 }[];
 export interface LegacyDesktopFooterProps {
-    privacySettingsModal?: PrivacyManagerType;
+    privacyManagerId: string;
 }
 declare const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps>;
 export default LegacyDesktopFooter;

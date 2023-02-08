@@ -22,15 +22,8 @@ import Text from '../Text';
 
 export interface PageFooterProps {
   showPrivacySettingsLink?: boolean;
-  privacySettingsModal?: PrivacyManagerType;
+  privacyManagerId?: string;
 }
-
-export type PrivacyManagerType = 'Pur' | 'Standard';
-
-export const privacyManagerIdByType = {
-  Pur: 574850,
-  Standard: 585431,
-};
 
 const FooterLinks = styled(Box)`
   width: 100%;
@@ -111,7 +104,7 @@ const SocialLink = styled(Link)`
 const PageFooter: React.FC<PageFooterProps> = ({
   children,
   showPrivacySettingsLink,
-  privacySettingsModal,
+  privacyManagerId,
 }) => (
   <Box width="100%" bg="black">
     {children && (
@@ -246,7 +239,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
                 Datenschutz
               </FooterLink>
             </Text>
-            {showPrivacySettingsLink && (
+            {showPrivacySettingsLink && privacyManagerId ? (
               <Text as="span" width={[1 / 2, 'auto']} my={[1, 0]}>
                 <FooterLink
                   href="#"
@@ -255,19 +248,19 @@ const PageFooter: React.FC<PageFooterProps> = ({
                     e.preventDefault();
                     // eslint-disable-next-line no-underscore-dangle
                     (window as any)._sp_.loadPrivacyManagerModal(
-                      privacyManagerIdByType[privacySettingsModal || 'Standard']
+                      privacyManagerId
                     );
                   }}
                 >
                   Cookies & Tracking
                 </FooterLink>
               </Text>
-            )}
+            ) : null}
             <Text
               as="span"
               width={[1 / 2, 'auto']}
               align={
-                showPrivacySettingsLink
+                showPrivacySettingsLink && privacyManagerId
                   ? ['right', 'center']
                   : ['left', 'center']
               }
@@ -281,7 +274,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
               as="span"
               width={[1 / 2, 'auto']}
               align={
-                showPrivacySettingsLink
+                showPrivacySettingsLink && privacyManagerId
                   ? ['left', 'center']
                   : ['right', 'center']
               }
@@ -295,7 +288,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
               as="span"
               width={[1 / 2, 'auto']}
               align={
-                showPrivacySettingsLink
+                showPrivacySettingsLink && privacyManagerId
                   ? ['right', 'center']
                   : ['left', 'center']
               }
@@ -308,7 +301,11 @@ const PageFooter: React.FC<PageFooterProps> = ({
             <Text
               as="span"
               width={[1 / 2, 'auto']}
-              align={showPrivacySettingsLink ? ['left', 'center'] : ['center']}
+              align={
+                showPrivacySettingsLink && privacyManagerId
+                  ? ['left', 'center']
+                  : ['center']
+              }
               my={[1, 0]}
             >
               <FooterLink href="https://t3n.de/impressum/" ml={2}>
