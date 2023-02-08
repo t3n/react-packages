@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert Status matches Snapshot 1`] = `
+exports[`NoticeBox Status matches Snapshot 1`] = `
 .c0 {
   padding: 16px;
   margin: 8px;
@@ -23,30 +23,11 @@ exports[`Alert Status matches Snapshot 1`] = `
 }
 
 .c1 {
-  border-radius: 4px;
-  background-color: #3DFF9F;
-  padding: 16px;
-  margin: 8px;
-}
-
-.c3 {
+  border-color: #2a2a2a;
+  border-width: 1px 2px 4px 1px;
+  border-style: solid;
   border-radius: 4px;
   background-color: #56FEFF;
-  padding: 16px;
-  margin: 8px;
-}
-
-.c4 {
-  border-radius: 4px;
-  background-color: #ffef4f;
-  padding: 16px;
-  margin: 8px;
-}
-
-.c5 {
-  border-radius: 4px;
-  background-color: #f9423a;
-  color: #fff;
   padding: 16px;
   margin: 8px;
 }
@@ -73,39 +54,6 @@ exports[`Alert Status matches Snapshot 1`] = `
       width="100%"
     >
       Dies ist eine Erfolgsmeldung
-    </p>
-  </div>
-  <div
-    class="c0 c3"
-    display="flex"
-  >
-    <p
-      class="c2"
-      width="100%"
-    >
-      Merke dir dies und das!
-    </p>
-  </div>
-  <div
-    class="c0 c4"
-    display="flex"
-  >
-    <p
-      class="c2"
-      width="100%"
-    >
-      Dies ist eine Warnung!
-    </p>
-  </div>
-  <div
-    class="c0 c5"
-    display="flex"
-  >
-    <p
-      class="c2"
-      width="100%"
-    >
-      So geht das nicht. Error!
     </p>
   </div>
 </div>

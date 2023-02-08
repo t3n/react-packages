@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListBox Status matches Snapshot 1`] = `
+.c0 {
+  padding: 16px;
+}
+
+.c1 {
+  border-color: #2a2a2a;
+  border-width: 1px 2px 4px 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+@media screen and (min-width:30rem) {
+  .c0 {
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width:48rem) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width:61.25rem) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+<div>
+  <div
+    class="c0 c1"
+  >
+    Dies ist eine Listbox.
+  </div>
+</div>
+`;
