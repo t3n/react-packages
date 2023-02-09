@@ -32,6 +32,22 @@ exports[`NoticeBox Status matches Snapshot 1`] = `
   margin: 8px;
 }
 
+.c1 a {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDE0MywxNDMsMTQzKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
+}
+
+.c1 a:visited,
+.c1 a:hover,
+.c1 a:focus {
+  color: #2a2a2a;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-repeat: repeat-x;
+  background-size: 1px 1px;
+  background-position: 0 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDI0OSw2Niw1OCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIC8+PC9nPjwvc3ZnPg==');
+}
+
 @media screen and (min-width:30rem) {
   .c2 {
     line-height: 1.5em;

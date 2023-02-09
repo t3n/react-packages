@@ -34,6 +34,7 @@ const AlertBox = styled(Box)<{ status: AlertStatus }>`
       },
     },
   })}
+
   ${space};
 `;
 

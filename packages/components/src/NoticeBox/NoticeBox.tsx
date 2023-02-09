@@ -17,6 +17,25 @@ const StyledNoticeBox = styled(Box)`
   ${({ theme }) => color({ theme, bg: 'feedback.notice' })}
 
   ${space};
+
+  a {
+    background-image: url('data:image/svg+xml;base64,${btoa(
+      '<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="rgb(143,143,143)"><rect x="0" y="0" width="1" height="1" /></g></svg>'
+    )}');
+  }
+
+  a:visited,
+  a:hover,
+  a:focus {
+    color: #2a2a2a;
+    text-decoration: none;
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+    background-position: 0 100%;
+    background-image: url('data:image/svg+xml;base64,${btoa(
+      '<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="rgb(249,66,58)"><rect x="0" y="0" width="1" height="1" /></g></svg>'
+    )}');
+  }
 `;
 
 export const NoticeBoxText: React.FC = ({ children }) => {
