@@ -83,6 +83,7 @@ module.exports = {
     '../src/stories/legacy/layout/legacyHeader.stories',
     '../src/stories/legacy/layout/legacyPagination.stories',
     '../src/stories/legacy/layout/legacyPageLayout.stories',
+    '../src/stories/legacy/layout/legacySection.stories',
 
     // Legacy - Content
     '../src/stories/legacy/content/legacyAd.stories',

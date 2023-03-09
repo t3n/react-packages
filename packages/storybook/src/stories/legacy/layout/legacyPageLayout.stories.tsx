@@ -11,7 +11,7 @@ import {
   LegacyBreadcrumb,
   LegacyBreadcrumbItem,
   LegacyPageLayout,
-  Section,
+  LegacySection,
   Text,
   VisualSection,
 } from '@t3n/components';
@@ -109,41 +109,32 @@ export const defaultStory: Story = () => {
           newsIndicator={number('News Indikator', 3)}
           proIndicator={number('Pro Indikator', 1)}
         >
-          <Content>
-            <LegacyBreadcrumb>
-              <LegacyBreadcrumbItem label="Home" href="/" />
-              <LegacyBreadcrumbItem label="News" href="/news/" />
-              <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
-            </LegacyBreadcrumb>
-          </Content>
-          <VisualSection variant="highlight">
-            <Content>
-              <H1 mb={8} color="shades.white">
-                Some Headline
-              </H1>
-            </Content>
-          </VisualSection>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="secondary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="secondary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="secondary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
+          <LegacyBreadcrumb>
+            <LegacyBreadcrumbItem label="Home" href="/" />
+            <LegacyBreadcrumbItem label="News" href="/news/" />
+            <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
+          </LegacyBreadcrumb>
+          <LegacySection variant="primary" narrow>
+            <Text my={9}>Narrow Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="secondary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="primary" wide>
+            <Text my={9}>Wide Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="secondary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="primary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="secondary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="primary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
         </LegacyPageLayout>
       </LegacyPageLayoutWrapper>
     </Wrapper>
@@ -172,27 +163,27 @@ export const notLoggedInStory: Story = () => (
             </H1>
           </Content>
         </VisualSection>
-        <Section variant="primary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
-        <Section variant="secondary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
-        <Section variant="primary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
-        <Section variant="secondary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
-        <Section variant="primary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
-        <Section variant="secondary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
-        <Section variant="primary">
-          <Text my={9}>Dummy Section</Text>
-        </Section>
+        <LegacySection variant="primary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
+        <LegacySection variant="secondary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
+        <LegacySection variant="primary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
+        <LegacySection variant="secondary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
+        <LegacySection variant="primary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
+        <LegacySection variant="secondary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
+        <LegacySection variant="primary">
+          <Text my={9}>Dummy LegacySection</Text>
+        </LegacySection>
       </LegacyPageLayout>
     </LegacyPageLayoutWrapper>
   </Wrapper>
@@ -221,27 +212,27 @@ export const adZonesStory: Story = () => {
           showP13={boolean('Show p13', true)}
           previewP13={boolean('Preview p13', true)}
         >
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="secondary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="secondary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="secondary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
-          <Section variant="primary">
-            <Text my={9}>Dummy Section</Text>
-          </Section>
+          <LegacySection variant="primary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="secondary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="primary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="secondary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="primary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="secondary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
+          <LegacySection variant="primary">
+            <Text my={9}>Dummy LegacySection</Text>
+          </LegacySection>
         </LegacyPageLayout>
       </LegacyPageLayoutWrapper>
     </Wrapper>
