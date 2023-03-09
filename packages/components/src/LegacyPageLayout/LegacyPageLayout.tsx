@@ -67,7 +67,9 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
           <LegacyAd name="p13" preview={previewP13} />
         </Box>
       )}
-      {children}
+      <Box px="20px" display="flex" flexDirection="column">
+        {children}
+      </Box>
       <LegacyFooter privacyManagerId={privacyManagerId} />
     </Wrapper>
   );

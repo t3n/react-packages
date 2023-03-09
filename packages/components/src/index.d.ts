@@ -39,6 +39,7 @@ export { default as LegacyHeader } from './LegacyHeader';
 export { default as LegacyNewsCard } from './LegacyNewsCard';
 export { default as LegacyPageLayout } from './LegacyPageLayout';
 export { default as LegacyPagination } from './LegacyPagination';
+export { default as LegacySection } from './LegacySection';
 export { default as LegacySocialBar } from './LegacySocialBar';
 export { default as LegacyUserMenu } from './LegacyUserMenu';
 export { default as Link } from './Link';
