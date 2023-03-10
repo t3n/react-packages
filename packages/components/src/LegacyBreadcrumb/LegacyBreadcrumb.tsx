@@ -7,7 +7,8 @@ import Box from '../Box';
 const LegacyBreadcrumbWrapper = styled.nav<{ secondary?: boolean }>`
   height: 28px;
   position: relative;
-  ${({ theme }) => space({ pt: 2, mb: [2, 2, 4], theme })}
+  ${({ theme }) =>
+    space({ pt: 2, mb: [2, 2, 4], mx: ['16px', '16px', '20px'], theme })}
 
   &:after {
     content: '';
@@ -50,20 +51,15 @@ const LegacyBreadcrumb: React.FC<{ secondary?: boolean }> = ({
   if (secondary) {
     return (
       <Box mx="-20px" bg="background.secondary">
-        <Box mx={['16px', '16px', '20px']}>
-          <LegacyBreadcrumbWrapper
-            aria-label="Breadcrumb"
-            secondary={secondary}
-          >
-            <LegacyBreadcrumbList>{children}</LegacyBreadcrumbList>
-          </LegacyBreadcrumbWrapper>
-        </Box>
+        <LegacyBreadcrumbWrapper aria-label="Breadcrumb" secondary={secondary}>
+          <LegacyBreadcrumbList>{children}</LegacyBreadcrumbList>
+        </LegacyBreadcrumbWrapper>
       </Box>
     );
   }
 
   return (
-    <Box mx={['16px', '16px', 0]}>
+    <Box mx="-20px">
       <LegacyBreadcrumbWrapper aria-label="Breadcrumb">
         <LegacyBreadcrumbList>{children}</LegacyBreadcrumbList>
       </LegacyBreadcrumbWrapper>
