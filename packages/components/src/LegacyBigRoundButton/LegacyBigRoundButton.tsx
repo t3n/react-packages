@@ -12,6 +12,7 @@ export interface LegacyBigRoundButtonProps extends MarginProps {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   url: string;
   tooltipText: string;
+  rel?: string;
 }
 
 const MarginTopTooltip = styled(Tooltip)`
@@ -44,6 +45,7 @@ const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
   icon,
   url,
   tooltipText,
+  rel,
   ...marginProps
 }) => {
   return (
@@ -52,7 +54,7 @@ const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
       position="relative"
       {...marginProps}
     >
-      <BigRoundButton href={url}>
+      <BigRoundButton href={url} rel={rel}>
         <Icon component={icon} />
       </BigRoundButton>
       <MarginTopTooltip>{tooltipText}</MarginTopTooltip>

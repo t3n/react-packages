@@ -15,6 +15,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   previewP2?: boolean;
   showP13?: boolean;
   previewP13?: boolean;
+  overflow?: string;
 }
 
 const Wrapper = styled(Box)`
@@ -39,6 +40,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   previewP2,
   showP13,
   previewP13,
+  overflow,
   children,
 }) => {
   return (
@@ -67,7 +69,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
           <LegacyAd name="p13" preview={previewP13} />
         </Box>
       )}
-      <Box px="20px" display="flex" flexDirection="column">
+      <Box px="20px" display="flex" flexDirection="column" overflow={overflow}>
         {children}
       </Box>
       <LegacyFooter privacyManagerId={privacyManagerId} />

@@ -63,9 +63,11 @@ const LegacyBreadcrumb: React.FC<{ secondary?: boolean }> = ({
   }
 
   return (
-    <LegacyBreadcrumbWrapper aria-label="Breadcrumb">
-      <LegacyBreadcrumbList>{children}</LegacyBreadcrumbList>
-    </LegacyBreadcrumbWrapper>
+    <Box mx={['16px', '16px', 0]}>
+      <LegacyBreadcrumbWrapper aria-label="Breadcrumb">
+        <LegacyBreadcrumbList>{children}</LegacyBreadcrumbList>
+      </LegacyBreadcrumbWrapper>
+    </Box>
   );
 };
 

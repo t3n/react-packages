@@ -17,6 +17,7 @@ export const defaultStory = () => {
       icon={MaterialRssFeed}
       url="https://t3n.de"
       tooltipText="Das ist der Tooltip-Text!"
+      rel="nofollow"
     />
   );
 };

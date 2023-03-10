@@ -8,6 +8,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
     previewP2?: boolean;
     showP13?: boolean;
     previewP13?: boolean;
+    overflow?: string;
 }
 declare const LegacyPageLayout: React.FC<LegacyPageLayoutProps>;
 export default LegacyPageLayout;
