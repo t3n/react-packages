@@ -16,6 +16,7 @@ import {
   VisualSection,
 } from '@t3n/components';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
+import { AdNamesType } from '@t3n/components/src/LegacyPageLayout';
 import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 
 const Wrapper = styled(Box)`
@@ -192,6 +193,14 @@ export const notLoggedInStory: Story = () => (
 notLoggedInStory.storyName = 'Not logged in';
 
 export const adZonesStory: Story = () => {
+  const adUnitsToShow: AdNamesType[] = [
+    boolean('Show desktopTop', true) ? 'desktopTop' : null,
+    boolean('Show desktopSidebar1', true) ? 'desktopSidebar1' : null,
+    boolean('Show mobileIncontent1', true) ? 'mobileIncontent1' : null,
+    // Füge hier weitere AdUnits hinzu, falls erforderlich
+  ].filter((unit): unit is AdNamesType => unit !== null);
+
+  const previewAdUnits = boolean('Preview AdUnits', true);
   return (
     <Wrapper display="flex">
       <LegacyPageLayoutWrapper>
@@ -205,12 +214,8 @@ export const adZonesStory: Story = () => {
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
           newsIndicator={number('Indikator', 3)}
-          showP0={boolean('Show p0', true)}
-          previewP0={boolean('Preview p0', true)}
-          showP2={boolean('Show p2', true)}
-          previewP2={boolean('Preview p2', true)}
-          showP13={boolean('Show p13', true)}
-          previewP13={boolean('Preview p13', true)}
+          adUnitsToShow={adUnitsToShow}
+          previewAdUnits={previewAdUnits}
         >
           <LegacySection variant="primary">
             <Text my={9}>Dummy LegacySection</Text>

@@ -5,25 +5,33 @@ import { color } from 'styled-system';
 import Ad, { AdProps } from '../Ad';
 
 export type LegacyAdName =
-  | 'p0'
-  | 'p1'
-  | 'p2'
-  | 'p3'
-  | 'p4'
-  | 'p5'
-  | 'p6'
-  | 'p7'
-  | 'p8'
-  | 'p11'
-  | 'p12'
-  | 'p13'
-  | 'p14'
-  | 'p15'
-  | 'p16'
-  | 'p17'
-  | 'p18'
-  | 'p19'
-  | 'p20';
+  | 'T3N_D_Right'
+  | 'T3N_D_Incontent-1'
+  | 'T3N_D_Top'
+  | 'T3N_D_Incontent-2'
+  | 'T3N_D_Incontent-3'
+  | 'T3N_D_Incontent-4'
+  | 'T3N_D_Incontent-5'
+  | 'T3N_D_Incontent-6'
+  | 'T3N_D_Incontent-7'
+  | 'T3N_D_Incontent-8'
+  | 'T3N_D_Incontent-9'
+  | 'T3N_D_Incontent-10'
+  | 'T3N_D_Incontent-11'
+  | 'T3N_D_Sidebar-1'
+  | 'T3N_D_Sidebar-2'
+  | 'T3N_D_Sidebar-3'
+  | 'T3N_M_Incontent-1'
+  | 'T3N_M_Incontent-2'
+  | 'T3N_M_Incontent-3'
+  | 'T3N_M_Incontent-4'
+  | 'T3N_M_Incontent-5'
+  | 'T3N_M_Incontent-6'
+  | 'T3N_M_Incontent-7'
+  | 'T3N_M_Incontent-8'
+  | 'T3N_M_Incontent-9'
+  | 'T3N_M_Incontent-10'
+  | 'T3N_M_Sticky';
 
 export interface LegacyAdProps extends Pick<AdProps, 'preview'> {
   name: LegacyAdName;
@@ -37,7 +45,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
   }
 
   ${({ name, theme }) =>
-    name === 'p0'
+    name === 'T3N_D_Top'
       ? css`
           ${color({
             theme,
@@ -51,7 +59,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
       : ''}
 
   ${({ name, theme }) =>
-    name === 'p1'
+    name === 'T3N_D_Incontent-1'
       ? css`
           min-height: 260px;
           display: flex;
@@ -78,7 +86,7 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
   ${({ name, preview }) =>
-    name === 'p2'
+    name === 'T3N_D_Right'
       ? css`
           width: auto !important;
           ${preview ? 'height: auto !important;' : ''}
@@ -98,9 +106,18 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
   ${({ name }) =>
-    ['p0', 'p4', 'p6', 'p8', 'p13', 'p14', 'p16', 'p17', 'p18', 'p19'].includes(
-      name
-    )
+    [
+      'T3N_D_Top',
+      'T3N_D_Incontent-3',
+      'T3N_D_Incontent-5',
+      'T3N_D_Incontent-6',
+      'T3N_D_Incontent-2',
+      'T3N_D_Incontent-11',
+      'T3N_D_Incontent-7',
+      'T3N_D_Incontent-8',
+      'T3N_D_Incontent-9',
+      'T3N_D_Incontent-10',
+    ].includes(name)
       ? css`
           #${name} {
             text-align: center;
@@ -109,18 +126,17 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
       : ''}
   ${({ name }) =>
     [
-      'p3',
-      'p4',
-      'p5',
-      'p6',
-      'p7',
-      'p8',
-      'p11',
-      'p13',
-      'p16',
-      'p17',
-      'p18',
-      'p19',
+      'T3N_D_Incontent-3',
+      'T3N_D_Incontent-5',
+      'T3N_D_Incontent-6',
+      'T3N_D_Sidebar-1',
+      'T3N_D_Sidebar-2',
+      'T3N_D_Sidebar-3',
+      'T3N_D_Incontent-2',
+      'T3N_D_Incontent-7',
+      'T3N_D_Incontent-8',
+      'T3N_D_Incontent-9',
+      'T3N_D_Incontent-10',
     ].includes(name)
       ? css`
           #${name} {
@@ -129,7 +145,16 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
   ${({ name }) =>
-    ['p4', 'p6', 'p8', 'p11', 'p13', 'p16', 'p17', 'p18', 'p19'].includes(name)
+    [
+      'T3N_D_Incontent-3',
+      'T3N_D_Incontent-5',
+      'T3N_D_Incontent-6',
+      'T3N_D_Incontent-2',
+      'T3N_D_Incontent-7',
+      'T3N_D_Incontent-8',
+      'T3N_D_Incontent-9',
+      'T3N_D_Incontent-10',
+    ].includes(name)
       ? css`
           #${name} {
             margin-top: 20px;
@@ -137,7 +162,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
   ${({ name, theme }) =>
-    ['p3', 'p5', 'p7', 'p3', 'p4', 'p6'].includes(name)
+    [
+      'T3N_D_Sidebar-1',
+      'T3N_D_Sidebar-3',
+      'T3N_D_Sidebar-2',
+      'T3N_D_Sidebar-1',
+      'T3N_D_Incontent-3',
+      'T3N_D_Incontent-5',
+    ].includes(name)
       ? css`
           #${name} {
             ${color({
@@ -156,9 +188,18 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
   ${({ name }) =>
-    ['p3', 'p4', 'p5', 'p6', 'p7', 'p13', 'p16', 'p17', 'p18', 'p19'].includes(
-      name
-    )
+    [
+      'T3N_D_Incontent-3',
+      'T3N_D_Incontent-5',
+      'T3N_D_Sidebar-1',
+      'T3N_D_Sidebar-2',
+      'T3N_D_Sidebar-3',
+      'T3N_D_Incontent-2',
+      'T3N_D_Incontent-7',
+      'T3N_D_Incontent-8',
+      'T3N_D_Incontent-9',
+      'T3N_D_Incontent-10',
+    ].includes(name)
       ? css`
           #${name} {
             min-height: 250px;
@@ -194,7 +235,13 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
 
   /* Mobile overwrites */
   ${({ name, theme }) =>
-    ['p1', 'p3', 'p5', 'p7', 'p3'].includes(name)
+    [
+      'T3N_D_Incontent-1',
+      'T3N_D_Sidebar-1',
+      'T3N_D_Sidebar-3',
+      'T3N_D_Sidebar-2',
+      'T3N_D_Sidebar-1',
+    ].includes(name)
       ? css`
           @media screen and (max-width: ${theme.breakpoints[1]}) {
             #${name} {
@@ -206,7 +253,15 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
       ${({ name, theme }) =>
-    ['p4', 'p6', 'p13', 'p16', 'p17', 'p18', 'p19'].includes(name)
+    [
+      'T3N_M_Incontent-2',
+      'T3N_M_Incontent-4',
+      'T3N_M_Incontent-1',
+      'T3N_M_Incontent-6',
+      'T3N_M_Incontent-7',
+      'T3N_M_Incontent-8',
+      'T3N_M_Incontent-9',
+    ].includes(name)
       ? css`
           @media screen and (max-width: ${theme.breakpoints[1]}) {
             #${name} {
@@ -220,7 +275,14 @@ const StyledLegacyAd = styled(Ad)<LegacyAdProps>`
         `
       : ''}
       ${({ name, theme }) =>
-    ['p3', 'p5', 'p7', 'p3', 'p4', 'p6'].includes(name)
+    [
+      'T3N_D_Sidebar-1',
+      'T3N_D_Sidebar-3',
+      'T3N_D_Sidebar-2',
+      'T3N_D_Sidebar-1',
+      'T3N_D_Incontent-3',
+      'T3N_D_Incontent-5',
+    ].includes(name)
       ? css`
           @media screen and (max-width: ${theme.breakpoints[1]}) {
             #${name} {
