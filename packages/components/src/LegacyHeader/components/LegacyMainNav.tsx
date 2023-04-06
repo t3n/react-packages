@@ -171,12 +171,12 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
     indicator: true,
   },
   {
+    label: 'Magazin',
+    url: '/magazin/',
+  },
+  {
     label: 'Wissen',
     dropdownLinks: [
-      {
-        label: 'Magazin',
-        url: '/magazin/',
-      },
       {
         label: 'Guides',
         url: '/guides/',
@@ -260,10 +260,6 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
         url: '/tag/buzz-memes/',
       },
     ],
-  },
-  {
-    label: 'Pioneers',
-    url: '/pioneers/',
   },
   {
     label: 'Jobs',

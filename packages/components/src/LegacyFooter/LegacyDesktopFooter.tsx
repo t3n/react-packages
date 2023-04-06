@@ -185,10 +185,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/tag/',
       },
       {
-        label: 'Pioneers',
-        url: '/pioneers/',
-      },
-      {
         label: 'Jobs',
         url: '/jobs/',
       },
