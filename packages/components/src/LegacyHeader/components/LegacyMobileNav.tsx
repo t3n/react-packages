@@ -208,10 +208,6 @@ const mobileNavLinks: MobileNavLinksType[] = [
     url: '/tag/',
   },
   {
-    label: 'Pioneers',
-    url: '/pioneers/',
-  },
-  {
     label: 'Jobs',
     url: '/jobs/',
   },
