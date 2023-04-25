@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import {
-  AdNames,
   Box,
   Content,
   H1,
@@ -206,11 +205,7 @@ export const adZonesStory: Story = () => {
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
           newsIndicator={number('Indikator', 3)}
-          adUnits={[
-            AdNames.T3N_D_Top,
-            AdNames.T3N_D_Right,
-            AdNames.T3N_M_Incontent_1,
-          ]}
+          adUnits={['T3N_D_Top', 'T3N_D_Right', 'T3N_M_Incontent-1']}
           previewAdUnits={boolean('Preview AdUnits', true)}
         >
           <LegacySection variant="primary">
