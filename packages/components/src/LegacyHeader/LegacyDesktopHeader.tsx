@@ -8,6 +8,7 @@ import Box from '../Box';
 import Image from '../Image';
 import LegacyAd from '../LegacyAd';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
+import { AdNames } from '../LegacyPageLayout';
 import LegacyUserMenu, { LegacyUserMenuProps } from '../LegacyUserMenu';
 import Logo from '../Logo';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
@@ -206,7 +207,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
 
   return (
     <Box position="relative" ref={headerRef}>
-      {showAds && <LegacyAd name="p2" preview={adsPreview} />}
+      {showAds && <LegacyAd name={AdNames.T3N_D_Right} preview={adsPreview} />}
       <HeaderWrapper className="tg-header">
         <VisualHeader display="flex" alignItems="center">
           <Box
