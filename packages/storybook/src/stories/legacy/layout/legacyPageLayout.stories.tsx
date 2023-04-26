@@ -205,12 +205,8 @@ export const adZonesStory: Story = () => {
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
           newsIndicator={number('Indikator', 3)}
-          showP0={boolean('Show p0', true)}
-          previewP0={boolean('Preview p0', true)}
-          showP2={boolean('Show p2', true)}
-          previewP2={boolean('Preview p2', true)}
-          showP13={boolean('Show p13', true)}
-          previewP13={boolean('Preview p13', true)}
+          adUnits={['T3N_D_Top', 'T3N_D_Right', 'T3N_M_Incontent-1']}
+          previewAdUnits={boolean('Preview AdUnits', true)}
         >
           <LegacySection variant="primary">
             <Text my={9}>Dummy LegacySection</Text>

@@ -13,7 +13,7 @@ export default {
 };
 
 export const defaultStory: Story = () => (
-  <Ad name={text('Name', 'p0')} preview={boolean('Preview', true)} />
+  <Ad name={text('Name', 'T3N_D_Top')} preview={boolean('Preview', true)} />
 );
 
 defaultStory.storyName = 'Default';
