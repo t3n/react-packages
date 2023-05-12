@@ -2,7 +2,7 @@ import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 import type { Story } from '@storybook/react';
 
-import { Ad } from '@t3n/components';
+import { Ad, Box } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -13,7 +13,14 @@ export default {
 };
 
 export const defaultStory: Story = () => (
-  <Ad name={text('Name', 'T3N_D_Top')} preview={boolean('Preview', true)} />
+  <Box
+    backgroundColor="background.secondary"
+    width="1024px"
+    height="1000px"
+    pt="4"
+  >
+    <Ad name={text('Name', 'T3N_D_Top')} preview={boolean('Preview', true)} />
+  </Box>
 );
 
 defaultStory.storyName = 'Default';
