@@ -163,28 +163,37 @@ export const pageLayoutStory: Story = () => {
           newsIndicator={number('News Indikator', 3)}
           proIndicator={number('Pro Indikator', 1)}
           adUnits={['T3N_D_Top', 'T3N_D_Right']}
-          previewAdUnits
+          previewAdUnits={boolean('Preview', true)}
         >
           <LegacyBreadcrumb>
             <LegacyBreadcrumbItem label="Home" href="/" />
             <LegacyBreadcrumbItem label="News" href="/news/" />
             <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
           </LegacyBreadcrumb>
-          <LegacyAd name="T3N_D_Incontent-1" preview />
+          <LegacyAd
+            name="T3N_D_Incontent-1"
+            preview={boolean('Preview', true)}
+          />
           <LegacySection variant="secondary" narrow>
             <Text my={9}>Narrow Dummy LegacySection</Text>
           </LegacySection>
           <LegacySection variant="secondary">
             <Text my={9}>Dummy LegacySection</Text>
           </LegacySection>
-          <LegacyAd name="T3N_D_Incontent-2" preview />
+          <LegacyAd
+            name="T3N_D_Incontent-2"
+            preview={boolean('Preview', true)}
+          />
           <LegacySection variant="secondary" wide>
             <Text my={9}>Wide Dummy LegacySection</Text>
           </LegacySection>
           <LegacySection variant="secondary">
             <Text my={9}>Dummy LegacySection</Text>
           </LegacySection>
-          <LegacyAd name="T3N_D_Incontent-3" preview />
+          <LegacyAd
+            name="T3N_D_Incontent-3"
+            preview={boolean('Preview', true)}
+          />
           <LegacySection variant="secondary">
             <Text my={9}>Dummy LegacySection</Text>
           </LegacySection>

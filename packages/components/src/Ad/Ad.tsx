@@ -14,11 +14,18 @@ export interface AdProps extends BoxProps {
 const AdWrapper = styled(Box)<AdProps>`
   min-height: calc(250px + 16px);
   position: relative;
-  ${({ theme }) => color({ theme, bg: 'background.primary' })};
+  ${({ theme, name }) =>
+    color({
+      theme,
+      bg:
+        name !== 'T3N_D_Right' && name !== 'T3N_D_Top'
+          ? 'background.primary'
+          : 'unset',
+    })};
   ${({ theme, name }) =>
     space({
       theme,
-      m: name !== 'T3N_D_Right' && name !== 'T3N_D_Top' ? '8px 0' : 'unset',
+      p: name !== 'T3N_D_Right' && name !== 'T3N_D_Top' ? '8px 0' : 'unset',
     })};
 
   a:hover {
@@ -32,7 +39,7 @@ const AdWrapper = styled(Box)<AdProps>`
             min-width: 180px !important;
             min-height: 480px !important;
             position: absolute;
-            top: 0;
+            top: -16px;
             left: calc(50% + 30.625rem);
 
             @media screen and (max-width: 1330px) {
@@ -41,15 +48,19 @@ const AdWrapper = styled(Box)<AdProps>`
           }
         `
       : ''}
+
+  &.-T3N_D_Right, &.-T3N_D_Top {
+    .c-ad-label {
+      background-color: transparent;
+    }
+  }
 `;
 
 const AdLabel = styled(Box)`
   width: 100%;
-  display: flex;
-  justify-content: center;
   letter-spacing: 2px;
   position: absolute;
-  display: none;
+  text-align: center;
 
   ${({ theme }) => space({ mb: 1, theme })}
   ${({ theme }) => typography({ theme, fontSize: '12px' })};
