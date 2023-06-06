@@ -37,7 +37,6 @@ const AdWrapper = styled(Box)<AdProps>`
       ? css`
           #{name} {
             min-width: 180px !important;
-            min-height: 480px !important;
             position: absolute;
             top: -16px;
             left: calc(50% + 30.625rem);
@@ -49,11 +48,16 @@ const AdWrapper = styled(Box)<AdProps>`
         `
       : ''}
 
-  &.-T3N_D_Right, &.-T3N_D_Top {
-    .c-ad-label {
-      background-color: transparent;
-    }
-  }
+  ${({ name }) =>
+    name === 'T3N_D_Right' || name === 'T3N_D_Top'
+      ? css`
+          min-height: unset;
+
+          .c-ad-label {
+            background-color: transparent;
+          }
+        `
+      : ''}
 `;
 
 const AdLabel = styled(Box)`
@@ -73,7 +77,7 @@ const AdLabel = styled(Box)`
   }
 `;
 
-const AdPlaceholder = styled(Box)`
+const AdPlaceholder = styled(Box)<AdProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -87,6 +91,13 @@ const AdPlaceholder = styled(Box)`
   ${({ theme }) => typography({ theme, fontSize: '12px' })};
   ${({ theme }) => lineHeight({ theme, lineHeight: '16px' })}
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
+
+  ${({ name }) =>
+    name === 'T3N_D_Right' || name === 'T3N_D_Top'
+      ? css`
+          display: none;
+        `
+      : ''}
 
   span {
     text-transform: uppercase;
@@ -110,7 +121,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
         </AdLabel>
       )}
       <Box id={name} width={1} display="flex" justifyContent="center">
-        <AdPlaceholder>
+        <AdPlaceholder name={name}>
           {preview ? `Ad Unit ID: ${name}` : <span>Anzeige</span>}
         </AdPlaceholder>
       </Box>
