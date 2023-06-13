@@ -155,6 +155,10 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         label: 'Impressum',
         url: '/impressum/',
       },
+      {
+        label: 'Test',
+        url: '/test/',
+      },
     ],
   },
   {
