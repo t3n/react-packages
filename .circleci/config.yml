@@ -126,7 +126,7 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run: ./node_modules/.bin/lerna publish minor --no-verify-access --ignore-scripts --no-git-reset --yes
 
-  publishMajor:
+  publishFeature:
     working_directory: *workspace_root
     docker:
       - image: *ci_node_image
@@ -140,7 +140,8 @@ jobs:
       - run: git config user.name "CircleCI Bot"
       - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run: ./node_modules/.bin/lerna publish major --no-verify-access --ignore-scripts --no-git-reset --yes
+      # "echo -n ${CIRCLE_BRANCH} | sha256sum | cut -c -10" command creates a short hash of the current branch name
+      - run: ./node_modules/.bin/lerna publish prepatch --dist-tag prerelease-$(echo -n ${CIRCLE_BRANCH} | sha256sum | cut -c -10) --preid prerelease-$(echo -n ${CIRCLE_BRANCH} | sha256sum | cut -c -10) --ignore-scripts --no-git-reset --yes
 
 workflows:
   version: 2
@@ -215,23 +216,6 @@ workflows:
           requires:
             - publishMinorApproval
 
-      - publishMajorApproval:
-          type: approval
-          requires:
-            - docker_build_and_push
-          filters:
-            branches:
-              only:
-                - master
-
-      - publishMajor:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - publishMajorApproval
-
   build_and_push_feature:
     jobs:
       - push_feature:
@@ -255,6 +239,22 @@ workflows:
           context: google
           requires:
             - checkout_and_build
+      - publishFeatureApproval:
+          type: approval
+          requires:
+            - docker_build_and_push
+          filters:
+            branches:
+              only:
+                - /feature.*/
+      - publishFeature:
+          filters:
+            branches:
+              only:
+                - /feature.*/
+          requires:
+            - publishFeatureApproval
+
   build_and_test_dependabot:
     jobs:
       - hold:
