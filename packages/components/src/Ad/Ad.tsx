@@ -35,7 +35,7 @@ const AdWrapper = styled(Box)<AdProps>`
   ${({ name }) =>
     name === 'T3N_D_Right'
       ? css`
-          #{name} {
+          #${name} {
             min-width: 180px !important;
             position: absolute;
             top: -16px;
