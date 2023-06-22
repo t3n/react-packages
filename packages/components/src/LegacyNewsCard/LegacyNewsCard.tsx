@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import styled from 'styled-components';
-import { border, lineHeight, space, typography } from 'styled-system';
+import { border, color, lineHeight, space, typography } from 'styled-system';
 
 import { T3nPro } from '@t3n/icons';
 
@@ -55,6 +55,11 @@ const SponsoredInfo = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
 
 const LegacyHeroTeaser = styled(Text)<Pick<LegacyNewsCardProps, 'hero'>>`
   ${({ theme, hero }) => typography({ theme, fontSize: hero ? 2 : '14px' })}
+`;
+
+const NewsCardLink = styled.a`
+  text-decoration: none;
+  ${({ theme }) => color({ theme, color: 'text.primary' })}
 `;
 
 const LegacyMobileNewsCard = styled(Box)`
@@ -217,15 +222,15 @@ const LegacyNewsCard = ({
         </Box>
       </LegacyCard>
       <LegacyMobileNewsCard display={['block', 'block', 'none']}>
-        <LegacyNewsCardMobileHeadline as="h3" mt={0} mb="15px">
-          {pro && (
-            <>
-              <T3nPro height="12" width="25" />{' '}
-            </>
-          )}
-          {news.title}
-        </LegacyNewsCardMobileHeadline>
-        <a href={news.url}>
+        <NewsCardLink href={news.url}>
+          <LegacyNewsCardMobileHeadline as="h3" mt={0} mb="15px">
+            {pro && (
+              <>
+                <T3nPro height="12" width="25" />{' '}
+              </>
+            )}
+            {news.title}
+          </LegacyNewsCardMobileHeadline>
           <Image
             imageWidth={900}
             imageHeight={506}
@@ -234,7 +239,7 @@ const LegacyNewsCard = ({
             optimizationClass="news-card-large"
             src={news.imageUrl}
           />
-        </a>
+        </NewsCardLink>
         <LegacyNewsCardMetaData
           type={news.type}
           publishedAt={news.publishedAt}
