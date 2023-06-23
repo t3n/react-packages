@@ -1,6 +1,6 @@
 {
   "name": "@t3n/storybook",
-  "version": "0.7.31-prerelease-818dc2c0ea.0",
+  "version": "0.7.32-prerelease-818dc2c0ea.0",
   "description": "t3n.de storybook",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "@storybook/addons": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "@storybook/theming": "^6.1.21",
-    "@t3n/components": "^0.7.31-prerelease-818dc2c0ea.0",
+    "@t3n/components": "^0.7.32-prerelease-818dc2c0ea.0",
     "@t3n/icons": "^0.7.2",
     "@t3n/theme": "^0.7.5",
     "apollo-cache-inmemory": "^1.6.6",
