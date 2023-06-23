@@ -65,6 +65,7 @@ const AdLabel = styled(Box)`
   letter-spacing: 2px;
   position: absolute;
   text-align: center;
+  display: none;
 
   ${({ theme }) => space({ mb: 1, theme })}
   ${({ theme }) => typography({ theme, fontSize: '12px' })};
@@ -120,7 +121,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
           <span>Anzeige</span>
         </AdLabel>
       )}
-      <Box id={name} width={1} display="flex" justifyContent="center">
+      <Box id={name} width={1} display="flex" justifyContent="center" pt={3}>
         <AdPlaceholder name={name}>
           {preview ? `Ad Unit ID: ${name}` : <span>Anzeige</span>}
         </AdPlaceholder>
