@@ -14,18 +14,21 @@ export interface AdProps extends BoxProps {
 const AdWrapper = styled(Box)<AdProps>`
   min-height: calc(250px + 16px);
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   ${({ theme, name }) =>
     color({
       theme,
-      bg:
-        name !== 'T3N_D_Right' && name !== 'T3N_D_Top'
-          ? 'background.primary'
-          : 'unset',
+      bg: name === 'T3N_D_Incontent-1' ? 'background.primary' : 'transparent',
     })};
+
   ${({ theme, name }) =>
     space({
       theme,
-      p: name !== 'T3N_D_Right' && name !== 'T3N_D_Top' ? '8px 0' : 'unset',
+      p: name !== 'T3N_D_Right' && name !== 'T3N_D_Top' ? '16px 0' : 'unset',
     })};
 
   a:hover {
@@ -35,15 +38,16 @@ const AdWrapper = styled(Box)<AdProps>`
   ${({ name }) =>
     name === 'T3N_D_Right'
       ? css`
-          #${name} {
-            min-width: 180px !important;
-            position: absolute;
-            top: -16px;
-            left: calc(50% + 30.625rem);
+          min-width: 180px !important;
+          position: absolute;
+          top: 0;
+          left: calc(50% + 30.625rem);
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
 
-            @media screen and (max-width: 1330px) {
-              left: 61.25rem;
-            }
+          @media screen and (max-width: 1330px) {
+            left: 61.25rem;
           }
         `
       : ''}
@@ -60,22 +64,22 @@ const AdWrapper = styled(Box)<AdProps>`
       : ''}
 `;
 
-const AdLabel = styled(Box)`
+const AdLabel = styled(Box)<AdProps>`
   width: 100%;
   letter-spacing: 2px;
-  position: absolute;
   text-align: center;
+  text-transform: uppercase;
   display: none;
 
   ${({ theme }) => space({ mb: 1, theme })}
   ${({ theme }) => typography({ theme, fontSize: '12px' })};
   ${({ theme }) => lineHeight({ theme, lineHeight: '16px' })}
-  ${({ theme }) =>
-    color({ theme, color: 'text.secondary', bg: 'background.primary' })};
-
-  span {
-    text-transform: uppercase;
-  }
+  ${({ theme, name }) =>
+    color({
+      theme,
+      color: 'text.secondary',
+      bg: name === 'T3N_D_Incontent-1' ? 'background.primary' : 'transparent',
+    })};
 `;
 
 const AdPlaceholder = styled(Box)<AdProps>`
@@ -88,6 +92,7 @@ const AdPlaceholder = styled(Box)<AdProps>`
   justify-content: center;
   align-items: center;
   letter-spacing: 2px;
+  text-transform: uppercase;
 
   ${({ theme }) => typography({ theme, fontSize: '12px' })};
   ${({ theme }) => lineHeight({ theme, lineHeight: '16px' })}
@@ -99,10 +104,6 @@ const AdPlaceholder = styled(Box)<AdProps>`
           display: none;
         `
       : ''}
-
-  span {
-    text-transform: uppercase;
-  }
 `;
 
 const Ad = forwardRef<HTMLDivElement, AdProps>(
@@ -117,13 +118,13 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
       ref={ref}
     >
       {name !== 'T3N_D_Right' && name !== 'T3N_D_Top' && (
-        <AdLabel id={`${name}-label`}>
-          <span>Anzeige</span>
+        <AdLabel id={`${name}-label`} name={name}>
+          Anzeige
         </AdLabel>
       )}
-      <Box id={name} width={1} display="flex" justifyContent="center" pt={3}>
+      <Box id={name} width={1} display="flex" justifyContent="center">
         <AdPlaceholder name={name}>
-          {preview ? `Ad Unit ID: ${name}` : <span>Anzeige</span>}
+          {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
         </AdPlaceholder>
       </Box>
     </AdWrapper>
