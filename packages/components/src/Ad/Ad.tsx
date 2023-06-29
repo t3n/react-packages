@@ -38,18 +38,16 @@ const AdWrapper = styled(Box)<AdProps>`
   ${({ name }) =>
     name === 'T3N_D_Right'
       ? css`
-          #${name} {
-            min-width: 180px !important;
-            position: absolute;
-            top: 0;
-            left: calc(50% + 30.625rem);
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
+          min-width: 180px !important;
+          position: absolute;
+          top: 0;
+          left: calc(50% + 30.625rem);
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
 
-            @media screen and (max-width: 1330px) {
-              left: 61.25rem;
-            }
+          @media screen and (max-width: 1330px) {
+            left: 61.25rem;
           }
         `
       : ''}
@@ -71,6 +69,7 @@ const AdLabel = styled(Box)<AdProps>`
   letter-spacing: 2px;
   text-align: center;
   text-transform: uppercase;
+  display: none;
 
   ${({ theme }) => space({ mb: 1, theme })}
   ${({ theme }) => typography({ theme, fontSize: '12px' })};
