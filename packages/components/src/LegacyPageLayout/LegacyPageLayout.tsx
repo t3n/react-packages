@@ -39,36 +39,43 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
     return adUnits?.includes(name) || false;
   };
   return (
-    <Wrapper>
+    <>
       {shouldDisplayAdUnit('T3N_D_Top') && (
         <Box display={['none', 'none', 'block']}>
           <LegacyAd name="T3N_D_Top" preview={previewAdUnits} />
         </Box>
       )}
-      <LegacyHeader
-        user={user}
-        userMenuLabelUrl={userMenuLabelUrl}
-        userMenuLinkGroups={userMenuLinkGroups}
-        tags={tags}
-        tagsLoading={tagsLoading}
-        headerCampaignUrl={headerCampaignUrl}
-        headerCampaignImage={headerCampaignImage}
-        headerCampaignImageMobile={headerCampaignImageMobile}
-        newsIndicator={newsIndicator}
-        proIndicator={proIndicator}
-        showAds={shouldDisplayAdUnit('T3N_D_Right')}
-        adsPreview={previewAdUnits}
-      />
-      {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
-        <Box display={['block', 'block', 'none']}>
-          <LegacyAd name="T3N_M_Incontent-1" preview={previewAdUnits} />
+      <Wrapper>
+        <LegacyHeader
+          user={user}
+          userMenuLabelUrl={userMenuLabelUrl}
+          userMenuLinkGroups={userMenuLinkGroups}
+          tags={tags}
+          tagsLoading={tagsLoading}
+          headerCampaignUrl={headerCampaignUrl}
+          headerCampaignImage={headerCampaignImage}
+          headerCampaignImageMobile={headerCampaignImageMobile}
+          newsIndicator={newsIndicator}
+          proIndicator={proIndicator}
+          showAds={shouldDisplayAdUnit('T3N_D_Right')}
+          adsPreview={previewAdUnits}
+        />
+        {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
+          <Box display={['block', 'block', 'none']}>
+            <LegacyAd name="T3N_M_Incontent-1" preview={previewAdUnits} />
+          </Box>
+        )}
+        <Box
+          px="20px"
+          display="flex"
+          flexDirection="column"
+          overflow={overflow}
+        >
+          {children}
         </Box>
-      )}
-      <Box px="20px" display="flex" flexDirection="column" overflow={overflow}>
-        {children}
-      </Box>
-      <LegacyFooter privacyManagerId={privacyManagerId} />
-    </Wrapper>
+        <LegacyFooter privacyManagerId={privacyManagerId} />
+      </Wrapper>
+    </>
   );
 };
 
