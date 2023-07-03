@@ -401,7 +401,7 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
 }) => {
   return (
-    <Box>
+    <>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
           <MissonStatement mt={0} mr={1} bold>
@@ -411,7 +411,7 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
         <LegacyDesktopLinks privacyManagerId={privacyManagerId} />
       </Box>
       <LegacyDesktopBottom />
-    </Box>
+    </>
   );
 };
 
