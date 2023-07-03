@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
-import { Box, Grid, GridItem, Image, Text } from '@t3n/components';
+import Box from '../Box';
+import Grid from '../Grid';
+import GridItem from '../GridItem';
+import Image from '../Image';
+import Text from '../Text';
 
 export type DesktopLinkGroupsType = {
   label: string;
