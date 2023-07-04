@@ -5,7 +5,6 @@ import { border, color, layout, space, typography } from 'styled-system';
 import Box from '../Box';
 import Grid from '../Grid';
 import GridItem from '../GridItem';
-import Heading from '../Heading';
 import Image from '../Image';
 import Text from '../Text';
 
@@ -26,19 +25,14 @@ export interface LegacyDesktopFooterProps {
   privacyManagerId: string;
 }
 
-const LegacyDesktopFooterWrapper = styled(Box)`
-  *:not(h3) {
-    ${({ theme }) =>
-      typography({
-        theme,
-        fontSize: '12px',
-      })};
-  }
+const LinkGroup = styled(Text)`
+  ${({ theme }) => typography({ theme, fontSize: '12px' })}
 `;
 
 const FooterLink = styled.a`
   text-decoration: none;
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
+  ${({ theme }) => typography({ theme, fontSize: '12px' })};
 
   &:hover,
   &:focus {
@@ -89,7 +83,7 @@ const DesktopBottomWrapper = styled(Box)`
     })};
 `;
 
-const MissonStatement = styled(Heading)`
+const MissonStatement = styled(Text)`
   font-size: 1.625rem;
   line-height: 36px;
 `;
@@ -279,9 +273,9 @@ const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
           pb="12px"
           key={group.label}
         >
-          <Text mt={0} bold>
+          <LinkGroup mt={0} bold>
             {group.label}
-          </Text>
+          </LinkGroup>
           {group.links.map((link) => (
             <FooterLink
               href={link.url}
@@ -411,17 +405,17 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
 }) => {
   return (
-    <LegacyDesktopFooterWrapper>
+    <>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
-          <MissonStatement as="h3" mt={0} mr={1}>
+          <MissonStatement mt={0} mr={1} bold>
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>
         <LegacyDesktopLinks privacyManagerId={privacyManagerId} />
       </Box>
       <LegacyDesktopBottom />
-    </LegacyDesktopFooterWrapper>
+    </>
   );
 };
 
