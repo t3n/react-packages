@@ -3,19 +3,15 @@ import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import Box from '../Box';
-import LegacyAd from '../LegacyAd';
+import LegacyAd, { LegacyAdName } from '../LegacyAd';
 import LegacyFooter from '../LegacyFooter';
 import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
 
 export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   privacyManagerId: string;
-  showP0?: boolean;
-  previewP0?: boolean;
-  showP2?: boolean;
-  previewP2?: boolean;
-  showP13?: boolean;
-  previewP13?: boolean;
   overflow?: string;
+  adUnits?: LegacyAdName[];
+  previewAdUnits?: boolean;
 }
 
 const Wrapper = styled(Box)`
@@ -34,46 +30,52 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   headerCampaignImageMobile,
   newsIndicator,
   proIndicator,
-  showP0,
-  previewP0,
-  showP2,
-  previewP2,
-  showP13,
-  previewP13,
+  adUnits,
+  previewAdUnits,
   overflow,
   children,
 }) => {
+  const shouldDisplayAdUnit = (name: LegacyAdName) => {
+    return adUnits?.includes(name) || false;
+  };
   return (
-    <Wrapper>
-      {showP0 && (
+    <>
+      {shouldDisplayAdUnit('T3N_D_Top') && (
         <Box display={['none', 'none', 'block']}>
-          <LegacyAd name="p0" preview={previewP0} />
+          <LegacyAd name="T3N_D_Top" preview={previewAdUnits} />
         </Box>
       )}
-      <LegacyHeader
-        user={user}
-        userMenuLabelUrl={userMenuLabelUrl}
-        userMenuLinkGroups={userMenuLinkGroups}
-        tags={tags}
-        tagsLoading={tagsLoading}
-        headerCampaignUrl={headerCampaignUrl}
-        headerCampaignImage={headerCampaignImage}
-        headerCampaignImageMobile={headerCampaignImageMobile}
-        newsIndicator={newsIndicator}
-        proIndicator={proIndicator}
-        showAds={showP2}
-        adsPreview={previewP2}
-      />
-      {showP13 && (
-        <Box display={['block', 'block', 'none']}>
-          <LegacyAd name="p13" preview={previewP13} />
+      <Wrapper>
+        <LegacyHeader
+          user={user}
+          userMenuLabelUrl={userMenuLabelUrl}
+          userMenuLinkGroups={userMenuLinkGroups}
+          tags={tags}
+          tagsLoading={tagsLoading}
+          headerCampaignUrl={headerCampaignUrl}
+          headerCampaignImage={headerCampaignImage}
+          headerCampaignImageMobile={headerCampaignImageMobile}
+          newsIndicator={newsIndicator}
+          proIndicator={proIndicator}
+          showAds={shouldDisplayAdUnit('T3N_D_Right')}
+          adsPreview={previewAdUnits}
+        />
+        {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
+          <Box display={['block', 'block', 'none']}>
+            <LegacyAd name="T3N_M_Incontent-1" preview={previewAdUnits} />
+          </Box>
+        )}
+        <Box
+          px="20px"
+          display="flex"
+          flexDirection="column"
+          overflow={overflow}
+        >
+          {children}
         </Box>
-      )}
-      <Box px="20px" display="flex" flexDirection="column" overflow={overflow}>
-        {children}
-      </Box>
-      <LegacyFooter privacyManagerId={privacyManagerId} />
-    </Wrapper>
+        <LegacyFooter privacyManagerId={privacyManagerId} />
+      </Wrapper>
+    </>
   );
 };
 

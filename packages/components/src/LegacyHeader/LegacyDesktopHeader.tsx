@@ -206,7 +206,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
 
   return (
     <Box position="relative" ref={headerRef}>
-      {showAds && <LegacyAd name="p2" preview={adsPreview} />}
+      {showAds && <LegacyAd name="T3N_D_Right" preview={adsPreview} />}
       <HeaderWrapper className="tg-header">
         <VisualHeader display="flex" alignItems="center">
           <Box
