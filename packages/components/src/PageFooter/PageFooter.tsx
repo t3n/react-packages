@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styled from 'styled-components';
-import { border, BorderProps, flexbox } from 'styled-system';
+import { border, BorderProps, flexbox, typography } from 'styled-system';
 
 import {
   SocialFacebook,
@@ -16,7 +16,6 @@ import {
 import Box from '../Box';
 import Grid from '../Grid';
 import GridItem from '../GridItem';
-import Heading from '../Heading';
 import Link, { createLinkStyle } from '../Link';
 import Text from '../Text';
 
@@ -101,6 +100,10 @@ const SocialLink = styled(Link)`
   }
 `;
 
+const MissionStatement = styled(Text)`
+  ${({ theme }) => typography({ theme, fontSize: '18px' })}
+`;
+
 const PageFooter: React.FC<PageFooterProps> = ({
   children,
   showPrivacySettingsLink,
@@ -120,14 +123,14 @@ const PageFooter: React.FC<PageFooterProps> = ({
     >
       <Grid justifyContent="space-between" alignItems="center">
         <GridItem width={[1, 1, 1, 1, 2 / 5]}>
-          <Heading
-            as="h5"
+          <MissionStatement
+            bold
             color="shades.grey143"
             my={4}
             align={['center', 'center', 'center', 'center', 'left']}
           >
             Spreading knowledge & future optimism.
-          </Heading>
+          </MissionStatement>
         </GridItem>
         <GridItem width={[1, 1, 1, 1, 1 / 5]} mb={[2, 2, 2, 2, 0]}>
           <SocialLinks
