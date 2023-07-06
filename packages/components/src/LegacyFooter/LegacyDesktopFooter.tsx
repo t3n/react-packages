@@ -25,6 +25,14 @@ export interface LegacyDesktopFooterProps {
   privacyManagerId: string;
 }
 
+const LegacyDesktopFooterWrapper = styled(Box)`
+  ${({ theme }) =>
+    typography({
+      theme,
+      fontSize: '12px',
+    })};
+`;
+
 const LinkGroup = styled(Text)`
   ${({ theme }) => typography({ theme, fontSize: '12px' })}
 `;
@@ -405,7 +413,7 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
 }) => {
   return (
-    <>
+    <LegacyDesktopFooterWrapper>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
           <MissonStatement mt={0} mr={1} bold>
@@ -415,7 +423,7 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
         <LegacyDesktopLinks privacyManagerId={privacyManagerId} />
       </Box>
       <LegacyDesktopBottom />
-    </>
+    </LegacyDesktopFooterWrapper>
   );
 };
 
