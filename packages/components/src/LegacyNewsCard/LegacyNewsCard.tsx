@@ -153,7 +153,7 @@ const LegacyNewsCard = ({
                 Anzeige
               </SponsoredInfo>
             )}
-            <LineHeightHeading as="h4" mt={0} mb={2} ml="216px">
+            <LineHeightHeading as="h3" styleAs="h4" mt={0} mb={2} ml="216px">
               {pro && (
                 <>
                   <T3nPro height="12" width="25" />{' '}
@@ -192,7 +192,7 @@ const LegacyNewsCard = ({
                       Anzeige
                     </SponsoredInfo>
                   )}
-                  <LineHeightHeading as="h4" mt={0} mb={3}>
+                  <LineHeightHeading as="h3" styleAs="h4" mt={0} mb={3}>
                     {pro && (
                       <>
                         <T3nPro height="12" width="25" />{' '}
