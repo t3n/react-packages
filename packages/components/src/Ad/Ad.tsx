@@ -63,7 +63,7 @@ const AdWrapper = styled(Box)<AdProps>`
         `
       : ''}
 
-#T3N_D_Top {
+  #T3N_D_Top {
     width: 100%;
   }
 `;
