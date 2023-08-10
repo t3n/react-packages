@@ -1,4 +1,5 @@
 import React from 'react';
+import { boolean } from '@storybook/addon-knobs';
 
 import { Box, FooterLink, PageFooter } from '@t3n/components';
 
@@ -7,18 +8,29 @@ export default {
   component: PageFooter,
 };
 
-export const defaultStory = () => <PageFooter />;
+export const defaultStory = () => (
+  <PageFooter
+    showPrivacySettingsLink={boolean('Cookies & Tracking anzeigen', false)}
+    privacyManagerId="123456"
+  />
+);
 
 defaultStory.storyName = 'Default';
 
 export const privacyManagerStory = () => (
-  <PageFooter showPrivacySettingsLink privacyManagerId="123456" />
+  <PageFooter
+    showPrivacySettingsLink={boolean('Cookies & Tracking anzeigen', true)}
+    privacyManagerId="123456"
+  />
 );
 
 privacyManagerStory.storyName = 'Privacy Manager';
 
 export const footerLinkStory = () => (
-  <PageFooter>
+  <PageFooter
+    showPrivacySettingsLink={boolean('Cookies & Tracking anzeigen', false)}
+    privacyManagerId="123456"
+  >
     <Box display="flex" flexDirection="column" alignItems="flex-start">
       <FooterLink href="#">Testlink #1</FooterLink>
       <FooterLink href="#">Testlink #2</FooterLink>

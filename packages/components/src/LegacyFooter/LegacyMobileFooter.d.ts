@@ -2,7 +2,10 @@ import React from 'react';
 export declare type MobileLinkType = {
     label: string;
     url: string;
+    title?: string;
     bold?: boolean;
+    target?: string;
+    rel?: string;
     onClick?: (e: React.MouseEvent, privacyManagerId?: string) => void;
 }[];
 export interface LegacyMobileFooterProps {

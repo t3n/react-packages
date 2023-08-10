@@ -9,7 +9,10 @@ import Text from '../Text';
 export type MobileLinkType = {
   label: string;
   url: string;
+  title?: string;
   bold?: boolean;
+  target?: string;
+  rel?: string;
   onClick?: (e: React.MouseEvent, privacyManagerId?: string) => void;
 }[];
 
@@ -90,8 +93,19 @@ const legacyMobileLinks: MobileLinkType = [
     },
   },
   {
+    label: 'FAQ',
+    title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+    url: 'https://faq.t3n.de/',
+    target: '_blank',
+    rel: 'noreferrer noopener',
+  },
+  {
     label: 'Abo kündigen',
     url: '/abo-kuendigen/',
+  },
+  {
+    label: 'Kontakt',
+    url: '/kontakt/',
   },
   {
     label: 'AGB',
@@ -115,6 +129,9 @@ const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
       {legacyMobileLinks.map((link) => (
         <FooterLink
           href={link.url}
+          title={link.title}
+          target={link.target}
+          rel={link.rel}
           onClick={(e) => link.onClick?.(e, privacyManagerId)}
           key={link.url}
         >
