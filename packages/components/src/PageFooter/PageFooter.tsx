@@ -269,8 +269,41 @@ const PageFooter: React.FC<PageFooterProps> = ({
               }
               my={[1, 0]}
             >
+              <FooterLink
+                href="https://faq.t3n.de/"
+                target="_blank"
+                rel="noreferrer noopener"
+                mx={2}
+              >
+                FAQ
+              </FooterLink>
+            </Text>
+            <Text
+              as="span"
+              width={[1 / 2, 'auto']}
+              align={
+                showPrivacySettingsLink && privacyManagerId
+                  ? ['left', 'center']
+                  : ['right', 'center']
+              }
+              my={[1, 0]}
+            >
               <FooterLink href="https://t3n.de/abo-kuendigen/" mx={2}>
                 Abo kündigen
+              </FooterLink>
+            </Text>
+            <Text
+              as="span"
+              width={[1 / 2, 'auto']}
+              align={
+                showPrivacySettingsLink && privacyManagerId
+                  ? ['right', 'center']
+                  : ['left', 'center']
+              }
+              my={[1, 0]}
+            >
+              <FooterLink href="https://t3n.de/kontakt/" mx={2}>
+                Kontakt
               </FooterLink>
             </Text>
             <Text

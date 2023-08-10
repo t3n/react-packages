@@ -75,6 +75,10 @@ const DesktopLinkGroup = styled(GridItem)`
       mx: 0,
     })}
 
+  &:first-child {
+    border: none;
+  }
+
   &:not(:first-child) {
     width: 150px;
   }
@@ -142,8 +146,19 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         },
       },
       {
+        label: 'FAQ',
+        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+        url: 'https://faq.t3n.de/',
+        target: '_blank',
+        rel: 'noreferrer noopener',
+      },
+      {
         label: 'Abo kündigen',
         url: '/abo-kuendigen/',
+      },
+      {
+        label: 'Kontakt',
+        url: '/kontakt/',
       },
       {
         label: 'AGB',
@@ -233,36 +248,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       {
         label: 'Aktuelle Jobs',
         url: '/jobs/rss/all/',
-      },
-    ],
-  },
-  {
-    label: 'Kontakt',
-    links: [
-      {
-        label: 'E-Mail',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'mailto:support@t3n.de',
-        target: '_blank',
-        rel: 'noreferrer noopener',
-      },
-      {
-        label: 'Pressebereich',
-        url: '/presse/presseinformationen/',
-      },
-      {
-        label: 'Redaktion',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'mailto:redaktion@t3n.de',
-        target: '_blank',
-        rel: 'noreferrer noopener',
-      },
-      {
-        label: 'FAQ',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'https://faq.t3n.de/',
-        target: '_blank',
-        rel: 'noreferrer noopener',
       },
     ],
   },
@@ -415,7 +400,7 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
   return (
     <LegacyDesktopFooterWrapper>
       <Box display="flex" m="10px">
-        <GridItem width={[1, 1, 1, '300px']} px="10px" pr="0" mr="10px">
+        <GridItem width={[1, 1, 1, 1 / 2]} px="10px" pr="0" mr="10px">
           <MissonStatement mt={0} mr={1} bold>
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
