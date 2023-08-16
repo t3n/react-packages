@@ -36,6 +36,13 @@ const AdWrapper = styled(Box)<AdProps>`
   }
 
   ${({ name }) =>
+    name === 'T3N_D_Top'
+      ? css`
+          width: 100%;
+        `
+      : ''}
+
+  ${({ name }) =>
     name === 'T3N_D_Right'
       ? css`
           min-width: 180px !important;
@@ -62,10 +69,6 @@ const AdWrapper = styled(Box)<AdProps>`
           }
         `
       : ''}
-
-  #T3N_D_Top {
-    width: 100%;
-  }
 `;
 
 const AdLabel = styled(Box)<AdProps>`
