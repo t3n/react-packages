@@ -127,9 +127,9 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
           {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
         </AdPlaceholder>
       </Box>
-      {(name === 'T3N_M_Incontent-2' ||
-        name === 'T3N_D_Incontent-2' ||
-        name === 'T3N_D_Incontent-3') && <div id="dspx_scroller" />}
+      {(name === 'T3N_M_Incontent-2' || name === 'T3N_D_Incontent-3') && (
+        <div id="dspx_scroller" />
+      )}
     </AdWrapper>
   )
 );
