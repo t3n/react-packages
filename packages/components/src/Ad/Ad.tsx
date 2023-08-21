@@ -36,13 +36,6 @@ const AdWrapper = styled(Box)<AdProps>`
   }
 
   ${({ name }) =>
-    name === 'T3N_D_Top'
-      ? css`
-          width: 100%;
-        `
-      : ''}
-
-  ${({ name }) =>
     name === 'T3N_D_Right'
       ? css`
           min-width: 180px !important;
@@ -129,7 +122,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
           Anzeige
         </AdLabel>
       )}
-      <Box id={name} display="flex" justifyContent="center">
+      <Box id={name} width={1} display="flex" justifyContent="center">
         <AdPlaceholder name={name}>
           {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
         </AdPlaceholder>
