@@ -122,7 +122,12 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
           Anzeige
         </AdLabel>
       )}
-      <Box id={name} width={1} display="flex" justifyContent="center">
+      <Box
+        id={name}
+        width={1}
+        display="flex"
+        justifyContent={name !== 'T3N_D_Right' ? 'center' : ''}
+      >
         <AdPlaceholder name={name}>
           {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
         </AdPlaceholder>
