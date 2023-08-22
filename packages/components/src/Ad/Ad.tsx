@@ -62,6 +62,14 @@ const AdWrapper = styled(Box)<AdProps>`
           }
         `
       : ''}
+
+  #dspx_advDiv_ {
+    display: none;
+  }
+
+  #dspx_scroller:not(:empty) {
+    margin-top: -250px;
+  }
 `;
 
 const AdLabel = styled(Box)<AdProps>`
