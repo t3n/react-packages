@@ -62,6 +62,14 @@ const AdWrapper = styled(Box)<AdProps>`
           }
         `
       : ''}
+
+  #dspx_advDiv_ {
+    display: none;
+  }
+
+  #dspx_scroller:not(:empty) {
+    margin-top: -250px;
+  }
 `;
 
 const AdLabel = styled(Box)<AdProps>`
@@ -132,9 +140,9 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
           {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
         </AdPlaceholder>
       </Box>
-      {(name === 'T3N_M_Incontent-2' ||
-        name === 'T3N_D_Incontent-2' ||
-        name === 'T3N_D_Incontent-3') && <div id="dspx_scroller" />}
+      {(name === 'T3N_M_Incontent-2' || name === 'T3N_D_Incontent-3') && (
+        <div id="dspx_scroller" />
+      )}
     </AdWrapper>
   )
 );
