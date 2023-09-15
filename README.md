@@ -4,6 +4,8 @@
 
 ## Table of Contents
 
+- [t3n/react-packages](#t3nreact-packages)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
@@ -93,8 +95,6 @@ npm run test
 ```
 
 ## Documentation
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 ### Peculiarities
 
