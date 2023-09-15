@@ -84,7 +84,7 @@ This will start storybook and handle local bundling of packages in the monorepo 
 
 :warning:
 
-This will however **NOT** create bundles for all packages, so before committing changes, you should **ALWAYS** run `npm run build` to build all packages and prepare for releasing
+Before committing changes, you should **ALWAYS** run `npm run build` to generate all types correctly.
 
 ### Tests
 
