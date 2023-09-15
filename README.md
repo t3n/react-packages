@@ -1,11 +1,11 @@
 <img src='./logo.svg' width='180' alt='t3n Logo'>
 
+[![CircleCI](https://dl.circleci.com/status-badge/redirect/gh/t3n/react-packages/tree/stage)](https://app.circleci.com/pipelines/github/t3n/react-packages)
+
 # t3n/react-packages
 
 ## Table of Contents
 
-- [t3n/react-packages](#t3nreact-packages)
-  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
