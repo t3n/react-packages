@@ -16,6 +16,8 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
 
 const Wrapper = styled(Box)`
   ${({ theme }) => color({ theme, bg: 'background.primary' })}
+  position: relative;
+  z-index: 150;
 `;
 
 const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
