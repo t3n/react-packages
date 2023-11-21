@@ -18,6 +18,7 @@ const AdWrapper = styled(Box)<AdProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  line-height: 0;
 
   ${({ theme, name }) =>
     color({
@@ -135,6 +136,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
         width={1}
         display="flex"
         justifyContent={name !== 'T3N_D_Right' ? 'center' : ''}
+        flexDirection="column"
       >
         <AdPlaceholder name={name}>
           {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
