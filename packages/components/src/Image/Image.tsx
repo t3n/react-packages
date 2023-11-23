@@ -166,7 +166,7 @@ const Image: React.FC<ImageProps> = ({
 
   // Use transparent image as placeholder if image can't be served via fastly
   const placeholderSrc = isFastlyImage
-    ? `${src}?class=blur`
+    ? `${defaultSrc}?class=blur`
     : 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 
   // If image comes from fastly, resolve srcSet based on classMapping
