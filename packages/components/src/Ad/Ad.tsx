@@ -137,6 +137,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
         display="flex"
         justifyContent={name !== 'T3N_D_Right' ? 'center' : ''}
         flexDirection="column"
+        alignItems={name !== 'T3N_D_Right' ? 'center' : ''}
       >
         <AdPlaceholder name={name}>
           {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
