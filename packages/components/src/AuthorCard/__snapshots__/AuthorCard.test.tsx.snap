@@ -2,12 +2,15 @@
 
 exports[`Author Card matches snapshot 1`] = `
 .c1 {
-  font-weight: bold;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   color: #fff;
   background-color: #f9423a;
-  padding: 0 2px;
-  font-size: 0.875rem;
-  border-radius: 0;
 }
 
 .c4 {
