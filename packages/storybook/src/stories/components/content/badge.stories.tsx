@@ -1,9 +1,8 @@
 import React from 'react';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
-import { Badge, Grid, GridItem, Heading } from '@t3n/components';
-import { theme } from '@t3n/theme';
-import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
+import { Badge, Box } from '@t3n/components';
+import { BadgeProps } from '@t3n/components/src/Badge';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
@@ -13,90 +12,20 @@ export default {
   decorators: [storyContainerDecorator],
 };
 
+const colors: BadgeProps['variant'][] = ['inverse', 'light', 'highlight'];
+
 export const defaultStory = () => {
-  const colors = Object.keys(theme.colors.background) as ThemeBackgroundColor[];
+  const badgeText = text('Badge Text', 'ANZEIGE');
 
   return (
-    <Badge
-      rounded={boolean('Abgerundet?', false)}
-      small={boolean('Klein?', false)}
-      variant={select('Variante', colors, 'highlight')}
-    >
-      {text('Badge Text', 'Ratgeber')}
-    </Badge>
+    <Box display="flex" style={{ gap: 4 }}>
+      {colors.map((c) => (
+        <Badge variant={c} key={c}>
+          {badgeText}
+        </Badge>
+      ))}
+    </Box>
   );
 };
 
 defaultStory.storyName = 'Default';
-
-export const variants = () => {
-  const colors = Object.keys(theme.colors.background) as ThemeBackgroundColor[];
-
-  const badgeText = text('Badge Text', 'Ratgeber');
-
-  return (
-    <>
-      <Heading as="h3" mt={0}>
-        Kleine Badges
-      </Heading>
-      <Grid wide>
-        {colors.map((c) => (
-          <GridItem key={c} width={1 / colors.length}>
-            <Badge small variant={c}>
-              {badgeText}
-            </Badge>
-          </GridItem>
-        ))}
-      </Grid>
-
-      <Heading as="h3">Abgerundet</Heading>
-      <Grid wide>
-        {colors.map((c) => (
-          <GridItem key={c} width={1 / colors.length}>
-            <Badge small rounded variant={c}>
-              {badgeText}
-            </Badge>
-          </GridItem>
-        ))}
-      </Grid>
-
-      <Heading as="h3">Große Badges</Heading>
-      <Grid wide>
-        {colors.map((c) => (
-          <GridItem key={c} width={1 / colors.length}>
-            <Badge small={false} variant={c}>
-              {badgeText}
-            </Badge>
-          </GridItem>
-        ))}
-      </Grid>
-
-      <Heading as="h3">Abgerundet</Heading>
-      <Grid wide>
-        {colors.map((c) => (
-          <GridItem key={c} width={1 / colors.length}>
-            <Badge small={false} variant={c}>
-              {badgeText}
-            </Badge>
-          </GridItem>
-        ))}
-      </Grid>
-    </>
-  );
-};
-
-variants.storyName = 'Varianten';
-
-export const greenStory = () => {
-  return (
-    <Badge
-      rounded={boolean('Abgerundet?', false)}
-      small={boolean('Klein?', false)}
-      variant="success"
-    >
-      {text('Badge Text', 'Ratgeber')}
-    </Badge>
-  );
-};
-
-greenStory.storyName = 'Green';

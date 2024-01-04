@@ -26,9 +26,7 @@ const Author = styled.div`
 const AuthorCard = ({ title, articleType, author, url }: AuthorCardProps) => (
   <Card href={url} stretch>
     <div>
-      <Badge variant="highlight" small>
-        {articleType}
-      </Badge>
+      <Badge variant="highlight">{articleType}</Badge>
     </div>
 
     <div style={{ flex: 1 }}>

@@ -236,11 +236,7 @@ const UserCardContent: React.FC<
       <Text mt={1} mb={1} secondary={!!secondary}>
         {user.position}
       </Text>
-      {user.flag && (
-        <StyledBadge small rounded variant="secondary">
-          {user.flag}
-        </StyledBadge>
-      )}
+      {user.flag && <StyledBadge variant="light">{user.flag}</StyledBadge>}
       {user.email && (
         <StyledLink
           href={
