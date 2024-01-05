@@ -18,8 +18,6 @@ import HeaderLink from './LegacyHeaderLink';
 
 export interface LegacyMainNavProps {
   isSticky?: boolean;
-  newsIndicator?: number;
-  proIndicator?: number;
 }
 
 export type MainNavLinkGroupsType = {
@@ -289,11 +287,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   },
 ];
 
-const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
-  isSticky,
-  newsIndicator,
-  proIndicator,
-}) => {
+const LegacyMainNav: React.FC<LegacyMainNavProps> = ({ isSticky }) => {
   return (
     <MainNavWrapper className="tg-menu" isSticky={isSticky}>
       <MainNavInnerWrapper isSticky={isSticky}>
@@ -308,22 +302,6 @@ const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
                     color={group.bold ? 'text.primary' : 'inherit'}
                   >
                     {group.label}
-                    {group.label === 'News' &&
-                      group.indicator &&
-                      typeof newsIndicator === 'number' &&
-                      newsIndicator > 0 && (
-                        <Indicator className="tg-notification-bubble">
-                          {newsIndicator}
-                        </Indicator>
-                      )}
-                    {group.label === 'Pro' &&
-                      group.indicator &&
-                      typeof proIndicator === 'number' &&
-                      proIndicator > 0 && (
-                        <Indicator className="tg-notification-bubble">
-                          {proIndicator}
-                        </Indicator>
-                      )}
                   </Text>
                 </HeaderLink>
               ) : (

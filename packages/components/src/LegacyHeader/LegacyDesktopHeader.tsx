@@ -29,8 +29,6 @@ export interface LegacyDesktopHeaderProps {
   tagsLoading?: boolean;
   headerCampaignUrl: string;
   headerCampaignImage: string;
-  newsIndicator?: number;
-  proIndicator?: number;
   showAds?: boolean;
   adsPreview?: boolean;
 }
@@ -178,8 +176,6 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   tagsLoading,
   headerCampaignUrl,
   headerCampaignImage,
-  newsIndicator,
-  proIndicator,
   showAds,
   adsPreview,
 }) => {
@@ -245,10 +241,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
         </VisualHeader>
 
         <Box display="flex" flexDirection="column">
-          <LegacyMainNav
-            newsIndicator={newsIndicator}
-            proIndicator={proIndicator}
-          />
+          <LegacyMainNav />
           <LegacyTagNav tags={tags} loading={tagsLoading} />
         </Box>
       </HeaderWrapper>
@@ -264,11 +257,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               <T3nLogoSmall />
             </a>
             <StickyNavBox width="100%" position="relative">
-              <LegacyMainNav
-                isSticky
-                newsIndicator={newsIndicator}
-                proIndicator={proIndicator}
-              />
+              <LegacyMainNav isSticky />
               <SearchForm action="/suche" method="get">
                 <SearchInput
                   type="text"

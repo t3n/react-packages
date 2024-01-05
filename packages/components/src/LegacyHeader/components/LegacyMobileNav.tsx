@@ -20,12 +20,10 @@ import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import Logo from '../../Logo';
 import Text from '../../Text';
 import HeaderCampaign from './LegacyHeaderCampaign';
-import { Indicator } from './LegacyMainNav';
 
 export interface LegacyMobileNavProps {
   user: LegacyUserMenuProps['user'];
-  newsIndicator?: number;
-  proIndicator?: number;
+
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
 }
@@ -168,12 +166,12 @@ const mobileNavLinks: MobileNavLinksType[] = [
   {
     label: 'Pro',
     url: '/pro-artikel',
-    indicator: true,
+    indicator: false,
   },
   {
     label: 'News',
     url: '/news/',
-    indicator: true,
+    indicator: false,
   },
   {
     label: 'Magazin',
@@ -227,8 +225,7 @@ const mobileNavLinks: MobileNavLinksType[] = [
 
 const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
   user,
-  newsIndicator,
-  proIndicator,
+
   headerCampaignUrl,
   headerCampaignImageMobile,
 }) => {
@@ -246,16 +243,6 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
           component={MaterialMenu}
           onClick={() => setMenuOpen(!menuOpen)}
         />
-        {((typeof newsIndicator === 'number' && newsIndicator > 0) ||
-          (typeof proIndicator === 'number' && proIndicator > 0)) && (
-          <Indicator className="tg-notification-bubble">
-            {newsIndicator && proIndicator
-              ? newsIndicator + proIndicator
-              : newsIndicator && !proIndicator
-              ? newsIndicator
-              : proIndicator}
-          </Indicator>
-        )}
       </MobileMenuToggleBox>
       <MobileMenuContainer menuOpen={menuOpen}>
         <Box
@@ -310,22 +297,6 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
               color={link.bold ? 'text.primary' : 'inherit'}
             >
               {link.label}
-              {link.label === 'News' &&
-                link.indicator &&
-                typeof newsIndicator === 'number' &&
-                newsIndicator > 0 && (
-                  <Indicator className="tg-notification-bubble">
-                    {newsIndicator}
-                  </Indicator>
-                )}
-              {link.label === 'Pro' &&
-                link.indicator &&
-                typeof proIndicator === 'number' &&
-                proIndicator > 0 && (
-                  <Indicator className="tg-notification-bubble">
-                    {proIndicator}
-                  </Indicator>
-                )}
             </Text>
           </MobileMenuItem>
         ))}

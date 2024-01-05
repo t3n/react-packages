@@ -2,8 +2,6 @@ import React from 'react';
 import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 export interface LegacyMobileNavProps {
     user: LegacyUserMenuProps['user'];
-    newsIndicator?: number;
-    proIndicator?: number;
     headerCampaignUrl: string;
     headerCampaignImageMobile?: string;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
@@ -94,8 +94,6 @@ export const defaultStory = () => (
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
         headerCampaignImageMobile={variants[randomNumber].imageMobile}
-        newsIndicator={number('News Indikator', 3)}
-        proIndicator={number('Pro Indikator', 1)}
       />
     </LegacyHeaderWrapper>
   </Wrapper>

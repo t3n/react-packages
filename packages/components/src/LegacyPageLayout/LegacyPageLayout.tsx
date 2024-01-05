@@ -30,8 +30,6 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   headerCampaignUrl,
   headerCampaignImage,
   headerCampaignImageMobile,
-  newsIndicator,
-  proIndicator,
   adUnits,
   previewAdUnits,
   overflow,
@@ -57,8 +55,6 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImage={headerCampaignImage}
           headerCampaignImageMobile={headerCampaignImageMobile}
-          newsIndicator={newsIndicator}
-          proIndicator={proIndicator}
           showAds={shouldDisplayAdUnit('T3N_D_Right')}
           adsPreview={previewAdUnits}
         />

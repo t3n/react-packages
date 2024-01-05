@@ -9,8 +9,6 @@ export interface LegacyDesktopHeaderProps {
     tagsLoading?: boolean;
     headerCampaignUrl: string;
     headerCampaignImage: string;
-    newsIndicator?: number;
-    proIndicator?: number;
     showAds?: boolean;
     adsPreview?: boolean;
 }

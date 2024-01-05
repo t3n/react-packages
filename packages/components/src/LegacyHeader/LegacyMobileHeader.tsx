@@ -15,8 +15,6 @@ export interface LegacyMobileHeaderProps {
   user: LegacyUserMenuProps['user'];
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
-  newsIndicator?: number;
-  proIndicator?: number;
 }
 
 const MobileHeader = styled(Box)`
@@ -57,8 +55,6 @@ const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
   user,
   headerCampaignUrl,
   headerCampaignImageMobile,
-  newsIndicator,
-  proIndicator,
 }) => {
   return (
     <MobileHeader
@@ -89,8 +85,6 @@ const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
       </HeaderCampaign>
       <LegacyMobileNav
         user={user}
-        newsIndicator={newsIndicator}
-        proIndicator={proIndicator}
         headerCampaignUrl={headerCampaignUrl}
         headerCampaignImageMobile={headerCampaignImageMobile}
       />

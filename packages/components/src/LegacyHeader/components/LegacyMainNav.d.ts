@@ -1,8 +1,6 @@
 import React from 'react';
 export interface LegacyMainNavProps {
     isSticky?: boolean;
-    newsIndicator?: number;
-    proIndicator?: number;
 }
 export declare type MainNavLinkGroupsType = {
     label: string;

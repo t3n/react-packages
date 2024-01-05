@@ -16,8 +16,6 @@ export interface LegacyHeaderProps {
   headerCampaignUrl: string;
   headerCampaignImage: string;
   headerCampaignImageMobile?: string;
-  newsIndicator?: number;
-  proIndicator?: number;
   showAds?: boolean;
   adsPreview?: boolean;
 }
@@ -31,8 +29,6 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   headerCampaignUrl,
   headerCampaignImage,
   headerCampaignImageMobile,
-  newsIndicator,
-  proIndicator,
   showAds,
   adsPreview,
 }) => {
@@ -43,8 +39,6 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
           user={user}
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImageMobile={headerCampaignImageMobile}
-          newsIndicator={newsIndicator}
-          proIndicator={proIndicator}
         />
       </Box>
       <Box display={['none', 'none', 'block']}>
@@ -56,8 +50,6 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
           tagsLoading={tagsLoading}
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImage={headerCampaignImage}
-          newsIndicator={newsIndicator}
-          proIndicator={proIndicator}
           showAds={showAds}
           adsPreview={adsPreview}
         />
