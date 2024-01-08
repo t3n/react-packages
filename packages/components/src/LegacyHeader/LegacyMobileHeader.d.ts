@@ -4,8 +4,6 @@ export interface LegacyMobileHeaderProps {
     user: LegacyUserMenuProps['user'];
     headerCampaignUrl: string;
     headerCampaignImageMobile?: string;
-    newsIndicator?: number;
-    proIndicator?: number;
 }
 declare const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps>;
 export default LegacyMobileHeader;

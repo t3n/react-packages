@@ -1,5 +1,5 @@
 import React from 'react';
-import { boolean, number, withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { Story } from '@storybook/react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
@@ -106,8 +106,6 @@ export const defaultStory: Story = () => {
           headerCampaignUrl={variants[randomNumber].href}
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
-          newsIndicator={number('News Indikator', 3)}
-          proIndicator={number('Pro Indikator', 1)}
         >
           <LegacyBreadcrumb>
             <LegacyBreadcrumbItem label="Home" href="/" />
@@ -154,7 +152,6 @@ export const notLoggedInStory: Story = () => (
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
         headerCampaignImageMobile={variants[randomNumber].imageMobile}
-        newsIndicator={number('Indikator', 3)}
       >
         <VisualSection variant="highlight">
           <Content>
@@ -204,7 +201,6 @@ export const adZonesStory: Story = () => {
           headerCampaignUrl={variants[randomNumber].href}
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
-          newsIndicator={number('Indikator', 3)}
           adUnits={['T3N_D_Top', 'T3N_D_Right', 'T3N_M_Incontent-1']}
           previewAdUnits={boolean('Preview AdUnits', true)}
         >

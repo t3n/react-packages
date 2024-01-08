@@ -10,8 +10,6 @@ export interface LegacyHeaderProps {
     headerCampaignUrl: string;
     headerCampaignImage: string;
     headerCampaignImageMobile?: string;
-    newsIndicator?: number;
-    proIndicator?: number;
     showAds?: boolean;
     adsPreview?: boolean;
 }

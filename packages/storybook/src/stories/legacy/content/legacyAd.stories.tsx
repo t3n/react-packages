@@ -1,5 +1,5 @@
 import React from 'react';
-import { boolean, number, select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import type { Story } from '@storybook/react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
@@ -160,8 +160,6 @@ export const pageLayoutStory: Story = () => {
           headerCampaignUrl={variants[randomNumber].href}
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
-          newsIndicator={number('News Indikator', 3)}
-          proIndicator={number('Pro Indikator', 1)}
           adUnits={['T3N_D_Top', 'T3N_D_Right']}
           previewAdUnits={boolean('Preview', true)}
         >
