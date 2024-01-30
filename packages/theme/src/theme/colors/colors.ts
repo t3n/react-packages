@@ -4,6 +4,7 @@ export const red = '#f9423a';
 
 export const black = '#000';
 export const grey42 = '#2a2a2a';
+export const grey95 = '#5F5F5F';
 export const grey143 = '#8F8F8F';
 export const grey204 = '#cccccc';
 export const grey232 = '#e8e8e8';
@@ -27,6 +28,7 @@ export const brandColors = {
 export type ThemeShadeColor =
   | 'black'
   | 'grey42'
+  | 'grey95'
   | 'grey143'
   | 'grey204'
   | 'grey232'
@@ -36,6 +38,7 @@ export type ThemeShadeColor =
 export interface ThemeShadeColors {
   black: string;
   grey42: string;
+  grey95: string;
   grey143: string;
   grey204: string;
   grey232: string;
@@ -46,6 +49,7 @@ export interface ThemeShadeColors {
 export const shadesColors = {
   black,
   grey42,
+  grey95,
   grey143,
   grey204,
   grey232,
@@ -81,7 +85,7 @@ export const backgroundColors = {
 
 // TEXT
 export const textPrimary = grey42;
-export const textSecondary = grey143;
+export const textSecondary = grey95;
 export const textInverse = white;
 export const textHighlight = red;
 
