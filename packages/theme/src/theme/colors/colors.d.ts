@@ -2,7 +2,6 @@ export declare const red = "#f9423a";
 export declare const black = "#000";
 export declare const grey42 = "#2a2a2a";
 export declare const grey95 = "#5F5F5F";
-export declare const grey143 = "#8F8F8F";
 export declare const grey204 = "#cccccc";
 export declare const grey232 = "#e8e8e8";
 export declare const grey244 = "#f4f4f4";
@@ -18,12 +17,11 @@ export declare const brandColors: {
     black: string;
     white: string;
 };
-export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey95' | 'grey143' | 'grey204' | 'grey232' | 'grey244' | 'white';
+export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey95' | 'grey95' | 'grey204' | 'grey232' | 'grey244' | 'white';
 export interface ThemeShadeColors {
     black: string;
     grey42: string;
     grey95: string;
-    grey143: string;
     grey204: string;
     grey232: string;
     grey244: string;
@@ -33,7 +31,6 @@ export declare const shadesColors: {
     black: string;
     grey42: string;
     grey95: string;
-    grey143: string;
     grey204: string;
     grey232: string;
     grey244: string;
@@ -74,7 +71,7 @@ export declare const textColors: {
     highlight: string;
 };
 export declare const comment = "#f9423a";
-export declare const email = "#8F8F8F";
+export declare const email = "#5F5F5F";
 export declare const facebook = "#1877f2";
 export declare const flipboard = "#f9261a";
 export declare const github = "#24292e";
@@ -170,7 +167,6 @@ declare const colors: {
         black: string;
         grey42: string;
         grey95: string;
-        grey143: string;
         grey204: string;
         grey232: string;
         grey244: string;

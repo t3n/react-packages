@@ -316,7 +316,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
               <BookMarkText m={0}>
                 <Icon
                   component={MaterialBookmarkBorder}
-                  fill="shades.grey143"
+                  fill="shades.grey95"
                 />{' '}
                 Merkliste
               </BookMarkText>

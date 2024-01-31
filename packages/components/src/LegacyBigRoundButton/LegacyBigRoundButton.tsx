@@ -28,7 +28,7 @@ const BigRoundButton = styled(Button)`
 
   > svg {
     ${({ theme }) => layout({ theme, width: '25px', height: '25px' })};
-    fill: #9b9b9b !important;
+    fill: #5F5F5F !important;
   }
 
   &:hover:not(:disabled) {

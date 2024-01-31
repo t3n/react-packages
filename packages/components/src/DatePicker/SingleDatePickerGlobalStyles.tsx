@@ -33,7 +33,7 @@ const SingleDatePickerGlobalStyles = createGlobalStyle<
         theme,
         borderRadius: '4px',
         border: '1px solid',
-        borderColor: 'shades.grey143',
+        borderColor: 'shades.grey95',
       })}
     height: 40px;
     ${({ theme }) => typography({ theme, fontSize: '1rem' })}
@@ -186,7 +186,7 @@ const SingleDatePickerGlobalStyles = createGlobalStyle<
 
 
   .DayPicker_weekHeader {
-    ${({ theme }) => color({ theme, color: 'shades.grey143' })}
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })}
   }
 
   .CalendarDay__default {

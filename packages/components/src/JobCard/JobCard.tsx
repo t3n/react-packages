@@ -114,7 +114,7 @@ const JobListItem = ({
         <Text width="auto" mt={0} mb={0}>
           {companyName}
         </Text>
-        <Text width="auto" small mt={2} mb={0} color="shades.grey143">
+        <Text width="auto" small mt={2} mb={0} color="shades.grey95">
           {/* TODO: Add location icon instead of postcode */}
           {postCode} {city}
         </Text>

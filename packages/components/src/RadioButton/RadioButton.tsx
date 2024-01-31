@@ -49,7 +49,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
         light: {
           bg:
             checked && disabled
-              ? 'shades.grey143'
+              ? 'shades.grey95'
               : checked && feedbackColor
               ? 'shades.white'
               : checked
@@ -59,15 +59,15 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
           borderColor: feedbackColor
             ? theme.colors.feedback[feedbackColor]
             : checked && disabled
-            ? theme.colors.shades.grey143
+            ? theme.colors.shades.grey95
             : checked
             ? theme.colors.shades.grey42
-            : theme.colors.shades.grey143,
+            : theme.colors.shades.grey95,
         },
         dark: {
           bg:
             checked && disabled
-              ? 'shades.grey143'
+              ? 'shades.grey95'
               : checked && feedbackColor
               ? 'shades.grey44'
               : checked
@@ -77,7 +77,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
           borderColor: feedbackColor
             ? theme.colors.feedback[feedbackColor]
             : checked && disabled
-            ? theme.colors.shades.grey143
+            ? theme.colors.shades.grey95
             : checked
             ? theme.colors.shades.white
             : theme.colors.shades.grey244,
@@ -136,10 +136,10 @@ const StyledLabel = styled.label<
     variant({
       variants: {
         light: {
-          color: disabled ? 'shades.grey143' : 'black',
+          color: disabled ? 'shades.grey95' : 'black',
         },
         dark: {
-          color: disabled ? 'shades.grey143' : 'white',
+          color: disabled ? 'shades.grey95' : 'white',
         },
       },
     })}

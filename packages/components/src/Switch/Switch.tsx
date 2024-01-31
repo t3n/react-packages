@@ -58,7 +58,7 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'feedback.success'
             : checked && disabled
             ? 'shades.black'
-            : 'shades.grey143',
+            : 'shades.grey95',
           border: '2px solid',
           borderColor: disabled
             ? 'shades.black'
@@ -66,7 +66,7 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'shades.black'
             : checked
             ? 'feedback.success'
-            : 'shades.grey143',
+            : 'shades.grey95',
         },
       },
     })}
@@ -105,7 +105,7 @@ const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
             ? 'shades.black'
             : checked
             ? 'feedback.success'
-            : 'shades.grey143',
+            : 'shades.grey95',
         },
       },
     })}

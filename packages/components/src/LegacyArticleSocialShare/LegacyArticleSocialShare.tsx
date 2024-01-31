@@ -60,7 +60,7 @@ export interface LegacyArticleSocialShareProps {
 const OldFacebookIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    fill="#8F8F8F"
+    fill="#5F5F5F"
     width="18px"
     height="18px"
     xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ const LegacySocialIcon: React.FC<{
   component: React.FC<React.SVGProps<SVGSVGElement>>;
 }> = ({ url, component, ...rest }) => (
   <SocialLink url={url} {...rest}>
-    <Icon height="1.25rem" fill="shades.grey143" component={component} />
+    <Icon height="1.25rem" fill="shades.grey95" component={component} />
   </SocialLink>
 );
 
@@ -151,7 +151,7 @@ const SocialIcon = styled(LegacySocialIcon).attrs(
       LegacySocialConfig[network].iconScale
         ? `transform: scale(${LegacySocialConfig[network].iconScale});`
         : ''}
-    fill: ${getThemeColor(`shades.grey143`)};
+    fill: ${getThemeColor(`shades.grey95`)};
 
     &:hover {
       fill: ${({ network }) => getThemeColor(`social.${network}`)};

@@ -81,7 +81,7 @@ const Accordion: React.FC<AccordionProps> = ({
           <Icon
             width="2rem"
             height="2rem"
-            fill="shades.grey143"
+            fill="shades.grey95"
             component={MaterialArrowDropDown}
           />
         </StyledIconBox>

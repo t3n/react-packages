@@ -105,9 +105,9 @@ const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
         isBookmarkedClick={isBookmarkedClick}
       >
         {isBookmarked ? (
-          <Bookmark fill="#8F8F8F" width="20" height="20" />
+          <Bookmark fill="#5F5F5F" width="20" height="20" />
         ) : (
-          <BookmarkBorder fill="#8F8F8F" width="20" height="20" />
+          <BookmarkBorder fill="#5F5F5F" width="20" height="20" />
         )}
       </BookmarkContainer>
       <Tooltip>Artikel merken</Tooltip>
