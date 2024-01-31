@@ -60,7 +60,7 @@ export interface LegacyArticleSocialShareProps {
 const OldFacebookIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    fill="#5F5F5F"
+    fill="#5f5f5f"
     width="18px"
     height="18px"
     xmlns="http://www.w3.org/2000/svg"

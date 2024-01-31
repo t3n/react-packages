@@ -32,7 +32,7 @@ export type SocialLinkType = {
 const OldFacebookIcon: React.FC = () => (
   <svg
     viewBox="0 0 24 24"
-    fill="#5F5F5F"
+    fill="#5f5f5f"
     width="18px"
     height="18px"
     xmlns="http://www.w3.org/2000/svg"
@@ -67,49 +67,49 @@ const legacySocialLinks: SocialLinkType = [
   {
     title: 'Instagram',
     url: 'https://instagram.com/t3n_magazin/',
-    icon: <SocialInstagram fill="#5F5F5F" width="18px" height="18px" />,
+    icon: <SocialInstagram fill="#5f5f5f" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'Twitter',
     url: 'https://twitter.com/t3n',
-    icon: <SocialTwitter fill="#5F5F5F" width="18px" height="18px" />,
+    icon: <SocialTwitter fill="#5f5f5f" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'Xing',
     url: 'https://xing.com/news/pages/t3n-magazin-67',
-    icon: <SocialXing fill="#5F5F5F" width="18px" height="18px" />,
+    icon: <SocialXing fill="#5f5f5f" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 'LinkedIn',
     url: 'https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/',
-    icon: <SocialLinkedin fill="#5F5F5F" width="18px" height="18px" />,
+    icon: <SocialLinkedin fill="#5f5f5f" width="18px" height="18px" />,
     target: '_blank',
   },
   {
     title: 't3n Newsletter',
     url: '/info/t3n-newsletter/',
-    icon: <MaterialLocalPostOffice fill="#5F5F5F" width="22px" height="22px" />,
+    icon: <MaterialLocalPostOffice fill="#5f5f5f" width="22px" height="22px" />,
     rel: 'follow',
   },
   {
     title: 'Notifications',
     url: '/info/push-notifications/',
-    icon: <MaterialNotifications fill="#5F5F5F" width="24px" height="24px" />,
+    icon: <MaterialNotifications fill="#5f5f5f" width="24px" height="24px" />,
     rel: 'follow',
   },
   {
     title: 't3n als RSS abonnieren',
     url: '/social-media#RSS-Feeds:_Immer_up_to_date',
-    icon: <MaterialRssFeed fill="#5F5F5F" width="24px" height="24px" />,
+    icon: <MaterialRssFeed fill="#5f5f5f" width="24px" height="24px" />,
     rel: 'follow',
   },
   {
     title: 'Folge t3n auf deinen Lieblingskanälen',
     url: '/social-media/',
-    icon: <MaterialAdd fill="#5F5F5F" width="24px" height="24px" />,
+    icon: <MaterialAdd fill="#5f5f5f" width="24px" height="24px" />,
     rel: 'follow',
   },
 ];

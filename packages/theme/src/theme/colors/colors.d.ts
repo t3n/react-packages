@@ -1,7 +1,7 @@
 export declare const red = "#f9423a";
 export declare const black = "#000";
 export declare const grey42 = "#2a2a2a";
-export declare const grey95 = "#5F5F5F";
+export declare const grey95 = "#5f5f5f";
 export declare const grey204 = "#cccccc";
 export declare const grey232 = "#e8e8e8";
 export declare const grey244 = "#f4f4f4";
@@ -54,7 +54,7 @@ export declare const backgroundColors: {
     highlight: string;
 };
 export declare const textPrimary = "#2a2a2a";
-export declare const textSecondary = "#5F5F5F";
+export declare const textSecondary = "#5f5f5f";
 export declare const textInverse = "#fff";
 export declare const textHighlight = "#f9423a";
 export declare type ThemeTextColor = 'primary' | 'secondary' | 'inverse' | 'highlight';
@@ -71,7 +71,7 @@ export declare const textColors: {
     highlight: string;
 };
 export declare const comment = "#f9423a";
-export declare const email = "#5F5F5F";
+export declare const email = "#5f5f5f";
 export declare const facebook = "#1877f2";
 export declare const flipboard = "#f9261a";
 export declare const github = "#24292e";

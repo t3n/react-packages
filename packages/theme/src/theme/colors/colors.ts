@@ -4,7 +4,7 @@ export const red = '#f9423a';
 
 export const black = '#000';
 export const grey42 = '#2a2a2a';
-export const grey95 = '#5F5F5F';
+export const grey95 = '#5f5f5f';
 export const grey204 = '#cccccc';
 export const grey232 = '#e8e8e8';
 export const grey244 = '#f4f4f4';
