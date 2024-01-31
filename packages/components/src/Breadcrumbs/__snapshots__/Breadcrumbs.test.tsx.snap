@@ -21,7 +21,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   font-size: 1rem;
   line-height: 1.5em;
   color: #2a2a2a;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDE0MywxNDMsMTQzKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDk1LDk1LDk1KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
 }
 
 .c2:hover {
@@ -36,7 +36,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
 
 .c2:visited {
   color: #2a2a2a;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDE0MywxNDMsMTQzKSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB2aWV3Qm94PSIwIDAgMSAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIHN0cm9rZT0icmdiKDk1LDk1LDk1KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgLz48L2c+PC9zdmc+');
 }
 
 .c2:visited:focus {
@@ -63,7 +63,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   margin-bottom: -6px;
   border-top: 0.333rem solid transparent;
   border-bottom: 0.333rem solid transparent;
-  border-left: 0.333rem solid #5F5F5F;
+  border-left: 0.333rem solid #5f5f5f;
 }
 
 .c1:first-child {
@@ -184,7 +184,7 @@ exports[`BreadcrumbsItems render custom link component if provided through props
   margin-bottom: -6px;
   border-top: 0.333rem solid transparent;
   border-bottom: 0.333rem solid transparent;
-  border-left: 0.333rem solid #5F5F5F;
+  border-left: 0.333rem solid #5f5f5f;
 }
 
 .c1:first-child {

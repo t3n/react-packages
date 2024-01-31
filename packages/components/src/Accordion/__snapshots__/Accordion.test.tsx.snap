@@ -27,7 +27,7 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
 .c9 {
   width: 2rem;
   height: 2rem;
-  fill: #5F5F5F;
+  fill: #5f5f5f;
   position: relative;
 }
 
@@ -162,7 +162,7 @@ exports[`Accordion matches snapshot 1`] = `
 .c7 {
   width: 2rem;
   height: 2rem;
-  fill: #5F5F5F;
+  fill: #5f5f5f;
   position: relative;
 }
 
