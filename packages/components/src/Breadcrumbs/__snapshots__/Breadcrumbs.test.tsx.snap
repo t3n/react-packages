@@ -63,7 +63,7 @@ exports[`Breadcrumbs matches snapshot 1`] = `
   margin-bottom: -6px;
   border-top: 0.333rem solid transparent;
   border-bottom: 0.333rem solid transparent;
-  border-left: 0.333rem solid #5f5f5f;
+  border-left: 0.333rem solid #5F5F5F;
 }
 
 .c1:first-child {
@@ -184,7 +184,7 @@ exports[`BreadcrumbsItems render custom link component if provided through props
   margin-bottom: -6px;
   border-top: 0.333rem solid transparent;
   border-bottom: 0.333rem solid transparent;
-  border-left: 0.333rem solid #5f5f5f;
+  border-left: 0.333rem solid #5F5F5F;
 }
 
 .c1:first-child {
