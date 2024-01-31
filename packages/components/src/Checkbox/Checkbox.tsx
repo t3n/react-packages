@@ -49,7 +49,7 @@ const StyledCheckbox = styled(Box)<
         light: {
           bg:
             checked && disabled
-              ? 'shades.grey143'
+              ? 'shades.grey95'
               : checked && feedbackColor
               ? 'shades.white'
               : checked
@@ -61,15 +61,15 @@ const StyledCheckbox = styled(Box)<
             : focused
             ? 'shades.grey42'
             : checked && disabled
-            ? 'shades.grey143'
+            ? 'shades.grey95'
             : checked
             ? 'shades.grey42'
-            : 'shades.grey143',
+            : 'shades.grey95',
         },
         dark: {
           bg:
             checked && disabled
-              ? 'shades.grey143'
+              ? 'shades.grey95'
               : checked && feedbackColor
               ? 'shades.grey44'
               : checked
@@ -81,7 +81,7 @@ const StyledCheckbox = styled(Box)<
             : focused
             ? 'shades.white'
             : checked && disabled
-            ? 'shades.grey143'
+            ? 'shades.grey95'
             : checked
             ? 'shades.white'
             : 'shades.grey204',
@@ -128,10 +128,10 @@ const StyledLabel = styled.label<
     styledVariant({
       variants: {
         light: {
-          color: disabled ? 'shades.grey143' : 'black',
+          color: disabled ? 'shades.grey95' : 'black',
         },
         dark: {
-          color: disabled ? 'shades.grey143' : 'white',
+          color: disabled ? 'shades.grey95' : 'white',
         },
       },
     })}

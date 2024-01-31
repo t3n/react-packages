@@ -63,7 +63,7 @@ const border = css`
         ? theme.colors.shades.grey204
         : isFocused
         ? theme.colors.shades.grey42
-        : theme.colors.shades.grey143};
+        : theme.colors.shades.grey95};
 `;
 
 const StyledNativeInput = styled.input.attrs(() => ({

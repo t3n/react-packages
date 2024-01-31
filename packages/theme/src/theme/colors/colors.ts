@@ -4,8 +4,7 @@ export const red = '#f9423a';
 
 export const black = '#000';
 export const grey42 = '#2a2a2a';
-export const grey95 = '#5F5F5F';
-export const grey143 = '#8F8F8F';
+export const grey95 = '#5f5f5f';
 export const grey204 = '#cccccc';
 export const grey232 = '#e8e8e8';
 export const grey244 = '#f4f4f4';
@@ -29,7 +28,7 @@ export type ThemeShadeColor =
   | 'black'
   | 'grey42'
   | 'grey95'
-  | 'grey143'
+  | 'grey95'
   | 'grey204'
   | 'grey232'
   | 'grey244'
@@ -39,7 +38,6 @@ export interface ThemeShadeColors {
   black: string;
   grey42: string;
   grey95: string;
-  grey143: string;
   grey204: string;
   grey232: string;
   grey244: string;
@@ -50,7 +48,6 @@ export const shadesColors = {
   black,
   grey42,
   grey95,
-  grey143,
   grey204,
   grey232,
   grey244,
@@ -107,7 +104,7 @@ export const textColors = {
 
 // SOCIAL
 export const comment = red;
-export const email = grey143;
+export const email = grey95;
 export const facebook = '#1877f2';
 export const flipboard = '#f9261a';
 export const github = '#24292e';

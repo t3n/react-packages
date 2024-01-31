@@ -21,7 +21,7 @@ export interface ThemeLinkStyles {
 const primaryLinkStyles: LinkStyle = {
   default: {
     color: 'text.primary',
-    underlineColor: 'shades.grey143',
+    underlineColor: 'shades.grey95',
   },
   hover: {
     color: 'text.primary',
@@ -33,7 +33,7 @@ const primaryLinkStyles: LinkStyle = {
   },
   visited: {
     color: 'text.primary',
-    underlineColor: 'shades.grey143',
+    underlineColor: 'shades.grey95',
   },
 };
 
@@ -78,7 +78,7 @@ const highlightLinkStyles: LinkStyle = {
 const inverseLinkStyles: LinkStyle = {
   default: {
     color: 'text.inverse',
-    underlineColor: 'shades.grey143',
+    underlineColor: 'shades.grey95',
   },
   hover: {
     color: 'text.inverse',
@@ -90,7 +90,7 @@ const inverseLinkStyles: LinkStyle = {
   },
   visited: {
     color: 'text.inverse',
-    underlineColor: 'shades.grey143',
+    underlineColor: 'shades.grey95',
   },
 };
 

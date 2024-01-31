@@ -314,10 +314,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
             </MobileMenuItem>
             <MobileMenuItem href="/account/merkliste" title="Merkliste">
               <BookMarkText m={0}>
-                <Icon
-                  component={MaterialBookmarkBorder}
-                  fill="shades.grey143"
-                />{' '}
+                <Icon component={MaterialBookmarkBorder} fill="shades.grey95" />{' '}
                 Merkliste
               </BookMarkText>
             </MobileMenuItem>
