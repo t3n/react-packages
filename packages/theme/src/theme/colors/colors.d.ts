@@ -17,7 +17,7 @@ export declare const brandColors: {
     black: string;
     white: string;
 };
-export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey95' | 'grey204' | 'grey232' | 'grey244' | 'white';
+export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey95' | 'grey95' | 'grey204' | 'grey232' | 'grey244' | 'white';
 export interface ThemeShadeColors {
     black: string;
     grey42: string;
