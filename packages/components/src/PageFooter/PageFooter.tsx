@@ -125,7 +125,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
         <GridItem width={[1, 1, 1, 1, 2 / 5]}>
           <MissionStatement
             bold
-            color="shades.grey143"
+            color="shades.grey95"
             my={4}
             align={['center', 'center', 'center', 'center', 'left']}
           >
@@ -212,7 +212,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
       <Grid justifyContent="space-between" alignItems="center">
         <GridItem width={[1, 1, 1, 1, 2 / 5]} order={[1, 1, 1, 1, 0]}>
           <Text
-            color="shades.grey143"
+            color="shades.grey95"
             small
             m={0}
             align={['center', 'center', 'center', 'center', 'left']}

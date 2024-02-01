@@ -65,7 +65,7 @@ const DesktopLinkGroup = styled(GridItem)`
     border({
       theme,
       borderWidth: 0,
-      borderColor: 'shades.grey143',
+      borderColor: 'shades.grey95',
       borderStyle: 'solid',
       borderLeftWidth: 1,
     })};
@@ -89,7 +89,7 @@ const DesktopBottomWrapper = styled(Box)`
     border({
       theme,
       borderWidth: 0,
-      borderColor: 'shades.grey143',
+      borderColor: 'shades.grey95',
       borderStyle: 'solid',
       borderTopWidth: 1,
     })};

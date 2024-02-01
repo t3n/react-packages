@@ -33,7 +33,7 @@ const DateRangePickerGlobalStyles = createGlobalStyle<
         theme,
         borderRadius: '4px',
         border: '1px solid',
-        borderColor: 'shades.grey143',
+        borderColor: 'shades.grey95',
       })}
     height: 40px;
     ${({ theme }) => typography({ theme, fontSize: '1rem' })}
@@ -193,12 +193,12 @@ const DateRangePickerGlobalStyles = createGlobalStyle<
       const { borderColor } = border({ theme, borderColor: 'shades.grey232' });
       return `border-color: ${borderColor} !important;`;
     }}
-    ${({ theme }) => color({ theme, color: 'shades.grey143' })}
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })}
   }
 
 
   .DayPicker_weekHeader {
-    ${({ theme }) => color({ theme, color: 'shades.grey143' })}
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })}
   }
 
   .CalendarDay__default {

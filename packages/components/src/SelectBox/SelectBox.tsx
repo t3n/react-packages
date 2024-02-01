@@ -75,7 +75,7 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
         ? theme.colors.shades.grey204
         : state.isFocused
         ? theme.colors.shades.grey42
-        : theme.colors.shades.grey143,
+        : theme.colors.shades.grey95,
       ':hover': {
         borderColor: error
           ? theme.colors.feedback.error
@@ -83,7 +83,7 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
           ? theme.colors.shades.grey204
           : state.isFocused
           ? theme.colors.shades.grey42
-          : theme.colors.shades.grey143,
+          : theme.colors.shades.grey95,
       },
     };
   },
@@ -100,7 +100,7 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
       ? theme.colors.shades.grey204
       : state.isFocused
       ? theme.colors.shades.grey42
-      : theme.colors.shades.grey143,
+      : theme.colors.shades.grey95,
   }),
   multiValue: (provided: any) => ({
     ...provided,
@@ -159,7 +159,7 @@ const ClearIndicator = (props: any) => {
         component={MaterialClear}
         width="20px"
         height="20px"
-        fill={theme.colors.shades.grey143}
+        fill={theme.colors.shades.grey95}
       />
     </components.ClearIndicator>
   );
@@ -183,7 +183,7 @@ const createDropdownIndicator =
               : // eslint-disable-next-line react/destructuring-assignment
               props.isFocused
               ? theme.colors.shades.grey42
-              : theme.colors.shades.grey143
+              : theme.colors.shades.grey95
           }
         />
       </components.DropdownIndicator>
@@ -199,7 +199,7 @@ const MultiValueRemove = (props: any) => {
         component={MaterialClear}
         width="16px"
         height="16px"
-        fill={theme.colors.shades.grey143}
+        fill={theme.colors.shades.grey95}
       />
     </components.MultiValueRemove>
   );
