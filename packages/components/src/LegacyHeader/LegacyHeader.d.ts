@@ -1,10 +1,6 @@
-import React from 'react';
-import { LegacyUserMenuProps } from '../LegacyUserMenu';
+import React, { ReactNode } from 'react';
 import { TagNavTagsType } from './components/LegacyTagNav';
 export interface LegacyHeaderProps {
-    user?: LegacyUserMenuProps['user'];
-    userMenuLabelUrl: string;
-    userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
     tags: TagNavTagsType[];
     tagsLoading?: boolean;
     headerCampaignUrl: string;
@@ -12,6 +8,9 @@ export interface LegacyHeaderProps {
     headerCampaignImageMobile?: string;
     showAds?: boolean;
     adsPreview?: boolean;
+    userEmail?: string;
+    isProMember?: boolean;
+    userMenuItems?: ReactNode[];
 }
 declare const LegacyHeader: React.FC<LegacyHeaderProps>;
 export default LegacyHeader;

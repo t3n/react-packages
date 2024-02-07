@@ -43,7 +43,6 @@ export { default as LegacyPageLayout } from './LegacyPageLayout';
 export { default as LegacyPagination } from './LegacyPagination';
 export { default as LegacySection } from './LegacySection';
 export { default as LegacySocialBar } from './LegacySocialBar';
-export { default as LegacyUserMenu } from './LegacyUserMenu';
 export { default as Link } from './Link';
 export { default as ListBox } from './ListBox';
 export { default as Loader } from './Loader';

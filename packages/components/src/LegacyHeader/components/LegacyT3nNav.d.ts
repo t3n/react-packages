@@ -1,9 +1,8 @@
-import React from 'react';
-import { LegacyUserMenuProps } from '../../LegacyUserMenu';
+import React, { ReactNode } from 'react';
 export interface LegacyT3nNavProps {
-    user: LegacyUserMenuProps['user'];
-    labelUrl: string;
-    itemGroups: LegacyUserMenuProps['itemGroups'];
+    isProMember?: boolean;
+    userEmail?: string;
+    userMenuItems?: ReactNode[];
 }
 export declare type T3nNavLinksType = {
     label: string;

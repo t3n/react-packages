@@ -4,11 +4,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, position, space } from 'styled-system';
 
-import {
-  MaterialBookmarkBorder,
-  MaterialClose,
-  MaterialMenu,
-} from '@t3n/icons';
+import { MaterialClose, MaterialMenu, T3nPro } from '@t3n/icons';
+import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
+import PersonOutline from '@t3n/icons/src/components/material/social/PersonOutline';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
@@ -16,16 +14,15 @@ import Button from '../../Button';
 import Icon from '../../Icon';
 import Image from '../../Image';
 import Input from '../../Input';
-import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import Logo from '../../Logo';
 import Text from '../../Text';
 import HeaderCampaign from './LegacyHeaderCampaign';
 
 export interface LegacyMobileNavProps {
-  user: LegacyUserMenuProps['user'];
-
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
+  userEmail?: string;
+  isProMember?: boolean;
 }
 
 export type MobileNavLinksType = {
@@ -131,13 +128,6 @@ const MobileMenuItem = styled.a<{ borderTopThick?: boolean }>`
   }
 `;
 
-const BookMarkText = styled(Text)`
-  display: flex;
-  align-items: center;
-
-  ${({ theme }) => space({ theme, ml: '-5px' })};
-`;
-
 const Overlay = styled(Box)`
   position: fixed;
   width: 100%;
@@ -224,10 +214,10 @@ const mobileNavLinks: MobileNavLinksType[] = [
 ];
 
 const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
-  user,
-
   headerCampaignUrl,
   headerCampaignImageMobile,
+  userEmail,
+  isProMember,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -300,23 +290,39 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
             </Text>
           </MobileMenuItem>
         ))}
-        {user ? (
+        {userEmail ? (
           <>
+            {isProMember && (
+              <MobileMenuItem
+                borderTopThick
+                href="/account/pro"
+                title="Pro-Membership"
+              >
+                <T3nPro style={{ marginRight: 4 }} />
+                Pro-Membership
+              </MobileMenuItem>
+            )}
             <MobileMenuItem
-              borderTopThick
-              href={`/pioneers/profile/${user.nickName}`}
-              title="Pioneers-Profil"
+              borderTopThick={!isProMember}
+              href="/account/merkliste"
+              title="Merkliste"
             >
-              <Text m={0}>Pioneers-Profil</Text>
+              <BookmarkBorder
+                fill="#5f5f5f"
+                width="20"
+                height="20"
+                style={{ marginRight: 4 }}
+              />
+              Merkliste
             </MobileMenuItem>
-            <MobileMenuItem href="/account" title="Konto / Pro">
-              <Text m={0}>Konto / Pro</Text>
-            </MobileMenuItem>
-            <MobileMenuItem href="/account/merkliste" title="Merkliste">
-              <BookMarkText m={0}>
-                <Icon component={MaterialBookmarkBorder} fill="shades.grey95" />{' '}
-                Merkliste
-              </BookMarkText>
+            <MobileMenuItem href="/account/" title="Konto">
+              <PersonOutline
+                fill="#5f5f5f"
+                width="20"
+                height="20"
+                style={{ marginRight: 4 }}
+              />
+              Konto
             </MobileMenuItem>
             <MobileMenuItem href="/account/logout" title="Abmelden">
               <Text m={0}>Abmelden</Text>

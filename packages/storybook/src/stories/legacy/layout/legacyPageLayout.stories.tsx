@@ -16,7 +16,7 @@ import {
   VisualSection,
 } from '@t3n/components';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
-import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
+import { UserMenuProps } from '@t3n/components/src/UserMenu';
 
 const Wrapper = styled(Box)`
   ${({ theme }) => color({ theme, bg: 'shades.grey204' })}
@@ -27,23 +27,6 @@ const LegacyPageLayoutWrapper = styled(Box)`
   margin: 0 auto auto;
   position: relative;
 `;
-
-const standardUser: LegacyUserMenuProps['user'] = {
-  name: 'Jan Christe',
-  nickName: 'jan.christe',
-  avatarUrl:
-    'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
-};
-
-const standardLinkGroup: LegacyUserMenuProps['itemGroups'] = [
-  {
-    item: [
-      <a href="https://t3n.de/pioneers/profile/">Pioneers-Profil</a>,
-      <a href="https://t3n.de/account">Konto / Pro</a>,
-      <a href="https://t3n.de/account/merkliste">Merkliste</a>,
-    ],
-  },
-];
 
 const tagNavTags: TagNavTagsType[] = [
   {
@@ -87,6 +70,17 @@ const variants = [
 
 const randomNumber = Math.floor(variants.length * Math.random());
 
+const links: UserMenuProps['userMenuItems'] = [
+  <a href="/">
+    Eine
+    <span role="img" aria-label="Sonnenblume">
+      🌻
+    </span>
+    Blume
+  </a>,
+  <a href="https://faq.t3n.de/">FAQ</a>,
+];
+
 export default {
   title: 'Legacy/Layout/PageLayout',
   component: LegacyPageLayout,
@@ -99,13 +93,12 @@ export const defaultStory: Story = () => {
       <LegacyPageLayoutWrapper>
         <LegacyPageLayout
           privacyManagerId="123456"
-          user={standardUser}
-          userMenuLabelUrl="/account/"
-          userMenuLinkGroups={standardLinkGroup}
           tags={tagNavTags}
           headerCampaignUrl={variants[randomNumber].href}
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
+          isProMember={boolean('Pro-Member?', true)}
+          userEmail="john.doe@beispiel.de"
         >
           <LegacyBreadcrumb>
             <LegacyBreadcrumbItem label="Home" href="/" />
@@ -146,8 +139,6 @@ export const notLoggedInStory: Story = () => (
     <LegacyPageLayoutWrapper>
       <LegacyPageLayout
         privacyManagerId="123456"
-        userMenuLabelUrl="/account/"
-        userMenuLinkGroups={standardLinkGroup}
         tags={tagNavTags}
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
@@ -194,15 +185,15 @@ export const adZonesStory: Story = () => {
       <LegacyPageLayoutWrapper>
         <LegacyPageLayout
           privacyManagerId="123456"
-          user={standardUser}
-          userMenuLabelUrl="/account/"
-          userMenuLinkGroups={standardLinkGroup}
           tags={tagNavTags}
           headerCampaignUrl={variants[randomNumber].href}
           headerCampaignImage={variants[randomNumber].image}
           headerCampaignImageMobile={variants[randomNumber].imageMobile}
           adUnits={['T3N_D_Top', 'T3N_D_Right', 'T3N_M_Incontent-1']}
           previewAdUnits={boolean('Preview AdUnits', true)}
+          isProMember={boolean('Pro-Member?', true)}
+          userEmail="john.doe@beispiel.de"
+          userMenuItems={links}
         >
           <LegacySection variant="primary">
             <Text my={9}>Dummy LegacySection</Text>

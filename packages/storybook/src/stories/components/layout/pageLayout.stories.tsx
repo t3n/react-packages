@@ -2,12 +2,12 @@ import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
 
 import {
-  Avatar,
   Content,
   H1,
   PageLayout,
   Section,
   Text,
+  UserMenu,
   VisualSection,
 } from '@t3n/components';
 
@@ -24,7 +24,8 @@ export const defaultStory = () => {
     <PageLayout
       noContentPadding={noContentPadding}
       showHeader={showHeader}
-      light={boolean('Helle Variante Header', false)}
+      light={boolean('Helle Variante', false)}
+      headerContent={<UserMenu isProMember userEmail="john.doe@beispiel.de" />}
       showPrivacySettingsLink
       privacyManagerId="123456"
     >
@@ -44,12 +45,7 @@ export const withTransparentHeader = () => {
       initialTransparent
       noContentPadding={noContentPadding}
       showHeader={showHeader}
-      headerContent={
-        <Avatar
-          src="https://storage.googleapis.com/t3n-de/pioneers/ee08e42d57b7c75290f40f8d9a56489b8db91cd6/Thelen_Frank_Portrait_03%20-%20Lena%20He%C3%9Fbru%CC%88gge.jpg"
-          alt="Avatar"
-        />
-      }
+      headerContent={<UserMenu isProMember userEmail="john.doe@beispiel.de" />}
       showPrivacySettingsLink
       privacyManagerId="123456"
     >

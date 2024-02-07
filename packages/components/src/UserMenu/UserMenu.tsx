@@ -1,38 +1,35 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { ReactNode } from 'react';
+import styled, { css } from 'styled-components';
 import { border, color, layout, position, space } from 'styled-system';
 
+import { T3nPro } from '@t3n/icons';
+import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
+import Person from '@t3n/icons/src/components/material/social/Person';
+import PersonOutline from '@t3n/icons/src/components/material/social/PersonOutline';
 import { ThemeProps } from '@t3n/theme';
 
-import Avatar from '../Avatar/Avatar';
 import Box from '../Box/Box';
-import Link from '../Link/Link';
-import Placeholder from '../Placeholder/Placeholder';
-import Text from '../Text/Text';
 
 export interface UserMenuProps {
-  loading: boolean;
-  loggedIn: boolean;
+  userEmail?: string;
   loginLink?: string;
   logoutLink?: string;
-  labelLink?: string;
+  proMembershipLink?: string;
+  readingListLink?: string;
+  accountLink?: string;
+  isProMember?: boolean;
   light?: boolean;
-
-  user?: {
-    label: string;
-    name: string;
-    avatarUrl: string;
-  };
-
-  itemGroups?: {
-    item: (JSX.Element | string)[];
-  }[];
+  userMenuItems?: ReactNode[];
 }
 
-const UserMenuWrapper = styled(Box)`
-  cursor: pointer;
+const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
   position: relative;
-  ${({ theme }) => space({ theme, py: 2, pl: 6 })};
+  z-index: 1000;
+  ${({ theme }) => space({ theme, py: 2, pr: '10px' })};
+
+  > svg {
+    cursor: pointer;
+  }
 
   &:hover > ul {
     display: block;
@@ -40,7 +37,7 @@ const UserMenuWrapper = styled(Box)`
 
   &:hover {
     &:after {
-      top: 51px;
+      top: 35px;
       right: 14px;
       left: auto;
       width: 10px;
@@ -60,6 +57,11 @@ const UserMenuWrapper = styled(Box)`
           borderTopWidth: 1,
           borderLeftWidth: 1,
         })};
+
+      @media screen and (max-width: ${(props: ThemeProps) =>
+          props.theme.breakpoints[0]}) {
+        top: 42px;
+      }
     }
   }
 `;
@@ -93,20 +95,21 @@ const UserMenuList = styled.ul`
 export const UserMenuListItem = styled.li`
   width: 100%;
   position: relative;
-  ${({ theme }) => color({ theme, color: 'text.primary' })};
+  ${({ theme }) => color({ theme, color: 'shades.grey95' })};
 
   &:hover {
     ${({ theme }) => color({ theme, bg: 'shades.grey244' })};
   }
 
-  a {
-    text-decoration: none;
-    display: block;
+  > * {
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })};
+    ${({ theme }) => space({ theme, py: 2, px: 3, my: 0 })};
   }
 
-  > * {
-    ${({ theme }) => color({ theme, color: 'text.primary' })};
-    ${({ theme }) => space({ theme, py: 2, px: 3, my: 0 })};
+  > a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -115,10 +118,10 @@ const UserMenuListItemText = styled.li`
   z-index: 1;
   position: relative;
   ${({ theme }) => space({ theme, py: 2, px: 3 })};
-  ${({ theme }) => color({ theme, color: 'text.primary' })};
+  ${({ theme }) => color({ theme, color: 'shades.grey95' })};
 
   > a {
-    ${({ theme }) => color({ theme, color: 'text.primary' })};
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })};
     text-decoration: none;
     align-items: center;
   }
@@ -127,7 +130,6 @@ const UserMenuListItemText = styled.li`
 const UserMenuListDivider = styled.li`
   display: block;
   height: 0;
-  ${({ theme }) => space({ theme, my: 2 })};
 
   ${({ theme }) =>
     border({
@@ -139,99 +141,167 @@ const UserMenuListDivider = styled.li`
     })};
 `;
 
-const StyledLogoutLink = styled.a`
-  ${({ theme }) => space({ theme, mb: 1 })};
+const LoginIcon = styled.a<{ light?: boolean }>`
+  position: relative;
+  ${({ theme }) => space({ theme, py: 2, pr: '10px' })};
+
+  &:hover,
+  &:focus {
+    > svg {
+      fill: #2a2a2a;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 26px;
+      height: 26px;
+      top: 5px;
+      right: 6px;
+
+      ${({ theme }) =>
+        border({
+          theme,
+          borderWidth: 1,
+          borderStyle: 'solid',
+          borderRadius: '50%',
+        })};
+    }
+  }
+
+  ${({ light }) =>
+    light
+      ? css`
+          &:hover,
+          &:focus {
+            &:after {
+              ${({ theme }) =>
+                color({
+                  theme,
+                  bg: 'background.secondary',
+                })}
+              ${({ theme }) =>
+                border({
+                  theme,
+                  borderColor: 'background.secondary',
+                })};
+            }
+          }
+        `
+      : css`
+          &:hover,
+          &:focus {
+            &:after {
+              ${({ theme }) =>
+                color({
+                  theme,
+                  bg: 'background.primary',
+                })}
+              ${({ theme }) =>
+                border({
+                  theme,
+                  borderColor: 'background.primary',
+                })};
+            }
+          }
+        `}
 `;
 
-const StyledUserLabel = styled(Text)`
+const StyledText = styled.p`
+  ${({ theme }) => space({ theme, my: 0 })};
+`;
+
+const StyledUserLabel = styled.p`
   ${({ theme }) => layout({ theme, width: ['auto', '176px'] })}
+  ${({ theme }) => space({ theme, mt: 1, mb: 0 })};
+  font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
-  loading,
-  user,
-}) => (
-  <>
-    <Text my={0}>Angemeldet als</Text>
-    {loading ? (
-      <Placeholder height="21px" width="100%" />
-    ) : (
-      user && (
-        <StyledUserLabel my={0} bold>
-          {user.label}
-        </StyledUserLabel>
-      )
-    )}
-  </>
-);
-
 const UserMenu: React.FC<UserMenuProps> = ({
-  user,
-  itemGroups,
+  userEmail,
+  isProMember = false,
+  userMenuItems,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
-  labelLink,
-  loading,
-  loggedIn,
+  proMembershipLink = '/account/pro',
+  readingListLink = '/account/merkliste',
+  accountLink = '/account/',
   light,
 }) => {
-  return loggedIn ? (
-    <UserMenuWrapper>
-      {user && (
-        <Avatar loading={loading} src={user.avatarUrl} alt={user.name} />
-      )}
-
+  return userEmail ? (
+    <UserMenuWrapper light={light}>
+      <Person fill={light ? '#5f5f5f' : '#ffffff'} width="20" height="20" />
       <UserMenuList>
         <UserMenuListItemText>
-          {labelLink ? (
-            <a href={labelLink}>
-              <UserLabel loading={loading} user={user} />
-            </a>
-          ) : (
-            <UserLabel loading={loading} user={user} />
-          )}
+          <StyledText>Hallo</StyledText>
+          <StyledUserLabel>{userEmail}</StyledUserLabel>
         </UserMenuListItemText>
+        {isProMember && (
+          <>
+            <UserMenuListDivider />
+            <UserMenuListItem>
+              <a href={proMembershipLink}>
+                <T3nPro style={{ marginRight: 6 }} />
+                Pro-Membership
+              </a>
+            </UserMenuListItem>
+          </>
+        )}
+        <UserMenuListDivider />
+        <UserMenuListItem>
+          <a href={readingListLink}>
+            <BookmarkBorder
+              fill="#5f5f5f"
+              width="20"
+              height="20"
+              style={{ marginRight: 4 }}
+            />
+            Merkliste
+          </a>
+        </UserMenuListItem>
+        <UserMenuListDivider />
+        <UserMenuListItem>
+          <a href={accountLink}>
+            <PersonOutline
+              fill="#5f5f5f"
+              width="20"
+              height="20"
+              style={{ marginRight: 4 }}
+            />
+            Konto
+          </a>
+        </UserMenuListItem>
         <UserMenuListDivider />
 
-        {itemGroups &&
-          itemGroups.map((group, idx) => {
+        {!!userMenuItems?.length &&
+          userMenuItems.map((item, idx) => {
             return (
               // eslint-disable-next-line react/no-array-index-key
               <React.Fragment key={idx}>
-                {group.item.map((item, index) => {
-                  return loading ? (
-                    <Placeholder
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={`placeholder-${index}`}
-                      height="21px"
-                      my={[1, 2]}
-                      mx={3}
-                    />
-                  ) : (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <UserMenuListItem key={index}>{item}</UserMenuListItem>
-                  );
-                })}
+                <UserMenuListItem>{item}</UserMenuListItem>
                 <UserMenuListDivider />
               </React.Fragment>
             );
           })}
 
-        {loading ? (
-          <Placeholder height="21px" my={[1, 2]} mx={3} />
-        ) : (
-          <UserMenuListItem>
-            <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
-          </UserMenuListItem>
-        )}
+        <UserMenuListItem>
+          <a href={logoutLink}>Abmelden</a>
+        </UserMenuListItem>
       </UserMenuList>
     </UserMenuWrapper>
   ) : (
-    <Link href={loginLink} variant={light ? 'primary' : 'highlight'}>
-      Anmelden
-    </Link>
+    <LoginIcon href={loginLink} light={light}>
+      <PersonOutline
+        fill={light ? '#5f5f5f' : '#ffffff'}
+        width="20"
+        height="20"
+      />
+    </LoginIcon>
   );
 };
 

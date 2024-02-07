@@ -3,7 +3,6 @@ import { boolean } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 
 import { PageHeader, UserMenu } from '@t3n/components';
-import { UserMenuProps } from '@t3n/components/src/UserMenu';
 
 const StoryWrapper = styled.div`
   position: relative;
@@ -17,30 +16,6 @@ export default {
   component: PageHeader,
   decorators: [(story: any) => <StoryWrapper>{story()}</StoryWrapper>],
 };
-
-const standardUser: UserMenuProps['user'] = {
-  label: 'john.doe@beispiel.de',
-  name: 'John Doe',
-  avatarUrl:
-    'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
-};
-
-const nickName = 'jan.christe';
-
-const standardLinkGroups: UserMenuProps['itemGroups'] = [
-  {
-    item: [
-      <a href={`https://t3n.de/pioneers/profile/${nickName}`}>
-        Pioneers-Profil
-      </a>,
-      <a href="https://t3n.de/account">Konto / Pro</a>,
-      <a href="https://t3n.de/account/merkliste">Merkliste</a>,
-    ],
-  },
-  {
-    item: [<a href="https://faq.t3n.de/">FAQ</a>],
-  },
-];
 
 export const defaultStory = () => (
   <PageHeader
@@ -57,11 +32,9 @@ export const displayUserMenu = () => (
     light={boolean('Helle Variante', false)}
   >
     <UserMenu
-      loading={false}
-      light={boolean('Helle Variante Usermenu', false)}
-      loggedIn={boolean('Eingeloggt', true)}
-      user={standardUser}
-      itemGroups={standardLinkGroups}
+      light={boolean('Helle Variante', false)}
+      isProMember={boolean('Pro-Member?', true)}
+      userEmail="john.doe@beispiel.de"
     />
   </PageHeader>
 );

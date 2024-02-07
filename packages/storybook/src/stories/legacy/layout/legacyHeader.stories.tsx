@@ -1,11 +1,10 @@
 import React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
 import { Box, LegacyHeader } from '@t3n/components';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
-import { LegacyUserMenuProps } from '@t3n/components/src/LegacyUserMenu';
 
 const Wrapper = styled(Box)`
   min-height: 200vh;
@@ -17,23 +16,6 @@ const LegacyHeaderWrapper = styled(Box)`
   margin: 0 auto auto;
   position: relative;
 `;
-
-const standardUser: LegacyUserMenuProps['user'] = {
-  name: 'Jan Christe',
-  nickName: 'jan.christe',
-  avatarUrl:
-    'https://storage.googleapis.com/t3n-de/pioneers/2a363b7c2b439bb50cec3d7caef6b5b0d1c68af3/undefined?auto=format&fit=crop&h=100&w=100&ixlib=react-9.0.2&h=100&w=100',
-};
-
-const standardLinkGroup: LegacyUserMenuProps['itemGroups'] = [
-  {
-    item: [
-      <a href="https://t3n.de/pioneers/profile/">Pioneers-Profil</a>,
-      <a href="https://t3n.de/account">Konto / Pro</a>,
-      <a href="https://t3n.de/account/merkliste">Merkliste</a>,
-    ],
-  },
-];
 
 const tagNavTags: TagNavTagsType[] = [
   {
@@ -87,13 +69,12 @@ export const defaultStory = () => (
   <Wrapper display="flex">
     <LegacyHeaderWrapper>
       <LegacyHeader
-        user={standardUser}
-        userMenuLabelUrl="/account/"
-        userMenuLinkGroups={standardLinkGroup}
         tags={tagNavTags}
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
         headerCampaignImageMobile={variants[randomNumber].imageMobile}
+        isProMember={boolean('Pro-Member?', true)}
+        userEmail="john.doe@beispiel.de"
       />
     </LegacyHeaderWrapper>
   </Wrapper>
@@ -105,8 +86,6 @@ export const notLoggedInStory = () => (
   <Wrapper display="flex">
     <LegacyHeaderWrapper>
       <LegacyHeader
-        userMenuLabelUrl="/account/"
-        userMenuLinkGroups={standardLinkGroup}
         tags={tagNavTags}
         headerCampaignUrl={variants[randomNumber].href}
         headerCampaignImage={variants[randomNumber].image}
