@@ -64,11 +64,6 @@ const T3nNav = styled(Box)`
   svg {
     fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
   }
-  &:hover {
-    svg {
-      fill: ${({ theme }: ThemeProps) => theme.colors.text.primary};
-    }
-  }
 `;
 
 const ArrowDownIcon: React.FC = () => (

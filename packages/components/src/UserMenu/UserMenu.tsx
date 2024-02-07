@@ -246,7 +246,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             <UserMenuListDivider />
             <UserMenuListItem>
               <a href={proMembershipLink}>
-                <T3nPro style={{ marginRight: 6 }} />
+                <T3nPro width="36px" style={{ marginRight: 6 }} />
                 Pro-Membership
               </a>
             </UserMenuListItem>

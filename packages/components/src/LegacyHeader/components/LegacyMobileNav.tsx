@@ -298,7 +298,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
                 href="/account/pro"
                 title="Pro-Membership"
               >
-                <T3nPro style={{ marginRight: 4 }} />
+                <T3nPro width="36px" style={{ marginRight: 6 }} />
                 Pro-Membership
               </MobileMenuItem>
             )}
