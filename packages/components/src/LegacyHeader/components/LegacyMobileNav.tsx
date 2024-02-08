@@ -298,7 +298,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
                 href="/account/pro"
                 title="Pro-Membership"
               >
-                <T3nPro width="36px" style={{ marginRight: 6 }} />
+                <T3nPro width="36px" height="18px" style={{ marginRight: 8 }} />
                 Pro-Membership
               </MobileMenuItem>
             )}
@@ -309,8 +309,8 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
             >
               <BookmarkBorder
                 fill="#5f5f5f"
-                width="20"
-                height="20"
+                width="24"
+                height="24"
                 style={{ marginRight: 4 }}
               />
               Merkliste
@@ -318,8 +318,8 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
             <MobileMenuItem href="/account/" title="Konto">
               <PersonOutline
                 fill="#5f5f5f"
-                width="20"
-                height="20"
+                width="24"
+                height="24"
                 style={{ marginRight: 4 }}
               />
               Konto

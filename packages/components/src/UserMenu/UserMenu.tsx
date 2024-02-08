@@ -1,6 +1,13 @@
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { border, color, layout, position, space } from 'styled-system';
+import {
+  border,
+  color,
+  layout,
+  position,
+  space,
+  typography,
+} from 'styled-system';
 
 import { T3nPro } from '@t3n/icons';
 import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
@@ -25,7 +32,8 @@ export interface UserMenuProps {
 const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
   position: relative;
   z-index: 1000;
-  ${({ theme }) => space({ theme, py: 2, pr: '10px' })};
+  ${({ theme }) => typography({ theme, fontSize: 0 })};
+  ${({ theme }) => space({ theme, py: 2, pr: 2 })};
 
   > svg {
     cursor: pointer;
@@ -37,7 +45,7 @@ const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
 
   &:hover {
     &:after {
-      top: 35px;
+      top: 38px;
       right: 14px;
       left: auto;
       width: 10px;
@@ -73,7 +81,7 @@ const UserMenuList = styled.ul`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => position({ theme, position: ['fixed', 'absolute'] })};
-  ${({ theme }) => space({ theme, py: 1, px: 0, mt: [0, 2] })};
+  ${({ theme }) => space({ theme, py: 0, px: 0, mt: [0, 2] })};
   ${({ theme }) => layout({ theme, width: ['100%', '210px'] })};
   ${({ theme }) =>
     border({
@@ -103,7 +111,7 @@ export const UserMenuListItem = styled.li`
 
   > * {
     ${({ theme }) => color({ theme, color: 'shades.grey95' })};
-    ${({ theme }) => space({ theme, py: 2, px: 3, my: 0 })};
+    ${({ theme }) => space({ theme, p: 2, my: 0 })};
   }
 
   > a {
@@ -117,7 +125,7 @@ const UserMenuListItemText = styled.li`
   width: 100%;
   z-index: 1;
   position: relative;
-  ${({ theme }) => space({ theme, py: 2, px: 3 })};
+  ${({ theme }) => space({ theme, p: 2 })};
   ${({ theme }) => color({ theme, color: 'shades.grey95' })};
 
   > a {
@@ -143,7 +151,7 @@ const UserMenuListDivider = styled.li`
 
 const LoginIcon = styled.a<{ light?: boolean }>`
   position: relative;
-  ${({ theme }) => space({ theme, py: 2, pr: '10px' })};
+  ${({ theme }) => space({ theme, py: 2, pr: 2 })};
 
   &:hover,
   &:focus {
@@ -157,16 +165,14 @@ const LoginIcon = styled.a<{ light?: boolean }>`
       position: absolute;
       display: block;
       content: '';
-      width: 26px;
-      height: 26px;
-      top: 5px;
-      right: 6px;
+      width: 40px;
+      height: 40px;
+      top: 0;
+      right: 0;
 
       ${({ theme }) =>
         border({
           theme,
-          borderWidth: 1,
-          borderStyle: 'solid',
           borderRadius: '50%',
         })};
     }
@@ -235,7 +241,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
 }) => {
   return userEmail ? (
     <UserMenuWrapper light={light}>
-      <Person fill={light ? '#5f5f5f' : '#ffffff'} width="20" height="20" />
+      <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
       <UserMenuList>
         <UserMenuListItemText>
           <StyledText>Hallo</StyledText>
@@ -246,7 +252,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             <UserMenuListDivider />
             <UserMenuListItem>
               <a href={proMembershipLink}>
-                <T3nPro width="36px" style={{ marginRight: 6 }} />
+                <T3nPro width="36px" height="18px" style={{ marginRight: 8 }} />
                 Pro-Membership
               </a>
             </UserMenuListItem>
@@ -257,8 +263,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <a href={readingListLink}>
             <BookmarkBorder
               fill="#5f5f5f"
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               style={{ marginRight: 4 }}
             />
             Merkliste
@@ -269,8 +275,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <a href={accountLink}>
             <PersonOutline
               fill="#5f5f5f"
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               style={{ marginRight: 4 }}
             />
             Konto
@@ -298,8 +304,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
     <LoginIcon href={loginLink} light={light}>
       <PersonOutline
         fill={light ? '#5f5f5f' : '#ffffff'}
-        width="20"
-        height="20"
+        width="24"
+        height="24"
       />
     </LoginIcon>
   );
