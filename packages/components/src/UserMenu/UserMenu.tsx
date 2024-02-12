@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   border,
   color,
@@ -18,6 +18,7 @@ import { ThemeProps } from '@t3n/theme';
 import Box from '../Box/Box';
 
 export interface UserMenuProps {
+  active?: boolean;
   userEmail?: string;
   loginLink?: string;
   logoutLink?: string;
@@ -26,7 +27,7 @@ export interface UserMenuProps {
   accountLink?: string;
   isProMember?: boolean;
   light?: boolean;
-  userMenuItems?: ReactNode[];
+  items?: ReactNode[];
 }
 
 const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
@@ -175,45 +176,18 @@ const LoginIcon = styled.a<{ light?: boolean }>`
           theme,
           borderRadius: '50%',
         })};
+      ${({ theme, light }) =>
+        color({
+          theme,
+          bg: light ? 'background.secondary' : 'background.primary',
+        })}
+      ${({ theme, light }) =>
+        border({
+          theme,
+          borderColor: light ? 'background.secondary' : 'background.primary',
+        })};
     }
   }
-
-  ${({ light }) =>
-    light
-      ? css`
-          &:hover,
-          &:focus {
-            &:after {
-              ${({ theme }) =>
-                color({
-                  theme,
-                  bg: 'background.secondary',
-                })}
-              ${({ theme }) =>
-                border({
-                  theme,
-                  borderColor: 'background.secondary',
-                })};
-            }
-          }
-        `
-      : css`
-          &:hover,
-          &:focus {
-            &:after {
-              ${({ theme }) =>
-                color({
-                  theme,
-                  bg: 'background.primary',
-                })}
-              ${({ theme }) =>
-                border({
-                  theme,
-                  borderColor: 'background.primary',
-                })};
-            }
-          }
-        `}
 `;
 
 const StyledText = styled.p`
@@ -229,9 +203,10 @@ const StyledUserLabel = styled.p`
 `;
 
 const UserMenu: React.FC<UserMenuProps> = ({
+  active = false,
   userEmail,
   isProMember = false,
-  userMenuItems,
+  items,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
   proMembershipLink = '/account/pro',
@@ -241,7 +216,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
 }) => {
   return userEmail ? (
     <UserMenuWrapper light={light}>
-      <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
+      {active ? (
+        <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
+      ) : (
+        <PersonOutline
+          fill={light ? '#5f5f5f' : '#ffffff'}
+          width="24"
+          height="24"
+        />
+      )}
       <UserMenuList>
         <UserMenuListItemText>
           <StyledText>Hallo</StyledText>
@@ -283,9 +266,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
           </a>
         </UserMenuListItem>
         <UserMenuListDivider />
-
-        {!!userMenuItems?.length &&
-          userMenuItems.map((item, idx) => {
+        {!!items?.length &&
+          items.map((item, idx) => {
             return (
               // eslint-disable-next-line react/no-array-index-key
               <React.Fragment key={idx}>
@@ -294,7 +276,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
               </React.Fragment>
             );
           })}
-
         <UserMenuListItem>
           <a href={logoutLink}>Abmelden</a>
         </UserMenuListItem>

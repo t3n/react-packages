@@ -159,7 +159,7 @@ const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
         isProMember={isProMember}
         userEmail={userEmail}
         light
-        userMenuItems={userMenuItems}
+        items={userMenuItems}
       />
     </T3nNav>
   );

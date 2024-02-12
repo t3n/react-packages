@@ -12,7 +12,7 @@ export default {
   decorators: [storyContainerDecorator],
 };
 
-const links: UserMenuProps['userMenuItems'] = [
+const links: UserMenuProps['items'] = [
   <a href="/">
     Eine
     <span role="img" aria-label="Sonnenblume">
@@ -37,6 +37,21 @@ export const defaultStory = () => {
 
 defaultStory.storyName = 'Default';
 
+export const activeStory = () => {
+  return (
+    <PageHeader light={boolean('Hell?', false)}>
+      <UserMenu
+        active
+        light={boolean('Hell?', false)}
+        isProMember={boolean('Pro-Member?', true)}
+        userEmail="john.doe@beispiel.de"
+      />
+    </PageHeader>
+  );
+};
+
+activeStory.storyName = 'Active';
+
 export const notLoggedInStory = () => {
   return (
     <PageHeader light={boolean('Hell?', false)}>
@@ -54,7 +69,7 @@ export const extraContentStory = () => {
         light={boolean('Hell?', false)}
         isProMember={boolean('Pro-Member?', true)}
         userEmail="john.doe@beispiel.de"
-        userMenuItems={links}
+        items={links}
       />
     </PageHeader>
   );

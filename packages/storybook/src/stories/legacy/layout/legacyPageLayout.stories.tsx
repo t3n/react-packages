@@ -70,7 +70,7 @@ const variants = [
 
 const randomNumber = Math.floor(variants.length * Math.random());
 
-const links: UserMenuProps['userMenuItems'] = [
+const links: UserMenuProps['items'] = [
   <a href="/">
     Eine
     <span role="img" aria-label="Sonnenblume">

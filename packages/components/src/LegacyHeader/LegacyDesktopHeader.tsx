@@ -274,7 +274,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               isProMember={isProMember}
               userEmail={userEmail}
               light
-              userMenuItems={userMenuItems}
+              items={userMenuItems}
             />
           </Box>
         </StickyHeader>
