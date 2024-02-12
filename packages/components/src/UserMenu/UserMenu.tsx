@@ -34,17 +34,18 @@ const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
   position: relative;
   z-index: 1000;
   ${({ theme }) => typography({ theme, fontSize: 0 })};
-  ${({ theme }) => space({ theme, py: 2, pr: 2 })};
 
-  > svg {
-    cursor: pointer;
-  }
-
+  &:focus > ul,
+  &:focus-within > ul,
   &:hover > ul {
     display: block;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:focus-within {
+    cursor: pointer;
+
     &:after {
       top: 38px;
       right: 14px;
@@ -82,7 +83,7 @@ const UserMenuList = styled.ul`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => position({ theme, position: ['fixed', 'absolute'] })};
-  ${({ theme }) => space({ theme, py: 0, px: 0, mt: [0, 2] })};
+  ${({ theme }) => space({ theme, py: 0, px: 0, mt: [0, '3px'] })};
   ${({ theme }) => layout({ theme, width: ['100%', '210px'] })};
   ${({ theme }) =>
     border({
@@ -126,6 +127,8 @@ const UserMenuListItemText = styled.li`
   width: 100%;
   z-index: 1;
   position: relative;
+  cursor: default;
+
   ${({ theme }) => space({ theme, p: 2 })};
   ${({ theme }) => color({ theme, color: 'shades.grey95' })};
 
@@ -150,9 +153,16 @@ const UserMenuListDivider = styled.li`
     })};
 `;
 
-const LoginIcon = styled.a<{ light?: boolean }>`
+const LoginIcon = styled.a`
   position: relative;
-  ${({ theme }) => space({ theme, py: 2, pr: 2 })};
+`;
+
+const PersonIconWrapper = styled.div<{ light?: boolean }>`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover,
   &:focus {
@@ -215,15 +225,19 @@ const UserMenu: React.FC<UserMenuProps> = ({
   light,
 }) => {
   return userEmail ? (
-    <UserMenuWrapper light={light}>
+    <UserMenuWrapper light={light} tabIndex={0}>
       {active ? (
-        <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
+        <PersonIconWrapper light={light}>
+          <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
+        </PersonIconWrapper>
       ) : (
-        <PersonOutline
-          fill={light ? '#5f5f5f' : '#ffffff'}
-          width="24"
-          height="24"
-        />
+        <PersonIconWrapper light={light}>
+          <PersonOutline
+            fill={light ? '#5f5f5f' : '#ffffff'}
+            width="24"
+            height="24"
+          />
+        </PersonIconWrapper>
       )}
       <UserMenuList>
         <UserMenuListItemText>
@@ -282,12 +296,14 @@ const UserMenu: React.FC<UserMenuProps> = ({
       </UserMenuList>
     </UserMenuWrapper>
   ) : (
-    <LoginIcon href={loginLink} light={light}>
-      <PersonOutline
-        fill={light ? '#5f5f5f' : '#ffffff'}
-        width="24"
-        height="24"
-      />
+    <LoginIcon href={loginLink}>
+      <PersonIconWrapper light={light}>
+        <PersonOutline
+          fill={light ? '#5f5f5f' : '#ffffff'}
+          width="24"
+          height="24"
+        />
+      </PersonIconWrapper>
     </LoginIcon>
   );
 };
