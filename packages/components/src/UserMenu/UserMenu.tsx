@@ -68,7 +68,7 @@ const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
 
       @media screen and (max-width: ${(props: ThemeProps) =>
           props.theme.breakpoints[0]}) {
-        top: 42px;
+        top: 44px;
       }
     }
   }
