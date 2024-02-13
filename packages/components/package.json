@@ -1,6 +1,6 @@
 {
   "name": "@t3n/components",
-  "version": "0.8.18",
+  "version": "0.8.19",
   "description": "t3n react components",
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@t3n/configs": "^0.7.1",
-    "@t3n/icons": "^0.7.2",
+    "@t3n/icons": "^0.7.3",
     "@t3n/theme": "^0.7.7",
     "@types/btoa": "^1.2.3",
     "@types/react-autosuggest": "^10.1.3",
