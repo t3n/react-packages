@@ -6,15 +6,15 @@ import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Image from '../Image';
-import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import Logo from '../Logo';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
 import LegacyMobileNav from './components/LegacyMobileNav';
 
 export interface LegacyMobileHeaderProps {
-  user: LegacyUserMenuProps['user'];
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
+  userEmail?: string;
+  isProMember?: boolean;
 }
 
 const MobileHeader = styled(Box)`
@@ -52,9 +52,10 @@ const MobileHeader = styled(Box)`
 `;
 
 const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
-  user,
   headerCampaignUrl,
   headerCampaignImageMobile,
+  userEmail,
+  isProMember,
 }) => {
   return (
     <MobileHeader
@@ -84,7 +85,8 @@ const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
         )}
       </HeaderCampaign>
       <LegacyMobileNav
-        user={user}
+        userEmail={userEmail}
+        isProMember={isProMember}
         headerCampaignUrl={headerCampaignUrl}
         headerCampaignImageMobile={headerCampaignImageMobile}
       />

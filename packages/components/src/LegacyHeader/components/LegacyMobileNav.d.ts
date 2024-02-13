@@ -1,9 +1,9 @@
 import React from 'react';
-import { LegacyUserMenuProps } from '../../LegacyUserMenu';
 export interface LegacyMobileNavProps {
-    user: LegacyUserMenuProps['user'];
     headerCampaignUrl: string;
     headerCampaignImageMobile?: string;
+    userEmail?: string;
+    isProMember?: boolean;
 }
 export declare type MobileNavLinksType = {
     label: string;

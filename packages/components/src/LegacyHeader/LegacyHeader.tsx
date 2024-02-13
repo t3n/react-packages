@@ -1,16 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Box from '../Box';
-import { LegacyUserMenuProps } from '../LegacyUserMenu';
 import { TagNavTagsType } from './components/LegacyTagNav';
 import LegacyDesktopHeader from './LegacyDesktopHeader';
 import LegacyMobileHeader from './LegacyMobileHeader';
 
 export interface LegacyHeaderProps {
-  user?: LegacyUserMenuProps['user'];
-  userMenuLabelUrl: string;
-  userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
   tags: TagNavTagsType[];
   tagsLoading?: boolean;
   headerCampaignUrl: string;
@@ -18,12 +14,12 @@ export interface LegacyHeaderProps {
   headerCampaignImageMobile?: string;
   showAds?: boolean;
   adsPreview?: boolean;
+  userEmail?: string;
+  isProMember?: boolean;
+  userMenuItems?: ReactNode[];
 }
 
 const LegacyHeader: React.FC<LegacyHeaderProps> = ({
-  user,
-  userMenuLabelUrl,
-  userMenuLinkGroups,
   tags,
   tagsLoading,
   headerCampaignUrl,
@@ -31,27 +27,31 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   headerCampaignImageMobile,
   showAds,
   adsPreview,
+  userEmail,
+  isProMember,
+  userMenuItems,
 }) => {
   return (
     <>
       <Box display={['block', 'block', 'none']}>
         <LegacyMobileHeader
-          user={user}
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImageMobile={headerCampaignImageMobile}
+          userEmail={userEmail}
+          isProMember={isProMember}
         />
       </Box>
       <Box display={['none', 'none', 'block']}>
         <LegacyDesktopHeader
-          user={user}
-          userMenuLabelUrl={userMenuLabelUrl}
-          userMenuLinkGroups={userMenuLinkGroups}
           tags={tags}
           tagsLoading={tagsLoading}
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImage={headerCampaignImage}
           showAds={showAds}
           adsPreview={adsPreview}
+          userEmail={userEmail}
+          isProMember={isProMember}
+          userMenuItems={userMenuItems}
         />
       </Box>
     </>

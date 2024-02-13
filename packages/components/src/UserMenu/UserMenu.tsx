@@ -1,46 +1,53 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { border, color, layout, position, space } from 'styled-system';
+import {
+  border,
+  color,
+  layout,
+  position,
+  space,
+  typography,
+} from 'styled-system';
 
+import { T3nPro } from '@t3n/icons';
+import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
+import Person from '@t3n/icons/src/components/material/social/Person';
+import PersonOutline from '@t3n/icons/src/components/material/social/PersonOutline';
 import { ThemeProps } from '@t3n/theme';
 
-import Avatar from '../Avatar/Avatar';
 import Box from '../Box/Box';
-import Link from '../Link/Link';
-import Placeholder from '../Placeholder/Placeholder';
-import Text from '../Text/Text';
 
 export interface UserMenuProps {
-  loading: boolean;
-  loggedIn: boolean;
+  active?: boolean;
+  userEmail?: string;
   loginLink?: string;
   logoutLink?: string;
-  labelLink?: string;
+  proMembershipLink?: string;
+  readingListLink?: string;
+  accountLink?: string;
+  isProMember?: boolean;
   light?: boolean;
-
-  user?: {
-    label: string;
-    name: string;
-    avatarUrl: string;
-  };
-
-  itemGroups?: {
-    item: (JSX.Element | string)[];
-  }[];
+  items?: ReactNode[];
 }
 
-const UserMenuWrapper = styled(Box)`
-  cursor: pointer;
+const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
   position: relative;
-  ${({ theme }) => space({ theme, py: 2, pl: 6 })};
+  z-index: 1000;
+  ${({ theme }) => typography({ theme, fontSize: 0 })};
 
+  &:focus > ul,
+  &:focus-within > ul,
   &:hover > ul {
     display: block;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:focus-within {
+    cursor: pointer;
+
     &:after {
-      top: 51px;
+      top: 38px;
       right: 14px;
       left: auto;
       width: 10px;
@@ -60,6 +67,11 @@ const UserMenuWrapper = styled(Box)`
           borderTopWidth: 1,
           borderLeftWidth: 1,
         })};
+
+      @media screen and (max-width: ${(props: ThemeProps) =>
+          props.theme.breakpoints[0]}) {
+        top: 44px;
+      }
     }
   }
 `;
@@ -71,7 +83,7 @@ const UserMenuList = styled.ul`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   ${({ theme }) => color({ theme, bg: 'background.primary' })};
   ${({ theme }) => position({ theme, position: ['fixed', 'absolute'] })};
-  ${({ theme }) => space({ theme, py: 1, px: 0, mt: [0, 2] })};
+  ${({ theme }) => space({ theme, py: 0, px: 0, mt: [0, '3px'] })};
   ${({ theme }) => layout({ theme, width: ['100%', '210px'] })};
   ${({ theme }) =>
     border({
@@ -93,20 +105,21 @@ const UserMenuList = styled.ul`
 export const UserMenuListItem = styled.li`
   width: 100%;
   position: relative;
-  ${({ theme }) => color({ theme, color: 'text.primary' })};
+  ${({ theme }) => color({ theme, color: 'shades.grey95' })};
 
   &:hover {
     ${({ theme }) => color({ theme, bg: 'shades.grey244' })};
   }
 
-  a {
-    text-decoration: none;
-    display: block;
+  > * {
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })};
+    ${({ theme }) => space({ theme, p: 2, my: 0 })};
   }
 
-  > * {
-    ${({ theme }) => color({ theme, color: 'text.primary' })};
-    ${({ theme }) => space({ theme, py: 2, px: 3, my: 0 })};
+  > a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -114,11 +127,13 @@ const UserMenuListItemText = styled.li`
   width: 100%;
   z-index: 1;
   position: relative;
-  ${({ theme }) => space({ theme, py: 2, px: 3 })};
-  ${({ theme }) => color({ theme, color: 'text.primary' })};
+  cursor: default;
+
+  ${({ theme }) => space({ theme, p: 2 })};
+  ${({ theme }) => color({ theme, color: 'shades.grey95' })};
 
   > a {
-    ${({ theme }) => color({ theme, color: 'text.primary' })};
+    ${({ theme }) => color({ theme, color: 'shades.grey95' })};
     text-decoration: none;
     align-items: center;
   }
@@ -127,7 +142,6 @@ const UserMenuListItemText = styled.li`
 const UserMenuListDivider = styled.li`
   display: block;
   height: 0;
-  ${({ theme }) => space({ theme, my: 2 })};
 
   ${({ theme }) =>
     border({
@@ -139,99 +153,158 @@ const UserMenuListDivider = styled.li`
     })};
 `;
 
-const StyledLogoutLink = styled.a`
-  ${({ theme }) => space({ theme, mb: 1 })};
+const LoginIcon = styled.a`
+  position: relative;
 `;
 
-const StyledUserLabel = styled(Text)`
+const PersonIconWrapper = styled.div<{ light?: boolean }>`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    > svg {
+      fill: #2a2a2a;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 40px;
+      height: 40px;
+      top: 0;
+      right: 0;
+
+      ${({ theme }) =>
+        border({
+          theme,
+          borderRadius: '50%',
+        })};
+      ${({ theme, light }) =>
+        color({
+          theme,
+          bg: light ? 'background.secondary' : 'background.primary',
+        })}
+      ${({ theme, light }) =>
+        border({
+          theme,
+          borderColor: light ? 'background.secondary' : 'background.primary',
+        })};
+    }
+  }
+`;
+
+const StyledText = styled.p`
+  ${({ theme }) => space({ theme, my: 0 })};
+`;
+
+const StyledUserLabel = styled.p`
   ${({ theme }) => layout({ theme, width: ['auto', '176px'] })}
+  ${({ theme }) => space({ theme, mt: 1, mb: 0 })};
+  font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-const UserLabel: React.FC<Pick<UserMenuProps, 'loading' | 'user'>> = ({
-  loading,
-  user,
-}) => (
-  <>
-    <Text my={0}>Angemeldet als</Text>
-    {loading ? (
-      <Placeholder height="21px" width="100%" />
-    ) : (
-      user && (
-        <StyledUserLabel my={0} bold>
-          {user.label}
-        </StyledUserLabel>
-      )
-    )}
-  </>
-);
-
 const UserMenu: React.FC<UserMenuProps> = ({
-  user,
-  itemGroups,
+  active = false,
+  userEmail,
+  isProMember = false,
+  items,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
-  labelLink,
-  loading,
-  loggedIn,
+  proMembershipLink = '/account/pro',
+  readingListLink = '/account/merkliste',
+  accountLink = '/account/',
   light,
 }) => {
-  return loggedIn ? (
-    <UserMenuWrapper>
-      {user && (
-        <Avatar loading={loading} src={user.avatarUrl} alt={user.name} />
+  return userEmail ? (
+    <UserMenuWrapper light={light} tabIndex={0}>
+      {active ? (
+        <PersonIconWrapper light={light}>
+          <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
+        </PersonIconWrapper>
+      ) : (
+        <PersonIconWrapper light={light}>
+          <PersonOutline
+            fill={light ? '#5f5f5f' : '#ffffff'}
+            width="24"
+            height="24"
+          />
+        </PersonIconWrapper>
       )}
-
       <UserMenuList>
         <UserMenuListItemText>
-          {labelLink ? (
-            <a href={labelLink}>
-              <UserLabel loading={loading} user={user} />
-            </a>
-          ) : (
-            <UserLabel loading={loading} user={user} />
-          )}
+          <StyledText>Hallo</StyledText>
+          <StyledUserLabel>{userEmail}</StyledUserLabel>
         </UserMenuListItemText>
+        {isProMember && (
+          <>
+            <UserMenuListDivider />
+            <UserMenuListItem>
+              <a href={proMembershipLink}>
+                <T3nPro width="36px" height="18px" style={{ marginRight: 8 }} />
+                Pro-Membership
+              </a>
+            </UserMenuListItem>
+          </>
+        )}
         <UserMenuListDivider />
-
-        {itemGroups &&
-          itemGroups.map((group, idx) => {
+        <UserMenuListItem>
+          <a href={readingListLink}>
+            <BookmarkBorder
+              fill="#5f5f5f"
+              width="24"
+              height="24"
+              style={{ marginRight: 4 }}
+            />
+            Merkliste
+          </a>
+        </UserMenuListItem>
+        <UserMenuListDivider />
+        <UserMenuListItem>
+          <a href={accountLink}>
+            <PersonOutline
+              fill="#5f5f5f"
+              width="24"
+              height="24"
+              style={{ marginRight: 4 }}
+            />
+            Konto
+          </a>
+        </UserMenuListItem>
+        <UserMenuListDivider />
+        {!!items?.length &&
+          items.map((item, idx) => {
             return (
               // eslint-disable-next-line react/no-array-index-key
               <React.Fragment key={idx}>
-                {group.item.map((item, index) => {
-                  return loading ? (
-                    <Placeholder
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={`placeholder-${index}`}
-                      height="21px"
-                      my={[1, 2]}
-                      mx={3}
-                    />
-                  ) : (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <UserMenuListItem key={index}>{item}</UserMenuListItem>
-                  );
-                })}
+                <UserMenuListItem>{item}</UserMenuListItem>
                 <UserMenuListDivider />
               </React.Fragment>
             );
           })}
-
-        {loading ? (
-          <Placeholder height="21px" my={[1, 2]} mx={3} />
-        ) : (
-          <UserMenuListItem>
-            <StyledLogoutLink href={logoutLink}>Abmelden</StyledLogoutLink>
-          </UserMenuListItem>
-        )}
+        <UserMenuListItem>
+          <a href={logoutLink}>Abmelden</a>
+        </UserMenuListItem>
       </UserMenuList>
     </UserMenuWrapper>
   ) : (
-    <Link href={loginLink} variant={light ? 'primary' : 'highlight'}>
-      Anmelden
-    </Link>
+    <LoginIcon href={loginLink}>
+      <PersonIconWrapper light={light}>
+        <PersonOutline
+          fill={light ? '#5f5f5f' : '#ffffff'}
+          width="24"
+          height="24"
+        />
+      </PersonIconWrapper>
+    </LoginIcon>
   );
 };
 

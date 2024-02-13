@@ -1,19 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 export interface UserMenuProps {
-    loading: boolean;
-    loggedIn: boolean;
+    active?: boolean;
+    userEmail?: string;
     loginLink?: string;
     logoutLink?: string;
-    labelLink?: string;
+    proMembershipLink?: string;
+    readingListLink?: string;
+    accountLink?: string;
+    isProMember?: boolean;
     light?: boolean;
-    user?: {
-        label: string;
-        name: string;
-        avatarUrl: string;
-    };
-    itemGroups?: {
-        item: (JSX.Element | string)[];
-    }[];
+    items?: ReactNode[];
 }
 export declare const UserMenuListItem: import("styled-components").StyledComponent<"li", any, {}, never>;
 declare const UserMenu: React.FC<UserMenuProps>;

@@ -1,20 +1,20 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, typography } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
-import LegacyUserMenu, { LegacyUserMenuProps } from '../../LegacyUserMenu';
 import Text from '../../Text';
+import UserMenu from '../../UserMenu';
 import HeaderLink from './LegacyHeaderLink';
 import { MainNavDropdown } from './LegacyMainNav';
 
 export interface LegacyT3nNavProps {
-  user: LegacyUserMenuProps['user'];
-  labelUrl: string;
-  itemGroups: LegacyUserMenuProps['itemGroups'];
+  isProMember?: boolean;
+  userEmail?: string;
+  userMenuItems?: ReactNode[];
 }
 
 export type T3nNavLinksType = {
@@ -63,11 +63,6 @@ const T3nNav = styled(Box)`
   }
   svg {
     fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
-  }
-  &:hover {
-    svg {
-      fill: ${({ theme }: ThemeProps) => theme.colors.text.primary};
-    }
   }
 `;
 
@@ -124,9 +119,9 @@ const t3nNavLinks: T3nNavLinksType[] = [
 ];
 
 const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
-  user,
-  labelUrl,
-  itemGroups,
+  isProMember,
+  userEmail,
+  userMenuItems,
 }) => {
   return (
     <T3nNav
@@ -160,11 +155,11 @@ const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
           )}
         </MainNavItem>
       ))}
-      <LegacyUserMenu
-        loading={!user}
-        user={user}
-        itemGroups={itemGroups}
-        labelUrl={labelUrl}
+      <UserMenu
+        isProMember={isProMember}
+        userEmail={userEmail}
+        light
+        items={userMenuItems}
       />
     </T3nNav>
   );

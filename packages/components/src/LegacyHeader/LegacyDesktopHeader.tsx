@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { border, color, layout, space } from 'styled-system';
 
@@ -8,8 +8,8 @@ import Box from '../Box';
 import Image from '../Image';
 import LegacyAd from '../LegacyAd';
 import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
-import LegacyUserMenu, { LegacyUserMenuProps } from '../LegacyUserMenu';
 import Logo from '../Logo';
+import UserMenu from '../UserMenu';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
 import LegacyMainNav from './components/LegacyMainNav';
 import LegacyT3nNav from './components/LegacyT3nNav';
@@ -22,15 +22,15 @@ import LegacyTagNav, {
 } from './components/LegacyTagNav';
 
 export interface LegacyDesktopHeaderProps {
-  user: LegacyUserMenuProps['user'];
-  userMenuLabelUrl: string;
-  userMenuLinkGroups: LegacyUserMenuProps['itemGroups'];
   tags: TagNavTagsType[];
   tagsLoading?: boolean;
   headerCampaignUrl: string;
   headerCampaignImage: string;
   showAds?: boolean;
   adsPreview?: boolean;
+  userEmail?: string;
+  isProMember?: boolean;
+  userMenuItems?: ReactNode[];
 }
 
 const T3nLogoSmall: React.FC = () => (
@@ -169,15 +169,15 @@ const HeaderWrapper = styled(Header)`
 `;
 
 const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
-  user,
-  userMenuLabelUrl,
-  userMenuLinkGroups,
   tags,
   tagsLoading,
   headerCampaignUrl,
   headerCampaignImage,
   showAds,
   adsPreview,
+  userEmail,
+  isProMember,
+  userMenuItems,
 }) => {
   const [displaySticky, setDisplaySticky] = useState(false);
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -230,9 +230,9 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
           </HeaderCampaign>
           <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
             <LegacyT3nNav
-              user={user}
-              labelUrl={userMenuLabelUrl}
-              itemGroups={userMenuLinkGroups}
+              isProMember={isProMember}
+              userEmail={userEmail}
+              userMenuItems={userMenuItems}
             />
             <Box mr={-2}>
               <LegacyHeaderSocialShare />
@@ -270,11 +270,11 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
                 </SearchButton>
               </SearchForm>
             </StickyNavBox>
-            <LegacyUserMenu
-              loading={!user}
-              user={user}
-              labelUrl={userMenuLabelUrl}
-              itemGroups={userMenuLinkGroups}
+            <UserMenu
+              isProMember={isProMember}
+              userEmail={userEmail}
+              light
+              items={userMenuItems}
             />
           </Box>
         </StickyHeader>

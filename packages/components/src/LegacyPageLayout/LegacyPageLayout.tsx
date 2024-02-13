@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
@@ -12,6 +12,9 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   overflow?: string;
   adUnits?: LegacyAdName[];
   previewAdUnits?: boolean;
+  userEmail?: string;
+  isProMember?: boolean;
+  userMenuItems?: ReactNode[];
 }
 
 const Wrapper = styled(Box)`
@@ -22,9 +25,6 @@ const Wrapper = styled(Box)`
 
 const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   privacyManagerId,
-  user,
-  userMenuLabelUrl,
-  userMenuLinkGroups,
   tags,
   tagsLoading,
   headerCampaignUrl,
@@ -33,6 +33,9 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   adUnits,
   previewAdUnits,
   overflow,
+  userEmail,
+  isProMember,
+  userMenuItems,
   children,
 }) => {
   const shouldDisplayAdUnit = (name: LegacyAdName) => {
@@ -47,9 +50,6 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
       )}
       <Wrapper>
         <LegacyHeader
-          user={user}
-          userMenuLabelUrl={userMenuLabelUrl}
-          userMenuLinkGroups={userMenuLinkGroups}
           tags={tags}
           tagsLoading={tagsLoading}
           headerCampaignUrl={headerCampaignUrl}
@@ -57,6 +57,9 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
           headerCampaignImageMobile={headerCampaignImageMobile}
           showAds={shouldDisplayAdUnit('T3N_D_Right')}
           adsPreview={previewAdUnits}
+          userEmail={userEmail}
+          isProMember={isProMember}
+          userMenuItems={userMenuItems}
         />
         {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
           <Box display={['block', 'block', 'none']}>
