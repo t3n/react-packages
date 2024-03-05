@@ -143,20 +143,20 @@ const PageFooter: React.FC<PageFooterProps> = ({
             ]}
           >
             <SocialLink
-              href="https://facebook.com/t3nMagazin"
-              title="Facebook"
-              mx={2}
-              target="_blank"
-            >
-              <SocialFacebook fill="white" />
-            </SocialLink>
-            <SocialLink
               href="https://twitter.com/t3n"
               title="Twitter"
               mx={2}
               target="_blank"
             >
               <SocialTwitter fill="white" />
+            </SocialLink>
+            <SocialLink
+              href="https://facebook.com/t3nMagazin"
+              title="Facebook"
+              mx={2}
+              target="_blank"
+            >
+              <SocialFacebook fill="white" />
             </SocialLink>
             <SocialLink
               href="https://xing.com/news/pages/t3n-magazin-67"
