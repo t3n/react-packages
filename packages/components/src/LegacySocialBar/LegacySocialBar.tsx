@@ -77,15 +77,15 @@ const legacySocialLinks: SocialLinkType = [
     target: '_blank',
   },
   {
-    title: 'Xing',
-    url: 'https://xing.com/news/pages/t3n-magazin-67',
-    icon: <SocialXing fill="#5f5f5f" width="18px" height="18px" />,
-    target: '_blank',
-  },
-  {
     title: 'LinkedIn',
     url: 'https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/',
     icon: <SocialLinkedin fill="#5f5f5f" width="18px" height="18px" />,
+    target: '_blank',
+  },
+  {
+    title: 'Xing',
+    url: 'https://xing.com/news/pages/t3n-magazin-67',
+    icon: <SocialXing fill="#5f5f5f" width="18px" height="18px" />,
     target: '_blank',
   },
   {

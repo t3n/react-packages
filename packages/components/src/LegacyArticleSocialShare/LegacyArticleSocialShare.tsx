@@ -169,12 +169,12 @@ export const LegacyHeaderSocialShare: React.FC = () => (
     <SocialIcon url="https://instagram.com/t3n_magazin/" network="instagram" />
     <SocialIcon url="https://twitter.com/t3n" network="twitter" />
     <SocialIcon
-      url="https://xing.com/news/pages/t3n-magazin-67"
-      network="xing"
-    />
-    <SocialIcon
       url="https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
       network="linkedin"
+    />
+    <SocialIcon
+      url="https://xing.com/news/pages/t3n-magazin-67"
+      network="xing"
     />
     <SocialIcon url="/info/t3n-newsletter/" network="newsletter" />
     <SocialIcon url="/info/push-notifications/" network="notifications" />
