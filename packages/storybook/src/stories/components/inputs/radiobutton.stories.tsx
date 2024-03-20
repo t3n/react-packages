@@ -1,56 +1,74 @@
-import React, { useState } from 'react';
-import { boolean, select, text } from '@storybook/addon-knobs';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { RadioButton, Section } from '@t3n/components';
-import { theme } from '@t3n/theme';
+import { RadioButtonProps, VariantType } from '@t3n/components/src/RadioButton';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
-export default {
+const meta: Meta<typeof RadioButton> = {
+  component: RadioButton as React.FC<RadioButtonProps>,
   title: 'Components/Inputs/RadioButton',
-  component: RadioButton,
   decorators: [storyContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    variant: 'light' as VariantType,
+    name: 'Name Checkbox',
+    disabled: false,
+    label: 'Label placeholder',
+    checked: false,
+  },
+  render: function Render(args) {
+    const [_, updateArgs] = useArgs<{
+      checked: boolean;
+    }>();
+
+    return (
+      <Section variant="primary">
+        <RadioButton
+          {...args}
+          onChange={() => {
+            updateArgs({ checked: !args.checked });
+          }}
+        />
+      </Section>
+    );
+  },
 };
 
-export const DefaultStory = () => {
-  const [activeButtonIndex, setActiveButtonIndex] = useState(-1);
+export default meta;
+type Story = StoryObj<typeof RadioButton>;
 
-  const showFeedback = boolean('Zeige Feedback', false);
-  const feedbackColor = select(
-    'Feedback',
-    Object.keys(theme.colors.feedback) as ThemeFeedbackColor[],
-    'success'
-  );
-  const name = text('Name', 'Name checkbox');
-  const disabled = boolean('disable', false);
-  const label = text('Label', 'Label placeholder');
-  const checkboxVariant = select(
-    'Variante Checkbox',
-    ['light', 'dark'],
-    'light'
-  );
+export const radioButton: Story = {};
 
-  return (
-    <Section variant={checkboxVariant === 'light' ? 'primary' : 'inverse'}>
-      {Array(3)
-        .fill(null)
-        .map((v, i) => (
-          <RadioButton
-            variant={checkboxVariant}
-            disabled={disabled}
-            feedbackColor={showFeedback ? feedbackColor : undefined}
-            checked={activeButtonIndex === i}
-            value="true"
-            name={name}
-            onChange={() => {
-              setActiveButtonIndex(i);
-            }}
-            label={label}
-          />
-        ))}
-    </Section>
-  );
+export const disabled: Story = {
+  args: { disabled: true },
 };
 
-DefaultStory.storyName = 'Default';
+export const checked: Story = {
+  args: { checked: true },
+};
+
+export const dark: Story = {
+  args: { variant: 'dark' as VariantType },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="inverse">
+          <StoryComp />
+        </Section>
+      );
+    },
+  ],
+};
+
+export const withoutLabel: Story = {
+  args: { label: '' },
+};
+
+export const feedbackColor: Story = {
+  args: { feedbackColor: 'error' as ThemeFeedbackColor },
+};

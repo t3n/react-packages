@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
 
 import Box from '../Box';
@@ -10,6 +11,7 @@ const LegacySection: React.FC<{
   narrow?: boolean;
   wide?: boolean;
   innerGap?: SpaceProps['py'];
+  children?: ReactNode;
 }> = ({ variant, anchor, narrow, wide, innerGap, children }) => {
   return (
     <Box

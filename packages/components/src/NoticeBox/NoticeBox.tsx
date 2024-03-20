@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { border, color, space, SpaceProps } from 'styled-system';
 
 import Box from '../Box';
 import Text from '../Text';
+
+export interface NoticeBoxProps extends SpaceProps {
+  children?: ReactNode;
+}
 
 const StyledNoticeBox = styled(Box)`
   ${({ theme }) =>
@@ -20,7 +24,7 @@ const StyledNoticeBox = styled(Box)`
 
   a {
     background-image: url('data:image/svg+xml;base64,${btoa(
-      '<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="rgb(143,143,143)"><rect x="0" y="0" width="1" height="1" /></g></svg>'
+      '<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="rgb(143,143,143)"><rect x="0" y="0" width="1" height="1" /></g></svg>',
     )}');
   }
 
@@ -33,12 +37,14 @@ const StyledNoticeBox = styled(Box)`
     background-size: 1px 1px;
     background-position: 0 100%;
     background-image: url('data:image/svg+xml;base64,${btoa(
-      '<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="rgb(249,66,58)"><rect x="0" y="0" width="1" height="1" /></g></svg>'
+      '<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="rgb(249,66,58)"><rect x="0" y="0" width="1" height="1" /></g></svg>',
     )}');
   }
 `;
 
-export const NoticeBoxText: React.FC = ({ children }) => {
+export const NoticeBoxText: React.FC<{ children?: ReactNode }> = ({
+  children,
+}) => {
   return (
     <Text m={0} width="100%">
       {children}
@@ -46,7 +52,7 @@ export const NoticeBoxText: React.FC = ({ children }) => {
   );
 };
 
-const NoticeBox: React.FC<SpaceProps> = ({ children, ...rest }) => {
+const NoticeBox: React.FC<NoticeBoxProps> = ({ children, ...rest }) => {
   return (
     <StyledNoticeBox display="flex" alignItems="center" p={3} {...rest}>
       {children}

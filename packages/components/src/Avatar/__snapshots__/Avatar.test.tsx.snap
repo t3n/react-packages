@@ -150,6 +150,5 @@ exports[`Avatar renders without label 1`] = `
       a
     </p>
   </div>
-  
 </div>
 `;

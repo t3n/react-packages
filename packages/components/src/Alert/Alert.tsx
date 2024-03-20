@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, SpaceProps, variant } from 'styled-system';
 
@@ -11,6 +11,7 @@ export type AlertStatus = 'success' | 'notice' | 'warning' | 'error';
 
 export interface AlertProps extends SpaceProps {
   status: AlertStatus;
+  children?: ReactNode;
 }
 
 const AlertBox = styled(Box)<{ status: AlertStatus }>`
@@ -38,9 +39,7 @@ const AlertBox = styled(Box)<{ status: AlertStatus }>`
   ${space};
 `;
 
-// todo export AlertIcon as soon as we do have an IconComponent
-
-export const AlertText: React.FC = ({ children }) => {
+export const AlertText: React.FC<{ children?: ReactNode }> = ({ children }) => {
   return (
     <Text m={0} width="100%">
       {children}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
-export declare type VariantType = 'light' | 'dark';
+export type VariantType = 'light' | 'dark';
 export interface RadioButtonProps {
     name: string;
     value: any;
@@ -12,7 +12,7 @@ export interface RadioButtonProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 declare const RadioButton: {
-    ({ checked, onChange, label, disabled, feedbackColor, name, value, variant, }: RadioButtonProps): JSX.Element;
+    ({ checked, onChange, label, disabled, feedbackColor, name, value, variant: variantProp, }: RadioButtonProps): React.JSX.Element;
     defaultProps: {
         variant: string;
     };

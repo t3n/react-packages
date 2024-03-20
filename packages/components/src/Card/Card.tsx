@@ -35,11 +35,12 @@ const borderRadius = ({ rounded, theme }: CardProps & ThemeProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
 const padding = ({ big, splitted, theme }: CardProps & ThemeProps) =>
+  // eslint-disable-next-line no-nested-ternary
   big
     ? space({ p: [4, 7], theme })
     : splitted
-    ? space({ p: 0, theme })
-    : space({ p: [3, 4], theme });
+      ? space({ p: 0, theme })
+      : space({ p: [3, 4], theme });
 
 const cardColor = ({ color: c, theme }: CardProps & ThemeProps) =>
   styledColor({ color: c, theme });
@@ -74,7 +75,9 @@ const cardStyles = css<CardProps>`
   justify-content: stretch;
   text-decoration: none;
   overflow: hidden;
-  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition:
+    box-shadow 0.15s ease-out,
+    transform 0.15s ease-out;
   position: relative;
   ${border};
   ${borderRadius}
@@ -121,7 +124,7 @@ const Card: React.FC<CardProps> = React.forwardRef<
       mb = 3,
       ...props
     },
-    ref
+    ref,
   ) =>
     href ? (
       <StyledLinkCard
@@ -143,7 +146,7 @@ const Card: React.FC<CardProps> = React.forwardRef<
         {...props}
         ref={ref as React.ForwardedRef<HTMLDivElement>}
       />
-    )
+    ),
 );
 
 Card.displayName = 'Card';

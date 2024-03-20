@@ -1,21 +1,25 @@
 import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Box, Center } from '@t3n/components';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Layout/Center',
+const meta: Meta<typeof Center> = {
   component: Center,
+  title: 'Components/Layout/Center',
   decorators: [storyContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    children: (
+      <Box width={1 / 2} height="200px" p={3} bg="background.secondary">
+        Zentrierte Box
+      </Box>
+    ),
+  },
 };
 
-export const defaultStory = () => (
-  <Center>
-    <Box width={1 / 2} height="200px" p={3} bg="background.secondary">
-      Zentrierte Box
-    </Box>
-  </Center>
-);
+export default meta;
+type Story = StoryObj<typeof Center>;
 
-defaultStory.storyName = 'Default';
+export const center: Story = {};

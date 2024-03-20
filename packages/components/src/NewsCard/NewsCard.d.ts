@@ -1,5 +1,5 @@
-/// <reference types="react" />
-export declare type NewsCardType = 'HERO' | 'AUTHOR';
+import React from 'react';
+export type NewsCardType = 'HERO' | 'AUTHOR';
 export interface NewsCardProps {
     loading: boolean;
     type: NewsCardType;
@@ -16,7 +16,7 @@ export interface NewsCardProps {
     };
 }
 declare const NewsCard: {
-    ({ loading, type, news }: NewsCardProps): JSX.Element | null;
+    ({ loading, type, news }: NewsCardProps): React.JSX.Element | null;
     defaultProps: {
         loading: boolean;
     };

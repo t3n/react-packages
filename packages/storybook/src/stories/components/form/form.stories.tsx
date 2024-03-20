@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
 import { Formik, FormikHelpers, FormikProps } from 'formik';
 import styled from 'styled-components';
 import { color, space } from 'styled-system';
@@ -18,13 +19,15 @@ import { ThemeProps } from '@t3n/theme';
 
 import { FormInput } from '../../../components/FormField';
 import { FormTextarea } from '../../../components/FormTextarea';
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
+const meta: Meta = {
   title: 'Components/Form/Formulare',
-  decorators: [storyContainerDecorator],
+  decorators: [storyContainerContentDecorator],
   parameters: { docs: { page: null } },
 };
+
+export default meta;
 
 interface RegisterValues {
   email: string;
@@ -44,13 +47,13 @@ const DebugValues = styled.pre<ThemeProps>`
 export const register = () => {
   const onSubmit = (
     values: RegisterValues,
-    { setSubmitting }: FormikHelpers<RegisterValues>
+    { setSubmitting }: FormikHelpers<RegisterValues>,
   ) => {
     setTimeout(() => {
       // eslint-disable-next-line no-alert
       alert(
         `Registrierungs-Formular wurde abgeschickt mit den folgenden Werten:
-            ${JSON.stringify(values, null, 2)}`
+            ${JSON.stringify(values, null, 2)}`,
       );
       setSubmitting(false);
     }, 300);
@@ -68,14 +71,14 @@ export const register = () => {
       .min(3, 'Bitte gib mindestens drei Zeichen ein'),
     message: Yup.string().max(
       200,
-      'Die Nachricht darf höchstens 200 Zeichen lang sein'
+      'Die Nachricht darf höchstens 200 Zeichen lang sein',
     ),
     password: Yup.string()
       .required('Bitte gib ein Passwort an')
       .min(8, 'Dein Passwort muss mindestens acht Zeichen lang sein'),
     passwordConfirm: Yup.string().oneOf(
       [Yup.ref('password')],
-      'Die Passwörter stimmen nicht überein'
+      'Die Passwörter stimmen nicht überein',
     ),
   });
 
@@ -167,5 +170,3 @@ export const register = () => {
     </Grid>
   );
 };
-
-register.storyName = 'Registrierung';

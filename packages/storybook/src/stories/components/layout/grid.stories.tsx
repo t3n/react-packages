@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
@@ -7,12 +8,6 @@ import { ThemeProps } from '@t3n/theme';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Layout/Grid',
-  component: Grid,
-  decorators: [storyContainerDecorator],
-};
-
 const GridItemContent = styled.div`
   background-color: ${({ theme }: ThemeProps) =>
     theme.colors.background.secondary};
@@ -20,9 +15,17 @@ const GridItemContent = styled.div`
   text-align: center;
 `;
 
-export const defaultStory = () => (
-  <Grid mb={-2}>
-    {new Array(6).fill('').map((_, i) =>
+const meta: Meta<typeof Grid> = {
+  component: Grid,
+  title: 'Components/Layout/Grid',
+  decorators: [storyContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    reverse: false,
+    vertical: false,
+    nowrap: false,
+    wide: false,
+    children: new Array(6).fill('').map((_, i) =>
       new Array(i + 1).fill('').map((__, j) => {
         return (
           // eslint-disable-next-line react/no-array-index-key
@@ -30,9 +33,12 @@ export const defaultStory = () => (
             <GridItemContent>1 / {i + 1}</GridItemContent>
           </GridItem>
         );
-      })
-    )}
-  </Grid>
-);
+      }),
+    ),
+  },
+};
 
-defaultStory.storyName = 'Default';
+export default meta;
+type Story = StoryObj<typeof Grid>;
+
+export const grid: Story = {};

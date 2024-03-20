@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 export interface LegacyNewsCardProps {
     loading: boolean;
     popular?: boolean;
@@ -21,8 +21,8 @@ export interface LegacyNewsCardProps {
         readingTime?: number;
     };
 }
-export declare const LegacyLoadingHeroCard: () => JSX.Element;
-export declare const LegacyLoadingFeedCard: () => JSX.Element;
-export declare const LegacyLoadingMobileCard: () => JSX.Element;
-declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, pro, isBookmarked, onBookmarkClick, }: LegacyNewsCardProps) => JSX.Element | null;
+export declare const LegacyLoadingHeroCard: () => React.JSX.Element;
+export declare const LegacyLoadingFeedCard: () => React.JSX.Element;
+export declare const LegacyLoadingMobileCard: () => React.JSX.Element;
+declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, pro, isBookmarked, onBookmarkClick, }: LegacyNewsCardProps) => React.JSX.Element | null;
 export default LegacyNewsCard;

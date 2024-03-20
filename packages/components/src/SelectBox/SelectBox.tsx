@@ -47,7 +47,7 @@ export interface SelectBoxProps<S> extends WidthProps {
   async?: boolean;
   loadOptions?: (
     inputValue: string,
-    callback: (options: Options<S>) => void
+    callback: (options: Options<S>) => void,
   ) => void;
   loadingMessage?: (obj: { inputValue: string }) => string;
   onInputChange?: (newValue: string) => string;
@@ -72,18 +72,18 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
       borderColor: error
         ? theme.colors.feedback.error
         : state.isDisabled
-        ? theme.colors.shades.grey204
-        : state.isFocused
-        ? theme.colors.shades.grey42
-        : theme.colors.shades.grey95,
+          ? theme.colors.shades.grey204
+          : state.isFocused
+            ? theme.colors.shades.grey42
+            : theme.colors.shades.grey95,
       ':hover': {
         borderColor: error
           ? theme.colors.feedback.error
           : state.isDisabled
-          ? theme.colors.shades.grey204
-          : state.isFocused
-          ? theme.colors.shades.grey42
-          : theme.colors.shades.grey95,
+            ? theme.colors.shades.grey204
+            : state.isFocused
+              ? theme.colors.shades.grey42
+              : theme.colors.shades.grey95,
       },
     };
   },
@@ -97,10 +97,10 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
     backgroundColor: error
       ? theme.colors.feedback.error
       : state.isDisabled
-      ? theme.colors.shades.grey204
-      : state.isFocused
-      ? theme.colors.shades.grey42
-      : theme.colors.shades.grey95,
+        ? theme.colors.shades.grey204
+        : state.isFocused
+          ? theme.colors.shades.grey42
+          : theme.colors.shades.grey95,
   }),
   multiValue: (provided: any) => ({
     ...provided,
@@ -123,10 +123,10 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
     backgroundColor: state.isDisabled
       ? null
       : state.isSelected
-      ? theme.colors.shades.grey232
-      : state.isFocused
-      ? theme.colors.shades.grey244
-      : null,
+        ? theme.colors.shades.grey232
+        : state.isFocused
+          ? theme.colors.shades.grey244
+          : null,
     color: state.isDisabled ? theme.colors.shades.grey232 : null,
     cursor: state.isDisabled ? 'not-allowed' : 'default',
     ':active': {
@@ -135,8 +135,8 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
         (state.isSelected
           ? theme.colors.shades.grey232
           : state.isFocused
-          ? theme.colors.shades.grey244
-          : null),
+            ? theme.colors.shades.grey244
+            : null),
     },
   }),
   noOptionsMessage: (provided: any) => ({ ...provided, textAlign: 'left' }),
@@ -178,12 +178,12 @@ const createDropdownIndicator =
             error
               ? theme.colors.feedback.error
               : // eslint-disable-next-line react/destructuring-assignment
-              props.isDisabled
-              ? theme.colors.shades.grey204
-              : // eslint-disable-next-line react/destructuring-assignment
-              props.isFocused
-              ? theme.colors.shades.grey42
-              : theme.colors.shades.grey95
+                props.isDisabled
+                ? theme.colors.shades.grey204
+                : // eslint-disable-next-line react/destructuring-assignment
+                  props.isFocused
+                  ? theme.colors.shades.grey42
+                  : theme.colors.shades.grey95
           }
         />
       </components.DropdownIndicator>
@@ -262,8 +262,8 @@ const SelectBox = <S,>({
         (Array.isArray(values)
           ? values
           : values === null
-          ? []
-          : [values]) as Options<S>
+            ? []
+            : [values]) as Options<S>,
       ),
     styles: getCustomStyles(!!error, theme as Theme),
     components: {

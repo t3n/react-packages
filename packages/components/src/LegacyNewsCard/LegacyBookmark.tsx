@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
-import Bookmark from '@t3n/icons/src/components/material/action/Bookmark';
-import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
+import { MaterialBookmark, MaterialBookmarkBorder } from '@t3n/icons';
 
 import Box from '../Box';
 
@@ -105,9 +104,9 @@ const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
         isBookmarkedClick={isBookmarkedClick}
       >
         {isBookmarked ? (
-          <Bookmark fill="#5f5f5f" width="20" height="20" />
+          <MaterialBookmark fill="#5f5f5f" width="20" height="20" />
         ) : (
-          <BookmarkBorder fill="#5f5f5f" width="20" height="20" />
+          <MaterialBookmarkBorder fill="#5f5f5f" width="20" height="20" />
         )}
       </BookmarkContainer>
       <Tooltip>Artikel merken</Tooltip>

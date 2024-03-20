@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { ToastId, ToastPosition } from '@chakra-ui/toast';
 import { AlertStatus } from '../Alert';
 export interface ToastProps {
@@ -15,6 +15,6 @@ export interface NotifyOptions {
     position: ToastPosition;
     isClosable: boolean;
 }
-declare const Toast: ({ status, text, isClosable, onClose }: ToastProps) => JSX.Element;
+declare const Toast: ({ status, text, isClosable, onClose }: ToastProps) => React.JSX.Element;
 export declare const useToast: () => (({ text, status, duration, position }: NotifyOptions) => void)[];
 export default Toast;

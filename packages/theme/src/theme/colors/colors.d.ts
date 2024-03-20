@@ -6,7 +6,7 @@ export declare const grey204 = "#cccccc";
 export declare const grey232 = "#e8e8e8";
 export declare const grey244 = "#f4f4f4";
 export declare const white = "#fff";
-export declare type ThemeBrandColor = 'red' | 'black' | 'white';
+export type ThemeBrandColor = 'red' | 'black' | 'white';
 export interface ThemeBrandColors {
     red: string;
     black: string;
@@ -17,7 +17,7 @@ export declare const brandColors: {
     black: string;
     white: string;
 };
-export declare type ThemeShadeColor = 'black' | 'grey42' | 'grey95' | 'grey95' | 'grey204' | 'grey232' | 'grey244' | 'white';
+export type ThemeShadeColor = 'black' | 'grey42' | 'grey95' | 'grey95' | 'grey204' | 'grey232' | 'grey244' | 'white';
 export interface ThemeShadeColors {
     black: string;
     grey42: string;
@@ -40,7 +40,7 @@ export declare const backgroundPrimary = "#fff";
 export declare const backgroundSecondary = "#f4f4f4";
 export declare const backgroundInverse = "#2a2a2a";
 export declare const backgroundHighlight = "#f9423a";
-export declare type ThemeBackgroundColor = 'primary' | 'secondary' | 'inverse' | 'highlight';
+export type ThemeBackgroundColor = 'primary' | 'secondary' | 'inverse' | 'highlight';
 export interface ThemeBackgroundColors {
     primary: string;
     secondary: string;
@@ -57,7 +57,7 @@ export declare const textPrimary = "#2a2a2a";
 export declare const textSecondary = "#5f5f5f";
 export declare const textInverse = "#fff";
 export declare const textHighlight = "#f9423a";
-export declare type ThemeTextColor = 'primary' | 'secondary' | 'inverse' | 'highlight';
+export type ThemeTextColor = 'primary' | 'secondary' | 'inverse' | 'highlight';
 export interface ThemeTextColors {
     primary: string;
     secondary: string;
@@ -89,7 +89,7 @@ export declare const rssfeed = "#f90";
 export declare const socialmedia = "#2a2a2a";
 export declare const newsletter = "#2a2a2a";
 export declare const notifications = "#2a2a2a";
-export declare type ThemeSocialColor = 'comment' | 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'podcast' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube' | 'rssfeed' | 'socialmedia' | 'newsletter' | 'notifications';
+export type ThemeSocialColor = 'comment' | 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'podcast' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube' | 'rssfeed' | 'socialmedia' | 'newsletter' | 'notifications';
 export interface ThemeSocialColors {
     comment: string;
     email: string;
@@ -136,7 +136,7 @@ export declare const success = "#3DFF9F";
 export declare const notice = "#56FEFF";
 export declare const warn = "#ffef4f";
 export declare const error = "#f9423a";
-export declare type ThemeFeedbackColor = 'success' | 'notice' | 'warn' | 'error';
+export type ThemeFeedbackColor = 'success' | 'notice' | 'warn' | 'error';
 export interface ThemeFeedbackColors {
     success: string;
     notice: string;

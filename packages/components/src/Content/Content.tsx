@@ -14,11 +14,12 @@ export interface ContentProps extends ThemeProps, PaddingProps {
 }
 
 const maxWidth = ({ wide, small, theme }: ContentProps): string =>
+  // eslint-disable-next-line no-nested-ternary
   wide
     ? 'max-width: 100%'
     : small
-    ? styledMaxWidth({ maxWidth: [rem(770)], theme })
-    : styledMaxWidth({ maxWidth: [rem(1150)], theme });
+      ? styledMaxWidth({ maxWidth: [rem(770)], theme })
+      : styledMaxWidth({ maxWidth: [rem(1150)], theme });
 
 const Content = styled.div<ContentProps>`
   width: 100%;

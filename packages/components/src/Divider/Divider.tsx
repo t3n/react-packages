@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-nested-ternary */
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { MarginProps, variant, WidthProps } from 'styled-system';
 
@@ -13,7 +14,7 @@ export type DividerVariants = 'primary' | 'inverse';
 export interface DividerProps extends WidthProps, MarginProps {
   variant?: DividerVariants;
   iconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
-  children?: string;
+  children?: ReactNode;
 }
 
 const StyledBox = styled(Box)<Omit<DividerProps, 'children'>>`

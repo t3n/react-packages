@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { border, color } from 'styled-system';
 
@@ -41,6 +41,7 @@ export interface SocialButtonProps {
   network: SocialNetworkType;
   $textBefore?: string;
   $alternativeText?: string;
+  children?: ReactNode;
 }
 
 export interface SocialNetworksProps {
@@ -154,7 +155,7 @@ const mapSocialButtonAttributes = ({
 });
 
 const SocialButton = styled(Button).attrs(
-  mapSocialButtonAttributes
+  mapSocialButtonAttributes,
 )<SocialButtonProps>`
   ${socialButtonStyle}
 `;

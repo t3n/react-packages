@@ -1,77 +1,43 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryObj } from '@storybook/react';
 import moment from 'moment';
 
-import { Box, DatePicker, Section } from '@t3n/components';
+import { Box, DatePicker } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Inputs/DatePicker',
+const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
-  decorators: [storyContainerDecorator],
-};
-
-export const DefaultStory = () => {
-  const [date, setDate] = useState<moment.Moment | null>(null);
-
-  return (
-    <Section>
-      <Box width={[1, 1 / 2]}>
+  title: 'Components/Inputs/DatePicker',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    hideReset: false,
+    withTime: false,
+    date: null,
+  },
+  render: function Render(args) {
+    const [_, updateArgs] = useArgs<{
+      date: moment.Moment | null;
+    }>();
+    return (
+      <Box height="50vh">
         <DatePicker
-          id="test datepicker"
-          date={date}
-          onChange={(newDate: moment.Moment | null) => setDate(newDate)}
-          hideReset={boolean('Ohne Reset', false)}
+          {...args}
+          onChange={(date: moment.Moment | null) => updateArgs({ date })}
         />
       </Box>
-    </Section>
-  );
+    );
+  },
 };
 
-DefaultStory.storyName = 'Default';
+export default meta;
+type Story = StoryObj<typeof DatePicker>;
 
-export const TimePickerStory = () => {
-  const [date, setDate] = useState<moment.Moment | null>(null);
+export const datePicker: Story = {};
 
-  return (
-    <Section>
-      <Box width={[1, 1 / 2]}>
-        <DatePicker
-          id="test datepicker with timepicker"
-          withTime
-          date={date}
-          onChange={(newDate: moment.Moment | null) => setDate(newDate)}
-        />
-      </Box>
-    </Section>
-  );
+export const withTime: Story = {
+  args: { withTime: true },
 };
-
-TimePickerStory.storyName = 'mit Timepicker';
-
-export const DateRangeStory = () => {
-  const [startDate, setStartDate] = useState<moment.Moment | null>(null);
-  const [endDate, setEndDate] = useState<moment.Moment | null>(null);
-
-  return (
-    <Section>
-      <Box width={[1, 1 / 2]}>
-        <DatePicker
-          isDateRange
-          startDateId="startid"
-          endDateId="endid"
-          startDate={startDate}
-          endDate={endDate}
-          onChange={(newStartDate, newEndDate) => {
-            setStartDate(newStartDate);
-            setEndDate(newEndDate);
-          }}
-          hideReset={boolean('Ohne Reset', false)}
-        />
-      </Box>
-    </Section>
-  );
-};
-
-DateRangeStory.storyName = 'DateRange';

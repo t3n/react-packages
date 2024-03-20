@@ -44,7 +44,9 @@ const StickyHeaderWrapper = styled(Box)<{ show: boolean }>`
   position: fixed;
   top: 0;
   width: 61.25rem;
-  transition: opacity 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  transition:
+    opacity 0.2s ease-in-out 0s,
+    transform 0.2s ease-in-out 0s;
 
   ${({ show }) =>
     show
@@ -213,12 +215,16 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
             mr="32px"
             alignSelf="flex-start"
           >
-            <a href="/" title="t3n - digital pioneers">
+            <a
+              href="/"
+              title="t3n - digital pioneers"
+              aria-label="t3n - digital pioneers"
+            >
               <Logo />
             </a>
           </Box>
           <HeaderCampaign>
-            <a href={headerCampaignUrl}>
+            <a href={headerCampaignUrl} aria-label="Kampagnen-URL">
               <Image
                 src={headerCampaignImage}
                 width={[80, 80, 250, 320]}
@@ -253,7 +259,11 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
             alignItems="center"
             px={2}
           >
-            <a href="/" title="t3n - digital pioneers">
+            <a
+              href="/"
+              title="t3n - digital pioneers"
+              aria-label="t3n - digital pioneers"
+            >
               <T3nLogoSmall />
             </a>
             <StickyNavBox width="100%" position="relative">

@@ -19,7 +19,7 @@ test('Alert Status matches Snapshot', () => {
         <AlertText>So geht das nicht. Error!</AlertText>
       </Alert>
     </>,
-    {}
+    {},
   );
 
   expect(container).toMatchSnapshot();

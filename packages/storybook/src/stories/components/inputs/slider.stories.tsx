@@ -1,165 +1,45 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
-import { array, number } from '@storybook/addon-knobs';
+import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryObj } from '@storybook/react';
 import { Formik } from 'formik';
 
 import { Box, Button, H3, Slider, Text } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Inputs/Slider',
+const meta: Meta<typeof Slider> = {
   component: Slider,
-  decorators: [storyContainerDecorator],
-};
+  title: 'Components/Inputs/Slider',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    min: 0,
+    max: 100,
+    step: 10,
+    labels: ['0', '100'],
+    value: 50,
+  },
+  render: function Render(args) {
+    const [_, updateArgs] = useArgs<{
+      value: number;
+    }>();
 
-export const defaultStory = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [value, setValue] = useState(0);
-  const minKnob = number('Min', 0);
-  const maxKnob = number('Max', 20);
-  const stepKnob = number('Step', 5);
-  const labelsKnob = array('Labels', ['0', '5', '10', '15', '20']);
-
-  return (
-    <>
-      <Slider
-        name="slider"
-        min={minKnob}
-        max={maxKnob}
-        value={value}
-        step={stepKnob}
-        labels={labelsKnob}
-        onChange={setValue}
-      />
-      <Text>Selected value: {value}</Text>
-    </>
-  );
-};
-
-defaultStory.storyName = 'Default';
-
-export const range = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [value, setValue] = useState(0);
-
-  return (
-    <>
-      <Slider
-        name="slider"
-        max={10}
-        step={1}
-        value={value}
-        labels={['0', '10']}
-        onChange={setValue}
-      />
-      <Text>Selected value: {value}</Text>
-    </>
-  );
-};
-
-export const syncedSlider = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [value, setValue] = useState(1);
-
-  return (
-    <>
-      <H3>Slider, die im sync sind</H3>
-      <Text>Currently selected value: {value}</Text>
-      <Slider
-        name="slider"
-        max={10}
-        step={1}
-        value={value}
-        labels={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
-        onChange={setValue}
-      />
-      <Slider
-        name="slider"
-        max={10}
-        step={1}
-        value={value}
-        labels={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
-        onChange={setValue}
-      />
-    </>
-  );
-};
-
-syncedSlider.storyName = 'Sync mehrere Slider';
-
-export const inForm = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [submitted, setSubmitted] = useState(false);
-
-  return (
-    <>
-      <Formik
-        onSubmit={() => setSubmitted(true)}
-        initialValues={{ satisfied: 2 }}
-      >
-        {({ handleReset, dirty, values, setFieldValue, handleSubmit }) => (
-          <>
-            <Slider
-              name="satisfied"
-              max={10}
-              step={2}
-              value={values.satisfied}
-              labels={['0', '2', '4', '6', '8', '10']}
-              onChange={(val) => {
-                setFieldValue('satisfied', val);
-              }}
-            />
-            <Button
-              type="submit"
-              mr={3}
-              variant="primary"
-              onClick={() => handleSubmit()}
-            >
-              Submit
-            </Button>
-            {dirty && (
-              <>
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    handleReset();
-                    setSubmitted(false);
-                  }}
-                >
-                  Reset
-                </Button>
-                <pre>{JSON.stringify(values)}</pre>
-              </>
-            )}
-          </>
-        )}
-      </Formik>
-      {submitted && <Text>Du hast das Formular abgeschickt :)</Text>}
-    </>
-  );
-};
-
-inForm.storyName = 'Slider im Formular';
-
-export const fixedContainer = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [value, setValue] = useState(1);
-
-  return (
-    <Box display="flex" justifyContent="center">
-      <Box width="300px">
+    return (
+      <>
         <Slider
-          value={value}
-          max={2}
-          min={0}
-          step={1}
-          onChange={(v) => setValue(v)}
-          name="slider"
-          labels={['0', '1', '2']}
+          {...args}
+          onChange={(newValue) => {
+            updateArgs({ value: newValue });
+          }}
         />
-      </Box>
-    </Box>
-  );
+        <Text>Selected value: {args.value}</Text>
+      </>
+    );
+  },
 };
 
-fixedContainer.storyName = 'Slider in fixed Container';
+export default meta;
+type Story = StoryObj<typeof Slider>;
+
+export const slider: Story = {};

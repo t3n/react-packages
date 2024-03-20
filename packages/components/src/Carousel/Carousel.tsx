@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 // eslint-disable-next-line import/no-named-default
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import styled from 'styled-components';
@@ -22,6 +22,7 @@ export interface CarouselProps {
   hideNextButton?: boolean;
   hidePrevButton?: boolean;
   onChange?: (currentIndex: number) => void;
+  children?: ReactNode;
 }
 
 const StyledSlider = styled(SlickSlider)`

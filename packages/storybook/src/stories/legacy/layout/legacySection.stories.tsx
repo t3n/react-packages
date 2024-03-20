@@ -1,61 +1,41 @@
-import React from 'react';
-import styled from 'styled-components';
-import { color } from 'styled-system';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Box, LegacySection } from '@t3n/components';
+import { LegacySection } from '@t3n/components';
 
-export default {
-  title: 'Legacy/Layout/Section',
+import { secondaryStoryContainerDecorator } from '../../../utils/decorators';
+
+const meta: Meta<typeof LegacySection> = {
   component: LegacySection,
+  title: 'Legacy/Layout/Section',
+  decorators: [secondaryStoryContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    narrow: false,
+    variant: 'primary',
+    wide: false,
+    children: 'Hallo Welt',
+  },
 };
 
-const Wrapper = styled(Box)`
-  ${({ theme }) => color({ theme, bg: 'shades.grey204' })}
-`;
+export default meta;
+type Story = StoryObj<typeof LegacySection>;
 
-const LegacyPageLayoutWrapper = styled(Box)`
-  width: 61.25rem;
-  height: 200px;
-  margin: 50px auto auto;
-  position: relative;
-`;
+export const section: Story = {};
 
-export const defaultStory = () => (
-  <Wrapper display="flex">
-    <LegacyPageLayoutWrapper>
-      <LegacySection>Hallo Welt</LegacySection>
-    </LegacyPageLayoutWrapper>
-  </Wrapper>
-);
+export const narrowSection: Story = {
+  args: {
+    narrow: true,
+  },
+};
 
-defaultStory.storyName = 'Default';
+export const wideSection: Story = {
+  args: {
+    wide: true,
+  },
+};
 
-export const narrowStory = () => (
-  <Wrapper display="flex">
-    <LegacyPageLayoutWrapper>
-      <LegacySection narrow>Hallo Welt</LegacySection>
-    </LegacyPageLayoutWrapper>
-  </Wrapper>
-);
-
-narrowStory.storyName = 'Content schmal';
-
-export const greyBackgroundStory = () => (
-  <Wrapper display="flex">
-    <LegacyPageLayoutWrapper>
-      <LegacySection variant="secondary">Hallo Welt</LegacySection>
-    </LegacyPageLayoutWrapper>
-  </Wrapper>
-);
-
-greyBackgroundStory.storyName = 'Grauer Hintergrund';
-
-export const wideStory = () => (
-  <Wrapper display="flex">
-    <LegacyPageLayoutWrapper>
-      <LegacySection wide>Hallo Welt</LegacySection>
-    </LegacyPageLayoutWrapper>
-  </Wrapper>
-);
-
-wideStory.storyName = 'Content breit';
+export const secondarySection: Story = {
+  args: {
+    variant: 'secondary',
+  },
+};

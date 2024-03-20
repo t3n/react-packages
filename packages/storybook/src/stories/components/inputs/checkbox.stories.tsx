@@ -1,52 +1,71 @@
-import React, { useState } from 'react';
-import { boolean, select, text } from '@storybook/addon-knobs';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Checkbox, Section } from '@t3n/components';
-import { theme } from '@t3n/theme';
-import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Inputs/Checkbox',
+const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
-  decorators: [storyContainerDecorator],
-};
+  title: 'Components/Inputs/Checkbox',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    label: 'Checkbox',
+    name: 'checkbox',
+    disabled: false,
+    checked: false,
+    variant: 'light',
+  },
+  render: function Render(args) {
+    const [_, updateArgs] = useArgs<{
+      checked: boolean;
+    }>();
 
-export const DefaultStory = () => {
-  const [checked, setChecked] = useState(false);
-
-  const showFeedback = boolean('Zeige Feedback', false);
-  const feedbackColor = select(
-    'Feedback',
-    Object.keys(theme.colors.feedback) as ThemeFeedbackColor[],
-    'success'
-  );
-  const name = text('Name', 'Name checkbox');
-  const disabled = boolean('disable', false);
-  const label = text('Label', 'Label placeholder');
-  const checkboxVariant = select(
-    'Variante Checkbox',
-    ['light', 'dark'],
-    'light'
-  );
-
-  return (
-    <Section variant={checkboxVariant === 'light' ? 'primary' : 'inverse'}>
+    return (
       <Checkbox
-        variant={checkboxVariant}
-        disabled={disabled}
-        feedbackColor={showFeedback ? feedbackColor : undefined}
-        checked={checked}
-        value="true"
-        name={name}
+        {...args}
         onChange={() => {
-          setChecked(!checked);
+          updateArgs({ checked: !args.checked });
         }}
-        label={label}
       />
-    </Section>
-  );
+    );
+  },
 };
 
-DefaultStory.storyName = 'Default';
+export default meta;
+type Story = StoryObj<typeof Checkbox>;
+
+export const checkbox: Story = {};
+
+export const disabled: Story = {
+  args: { disabled: true },
+};
+
+export const checked: Story = {
+  args: { checked: true },
+};
+
+export const dark: Story = {
+  args: { variant: 'dark' },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="inverse">
+          <StoryComp />
+        </Section>
+      );
+    },
+    storyContainerContentDecorator,
+  ],
+};
+
+export const withoutLabel: Story = {
+  args: { label: '' },
+};
+
+export const withFeedbackColor: Story = {
+  args: { feedbackColor: 'error' },
+};

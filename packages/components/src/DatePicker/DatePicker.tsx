@@ -40,7 +40,7 @@ export interface DateRangePickerProps extends BaseDatePickerProps {
   endDate: moment.Moment | null;
   onChange: (
     startDate: moment.Moment | null,
-    endDate: moment.Moment | null
+    endDate: moment.Moment | null,
   ) => void;
   isOutsideRange?: (day: moment.Moment) => boolean;
 }
@@ -115,7 +115,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
 
   const parsedHours = getParsedValue(date ? date.get('hours').toString() : '');
   const parsedMinutes = getParsedValue(
-    date ? date.get('minutes').toString() : ''
+    date ? date.get('minutes').toString() : '',
   );
 
   const showTime = !!(date && (date.get('minutes') || date.get('hours')));
@@ -154,15 +154,15 @@ const TimePicker: React.FC<TimePickerProps> = ({
                       value.length > 2 && value[0] === '0'
                         ? value.substring(1, 3)
                         : value.length > 2
-                        ? value.substring(0, 2)
-                        : value;
+                          ? value.substring(0, 2)
+                          : value;
 
                     onChange(
                       moment(date || moment()).set({
                         h: parsedValue.match(/\b(^$|0?[0-9]|1[0-9]|2[0-3])\b/)
                           ? parseInt(parsedValue, 10)
                           : parseInt(parsedHours, 10) || 0,
-                      })
+                      }),
                     );
                   }}
                 />
@@ -190,17 +190,17 @@ const TimePicker: React.FC<TimePickerProps> = ({
                       value.length > 2 && value[0] === '0'
                         ? value.substring(1, 3)
                         : value.length > 2
-                        ? value.substring(0, 2)
-                        : value;
+                          ? value.substring(0, 2)
+                          : value;
 
                     onChange(
                       moment(date || moment()).set({
                         m: parsedValue.match(
-                          /\b(^$|0?[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])\b/
+                          /\b(^$|0?[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])\b/,
                         )
                           ? parseInt(parsedValue, 10)
                           : parseInt(parsedMinutes, 10) || 0,
-                      })
+                      }),
                     );
                   }}
                 />
@@ -232,7 +232,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
 };
 
 const checkIsDateRangePicker = (
-  props: DatePickerProps
+  props: DatePickerProps,
 ): props is DateRangePickerProps => {
   return !!props.isDateRange;
 };
@@ -282,7 +282,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
                     h: endDate?.get('hours') || 0,
                     m: endDate?.get('minutes') || 0,
                   })
-                : null
+                : null,
             );
           }}
           focusedInput={focusInput}
@@ -346,7 +346,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
                   h: date?.get('hours') || 0,
                   m: date?.get('minutes') || 0,
                 })
-              : null
+              : null,
           )
         }
         focused={focus}

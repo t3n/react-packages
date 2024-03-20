@@ -1,66 +1,55 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Tag, TagList } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
+const tagValues = [
+  'PHP',
+  'React JS',
+  'Neos CMS',
+  'Flow Framework',
+  'Symfony',
+  'Laravel',
+];
+
+const meta: Meta<typeof TagList> = {
   component: TagList,
   title: 'Components/Content/TagList',
-  decorators: [storyContainerDecorator],
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    colorVariant: 'secondary',
+    small: false,
+    collapseAfter: 5,
+    initialCollapsed: true,
+    tags: tagValues.map((label) => (
+      <Tag colorVariant="secondary" mr={2}>
+        {label}
+      </Tag>
+    )),
+  },
 };
 
-export const defaultStory = () => {
-  const colorVariant = select(
-    'colorVariant',
-    ['inverse', 'primary', 'secondary', 'black', 'highlight'],
-    'secondary'
-  );
-  const tagValues = [
-    'PHP',
-    'React JS',
-    'Neos CMS',
-    'Flow Framework',
-    'Symfony',
-    'Laravel',
-  ];
+export default meta;
+type Story = StoryObj<typeof TagList>;
 
-  const tags = tagValues.map((label) => (
-    <Tag colorVariant={colorVariant} mr={2}>
-      {label}
-    </Tag>
-  ));
+export const tagList: Story = {};
 
-  return <TagList colorVariant={colorVariant} collapseAfter={3} tags={tags} />;
+export const smallTagList: Story = {
+  args: {
+    small: true,
+    tags: tagValues.map((label) => (
+      <Tag colorVariant="secondary" small mr={2}>
+        {label}
+      </Tag>
+    )),
+  },
 };
 
-defaultStory.storyName = 'Liste mit Tags';
-
-export const smallStory = () => {
-  const colorVariant = select(
-    'colorVariant',
-    ['inverse', 'primary', 'secondary', 'black', 'highlight'],
-    'secondary'
-  );
-  const tagValues = [
-    'PHP',
-    'React JS',
-    'Neos CMS',
-    'Flow Framework',
-    'Symfony',
-    'Laravel',
-  ];
-
-  const tags = tagValues.map((label) => (
-    <Tag small colorVariant={colorVariant} mr={2}>
-      {label}
-    </Tag>
-  ));
-
-  return (
-    <TagList small colorVariant={colorVariant} collapseAfter={3} tags={tags} />
-  );
+export const collapsedTagList: Story = {
+  args: {
+    initialCollapsed: false,
+  },
 };
-
-smallStory.storyName = 'Liste mit kleinen Tags';

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 import { renderWithTheme } from '../helper/renderWithTheme';
@@ -14,7 +15,7 @@ test('Label is present on checkbox', () => {
       name="check"
       value="checkbox"
     />,
-    {}
+    {},
   );
 
   expect(getByText(/ein label/i)).toBeTruthy();
@@ -100,7 +101,7 @@ test('Checkbox has feedback styles', () => {
         feedbackColor="success"
       />
     </>,
-    {}
+    {},
   );
 
   expect(container).toMatchSnapshot();

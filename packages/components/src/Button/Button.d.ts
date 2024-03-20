@@ -1,10 +1,10 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
-export declare type ButtonAsType = 'button' | 'a';
-export declare type ButtonVariant = 'primary' | 'secondary';
-export declare type ButtonColorVariant = 'default' | 'inverse' | 'highlight';
-export declare type ButtonSizeVariant = 'small' | 'regular' | 'big';
+export type ButtonAsType = 'button' | 'a';
+export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonColorVariant = 'default' | 'inverse' | 'highlight';
+export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 export interface ButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLAttributes<any>, 'type'>, MarginProps, WidthProps {
     variant?: ButtonVariant;
     color?: ButtonColorVariant;
@@ -13,6 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLA
     iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
     loading?: boolean;
     as?: ButtonAsType;
+    children?: ReactNode;
 }
 export declare const buttonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & ButtonProps, any>>;
 declare const Button: React.FC<ButtonProps>;

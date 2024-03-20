@@ -1,34 +1,9 @@
 import React from 'react';
-import { boolean, text } from '@storybook/addon-knobs';
-import { Formik, FormikHelpers, FormikProps } from 'formik';
-import styled from 'styled-components';
-import { color, space } from 'styled-system';
-import * as Yup from 'yup';
+import { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Button,
-  Card,
-  CardSplitContent,
-  FormGroup,
-  Heading,
-  SelectBox,
-  Text,
-} from '@t3n/components';
-import { ThemeProps } from '@t3n/theme';
+import { Box, SelectBox } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
-
-const DebugValues = styled.pre<ThemeProps>`
-  overflow: hidden;
-  ${space({ p: 2 })};
-  ${color({ bg: '#e8e8e8' })}
-`;
-
-export default {
-  component: SelectBox,
-  title: 'Components/Inputs/SelectBox',
-  decorators: [storyContainerDecorator],
-};
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
 const colorOptions = [
   { value: 'ocean', label: 'Ocean' },
@@ -61,240 +36,102 @@ const groupedOptions = [
   },
 ];
 
-export const defaultStory = () => (
-  <SelectBox
-    options={groupedOptions}
-    autoFocus={boolean('Autofocus?', false)}
-    disabled={boolean('Disabled?', false)}
-    hideReset={boolean('Hide reset?', false)}
-    loading={boolean('Loading?', false)}
-    multiSelect={boolean('MultiSelect?', true)}
-    closeMenuOnSelect={boolean('Close Menu on Select?', false)}
-    placeholder={text('Placeholder', 'Auswählen')}
-    searchable={boolean('Searchable?', true)}
-    error={boolean('Error?', false)}
-    width={[1, 1, 1 / 2]}
-  />
-);
-
-defaultStory.storyName = 'Default';
-
-export const valueStory = () => (
-  <SelectBox
-    options={colorOptions}
-    defaultValue={colorOptions[3] as any}
-    width={[1, 1, 1 / 2]}
-  />
-);
-
-valueStory.storyName = 'Value';
-
-export const noGroupsStory = () => (
-  <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
-);
-
-noGroupsStory.storyName = 'No Option Groups';
-
-export const multiSelectStory = () => (
-  <SelectBox
-    options={groupedOptions}
-    multiSelect
-    closeMenuOnSelect={false}
-    width={[1, 1, 1 / 2]}
-  />
-);
-
-multiSelectStory.storyName = 'MultiSelect';
-
-export const disabledStory = () => (
-  <SelectBox options={groupedOptions} disabled width={[1, 1, 1 / 2]} />
-);
-
-disabledStory.storyName = 'Disabled';
-
-export const autoFocusStory = () => (
-  <SelectBox options={groupedOptions} autoFocus width={[1, 1, 1 / 2]} />
-);
-
-autoFocusStory.storyName = 'Autofocus';
-
-export const searchableStory = () => (
-  <SelectBox options={groupedOptions} searchable width={[1, 1, 1 / 2]} />
-);
-
-searchableStory.storyName = 'Searchable';
-
-export const hideResetStory = () => (
-  <SelectBox options={groupedOptions} hideReset width={[1, 1, 1 / 2]} />
-);
-
-hideResetStory.storyName = 'Hide Reset';
-
-export const disabledOptionStory = () => (
-  <SelectBox options={colorOptions} width={[1, 1, 1 / 2]} />
-);
-
-disabledOptionStory.storyName = 'Disabled Option';
-
-export const loadingStory = () => (
-  <SelectBox options={groupedOptions} loading width={[1, 1, 1 / 2]} />
-);
-
-loadingStory.storyName = 'Loading';
-
-export const errorStory = () => (
-  <SelectBox options={groupedOptions} error width={[1, 1, 1 / 2]} />
-);
-
-errorStory.storyName = 'Error';
-
-export const creatableStory = () => (
-  <SelectBox creatable options={colorOptions} width={[1, 1, 1 / 2]} />
-);
-
-creatableStory.storyName = 'Creatable';
-
-const AsyncSelectBoxComponent = () => {
-  const handleLoadOptions = (
-    input: string,
-    callback: (options: { value: string; label: string }[]) => void
-  ) => {
-    setTimeout(() => {
-      callback(
-        colorOptions.filter((e) => e.label.toLowerCase().includes(input))
+const meta: Meta<typeof SelectBox> = {
+  component: SelectBox,
+  title: 'Components/Inputs/SelectBox',
+  decorators: [
+    (Story) => {
+      return (
+        <Box height="35vh">
+          <Story />
+        </Box>
       );
-    }, 1000);
-  };
-
-  const renderLoadingMessage = () => {
-    return 'Lade mehr Daten ...';
-  };
-
-  return (
-    <>
-      <Text>Bei Eingabe werden Daten nachgeladen</Text>
-      <SelectBox
-        async
-        loadOptions={handleLoadOptions}
-        loadingMessage={renderLoadingMessage}
-        defaultOptions={[]}
-        options={[]}
-        width={[1, 1, 1 / 2]}
-      />
-    </>
-  );
+    },
+    storyContainerContentDecorator,
+  ],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    autoFocus: false,
+    disabled: false,
+    hideReset: false,
+    loading: false,
+    multiSelect: false,
+    closeMenuOnSelect: true,
+    placeholder: 'Auswählen',
+    searchable: false,
+    error: false,
+    options: groupedOptions,
+  },
 };
 
-export const asyncStory = () => {
-  return <AsyncSelectBoxComponent />;
+export default meta;
+type Story = StoryObj<typeof SelectBox>;
+
+export const selectBox: Story = {};
+
+export const value: Story = {
+  args: { defaultValue: colorOptions[3] as any },
 };
 
-asyncStory.storyName = 'Optionen nachladen';
-
-interface FormValues {
-  tags: {
-    label: string;
-    value: string;
-  }[];
-}
-
-const formValidation = Yup.object().shape({
-  tags: Yup.array()
-    .min(3, 'Pick at least 3 tags')
-    .of(
-      Yup.object().shape({
-        label: Yup.string().required(),
-        value: Yup.string().required(),
-      })
-    ),
-});
-
-export const formStory = () => {
-  const onSubmit = (
-    values: FormValues,
-    { setSubmitting }: FormikHelpers<FormValues>
-  ) => {
-    const payload = {
-      ...values,
-      tags: values.tags.map((t) => t.value),
-    };
-    setTimeout(() => {
-      // eslint-disable-next-line no-alert
-      alert(
-        `Formular wurde abgeschickt mit den folgenden Werten:
-            ${JSON.stringify(payload, null, 2)}`
-      );
-      setSubmitting(false);
-    }, 500);
-  };
-
-  return (
-    <Formik
-      initialValues={{
-        tags: [] as any[],
-      }}
-      validationSchema={formValidation}
-      isInitialValid={false}
-      onSubmit={onSubmit}
-    >
-      {({
-        values,
-        touched,
-        errors,
-        handleSubmit,
-        isValid,
-        isSubmitting,
-        handleReset,
-        setFieldValue,
-        setFieldTouched,
-      }: FormikProps<FormValues>) => (
-        <Card splitted>
-          <CardSplitContent variant="secondary">
-            <>
-              <Heading styleAs="h4">Debug-Daten</Heading>
-              <p>Values:</p>
-              <DebugValues>{JSON.stringify(values, null, 2)}</DebugValues>
-              <p>Errors:</p>
-              <DebugValues>{JSON.stringify(errors, null, 2)}</DebugValues>
-              <p>Touched:</p>
-              <DebugValues>{JSON.stringify(touched, null, 2)}</DebugValues>
-              <Button variant="secondary" onClick={handleReset}>
-                Formular zurücksetzen
-              </Button>
-            </>
-          </CardSplitContent>
-          <CardSplitContent>
-            <>
-              <Heading styleAs="h4">Tags setzen</Heading>
-              <form onSubmit={handleSubmit}>
-                <FormGroup label="Tags">
-                  <SelectBox
-                    name="tags"
-                    multiSelect
-                    closeMenuOnSelect={false}
-                    options={colorOptions}
-                    onChange={(value) => setFieldValue('tags', value)}
-                    onBlur={() => setFieldTouched('tags', true)}
-                    error={!errors}
-                    loading={isSubmitting}
-                    value={values.tags}
-                  />
-                </FormGroup>
-
-                <Button
-                  mt={2}
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                >
-                  Speichern
-                </Button>
-              </form>
-            </>
-          </CardSplitContent>
-        </Card>
-      )}
-    </Formik>
-  );
+export const noGroups: Story = {
+  args: { options: colorOptions },
 };
 
-formStory.storyName = 'Form';
+export const multiSelect: Story = {
+  args: { multiSelect: true, closeMenuOnSelect: false },
+};
+
+export const disabled: Story = {
+  args: { disabled: true },
+};
+
+export const autoFocus: Story = {
+  args: { autoFocus: true },
+};
+
+export const searchable: Story = {
+  args: { searchable: true },
+};
+
+export const hideReset: Story = {
+  args: { hideReset: true },
+};
+
+export const disabledOption: Story = {
+  args: { options: colorOptions.map((o) => ({ ...o, isDisabled: true })) },
+};
+
+export const loading: Story = {
+  args: { loading: true },
+};
+
+export const error: Story = {
+  args: { error: true },
+};
+
+export const creatable: Story = {
+  args: { creatable: true },
+};
+
+const handleLoadOptions = (
+  input: string,
+  callback: (options: { value: string; label: string }[]) => void,
+) => {
+  setTimeout(() => {
+    callback(colorOptions.filter((e) => e.label.toLowerCase().includes(input)));
+  }, 1000);
+};
+
+const renderLoadingMessage = () => {
+  return 'Lade mehr Daten ...';
+};
+
+export const async: Story = {
+  args: {
+    async: true,
+    loadOptions: handleLoadOptions,
+    loadingMessage: renderLoadingMessage,
+    defaultOptions: [],
+    options: [],
+  },
+};

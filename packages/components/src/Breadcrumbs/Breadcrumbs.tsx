@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
@@ -15,7 +15,7 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
   label: string;
   linkComponent?: (
     props: React.AnchorHTMLAttributes<HTMLAnchorElement> &
-      Pick<LinkProps, 'variant' | 'children'> & { href: string }
+      Pick<LinkProps, 'variant' | 'children'> & { href: string },
   ) => JSX.Element;
 }
 
@@ -38,7 +38,7 @@ export const BreadcrumbsItem = styled(
         </Text>
       )}
     </li>
-  )
+  ),
 )`
   position: relative;
   ${({ theme }) => padding({ theme, pl: 3, pr: 3 })}
@@ -82,7 +82,7 @@ const BreadcrumbsList = styled.ul`
   flex-wrap: wrap;
 `;
 
-const Breadcrumbs: React.FC = ({ children }) => {
+const Breadcrumbs: React.FC<{ children?: ReactNode }> = ({ children }) => {
   return (
     <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>

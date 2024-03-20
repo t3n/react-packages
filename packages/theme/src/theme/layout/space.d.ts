@@ -1,3 +1,3 @@
 declare const spaces: number[];
-export declare type ThemeSpaces = number[];
+export type ThemeSpaces = number[];
 export default spaces;

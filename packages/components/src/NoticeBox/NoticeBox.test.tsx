@@ -8,7 +8,7 @@ test('NoticeBox Status matches Snapshot', () => {
     <NoticeBox m={2}>
       <NoticeBoxText>Dies ist eine Erfolgsmeldung</NoticeBoxText>
     </NoticeBox>,
-    {}
+    {},
   );
 
   expect(container).toMatchSnapshot();

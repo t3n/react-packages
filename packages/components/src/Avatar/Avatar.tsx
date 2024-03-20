@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   border,
@@ -21,6 +21,7 @@ export interface AvatarImageProps {
   className?: string;
   alt?: string;
   loading?: boolean;
+  children?: ReactNode;
 }
 
 export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {

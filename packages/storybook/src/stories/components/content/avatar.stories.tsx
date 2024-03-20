@@ -1,118 +1,44 @@
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { boolean, number, select, text } from '@storybook/addon-knobs';
-import gql from 'graphql-tag';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Avatar, Center, PageLayout, Text } from '@t3n/components';
+import { Avatar } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
+const meta: Meta<typeof Avatar> = {
   component: Avatar,
   title: 'Components/Content/Avatar',
-  decorators: [storyContainerDecorator],
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    src: 'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
+    label: 'Arabella Lauer',
+    size: 40,
+    textColor: 'black',
+    alt: 'Arabella Lauer',
+    loading: false,
+    optimizeSrc: true,
+  },
 };
 
-const options = {
-  White: 'white',
-  Black: 'black',
+export default meta;
+type Story = StoryObj<typeof Avatar>;
+
+export const withLabel: Story = {};
+
+export const loading: Story = {
+  args: {
+    loading: true,
+  },
 };
 
-const AVATAR_QUERY = gql`
-  query storybook_avatarStory {
-    viewer {
-      me {
-        firstName
-        lastName
-        avatarUrl
-      }
-    }
-  }
-`;
-
-const UserAvatar = () => {
-  const { data, loading } = useQuery(AVATAR_QUERY);
-
-  if (loading || !data.viewer || !data.viewer.me) {
-    return <p>Anmelden</p>;
-  }
-
-  const {
-    viewer: {
-      me: { firstName, lastName, avatarUrl },
-    },
-  } = data;
-
-  return (
-    <Avatar
-      label={`${firstName} ${lastName}`}
-      src={avatarUrl}
-      size={40}
-      alt={`${firstName} ${lastName}`}
-    />
-  );
+export const noLabel: Story = {
+  args: {
+    label: '',
+  },
 };
 
-export const defaultStory = () => (
-  <div>
-    <Avatar
-      optimizeSrc={boolean('Bildoptimierung?', true)}
-      size={number('Größe', 40)}
-      src={text(
-        'Image URL',
-        'https://storage.googleapis.com/t3n-de/pioneers/b3dc709a91716ae96282e57ac4988f1803ea59fa/t3n-gregor-2019-03.jpg'
-      )}
-      label={text('Label', '')}
-      textColor={select('Textfarbe', options, 'black')}
-      alt={text('alt-Attribut', '')}
-    />
-  </div>
-);
-
-defaultStory.storyName = 'Default';
-
-export const withText = () => (
-  <div>
-    <Avatar
-      size={number('Größe', 40)}
-      src={text(
-        'Image URL',
-        'https://images.unsplash.com/photo-1565588668820-6f19adba4646?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
-      )}
-      label={text('Label', 'John Doe')}
-      textColor={select('Textfarbe', options, 'black')}
-      alt={text('alt-Attribut', 'John Doe')}
-    />
-  </div>
-);
-
-withText.storyName = 'Mit Text';
-
-export const liveData = () => (
-  <PageLayout showHeader headerContent={<UserAvatar />}>
-    <Center>
-      <Text>
-        Sollte im Header &apos;Anmelden&apos; stehen, melde dich bitte erst bei
-        t3n.de an damit deine Live-Daten abgefragt werden können!
-      </Text>
-    </Center>
-  </PageLayout>
-);
-
-liveData.storyName = 'Live-Daten';
-
-export const loading = () => (
-  <div>
-    <Avatar loading />
-  </div>
-);
-
-loading.storyName = 'Loading';
-
-export const noAvatar = () => (
-  <div>
-    <Avatar alt={text('Alt-Text', 'Jan Christe')} />
-  </div>
-);
-
-noAvatar.storyName = 'No Avatar';
+export const noAvatar: Story = {
+  args: {
+    src: '',
+  },
+};

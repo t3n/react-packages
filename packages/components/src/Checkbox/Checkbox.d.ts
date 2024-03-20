@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
-declare type VariantType = 'light' | 'dark';
+type VariantType = 'light' | 'dark';
 export interface CheckboxProps {
     name: string;
     value: any;
@@ -11,5 +11,5 @@ export interface CheckboxProps {
     feedbackColor?: ThemeFeedbackColor;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor, name, value, variant, }: CheckboxProps) => JSX.Element;
+declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor, name, value, variant, }: CheckboxProps) => React.JSX.Element;
 export default Checkbox;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import {
   Content,
@@ -11,74 +11,55 @@ import {
   VisualSection,
 } from '@t3n/components';
 
-export default {
-  title: 'Components/Layout/PageLayout',
+const meta: Meta<typeof PageLayout> = {
   component: PageLayout,
+  title: 'Components/Layout/PageLayout',
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    noContentPadding: false,
+    showHeader: true,
+    light: false,
+    showPrivacySettingsLink: true,
+    privacyManagerId: '123456',
+  },
 };
 
-export const defaultStory = () => {
-  const noContentPadding = boolean('Kein Inhaltsabstand', false);
-  const showHeader = boolean('Mit Header', true);
+export default meta;
+type Story = StoryObj<typeof PageLayout>;
 
-  return (
-    <PageLayout
-      noContentPadding={noContentPadding}
-      showHeader={showHeader}
-      light={boolean('Helle Variante', false)}
-      headerContent={<UserMenu isProMember userEmail="john.doe@beispiel.de" />}
-      showPrivacySettingsLink
-      privacyManagerId="123456"
-    >
-      Content
-    </PageLayout>
-  );
+export const pageLayout: Story = {};
+
+export const withUserMenu: Story = {
+  args: {
+    headerContent: (
+      <UserMenu
+        light={false}
+        isProMember={false}
+        userEmail="john.doe@example.com"
+      />
+    ),
+  },
 };
 
-defaultStory.storyName = 'Default';
-
-export const withTransparentHeader = () => {
-  const noContentPadding = boolean('Kein Inhaltsabstand', false);
-  const showHeader = boolean('Mit Header', true);
-
-  return (
-    <PageLayout
-      initialTransparent
-      noContentPadding={noContentPadding}
-      showHeader={showHeader}
-      headerContent={<UserMenu isProMember userEmail="john.doe@beispiel.de" />}
-      showPrivacySettingsLink
-      privacyManagerId="123456"
-    >
-      <VisualSection variant="highlight">
-        <Content>
-          <H1 mb={8} color="shades.white">
-            Some Headline
-          </H1>
-        </Content>
-      </VisualSection>
-      <Section variant="primary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-      <Section variant="secondary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-      <Section variant="primary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-      <Section variant="secondary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-      <Section variant="primary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-      <Section variant="secondary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-      <Section variant="primary">
-        <Text my={9}>Dummy Section</Text>
-      </Section>
-    </PageLayout>
-  );
+export const withTransparentHeader: Story = {
+  args: {
+    initialTransparent: true,
+    children: (
+      <>
+        <VisualSection variant="highlight">
+          <Content>
+            <H1 mb={8} color="shades.white">
+              Some Headline
+            </H1>
+          </Content>
+        </VisualSection>
+        <Section variant="primary">
+          <Text my={9}>Dummy Section</Text>
+        </Section>
+        <Section variant="secondary">
+          <Text my={9}>Dummy Section</Text>
+        </Section>
+      </>
+    ),
+  },
 };
-
-withTransparentHeader.storyName = 'Transparenter Header';

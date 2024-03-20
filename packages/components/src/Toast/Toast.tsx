@@ -83,7 +83,7 @@ export const useToast = () => {
             status={status}
             isClosable
             onClose={onClose}
-            id={id}
+            id={id as ToastId}
           />
         </ThemeProvider>
       ),

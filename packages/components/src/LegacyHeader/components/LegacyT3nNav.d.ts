@@ -4,7 +4,7 @@ export interface LegacyT3nNavProps {
     userEmail?: string;
     userMenuItems?: ReactNode[];
 }
-export declare type T3nNavLinksType = {
+export type T3nNavLinksType = {
     label: string;
     url: string;
     dropdownLinks?: {

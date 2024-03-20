@@ -25,7 +25,7 @@ test('Tag Variants matches snapshot', () => {
         small black tag
       </Tag>
     </>,
-    {}
+    {},
   );
 
   expect(container).toMatchSnapshot();
@@ -36,7 +36,7 @@ test('Icon is rendered within the tag', () => {
     <Tag colorVariant="primary" icon={<MaterialClear />}>
       Tag with Icon
     </Tag>,
-    {}
+    {},
   );
 
   expect(container.getElementsByTagName('svg')).not.toBeNull();

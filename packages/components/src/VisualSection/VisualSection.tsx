@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 
@@ -13,6 +13,7 @@ export interface VisualSectionProps {
   variant: VisualSectionVariants;
   innerGap?: SpaceProps['py'];
   wide?: boolean;
+  children?: ReactNode;
 }
 
 const VisualSectionOuter = styled.div<VisualSectionProps>`

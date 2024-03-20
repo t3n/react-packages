@@ -1,34 +1,35 @@
-import React from 'react';
-import { useState } from '@storybook/addons';
+import React, { useState } from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, LegacyBookmarkModal } from '@t3n/components';
+import { Box, Button, LegacyBookmarkModal } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Legacy/Content/Bookmark-Modal',
+const meta: Meta<typeof LegacyBookmarkModal> = {
   component: LegacyBookmarkModal,
-  decorators: [storyContainerDecorator],
+  title: 'Legacy/Content/Bookmark-Modal',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    pocketLink: 'https://t3n.de',
+  },
+  render: function Render(args) {
+    const [modalOpen, setModalOpen] = useState(true);
+
+    return (
+      <Box height="50vh">
+        <Button onClick={() => setModalOpen(true)}>
+          Merkliste Modal anzeigen
+        </Button>
+        {modalOpen && (
+          <LegacyBookmarkModal {...args} onClose={() => setModalOpen(false)} />
+        )}
+      </Box>
+    );
+  },
 };
 
-export const defaultStory = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [modalOpen, setModalOpen] = useState(true);
+export default meta;
+type Story = StoryObj<typeof LegacyBookmarkModal>;
 
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>
-        Merkliste Modal anzeigen
-      </Button>
-
-      {modalOpen && (
-        <LegacyBookmarkModal
-          pocketLink="https://t3n.de"
-          onClose={() => setModalOpen(false)}
-        />
-      )}
-    </>
-  );
-};
-
-defaultStory.storyName = 'Default';
+export const bookmarkModal: Story = {};

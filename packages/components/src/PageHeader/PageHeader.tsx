@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { border, color, compose, space } from 'styled-system';
 
@@ -10,6 +10,7 @@ export interface PageHeaderProps {
   transparent?: boolean;
   light?: boolean;
   logoHref?: string;
+  children?: ReactNode;
 }
 
 const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
@@ -33,7 +34,7 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
   ${({ theme, transparent, light }) =>
     compose(
       color,
-      space
+      space,
     )({
       theme,
       color: 'text.inverse',
@@ -42,8 +43,8 @@ const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
         transparent
           ? 'transparent'
           : light
-          ? 'brand.white'
-          : 'background.highlight',
+            ? 'brand.white'
+            : 'background.highlight',
       px: [3, 3, 3, 3, 8],
     })}
 
@@ -66,7 +67,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 }) => (
   <PageHeaderWrapper transparent={transparent} light={light}>
     {logoHref ? (
-      <a style={{ display: 'flex' }} href={logoHref}>
+      <a
+        style={{ display: 'flex' }}
+        href={logoHref}
+        aria-label="t3n - digital pioneers"
+      >
         <Logo />
       </a>
     ) : (

@@ -1,97 +1,49 @@
-import React, { useState } from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Box, Button, Tag } from '@t3n/components';
-import { TagColorVariant } from '@t3n/components/src/Tag';
-import { MaterialClear } from '@t3n/icons';
+import { Tag } from '@t3n/components';
+import { MaterialBeachAccess } from '@t3n/icons';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-const variants: TagColorVariant[] = [
-  'primary',
-  'secondary',
-  'inverse',
-  'black',
-  'highlight',
-  'warning',
-  'notice',
-  'success',
-  'error',
-];
-
-export default {
+const meta: Meta<typeof Tag> = {
   component: Tag,
   title: 'Components/Content/Tag',
-  decorators: [storyContainerDecorator],
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    colorVariant: 'secondary',
+    small: false,
+    children: 'Ich bin ein Tag',
+  },
 };
 
-export const defaultStory = () => {
-  return variants.map((variant) => (
-    <Box m={5} key={variant}>
-      <Tag colorVariant={variant}>Some tag</Tag>
-    </Box>
-  ));
+export default meta;
+type Story = StoryObj<typeof Tag>;
+
+export const tag: Story = {};
+
+export const smallTag: Story = {
+  args: { small: true },
 };
 
-defaultStory.storyName = 'Tag';
-
-export const smallTags = () => {
-  return variants.map((variant) => (
-    <Box m={5} key={variant}>
-      <Tag colorVariant={variant} small>
-        Small Tag
-      </Tag>
-    </Box>
-  ));
+export const linkedTags: Story = {
+  args: {
+    link: 'https://t3n.de',
+  },
 };
 
-smallTags.storyName = 'Kleine Tags';
-
-export const linkedTags = () => {
-  const smallTag = boolean('Kleine Tags', false);
-
-  return variants.map((variant) => (
-    <Box m={5} key={variant}>
-      <Tag link="#" colorVariant={variant} small={smallTag}>
-        Text
-      </Tag>
-    </Box>
-  ));
+export const clickableTags: Story = {
+  args: {
+    onClick: () => {
+      // eslint-disable-next-line no-alert
+      alert('Tag geklickt');
+    },
+  },
 };
 
-linkedTags.storyName = 'Verlinkte Tags';
-
-const ClicakbleTagList: React.FC = () => {
-  const defaultTags = ['Google', 'Facebook', 'Amazon', 'Twitter'];
-  const [tags, setTags] = useState(defaultTags);
-
-  const smallTag = boolean('Kleine Tags', false);
-
-  const removeTag = (tag: string) => {
-    const filteredTags = tags.filter((t) => t !== tag);
-    setTags(filteredTags);
-  };
-
-  return (
-    <>
-      {tags.map((tag) => (
-        <Tag
-          key={tag}
-          m={2}
-          colorVariant="secondary"
-          onClick={() => removeTag(tag)}
-          icon={<MaterialClear />}
-          small={smallTag}
-        >
-          {tag}
-        </Tag>
-      ))}
-      <br /> <br />
-      <Button onClick={() => setTags(defaultTags)}>Reset</Button>
-    </>
-  );
+export const tagWithIcon: Story = {
+  args: {
+    icon: <MaterialBeachAccess />,
+  },
 };
-
-export const clickableTags = () => <ClicakbleTagList />;
-
-clickableTags.storyName = 'Tags mit Klick-Event';

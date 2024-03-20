@@ -1,29 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Box, LegacyFooter } from '@t3n/components';
 
-const Wrapper = styled(Box)`
-  min-height: 100vh;
-`;
+import { storyContainerDecorator } from '../../../utils/decorators';
 
-const LegacyFooterWrapper = styled(Box)`
-  width: 61.25rem;
-  margin: auto auto 0;
-  position: relative;
-`;
-
-export default {
-  title: 'Legacy/Layout/Footer',
+const meta: Meta<typeof LegacyFooter> = {
   component: LegacyFooter,
+  title: 'Legacy/Layout/Footer',
+  decorators: [
+    (Story) => {
+      return (
+        <Box width="61.25em">
+          <Story />
+        </Box>
+      );
+    },
+    storyContainerDecorator,
+  ],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    privacyManagerId: '123456',
+  },
 };
 
-export const defaultStory = () => (
-  <Wrapper display="flex">
-    <LegacyFooterWrapper>
-      <LegacyFooter privacyManagerId="123456" />
-    </LegacyFooterWrapper>
-  </Wrapper>
-);
+export default meta;
+type Story = StoryObj<typeof LegacyFooter>;
 
-defaultStory.storyName = 'Default';
+export const footer: Story = {};

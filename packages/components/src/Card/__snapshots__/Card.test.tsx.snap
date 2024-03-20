@@ -26,9 +26,9 @@ exports[`Big Card matches snapshot 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: box-shadow 0.15s ease-out,-webkit-transform 0.15s ease-out;
-  -webkit-transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
-  transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
+  -webkit-transition: box-shadow 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  -webkit-transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
   position: relative;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
@@ -87,9 +87,9 @@ exports[`Dashed Card matches snapshot 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: box-shadow 0.15s ease-out,-webkit-transform 0.15s ease-out;
-  -webkit-transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
-  transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
+  -webkit-transition: box-shadow 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  -webkit-transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
   position: relative;
   border: 2px dashed #e8e8e8;
   border-radius: 4px;
@@ -144,9 +144,9 @@ exports[`Default Card matches snapshot 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: box-shadow 0.15s ease-out,-webkit-transform 0.15s ease-out;
-  -webkit-transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
-  transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
+  -webkit-transition: box-shadow 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  -webkit-transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
   position: relative;
   border: 1px solid #e8e8e8;
   border-radius: 4px;

@@ -1,6 +1,10 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import React, {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+} from 'react';
 import styled, { css } from 'styled-components';
 import {
   color as systemColor,
@@ -31,6 +35,7 @@ export interface IconButtonBaseProps extends MarginProps, WidthProps {
   label?: string;
   loading?: boolean;
   expanded?: boolean;
+  children?: ReactNode;
 }
 
 export interface IconButtonButtonTypeProps
@@ -53,7 +58,7 @@ const isATypeProps = (props: IconButtonProps): props is IconButtonATypeProps =>
 const buildColorVariants = (
   variantProp: IconButtonVariant,
   type: 'default' | 'hover',
-  theme: Theme
+  theme: Theme,
 ) => {
   const allVariants: IconButtonColorVariant[] = [
     'default',
@@ -68,14 +73,14 @@ const buildColorVariants = (
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].color
           : type === 'hover'
-          ? theme.buttonStyles.color[el].hover.color
-          : theme.buttonStyles.color[el][type].bg,
+            ? theme.buttonStyles.color[el].hover.color
+            : theme.buttonStyles.color[el][type].bg,
       bg:
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].bg
           : type === 'hover'
-          ? theme.buttonStyles.color[el].hover.bg
-          : 'transparent',
+            ? theme.buttonStyles.color[el].hover.bg
+            : 'transparent',
       borderColor:
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].borderColor
@@ -120,8 +125,8 @@ export const iconButtonStyles = css`
         size === 'big'
           ? ['1.333rem', '1.333rem', '1.333rem', '1.333rem']
           : size === 'small'
-          ? ['1rem', '1rem', '1rem', '1rem']
-          : ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
+            ? ['1rem', '1rem', '1rem', '1rem']
+            : ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
     })}
 
   ${({
@@ -175,8 +180,8 @@ export const iconButtonStyles = css`
                 ? 'text.inverse'
                 : 'text.primary'
               : colorProp === 'highlight' || colorProp === 'inverse'
-              ? 'text.primary'
-              : 'text.inverse',
+                ? 'text.primary'
+                : 'text.inverse',
         })}
     }
   }
@@ -195,8 +200,8 @@ export const iconButtonStyles = css`
             ? theme.colors.text.inverse
             : theme.colors.text.primary
           : colorProp === 'highlight' || colorProp === 'inverse'
-          ? theme.colors.text.primary
-          : theme.colors.text.inverse
+            ? theme.colors.text.primary
+            : theme.colors.text.inverse
       }`};
   }
 
@@ -256,13 +261,13 @@ const StyledIconButton = styled(
   ({ expanded, icon, loading, ...rest }: IconButtonProps) => (
     // eslint-disable-next-line react/button-has-type
     <button {...rest} />
-  )
+  ),
 )<IconButtonProps>`
   ${iconButtonStyles}
 `;
 
 const getButtonSize = (
-  value: 'big' | 'small' | 'regular' | undefined
+  value: 'big' | 'small' | 'regular' | undefined,
 ): string => {
   switch (value) {
     case 'big':
@@ -275,7 +280,7 @@ const getButtonSize = (
 };
 
 const getLoaderSize = (
-  value: 'big' | 'small' | 'regular' | undefined
+  value: 'big' | 'small' | 'regular' | undefined,
 ): string => {
   switch (value) {
     case 'big':

@@ -22,7 +22,7 @@ export interface DateRangePickerProps extends BaseDatePickerProps {
     onChange: (startDate: moment.Moment | null, endDate: moment.Moment | null) => void;
     isOutsideRange?: (day: moment.Moment) => boolean;
 }
-export declare type DatePickerProps = SingleDatePickerProps | DateRangePickerProps;
+export type DatePickerProps = SingleDatePickerProps | DateRangePickerProps;
 export interface TimePickerProps {
     focus: boolean;
     date: moment.Moment | null;

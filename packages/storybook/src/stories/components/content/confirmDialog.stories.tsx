@@ -1,158 +1,57 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-alert */
-import React from 'react';
-import { boolean, text } from '@storybook/addon-knobs';
-import { useState } from '@storybook/addons';
+import React, { useState } from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ConfirmDialog } from '@t3n/components';
+import { Box, Button, ConfirmDialog } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
-
-export default {
+const meta: Meta<typeof ConfirmDialog> = {
   component: ConfirmDialog,
   title: 'Components/Content/ConfirmDialog',
-  decorators: [storyContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    headline: 'Das ist die Headline eines Modals',
+    buttonLabel: 'Klick',
+    wide: false,
+    loading: false,
+    buttonDisabled: false,
+    children:
+      'Das ist der Inhalt eines Modals. Du kannst ihn so lange oder kurz fassen wie du möchtest!',
+  },
+  render: function Render(args) {
+    const [modalOpen, setModalOpen] = useState(true);
+
+    return (
+      <Box height="50vh">
+        <Button onClick={() => setModalOpen(true)}>Modal anzeigen</Button>
+
+        {modalOpen && (
+          <ConfirmDialog
+            {...args}
+            onClose={() => setModalOpen(false)}
+            onConfirm={() => {
+              setModalOpen(false);
+            }}
+          />
+        )}
+      </Box>
+    );
+  },
 };
 
-export const defaultStory = () => {
-  const [modalOpen, setModalOpen] = useState(true);
+export default meta;
+type Story = StoryObj<typeof ConfirmDialog>;
 
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>Modal anzeigen</Button>
+export const modal: Story = {};
 
-      {modalOpen && (
-        <ConfirmDialog
-          onClose={() => setModalOpen(false)}
-          headline={text('Headline', 'Das ist die Headline eines Modals')}
-          onConfirm={() => {
-            alert('Klick!');
-            setModalOpen(false);
-          }}
-          buttonLabel={text('Button-Label', 'Klick')}
-          wide={boolean('Wide', false)}
-          loading={boolean('Lädt', false)}
-        >
-          {text(
-            'Inhalt',
-            'Das ist der Inhalt eines Modals. Du kannst ihn so lange oder kurz fassen wie du möchtest!'
-          )}
-        </ConfirmDialog>
-      )}
-    </>
-  );
+export const disabled: Story = {
+  args: { buttonDisabled: true },
 };
 
-defaultStory.storyName = 'Default';
-
-export const deleteStory = () => {
-  const [modalOpen, setModalOpen] = useState(true);
-
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
-
-      {modalOpen && (
-        <ConfirmDialog
-          onClose={() => setModalOpen(false)}
-          headline="Willst du das Internet wirklich löschen?"
-          onConfirm={() => {
-            alert('Du hast das Internet gelöscht :(');
-            setModalOpen(false);
-          }}
-          buttonLabel="Löschen"
-        >
-          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
-          anschauen. Die Löschung des Internets ist unwiderruflich.
-        </ConfirmDialog>
-      )}
-    </>
-  );
+export const loading: Story = {
+  args: { loading: true },
 };
 
-deleteStory.storyName = 'Delete';
-
-export const disabledStory = () => {
-  const [modalOpen, setModalOpen] = useState(true);
-
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
-
-      {modalOpen && (
-        <ConfirmDialog
-          onClose={() => setModalOpen(false)}
-          headline="Willst du das Internet wirklich löschen?"
-          onConfirm={() => {
-            alert('Du hast das Internet gelöscht :(');
-            setModalOpen(false);
-          }}
-          buttonLabel="Löschen"
-          buttonDisabled
-        >
-          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
-          anschauen. Die Löschung des Internets ist unwiderruflich.
-        </ConfirmDialog>
-      )}
-    </>
-  );
+export const wide: Story = {
+  args: { wide: true },
 };
-
-disabledStory.storyName = 'Disabled Button';
-
-export const loadingStory = () => {
-  const [modalOpen, setModalOpen] = useState(true);
-
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
-
-      {modalOpen && (
-        <ConfirmDialog
-          onClose={() => setModalOpen(false)}
-          headline="Willst du das Internet wirklich löschen?"
-          onConfirm={() => {
-            alert('Du hast das Internet gelöscht :(');
-            setModalOpen(false);
-          }}
-          buttonLabel="Löschen"
-          loading
-        >
-          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
-          anschauen. Die Löschung des Internets ist unwiderruflich.
-        </ConfirmDialog>
-      )}
-    </>
-  );
-};
-
-loadingStory.storyName = 'Loading';
-
-export const widthStory = () => {
-  const [modalOpen, setModalOpen] = useState(true);
-
-  return (
-    <>
-      <Button onClick={() => setModalOpen(true)}>Internet löschen</Button>
-
-      {modalOpen && (
-        <ConfirmDialog
-          onClose={() => setModalOpen(false)}
-          headline="Willst du das Internet wirklich löschen?"
-          onConfirm={() => {
-            alert('Du hast das Internet gelöscht :(');
-            setModalOpen(false);
-          }}
-          buttonLabel="Löschen"
-          loading
-          width={[1 / 2, 1 / 4, 1 / 5]}
-        >
-          Wenn du das Internet löschst, kannst du keine Katzenbilder mehr
-          anschauen. Die Löschung des Internets ist unwiderruflich.
-        </ConfirmDialog>
-      )}
-    </>
-  );
-};
-
-widthStory.storyName = 'Width';

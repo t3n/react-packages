@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
@@ -12,6 +12,7 @@ import Icon from '../Icon';
 export interface AccordionProps extends MarginProps {
   title: string | JSX.Element;
   initialOpen?: boolean;
+  children?: ReactNode;
 }
 
 const StyledAccordion = styled.div<SpaceProps>`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   color,
@@ -19,6 +19,7 @@ export interface HeadingProps extends SpaceProps, SizeProps {
   styleAs?: HeadingElements;
   color?: string;
   align?: TextAlignProps['textAlign'];
+  children?: ReactNode;
 }
 
 const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>

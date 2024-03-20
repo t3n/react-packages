@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, ReactNode, useEffect, useState } from 'react';
 import AutoSuggest, {
   GetSuggestionValue,
   OnSuggestionsClearRequested,
@@ -42,6 +42,7 @@ export interface SearchBoxProps<S> extends WidthProps {
   onSelect: OnSuggestionSelected<S>;
   clearOnSelect?: boolean;
   onSearchTermChange?: (term: string) => void;
+  children?: ReactNode;
 }
 
 const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
@@ -212,7 +213,7 @@ function SearchBox<S>({
 
   const handleOnChange = (
     event: FormEvent<any>,
-    { newValue }: { newValue: string }
+    { newValue }: { newValue: string },
   ) => {
     setTerm(newValue);
   };
@@ -240,7 +241,7 @@ function SearchBox<S>({
 
   const handleSuggestionSelected = (
     event: React.FormEvent<any>,
-    data: SuggestionSelectedEventData<S>
+    data: SuggestionSelectedEventData<S>,
   ) => {
     if (clearOnSelect) setTerm('');
     onSelect(event, data);
@@ -328,7 +329,7 @@ SearchBox.defaultProps = {
   isLoading: true,
   suggestions: null,
   variant: 'red',
-  placeholder: 'Suche nach Pionieren',
+  placeholder: 'Suche nach News',
   clearOnSelect: true,
 };
 

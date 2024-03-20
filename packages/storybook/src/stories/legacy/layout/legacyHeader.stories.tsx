@@ -1,23 +1,12 @@
 import React from 'react';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
-import styled from 'styled-components';
-import { color } from 'styled-system';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Box, LegacyHeader } from '@t3n/components';
 import { TagNavTagsType } from '@t3n/components/src/LegacyHeader/components/LegacyTagNav';
 
-const Wrapper = styled(Box)`
-  min-height: 200vh;
-  ${({ theme }) => color({ theme, bg: 'shades.grey232' })}
-`;
+import { storyContainerDecorator } from '../../../utils/decorators';
 
-const LegacyHeaderWrapper = styled(Box)`
-  width: 61.25rem;
-  margin: 0 auto auto;
-  position: relative;
-`;
-
-const tagNavTags: TagNavTagsType[] = [
+export const tagNavTags: TagNavTagsType[] = [
   {
     label: 'Homeoffice 🖥',
     url: 'https://t3n.de/tag/homeoffice/',
@@ -48,51 +37,40 @@ const tagNavTags: TagNavTagsType[] = [
   },
 ];
 
-const variants = [
-  {
-    image: 'https://assets.t3n.de/t3n-media/t3n-headercampaign.png',
-    imageMobile:
-      'https://assets.t3n.de/t3n-media/t3n-headercampaign-mobile.png',
-    href: 'https://t3n.de/headercampaign',
-  },
-];
-
-const randomNumber = Math.floor(variants.length * Math.random());
-
-export default {
-  title: 'Legacy/Layout/Header',
+const meta: Meta<typeof LegacyHeader> = {
   component: LegacyHeader,
-  decorators: [withKnobs],
+  title: 'Legacy/Layout/Header',
+  decorators: [
+    (Story) => {
+      return (
+        <Box width="61.25em">
+          <Story />
+        </Box>
+      );
+    },
+    storyContainerDecorator,
+  ],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    tags: tagNavTags,
+    headerCampaignUrl: 'https://t3n.de/headercampaign',
+    headerCampaignImage:
+      'https://storage.googleapis.com/t3n-media/t3n-headercampaign.png',
+    headerCampaignImageMobile:
+      'https://storage.googleapis.com/t3n-media/t3n-headercampaign-mobile.png',
+    isProMember: true,
+    userEmail: 'john.doe@beispiel.de',
+  },
 };
 
-export const defaultStory = () => (
-  <Wrapper display="flex">
-    <LegacyHeaderWrapper>
-      <LegacyHeader
-        tags={tagNavTags}
-        headerCampaignUrl={variants[randomNumber].href}
-        headerCampaignImage={variants[randomNumber].image}
-        headerCampaignImageMobile={variants[randomNumber].imageMobile}
-        isProMember={boolean('Pro-Member?', true)}
-        userEmail="john.doe@beispiel.de"
-      />
-    </LegacyHeaderWrapper>
-  </Wrapper>
-);
+export default meta;
+type Story = StoryObj<typeof LegacyHeader>;
 
-defaultStory.storyName = 'Default';
+export const legacyHeader: Story = {};
 
-export const notLoggedInStory = () => (
-  <Wrapper display="flex">
-    <LegacyHeaderWrapper>
-      <LegacyHeader
-        tags={tagNavTags}
-        headerCampaignUrl={variants[randomNumber].href}
-        headerCampaignImage={variants[randomNumber].image}
-        headerCampaignImageMobile={variants[randomNumber].imageMobile}
-      />
-    </LegacyHeaderWrapper>
-  </Wrapper>
-);
-
-notLoggedInStory.storyName = 'Not logged in';
+export const notLoggedIn: Story = {
+  args: {
+    isProMember: false,
+    userEmail: '',
+  },
+};

@@ -14,7 +14,9 @@ const Punchline = styled(Heading)`
   ${({ theme }) => space({ theme, pb: [0, 0, 1, 1] })};
   ${({ theme }) => color({ theme, color: 'text.inverse', bg: 'shades.black' })};
 
-  box-shadow: 0.625rem 0 0 #000, -0.625rem 0 0 #000;
+  box-shadow:
+    0.625rem 0 0 #000,
+    -0.625rem 0 0 #000;
   display: inline;
 `;
 

@@ -1,169 +1,24 @@
-import React from 'react';
-import { number } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Content,
-  Heading,
-  Section,
-  Text,
-  VisualSection,
-} from '@t3n/components';
+import { Section } from '@t3n/components';
 
-export default {
-  title: 'Components/Layout/Section',
+import { secondaryStoryContainerDecorator } from '../../../utils/decorators';
+
+const meta: Meta<typeof Section> = {
   component: Section,
+  title: 'Components/Layout/Section',
+  decorators: [secondaryStoryContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    innerGap: 6,
+    variant: 'primary',
+    children: 'Some Content',
+    wide: false,
+    small: false,
+  },
 };
 
-export const defaultStory = () => (
-  <>
-    <Section
-      variant="primary"
-      innerGap={number('Inner Gap', 5, {
-        range: true,
-        min: 0,
-        max: 9,
-        step: 1,
-      })}
-    >
-      <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
-      <Text mb={0}>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
-      </Text>
-    </Section>
-    <Section
-      variant="secondary"
-      innerGap={number('Inner Gap', 5, {
-        range: true,
-        min: 0,
-        max: 9,
-        step: 1,
-      })}
-    >
-      <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
-      <Text mb={0}>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
-      </Text>
-    </Section>
-    <Section
-      variant="inverse"
-      innerGap={number('Inner Gap', 5, {
-        range: true,
-        min: 0,
-        max: 9,
-        step: 1,
-      })}
-    >
-      <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
-      <Text mb={0}>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
-      </Text>
-    </Section>
-    <Section
-      variant="highlight"
-      innerGap={number('Inner Gap', 5, {
-        range: true,
-        min: 0,
-        max: 9,
-        step: 1,
-      })}
-    >
-      <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
-      <Text mb={0}>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
-      </Text>
-    </Section>
-  </>
-);
+export default meta;
+type Story = StoryObj<typeof Section>;
 
-defaultStory.storyName = 'Default';
-
-export const VisualSections = () => (
-  <>
-    <VisualSection
-      variant="highlight"
-      innerGap={number('Inner Gap', 5, {
-        range: true,
-        min: 0,
-        max: 9,
-        step: 1,
-      })}
-    >
-      <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
-      <Text mb={0}>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
-      </Text>
-    </VisualSection>
-    <Section variant="secondary">
-      <Text small>Just a placeholder</Text>
-    </Section>
-    <VisualSection
-      variant="primary"
-      innerGap={number('Inner Gap', 5, {
-        range: true,
-        min: 0,
-        max: 9,
-        step: 1,
-      })}
-    >
-      <Content>
-        <Heading mt={0}>Lorem ipsum dolor sit amet</Heading>
-        <Text mb={0}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
-        </Text>
-      </Content>
-    </VisualSection>
-    <Section variant="secondary">
-      <Text small>Just a placeholder</Text>
-    </Section>
-  </>
-);
-
-VisualSections.storyName = 'Visual Sections';
+export const section: Story = {};

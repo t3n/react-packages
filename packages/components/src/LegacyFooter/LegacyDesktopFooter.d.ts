@@ -1,5 +1,5 @@
 import React from 'react';
-export declare type DesktopLinkGroupsType = {
+export type DesktopLinkGroupsType = {
     label: string;
     links: {
         label: string;

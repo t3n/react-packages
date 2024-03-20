@@ -1,15 +1,21 @@
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Placeholder } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Content/Loading Indicator',
+const meta: Meta<typeof Placeholder> = {
   component: Placeholder,
-  decorators: [storyContainerDecorator],
+  title: 'Components/Content/Placeholder',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    height: '2rem',
+    p: 3,
+  },
 };
 
-export const defaultStory = () => <Placeholder height="2rem" p={3} />;
+export default meta;
+type Story = StoryObj<typeof Placeholder>;
 
-defaultStory.storyName = 'Default';
+export const placeholder: Story = {};

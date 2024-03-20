@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import styled from 'styled-components';
 import { MarginProps, space, variant, width, WidthProps } from 'styled-system';
@@ -38,35 +39,35 @@ const StyledSwitch = styled(Box)<Omit<SwitchProps, 'name' | 'value'>>`
           bg: disabled
             ? 'shades.grey232'
             : checked
-            ? 'feedback.success'
-            : checked && disabled
-            ? 'shades.grey232'
-            : 'shades.grey204',
+              ? 'feedback.success'
+              : checked && disabled
+                ? 'shades.grey232'
+                : 'shades.grey204',
           border: '2px solid',
           borderColor: disabled
             ? 'shades.grey232'
             : checked && disabled
-            ? 'shades.grey232'
-            : checked
-            ? 'feedback.success'
-            : 'shades.grey204',
+              ? 'shades.grey232'
+              : checked
+                ? 'feedback.success'
+                : 'shades.grey204',
         },
         dark: {
           bg: disabled
             ? 'shades.black'
             : checked
-            ? 'feedback.success'
-            : checked && disabled
-            ? 'shades.black'
-            : 'shades.grey95',
+              ? 'feedback.success'
+              : checked && disabled
+                ? 'shades.black'
+                : 'shades.grey95',
           border: '2px solid',
           borderColor: disabled
             ? 'shades.black'
             : checked && disabled
-            ? 'shades.black'
-            : checked
-            ? 'feedback.success'
-            : 'shades.grey95',
+              ? 'shades.black'
+              : checked
+                ? 'feedback.success'
+                : 'shades.grey95',
         },
       },
     })}
@@ -91,10 +92,10 @@ const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
           borderColor: disabled
             ? 'shades.grey232'
             : disabled && checked
-            ? 'shades.grey232'
-            : checked
-            ? 'feedback.success'
-            : 'shades.grey204',
+              ? 'shades.grey232'
+              : checked
+                ? 'feedback.success'
+                : 'shades.grey204',
         },
         dark: {
           bg: 'shades.grey42',
@@ -102,10 +103,10 @@ const StyledSwitchToggle = styled.div<Omit<SwitchProps, 'name' | 'value'>>`
           borderColor: disabled
             ? 'shades.black'
             : disabled && checked
-            ? 'shades.black'
-            : checked
-            ? 'feedback.success'
-            : 'shades.grey95',
+              ? 'shades.black'
+              : checked
+                ? 'feedback.success'
+                : 'shades.grey95',
         },
       },
     })}

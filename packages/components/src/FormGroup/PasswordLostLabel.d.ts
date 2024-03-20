@@ -1,6 +1,6 @@
-/// <reference types="react" />
+import React from 'react';
 export interface PasswordLostLabelProps {
     href?: string;
 }
-declare const PasswordLostLabel: ({ href }: PasswordLostLabelProps) => JSX.Element;
+declare const PasswordLostLabel: ({ href }: PasswordLostLabelProps) => React.JSX.Element;
 export default PasswordLostLabel;

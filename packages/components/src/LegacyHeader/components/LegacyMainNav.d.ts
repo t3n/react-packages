@@ -2,7 +2,7 @@ import React from 'react';
 export interface LegacyMainNavProps {
     isSticky?: boolean;
 }
-export declare type MainNavLinkGroupsType = {
+export type MainNavLinkGroupsType = {
     label: string;
     url?: string;
     bold?: boolean;

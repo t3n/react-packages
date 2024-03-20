@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ResponsiveObject } from 'react-slick';
 export interface CarouselProps {
     slidesToShow?: number;
@@ -15,6 +15,7 @@ export interface CarouselProps {
     hideNextButton?: boolean;
     hidePrevButton?: boolean;
     onChange?: (currentIndex: number) => void;
+    children?: ReactNode;
 }
 declare const Carousel: React.FC<CarouselProps>;
 export default Carousel;

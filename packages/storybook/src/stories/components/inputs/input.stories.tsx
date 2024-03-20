@@ -1,56 +1,47 @@
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Input, Text } from '@t3n/components';
+import { Input } from '@t3n/components';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Inputs/Input',
+const meta: Meta<typeof Input> = {
   component: Input,
+  title: 'Components/Inputs/Input',
   decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    width: 0.5,
+    disabled: false,
+    error: false,
+    isFocused: false,
+    defaultChecked: false,
+    defaultValue: '',
+    type: 'text',
+    hideReset: false,
+  },
 };
 
-export const defaultStory = () => (
-  <>
-    <Text>Ohne Value und Placeholder</Text>
-    <Input width={0.5} />
-    <Text>Mit Placeholder</Text>
-    <Input width={0.5} placeholder="Placeholder" />
-    <Text>Mit Value</Text>
-    <Input width={0.5} defaultValue="Max Mustermann" />
-  </>
-);
+export default meta;
+type Story = StoryObj<typeof Input>;
 
-defaultStory.storyName = 'Default';
+export const input: Story = {};
 
-export const disabled = () => (
-  <>
-    <Text>Ohne Value und Placeholder</Text>
-    <Input disabled width={0.5} />
-    <Text>Mit Placeholder</Text>
-    <Input disabled width={0.5} placeholder="Placeholder" />
-    <Text>Mit Value</Text>
-    <Input disabled width={0.5} defaultValue="Max Mustermann" />
-  </>
-);
+export const disabled: Story = {
+  args: { disabled: true },
+};
 
-export const focused = () => <Input isFocused width={0.5} />;
+export const error: Story = {
+  args: { error: true },
+};
 
-focused.storyName = 'Focus';
+export const focused: Story = {
+  args: { isFocused: true },
+};
 
-export const types = () => (
-  <>
-    <Text>Text:</Text>
-    <Input type="text" width={0.5} defaultValue="Max Mustermann" />
-    <Text>E-Mail:</Text>
-    <Input type="email" width={0.5} defaultValue="support@t3n.de" />
-    <Text>Password:</Text>
-    <Input type="password" width={0.5} defaultValue="support@t3n.de" />
-  </>
-);
+export const withValue: Story = {
+  args: { defaultValue: 'Wert' },
+};
 
-types.storyName = 'Types';
-
-export const errorStates = () => (
-  <Input error width={0.5} defaultValue="Invalid" />
-);
+export const withPlaceholder: Story = {
+  args: { placeholder: 'Placeholder' },
+};
