@@ -1,25 +1,24 @@
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { LegacyBigRoundButton } from '@t3n/components';
 import { MaterialRssFeed } from '@t3n/icons';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Legacy/Content/BigRoundButton',
+const meta: Meta<typeof LegacyBigRoundButton> = {
   component: LegacyBigRoundButton,
-  decorators: [storyContainerDecorator],
+  title: 'Legacy/Content/BigRoundButton',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    icon: MaterialRssFeed,
+    url: 'https://t3n.de',
+    tooltipText: 'Das ist der Tooltip-Text!',
+    rel: 'nofollow',
+  },
 };
 
-export const defaultStory = () => {
-  return (
-    <LegacyBigRoundButton
-      icon={MaterialRssFeed}
-      url="https://t3n.de"
-      tooltipText="Das ist der Tooltip-Text!"
-      rel="nofollow"
-    />
-  );
-};
+export default meta;
+type Story = StoryObj<typeof LegacyBigRoundButton>;
 
-defaultStory.storyName = 'Default';
+export const bigRoundButton: Story = {};

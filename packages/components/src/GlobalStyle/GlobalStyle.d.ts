@@ -1,6 +1,6 @@
 import { ThemeProps } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
-declare type BackgroundColor = ThemeBackgroundColor | ThemeBackgroundColor[];
+type BackgroundColor = ThemeBackgroundColor | ThemeBackgroundColor[];
 export interface GlobalStyleProps extends ThemeProps {
     variant?: BackgroundColor;
 }

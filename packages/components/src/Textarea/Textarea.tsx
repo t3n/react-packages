@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, {
   forwardRef,
   useEffect,
@@ -47,10 +48,10 @@ const color = css`
     error
       ? theme.colors.feedback.error
       : disabled
-      ? theme.colors.shades.grey204
-      : isFocused
-      ? theme.colors.shades.grey42
-      : theme.colors.shades.grey95};
+        ? theme.colors.shades.grey204
+        : isFocused
+          ? theme.colors.shades.grey42
+          : theme.colors.shades.grey95};
 `;
 
 const StyledTextarea = styled.div<TextareaProps>`
@@ -75,10 +76,10 @@ const border = css`
       error
         ? theme.colors.feedback.error
         : disabled
-        ? theme.colors.shades.grey204
-        : isFocused
-        ? theme.colors.shades.grey42
-        : theme.colors.shades.grey95};
+          ? theme.colors.shades.grey204
+          : isFocused
+            ? theme.colors.shades.grey42
+            : theme.colors.shades.grey95};
 `;
 
 const StyledNativeTextarea = styled.textarea.attrs(() => ({
@@ -152,7 +153,7 @@ const Textarea = forwardRef(
       maxLength,
       ...props
     }: TextareaProps,
-    ref: React.Ref<HTMLTextAreaElement | null>
+    ref: React.Ref<HTMLTextAreaElement | null>,
   ) => {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [value, setValue] = useState(defaultValue || '');
@@ -232,7 +233,7 @@ const Textarea = forwardRef(
         )}
       </StyledTextarea>
     );
-  }
+  },
 );
 
 Textarea.defaultProps = {

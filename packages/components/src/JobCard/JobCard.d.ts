@@ -1,5 +1,5 @@
-/// <reference types="react" />
-export declare type JobCardType = 'CARD' | 'LIST';
+import React from 'react';
+export type JobCardType = 'CARD' | 'LIST';
 export interface Job {
     title: string;
     url: string;
@@ -13,5 +13,5 @@ export interface JobCardProps {
     type: JobCardType;
     job?: Job;
 }
-declare const JobCard: ({ job, loading, type }: JobCardProps) => JSX.Element | null;
+declare const JobCard: ({ job, loading, type }: JobCardProps) => React.JSX.Element | null;
 export default JobCard;

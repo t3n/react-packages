@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Card, { CardProps } from '../Card';
 import Heading, { HeadingElements } from '../Heading';
@@ -7,6 +7,7 @@ export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
   title: string;
   titleAs?: HeadingElements;
   centerTitle?: boolean;
+  children?: ReactNode;
 }
 
 const TitleCard: React.FC<TitleCardProps> = ({

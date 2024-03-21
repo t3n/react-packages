@@ -21,7 +21,7 @@ export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
 
 const underline = (rgbColor: string) =>
   `background-image: url('data:image/svg+xml;base64,${btoa(
-    `<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="${rgbColor}"><rect x="0" y="0" width="1" height="1" /></g></svg>`
+    `<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><g stroke="${rgbColor}"><rect x="0" y="0" width="1" height="1" /></g></svg>`,
   )}');`;
 
 const underlineColor =
@@ -43,14 +43,14 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
     disabled
       ? ''
       : underline(
-          underlineColor(linkStyleConfig.default.underlineColor)({ theme })
+          underlineColor(linkStyleConfig.default.underlineColor)({ theme }),
         )}
 
   &:hover {
     ${({ theme }) => color({ color: linkStyleConfig.hover.color, theme })}
     ${({ theme }: ThemeProps) =>
       underline(
-        underlineColor(linkStyleConfig.hover.underlineColor)({ theme })
+        underlineColor(linkStyleConfig.hover.underlineColor)({ theme }),
       )}
   }
 
@@ -58,7 +58,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
     ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
     ${({ theme }: ThemeProps) =>
       underline(
-        underlineColor(linkStyleConfig.focus.underlineColor)({ theme })
+        underlineColor(linkStyleConfig.focus.underlineColor)({ theme }),
       )}
   }
 
@@ -66,13 +66,13 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
     ${({ theme }) => color({ color: linkStyleConfig.visited.color, theme })}
     ${({ theme }: ThemeProps) =>
       underline(
-        underlineColor(linkStyleConfig.visited.underlineColor)({ theme })
+        underlineColor(linkStyleConfig.visited.underlineColor)({ theme }),
       )}
     &:focus {
       ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
       ${({ theme }: ThemeProps) =>
         underline(
-          underlineColor(linkStyleConfig.focus.underlineColor)({ theme })
+          underlineColor(linkStyleConfig.focus.underlineColor)({ theme }),
         )}
     }
   }

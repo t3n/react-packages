@@ -9,6 +9,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
     userEmail?: string;
     isProMember?: boolean;
     userMenuItems?: ReactNode[];
+    children?: ReactNode;
 }
 declare const LegacyPageLayout: React.FC<LegacyPageLayoutProps>;
 export default LegacyPageLayout;

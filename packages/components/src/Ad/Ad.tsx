@@ -147,7 +147,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
         <div id="dspx_scroller" />
       )}
     </AdWrapper>
-  )
+  ),
 );
 
 export default Ad;

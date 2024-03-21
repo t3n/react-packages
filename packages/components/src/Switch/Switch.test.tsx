@@ -14,7 +14,7 @@ test('readonly is set as HTML Attribute', () => {
       label="Switch read only"
       variant="light"
     />,
-    {}
+    {},
   );
 
   expect(getByRole('checkbox').hasAttribute('readonly')).toBeTruthy();
@@ -96,7 +96,7 @@ test('Switch variants matches snapshot', () => {
         variant="dark"
       />
     </>,
-    {}
+    {},
   );
   expect(container).toMatchSnapshot();
 });

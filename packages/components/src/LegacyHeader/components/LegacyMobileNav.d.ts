@@ -5,7 +5,7 @@ export interface LegacyMobileNavProps {
     userEmail?: string;
     isProMember?: boolean;
 }
-export declare type MobileNavLinksType = {
+export type MobileNavLinksType = {
     label: string;
     url: string;
     indicator?: boolean;

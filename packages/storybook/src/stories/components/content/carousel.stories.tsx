@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
-import { number, text } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 import { layout } from 'styled-system';
 
@@ -14,36 +14,10 @@ import {
   Text,
 } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
-
-export default {
-  component: Carousel,
-  title: 'Components/Content/Carousel',
-  decorators: [storyContainerDecorator],
-};
-
-const StyledBox = styled(Box)`
-  > div > div:first-child {
-    ${({ theme }) =>
-      layout({ theme, width: ['inherit', '85%', '65%', '50%'] })};
-  }
-  .slick-slider {
-    ${({ theme }) =>
-      layout({ theme, maxHeight: ['430px', '420px', '400px', '500px'] })};
-    height: 100%;
-    opacity: 0;
-    animation: slider-fade-in linear 0.2s 0.1s 1 forwards;
-  }
-
-  @keyframes slider-fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`;
+import {
+  storyContainerContentDecorator,
+  storyContainerDecorator,
+} from '../../../utils/decorators';
 
 const defaultData = [
   {
@@ -111,225 +85,175 @@ const defaultData = [
   },
 ];
 
-export const defaultStory = () => {
-  return (
-    <Carousel
-      slidesToShow={number(
-        'Wie viele Slides sollen gleichzeitig gezeigt werden?',
-        1
-      )}
-      slidesToScroll={number(
-        'Wie viele Slides sollen bei einmal klicken gescrollt werden?',
-        1
-      )}
-      speed={number('Geschwindigkeit', 500)}
-      prevLabel={text('Zurück-Label', 'Zurück')}
-      nextLabel={text('Weiter-Label', 'Nächste')}
-    >
-      {defaultData.map((el) => (
-        <Box key={el.id} mb={8} overflow="hidden">
-          <Image
-            m="0 auto"
-            height={['165px', '180px', '150px', '200px', '250px']}
-            src={el.imageSrc}
-            alt={el.headline}
-            title={el.headline}
-            lazy={false}
-          />
+const meta: Meta<typeof Carousel> = {
+  component: Carousel,
+  title: 'Components/Content/Carousel',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: false,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    nextLabel: 'Nächste',
+    prevLabel: 'Zurück',
+    speed: 500,
+    children: defaultData.map((el) => (
+      <Box key={el.id} mb={8} overflow="hidden">
+        <Image
+          m="0 auto"
+          height={['165px', '180px', '150px', '200px', '250px']}
+          src={el.imageSrc}
+          alt={el.headline}
+          title={el.headline}
+          lazy={false}
+        />
 
-          <Text bold mt={3} mb={2}>
-            {el.name}
-          </Text>
-          <Heading as="h5" my={0}>
-            {el.headline}
-          </Heading>
-          <Text>{el.description}</Text>
-        </Box>
-      ))}
-    </Carousel>
-  );
+        <Text bold mt={3} mb={2}>
+          {el.name}
+        </Text>
+        <Heading as="h5" my={0}>
+          {el.headline}
+        </Heading>
+        <Text>{el.description}</Text>
+      </Box>
+    )),
+  },
 };
 
-defaultStory.storyName = 'Default';
+export default meta;
+type Story = StoryObj<typeof Carousel>;
 
-export const infiniteStory = () => {
-  return (
-    <Carousel infinite>
-      {defaultData.map((el) => (
-        <Box key={el.id} mb={8} overflow="hidden">
-          <Image
-            m="0 auto"
-            height={['165px', '180px', '150px', '200px', '250px']}
-            src={el.imageSrc}
-            alt={el.headline}
-            title={el.headline}
-            lazy={false}
-          />
+const StyledBox = styled(Box)`
+  > div > div:first-child {
+    ${({ theme }) =>
+      layout({ theme, width: ['inherit', '85%', '65%', '50%'] })};
+  }
+  .slick-slider {
+    ${({ theme }) =>
+      layout({ theme, maxHeight: ['430px', '420px', '400px', '500px'] })};
+    height: 100%;
+    opacity: 0;
+    animation: slider-fade-in linear 0.2s 0.1s 1 forwards;
+  }
 
-          <Text bold mt={3} mb={2}>
-            {el.name}
-          </Text>
-          <Heading as="h5" my={0}>
-            {el.headline}
-          </Heading>
-          <Text>{el.description}</Text>
-        </Box>
-      ))}
-    </Carousel>
-  );
+  @keyframes slider-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+export const carousel: Story = {};
+
+export const infinite: Story = {
+  args: {
+    infinite: true,
+  },
 };
 
-infiniteStory.storyName = 'Infinite';
-
-export const autoplayStory = () => {
-  return (
-    <Carousel
-      infinite
-      autoplay
-      autoplaySpeed={number('Autoplay Geschwindigkeit', 2000)}
-    >
-      {defaultData.map((el) => (
-        <Box key={el.id} mb={8} overflow="hidden">
-          <Image
-            m="0 auto"
-            height={['165px', '180px', '150px', '200px', '250px']}
-            src={el.imageSrc}
-            alt={el.headline}
-            title={el.headline}
-            lazy={false}
-          />
-
-          <Text bold mt={3} mb={2}>
-            {el.name}
-          </Text>
-          <Heading as="h5" my={0}>
-            {el.headline}
-          </Heading>
-          <Text>{el.description}</Text>
-        </Box>
-      ))}
-    </Carousel>
-  );
+export const autoplay: Story = {
+  args: {
+    autoplay: true,
+    infinite: true,
+  },
 };
 
-autoplayStory.storyName = 'Autoplay';
-
-export const responsiveStory = () => {
-  return (
-    <Carousel
-      slidesToShow={5}
-      slidesToScroll={5}
-      infinite
-      responsive={[
-        {
-          breakpoint: 1440,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-          },
+export const responsive: Story = {
+  args: {
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
         },
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-          },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-          },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
-      ]}
-    >
-      {defaultData.map((el) => (
-        <Box key={el.id} mb={8} overflow="hidden">
-          <Image
-            m="0 auto"
-            height={['165px', '180px', '150px', '200px', '250px']}
-            src={el.imageSrc}
-            alt={el.headline}
-            title={el.headline}
-            lazy={false}
-          />
-
-          <Text bold mt={3} mb={2}>
-            {el.name}
-          </Text>
-          <Heading as="h5" my={0}>
-            {el.headline}
-          </Heading>
-          <Text>{el.description}</Text>
-        </Box>
-      ))}
-    </Carousel>
-  );
+      },
+    ],
+  },
 };
 
-responsiveStory.storyName = 'Responsive';
+export const sliderInModal: Story = {
+  decorators: [storyContainerDecorator],
+  render: () => {
+    const [showOnboardingModal, setShowOnboardingModal] = useState(true);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-export const sliderInModalStory = () => {
-  const [showOnboardingModal, setShowOnboardingModal] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
+    return (
+      <>
+        <Button onClick={() => setShowOnboardingModal(true)}>
+          Slider im Modal anzeigen
+        </Button>
 
-  return (
-    <>
-      <Button onClick={() => setShowOnboardingModal(true)}>
-        Slider im Modal anzeigen
-      </Button>
+        {showOnboardingModal && (
+          <StyledBox>
+            <Modal headline="" onClose={() => setShowOnboardingModal(false)}>
+              <Carousel
+                onNextClick={
+                  currentIndex === defaultData.length - 1
+                    ? () => setShowOnboardingModal(false)
+                    : undefined
+                }
+                hideNextButton={false}
+                nextLabel={
+                  currentIndex === defaultData.length - 1
+                    ? 'Schließen'
+                    : undefined
+                }
+                onChange={setCurrentIndex}
+              >
+                {defaultData.map((el) => (
+                  <Box key={el.id} mt={2} mb={8} overflow="hidden">
+                    <Image
+                      m="0 auto"
+                      height={['165px', '180px', '150px', '200px', '250px']}
+                      src={el.imageSrc}
+                      alt={el.headline}
+                      title={el.headline}
+                      lazy={false}
+                    />
 
-      {showOnboardingModal && (
-        <StyledBox>
-          <Modal headline="" onClose={() => setShowOnboardingModal(false)}>
-            <Carousel
-              onNextClick={
-                currentIndex === defaultData.length - 1
-                  ? () => setShowOnboardingModal(false)
-                  : undefined
-              }
-              hideNextButton={false}
-              nextLabel={
-                currentIndex === defaultData.length - 1
-                  ? 'Schließen'
-                  : undefined
-              }
-              onChange={setCurrentIndex}
-            >
-              {defaultData.map((el) => (
-                <Box key={el.id} mt={2} mb={8} overflow="hidden">
-                  <Image
-                    m="0 auto"
-                    height={['165px', '180px', '150px', '200px', '250px']}
-                    src={el.imageSrc}
-                    alt={el.headline}
-                    title={el.headline}
-                    lazy={false}
-                  />
-
-                  <Text bold mt={3} mb={2}>
-                    {el.name}
-                  </Text>
-                  <Heading as="h5" my={0}>
-                    {el.headline}
-                  </Heading>
-                  <Text>{el.description}</Text>
-                </Box>
-              ))}
-            </Carousel>
-          </Modal>
-        </StyledBox>
-      )}
-    </>
-  );
+                    <Text bold mt={3} mb={2}>
+                      {el.name}
+                    </Text>
+                    <Heading as="h5" my={0}>
+                      {el.headline}
+                    </Heading>
+                    <Text>{el.description}</Text>
+                  </Box>
+                ))}
+              </Carousel>
+            </Modal>
+          </StyledBox>
+        )}
+      </>
+    );
+  },
 };
-
-sliderInModalStory.storyName = 'In Modal';

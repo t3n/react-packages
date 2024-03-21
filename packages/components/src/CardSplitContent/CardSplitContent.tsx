@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import {
   color,
@@ -15,6 +15,7 @@ import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 export interface CardSplitContentProps {
   variant?: ThemeBackgroundColor;
+  children?: ReactNode;
 }
 
 const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`

@@ -1,18 +1,21 @@
-import React from 'react';
-import { number } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Ratio } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Layout/Ratio',
+const meta: Meta<typeof Ratio> = {
   component: Ratio,
-  decorators: [storyContainerDecorator],
+  title: 'Components/Layout/Ratio',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    ratio: 16 / 9,
+    bg: 'background.secondary',
+  },
 };
 
-export const defaultStory = () => (
-  <Ratio ratio={number('Verhältnis', 16 / 9)} bg="background.secondary" />
-);
+export default meta;
+type Story = StoryObj<typeof Ratio>;
 
-defaultStory.storyName = 'Default';
+export const ratio: Story = {};

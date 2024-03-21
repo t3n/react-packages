@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { ThemeProps } from '@t3n/theme';
@@ -12,6 +12,7 @@ export interface ConfirmDialogProps extends ModalProps {
   buttonLabel: string;
   buttonDisabled?: boolean;
   loading?: boolean;
+  children?: ReactNode;
 }
 
 const StyledButtonBox = styled(Box)`

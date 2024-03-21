@@ -14,7 +14,7 @@ test('Primary Button as "default" color variant matches snapshot', () => {
     <Button variant="primary" color="default">
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -25,7 +25,7 @@ test('Primary Button as "inverse" color variant matches snapshot', () => {
     <Button variant="primary" color="inverse">
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -36,7 +36,7 @@ test('Primary Button as "highlight" color variant matches snapshot', () => {
     <Button variant="primary" color="highlight">
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -47,7 +47,7 @@ test('Secondary Button as "default" color variant matches snapshot', () => {
     <Button variant="secondary" color="default">
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -58,7 +58,7 @@ test('Secondary Button as "inverse" color variant matches snapshot', () => {
     <Button variant="secondary" color="inverse">
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -69,7 +69,7 @@ test('Secondary Button as "highlight" color variant matches snapshot', () => {
     <Button variant="secondary" color="highlight">
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -92,7 +92,7 @@ test('Small Button in loading state matches snapshot', () => {
     <Button size="small" loading>
       text
     </Button>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();

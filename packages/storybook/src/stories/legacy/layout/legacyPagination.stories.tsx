@@ -1,35 +1,22 @@
-import React, { useState } from 'react';
-import { number } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { LegacyPagination } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Legacy/Layout/Pagination',
+const meta: Meta<typeof LegacyPagination> = {
   component: LegacyPagination,
-  decorators: [storyContainerContentDecorator],
+  title: 'Legacy/Layout/Pagination',
+  decorators: [storyContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    currentPage: 1,
+    totalPages: 10,
+    maxPageLinks: 5,
+  },
 };
 
-const Pagination: React.FC = () => {
-  const totalPages = number('max. Seite', 1);
-  const maxPageLinks = number('max. Links', 3);
-  const [currentPage, setCurrentPage] = useState(1);
-  return (
-    <>
-      <p>Aktuelle Seite: {currentPage}</p>
-      <LegacyPagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        maxPageLinks={maxPageLinks}
-        onClick={(value) => setCurrentPage(value)}
-      />
-    </>
-  );
-};
+export default meta;
+type Story = StoryObj<typeof LegacyPagination>;
 
-export const defaultStory = () => {
-  return <Pagination />;
-};
-
-defaultStory.storyName = 'Default';
+export const pagination: Story = {};

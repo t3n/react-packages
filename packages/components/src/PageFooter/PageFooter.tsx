@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { border, BorderProps, flexbox, typography } from 'styled-system';
 
@@ -22,6 +22,7 @@ import Text from '../Text';
 export interface PageFooterProps {
   showPrivacySettingsLink?: boolean;
   privacyManagerId?: string;
+  children?: ReactNode;
 }
 
 const FooterLinks = styled(Box)`
@@ -251,7 +252,7 @@ const PageFooter: React.FC<PageFooterProps> = ({
                     e.preventDefault();
                     // eslint-disable-next-line no-underscore-dangle
                     (window as any)._sp_.loadPrivacyManagerModal(
-                      privacyManagerId
+                      privacyManagerId,
                     );
                   }}
                 >

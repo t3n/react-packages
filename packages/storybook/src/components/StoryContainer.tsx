@@ -3,16 +3,16 @@ import { color, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
-interface StoryContainerProps extends ThemeProps {
-  inverse?: boolean;
+export interface StoryContainerProps extends ThemeProps {
+  secondary?: boolean;
 }
 
 const padding = ({ theme }: StoryContainerProps) => space({ p: [4], theme });
 
 const backgroundColor = css`
-  background-color: ${({ inverse, theme }: StoryContainerProps) =>
-    inverse
-      ? theme.colors.background.inverse
+  background-color: ${({ secondary, theme }: StoryContainerProps) =>
+    secondary
+      ? theme.colors.background.secondary
       : theme.colors.background.primary};
 `;
 

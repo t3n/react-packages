@@ -152,7 +152,7 @@ const Slider: React.FC<SliderProps> = ({
 
   const getPointerStepPositionX = useCallback(
     (index: number) => (index / step) * stepWidth,
-    [step, stepWidth]
+    [step, stepWidth],
   );
 
   const x = useMotionValue(getPointerStepPositionX(value));
@@ -204,7 +204,7 @@ const Slider: React.FC<SliderProps> = ({
 
       if (nextValue !== value) onChange(nextValue);
     },
-    [labels.length, max, min, onChange, value]
+    [labels.length, max, min, onChange, value],
   );
 
   const handleThumbDragStart = useCallback(() => {
@@ -219,12 +219,12 @@ const Slider: React.FC<SliderProps> = ({
       const nextValue = clamp(
         (Math.round(pointerX / stepWidth) + 1) * step + (min - step),
         min,
-        max
+        max,
       );
 
       if (nextValue !== value) onChange(nextValue);
     },
-    [max, min, onChange, step, stepWidth, value]
+    [max, min, onChange, step, stepWidth, value],
   );
 
   const handleThumbDragEnd = useCallback(() => {

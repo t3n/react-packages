@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-nested-ternary */
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
@@ -48,6 +49,7 @@ export type UserCardProps = {
   };
   compact: boolean;
   secondary?: boolean;
+  children?: ReactNode;
 };
 
 export type SocialLinksProps = {
@@ -147,7 +149,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, cardLinked }) => {
 };
 
 const CompactUserCard: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar'>
+  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>
 > = ({ user, link, optimizeAvatar, children }) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
@@ -179,7 +181,7 @@ const CompactUserCard: React.FC<
 };
 
 const DefaultUserCard: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar'>
+  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>
 > = ({ user, link, optimizeAvatar, children }) => {
   return (
     <Box display={['unset', 'flex']} m="0 auto">

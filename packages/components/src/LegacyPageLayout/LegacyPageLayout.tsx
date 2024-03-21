@@ -15,6 +15,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   userEmail?: string;
   isProMember?: boolean;
   userMenuItems?: ReactNode[];
+  children?: ReactNode;
 }
 
 const Wrapper = styled(Box)`

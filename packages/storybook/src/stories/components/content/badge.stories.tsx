@@ -1,31 +1,33 @@
-import React from 'react';
-import { text } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Badge, Box } from '@t3n/components';
-import { BadgeProps } from '@t3n/components/src/Badge';
+import { Badge } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Content/Badge',
+const meta: Meta<typeof Badge> = {
   component: Badge,
-  decorators: [storyContainerDecorator],
+  title: 'Components/Content/Badge',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    variant: 'highlight',
+    children: 'ANZEIGE',
+  },
 };
 
-const colors: BadgeProps['variant'][] = ['inverse', 'light', 'highlight'];
+export default meta;
+type Story = StoryObj<typeof Badge>;
 
-export const defaultStory = () => {
-  const badgeText = text('Badge Text', 'ANZEIGE');
+export const highlight: Story = {};
 
-  return (
-    <Box display="flex" style={{ gap: 4 }}>
-      {colors.map((c) => (
-        <Badge variant={c} key={c}>
-          {badgeText}
-        </Badge>
-      ))}
-    </Box>
-  );
+export const light: Story = {
+  args: {
+    variant: 'light',
+  },
 };
 
-defaultStory.storyName = 'Default';
+export const inverse: Story = {
+  args: {
+    variant: 'inverse',
+  },
+};

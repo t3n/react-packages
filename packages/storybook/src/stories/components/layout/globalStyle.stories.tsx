@@ -1,36 +1,32 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Box, GlobalStyle } from '@t3n/components';
+import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
-export default {
-  title: 'Components/Layout/GlobalStyle',
+const meta: Meta<typeof GlobalStyle> = {
   component: GlobalStyle,
+  title: 'Components/Layout/GlobalStyle',
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    variant: 'primary' as ThemeBackgroundColor,
+  },
+  render: (args) => (
+    <>
+      <GlobalStyle {...args} />
+      <Box
+        height="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        Lorem ipsum dolor sit amet
+      </Box>
+    </>
+  ),
 };
 
-export const defaultStory = () => (
-  <>
-    <GlobalStyle
-      variant={select(
-        'Variante',
-        {
-          Primary: 'primary',
-          Secondary: 'secondary',
-          Highlight: 'highlight',
-          inverse: 'inverse',
-        },
-        'primary'
-      )}
-    />
-    <Box
-      height="100vh"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    >
-      Lorem ipsum dolor sit amet
-    </Box>
-  </>
-);
+export default meta;
+type Story = StoryObj<typeof GlobalStyle>;
 
-defaultStory.storyName = 'Default';
+export const globalStyle: Story = {};

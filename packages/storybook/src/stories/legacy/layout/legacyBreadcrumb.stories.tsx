@@ -1,75 +1,57 @@
 import React from 'react';
-import styled from 'styled-components';
-import { color } from 'styled-system';
+import { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Box,
-  Content,
-  LegacyBreadcrumb,
-  LegacyBreadcrumbItem,
-} from '@t3n/components';
+import { Box, LegacyBreadcrumb, LegacyBreadcrumbItem } from '@t3n/components';
 
-const Wrapper = styled(Box)`
-  ${({ theme }) => color({ theme, bg: 'background.secondary' })}
-`;
+import { storyContainerDecorator } from '../../../utils/decorators';
 
-const LegacyBreadcrumbWrapper = styled(Box)<{ secondary?: boolean }>`
-  ${({ theme, secondary }) =>
-    color({
-      theme,
-      bg: secondary ? 'background.secondary' : 'background.primary',
-    })}
-  height: 30rem;
-`;
-
-export default {
-  title: 'Legacy/Layout/Breadcrumb',
+const meta: Meta<typeof LegacyBreadcrumb> = {
   component: LegacyBreadcrumb,
+  title: 'Legacy/Layout/Breadcrumb',
+  decorators: [storyContainerDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    secondary: false,
+    children: (
+      <>
+        <LegacyBreadcrumbItem label="Home" href="/" />
+        <LegacyBreadcrumbItem label="Titel eines Artikels" />
+      </>
+    ),
+  },
 };
 
-export const defaultStory = () => (
-  <Wrapper display="flex" justifyContent="center">
-    <Content small>
-      <LegacyBreadcrumbWrapper>
-        <LegacyBreadcrumb>
-          <LegacyBreadcrumbItem label="Home" href="/" />
-          <LegacyBreadcrumbItem label="Titel eines Artikels" />
-        </LegacyBreadcrumb>
-      </LegacyBreadcrumbWrapper>
-    </Content>
-  </Wrapper>
-);
+export default meta;
+type Story = StoryObj<typeof LegacyBreadcrumb>;
 
-defaultStory.storyName = 'Default';
+export const breadcrumb: Story = {};
 
-export const scrollingStory = () => (
-  <Wrapper display="flex" justifyContent="center">
-    <Content small>
-      <LegacyBreadcrumbWrapper>
-        <LegacyBreadcrumb>
-          <LegacyBreadcrumbItem label="Home" href="/" />
-          <LegacyBreadcrumbItem label="News" href="/news/" />
-          <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
-        </LegacyBreadcrumb>
-      </LegacyBreadcrumbWrapper>
-    </Content>
-  </Wrapper>
-);
+export const scrolling: Story = {
+  args: {
+    children: (
+      <>
+        <LegacyBreadcrumbItem label="Home" href="/" />
+        <LegacyBreadcrumbItem label="News" href="/news/" />
+        <LegacyBreadcrumbItem label="Eine Unterkategorie" href="/news/" />
+        <LegacyBreadcrumbItem label="Noch eine Unterkategorie" href="/news/" />
+        <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
+      </>
+    ),
+  },
+};
 
-scrollingStory.storyName = 'Scrolling';
-
-export const greyBackgroundStory = () => (
-  <Wrapper display="flex" justifyContent="center">
-    <Content small>
-      <LegacyBreadcrumbWrapper secondary>
-        <LegacyBreadcrumb secondary>
-          <LegacyBreadcrumbItem label="Home" href="/" />
-          <LegacyBreadcrumbItem label="News" href="/news/" />
-          <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
-        </LegacyBreadcrumb>
-      </LegacyBreadcrumbWrapper>
-    </Content>
-  </Wrapper>
-);
-
-greyBackgroundStory.storyName = 'Grauer Hintergrund';
+export const greyBackground: Story = {
+  args: {
+    secondary: true,
+  },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Box bg="background.secondary" px="20px" height="10vh">
+          <StoryComp />
+        </Box>
+      );
+    },
+    storyContainerDecorator,
+  ],
+};

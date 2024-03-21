@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { space, variant as styledVariant } from 'styled-system';
@@ -51,40 +52,40 @@ const StyledCheckbox = styled(Box)<
             checked && disabled
               ? 'shades.grey95'
               : checked && feedbackColor
-              ? 'shades.white'
-              : checked
-              ? 'shades.grey42'
-              : 'shades.white',
+                ? 'shades.white'
+                : checked
+                  ? 'shades.grey42'
+                  : 'shades.white',
           border: '1px solid',
           borderColor: feedbackColor
             ? `feedback.${feedbackColor}`
             : focused
-            ? 'shades.grey42'
-            : checked && disabled
-            ? 'shades.grey95'
-            : checked
-            ? 'shades.grey42'
-            : 'shades.grey95',
+              ? 'shades.grey42'
+              : checked && disabled
+                ? 'shades.grey95'
+                : checked
+                  ? 'shades.grey42'
+                  : 'shades.grey95',
         },
         dark: {
           bg:
             checked && disabled
               ? 'shades.grey95'
               : checked && feedbackColor
-              ? 'shades.grey44'
-              : checked
-              ? 'shades.white'
-              : 'shades.grey44',
+                ? 'shades.grey44'
+                : checked
+                  ? 'shades.white'
+                  : 'shades.grey44',
           border: '1px solid',
           borderColor: feedbackColor
             ? `feedback.${feedbackColor}`
             : focused
-            ? 'shades.white'
-            : checked && disabled
-            ? 'shades.grey95'
-            : checked
-            ? 'shades.white'
-            : 'shades.grey204',
+              ? 'shades.white'
+              : checked && disabled
+                ? 'shades.grey95'
+                : checked
+                  ? 'shades.white'
+                  : 'shades.grey204',
         },
       },
     })}

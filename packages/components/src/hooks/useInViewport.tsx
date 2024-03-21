@@ -6,7 +6,7 @@ interface InViewportState {
 }
 
 const useInViewport: <E extends HTMLElement>(
-  element: E | null
+  element: E | null,
 ) => InViewportState = (element) => {
   const [inViewport, setInViewport] = useState(false);
   const [wasInViewport, setWasInViewport] = useState(false);

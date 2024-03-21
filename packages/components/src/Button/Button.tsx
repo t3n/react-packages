@@ -1,5 +1,9 @@
 /* eslint-disable no-nested-ternary */
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import React, {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ReactNode,
+} from 'react';
 import styled, { css } from 'styled-components';
 import {
   lineHeight,
@@ -37,12 +41,14 @@ export interface ButtonProps
 
   loading?: boolean;
   as?: ButtonAsType;
+
+  children?: ReactNode;
 }
 
 const buildColorVariants = (
   variantProp: ButtonVariant,
   type: 'default' | 'hover',
-  theme: Theme
+  theme: Theme,
 ) => {
   const allVariants: ButtonColorVariant[] = ['default', 'highlight', 'inverse'];
   const buildConfig: any = {};
@@ -53,14 +59,14 @@ const buildColorVariants = (
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].color
           : type === 'hover'
-          ? theme.buttonStyles.color[el].hover.color
-          : theme.buttonStyles.color[el][type].bg,
+            ? theme.buttonStyles.color[el].hover.color
+            : theme.buttonStyles.color[el][type].bg,
       bg:
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].bg
           : type === 'hover'
-          ? theme.buttonStyles.color[el].hover.bg
-          : 'transparent',
+            ? theme.buttonStyles.color[el].hover.bg
+            : 'transparent',
       borderColor:
         variantProp === 'primary'
           ? theme.buttonStyles.color[el][type].borderColor
@@ -134,8 +140,8 @@ export const buttonStyles = css`
               ? theme.colors.text.inverse
               : theme.colors.text.primary
             : colorProp === 'highlight' || colorProp === 'inverse'
-            ? theme.colors.text.primary
-            : theme.colors.text.inverse
+              ? theme.colors.text.primary
+              : theme.colors.text.inverse
         }`};
     }
   }
@@ -153,8 +159,8 @@ export const buttonStyles = css`
             ? theme.colors.text.inverse
             : theme.colors.text.primary
           : colorProp === 'highlight' || colorProp === 'inverse'
-          ? theme.colors.text.primary
-          : theme.colors.text.inverse
+            ? theme.colors.text.primary
+            : theme.colors.text.inverse
       }`};
   }
 
@@ -177,7 +183,7 @@ export const buttonStyles = css`
 
 const StyledButton = styled(
   // eslint-disable-next-line react/button-has-type
-  ({ loading, ...rest }: ButtonProps) => <button {...rest} />
+  ({ loading, ...rest }: ButtonProps) => <button {...rest} />,
 )<ButtonProps>`
   ${buttonStyles}
 `;

@@ -1,43 +1,32 @@
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Box, FooterLink, PageFooter } from '@t3n/components';
 
-export default {
-  title: 'Components/Layout/PageFooter',
+const meta: Meta<typeof PageFooter> = {
   component: PageFooter,
+  title: 'Components/Layout/PageFooter',
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    showPrivacySettingsLink: true,
+    privacyManagerId: '123456',
+  },
 };
 
-export const defaultStory = () => (
-  <PageFooter
-    showPrivacySettingsLink={boolean('Cookies & Tracking anzeigen', false)}
-    privacyManagerId="123456"
-  />
-);
+export default meta;
+type Story = StoryObj<typeof PageFooter>;
 
-defaultStory.storyName = 'Default';
+export const pageFooter: Story = {};
 
-export const privacyManagerStory = () => (
-  <PageFooter
-    showPrivacySettingsLink={boolean('Cookies & Tracking anzeigen', true)}
-    privacyManagerId="123456"
-  />
-);
-
-privacyManagerStory.storyName = 'Privacy Manager';
-
-export const footerLinkStory = () => (
-  <PageFooter
-    showPrivacySettingsLink={boolean('Cookies & Tracking anzeigen', false)}
-    privacyManagerId="123456"
-  >
-    <Box display="flex" flexDirection="column" alignItems="flex-start">
-      <FooterLink href="#">Testlink #1</FooterLink>
-      <FooterLink href="#">Testlink #2</FooterLink>
-      <FooterLink href="#">Testlink #3</FooterLink>
-      <FooterLink href="#">Testlink #4</FooterLink>
-    </Box>
-  </PageFooter>
-);
-
-footerLinkStory.storyName = 'Footer Link';
+export const extraLinks: Story = {
+  args: {
+    children: (
+      <Box display="flex" flexDirection="column" alignItems="flex-start">
+        <FooterLink href="#">Testlink #1</FooterLink>
+        <FooterLink href="#">Testlink #2</FooterLink>
+        <FooterLink href="#">Testlink #3</FooterLink>
+        <FooterLink href="#">Testlink #4</FooterLink>
+      </Box>
+    ),
+  },
+};

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-export declare type SocialNetworkType = 'facebook' | 'flipboard' | 'linkedin' | 'pocket' | 'twitter' | 'xing' | 'instagram' | 'newsletter' | 'notifications' | 'rssfeed' | 'socialmedia';
+export type SocialNetworkType = 'facebook' | 'flipboard' | 'linkedin' | 'pocket' | 'twitter' | 'xing' | 'instagram' | 'newsletter' | 'notifications' | 'rssfeed' | 'socialmedia';
 export interface SocialIconProps {
     network: SocialNetworkType;
     url: string;
@@ -13,7 +13,7 @@ export interface SocialNetworkProps {
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     iconScale?: number;
 }
-export declare type SocialNetworksProps = {
+export type SocialNetworksProps = {
     [key in SocialNetworkType]: SocialNetworkProps;
 };
 export interface LegacyArticleSocialShareProps {

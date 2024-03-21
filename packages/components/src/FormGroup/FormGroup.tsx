@@ -15,6 +15,7 @@ export interface FormGroupProps
   labelSecondary?: string;
   labelEndContent?: ReactNode;
   errorMessage?: string;
+  children?: ReactNode;
 }
 
 const Label = styled.span`

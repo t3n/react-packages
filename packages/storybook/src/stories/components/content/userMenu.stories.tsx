@@ -1,16 +1,10 @@
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { PageHeader, UserMenu } from '@t3n/components';
+import { Box, PageHeader, UserMenu } from '@t3n/components';
 import { UserMenuProps } from '@t3n/components/src/UserMenu';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
-
-export default {
-  component: UserMenu,
-  title: 'Components/Content/UserMenu',
-  decorators: [storyContainerDecorator],
-};
 
 const links: UserMenuProps['items'] = [
   <a href="/">
@@ -23,56 +17,59 @@ const links: UserMenuProps['items'] = [
   <a href="https://faq.t3n.de/">FAQ</a>,
 ];
 
-export const defaultStory = () => {
-  return (
-    <PageHeader light={boolean('Hell?', false)}>
-      <UserMenu
-        light={boolean('Hell?', false)}
-        isProMember={boolean('Pro-Member?', true)}
-        userEmail="john.doe@beispiel.de"
-      />
-    </PageHeader>
-  );
+const meta: Meta<typeof UserMenu> = {
+  component: UserMenu,
+  title: 'Components/Content/UserMenu',
+  decorators: [
+    (Story) => {
+      return (
+        <Box height="25vh">
+          <PageHeader>
+            <Story />
+          </PageHeader>
+        </Box>
+      );
+    },
+    storyContainerDecorator,
+  ],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    light: false,
+    isProMember: false,
+    active: false,
+    userEmail: 'john.doe@beispiel.de',
+  },
 };
 
-defaultStory.storyName = 'Default';
+export default meta;
+type Story = StoryObj<typeof UserMenu>;
 
-export const activeStory = () => {
-  return (
-    <PageHeader light={boolean('Hell?', false)}>
-      <UserMenu
-        active
-        light={boolean('Hell?', false)}
-        isProMember={boolean('Pro-Member?', true)}
-        userEmail="john.doe@beispiel.de"
-      />
-    </PageHeader>
-  );
+export const userMenu: Story = {};
+
+export const active: Story = {
+  args: { active: true },
 };
 
-activeStory.storyName = 'Active';
-
-export const notLoggedInStory = () => {
-  return (
-    <PageHeader light={boolean('Hell?', false)}>
-      <UserMenu light={boolean('Hell?', false)} />
-    </PageHeader>
-  );
+export const light: Story = {
+  args: { light: true },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Box height="25vh">
+          <PageHeader light>
+            <StoryComp />
+          </PageHeader>
+        </Box>
+      );
+    },
+    storyContainerDecorator,
+  ],
 };
 
-notLoggedInStory.storyName = 'Not Logged In';
-
-export const extraContentStory = () => {
-  return (
-    <PageHeader>
-      <UserMenu
-        light={boolean('Hell?', false)}
-        isProMember={boolean('Pro-Member?', true)}
-        userEmail="john.doe@beispiel.de"
-        items={links}
-      />
-    </PageHeader>
-  );
+export const notLoggedIn: Story = {
+  args: { userEmail: undefined },
 };
 
-extraContentStory.storyName = 'Extra Content';
+export const extraContent: Story = {
+  args: { items: links },
+};

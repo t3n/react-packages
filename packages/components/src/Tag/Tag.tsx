@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { color, margin, MarginProps, padding, variant } from 'styled-system';
 
@@ -21,6 +21,7 @@ export interface TagProps extends MarginProps {
   small?: boolean;
   icon?: JSX.Element;
   onClick?: () => void;
+  children?: ReactNode;
 }
 
 interface StyledTagProps {

@@ -64,7 +64,7 @@ const Loader = styled(
       <div />
       <div />
     </LoaderWrapper>
-  )
+  ),
 )``;
 
 Loader.defaultProps = {

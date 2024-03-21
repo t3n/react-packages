@@ -1,17 +1,24 @@
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { LegacySocialBar } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
+const meta: Meta<typeof LegacySocialBar> = {
   component: LegacySocialBar,
   title: 'Legacy/Content/SocialBar',
-  decorators: [storyContainerDecorator],
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    isInFooter: false,
+  },
 };
 
-export const defaultStory = () => {
-  return <LegacySocialBar />;
-};
+export default meta;
+type Story = StoryObj<typeof LegacySocialBar>;
 
-defaultStory.storyName = 'Default';
+export const legacySocialBar: Story = {};
+
+export const inFooter: Story = {
+  args: { isInFooter: true },
+};

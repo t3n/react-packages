@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, position, space } from 'styled-system';
 
-import { MaterialClose, MaterialMenu, T3nPro } from '@t3n/icons';
-import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
-import PersonOutline from '@t3n/icons/src/components/material/social/PersonOutline';
+import {
+  MaterialBookmarkBorder,
+  MaterialClose,
+  MaterialMenu,
+  MaterialPersonOutline,
+  T3nPro,
+} from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
@@ -243,13 +247,17 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
           mr={2}
         >
           <Box flexGrow={1} ml="3px" mb="1px">
-            <a href="/" title="t3n - digital pioneers">
+            <a
+              href="/"
+              title="t3n - digital pioneers"
+              aria-label="t3n - digital pioneers"
+            >
               <Logo />
             </a>
           </Box>
           <HeaderCampaign mr={5}>
             {headerCampaignImageMobile && (
-              <a href={headerCampaignUrl}>
+              <a href={headerCampaignUrl} aria-label="Kampagnen-URL">
                 <Image
                   src={headerCampaignImageMobile}
                   width={[80, 80, 250, 320]}
@@ -307,7 +315,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
               href="/account/merkliste"
               title="Merkliste"
             >
-              <BookmarkBorder
+              <MaterialBookmarkBorder
                 fill="#5f5f5f"
                 width="24"
                 height="24"
@@ -316,7 +324,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
               Merkliste
             </MobileMenuItem>
             <MobileMenuItem href="/account/" title="Konto">
-              <PersonOutline
+              <MaterialPersonOutline
                 fill="#5f5f5f"
                 width="24"
                 height="24"

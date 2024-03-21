@@ -1,17 +1,8 @@
 import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { done, inc, start } from 'nprogress';
 
-import {
-  Box,
-  Button,
-  NProgressBarGlobalStyle,
-  PageLayout,
-} from '@t3n/components';
-
-export default {
-  title: 'Components/Layout/NProgressBar',
-  component: NProgressBarGlobalStyle,
-};
+import { Box, Button, NProgressBarGlobalStyle } from '@t3n/components';
 
 const ButtonGroup: React.FC = () => (
   <Box display="flex" mt={3} my={3}>
@@ -27,22 +18,22 @@ const ButtonGroup: React.FC = () => (
   </Box>
 );
 
-export const defaultStory = () => (
-  <>
-    <NProgressBarGlobalStyle barColor="red" />
-    <ButtonGroup />
-  </>
-);
+const meta: Meta<typeof NProgressBarGlobalStyle> = {
+  component: NProgressBarGlobalStyle,
+  title: 'Components/Layout/NProgressBar',
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    barColor: 'red',
+  },
+  render: (args) => (
+    <>
+      <NProgressBarGlobalStyle {...args} />
+      <ButtonGroup />
+    </>
+  ),
+};
 
-defaultStory.storyName = 'Default';
+export default meta;
+type Story = StoryObj<typeof NProgressBarGlobalStyle>;
 
-export const headerStory = () => (
-  <PageLayout>
-    <Box position="relative">
-      <NProgressBarGlobalStyle barColor="white" />
-    </Box>
-    <ButtonGroup />
-  </PageLayout>
-);
-
-headerStory.storyName = 'Mit Header';
+export const progressBar: Story = {};

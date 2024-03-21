@@ -1,28 +1,25 @@
-import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Loader } from '@t3n/components';
-import { theme } from '@t3n/theme';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Content/Loader',
+const meta: Meta<typeof Loader> = {
   component: Loader,
+  title: 'Components/Content/Loader',
   decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    small: false,
+    color: 'background.inverse',
+  },
 };
 
-export const defaultStory = () => (
-  <Loader
-    small={boolean('small', true)}
-    color={select(
-      'Farbe',
-      Object.keys(theme.colors.background).map(
-        (color) => `background.${color}`
-      ),
-      'background.inverse'
-    )}
-  />
-);
+export default meta;
+type Story = StoryObj<typeof Loader>;
 
-defaultStory.storyName = 'Default';
+export const loader: Story = {};
+
+export const smallLoader: Story = {
+  args: { small: true },
+};

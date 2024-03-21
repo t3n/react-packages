@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, {
   forwardRef,
   useEffect,
@@ -60,10 +61,10 @@ const border = css`
       error
         ? theme.colors.feedback.error
         : disabled
-        ? theme.colors.shades.grey204
-        : isFocused
-        ? theme.colors.shades.grey42
-        : theme.colors.shades.grey95};
+          ? theme.colors.shades.grey204
+          : isFocused
+            ? theme.colors.shades.grey42
+            : theme.colors.shades.grey95};
 `;
 
 const StyledNativeInput = styled.input.attrs(() => ({
@@ -134,7 +135,7 @@ const Input = forwardRef(
       hideReset,
       ...props
     }: InputProps,
-    ref: React.Ref<HTMLInputElement | null>
+    ref: React.Ref<HTMLInputElement | null>,
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [value, setValue] = useState(defaultValue || '');
@@ -234,7 +235,7 @@ const Input = forwardRef(
         ) : null}
       </StyledInput>
     );
-  }
+  },
 );
 
 Input.defaultProps = {

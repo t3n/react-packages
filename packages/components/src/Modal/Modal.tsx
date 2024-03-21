@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { WidthProps } from 'styled-system';
 
@@ -15,6 +15,7 @@ export interface ModalProps extends WidthProps {
   headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
   wide?: boolean;
   onClose: () => void;
+  children?: ReactNode;
 }
 
 export interface ModalHeadingProps extends HeadingProps {

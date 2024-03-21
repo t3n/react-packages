@@ -26,7 +26,7 @@ const composeTextStyle = ({
   };
 
   return Object.keys(styles).map((propName) =>
-    system[propName]({ [propName]: styles[propName], theme })
+    system[propName]({ [propName]: styles[propName], theme }),
   );
 };
 

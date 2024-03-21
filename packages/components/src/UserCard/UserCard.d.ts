@@ -1,10 +1,10 @@
-import React from 'react';
-export declare type SocialLinkType = 'TWITTER' | 'GITHUB' | 'XING' | 'HOMEPAGE' | 'LINKEDIN';
-export declare type SocialLink = {
+import React, { ReactNode } from 'react';
+export type SocialLinkType = 'TWITTER' | 'GITHUB' | 'XING' | 'HOMEPAGE' | 'LINKEDIN';
+export type SocialLink = {
     url: string;
     type: SocialLinkType;
 };
-export declare type UserCardProps = {
+export type UserCardProps = {
     user: {
         id: number;
         name: string;
@@ -24,8 +24,9 @@ export declare type UserCardProps = {
     };
     compact: boolean;
     secondary?: boolean;
+    children?: ReactNode;
 };
-export declare type SocialLinksProps = {
+export type SocialLinksProps = {
     links: SocialLink[];
     cardLinked?: boolean;
 };

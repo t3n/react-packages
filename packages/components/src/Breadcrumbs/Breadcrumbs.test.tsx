@@ -13,7 +13,7 @@ const renderBreadcrumbs = () =>
       <BreadcrumbsItem label="Item 2" href="/item2" />
       <BreadcrumbsItem label="Item 3" />
     </Breadcrumbs>,
-    {}
+    {},
   );
 
 test('Breadcrumbs matches snapshot', () => {
@@ -26,7 +26,7 @@ test('Breadcrumbs navigation element is accessible', () => {
   const { getByRole } = renderBreadcrumbs();
 
   expect(getByRole('navigation').getAttribute('aria-label')).toEqual(
-    'Breadcrumb'
+    'Breadcrumb',
   );
 });
 
@@ -76,7 +76,7 @@ test('BreadcrumbsItems render custom link component if provided through props', 
       <CustomBreadcrumbsItem label="Item 2" href="/item2" />
       <CustomBreadcrumbsItem label="Item 3" />
     </Breadcrumbs>,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();

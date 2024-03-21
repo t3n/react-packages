@@ -1,158 +1,59 @@
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Heading, Link, Section } from '@t3n/components';
+import { Link, Section } from '@t3n/components';
 
-export default {
-  title: 'Components/Inputs/Link',
+import { storyContainerContentDecorator } from '../../../utils/decorators';
+
+const meta: Meta<typeof Link> = {
   component: Link,
+  title: 'Components/Inputs/Link',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    linkVariant: 'primary',
+    disabled: false,
+    small: false,
+    variant: 'primary',
+    children: 'Test-Link',
+  },
 };
 
-export const defaultStory = () => {
-  const linkVariant = select(
-    'Variante Link',
-    ['primary', 'secondary', 'inverse', 'highlight'],
-    'primary'
-  );
-  const disabled = boolean('disable', false);
-  const small = boolean('small', false);
-  return (
-    <Section variant={linkVariant}>
-      <Link disabled={disabled} small={small} variant={linkVariant} href="/">
-        Default
-      </Link>
-    </Section>
-  );
+export default meta;
+type Story = StoryObj<typeof Link>;
+
+export const link: Story = {};
+
+export const disabled: Story = {
+  args: { disabled: true },
 };
 
-defaultStory.storyName = 'Default';
+export const small: Story = {
+  args: { small: true },
+};
 
-export const variants = () => (
-  <>
-    <Section variant="primary">
-      <Heading as="h3" mt={0}>
-        Primary
-      </Heading>
-      <Link href="/">Test-Link</Link>
-      <Heading as="h6" mt={4} mb={2}>
-        Im Textfluss{' '}
-      </Heading>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer <Link href="/">Test-Link</Link>{' '}
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.{' '}
-        <Link href="/">Test-Link</Link> Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus.
-      </p>
-    </Section>
-    <Section variant="secondary">
-      <Heading as="h3" mt={0}>
-        Secondary
-      </Heading>
-      <Link variant="secondary" href="/">
-        Test-Link
-      </Link>
-      <Heading as="h6" mt={4} mb={2}>
-        Im Textfluss{' '}
-      </Heading>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer{' '}
-        <Link variant="secondary" href="/">
-          Test-Link
-        </Link>{' '}
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.{' '}
-        <Link variant="secondary" href="/">
-          Test-Link
-        </Link>{' '}
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus.
-      </p>
-    </Section>
-    <Section variant="inverse">
-      <Heading as="h3" mt={0}>
-        Inverse
-      </Heading>
-      <Link variant="inverse" href="/">
-        Test-Link
-      </Link>
-      <Heading as="h6" mt={4} mb={2}>
-        Im Textfluss{' '}
-      </Heading>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer{' '}
-        <Link variant="inverse" href="/">
-          Test-Link
-        </Link>{' '}
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.{' '}
-        <Link variant="inverse" href="/">
-          Test-Link
-        </Link>{' '}
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus.
-      </p>
-    </Section>
-    <Section variant="highlight">
-      <Heading as="h3" mt={0}>
-        Highlight
-      </Heading>
-      <Link variant="highlight" href="/">
-        Test-Link
-      </Link>
-      <Heading as="h6" mt={4} mb={2}>
-        Im Textfluss{' '}
-      </Heading>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer{' '}
-        <Link variant="highlight" href="/">
-          Test-Link
-        </Link>{' '}
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.{' '}
-        <Link variant="highlight" href="/">
-          Test-Link
-        </Link>{' '}
-        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus.
-      </p>
-    </Section>
-  </>
-);
+export const highlight: Story = {
+  args: { linkVariant: 'highlight', variant: 'highlight' },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="highlight">
+          <StoryComp />
+        </Section>
+      );
+    },
+  ],
+};
 
-variants.storyName = 'Alle Varianten';
-
-export const disabledStory = () => (
-  <>
-    <Section variant="primary">
-      <Heading as="h3" mt={0}>
-        Primary
-      </Heading>
-      <Link disabled href="/">
-        Test-Link
-      </Link>
-    </Section>
-    <Section variant="secondary">
-      <Heading as="h3" mt={0}>
-        Secondary
-      </Heading>
-      <Link disabled variant="secondary" href="/">
-        Test-Link
-      </Link>
-    </Section>
-    <Section variant="inverse">
-      <Heading as="h3" mt={0}>
-        Inverse
-      </Heading>
-      <Link disabled variant="inverse" href="/">
-        Test-Link
-      </Link>
-    </Section>
-    <Section variant="highlight">
-      <Heading as="h3" mt={0}>
-        Highlight
-      </Heading>
-      <Link disabled variant="highlight" href="/">
-        Test-Link
-      </Link>
-    </Section>
-  </>
-);
-
-disabledStory.storyName = 'Disabled Status';
+export const inverse: Story = {
+  args: { linkVariant: 'inverse', variant: 'inverse' },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="inverse">
+          <StoryComp />
+        </Section>
+      );
+    },
+  ],
+};

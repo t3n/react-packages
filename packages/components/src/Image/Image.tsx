@@ -70,7 +70,7 @@ const generateFastlySrc = (src: string, imageClass: string) => {
     }
 
     const origin = fastlyOrigins.find((destination) =>
-      src.includes(destination)
+      src.includes(destination),
     );
 
     // If it's not a fastly compatible url, simply return the original src
@@ -95,7 +95,7 @@ const generateFastlySrc = (src: string, imageClass: string) => {
 // automatically generates srcSet for responsive images
 const generateSrcSet = (
   src: string,
-  optimizationClassMapping: OptimizationClassMapping
+  optimizationClassMapping: OptimizationClassMapping,
 ): string =>
   // Keys from class mapping always describe the size of the optimized image
   //
@@ -196,8 +196,8 @@ const Image: React.FC<ImageProps> = ({
         .reverse()
         .join(', ')
     : typeof sizes === 'number'
-    ? `${sizes}px`
-    : sizes;
+      ? `${sizes}px`
+      : sizes;
 
   return (
     <NativeImage

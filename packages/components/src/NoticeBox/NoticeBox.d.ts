@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
-export declare const NoticeBoxText: React.FC;
-declare const NoticeBox: React.FC<SpaceProps>;
+export interface NoticeBoxProps extends SpaceProps {
+    children?: ReactNode;
+}
+export declare const NoticeBoxText: React.FC<{
+    children?: ReactNode;
+}>;
+declare const NoticeBox: React.FC<NoticeBoxProps>;
 export default NoticeBox;

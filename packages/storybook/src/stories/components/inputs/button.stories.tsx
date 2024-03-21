@@ -1,456 +1,88 @@
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, Grid, GridItem, H3, Section } from '@t3n/components';
+import { Button, Section } from '@t3n/components';
+import {
+  ButtonColorVariant,
+  ButtonSizeVariant,
+  ButtonVariant,
+} from '@t3n/components/src/Button';
 import { MaterialCheck } from '@t3n/icons';
 
-import StoryContainer from '../../../components/StoryContainer';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Inputs/Button',
+const meta: Meta<typeof Button> = {
   component: Button,
+  title: 'Components/Inputs/Button',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    loading: false,
+    disabled: false,
+    variant: 'primary' as ButtonVariant,
+    size: 'regular' as ButtonSizeVariant,
+    color: 'default' as ButtonColorVariant,
+    children: 'Klick mich',
+  },
 };
 
-export const defaultStory = () => {
-  const loading = boolean('Ladend', false);
-  const disabled = boolean('Disabled', false);
-  const variant = select(
-    'Variante',
-    { primary: 'primary', secondary: 'secondary' },
-    'primary'
-  );
-  const size = select(
-    'Größe',
-    { small: 'small', regular: 'regular', big: 'big' },
-    'regular'
-  );
+export default meta;
+type Story = StoryObj<typeof Button>;
 
-  return (
-    <StoryContainer>
-      <Button
-        disabled={disabled}
-        size={size}
-        variant={variant}
-        loading={loading}
-      >
-        Button
-      </Button>
-    </StoryContainer>
-  );
+export const button: Story = {};
+
+export const small: Story = {
+  args: { size: 'small' as ButtonSizeVariant },
 };
 
-defaultStory.storyName = 'Default';
+export const big: Story = {
+  args: { size: 'big' as ButtonSizeVariant },
+};
 
-export const variants = () => (
-  <>
-    <Section variant="primary">
-      <H3>Primäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button size="small">Klick mich</Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="regular">Klick mich</Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="big">Klick mich</Button>
-        </GridItem>
-      </Grid>
-      <H3>Sekundäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button variant="secondary" size="small">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button variant="secondary" size="regular">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button variant="secondary" size="big">
-            Klick mich
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-    <Section variant="secondary">
-      <H3>Primäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button size="small">Klick mich</Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="regular">Klick mich</Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="big">Klick mich</Button>
-        </GridItem>
-      </Grid>
-      <H3>Sekundäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button variant="secondary" size="small">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button variant="secondary" size="regular">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button variant="secondary" size="big">
-            Klick mich
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-    <Section variant="inverse">
-      <H3>Primäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" size="small">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" size="regular">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" size="big">
-            Klick mich
-          </Button>
-        </GridItem>
-      </Grid>
-      <H3>Sekundäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" variant="secondary" size="small">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" variant="secondary" size="regular">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" variant="secondary" size="big">
-            Klick mich
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-    <Section variant="highlight">
-      <H3>Primäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" size="small">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" size="regular">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" size="big">
-            Klick mich
-          </Button>
-        </GridItem>
-      </Grid>
-      <H3>Sekundäre Buttons</H3>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" variant="secondary" size="small">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" variant="secondary" size="regular">
-            Klick mich
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" variant="secondary" size="big">
-            Klick mich
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-  </>
-);
+export const secondary: Story = {
+  args: { variant: 'secondary' as ButtonVariant },
+};
 
-variants.storyName = 'Alle Varianten';
+export const inverse: Story = {
+  args: { color: 'inverse' as ButtonColorVariant },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="inverse">
+          <StoryComp />
+        </Section>
+      );
+    },
+    storyContainerContentDecorator,
+  ],
+};
 
-export const loading = () => (
-  <>
-    <Section variant="primary">
-      <Button loading>Klick mich</Button>
-      <Button variant="secondary" loading ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-    <Section variant="secondary">
-      <Button loading>Klick mich</Button>
-      <Button variant="secondary" loading ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-    <Section variant="inverse">
-      <Button color="inverse" loading>
-        Klick mich
-      </Button>
-      <Button variant="secondary" color="inverse" loading ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-    <Section variant="highlight">
-      <Button color="highlight" loading>
-        Klick mich
-      </Button>
-      <Button variant="secondary" color="highlight" loading ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-  </>
-);
+export const highlight: Story = {
+  args: { color: 'highlight' as ButtonColorVariant },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="highlight">
+          <StoryComp />
+        </Section>
+      );
+    },
+    storyContainerContentDecorator,
+  ],
+};
 
-loading.storyName = 'Ladend';
+export const loading: Story = {
+  args: { loading: true },
+};
 
-export const disabled = () => (
-  <>
-    <Section variant="primary">
-      <Button disabled>Klick mich</Button>
-      <Button variant="secondary" disabled ml={3}>
-        Klick mich
-      </Button>
-      <Button disabled loading ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-    <Section variant="secondary">
-      <Button variant="secondary" disabled>
-        Klick mich
-      </Button>
-      <Button variant="secondary" disabled ml={3}>
-        Klick mich
-      </Button>
-      <Button variant="secondary" disabled loading ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-    <Section variant="inverse">
-      <Button color="inverse" disabled>
-        Klick mich
-      </Button>
-      <Button variant="secondary" color="inverse" disabled ml={3}>
-        Klick mich
-      </Button>
-      <Button color="inverse" loading disabled ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-    <Section variant="highlight">
-      <Button color="highlight" disabled>
-        Klick mich
-      </Button>
-      <Button variant="secondary" color="highlight" disabled ml={3}>
-        Klick mich
-      </Button>
-      <Button color="highlight" loading disabled ml={3}>
-        Klick mich
-      </Button>
-    </Section>
-  </>
-);
+export const disabled: Story = {
+  args: { disabled: true },
+};
 
-disabled.storyName = 'Disabled status';
+export const iconLeft: Story = {
+  args: { iconLeft: MaterialCheck },
+};
 
-export const icon = () => (
-  <>
-    <Section variant="primary">
-      <Grid mb={2}>
-        <GridItem width={1 / 3}>
-          <Button size="small" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="regular" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="big" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button size="small" variant="secondary" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="regular" variant="secondary" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="big" variant="secondary" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-
-    <Section variant="secondary">
-      <Grid mb={2}>
-        <GridItem width={1 / 3}>
-          <Button size="small" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="regular" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="big" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button size="small" variant="secondary" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="regular" variant="secondary" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button size="big" variant="secondary" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-
-    <Section variant="inverse">
-      <Grid mb={2}>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" size="small" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" size="regular" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="inverse" size="big" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button
-            color="inverse"
-            size="small"
-            variant="secondary"
-            iconLeft={MaterialCheck}
-          >
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button
-            color="inverse"
-            size="regular"
-            variant="secondary"
-            iconLeft={MaterialCheck}
-          >
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button
-            color="inverse"
-            size="big"
-            variant="secondary"
-            iconLeft={MaterialCheck}
-          >
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-
-    <Section variant="highlight">
-      <Grid mb={2}>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" size="small" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" size="regular" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button color="highlight" size="big" iconLeft={MaterialCheck}>
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-      <Grid>
-        <GridItem width={1 / 3}>
-          <Button
-            color="highlight"
-            size="small"
-            variant="secondary"
-            iconLeft={MaterialCheck}
-          >
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button
-            color="highlight"
-            size="regular"
-            variant="secondary"
-            iconLeft={MaterialCheck}
-          >
-            Bestätigen
-          </Button>
-        </GridItem>
-        <GridItem width={1 / 3}>
-          <Button
-            color="highlight"
-            size="big"
-            variant="secondary"
-            iconLeft={MaterialCheck}
-          >
-            Bestätigen
-          </Button>
-        </GridItem>
-      </Grid>
-    </Section>
-  </>
-);
-icon.storyName = 'Mit Icon';
+export const iconRight: Story = {
+  args: { iconRight: MaterialCheck },
+};

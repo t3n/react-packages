@@ -1,45 +1,47 @@
-import React from 'react';
-import { select, text } from '@storybook/addon-knobs';
+import { Meta, StoryObj } from '@storybook/react';
 
-import {
-  Grid,
-  GridItem,
-  SocialButton,
-  socialNetworksConfig,
-} from '@t3n/components';
-import { SocialNetworkType } from '@t3n/components/src/SocialButton/SocialButton';
+import { SocialButton } from '@t3n/components';
 
-import { storyContainerDecorator } from '../../../utils/decorators';
+import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-export default {
-  title: 'Components/Inputs/SocialButton',
+const meta: Meta<typeof SocialButton> = {
   component: SocialButton,
-  decorators: [storyContainerDecorator],
+  title: 'Components/Inputs/SocialButton',
+  decorators: [storyContainerContentDecorator],
+  parameters: { controls: { sort: 'requiredFirst' } },
+  args: {
+    network: 'facebook',
+    $textBefore: '',
+    loading: false,
+    size: 'regular',
+  },
 };
 
-export const defaultStory = () => {
-  const socialNames = Object.keys(socialNetworksConfig);
+export default meta;
+type Story = StoryObj<typeof SocialButton>;
 
-  const selectedNetwork = select('Network', socialNames, socialNames[0]);
+export const socialButton: Story = {};
 
-  return (
-    <SocialButton
-      href="https://www.t3n.de"
-      target="_blank"
-      network={selectedNetwork as SocialNetworkType}
-      $textBefore={text('Text vor Label', '')}
-    />
-  );
+export const socialButtonLoading: Story = {
+  args: {
+    loading: true,
+  },
 };
 
-defaultStory.storyName = 'Default';
+export const socialButtonSmall: Story = {
+  args: {
+    size: 'small',
+  },
+};
 
-export const networks = () => (
-  <Grid>
-    {Object.keys(socialNetworksConfig).map((network) => (
-      <GridItem width="auto" mb={2} key={network}>
-        <SocialButton network={network as SocialNetworkType} />
-      </GridItem>
-    ))}
-  </Grid>
-);
+export const socialButtonBig: Story = {
+  args: {
+    size: 'big',
+  },
+};
+
+export const socialButtonTextBefore: Story = {
+  args: {
+    $textBefore: 'Teilen auf',
+  },
+};

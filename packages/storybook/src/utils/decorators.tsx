@@ -1,17 +1,40 @@
 import React from 'react';
+import { Decorator } from '@storybook/react';
 
-import { Content } from '@t3n/components';
+import { Content, Section } from '@t3n/components';
 
 import StoryContainer from '../components/StoryContainer';
 
-export const storyContainerDecorator = (story: any) => (
-  <StoryContainer>{story()}</StoryContainer>
+export const storyContainerDecorator: Decorator = (Story) => (
+  <StoryContainer>
+    <Story />
+  </StoryContainer>
 );
 
-export const contentDecorator = (story: any) => <Content>{story()}</Content>;
+export const secondaryStoryContainerDecorator: Decorator = (Story) => (
+  <StoryContainer secondary>
+    <Story />
+  </StoryContainer>
+);
 
-export const storyContainerContentDecorator = (story: any) => (
+export const contentDecorator: Decorator = (Story) => (
+  <Content>
+    <Story />
+  </Content>
+);
+
+export const storyContainerContentDecorator: Decorator = (Story) => (
   <StoryContainer>
-    <Content>{story()}</Content>
+    <Content>
+      <Story />
+    </Content>
+  </StoryContainer>
+);
+
+export const storyContainerSectionDecorator: Decorator = (Story) => (
+  <StoryContainer>
+    <Section variant="secondary">
+      <Story />
+    </Section>
   </StoryContainer>
 );

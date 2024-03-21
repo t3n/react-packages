@@ -9,10 +9,12 @@ import {
   typography,
 } from 'styled-system';
 
-import { T3nPro } from '@t3n/icons';
-import BookmarkBorder from '@t3n/icons/src/components/material/action/BookmarkBorder';
-import Person from '@t3n/icons/src/components/material/social/Person';
-import PersonOutline from '@t3n/icons/src/components/material/social/PersonOutline';
+import {
+  MaterialBookmarkBorder,
+  MaterialPerson,
+  MaterialPersonOutline,
+  T3nPro,
+} from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box/Box';
@@ -228,11 +230,15 @@ const UserMenu: React.FC<UserMenuProps> = ({
     <UserMenuWrapper light={light} tabIndex={0}>
       {active ? (
         <PersonIconWrapper light={light}>
-          <Person fill={light ? '#5f5f5f' : '#ffffff'} width="24" height="24" />
+          <MaterialPerson
+            fill={light ? '#5f5f5f' : '#ffffff'}
+            width="24"
+            height="24"
+          />
         </PersonIconWrapper>
       ) : (
         <PersonIconWrapper light={light}>
-          <PersonOutline
+          <MaterialPersonOutline
             fill={light ? '#5f5f5f' : '#ffffff'}
             width="24"
             height="24"
@@ -258,7 +264,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <UserMenuListDivider />
         <UserMenuListItem>
           <a href={readingListLink}>
-            <BookmarkBorder
+            <MaterialBookmarkBorder
               fill="#5f5f5f"
               width="24"
               height="24"
@@ -270,7 +276,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <UserMenuListDivider />
         <UserMenuListItem>
           <a href={accountLink}>
-            <PersonOutline
+            <MaterialPersonOutline
               fill="#5f5f5f"
               width="24"
               height="24"
@@ -298,7 +304,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   ) : (
     <LoginIcon href={loginLink}>
       <PersonIconWrapper light={light}>
-        <PersonOutline
+        <MaterialPersonOutline
           fill={light ? '#5f5f5f' : '#ffffff'}
           width="24"
           height="24"

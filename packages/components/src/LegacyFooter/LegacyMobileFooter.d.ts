@@ -1,5 +1,5 @@
 import React from 'react';
-export declare type MobileLinkType = {
+export type MobileLinkType = {
     label: string;
     url: string;
     title?: string;

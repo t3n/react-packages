@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 import { transform } from '@svgr/core';
 import chalk from 'chalk';
@@ -36,11 +37,11 @@ const SVG_FOLDER_PATH = path.resolve(__dirname, '../svg');
 const COMPONENTS_FOLDER_PATH = path.resolve(__dirname, '../components');
 const MATERIAL_COMPONENTS_FOLDER_PATH = path.join(
   COMPONENTS_FOLDER_PATH,
-  '/material'
+  '/material',
 );
 const MATERIAL_ICONS_FOLDER_PATH = path.resolve(
   __dirname,
-  '../../../../node_modules/material-design-icons'
+  '../../../../node_modules/material-design-icons',
 );
 const INDEX_FILE_PATH = path.join(COMPONENTS_FOLDER_PATH, 'index.ts');
 
@@ -55,16 +56,19 @@ const readDirectoryContents = async (dir: string): Promise<FolderContents> => {
 
   const childPaths = childNames.map((name) => path.resolve(dir, name));
 
-  return childPaths.reduce(async (reduced, childPath) => {
-    const { dirs: reducedDirs, files: reducedFiles } = await reduced;
-    const stat = await fs.stat(childPath);
-    const isDir = await stat.isDirectory();
+  return childPaths.reduce(
+    async (reduced, childPath) => {
+      const { dirs: reducedDirs, files: reducedFiles } = await reduced;
+      const stat = await fs.stat(childPath);
+      const isDir = await stat.isDirectory();
 
-    return Promise.resolve({
-      dirs: isDir ? [...reducedDirs, childPath] : reducedDirs,
-      files: !isDir ? [...reducedFiles, childPath] : reducedFiles,
-    });
-  }, Promise.resolve<FolderContents>({ dirs: [], files: [] }));
+      return Promise.resolve({
+        dirs: isDir ? [...reducedDirs, childPath] : reducedDirs,
+        files: !isDir ? [...reducedFiles, childPath] : reducedFiles,
+      });
+    },
+    Promise.resolve<FolderContents>({ dirs: [], files: [] }),
+  );
 };
 
 const getPathEnd = (filePath: string) => (filePath.match(/[^/]+$/) || [''])[0];
@@ -88,14 +92,14 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
       typescript: true,
       template,
     },
-    { componentName }
+    { componentName },
   );
 
   const formatted = await eslint.lintText(
     component.replace(
       `const ${componentName}`,
-      `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`
-    )
+      `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`,
+    ),
   );
 
   return formatted[0].output as string;
@@ -103,7 +107,7 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
 
 const generateIconComponents = async (
   dir: string,
-  recursive?: boolean
+  recursive?: boolean,
 ): Promise<IconComponent[]> => {
   const { dirs: childDirs, files } = await readDirectoryContents(dir);
 
@@ -115,8 +119,8 @@ const generateIconComponents = async (
 
       console.log(
         `Generating ${chalk.black.bgWhite(
-          componentName
-        )} icon component from ${svgPath.replace(SVG_FOLDER_PATH, '')}`
+          componentName,
+        )} icon component from ${svgPath.replace(SVG_FOLDER_PATH, '')}`,
       );
 
       const svg = await fs.readFile(svgPath, 'utf8');
@@ -128,7 +132,7 @@ const generateIconComponents = async (
       const componentPath = path.join(
         COMPONENTS_FOLDER_PATH,
         filePath,
-        `${componentName}.tsx`
+        `${componentName}.tsx`,
       );
 
       return {
@@ -136,17 +140,17 @@ const generateIconComponents = async (
         path: componentPath,
         reactComponent,
       };
-    })
+    }),
   );
 
   if (recursive)
     return (
       await Promise.all(
-        childDirs.map((childDir) => generateIconComponents(childDir))
+        childDirs.map((childDir) => generateIconComponents(childDir)),
       )
     ).reduce(
       (reducedComponents, components) => [...reducedComponents, ...components],
-      []
+      [],
     );
 
   return svgComponents;
@@ -159,23 +163,27 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
     .filter(
       (dirPath) =>
         !(materialIconsConfig as MaterialIconsConfig).ignoreFolders.filter(
-          (categoryName) => dirPath.indexOf(categoryName) > -1
-        ).length
+          (categoryName) => dirPath.indexOf(categoryName) > -1,
+        ).length,
     )
     .map((dirPath) => getPathEnd(dirPath));
 
   const categoryFiles = await Promise.all(
     categoryNames.map(async (categoryName) => {
       const { files } = await readDirectoryContents(
-        path.resolve(MATERIAL_ICONS_FOLDER_PATH, categoryName, 'svg/production')
+        path.resolve(
+          MATERIAL_ICONS_FOLDER_PATH,
+          categoryName,
+          'svg/production',
+        ),
       );
 
       return files.filter((filePath) => /24px\.svg$/.test(filePath));
-    })
+    }),
   );
   const svgFiles = categoryFiles.reduce(
     (allFiles, files) => [...allFiles, ...files],
-    []
+    [],
   );
 
   return Promise.all(
@@ -185,13 +193,14 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
         generateComponentName(svgPath).replace('Ic', '').replace('24px', ''),
       ].map(
         (name) =>
-          (materialIconsConfig as MaterialIconsConfig).renameRules[name] || name
+          (materialIconsConfig as MaterialIconsConfig).renameRules[name] ||
+          name,
       )[0];
 
       console.log(
         `Generating ${chalk.black.bgWhite(
-          componentName
-        )} component from Material Icons`
+          componentName,
+        )} component from Material Icons`,
       );
 
       const categoryName = svgPath.split('/').reverse()[3];
@@ -199,7 +208,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
       const fileDest = path.join(
         MATERIAL_COMPONENTS_FOLDER_PATH,
         categoryName,
-        `${componentName}.tsx`
+        `${componentName}.tsx`,
       );
 
       return {
@@ -207,7 +216,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
         path: fileDest,
         reactComponent,
       };
-    })
+    }),
   );
 };
 
@@ -215,7 +224,7 @@ const writeComponents = async (components: IconComponents) => {
   return Promise.all(
     Object.values(components).map(({ path: fileDest, reactComponent }) => {
       return fs.outputFile(fileDest, reactComponent);
-    })
+    }),
   );
 };
 
@@ -223,7 +232,7 @@ const getComponentPrefix = (filePath: string) =>
   capitalizeString(
     filePath
       .substr(COMPONENTS_FOLDER_PATH.length + 1, filePath.length)
-      .split('/')[0]
+      .split('/')[0],
   );
 
 const prefixComponentName = (componentName: string, prefix: string) =>
@@ -235,7 +244,8 @@ const getPrefixedComponentName = (component: IconComponent) =>
 const createIndexFile = async (components: IconComponents) => {
   const index = [
     ...Object.values(components).sort((a, b) =>
-      a.path < b.path ? -1 : a.path > b.path ? 1 : 0
+      // eslint-disable-next-line no-nested-ternary
+      a.path < b.path ? -1 : a.path > b.path ? 1 : 0,
     ),
   ]
     .map((component) => {
@@ -245,7 +255,7 @@ const createIndexFile = async (components: IconComponents) => {
 
       return `export { default as ${prefixComponentName(
         component.name,
-        getComponentPrefix(component.path)
+        getComponentPrefix(component.path),
       )} } from '.${indexEntryPath}';`;
     })
     .join('\n');
@@ -270,8 +280,8 @@ const generate = async () => {
       if (components[prefixedComponentName])
         console.warn(
           `${chalk.black.bgYellow('Warning:')} Component ${chalk.black.bgWhite(
-            prefixedComponentName
-          )} already exists!`
+            prefixedComponentName,
+          )} already exists!`,
         );
 
       components[prefixedComponentName] = component;

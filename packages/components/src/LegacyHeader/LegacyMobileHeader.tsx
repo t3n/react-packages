@@ -65,13 +65,17 @@ const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
       className="tg-header"
     >
       <Box flexGrow={1} ml="3px" mb="1px">
-        <a href="/" title="t3n - digital pioneers">
+        <a
+          href="/"
+          title="t3n - digital pioneers"
+          aria-label="t3n - digital pioneers"
+        >
           <Logo />
         </a>
       </Box>
       <HeaderCampaign mr={5}>
         {headerCampaignImageMobile && (
-          <a href={headerCampaignUrl}>
+          <a href={headerCampaignUrl} aria-label="Kampagnen-URL">
             <Image
               src={headerCampaignImageMobile}
               width={[80, 80, 250, 320]}

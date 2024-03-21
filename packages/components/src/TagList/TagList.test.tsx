@@ -16,7 +16,7 @@ test('TagList matches snapshot', () => {
         <Tag>{tag}</Tag>
       ))}
     />,
-    {}
+    {},
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -32,7 +32,7 @@ test('TagList has no toggle if there are not enough items', () => {
         <Tag>{tag}</Tag>
       ))}
     />,
-    {}
+    {},
   );
 
   expect(queryByLabelText(/mehr/i)).toBeNull();
@@ -48,7 +48,7 @@ test('TagList will collapse tags', () => {
         <Tag>{tag}</Tag>
       ))}
     />,
-    {}
+    {},
   );
 
   expect(queryByText(/baz/i)).toBeNull();

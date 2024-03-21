@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
-export declare type VisualSectionVariants = 'primary' | 'highlight';
+export type VisualSectionVariants = 'primary' | 'highlight';
 export interface VisualSectionProps {
     variant: VisualSectionVariants;
     innerGap?: SpaceProps['py'];
     wide?: boolean;
+    children?: ReactNode;
 }
 declare const VisualSection: React.FC<VisualSectionProps>;
 export default VisualSection;

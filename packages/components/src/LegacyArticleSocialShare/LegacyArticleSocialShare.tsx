@@ -124,7 +124,7 @@ const LegacySocialConfig: SocialNetworksProps = {
 
 const SocialLink = styled(
   // eslint-disable-next-line jsx-a11y/anchor-has-content
-  ({ url, ...rest }: SocialLinkProps) => <a href={url} {...rest} />
+  ({ url, ...rest }: SocialLinkProps) => <a href={url} {...rest} />,
 )<SocialLinkProps>``;
 
 const LegacySocialIcon: React.FC<{
@@ -141,7 +141,7 @@ const socialIconAttributes = ({ network }: SocialIconProps) => ({
 });
 
 const SocialIcon = styled(LegacySocialIcon).attrs(
-  socialIconAttributes
+  socialIconAttributes,
 )<SocialIconProps>`
   ${({ theme }) => space({ theme, mr: 2 })}
   width: 24px;

@@ -3,7 +3,7 @@ export interface LegacySocialBarProps {
     className?: string;
     isInFooter?: boolean;
 }
-export declare type SocialLinkType = {
+export type SocialLinkType = {
     title: string;
     url: string;
     icon: JSX.Element;

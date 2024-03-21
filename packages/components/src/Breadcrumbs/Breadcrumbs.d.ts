@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { LinkProps } from '../Link';
 export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
     href?: string;
@@ -8,6 +8,8 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
         href: string;
     }) => JSX.Element;
 }
-export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent, }: BreadcrumbsItemProps) => JSX.Element, any, {}, never>;
-declare const Breadcrumbs: React.FC;
+export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => React.JSX.Element, any, {}, never>;
+declare const Breadcrumbs: React.FC<{
+    children?: ReactNode;
+}>;
 export default Breadcrumbs;

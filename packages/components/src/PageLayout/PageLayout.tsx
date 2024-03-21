@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useScrollYPosition } from 'react-use-scroll-position';
+import React, { ReactNode, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Content from '../Content';
+import useScrollPosition from '../hooks/useScrollPosition';
 import PageFooter from '../PageFooter';
 import PageHeader, { PageHeaderProps } from '../PageHeader';
 
@@ -16,6 +16,7 @@ export interface PageLayoutProps extends PageHeaderProps {
   privacyManagerId?: string;
   headerContent?: JSX.Element;
   footerContent?: JSX.Element;
+  children?: ReactNode;
 }
 
 const PageLayoutContainer = styled.div`
@@ -45,7 +46,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   light,
   children,
 }) => {
-  const y = useScrollYPosition();
+  const { y } = useScrollPosition();
   const [transparentHeader, setTransparentHeader] =
     useState(initialTransparent);
 
@@ -78,6 +79,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           wide
           px={0}
           pt={
+            // eslint-disable-next-line no-nested-ternary
             showHeader ? (noContentPadding ? 8 : 9) : noContentPadding ? 0 : 3
           }
           pb={noContentPadding ? 0 : 3}

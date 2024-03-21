@@ -172,7 +172,7 @@ const LegacyNewsCard = ({
             top={hero ? '' : '16px'}
             mb={hero ? 3 : 0}
           >
-            <a href={news.url}>
+            <a href={news.url} aria-label="News-URL">
               <Image
                 imageWidth={hero ? 900 : 300}
                 imageHeight={hero ? 506 : 169}

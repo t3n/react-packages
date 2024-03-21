@@ -26,8 +26,8 @@ const useIsMobile = (): boolean => {
         window
           .getComputedStyle(window.document.body)
           .getPropertyValue('font-size'),
-        10
-      )
+        10,
+      ),
     );
   }, []);
 

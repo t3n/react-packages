@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import styled from 'styled-components';
 import { border, space, variant } from 'styled-system';
@@ -51,36 +52,36 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
             checked && disabled
               ? 'shades.grey95'
               : checked && feedbackColor
-              ? 'shades.white'
-              : checked
-              ? 'shades.grey42'
-              : 'shades.white',
+                ? 'shades.white'
+                : checked
+                  ? 'shades.grey42'
+                  : 'shades.white',
           border: '1px solid',
           borderColor: feedbackColor
             ? theme.colors.feedback[feedbackColor]
             : checked && disabled
-            ? theme.colors.shades.grey95
-            : checked
-            ? theme.colors.shades.grey42
-            : theme.colors.shades.grey95,
+              ? theme.colors.shades.grey95
+              : checked
+                ? theme.colors.shades.grey42
+                : theme.colors.shades.grey95,
         },
         dark: {
           bg:
             checked && disabled
               ? 'shades.grey95'
               : checked && feedbackColor
-              ? 'shades.grey44'
-              : checked
-              ? 'shades.white'
-              : 'shades.grey44',
+                ? 'shades.grey44'
+                : checked
+                  ? 'shades.white'
+                  : 'shades.grey44',
           border: '1px solid',
           borderColor: feedbackColor
             ? theme.colors.feedback[feedbackColor]
             : checked && disabled
-            ? theme.colors.shades.grey95
-            : checked
-            ? theme.colors.shades.white
-            : theme.colors.shades.grey244,
+              ? theme.colors.shades.grey95
+              : checked
+                ? theme.colors.shades.white
+                : theme.colors.shades.grey244,
         },
       },
     })}

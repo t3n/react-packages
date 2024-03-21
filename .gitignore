@@ -25,3 +25,5 @@ yarn-error.log*
 /packages/icons/src/components
 
 packages/storybook/.eslintcache
+
+tsconfig.tsbuildinfo
