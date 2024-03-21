@@ -1,0 +1,11 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Text } from '@t3n/components';
+declare const meta: Meta<typeof Text>;
+export default meta;
+type Story = StoryObj<typeof Text>;
+export declare const text: Story;
+export declare const small: Story;
+export declare const bold: Story;
+export declare const italic: Story;
+export declare const right: Story;
+export declare const center: Story;

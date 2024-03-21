@@ -1,0 +1,18 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { SelectBox } from '@t3n/components';
+declare const meta: Meta<typeof SelectBox>;
+export default meta;
+type Story = StoryObj<typeof SelectBox>;
+export declare const selectBox: Story;
+export declare const value: Story;
+export declare const noGroups: Story;
+export declare const multiSelect: Story;
+export declare const disabled: Story;
+export declare const autoFocus: Story;
+export declare const searchable: Story;
+export declare const hideReset: Story;
+export declare const disabledOption: Story;
+export declare const loading: Story;
+export declare const error: Story;
+export declare const creatable: Story;
+export declare const async: Story;

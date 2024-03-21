@@ -1,0 +1,11 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Image } from '@t3n/components';
+declare const meta: Meta<typeof Image>;
+export default meta;
+type Story = StoryObj<typeof Image>;
+export declare const image: Story;
+export declare const externalImage: Story;
+export declare const optimizationClass: Story;
+export declare const lazy: Story;
+export declare const responsive: Story;
+export declare const relative: Story;

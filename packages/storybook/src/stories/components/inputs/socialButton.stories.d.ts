@@ -1,0 +1,10 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { SocialButton } from '@t3n/components';
+declare const meta: Meta<typeof SocialButton>;
+export default meta;
+type Story = StoryObj<typeof SocialButton>;
+export declare const socialButton: Story;
+export declare const socialButtonLoading: Story;
+export declare const socialButtonSmall: Story;
+export declare const socialButtonBig: Story;
+export declare const socialButtonTextBefore: Story;

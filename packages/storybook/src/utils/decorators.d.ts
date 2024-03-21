@@ -1,4 +1,6 @@
-import React from 'react';
-export declare const storyContainerDecorator: (story: any) => React.JSX.Element;
-export declare const contentDecorator: (story: any) => React.JSX.Element;
-export declare const storyContainerContentDecorator: (story: any) => React.JSX.Element;
+import { Decorator } from '@storybook/react';
+export declare const storyContainerDecorator: Decorator;
+export declare const secondaryStoryContainerDecorator: Decorator;
+export declare const contentDecorator: Decorator;
+export declare const storyContainerContentDecorator: Decorator;
+export declare const storyContainerSectionDecorator: Decorator;

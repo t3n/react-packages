@@ -1,0 +1,11 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Heading } from '@t3n/components';
+declare const meta: Meta<typeof Heading>;
+export default meta;
+type Story = StoryObj<typeof Heading>;
+export declare const h1: Story;
+export declare const h2: Story;
+export declare const h3: Story;
+export declare const h4: Story;
+export declare const h5: Story;
+export declare const h6: Story;

@@ -1,0 +1,10 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Carousel } from '@t3n/components';
+declare const meta: Meta<typeof Carousel>;
+export default meta;
+type Story = StoryObj<typeof Carousel>;
+export declare const carousel: Story;
+export declare const infinite: Story;
+export declare const autoplay: Story;
+export declare const responsive: Story;
+export declare const sliderInModal: Story;

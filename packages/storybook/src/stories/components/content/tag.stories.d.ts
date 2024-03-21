@@ -1,0 +1,10 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Tag } from '@t3n/components';
+declare const meta: Meta<typeof Tag>;
+export default meta;
+type Story = StoryObj<typeof Tag>;
+export declare const tag: Story;
+export declare const smallTag: Story;
+export declare const linkedTags: Story;
+export declare const clickableTags: Story;
+export declare const tagWithIcon: Story;
