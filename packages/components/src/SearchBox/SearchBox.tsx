@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { FormEvent, ReactNode, useEffect, useState } from 'react';
 import AutoSuggest, {
   GetSuggestionValue,
