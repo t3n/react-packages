@@ -11,9 +11,9 @@
   "dependencies": {
     "@chakra-ui/system": "^2.6.2",
     "@chakra-ui/toast": "^7.0.2",
-    "@types/react": "^18.2.67",
+    "@types/react": "^18.2.69",
     "btoa": "^1.2.1",
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.0.20",
     "polished": "^4.1.1",
     "react-autosuggest": "^10.1.0",
     "react-dates": "^21.8.0",

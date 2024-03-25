@@ -11,4 +11,9 @@ config.output.library = {
 
 module.exports = {
   ...config,
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
 };

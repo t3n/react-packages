@@ -1,5 +1,12 @@
 {
   "name": "t3n-react-packages",
+  "workspaces": [
+    "packages/components",
+    "packages/theme",
+    "packages/storybook",
+    "packages/icons",
+    "packages/configs"
+  ],
   "version": "0.1.0",
   "description": "",
   "author": "",
@@ -48,7 +55,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
     "jsdom": "^24.0.0",
-    "lerna": "^5.5.0",
+    "lerna": "^8.1.2",
     "npm-check": "^6.0.1",
     "prettier": "^3.2.5",
     "react-test-renderer": "^18.2.0",
@@ -66,7 +73,8 @@
   },
   "scripts": {
     "clean": "lerna run clean --parallel  && lerna clean --yes && rm -rf node_modules ",
-    "prepare": "lerna clean --yes && lerna bootstrap --hoist",
+    "prepare": "lerna clean --yes",
+    "repair": "lerna repair",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
     "test": "jest",
