@@ -24,11 +24,11 @@ const BigRoundButton = styled(Button)`
   border: unset;
   ${({ theme }) => space({ p: '10px', theme })};
   ${({ theme }) => color({ theme, bg: 'background.secondary' })}
-  ${({ theme }) => layout({ theme, width: '50px', height: '50px' })};
+  ${({ theme }) => layout({ theme, width: '40px', height: '40px' })};
 
   > svg {
-    ${({ theme }) => layout({ theme, width: '25px', height: '25px' })};
-    fill: #5f5f5f !important;
+    ${({ theme }) => layout({ theme, width: '24px', height: '24px' })};
+    fill: #2a2a2a !important;
   }
 
   &:hover:not(:disabled) {
