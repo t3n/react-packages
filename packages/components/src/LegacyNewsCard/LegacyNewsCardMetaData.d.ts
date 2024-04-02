@@ -1,7 +1,7 @@
 import React from 'react';
 export interface LegacyNewsCardMetaDataProps {
-    type: string;
-    publishedAt: Date;
+    topNews?: boolean;
+    author?: string;
     readingTime?: number;
     isBookmarked: boolean;
     onClick: () => void;
