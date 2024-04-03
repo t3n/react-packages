@@ -1,6 +1,6 @@
 {
   "name": "@t3n/storybook",
-  "version": "0.8.21",
+  "version": "0.8.22",
   "description": "t3n.de storybook",
   "repository": {
     "type": "git",
@@ -11,15 +11,15 @@
     "@storybook/addon-docs": "^8.0.4",
     "@storybook/addon-essentials": "^8.0.4",
     "@storybook/addon-viewport": "^8.0.4",
-    "@storybook/react-webpack5": "^8.0.4",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
     "@storybook/manager-api": "^8.0.4",
     "@storybook/preview-api": "^8.0.4",
     "@storybook/react": "^8.0.4",
+    "@storybook/react-webpack5": "^8.0.4",
     "@storybook/theming": "^8.0.4",
-    "@t3n/components": "^0.8.21",
-    "@t3n/icons": "^0.7.5",
-    "@t3n/theme": "^0.7.9",
+    "@t3n/components": "^0.8.22",
+    "@t3n/icons": "^0.7.6",
+    "@t3n/theme": "^0.7.10",
     "formik": "^2.2.6",
     "install": "^0.13.0",
     "moment": "^2.29.1",
@@ -46,7 +46,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@t3n/configs": "^0.7.2",
+    "@t3n/configs": "^0.7.3",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^18.2.69",
     "@types/react-autosuggest": "^10.1.3",
