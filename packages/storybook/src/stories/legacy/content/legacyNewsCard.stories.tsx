@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Grid, GridItem, LegacyNewsCard } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 const meta: Meta<typeof LegacyNewsCard> = {
   component: LegacyNewsCard,
@@ -17,7 +17,7 @@ const meta: Meta<typeof LegacyNewsCard> = {
         </GridItem>
       </Grid>
     ),
-    storyContainerContentDecorator,
+    storyContainerDecorator,
   ],
   parameters: { controls: { sort: 'requiredFirst' } },
   args: {
@@ -29,10 +29,9 @@ const meta: Meta<typeof LegacyNewsCard> = {
         'Sorgen um Mediamarkt und Saturn: Die Elektronikmarktketten laufen trotz gutem Onlinegeschäft weniger erfolgreich. Jetzt soll eine neue „Geheimwaffe“ für mehr Gewinn sorgen.',
       author: {
         name: 'Tobias Weidemann',
-        avatar:
-          'https://storage.googleapis.com/t3n-de/neos/a0bb50df94a67b9f79a0cd4d95ee9fab293105f9/tw_pic.jpg',
       },
       publishedAt: new Date('Wed, 14 Aug 2019 10:30:30 GMT'),
+      readingTime: 3,
       imageUrl:
         'https://t3n.de/news/wp-content/uploads/2017/06/Media-saturn-ingolstadt-redcoon.jpg',
       url: 'https://t3n.de/news/mediamarkt-saturn-kaum-wachstum-1187784/',
@@ -42,19 +41,39 @@ const meta: Meta<typeof LegacyNewsCard> = {
     sponsored: false,
     popular: false,
     pro: false,
+    tr: false,
     isBookmarked: false,
+    withImage: true,
+    withTeaser: false,
+    withAuthor: false,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof LegacyNewsCard>;
 
-export const legacyNewsCard: Story = {};
+export const feedLayout: Story = {};
 
 export const heroLayout: Story = {
-  args: { hero: true },
+  args: { hero: true, withImage: true },
 };
 
-export const loading: Story = {
+export const topNews: Story = {
+  args: { hero: true, withImage: true, withTeaser: true, withAuthor: true },
+};
+
+export const compact: Story = {
+  args: { withImage: false },
+};
+
+export const loadingFeed: Story = {
   args: { loading: true },
+};
+
+export const loadingHero: Story = {
+  args: { loading: true, hero: true },
+};
+
+export const loadingCompact: Story = {
+  args: { loading: true, withImage: false },
 };

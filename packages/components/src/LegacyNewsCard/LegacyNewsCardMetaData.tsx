@@ -1,28 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
-import { typography } from 'styled-system';
+import { color, space, typography } from 'styled-system';
+
+import { MaterialSchedule } from '@t3n/icons';
 
 import Box from '../Box';
 import Text from '../Text';
 import LegacyBookmark from './LegacyBookmark';
 
 export interface LegacyNewsCardMetaDataProps {
-  type: string;
-  publishedAt: Date;
+  withAuthor?: boolean;
+  author?: string;
   readingTime?: number;
   isBookmarked: boolean;
   onClick: () => void;
 }
 
 const LegacyNewsCardMeta = styled(Box)`
-  p {
-    ${({ theme }) => typography({ theme, fontSize: 0 })}
+  div {
+    ${({ theme }) => color({ theme, color: 'text.secondary' })};
+    ${({ theme }) => typography({ theme, fontSize: 0 })};
+
+    svg {
+      ${({ theme }) => space({ theme, mr: 1 })};
+    }
   }
 `;
 
 const LegacyNewsCardMetaData: React.FC<LegacyNewsCardMetaDataProps> = ({
-  type,
-  publishedAt,
+  withAuthor,
+  author,
   readingTime,
   isBookmarked,
   onClick,
@@ -31,25 +38,26 @@ const LegacyNewsCardMetaData: React.FC<LegacyNewsCardMetaDataProps> = ({
     <LegacyNewsCardMeta
       display="flex"
       justifyContent="space-between"
-      mt={3}
-      mb={[2, 2, 2, 0]}
+      alignItems="center"
+      mt={2}
     >
-      <Box display="flex">
-        <Text bold secondary my={0}>
-          {type}
-        </Text>
-        <Text secondary my={0} px={2}>
-          •
-        </Text>
-        <Text secondary my={0}>
-          {readingTime
-            ? `${readingTime} Min.`
-            : publishedAt.toLocaleDateString('de-DE', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-              })}
-        </Text>
+      <Box display="flex" alignItems="center">
+        {withAuthor && (
+          <Box display="flex" alignItems="center">
+            <Text small secondary my={0}>
+              {author}
+            </Text>
+            <Text small secondary my={0} px={2}>
+              •
+            </Text>
+          </Box>
+        )}
+        {readingTime && (
+          <Box display="flex" alignItems="center" my={0}>
+            <MaterialSchedule fill="#5f5f5f" width="16" height="16" />
+            {readingTime} Min.
+          </Box>
+        )}
       </Box>
       <LegacyBookmark onClick={onClick} isBookmarked={isBookmarked} />
     </LegacyNewsCardMeta>

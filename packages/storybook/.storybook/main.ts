@@ -1,8 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
-const custom = require('../webpack.config.js');
+import type { StorybookConfig } from '@storybook/react-webpack5';
+import { RuleSetRule } from 'webpack';
 
-export default {
+const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
   addons: [
@@ -23,36 +24,40 @@ export default {
 
   framework: {
     name: '@storybook/react-webpack5',
-    options: { fastRefresh: true },
+    options: { builder: { lazyCompilation: true } },
   },
 
   staticDirs: ['../public'],
 
   webpackFinal: async (config) => {
     // Since webpack 5 we need to polyfill some modules
-    config.resolve.fallback.crypto = false;
-    config.resolve.fallback.buffer = require.resolve('buffer');
+    (config.resolve!.fallback! as any).crypto = false;
+    (config.resolve!.fallback! as any).buffer = require.resolve('buffer');
 
     // Alias our own packages so they get included in bundling
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
+    config.resolve!.alias = {
+      ...(config.resolve!.alias || {}),
       '@t3n/components': path.resolve(__dirname, '../../components/src'),
       '@t3n/icons': path.resolve(__dirname, '../../icons/src/components'),
       '@t3n/theme': path.resolve(__dirname, '../../theme/src'),
     };
 
-    config.module = {
-      ...config.module,
-      ...custom.module,
-      rules: [...config.module.rules, ...custom.module.rules],
+    const tsRule: RuleSetRule = {
+      test: /\.(tsx?|jsx?)$/,
+      loader: 'ts-loader',
+      options: {
+        transpileOnly: true,
+      },
     };
 
+    config.module!.rules = [...config.module!.rules!, tsRule];
+
     // Include our own packages in the loader
-    config.module.rules = config.module.rules.map((rule) => {
-      if (Array.isArray(rule.oneOf)) {
+    config.module!.rules = config.module!.rules!.map((rule) => {
+      if (typeof rule === 'object' && Array.isArray(rule!.oneOf)) {
         return {
           ...rule,
-          oneOf: rule.oneOf.map((r) => {
+          oneOf: rule!.oneOf.map((r: any) => {
             if (r.test && r.test instanceof RegExp && '.tsx'.match(r.test)) {
               return {
                 ...r,
@@ -75,11 +80,17 @@ export default {
 
     // Add webpack 5 polyfills
     config.plugins = [
-      ...config.plugins,
+      ...config.plugins!,
       new webpack.ProvidePlugin({
         Buffer: ['buffer', 'Buffer'],
       }),
     ];
+
+    config.performance = {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000,
+    };
 
     return config;
   },
@@ -88,3 +99,5 @@ export default {
     autodocs: true,
   },
 };
+
+export default config;
