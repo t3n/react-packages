@@ -43,7 +43,7 @@ export interface LegacyNewsCardProps {
 
 const LegacyNewsCardWrapper = styled(Box)`
   @media screen and (min-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+      props.theme.breakpoints[1]}) {
     ${({ theme }) => space({ theme, p: 3 })};
     ${({ theme }) =>
       border({
@@ -55,7 +55,7 @@ const LegacyNewsCardWrapper = styled(Box)`
   }
 
   @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+      props.theme.breakpoints[1]}) {
     ${({ theme }) => space({ theme, p: 0, pb: 3 })};
     ${({ theme }) =>
       border({
@@ -143,19 +143,58 @@ const LegacyNewsCard = ({
   }
 
   return news ? (
-    <LegacyNewsCardWrapper>
-      <NewsCardLink href={news.url} aria-label="News-URL" hero={hero}>
-        {withImage && (
-          <LegacyNewsCardImage
-            imageWidth={hero ? 900 : 300}
-            imageHeight={hero ? 506 : 169}
-            width={hero ? '100%' : '200px'}
+    <>
+      <LegacyNewsCardWrapper display={['none', 'none', 'block']}>
+        <NewsCardLink href={news.url} aria-label="News-URL" hero={hero}>
+          {withImage && (
+            <LegacyNewsCardImage
+              imageWidth={hero ? 900 : 300}
+              imageHeight={hero ? 506 : 169}
+              width={hero ? '100%' : '200px'}
+              height="auto"
+              optimizationClass={`news-card-${hero ? 'large' : 'small'}`}
+              src={news.imageUrl}
+            />
+          )}
+          <Box mt={hero && withImage ? 3 : 0} ml={hero || !withImage ? '0' : 3}>
+            <LegacyNewsCardHeadline
+              title={news.title}
+              type={news.type}
+              pro={pro}
+              tr={tr}
+              sponsored={sponsored}
+            />
+            {withTeaser && (
+              <Text mb={2} mt={3}>
+                {news.teaser}
+              </Text>
+            )}
+            {popular && (
+              <Text italic small secondary mb={2} mt={0}>
+                Dieser Artikel hat besonders viele Leser:innen interessiert
+              </Text>
+            )}
+            <LegacyNewsCardMetaData
+              withAuthor={withAuthor}
+              author={news.author.name}
+              readingTime={news.readingTime}
+              isBookmarked={isBookmarked}
+              onClick={onBookmarkClick}
+            />
+          </Box>
+        </NewsCardLink>
+      </LegacyNewsCardWrapper>
+      <LegacyNewsCardWrapper display={['block', 'block', 'none']}>
+        <NewsCardLink href={news.url} aria-label="News-URL" hero>
+          <Image
+            imageWidth={900}
+            imageHeight={506}
+            width={['100%']}
             height="auto"
-            optimizationClass={`news-card-${hero ? 'large' : 'small'}`}
+            optimizationClass="news-card-large"
             src={news.imageUrl}
+            mb={3}
           />
-        )}
-        <Box mt={hero && withImage ? 3 : 0} ml={hero || !withImage ? '0' : 3}>
           <LegacyNewsCardHeadline
             title={news.title}
             type={news.type}
@@ -164,25 +203,20 @@ const LegacyNewsCard = ({
             sponsored={sponsored}
           />
           {withTeaser && (
-            <Text mb={2} mt={3}>
+            <Text mb={1} mt={3}>
               {news.teaser}
             </Text>
           )}
-          {popular && (
-            <Text italic small secondary mb={2} mt={0}>
-              Dieser Artikel hat besonders viele Leser:innen interessiert
-            </Text>
-          )}
-          <LegacyNewsCardMetaData
-            withAuthor={withAuthor}
-            author={news.author.name}
-            readingTime={news.readingTime}
-            isBookmarked={isBookmarked}
-            onClick={onBookmarkClick}
-          />
-        </Box>
-      </NewsCardLink>
-    </LegacyNewsCardWrapper>
+        </NewsCardLink>
+        <LegacyNewsCardMetaData
+          withAuthor={withAuthor}
+          author={news.author.name}
+          readingTime={news.readingTime}
+          isBookmarked={isBookmarked}
+          onClick={onBookmarkClick}
+        />
+      </LegacyNewsCardWrapper>
+    </>
   ) : null;
 };
 
