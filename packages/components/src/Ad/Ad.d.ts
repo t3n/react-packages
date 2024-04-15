@@ -3,7 +3,6 @@ import { BoxProps } from '../Box';
 export interface AdProps extends BoxProps {
     name: string;
     preview?: boolean;
-    className?: string;
     style?: React.CSSProperties;
 }
 declare const Ad: React.ForwardRefExoticComponent<AdProps & React.RefAttributes<HTMLDivElement>>;

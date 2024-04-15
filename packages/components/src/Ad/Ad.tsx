@@ -7,7 +7,6 @@ import Box, { BoxProps } from '../Box';
 export interface AdProps extends BoxProps {
   name: string;
   preview?: boolean;
-  className?: string;
   style?: React.CSSProperties;
 }
 
@@ -117,11 +116,11 @@ const AdPlaceholder = styled(Box)<AdProps>`
 
 const Ad = forwardRef<HTMLDivElement, AdProps>(
   // eslint-disable-next-line react/prop-types, no-shadow
-  ({ name, preview, style, className, color, ...boxProps }, ref) => (
+  ({ name, preview, style, color, ...boxProps }, ref) => (
     <AdWrapper
       name={name}
       style={style}
-      className={className}
+      className={`c-ad-container -${name}`}
       color={color as any}
       {...boxProps}
       ref={ref}
@@ -133,6 +132,7 @@ const Ad = forwardRef<HTMLDivElement, AdProps>(
       )}
       <Box
         id={name}
+        className="c-ad"
         width={1}
         display="flex"
         justifyContent={name !== 'T3N_D_Right' ? 'center' : ''}
