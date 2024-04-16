@@ -98,7 +98,8 @@ const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
     <TooltipContainer display="inline-block" position="relative">
       <BookmarkContainer
         display="flex"
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           onClick();
           setIsBookmarkedClick(!isBookmarked);
         }}
