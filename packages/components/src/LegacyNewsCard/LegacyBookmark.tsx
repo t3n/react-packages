@@ -111,7 +111,9 @@ const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
           <MaterialBookmarkBorder fill="#5f5f5f" width="24" height="24" />
         )}
       </BookmarkContainer>
-      <Tooltip>Artikel merken</Tooltip>
+      <Tooltip>
+        {isBookmarked ? 'Artikel nicht länger merken' : 'Artikel merken'}
+      </Tooltip>
     </TooltipContainer>
   );
 };
