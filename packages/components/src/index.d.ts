@@ -37,6 +37,7 @@ export { default as LegacyBreadcrumbItem } from './LegacyBreadcrumbItem';
 export { default as LegacyFooter } from './LegacyFooter';
 export { default as LegacyHeader } from './LegacyHeader';
 export { default as LegacyNewsCard } from './LegacyNewsCard';
+export { default as LegacyBookmark } from './LegacyNewsCard/LegacyBookmark';
 export { default as LegacyPageLayout } from './LegacyPageLayout';
 export { default as LegacyPagination } from './LegacyPagination';
 export { default as LegacySection } from './LegacySection';
