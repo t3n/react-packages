@@ -77,8 +77,6 @@ const LegacyNewsCardHeadline: React.FC<LegacyNewsCardHeadlineProps> = ({
   return (
     <>
       <Box display="flex" flexWrap="wrap" alignItems="center" mb={1}>
-        <NewsType>{type}</NewsType>
-        {tr && <TRBadge>MIT Technology Review</TRBadge>}
         {sponsored && (
           <SponsoredInfo as="span" secondary small>
             Anzeige
@@ -89,6 +87,8 @@ const LegacyNewsCardHeadline: React.FC<LegacyNewsCardHeadlineProps> = ({
             <T3nPro height="18" width="36" />
           </Box>
         )}
+        {tr && <TRBadge>MIT Technology Review</TRBadge>}
+        <NewsType>{type}</NewsType>
       </Box>
       <Heading as="h3" styleAs="h5" my={0}>
         {title}
