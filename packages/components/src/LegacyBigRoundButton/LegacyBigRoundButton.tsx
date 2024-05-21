@@ -26,7 +26,8 @@ const BigRoundButton = styled(Button)`
   ${({ theme }) => color({ theme, bg: 'background.secondary' })}
   ${({ theme }) => layout({ theme, width: '40px', height: '40px' })};
 
-  > svg {
+  > svg,
+  > svg > path:first-child {
     ${({ theme }) => layout({ theme, width: '24px', height: '24px' })};
     fill: #2a2a2a !important;
   }
@@ -35,7 +36,8 @@ const BigRoundButton = styled(Button)`
     ${({ theme }) => color({ theme, bg: 'background.inverse' })};
     transform: scale(1.3);
 
-    > svg {
+    > svg,
+    > svg > path:first-child {
       fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse} !important;
     }
   }
