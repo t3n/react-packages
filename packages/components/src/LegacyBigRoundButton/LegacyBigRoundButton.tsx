@@ -40,6 +40,10 @@ const BigRoundButton = styled(Button)`
     > svg > path:first-child {
       fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse} !important;
     }
+
+    > svg > path:nth-child(2) {
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.primary} !important;
+    }
   }
 `;
 
