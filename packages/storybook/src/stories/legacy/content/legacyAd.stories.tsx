@@ -56,8 +56,14 @@ export const previewAd: Story = {
   },
 };
 
-export const incontent1: Story = {
+export const incontent2: Story = {
   args: {
     name: 'T3N_D_Incontent-2',
+  },
+};
+
+export const incontentMobile: Story = {
+  args: {
+    name: 'T3N_M_Incontent-2',
   },
 };

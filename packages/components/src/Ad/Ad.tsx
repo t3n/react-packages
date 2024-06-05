@@ -2,6 +2,8 @@ import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { color, lineHeight, space, typography } from 'styled-system';
 
+import { ThemeProps } from '@t3n/theme';
+
 import Box, { BoxProps } from '../Box';
 
 export interface AdProps extends BoxProps {
@@ -63,6 +65,23 @@ const AdWrapper = styled(Box)<AdProps>`
         `
       : ''}
 
+  ${({ name }) =>
+    name.startsWith('T3N_M_Incontent-')
+      ? css`
+          @media screen and (max-width: ${(props: ThemeProps) =>
+              props.theme.breakpoints[0]}) {
+            display: block;
+            min-height: 600px !important;
+          }
+
+          .c-ad {
+            position: sticky !important;
+            top: 78px;
+            align-items: flex-start;
+          }
+        `
+      : ''}
+
   #dspx_advDiv_ {
     display: none;
   }
@@ -88,6 +107,17 @@ const AdLabel = styled(Box)<AdProps>`
       color: 'text.secondary',
       bg: name === 'T3N_D_Incontent-1' ? 'background.primary' : 'transparent',
     })};
+
+  ${({ name }) =>
+    name.startsWith('T3N_M_Incontent-')
+      ? css`
+          @media screen and (max-width: ${(props: ThemeProps) =>
+              props.theme.breakpoints[0]}) {
+            position: sticky !important;
+            top: 58px;
+          }
+        `
+      : ''}
 `;
 
 const AdPlaceholder = styled(Box)<AdProps>`
@@ -110,6 +140,16 @@ const AdPlaceholder = styled(Box)<AdProps>`
     name === 'T3N_D_Right' || name === 'T3N_D_Top'
       ? css`
           display: none;
+        `
+      : ''}
+
+  ${({ name }) =>
+    name.startsWith('T3N_M_Incontent-')
+      ? css`
+          @media screen and (max-width: ${(props: ThemeProps) =>
+              props.theme.breakpoints[0]}) {
+            min-height: 600px !important;
+          }
         `
       : ''}
 `;
