@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { LegacyBigRoundButton } from '@t3n/components';
-import { MaterialRssFeed, SocialMastodon } from '@t3n/icons';
+import { SocialMastodon } from '@t3n/icons';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
