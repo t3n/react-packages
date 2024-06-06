@@ -83,7 +83,7 @@ const LegacyNewsCardHeadline: React.FC<LegacyNewsCardHeadlineProps> = ({
           </SponsoredInfo>
         )}
         {pro && (
-          <Box display="flex" mb={1}>
+          <Box display="flex" mb={1} mr={1}>
             <T3nPro height="18" width="36" />
           </Box>
         )}

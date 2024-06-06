@@ -156,7 +156,11 @@ const LegacyNewsCard = ({
               src={news.imageUrl}
             />
           )}
-          <Box mt={hero && withImage ? 3 : 0} ml={hero || !withImage ? '0' : 3}>
+          <Box
+            mt={hero && withImage ? 3 : 0}
+            ml={hero || !withImage ? '0' : 3}
+            width={1}
+          >
             <LegacyNewsCardHeadline
               title={news.title}
               type={news.type}
