@@ -16,7 +16,6 @@ export { default as Center } from './Center';
 export { default as Checkbox } from './Checkbox';
 export { default as ConfirmDialog } from './ConfirmDialog';
 export { default as Content } from './Content';
-export { default as DatePicker } from './DatePicker';
 export { default as Divider } from './Divider';
 export { default as FormGroup, PasswordLostLabel } from './FormGroup';
 export { default as GlobalStyle } from './GlobalStyle';
