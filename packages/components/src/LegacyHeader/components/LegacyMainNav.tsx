@@ -261,7 +261,7 @@ const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   },
   {
     label: 'Jobs',
-    url: '/jobs/',
+    url: 'https://jobs.t3n.de',
   },
   {
     label: 'Firmen',

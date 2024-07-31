@@ -203,7 +203,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Jobs',
-        url: '/jobs/',
+        url: 'https://jobs.t3n.de',
       },
       {
         label: 'Firmen',
@@ -244,10 +244,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: 'http://feeds2.feedburner.com/t3n-magazin/',
         target: '_blank',
         rel: 'noreferrer noopener',
-      },
-      {
-        label: 'Aktuelle Jobs',
-        url: '/jobs/rss/all/',
       },
     ],
   },
