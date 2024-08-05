@@ -204,10 +204,6 @@ const mobileNavLinks: MobileNavLinksType[] = [
     url: 'https://jobs.t3n.de',
   },
   {
-    label: 'Firmen',
-    url: '/firmen/',
-  },
-  {
     label: 'Events',
     url: '/events/',
   },

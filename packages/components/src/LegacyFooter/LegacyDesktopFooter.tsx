@@ -206,10 +206,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: 'https://jobs.t3n.de',
       },
       {
-        label: 'Firmen',
-        url: '/firmen/',
-      },
-      {
         label: 'Events',
         url: '/events/',
       },
