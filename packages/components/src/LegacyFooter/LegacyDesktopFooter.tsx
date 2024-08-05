@@ -206,10 +206,6 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/jobs/',
       },
       {
-        label: 'Firmen',
-        url: '/firmen/',
-      },
-      {
         label: 'Events',
         url: '/events/',
       },
