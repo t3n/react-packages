@@ -69,7 +69,6 @@ export { default as TagList } from './TagList';
 export { default as Text } from './Text';
 export { default as Textarea } from './Textarea';
 export { default as TitleCard } from './TitleCard';
-export { default as Toast, useToast } from './Toast';
 export { default as UserCard } from './UserCard';
 export { default as UserMenu } from './UserMenu';
 export { default as VisualSection } from './VisualSection';
