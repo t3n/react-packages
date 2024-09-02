@@ -1,0 +1,11 @@
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+jobs:
+  git-pr-size:
+    uses: t3n/github-actions/.github/workflows/git-pr-size.yaml@main
