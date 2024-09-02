@@ -1,0 +1,7 @@
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'
+
+jobs:
+  git-pr-sanity:
+    uses: t3n/github-actions/.github/workflows/git-pr-sanity.yaml@main
