@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Options } from 'react-select';
 import { WidthProps } from 'styled-system';
 export interface SelectBoxProps<S> extends WidthProps {

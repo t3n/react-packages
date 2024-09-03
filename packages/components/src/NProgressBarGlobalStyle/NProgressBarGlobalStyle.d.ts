@@ -1,5 +1,6 @@
 import { ThemeProps } from '@t3n/theme';
+import { ThemeBrandColor, ThemeShadeColor } from '@t3n/theme/src/theme/colors/colors';
 declare const NProgressBarGlobalStyle: import("styled-components").GlobalStyleComponent<{
-    barColor?: "black" | "red" | "white" | "grey42" | "grey95" | "grey204" | "grey232" | "grey244" | undefined;
+    barColor?: ThemeShadeColor | ThemeBrandColor;
 } & ThemeProps, import("styled-components").DefaultTheme>;
 export default NProgressBarGlobalStyle;
