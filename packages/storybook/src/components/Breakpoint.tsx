@@ -5,7 +5,11 @@ export interface BreakpointProps extends ColorProps, SpaceProps {
   width: string;
 }
 
-const Breakpoint = styled.div<BreakpointProps>`
+const Breakpoint = styled.div.attrs((props) => ({
+  bg: 'background.secondary',
+  mb: 1,
+  ...props,
+}))<BreakpointProps>`
   height: 2rem;
   width: ${({ width }) => width};
   display: flex;
@@ -14,10 +18,5 @@ const Breakpoint = styled.div<BreakpointProps>`
   ${color};
   ${space};
 `;
-
-Breakpoint.defaultProps = {
-  bg: 'background.secondary',
-  mb: 1,
-};
 
 export default Breakpoint;

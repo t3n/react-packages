@@ -5,7 +5,7 @@ import { RatioProps } from '../Ratio';
 export interface CardHeaderProps extends ThemeProps {
     as?: 'div' | 'a';
     big?: boolean;
-    ratio?: RatioProps['ratio'];
+    ratio?: RatioProps['ratio'] | 'auto';
     bg?: ColorProps['bg'];
     color?: string;
     image?: string;

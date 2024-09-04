@@ -56,11 +56,18 @@ const StyledIcon = styled(Icon)<Pick<DividerProps, 'variant'>>`
 
 const Divider: React.FC<DividerProps> = ({
   children,
-  variant: variantProp,
+  variant: variantProp = 'primary',
   iconComponent,
+  my = 3,
   ...rest
 }) => (
-  <StyledBox display="flex" alignItems="center" variant={variantProp} {...rest}>
+  <StyledBox
+    display="flex"
+    alignItems="center"
+    variant={variantProp}
+    my={my}
+    {...rest}
+  >
     <StyledLine variant={variantProp} />
     {children ? (
       <Text small mx={2} my={0}>
@@ -72,11 +79,5 @@ const Divider: React.FC<DividerProps> = ({
     {(children || iconComponent) && <StyledLine variant={variantProp} />}
   </StyledBox>
 );
-
-Divider.defaultProps = {
-  width: 1,
-  variant: 'primary',
-  my: 3,
-};
 
 export default Divider;

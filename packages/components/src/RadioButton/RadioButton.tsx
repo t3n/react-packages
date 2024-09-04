@@ -186,7 +186,7 @@ const RadioButton = ({
   feedbackColor,
   name,
   value,
-  variant: variantProp,
+  variant: variantProp = 'light',
 }: RadioButtonProps) => (
   <StyledLabel disabled={disabled} variant={variantProp}>
     <PlainRadioButton
@@ -205,9 +205,5 @@ const RadioButton = ({
     )}
   </StyledLabel>
 );
-
-RadioButton.defaultProps = {
-  variant: 'light',
-};
 
 export default RadioButton;

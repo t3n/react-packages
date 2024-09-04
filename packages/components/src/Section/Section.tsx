@@ -40,7 +40,7 @@ const Section: React.FC<SectionProps> = ({
   wide,
   small,
   children,
-  innerGap,
+  innerGap = 6,
 }) => (
   <SectionOuter variant={variant} innerGap={innerGap}>
     <Content wide={wide} small={small}>
@@ -50,9 +50,5 @@ const Section: React.FC<SectionProps> = ({
 );
 
 Section.displayName = 'Section';
-
-Section.defaultProps = {
-  innerGap: 6,
-};
 
 export default Section;

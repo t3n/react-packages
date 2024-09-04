@@ -43,9 +43,10 @@ const FormGroup: React.FC<FormGroupProps> = ({
   labelEndContent,
   errorMessage,
   children,
+  my = 4,
   ...props
 }) => (
-  <StyledFormGroup {...props}>
+  <StyledFormGroup my={my} {...props}>
     <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>
       {labelSecondary && (
@@ -63,9 +64,5 @@ const FormGroup: React.FC<FormGroupProps> = ({
     )}
   </StyledFormGroup>
 );
-
-FormGroup.defaultProps = {
-  my: 4,
-};
 
 export default FormGroup;

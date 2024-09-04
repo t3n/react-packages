@@ -179,7 +179,7 @@ const Switch: React.FC<SwitchProps> = ({
   onChange,
   label,
   disabled,
-  variant: variantProp,
+  variant: variantProp = 'light',
   name,
   value,
   width: widthProp,
@@ -205,10 +205,6 @@ const Switch: React.FC<SwitchProps> = ({
       />
     </StyledLabel>
   );
-};
-
-Switch.defaultProps = {
-  variant: 'light',
 };
 
 export default Switch;

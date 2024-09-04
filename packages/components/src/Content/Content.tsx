@@ -21,7 +21,12 @@ const maxWidth = ({ wide, small, theme }: ContentProps): string =>
       ? styledMaxWidth({ maxWidth: [rem(770)], theme })
       : styledMaxWidth({ maxWidth: [rem(1150)], theme });
 
-const Content = styled.div<ContentProps>`
+const Content = styled.div.attrs((props) => ({
+  wide: false,
+  small: false,
+  px: [3] as PaddingProps,
+  ...props,
+}))<ContentProps>`
   width: 100%;
   margin: 0 auto;
   ${maxWidth};
@@ -29,11 +34,5 @@ const Content = styled.div<ContentProps>`
 `;
 
 Content.displayName = 'Content';
-
-Content.defaultProps = {
-  wide: false,
-  small: false,
-  px: [3],
-};
 
 export default Content;

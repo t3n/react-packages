@@ -102,12 +102,11 @@ export const linkStyle = css<LinkProps>`
   }}
 `;
 
-const Link = styled.a<LinkProps>`
+const Link = styled.a.attrs((props) => ({
+  variant: 'primary',
+  ...props,
+}))<LinkProps>`
   ${linkStyle}
 `;
-
-Link.defaultProps = {
-  variant: 'primary',
-};
 
 export default Link;

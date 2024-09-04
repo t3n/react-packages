@@ -118,6 +118,7 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
       <svg
         class="c4 c5"
         fill="text.primary"
+        theme="[object Object]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -137,6 +138,7 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
       <svg
         class="c4 c9"
         fill="shades.grey95"
+        theme="[object Object]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -298,6 +300,7 @@ exports[`Accordion matches snapshot 1`] = `
       <svg
         class="c6 c7"
         fill="shades.grey95"
+        theme="[object Object]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >

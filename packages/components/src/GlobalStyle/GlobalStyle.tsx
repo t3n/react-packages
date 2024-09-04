@@ -46,8 +46,4 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   }
 `;
 
-GlobalStyle.defaultProps = {
-  variant: 'primary',
-};
-
 export default GlobalStyle;

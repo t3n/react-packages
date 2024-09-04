@@ -42,10 +42,10 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
 `;
 
 const TagList: React.FC<TagListProps> = ({
-  initialCollapsed,
+  initialCollapsed = true,
   collapseAfter,
   small = false,
-  colorVariant,
+  colorVariant = 'secondary',
   tags,
 }) => {
   const [collapsed, setCollapsed] = useState<boolean>(!!initialCollapsed);
@@ -102,12 +102,6 @@ const TagList: React.FC<TagListProps> = ({
       </StyledArrowButton>
     </StyledTagList>
   );
-};
-
-TagList.defaultProps = {
-  collapseAfter: 5,
-  initialCollapsed: true,
-  colorVariant: 'secondary',
 };
 
 export default TagList;

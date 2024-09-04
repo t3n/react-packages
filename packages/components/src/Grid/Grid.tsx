@@ -51,7 +51,14 @@ const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string => {
   return '';
 };
 
-const Grid = styled.div<GridProps>`
+const Grid = styled.div.attrs((props) => ({
+  vertical: false,
+  reverse: false,
+  wide: false,
+  noGap: false,
+  justifyContent: 'flex-start',
+  ...props,
+}))<GridProps>`
   display: flex;
   flex-wrap: wrap;
   ${flexDirection}
@@ -67,13 +74,5 @@ const Grid = styled.div<GridProps>`
 `;
 
 Grid.displayName = 'Grid';
-
-Grid.defaultProps = {
-  vertical: false,
-  reverse: false,
-  wide: false,
-  noGap: false,
-  justifyContent: 'flex-start',
-};
 
 export default Grid;

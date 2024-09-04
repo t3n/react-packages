@@ -8,3 +8,4 @@
 build/
 dist/
 packages/icons/src/components/**/*
+*.test.tsx.snap

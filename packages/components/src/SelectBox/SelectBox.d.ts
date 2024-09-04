@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Options } from 'react-select';
 import { WidthProps } from 'styled-system';
 export interface SelectBoxProps<S> extends WidthProps {
@@ -33,13 +32,5 @@ export interface SelectBoxProps<S> extends WidthProps {
     }) => string;
     onInputChange?: (newValue: string) => string;
 }
-declare const SelectBox: {
-    <S>({ error, noOptionsMessage, creatable, onChange, disabled, loading, hideReset, multiSelect, searchable, async, loadOptions, ...props }: SelectBoxProps<S>): JSX.Element;
-    defaultProps: {
-        placeholder: string;
-        noOptionsMessage: string;
-        loading: boolean;
-        searchable: boolean;
-    };
-};
+declare const SelectBox: <S>({ error, noOptionsMessage, creatable, onChange, disabled, loading, hideReset, multiSelect, searchable, placeholder, async, loadOptions, ...props }: SelectBoxProps<S>) => JSX.Element;
 export default SelectBox;
