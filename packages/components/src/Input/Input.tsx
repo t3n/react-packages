@@ -121,18 +121,18 @@ const Input = forwardRef(
   (
     {
       disabled,
-      type,
+      type = 'text',
       error,
-      width,
+      width = '100%',
       className,
       onFocus,
       onBlur,
       onChange,
       onReset,
-      isFocused,
+      isFocused = false,
       value: controlledValue,
       defaultValue,
-      hideReset,
+      hideReset = false,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement | null>,
@@ -237,12 +237,5 @@ const Input = forwardRef(
     );
   },
 );
-
-Input.defaultProps = {
-  type: 'text',
-  isFocused: false,
-  hideReset: false,
-  width: '100%',
-};
 
 export default Input;

@@ -24,13 +24,4 @@ export interface SearchBoxProps<S> extends WidthProps {
     children?: ReactNode;
 }
 declare function SearchBox<S>({ variant: variantProp, width, placeholder, defaultValue, multiSection, isLoading, renderSuggestion, renderSuggestionsEmpty: SuggestionsEmpty, suggestions, onSelect, clearOnSelect, onSearchTermChange, getSuggestionValue, handleSuggestionFetchRequested, handleSuggestionClearRequested, }: SearchBoxProps<S>): React.JSX.Element;
-declare namespace SearchBox {
-    var defaultProps: {
-        isLoading: boolean;
-        suggestions: null;
-        variant: string;
-        placeholder: string;
-        clearOnSelect: boolean;
-    };
-}
 export default SearchBox;

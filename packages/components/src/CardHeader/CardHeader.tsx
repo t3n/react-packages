@@ -11,7 +11,7 @@ import Ratio, { RatioProps } from '../Ratio';
 export interface CardHeaderProps extends ThemeProps {
   as?: 'div' | 'a';
   big?: boolean;
-  ratio?: RatioProps['ratio'];
+  ratio?: RatioProps['ratio'] | 'auto';
   bg?: ColorProps['bg'];
   color?: string;
   image?: string;
@@ -30,7 +30,7 @@ const CardHeaderContainer = styled.div``;
 const CardHeaderComponent = ({
   big, // eslint-disable-line @typescript-eslint/no-unused-vars
   ratio,
-  bg, // eslint-disable-line @typescript-eslint/no-unused-vars
+  bg = 'background.secondary', // eslint-disable-line @typescript-eslint/no-unused-vars
   image,
   children,
   ...props
@@ -71,9 +71,6 @@ const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`
   }
 `;
 
-CardHeader.defaultProps = {
-  bg: 'background.secondary',
-};
 CardHeader.displayName = 'CardHeader';
 
 export default CardHeader;

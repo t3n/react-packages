@@ -187,17 +187,17 @@ const SuggestionItem = styled.div`
 
 // eslint-disable-next-line react/function-component-definition
 function SearchBox<S>({
-  variant: variantProp,
+  variant: variantProp = 'red',
   width,
-  placeholder,
+  placeholder = 'Suche nach News',
   defaultValue,
   multiSection,
-  isLoading,
+  isLoading = true,
   renderSuggestion,
   renderSuggestionsEmpty: SuggestionsEmpty,
-  suggestions,
+  suggestions = null,
   onSelect,
-  clearOnSelect,
+  clearOnSelect = true,
   onSearchTermChange,
   getSuggestionValue,
   handleSuggestionFetchRequested,
@@ -325,13 +325,5 @@ function SearchBox<S>({
     </Wrapper>
   );
 }
-
-SearchBox.defaultProps = {
-  isLoading: true,
-  suggestions: null,
-  variant: 'red',
-  placeholder: 'Suche nach News',
-  clearOnSelect: true,
-};
 
 export default SearchBox;

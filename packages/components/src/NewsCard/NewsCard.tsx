@@ -81,8 +81,4 @@ const NewsCard = ({ loading, type, news }: NewsCardProps) => {
   );
 };
 
-NewsCard.defaultProps = {
-  loading: true,
-};
-
 export default NewsCard;

@@ -66,7 +66,7 @@ const StyledText = styled((props) => <Text {...props} />)`
 const AvatarImage = ({
   src,
   optimizeSrc = true,
-  size,
+  size = 40,
   className,
   alt,
   loading,
@@ -120,10 +120,6 @@ const AvatarImage = ({
       alt={alt || 'Kein Avatar'}
     />
   );
-};
-
-AvatarImage.defaultProps = {
-  size: '40px',
 };
 
 const StyledAvatarImage = styled(AvatarImage)<{ src?: string }>`

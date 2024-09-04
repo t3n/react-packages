@@ -8,7 +8,10 @@ export interface RatioProps extends ThemeProps, BackgroundColorProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-const Ratio = styled.div<RatioProps>`
+const Ratio = styled.div.attrs((props) => ({
+  ratio: (16 / 9) as RatioProps['ratio'],
+  ...props,
+}))<RatioProps>`
   ${color}
 
   ${({ ratio }: RatioProps) =>
@@ -31,9 +34,6 @@ const Ratio = styled.div<RatioProps>`
   `}
 `;
 
-Ratio.defaultProps = {
-  ratio: 16 / 9,
-};
 Ratio.displayName = 'Ratio';
 
 export default Ratio;

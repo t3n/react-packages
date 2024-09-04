@@ -50,7 +50,11 @@ const BaseIcon = ({
   <IconComponent width={undefined} height={undefined} {...props} />
 );
 
-const Icon = styled(BaseIcon)<IconProps>`
+const Icon = styled(BaseIcon).attrs((props) => ({
+  fill: 'text.primary',
+  width: '1.5rem',
+  ...props,
+}))<IconProps>`
   ${system({
     fill: {
       property: 'fill',
@@ -63,10 +67,5 @@ const Icon = styled(BaseIcon)<IconProps>`
   ${space}
   ${position}
 `;
-
-Icon.defaultProps = {
-  fill: 'text.primary',
-  width: '1.5rem',
-};
 
 export default Icon;

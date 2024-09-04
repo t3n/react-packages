@@ -141,14 +141,14 @@ const Textarea = forwardRef(
     {
       disabled,
       error,
-      width,
+      width = '100%',
       rows,
       className,
       onFocus,
       onBlur,
       onChange,
       onReset,
-      isFocused,
+      isFocused = false,
       defaultValue,
       maxLength,
       ...props
@@ -235,10 +235,5 @@ const Textarea = forwardRef(
     );
   },
 );
-
-Textarea.defaultProps = {
-  isFocused: false,
-  width: '100%',
-};
 
 export default Textarea;

@@ -15,10 +15,5 @@ export interface NewsCardProps {
         url: string;
     };
 }
-declare const NewsCard: {
-    ({ loading, type, news }: NewsCardProps): React.JSX.Element | null;
-    defaultProps: {
-        loading: boolean;
-    };
-};
+declare const NewsCard: ({ loading, type, news }: NewsCardProps) => React.JSX.Element | null;
 export default NewsCard;

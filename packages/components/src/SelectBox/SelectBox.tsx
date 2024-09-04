@@ -227,14 +227,15 @@ const CreateLabel = ({ label }: { label: string }) => (
 
 const SelectBox = <S,>({
   error,
-  noOptionsMessage,
+  noOptionsMessage = 'Keine Auswahl gefunden.',
   creatable,
   onChange,
   disabled,
-  loading,
+  loading = false,
   hideReset,
   multiSelect = false,
-  searchable,
+  searchable = false,
+  placeholder = 'Auswählen',
   async,
   loadOptions,
   ...props
@@ -251,6 +252,7 @@ const SelectBox = <S,>({
     isClearable: !hideReset,
     isLoading: loading,
     isMulti: multiSelect,
+    placeholder,
     // TODO: Fix lint issue
     // eslint-disable-next-line react/no-unstable-nested-components
     formatGroupLabel: ({ label }: GroupBase<S>) => (
@@ -290,13 +292,6 @@ const SelectBox = <S,>({
   }
 
   return <Select {...commonProps} isSearchable={searchable} />;
-};
-
-SelectBox.defaultProps = {
-  placeholder: 'Auswählen',
-  noOptionsMessage: 'Keine Auswahl gefunden.',
-  loading: false,
-  searchable: false,
 };
 
 export default SelectBox;

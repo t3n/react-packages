@@ -298,7 +298,9 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
     loading,
     label,
     icon,
-    size,
+    size = 'regular',
+    color = 'default',
+    variant: iconVariant = 'primary',
     as,
     expanded = false,
     ...rest
@@ -319,6 +321,8 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
       label={label}
       loading={loading}
       disabled={loading || disabled}
+      color={color}
+      variant={iconVariant}
       {...rest}
     >
       {loading ? (
@@ -336,12 +340,6 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
       )}
     </StyledIconButton>
   );
-};
-
-IconButton.defaultProps = {
-  size: 'regular',
-  color: 'default',
-  variant: 'primary',
 };
 
 export default IconButton;
