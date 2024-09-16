@@ -9,6 +9,7 @@ export interface LegacyHeaderProps {
     showAds?: boolean;
     adsPreview?: boolean;
     userEmail?: string;
+    isPlusUser?: boolean;
     isProMember?: boolean;
     userMenuItems?: ReactNode[];
 }

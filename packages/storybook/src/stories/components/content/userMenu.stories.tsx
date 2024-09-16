@@ -35,6 +35,7 @@ const meta: Meta<typeof UserMenu> = {
   parameters: { controls: { sort: 'requiredFirst' } },
   args: {
     light: false,
+    isPlusUser: false,
     isProMember: false,
     active: false,
     userEmail: 'john.doe@beispiel.de',
