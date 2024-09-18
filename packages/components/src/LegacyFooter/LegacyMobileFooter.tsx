@@ -64,7 +64,7 @@ const legacyMobileLinks: MobileLinkType = [
     url: '/plus-artikel',
   },
   {
-    label: 'Abos',
+    label: 'Digitale Abos',
     url: '/abos',
   },
   {

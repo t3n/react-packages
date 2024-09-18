@@ -182,7 +182,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
         url: '/plus-artikel',
       },
       {
-        label: 'Abos',
+        label: 'Digitale Abos',
         url: '/abos',
       },
       {
