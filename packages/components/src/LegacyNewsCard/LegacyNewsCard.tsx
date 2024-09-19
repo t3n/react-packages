@@ -19,7 +19,7 @@ export interface LegacyNewsCardProps {
   popular?: boolean;
   sponsored?: boolean;
   hero?: boolean;
-  pro?: boolean;
+  plus?: boolean;
   tr?: boolean;
   withImage?: boolean;
   withTeaser?: boolean;
@@ -122,7 +122,7 @@ const LegacyNewsCard = ({
   hero,
   sponsored,
   popular,
-  pro,
+  plus,
   tr,
   withTeaser,
   withImage = true,
@@ -164,7 +164,7 @@ const LegacyNewsCard = ({
             <LegacyNewsCardHeadline
               title={news.title}
               type={news.type}
-              pro={pro}
+              plus={plus}
               tr={tr}
               sponsored={sponsored}
             />
@@ -202,7 +202,7 @@ const LegacyNewsCard = ({
           <LegacyNewsCardHeadline
             title={news.title}
             type={news.type}
-            pro={pro}
+            plus={plus}
             tr={tr}
             sponsored={sponsored}
           />

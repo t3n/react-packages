@@ -13,6 +13,7 @@ import {
   MaterialBookmarkBorder,
   MaterialPerson,
   MaterialPersonOutline,
+  T3nPlus,
   T3nPro,
 } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
@@ -27,6 +28,8 @@ export interface UserMenuProps {
   proMembershipLink?: string;
   readingListLink?: string;
   accountLink?: string;
+  isPlusUser?: boolean;
+  plusLink?: string;
   isProMember?: boolean;
   light?: boolean;
   items?: ReactNode[];
@@ -221,6 +224,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
   items,
   loginLink = '/account/login',
   logoutLink = '/account/logout',
+  isPlusUser = false,
+  plusLink = '/account/plus',
   proMembershipLink = '/account/pro',
   readingListLink = '/account/merkliste',
   accountLink = '/account/',
@@ -250,6 +255,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <StyledText>Hallo</StyledText>
           <StyledUserLabel>{userEmail}</StyledUserLabel>
         </UserMenuListItemText>
+        {isPlusUser && (
+          <>
+            <UserMenuListDivider />
+            <UserMenuListItem>
+              <a href={plusLink}>
+                <T3nPlus
+                  width="22px"
+                  height="18px"
+                  style={{ marginRight: 8 }}
+                />
+                Plus
+              </a>
+            </UserMenuListItem>
+          </>
+        )}
         {isProMember && (
           <>
             <UserMenuListDivider />

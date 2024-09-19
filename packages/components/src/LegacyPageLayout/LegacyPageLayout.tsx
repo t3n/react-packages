@@ -13,6 +13,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   adUnits?: LegacyAdName[];
   previewAdUnits?: boolean;
   userEmail?: string;
+  isPlusUser?: boolean;
   isProMember?: boolean;
   userMenuItems?: ReactNode[];
   children?: ReactNode;
@@ -35,6 +36,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   previewAdUnits,
   overflow,
   userEmail,
+  isPlusUser,
   isProMember,
   userMenuItems,
   children,
@@ -59,6 +61,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
           showAds={shouldDisplayAdUnit('T3N_D_Right')}
           adsPreview={previewAdUnits}
           userEmail={userEmail}
+          isPlusUser={isPlusUser}
           isProMember={isProMember}
           userMenuItems={userMenuItems}
         />

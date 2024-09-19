@@ -7,6 +7,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
     adUnits?: LegacyAdName[];
     previewAdUnits?: boolean;
     userEmail?: string;
+    isPlusUser?: boolean;
     isProMember?: boolean;
     userMenuItems?: ReactNode[];
     children?: ReactNode;
