@@ -29,6 +29,7 @@ export interface LegacyDesktopHeaderProps {
   showAds?: boolean;
   adsPreview?: boolean;
   userEmail?: string;
+  isPlusUser?: boolean;
   isProMember?: boolean;
   userMenuItems?: ReactNode[];
 }
@@ -178,6 +179,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   showAds,
   adsPreview,
   userEmail,
+  isPlusUser,
   isProMember,
   userMenuItems,
 }) => {
@@ -236,6 +238,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
           </HeaderCampaign>
           <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
             <LegacyT3nNav
+              isPlusUser={isPlusUser}
               isProMember={isProMember}
               userEmail={userEmail}
               userMenuItems={userMenuItems}
@@ -281,6 +284,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               </SearchForm>
             </StickyNavBox>
             <UserMenu
+              isPlusUser={isPlusUser}
               isProMember={isProMember}
               userEmail={userEmail}
               light

@@ -34,6 +34,7 @@ export const withUserMenu: Story = {
     headerContent: (
       <UserMenu
         light={false}
+        isPlusUser={false}
         isProMember={false}
         userEmail="john.doe@example.com"
       />
