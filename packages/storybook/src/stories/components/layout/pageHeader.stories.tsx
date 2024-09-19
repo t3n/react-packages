@@ -27,7 +27,6 @@ export const withUserMenu: Story = {
     children: (
       <UserMenu
         light={false}
-        isPlusUser={false}
         isProMember={false}
         userEmail="john.doe@beispiel.de"
       />

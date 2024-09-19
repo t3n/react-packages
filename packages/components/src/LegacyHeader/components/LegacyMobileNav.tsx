@@ -9,7 +9,6 @@ import {
   MaterialClose,
   MaterialMenu,
   MaterialPersonOutline,
-  T3nPlus,
   T3nPro,
 } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
@@ -27,7 +26,6 @@ export interface LegacyMobileNavProps {
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
   userEmail?: string;
-  isPlusUser?: boolean;
   isProMember?: boolean;
 }
 
@@ -160,8 +158,8 @@ const SearchForm = styled.form`
 
 const mobileNavLinks: MobileNavLinksType[] = [
   {
-    label: 'Plus',
-    url: '/plus-artikel',
+    label: 'Pro',
+    url: '/pro-artikel',
     indicator: false,
   },
   {
@@ -219,7 +217,6 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
   headerCampaignUrl,
   headerCampaignImageMobile,
   userEmail,
-  isPlusUser,
   isProMember,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -299,20 +296,6 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
         ))}
         {userEmail ? (
           <>
-            {isPlusUser && (
-              <MobileMenuItem
-                borderTopThick
-                href="/account/plus"
-                title="t3n Plus"
-              >
-                <T3nPlus
-                  width="22px"
-                  height="18px"
-                  style={{ marginRight: 8 }}
-                />
-                Plus
-              </MobileMenuItem>
-            )}
             {isProMember && (
               <MobileMenuItem
                 borderTopThick

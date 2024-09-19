@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 export interface LegacyT3nNavProps {
-    isPlusUser?: boolean;
     isProMember?: boolean;
     userEmail?: string;
     userMenuItems?: ReactNode[];

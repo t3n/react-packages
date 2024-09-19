@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
-import { T3nPlus } from '@t3n/icons';
+import { T3nPro } from '@t3n/icons';
 
 import Box from '../Box';
 import Heading from '../Heading';
@@ -12,7 +12,7 @@ export interface LegacyNewsCardHeadlineProps {
   type: string;
   title: string;
   sponsored?: boolean;
-  plus?: boolean;
+  pro?: boolean;
   tr?: boolean;
 }
 
@@ -71,7 +71,7 @@ const LegacyNewsCardHeadline: React.FC<LegacyNewsCardHeadlineProps> = ({
   type,
   title,
   sponsored,
-  plus,
+  pro,
   tr,
 }) => {
   return (
@@ -82,9 +82,9 @@ const LegacyNewsCardHeadline: React.FC<LegacyNewsCardHeadlineProps> = ({
             Anzeige
           </SponsoredInfo>
         )}
-        {plus && (
+        {pro && (
           <Box display="flex" mb={1} mr={1}>
-            <T3nPlus height="18" width="22" />
+            <T3nPro height="18" width="36" />
           </Box>
         )}
         {tr && <TRBadge>MIT Technology Review</TRBadge>}

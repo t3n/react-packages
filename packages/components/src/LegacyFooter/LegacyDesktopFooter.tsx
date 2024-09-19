@@ -178,12 +178,12 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     label: 't3n',
     links: [
       {
-        label: 'Plus',
-        url: '/plus-artikel',
+        label: 'Pur',
+        url: '/pur',
       },
       {
-        label: 'Digitale Abos',
-        url: '/abos',
+        label: 'Pro',
+        url: '/pro-artikel',
       },
       {
         label: 'News',

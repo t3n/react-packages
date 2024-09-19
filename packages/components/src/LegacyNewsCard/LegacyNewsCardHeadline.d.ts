@@ -3,7 +3,7 @@ export interface LegacyNewsCardHeadlineProps {
     type: string;
     title: string;
     sponsored?: boolean;
-    plus?: boolean;
+    pro?: boolean;
     tr?: boolean;
 }
 declare const LegacyNewsCardHeadline: React.FC<LegacyNewsCardHeadlineProps>;
