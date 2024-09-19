@@ -12,7 +12,6 @@ import HeaderLink from './LegacyHeaderLink';
 import { MainNavDropdown } from './LegacyMainNav';
 
 export interface LegacyT3nNavProps {
-  isPlusUser?: boolean;
   isProMember?: boolean;
   userEmail?: string;
   userMenuItems?: ReactNode[];
@@ -120,7 +119,6 @@ const t3nNavLinks: T3nNavLinksType[] = [
 ];
 
 const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
-  isPlusUser,
   isProMember,
   userEmail,
   userMenuItems,
@@ -158,7 +156,6 @@ const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
         </MainNavItem>
       ))}
       <UserMenu
-        isPlusUser={isPlusUser}
         isProMember={isProMember}
         userEmail={userEmail}
         light

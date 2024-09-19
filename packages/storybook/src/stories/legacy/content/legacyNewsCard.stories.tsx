@@ -40,7 +40,7 @@ const meta: Meta<typeof LegacyNewsCard> = {
     hero: false,
     sponsored: false,
     popular: false,
-    plus: false,
+    pro: false,
     tr: false,
     isBookmarked: false,
     withImage: true,

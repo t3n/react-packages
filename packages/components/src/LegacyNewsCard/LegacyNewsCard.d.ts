@@ -4,7 +4,7 @@ export interface LegacyNewsCardProps {
     popular?: boolean;
     sponsored?: boolean;
     hero?: boolean;
-    plus?: boolean;
+    pro?: boolean;
     tr?: boolean;
     withImage?: boolean;
     withTeaser?: boolean;
@@ -28,5 +28,5 @@ export declare const LegacyLoadingHeroCard: () => React.JSX.Element;
 export declare const LegacyLoadingFeedCard: React.FC<{
     withImage?: boolean;
 }>;
-declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, plus, tr, withTeaser, withImage, withAuthor, isBookmarked, onBookmarkClick, }: LegacyNewsCardProps) => React.JSX.Element | null;
+declare const LegacyNewsCard: ({ news, loading, hero, sponsored, popular, pro, tr, withTeaser, withImage, withAuthor, isBookmarked, onBookmarkClick, }: LegacyNewsCardProps) => React.JSX.Element | null;
 export default LegacyNewsCard;

@@ -35,7 +35,6 @@ const meta: Meta<typeof LegacyPageLayout> = {
       'https://storage.googleapis.com/t3n-media/t3n-headercampaign.png',
     headerCampaignImageMobile:
       'https://storage.googleapis.com/t3n-media/t3n-headercampaign-mobile.png',
-    isPlusUser: true,
     isProMember: true,
     userEmail: 'john.doe@beispiel.de',
     children: (

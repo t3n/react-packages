@@ -7,8 +7,6 @@ export interface UserMenuProps {
     proMembershipLink?: string;
     readingListLink?: string;
     accountLink?: string;
-    isPlusUser?: boolean;
-    plusLink?: string;
     isProMember?: boolean;
     light?: boolean;
     items?: ReactNode[];

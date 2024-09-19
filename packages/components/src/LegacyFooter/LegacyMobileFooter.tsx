@@ -60,12 +60,12 @@ const SmallerText = styled(Text)`
 
 const legacyMobileLinks: MobileLinkType = [
   {
-    label: 'Plus',
-    url: '/plus-artikel',
+    label: 'Pur',
+    url: '/pur',
   },
   {
-    label: 'Digitale Abos',
-    url: '/abos',
+    label: 'Pro',
+    url: '/pro-artikel',
   },
   {
     label: 'Team',

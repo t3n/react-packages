@@ -14,7 +14,6 @@ export interface LegacyMobileHeaderProps {
   headerCampaignUrl: string;
   headerCampaignImageMobile?: string;
   userEmail?: string;
-  isPlusUser?: boolean;
   isProMember?: boolean;
 }
 
@@ -56,7 +55,6 @@ const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
   headerCampaignUrl,
   headerCampaignImageMobile,
   userEmail,
-  isPlusUser,
   isProMember,
 }) => {
   return (
@@ -92,7 +90,6 @@ const LegacyMobileHeader: React.FC<LegacyMobileHeaderProps> = ({
       </HeaderCampaign>
       <LegacyMobileNav
         userEmail={userEmail}
-        isPlusUser={isPlusUser}
         isProMember={isProMember}
         headerCampaignUrl={headerCampaignUrl}
         headerCampaignImageMobile={headerCampaignImageMobile}
