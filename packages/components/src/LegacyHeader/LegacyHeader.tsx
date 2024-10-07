@@ -15,6 +15,7 @@ export interface LegacyHeaderProps {
   showAds?: boolean;
   adsPreview?: boolean;
   userEmail?: string;
+  isPlusUser?: boolean;
   isProMember?: boolean;
   userMenuItems?: ReactNode[];
 }
@@ -28,6 +29,7 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   showAds,
   adsPreview,
   userEmail,
+  isPlusUser,
   isProMember,
   userMenuItems,
 }) => {
@@ -38,6 +40,7 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImageMobile={headerCampaignImageMobile}
           userEmail={userEmail}
+          isPlusUser={isPlusUser}
           isProMember={isProMember}
         />
       </Box>
@@ -50,6 +53,7 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
           showAds={showAds}
           adsPreview={adsPreview}
           userEmail={userEmail}
+          isPlusUser={isPlusUser}
           isProMember={isProMember}
           userMenuItems={userMenuItems}
         />

@@ -159,8 +159,8 @@ export const Indicator = styled.span`
 
 const mainNavLinkGroups: MainNavLinkGroupsType[] = [
   {
-    label: 'Pro',
-    url: '/pro-artikel',
+    label: 'Plus',
+    url: '/plus-artikel',
     indicator: true,
   },
   {

@@ -8,6 +8,7 @@ export interface LegacyDesktopHeaderProps {
     showAds?: boolean;
     adsPreview?: boolean;
     userEmail?: string;
+    isPlusUser?: boolean;
     isProMember?: boolean;
     userMenuItems?: ReactNode[];
 }
