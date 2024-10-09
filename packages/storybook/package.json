@@ -1,6 +1,6 @@
 {
   "name": "@t3n/storybook",
-  "version": "0.8.40",
+  "version": "0.8.41",
   "description": "t3n.de storybook",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "@storybook/react": "^8.2.9",
     "@storybook/react-webpack5": "^8.2.9",
     "@storybook/theming": "^8.2.9",
-    "@t3n/components": "^0.8.40",
+    "@t3n/components": "^0.8.41",
     "@t3n/icons": "^0.7.12",
     "@t3n/theme": "^0.7.11",
     "formik": "^2.4.6",
