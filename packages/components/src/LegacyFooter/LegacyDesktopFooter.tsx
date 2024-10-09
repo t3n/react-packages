@@ -183,7 +183,7 @@ const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
       },
       {
         label: 'Digitale Abos',
-        url: '/abos',
+        url: 'https://l.t3n.de/abos',
       },
       {
         label: 'News',
