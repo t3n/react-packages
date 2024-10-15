@@ -10,15 +10,15 @@
   "types": "src/index.d.ts",
   "dependencies": {
     "@chakra-ui/system": "^2.6.2",
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.11",
     "btoa": "^1.2.1",
-    "framer-motion": "^11.4.0",
+    "framer-motion": "^11.11.8",
     "polished": "^4.3.1",
     "react-autosuggest": "^10.1.0",
-    "react-select": "^5.8.0",
+    "react-select": "^5.8.1",
     "react-slick": "^0.30.2",
     "styled-system": "^5.1.5",
-    "use-debounce": "^10.0.3"
+    "use-debounce": "^10.0.4"
   },
   "sideEffects": false,
   "scripts": {
@@ -37,7 +37,7 @@
     "@t3n/theme": "^0.7.11",
     "@types/btoa": "^1.2.5",
     "@types/react-autosuggest": "^10.1.11",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^18.3.1",
     "@types/react-slick": "^0.23.13",
     "@types/styled-components": "^5.1.34",
     "@types/styled-system": "^5.1.22",
