@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
-import { LegacyAdName } from '../LegacyAd';
+import { AdName } from '../Ad';
 import { LegacyHeaderProps } from '../LegacyHeader';
 export interface LegacyPageLayoutProps extends LegacyHeaderProps {
     privacyManagerId: string;
     overflow?: string;
-    adUnits?: LegacyAdName[];
+    adUnits?: AdName[];
     previewAdUnits?: boolean;
     userEmail?: string;
     isPlusUser?: boolean;

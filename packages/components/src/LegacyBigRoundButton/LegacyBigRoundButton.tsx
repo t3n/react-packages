@@ -6,7 +6,7 @@ import { ThemeProps } from '@t3n/theme';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import { Tooltip, TooltipContainer } from '../LegacyNewsCard/LegacyBookmark';
+import { Tooltip, TooltipContainer } from '../LegacyBookmark';
 
 export interface LegacyBigRoundButtonProps extends MarginProps {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
