@@ -2,12 +2,13 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { border, color, layout, space } from 'styled-system';
 
+import { MaterialAutorenew } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
+import IconButton from '../IconButton';
 import Image from '../Image';
 import LegacyAd from '../LegacyAd';
-import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 import Logo from '../Logo';
 import UserMenu from '../UserMenu';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
@@ -171,6 +172,22 @@ const HeaderWrapper = styled(Header)`
   }
 `;
 
+const HeaderIconButton = styled(IconButton)`
+  ${({ theme }) => color({ theme, color: 'text.secondary' })};
+  ${({ theme }) => border({ theme, borderColor: 'text.secondary' })}
+
+  path {
+    fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+  }
+
+  &:hover,
+  &:focus {
+    path {
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+    }
+  }
+`;
+
 const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   tags,
   tagsLoading,
@@ -236,15 +253,22 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               />
             </a>
           </HeaderCampaign>
-          <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
+          <Box display="flex" flexDirection="column" flexGrow={1} mt={6}>
             <LegacyT3nNav
               isPlusUser={isPlusUser}
               isProMember={isProMember}
               userEmail={userEmail}
               userMenuItems={userMenuItems}
             />
-            <Box mr={-2}>
-              <LegacyHeaderSocialShare />
+            <Box display="flex" justifyContent="flex-end">
+              <HeaderIconButton
+                icon={MaterialAutorenew}
+                href="/abos"
+                variant="secondary"
+                size="small"
+                expanded
+                label="Digitale Abos"
+              />
             </Box>
           </Box>
         </VisualHeader>

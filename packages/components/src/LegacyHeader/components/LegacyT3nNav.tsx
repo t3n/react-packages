@@ -131,6 +131,7 @@ const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
       alignItems="center"
       justifyContent="flex-end"
       pb="2px"
+      mb={2}
     >
       {t3nNavLinks.map((link, idx) => (
         <MainNavItem key={idx}>
