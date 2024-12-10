@@ -13,6 +13,7 @@ export type DesktopLinkGroupsType = {
 }[];
 export interface LegacyDesktopFooterProps {
     privacyManagerId: string;
+    isProMember?: boolean;
 }
 declare const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps>;
 export default LegacyDesktopFooter;

@@ -23,6 +23,7 @@ export type DesktopLinkGroupsType = {
 
 export interface LegacyDesktopFooterProps {
   privacyManagerId: string;
+  isProMember?: boolean;
 }
 
 const LegacyDesktopFooterWrapper = styled(Box)`
@@ -105,149 +106,150 @@ const LegacyExtraSmallText = styled(Text)`
   line-height: 1.5em !important;
 `;
 
-const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
-  {
-    label: 'yeebase media',
-    links: [
-      {
-        label: 'Über t3n',
-        url: '/ueber-t3n/',
-      },
-      {
-        label: 'Team',
-        url: '/team',
-      },
-      {
-        label: 'Jobs bei t3n',
-        url: '/jobs-bei-t3n/',
-      },
-      {
-        label: 't3n Backstage Blog',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'https://medium.com/@t3nbackstageblog',
-        target: '_blank',
-        rel: 'noreferrer noopener',
-      },
-      {
-        label: 'Mediadaten',
-        url: '/mediadaten/de/',
-      },
-      {
-        label: 'Datenschutz',
-        url: '/datenschutz/',
-      },
-      {
-        label: 'Cookies & Tracking',
-        url: '#',
-        onClick: (e, id) => {
-          e.preventDefault();
-          // eslint-disable-next-line no-underscore-dangle
-          (window as any)._sp_.loadPrivacyManagerModal(id);
-        },
-      },
-      {
-        label: 'FAQ',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'https://faq.t3n.de/',
-        target: '_blank',
-        rel: 'noreferrer noopener',
-      },
-      {
-        label: 'Abo kündigen',
-        url: '/abo-kuendigen/',
-      },
-      {
-        label: 'Kontakt',
-        url: '/kontakt/',
-      },
-      {
-        label: 'AGB',
-        url: '/agb/',
-      },
-      {
-        label: 'Widerrufsbelehrung',
-        url: '/agb/#widerrufsbelehrung',
-      },
-      {
-        label: 'Impressum',
-        url: '/impressum/',
-      },
-    ],
-  },
-  {
-    label: 't3n',
-    links: [
-      {
-        label: 'Plus',
-        url: '/plus-artikel',
-      },
-      {
-        label: 'Digitale Abos',
-        url: 'https://l.t3n.de/abos',
-      },
-      {
-        label: 'News',
-        url: '/news/',
-      },
-      {
-        label: 'Magazin',
-        url: '/magazin/',
-      },
-      {
-        label: 'Podcasts',
-        url: '/podcast/',
-      },
-      {
-        label: 'Themen',
-        url: '/tag/',
-      },
-      {
-        label: 'Jobs',
-        url: 'https://jobs.t3n.de',
-      },
-      {
-        label: 'Events',
-        url: '/events/',
-      },
-      {
-        label: 'Shop',
-        url: '/store/',
-      },
-      {
-        label: 'Newsletter',
-        url: '/info/t3n-newsletter/',
-      },
-      {
-        label: 'Newsarchiv',
-        url: '/archive/',
-      },
-      {
-        label: 'BrandHubs',
-        url: '/brandhub/',
-      },
-    ],
-  },
-  {
-    label: 'RSS-Feeds',
-    links: [
-      {
-        label: 'Aktuelle News',
-        url: '/rss.xml',
-      },
-      {
-        label: 'Die neuesten Artikel',
-        title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-        url: 'http://feeds2.feedburner.com/t3n-magazin/',
-        target: '_blank',
-        rel: 'noreferrer noopener',
-      },
-    ],
-  },
-];
-
 const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
+  isProMember,
 }) => {
+  const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
+    {
+      label: 'yeebase media',
+      links: [
+        {
+          label: 'Über t3n',
+          url: '/ueber-t3n/',
+        },
+        {
+          label: 'Team',
+          url: '/team',
+        },
+        {
+          label: 'Jobs bei t3n',
+          url: '/jobs-bei-t3n/',
+        },
+        {
+          label: 't3n Backstage Blog',
+          title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+          url: 'https://medium.com/@t3nbackstageblog',
+          target: '_blank',
+          rel: 'noreferrer noopener',
+        },
+        {
+          label: 'Mediadaten',
+          url: '/mediadaten/de/',
+        },
+        {
+          label: 'Datenschutz',
+          url: '/datenschutz/',
+        },
+        {
+          label: 'Cookies & Tracking',
+          url: '#',
+          onClick: (e, id) => {
+            e.preventDefault();
+            // eslint-disable-next-line no-underscore-dangle
+            (window as any)._sp_.loadPrivacyManagerModal(id);
+          },
+        },
+        {
+          label: 'FAQ',
+          title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+          url: 'https://faq.t3n.de/',
+          target: '_blank',
+          rel: 'noreferrer noopener',
+        },
+        {
+          label: 'Abo kündigen',
+          url: '/abo-kuendigen/',
+        },
+        {
+          label: 'Kontakt',
+          url: '/kontakt/',
+        },
+        {
+          label: 'AGB',
+          url: '/agb/',
+        },
+        {
+          label: 'Widerrufsbelehrung',
+          url: '/agb/#widerrufsbelehrung',
+        },
+        {
+          label: 'Impressum',
+          url: '/impressum/',
+        },
+      ],
+    },
+    {
+      label: 't3n',
+      links: [
+        {
+          label: isProMember ? 'Pro' : 'Plus',
+          url: '/dein-abo',
+        },
+        {
+          label: 'Digitale Abos',
+          url: 'https://l.t3n.de/abos',
+        },
+        {
+          label: 'News',
+          url: '/news/',
+        },
+        {
+          label: 'Magazin',
+          url: '/magazin/',
+        },
+        {
+          label: 'Podcasts',
+          url: '/podcast/',
+        },
+        {
+          label: 'Themen',
+          url: '/tag/',
+        },
+        {
+          label: 'Jobs',
+          url: 'https://jobs.t3n.de',
+        },
+        {
+          label: 'Events',
+          url: '/events/',
+        },
+        {
+          label: 'Shop',
+          url: '/store/',
+        },
+        {
+          label: 'Newsletter',
+          url: '/info/t3n-newsletter/',
+        },
+        {
+          label: 'Newsarchiv',
+          url: '/archive/',
+        },
+        {
+          label: 'BrandHubs',
+          url: '/brandhub/',
+        },
+      ],
+    },
+    {
+      label: 'RSS-Feeds',
+      links: [
+        {
+          label: 'Aktuelle News',
+          url: '/rss.xml',
+        },
+        {
+          label: 'Die neuesten Artikel',
+          title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+          url: 'http://feeds2.feedburner.com/t3n-magazin/',
+          target: '_blank',
+          rel: 'noreferrer noopener',
+        },
+      ],
+    },
+  ];
+
   return (
     <DesktopLinkWrapper>
       {legacyDesktopLinkGroups.map((group) => (
@@ -388,6 +390,7 @@ const LegacyDesktopBottom = () => {
 
 const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
+  isProMember,
 }) => {
   return (
     <LegacyDesktopFooterWrapper>
@@ -397,7 +400,10 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>
-        <LegacyDesktopLinks privacyManagerId={privacyManagerId} />
+        <LegacyDesktopLinks
+          privacyManagerId={privacyManagerId}
+          isProMember={isProMember}
+        />
       </Box>
       <LegacyDesktopBottom />
     </LegacyDesktopFooterWrapper>

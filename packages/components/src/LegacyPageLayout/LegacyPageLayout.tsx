@@ -78,7 +78,10 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         >
           {children}
         </Box>
-        <LegacyFooter privacyManagerId={privacyManagerId} />
+        <LegacyFooter
+          privacyManagerId={privacyManagerId}
+          isProMember={isProMember}
+        />
       </Wrapper>
     </>
   );

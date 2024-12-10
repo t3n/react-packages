@@ -18,6 +18,7 @@ export type MobileLinkType = {
 
 export interface LegacyMobileFooterProps {
   privacyManagerId: string;
+  isProMember?: boolean;
 }
 
 const FooterLink = styled.a`
@@ -58,72 +59,73 @@ const SmallerText = styled(Text)`
     })};
 `;
 
-const legacyMobileLinks: MobileLinkType = [
-  {
-    label: 'Plus',
-    url: '/plus-artikel',
-  },
-  {
-    label: 'Digitale Abos',
-    url: 'https://l.t3n.de/abos',
-  },
-  {
-    label: 'Team',
-    url: '/team',
-  },
-  {
-    label: 'Jobs bei t3n',
-    url: '/jobs-bei-t3n/',
-  },
-  {
-    label: 'Mediadaten',
-    url: '/mediadaten/de/',
-  },
-  {
-    label: 'Datenschutz',
-    url: '/datenschutz/',
-  },
-  {
-    label: 'Cookies & Tracking',
-    url: '#',
-    onClick: (e, id) => {
-      e.preventDefault();
-      // eslint-disable-next-line no-underscore-dangle
-      (window as any)._sp_.loadPrivacyManagerModal(id);
-    },
-  },
-  {
-    label: 'FAQ',
-    title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-    url: 'https://faq.t3n.de/',
-    target: '_blank',
-    rel: 'noreferrer noopener',
-  },
-  {
-    label: 'Abo kündigen',
-    url: '/abo-kuendigen/',
-  },
-  {
-    label: 'Kontakt',
-    url: '/kontakt/',
-  },
-  {
-    label: 'AGB',
-    url: '/agb/',
-  },
-  {
-    label: 'Widerrufsbelehrung',
-    url: '/agb/#widerrufsbelehrung',
-  },
-  {
-    label: 'Impressum',
-    url: '/impressum/',
-  },
-];
-
 const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
   privacyManagerId,
+  isProMember,
 }) => {
+  const legacyMobileLinks: MobileLinkType = [
+    {
+      label: isProMember ? 'Pro' : 'Plus',
+      url: '/dein-abo',
+    },
+    {
+      label: 'Digitale Abos',
+      url: 'https://l.t3n.de/abos',
+    },
+    {
+      label: 'Team',
+      url: '/team',
+    },
+    {
+      label: 'Jobs bei t3n',
+      url: '/jobs-bei-t3n/',
+    },
+    {
+      label: 'Mediadaten',
+      url: '/mediadaten/de/',
+    },
+    {
+      label: 'Datenschutz',
+      url: '/datenschutz/',
+    },
+    {
+      label: 'Cookies & Tracking',
+      url: '#',
+      onClick: (e, id) => {
+        e.preventDefault();
+        // eslint-disable-next-line no-underscore-dangle
+        (window as any)._sp_.loadPrivacyManagerModal(id);
+      },
+    },
+    {
+      label: 'FAQ',
+      title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+      url: 'https://faq.t3n.de/',
+      target: '_blank',
+      rel: 'noreferrer noopener',
+    },
+    {
+      label: 'Abo kündigen',
+      url: '/abo-kuendigen/',
+    },
+    {
+      label: 'Kontakt',
+      url: '/kontakt/',
+    },
+    {
+      label: 'AGB',
+      url: '/agb/',
+    },
+    {
+      label: 'Widerrufsbelehrung',
+      url: '/agb/#widerrufsbelehrung',
+    },
+    {
+      label: 'Impressum',
+      url: '/impressum/',
+    },
+  ];
+
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
       {legacyMobileLinks.map((link) => (
@@ -151,10 +153,14 @@ const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
 
 const LegacyMobileFooter: React.FC<LegacyMobileFooterProps> = ({
   privacyManagerId,
+  isProMember,
 }) => {
   return (
     <>
-      <LegacyMobileLinks privacyManagerId={privacyManagerId} />
+      <LegacyMobileLinks
+        privacyManagerId={privacyManagerId}
+        isProMember={isProMember}
+      />
       <LegacySocialBar isInFooter />
       <SmallerText align="center">
         ©{' '}

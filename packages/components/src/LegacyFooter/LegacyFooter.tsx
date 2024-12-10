@@ -8,6 +8,7 @@ import LegacyMobileFooter from './LegacyMobileFooter';
 
 export interface LegacyFooterProps {
   privacyManagerId: string;
+  isProMember?: boolean;
 }
 
 const Footer = styled(Box)`
@@ -15,7 +16,10 @@ const Footer = styled(Box)`
     color({ theme, bg: 'shades.grey232', color: 'text.secondary' })};
 `;
 
-const LegacyFooter: React.FC<LegacyFooterProps> = ({ privacyManagerId }) => {
+const LegacyFooter: React.FC<LegacyFooterProps> = ({
+  privacyManagerId,
+  isProMember,
+}) => {
   return (
     <Footer
       className="tg-footer"
@@ -24,10 +28,16 @@ const LegacyFooter: React.FC<LegacyFooterProps> = ({ privacyManagerId }) => {
       pb={['5rem', '5rem', '1.5625rem']}
     >
       <Box display={['block', 'block', 'none']}>
-        <LegacyMobileFooter privacyManagerId={privacyManagerId} />
+        <LegacyMobileFooter
+          privacyManagerId={privacyManagerId}
+          isProMember={isProMember}
+        />
       </Box>
       <Box display={['none', 'none', 'block']}>
-        <LegacyDesktopFooter privacyManagerId={privacyManagerId} />
+        <LegacyDesktopFooter
+          privacyManagerId={privacyManagerId}
+          isProMember={isProMember}
+        />
       </Box>
     </Footer>
   );
