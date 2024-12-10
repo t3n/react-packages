@@ -1,5 +1,6 @@
 import React from 'react';
 export interface LegacyMainNavProps {
+    isProMember?: boolean;
     isSticky?: boolean;
 }
 export type MainNavLinkGroupsType = {

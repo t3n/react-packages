@@ -17,6 +17,7 @@ import Text from '../../Text';
 import HeaderLink from './LegacyHeaderLink';
 
 export interface LegacyMainNavProps {
+  isProMember?: boolean;
   isSticky?: boolean;
 }
 
@@ -157,133 +158,136 @@ export const Indicator = styled.span`
     color({ theme, color: 'shades.white', bg: 'background.highlight' })};
 `;
 
-const mainNavLinkGroups: MainNavLinkGroupsType[] = [
-  {
-    label: 'Plus',
-    url: '/plus-artikel',
-    indicator: true,
-  },
-  {
-    label: 'News',
-    url: '/news/',
-    indicator: true,
-  },
-  {
-    label: 'Magazin',
-    url: '/magazin/',
-  },
-  {
-    label: 'Wissen',
-    dropdownLinks: [
-      {
-        label: 'Guides',
-        url: '/guides/',
-      },
-      {
-        label: 'Onlinekurse',
-        url: '/online-kurse/',
-      },
-      {
-        label: 'Ratgeber',
-        url: '/ratgeber/',
-      },
-      {
-        label: 'Tests & Tools',
-        url: '/tests-tools/',
-      },
-      {
-        label: 'Podcasts',
-        url: '/podcast/',
-      },
-      {
-        label: 'Newsletter',
-        url: '/info/t3n-newsletter/',
-      },
-      {
-        label: 'Quiz',
-        url: '/quiz/',
-      },
-    ],
-  },
-  {
-    label: 'Themen',
-    url: '/tag/',
-    dropdownLinks: [
-      {
-        label: 'Software & Entwicklung',
-        url: '/tag/software-entwicklung/',
-      },
-      {
-        label: 'UX & Design',
-        url: '/tag/ux-and-design/',
-      },
-      {
-        label: 'Marketing',
-        url: '/tag/marketing/',
-      },
-      {
-        label: 'Hardware & Gadgets',
-        url: '/tag/hardware-gadgets/',
-      },
-      {
-        label: 'Startups & Economy',
-        url: '/tag/startups-economy/',
-      },
-      {
-        label: 'Arbeitswelt',
-        url: '/tag/arbeitswelt/',
-      },
-      {
-        label: 'E-Commerce',
-        url: '/tag/e-commerce/',
-      },
-      {
-        label: 'New Finance',
-        url: '/tag/finance/',
-      },
-      {
-        label: 'Gaming',
-        url: '/tag/gaming/',
-      },
-      {
-        label: 'Mobilität',
-        url: '/tag/mobilitaet/',
-      },
-      {
-        label: 'Future & Science',
-        url: '/tag/future-science/',
-      },
-      {
-        label: 'Buzz & Memes',
-        url: '/tag/buzz-memes/',
-      },
-    ],
-  },
-  {
-    label: 'Jobs',
-    url: 'https://jobs.t3n.de',
-  },
-  {
-    label: 'Events',
-    url: '/events/',
-    dropdownLinks: [
-      {
-        label: 'Eventkalender',
-        url: '/events/',
-      },
-      {
-        label: 'Medienkooperationen',
-        url: '/events/pakete/',
-      },
-    ],
-  },
-  {
-    label: 'Shop',
-    url: '/store/',
-  },
-];
+const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
+  isProMember,
+  isSticky,
+}) => {
+  const mainNavLinkGroups: MainNavLinkGroupsType[] = [
+    {
+      label: isProMember ? 'Pro' : 'Plus',
+      url: '/dein-abo',
+      indicator: true,
+    },
+    {
+      label: 'News',
+      url: '/news/',
+      indicator: true,
+    },
+    {
+      label: 'Magazin',
+      url: '/magazin/',
+    },
+    {
+      label: 'Wissen',
+      dropdownLinks: [
+        {
+          label: 'Guides',
+          url: '/guides/',
+        },
+        {
+          label: 'Onlinekurse',
+          url: '/online-kurse/',
+        },
+        {
+          label: 'Ratgeber',
+          url: '/ratgeber/',
+        },
+        {
+          label: 'Tests & Tools',
+          url: '/tests-tools/',
+        },
+        {
+          label: 'Podcasts',
+          url: '/podcast/',
+        },
+        {
+          label: 'Newsletter',
+          url: '/info/t3n-newsletter/',
+        },
+        {
+          label: 'Quiz',
+          url: '/quiz/',
+        },
+      ],
+    },
+    {
+      label: 'Themen',
+      url: '/tag/',
+      dropdownLinks: [
+        {
+          label: 'Software & Entwicklung',
+          url: '/tag/software-entwicklung/',
+        },
+        {
+          label: 'UX & Design',
+          url: '/tag/ux-and-design/',
+        },
+        {
+          label: 'Marketing',
+          url: '/tag/marketing/',
+        },
+        {
+          label: 'Hardware & Gadgets',
+          url: '/tag/hardware-gadgets/',
+        },
+        {
+          label: 'Startups & Economy',
+          url: '/tag/startups-economy/',
+        },
+        {
+          label: 'Arbeitswelt',
+          url: '/tag/arbeitswelt/',
+        },
+        {
+          label: 'E-Commerce',
+          url: '/tag/e-commerce/',
+        },
+        {
+          label: 'New Finance',
+          url: '/tag/finance/',
+        },
+        {
+          label: 'Gaming',
+          url: '/tag/gaming/',
+        },
+        {
+          label: 'Mobilität',
+          url: '/tag/mobilitaet/',
+        },
+        {
+          label: 'Future & Science',
+          url: '/tag/future-science/',
+        },
+        {
+          label: 'Buzz & Memes',
+          url: '/tag/buzz-memes/',
+        },
+      ],
+    },
+    {
+      label: 'Jobs',
+      url: 'https://jobs.t3n.de',
+    },
+    {
+      label: 'Events',
+      url: '/events/',
+      dropdownLinks: [
+        {
+          label: 'Eventkalender',
+          url: '/events/',
+        },
+        {
+          label: 'Medienkooperationen',
+          url: '/events/pakete/',
+        },
+      ],
+    },
+    {
+      label: 'Shop',
+      url: '/store/',
+    },
+  ];
 
-const LegacyMainNav: React.FC<LegacyMainNavProps> = ({ isSticky }) => {
   return (
     <MainNavWrapper className="tg-menu" isSticky={isSticky}>
       <MainNavInnerWrapper isSticky={isSticky}>

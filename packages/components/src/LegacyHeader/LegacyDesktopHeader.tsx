@@ -6,7 +6,7 @@ import { MaterialAutorenew } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
-import IconButton from '../IconButton';
+import IconButton, { StyledIconButton } from '../IconButton';
 import Image from '../Image';
 import LegacyAd from '../LegacyAd';
 import Logo from '../Logo';
@@ -172,18 +172,20 @@ const HeaderWrapper = styled(Header)`
   }
 `;
 
-const HeaderIconButton = styled(IconButton)`
-  ${({ theme }) => color({ theme, color: 'text.secondary' })};
-  ${({ theme }) => border({ theme, borderColor: 'text.secondary' })}
+const StyledHeaderIconBox = styled(Box)`
+  ${StyledIconButton} {
+    ${({ theme }) => color({ theme, color: 'text.secondary' })};
+    ${({ theme }) => border({ theme, borderColor: 'text.secondary' })}
 
-  path {
-    fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
-  }
-
-  &:hover,
-  &:focus {
     path {
-      fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+    }
+
+    &:hover,
+    &:focus {
+      path {
+        fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+      }
     }
   }
 `;
@@ -260,8 +262,9 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               userEmail={userEmail}
               userMenuItems={userMenuItems}
             />
-            <Box display="flex" justifyContent="flex-end">
-              <HeaderIconButton
+            <StyledHeaderIconBox display="flex" justifyContent="flex-end">
+              <IconButton
+                as="a"
                 icon={MaterialAutorenew}
                 href="/abos"
                 variant="secondary"
@@ -269,12 +272,12 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
                 expanded
                 label="Digitale Abos"
               />
-            </Box>
+            </StyledHeaderIconBox>
           </Box>
         </VisualHeader>
 
         <Box display="flex" flexDirection="column">
-          <LegacyMainNav />
+          <LegacyMainNav isProMember={isProMember} />
           <LegacyTagNav tags={tags} loading={tagsLoading} />
         </Box>
       </HeaderWrapper>
