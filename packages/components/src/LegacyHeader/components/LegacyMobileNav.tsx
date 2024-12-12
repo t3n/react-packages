@@ -34,7 +34,6 @@ export interface LegacyMobileNavProps {
 export type MobileNavLinksType = {
   label: string;
   url: string;
-  indicator?: boolean;
   bold?: boolean;
 };
 
@@ -171,12 +170,10 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
     {
       label: isProMember ? 'Pro' : 'Plus',
       url: '/dein-abo',
-      indicator: false,
     },
     {
       label: 'News',
       url: '/news/',
-      indicator: false,
     },
     {
       label: 'Magazin',

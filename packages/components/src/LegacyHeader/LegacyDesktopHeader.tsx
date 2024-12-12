@@ -32,6 +32,7 @@ export interface LegacyDesktopHeaderProps {
   userEmail?: string;
   isPlusUser?: boolean;
   isProMember?: boolean;
+  userLoading?: boolean;
   userMenuItems?: ReactNode[];
 }
 
@@ -200,6 +201,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   userEmail,
   isPlusUser,
   isProMember,
+  userLoading,
   userMenuItems,
 }) => {
   const [displaySticky, setDisplaySticky] = useState(false);
@@ -277,7 +279,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
         </VisualHeader>
 
         <Box display="flex" flexDirection="column">
-          <LegacyMainNav isProMember={isProMember} />
+          <LegacyMainNav isProMember={isProMember} userLoading={userLoading} />
           <LegacyTagNav tags={tags} loading={tagsLoading} />
         </Box>
       </HeaderWrapper>
@@ -297,7 +299,11 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               <T3nLogoSmall />
             </a>
             <StickyNavBox width="100%" position="relative">
-              <LegacyMainNav isSticky />
+              <LegacyMainNav
+                isProMember={isProMember}
+                userLoading={userLoading}
+                isSticky
+              />
               <SearchForm action="/suche" method="get">
                 <SearchInput
                   type="text"
