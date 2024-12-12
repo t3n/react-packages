@@ -9,7 +9,6 @@ export interface LegacyMobileNavProps {
 export type MobileNavLinksType = {
     label: string;
     url: string;
-    indicator?: boolean;
     bold?: boolean;
 };
 declare const LegacyMobileNav: React.FC<LegacyMobileNavProps>;

@@ -10,6 +10,7 @@ export interface LegacyDesktopHeaderProps {
     userEmail?: string;
     isPlusUser?: boolean;
     isProMember?: boolean;
+    userLoading?: boolean;
     userMenuItems?: ReactNode[];
 }
 export declare const StickyHeader: import("styled-components").StyledComponent<"div", any, import("../Box").BoxProps, never>;

@@ -13,11 +13,13 @@ import {
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
+import Placeholder from '../../Placeholder';
 import Text from '../../Text';
 import HeaderLink from './LegacyHeaderLink';
 
 export interface LegacyMainNavProps {
   isProMember?: boolean;
+  userLoading?: boolean;
   isSticky?: boolean;
 }
 
@@ -25,7 +27,7 @@ export type MainNavLinkGroupsType = {
   label: string;
   url?: string;
   bold?: boolean;
-  indicator?: boolean;
+  loading?: boolean;
   dropdownLinks?: {
     label: string;
     url: string;
@@ -138,40 +140,46 @@ const StyledText = styled(Text)`
   }
 `;
 
-export const Indicator = styled.span`
-  display: inline-block;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: 1rem;
-  min-width: 1rem;
-  border-radius: 0.5rem;
+const GroupLabel: React.FC<MainNavLinkGroupsType> = ({
+  label,
+  bold,
+  loading,
+  url,
+}) => {
+  if (loading) {
+    return <Placeholder width="34px" height="30px" />;
+  }
 
-  ${({ theme }) => space({ theme, ml: '5px' })};
-  ${({ theme }) =>
-    position({
-      theme,
-      position: 'relative',
-      top: '-2px',
-    })};
-  ${({ theme }) => typography({ theme, fontSize: '12px' })};
-  ${({ theme }) =>
-    color({ theme, color: 'shades.white', bg: 'background.highlight' })};
-`;
+  if (url) {
+    return (
+      <HeaderLink href={url} title={label}>
+        <Text m={0} bold={!!bold} color={bold ? 'text.primary' : 'inherit'}>
+          {label}
+        </Text>
+      </HeaderLink>
+    );
+  }
+  return (
+    <StyledText m={0} bold={!!bold} color={bold ? 'text.primary' : 'inherit'}>
+      {label}
+    </StyledText>
+  );
+};
 
 const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
   isProMember,
+  userLoading,
   isSticky,
 }) => {
   const mainNavLinkGroups: MainNavLinkGroupsType[] = [
     {
       label: isProMember ? 'Pro' : 'Plus',
       url: '/dein-abo',
-      indicator: true,
+      loading: userLoading,
     },
     {
       label: 'News',
       url: '/news/',
-      indicator: true,
     },
     {
       label: 'Magazin',
@@ -294,25 +302,12 @@ const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
         {mainNavLinkGroups.map((group, idx) => (
           <MainNavItem key={idx} isSticky={isSticky}>
             <Box display="flex">
-              {group.url ? (
-                <HeaderLink href={group.url} title={group.label}>
-                  <Text
-                    m={0}
-                    bold={!!group.bold}
-                    color={group.bold ? 'text.primary' : 'inherit'}
-                  >
-                    {group.label}
-                  </Text>
-                </HeaderLink>
-              ) : (
-                <StyledText
-                  m={0}
-                  bold={!!group.bold}
-                  color={group.bold ? 'text.primary' : 'inherit'}
-                >
-                  {group.label}
-                </StyledText>
-              )}
+              <GroupLabel
+                label={group.label}
+                bold={group.bold}
+                loading={group.loading}
+                url={group.url}
+              />
               {group.dropdownLinks && <ArrowDownIcon />}
             </Box>
             {group.dropdownLinks && (
