@@ -241,10 +241,7 @@ const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
         },
         {
           label: 'Die neuesten Artikel',
-          title: 'Die externe Seite im neuen Tab/Fenster öffnen',
-          url: 'http://feeds2.feedburner.com/t3n-magazin/',
-          target: '_blank',
-          rel: 'noreferrer noopener',
+          url: '/sitemap_news.xml',
         },
       ],
     },
