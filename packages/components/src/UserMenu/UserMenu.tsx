@@ -25,11 +25,10 @@ export interface UserMenuProps {
   userEmail?: string;
   loginLink?: string;
   logoutLink?: string;
-  proMembershipLink?: string;
+  aboLink?: string;
   readingListLink?: string;
   accountLink?: string;
   isPlusUser?: boolean;
-  plusLink?: string;
   isProMember?: boolean;
   light?: boolean;
   items?: ReactNode[];
@@ -225,10 +224,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
   loginLink = '/account/login',
   logoutLink = '/account/logout',
   isPlusUser = false,
-  plusLink = '/account/plus',
-  proMembershipLink = '/account/pro',
+  aboLink = '/account/',
   readingListLink = '/account/merkliste',
-  accountLink = '/account/',
+  accountLink = '/account/edit',
   light,
 }) => {
   return userEmail ? (
@@ -259,7 +257,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <>
             <UserMenuListDivider />
             <UserMenuListItem>
-              <a href={plusLink}>
+              <a href={aboLink}>
                 <T3nPlus
                   width="22px"
                   height="18px"
@@ -274,7 +272,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <>
             <UserMenuListDivider />
             <UserMenuListItem>
-              <a href={proMembershipLink}>
+              <a href={aboLink}>
                 <T3nPro width="36px" height="18px" style={{ marginRight: 8 }} />
                 Pro-Membership
               </a>
@@ -302,7 +300,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
               height="24"
               style={{ marginRight: 4 }}
             />
-            Konto
+            Account
           </a>
         </UserMenuListItem>
         <UserMenuListDivider />
