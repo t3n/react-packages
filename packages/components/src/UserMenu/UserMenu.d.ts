@@ -4,11 +4,10 @@ export interface UserMenuProps {
     userEmail?: string;
     loginLink?: string;
     logoutLink?: string;
-    proMembershipLink?: string;
+    aboLink?: string;
     readingListLink?: string;
     accountLink?: string;
     isPlusUser?: boolean;
-    plusLink?: string;
     isProMember?: boolean;
     light?: boolean;
     items?: ReactNode[];
