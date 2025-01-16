@@ -112,7 +112,7 @@ const NextButton: React.FC<{
 
   return (
     <StyledNextButton onClick={customOnClick || onClick}>
-      {isLastSlide ? 'Done' : label}
+      {label}
     </StyledNextButton>
   );
 };
