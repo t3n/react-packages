@@ -99,6 +99,7 @@ const meta: Meta<typeof Carousel> = {
     nextLabel: 'Nächste',
     prevLabel: 'Zurück',
     speed: 500,
+    isIconButton: false,
     children: defaultData.map((el) => (
       <Box key={el.id} mb={8} overflow="hidden">
         <Image
@@ -149,6 +150,12 @@ const StyledBox = styled(Box)`
 `;
 
 export const carousel: Story = {};
+
+export const carouselWithChevronButtons: Story = {
+  args: {
+    isIconButton: true,
+  },
+};
 
 export const infinite: Story = {
   args: {
@@ -221,6 +228,65 @@ export const sliderInModal: Story = {
                     ? () => setShowOnboardingModal(false)
                     : undefined
                 }
+                hideNextButton={false}
+                nextLabel={
+                  currentIndex === defaultData.length - 1
+                    ? 'Schließen'
+                    : undefined
+                }
+                onChange={setCurrentIndex}
+              >
+                {defaultData.map((el) => (
+                  <Box key={el.id} mt={2} mb={8} overflow="hidden">
+                    <Image
+                      m="0 auto"
+                      height={['165px', '180px', '150px', '200px', '250px']}
+                      src={el.imageSrc}
+                      alt={el.headline}
+                      title={el.headline}
+                      lazy={false}
+                    />
+
+                    <Text bold mt={3} mb={2}>
+                      {el.name}
+                    </Text>
+                    <Heading as="h5" my={0}>
+                      {el.headline}
+                    </Heading>
+                    <Text>{el.description}</Text>
+                  </Box>
+                ))}
+              </Carousel>
+            </Modal>
+          </StyledBox>
+        )}
+      </>
+    );
+  },
+};
+
+export const sliderWithChevronButtonsInModal: Story = {
+  decorators: [storyContainerDecorator],
+  render: () => {
+    const [showOnboardingModal, setShowOnboardingModal] = useState(true);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    return (
+      <>
+        <Button onClick={() => setShowOnboardingModal(true)}>
+          Slider im Modal anzeigen
+        </Button>
+
+        {showOnboardingModal && (
+          <StyledBox>
+            <Modal headline="" onClose={() => setShowOnboardingModal(false)}>
+              <Carousel
+                onNextClick={
+                  currentIndex === defaultData.length - 1
+                    ? () => setShowOnboardingModal(false)
+                    : undefined
+                }
+                isIconButton
                 hideNextButton={false}
                 nextLabel={
                   currentIndex === defaultData.length - 1
