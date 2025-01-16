@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear } from '@t3n/icons';
-import { theme } from '@t3n/theme';
 
 import Box from '../Box';
 import Card from '../Card';
@@ -69,14 +68,6 @@ const StyledIconContainer = styled(Box)`
   position: absolute;
   top: 10px;
   right: 10px;
-  border-radius: 50%;
-  fill: ${theme.colors.text.primary};
-
-  &:hover {
-    cursor: pointer;
-    background: ${theme.colors.brand.red};
-    fill: ${theme.colors.text.inverse};
-  }
 `;
 
 const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
@@ -85,7 +76,6 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
       onClick={onClick}
       alignItems="center"
       justifyContent="center"
-      bg="shades.grey232"
       p={1}
       display="flex"
       width="40px"
