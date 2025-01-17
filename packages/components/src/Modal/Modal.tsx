@@ -68,6 +68,7 @@ const StyledIconContainer = styled(Box)`
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
 `;
 
 const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
