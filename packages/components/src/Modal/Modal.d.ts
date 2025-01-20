@@ -4,6 +4,7 @@ import { HeadingProps } from '../Heading';
 export interface ModalProps extends WidthProps {
     headline: string;
     headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    alwaysCentered?: boolean;
     wide?: boolean;
     onClose: () => void;
     children?: ReactNode;
