@@ -31,6 +31,7 @@ export interface CarouselProps {
   onChange?: (currentIndex: number) => void;
   isIconButton?: boolean;
   children?: ReactNode;
+  adaptiveHeight?: boolean;
 }
 
 const StyledSlider = styled(SlickSlider)`
@@ -161,6 +162,7 @@ const Carousel: React.FC<CarouselProps> = ({
   isIconButton,
   onChange,
   children,
+  adaptiveHeight,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slidesAmount = React.Children.count(children);
@@ -181,6 +183,7 @@ const Carousel: React.FC<CarouselProps> = ({
         autoplaySpeed={autoplaySpeed}
         slidesToShow={slidesToShow}
         slidesToScroll={slidesToScroll}
+        adaptiveHeight={adaptiveHeight}
         nextArrow={
           <NextButton
             show={
