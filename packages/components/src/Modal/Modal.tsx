@@ -12,6 +12,7 @@ import Icon from '../Icon';
 export interface ModalProps extends WidthProps {
   headline: string;
   headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  alwaysCentered?: boolean;
   wide?: boolean;
   onClose: () => void;
   children?: ReactNode;
@@ -91,6 +92,7 @@ const Modal: React.FC<ModalProps> = ({
   headline,
   headlineIcon,
   wide = false,
+  alwaysCentered = false,
   width: widthProp,
   onClose,
   children,
@@ -99,7 +101,7 @@ const Modal: React.FC<ModalProps> = ({
     <ModalWrapper
       display="flex"
       justifyContent="center"
-      alignItems={['flex-end', 'center']}
+      alignItems={alwaysCentered ? 'center' : ['flex-end', 'center']}
     >
       <StyledModal elevate wide={wide} width={widthProp || [1, 2 / 3, 2 / 5]}>
         <CloseIcon onClick={onClose} />
