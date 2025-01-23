@@ -216,7 +216,7 @@ const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
         },
         {
           label: 'Shop',
-          url: '/store/',
+          url: 'https://shop.t3n.de',
         },
         {
           label: 'Newsletter',
