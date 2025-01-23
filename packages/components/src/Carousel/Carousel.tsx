@@ -48,6 +48,14 @@ const StyledSlider = styled(SlickSlider)`
         theme,
         m: ['0 8px', 0, 0, '0 1px'],
       })};
+
+    @media (max-width: 429px) {
+      ${({ theme }) =>
+        space({
+          theme,
+          m: ['0 4px', 0, 0, '0 1px'],
+        })};
+    }
   }
 
   > .slick-dots li button {
