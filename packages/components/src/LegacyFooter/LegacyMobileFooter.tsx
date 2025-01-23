@@ -69,8 +69,8 @@ const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
       url: '/dein-abo',
     },
     {
-      label: 'Digitale Abos',
-      url: 'https://l.t3n.de/abos',
+      label: 'Jetzt abonnieren',
+      url: 'https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp',
     },
     {
       label: 'Team',
