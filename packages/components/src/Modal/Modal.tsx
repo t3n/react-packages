@@ -29,6 +29,10 @@ const ModalWrapper = styled(Box)`
   width: 100%;
   height: 100%;
   z-index: 200;
+
+  @media (max-height: 668px) {
+    z-index: 1001;
+  }
 `;
 
 const ModalBackdrop = styled.div`
