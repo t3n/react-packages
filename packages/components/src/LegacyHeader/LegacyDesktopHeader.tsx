@@ -268,11 +268,11 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               <IconButton
                 as="a"
                 icon={MaterialAutorenew}
-                href="/abos"
+                href="https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp"
                 variant="secondary"
                 size="small"
                 expanded
-                label="Digitale Abos"
+                label="Jetzt abonnieren"
               />
             </StyledHeaderIconBox>
           </Box>
