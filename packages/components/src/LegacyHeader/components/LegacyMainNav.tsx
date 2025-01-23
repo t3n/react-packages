@@ -292,7 +292,7 @@ const LegacyMainNav: React.FC<LegacyMainNavProps> = ({
     },
     {
       label: 'Shop',
-      url: '/store/',
+      url: 'https://shop.t3n.de',
     },
   ];
 

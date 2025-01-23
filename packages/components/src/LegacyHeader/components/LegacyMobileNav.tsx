@@ -217,7 +217,7 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
     },
     {
       label: 'Shop',
-      url: '/store/',
+      url: 'https://shop.t3n.de',
     },
   ];
 
