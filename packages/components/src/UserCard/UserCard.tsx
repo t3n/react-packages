@@ -122,15 +122,11 @@ const SocialLinksBox = styled(Box)`
   }
 `;
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ links, cardLinked }) => {
+const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   return (
     <SocialLinksBox mt={2} display="flex">
       {links.map((link) => (
-        <SocialButton
-          key={link.type}
-          href={cardLinked ? undefined : link.url}
-          target="_blank"
-        >
+        <SocialButton key={link.type} href={link.url} target="_blank">
           {link.type === 'XING' ? (
             <SocialXing fill="#9b9b9b" />
           ) : link.type === 'LINKEDIN' ? (
@@ -153,7 +149,7 @@ const CompactUserCard: React.FC<
 > = ({ user, link, optimizeAvatar, children }) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
-      {link && link.url ? (
+      {!link?.fullCard && link?.url ? (
         <a
           href={link.url}
           title={link.title ?? user.name}
@@ -187,7 +183,7 @@ const DefaultUserCard: React.FC<
     <Box display={['unset', 'flex']} m="0 auto">
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
         <Box display="flex" justifyContent="center">
-          {link && link.url ? (
+          {!link?.fullCard && link?.url ? (
             <a
               href={link.url}
               title={link.title ?? user.name}
@@ -222,7 +218,7 @@ const UserCardContent: React.FC<
   return (
     <>
       <Text bold mt={0} mb={0}>
-        {link?.url ? (
+        {!link?.fullCard && link?.url ? (
           <StyledLink
             href={link.url}
             title={link.title ?? user.name}
@@ -239,7 +235,7 @@ const UserCardContent: React.FC<
         {user.position}
       </Text>
       {user.flag && <StyledBadge variant="light">{user.flag}</StyledBadge>}
-      {user.email && (
+      {!link?.fullCard && user.email ? (
         <StyledLink
           href={
             link?.url && link?.fullCard ? undefined : `mailto:${user.email}`
@@ -249,8 +245,12 @@ const UserCardContent: React.FC<
             {user.email}
           </Text>
         </StyledLink>
+      ) : (
+        <Text mt={2} mb={0} secondary={!!secondary}>
+          {user.email}
+        </Text>
       )}
-      {user.phone && (
+      {!link?.fullCard && user.phone ? (
         <StyledLink
           href={link?.url && link?.fullCard ? undefined : `tel:${user.phone}`}
         >
@@ -258,12 +258,13 @@ const UserCardContent: React.FC<
             {user.phone}
           </Text>
         </StyledLink>
+      ) : (
+        <Text mt={1} mb={0} secondary={!!secondary}>
+          {user.phone}
+        </Text>
       )}
-      {user.socialLinks.length > 0 && (
-        <SocialLinks
-          links={user.socialLinks}
-          cardLinked={(link?.url && link?.fullCard) || false}
-        />
+      {!link?.fullCard && user.socialLinks.length > 0 && (
+        <SocialLinks links={user.socialLinks} />
       )}
     </>
   );
@@ -278,7 +279,7 @@ const UserCard: React.FC<UserCardProps> = ({
   children,
 }) => {
   return (
-    <StyledCard href={!link?.fullCard || !link?.url ? undefined : link?.url}>
+    <StyledCard href={link?.fullCard && link?.url ? link.url : undefined}>
       {compact ? (
         <CompactUserCard
           user={user}
