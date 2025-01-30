@@ -29,7 +29,9 @@ export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
   textColor?: TextColorProps['color'];
 }
 
-const AvatarPlaceholder = styled((props) => <Placeholder {...props} />)`
+const AvatarPlaceholder = styled((props) => (
+  <Placeholder as="span" {...props} />
+))`
   ${({ theme }) =>
     border({
       theme,
@@ -40,7 +42,7 @@ const AvatarPlaceholder = styled((props) => <Placeholder {...props} />)`
     })};
 `;
 
-const DefaultAvatar = styled((props) => <Box {...props} />)`
+const DefaultAvatar = styled((props) => <Box as="span" {...props} />)`
   ${({ theme }) =>
     border({
       theme,
@@ -128,7 +130,7 @@ const StyledAvatarImage = styled(AvatarImage)<{ src?: string }>`
   box-sizing: border-box;
 `;
 
-const StyledAvatar = styled.div`
+const StyledAvatar = styled.span`
   display: flex;
   align-items: center;
 `;
