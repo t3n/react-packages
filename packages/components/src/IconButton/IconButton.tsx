@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,

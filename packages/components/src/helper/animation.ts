@@ -16,7 +16,8 @@ const backgroundAnimationKeyframes = ({ theme }: ThemeProps) => keyframes`
   }
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export const backgroundAnimation = css`
+const backgroundAnimation = css`
   animation: ${backgroundAnimationKeyframes} 2s linear infinite;
 `;
+
+export default backgroundAnimation;

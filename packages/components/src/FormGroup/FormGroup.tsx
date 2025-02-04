@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-for */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { margin, MarginProps, space } from 'styled-system';

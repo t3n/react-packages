@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
+/* eslint-disable @typescript-eslint/no-require-imports */
 const webpack = require('webpack');
 const { resolve } = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');

@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Formik } from 'formik';
 
-import { Box, Button, H3, Slider, Text } from '@t3n/components';
+import { Slider, Text } from '@t3n/components';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 

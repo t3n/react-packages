@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -69,7 +70,6 @@ const meta: Meta<typeof Image> = {
 export default meta;
 
 const getFastlyClassFormSrc = (src: string) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, fastlyClass] = src.split('?class=');
 
   return fastlyClass;

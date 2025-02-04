@@ -9,7 +9,6 @@ interface FormTextareaProps {
   maxLength: number;
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const FormTextarea = ({ name, label, maxLength }: FormTextareaProps) => {
   const [{ value, name: fieldName, ...rest }, { touched, error }] =
     useField(name);
@@ -33,3 +32,5 @@ export const FormTextarea = ({ name, label, maxLength }: FormTextareaProps) => {
     </FormGroup>
   );
 };
+
+export default FormTextarea;

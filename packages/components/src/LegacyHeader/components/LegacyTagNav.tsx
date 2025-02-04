@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
@@ -6,7 +5,7 @@ import { border, color, layout, space, typography } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
-import { backgroundAnimation } from '../../helper/animation';
+import backgroundAnimation from '../../helper/animation';
 import Tag, { TagColorVariant, TagProps } from '../../Tag';
 
 export const SearchIcon: React.FC = () => (
@@ -131,14 +130,15 @@ const LegacyTagNav: React.FC<{
               .map((e, i) => (
                 <LoadingTag
                   width={Math.round(50 + ((i + 1) % 3) * 30)}
+                  // eslint-disable-next-line react/no-array-index-key
                   key={i}
                 />
               ))
-          : tags.map((tag, idx) => (
+          : tags.map((tag) => (
               <StyledTag
                 link={tag.url}
                 colorVariant={tag.variant || 'secondary'}
-                key={idx}
+                key={tag.label}
                 mb={[2, 2, 2, 0]}
               >
                 {tag.label}

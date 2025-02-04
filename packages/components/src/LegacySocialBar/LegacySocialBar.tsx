@@ -124,14 +124,13 @@ const LegacySocialBar: React.FC<LegacySocialBarProps> = ({
     className={className}
     alignItems="center"
   >
-    {legacySocialLinks.map((link, idx) => (
+    {legacySocialLinks.map((link) => (
       <SocialLink
         href={link.url}
         title={link.title}
         target={link.target ? link.target : '_self'}
         rel={link.rel ? link.rel : undefined}
-        // eslint-disable-next-line react/no-array-index-key
-        key={idx}
+        key={link.title}
       >
         {link.icon}
       </SocialLink>

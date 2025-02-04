@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { ReactNode } from 'react';
 
 import Box from '../Box';

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import styled, { css } from 'styled-components';
 import {
@@ -287,8 +286,8 @@ const LegacyMainNav: React.FC<LegacyMainNavProps> = ({ isSticky }) => {
   return (
     <MainNavWrapper className="tg-menu" isSticky={isSticky}>
       <MainNavInnerWrapper isSticky={isSticky}>
-        {mainNavLinkGroups.map((group, idx) => (
-          <MainNavItem key={idx} isSticky={isSticky}>
+        {mainNavLinkGroups.map((group) => (
+          <MainNavItem key={group.label} isSticky={isSticky}>
             <Box display="flex">
               {group.url ? (
                 <HeaderLink href={group.url} title={group.label}>
@@ -313,8 +312,12 @@ const LegacyMainNav: React.FC<LegacyMainNavProps> = ({ isSticky }) => {
             </Box>
             {group.dropdownLinks && (
               <MainNavDropdown>
-                {group.dropdownLinks.map((link, index) => (
-                  <HeaderLink href={link.url} title={link.label} key={index}>
+                {group.dropdownLinks.map((link) => (
+                  <HeaderLink
+                    href={link.url}
+                    title={link.label}
+                    key={link.label}
+                  >
                     <Text my={1}>{link.label}</Text>
                   </HeaderLink>
                 ))}

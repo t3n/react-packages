@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { border, color, layout, position, space } from 'styled-system';
@@ -286,8 +284,8 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
             Suchen
           </Button>
         </SearchForm>
-        {mobileNavLinks.map((link, idx) => (
-          <MobileMenuItem key={idx} href={link.url} title={link.label}>
+        {mobileNavLinks.map((link) => (
+          <MobileMenuItem key={link.label} href={link.url} title={link.label}>
             <Text
               m={0}
               bold={!!link.bold}

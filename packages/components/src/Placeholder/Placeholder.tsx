@@ -8,7 +8,7 @@ import {
   SpaceProps,
 } from 'styled-system';
 
-import { backgroundAnimation } from '../helper/animation';
+import backgroundAnimation from '../helper/animation';
 
 export interface PlaceholderProps
   extends SpaceProps,

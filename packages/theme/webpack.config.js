@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const configure = require('@t3n/configs/webpack');
 
 const config = configure({ title: '@t3n/theme', dirname: __dirname });

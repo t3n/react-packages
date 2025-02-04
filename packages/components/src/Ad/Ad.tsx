@@ -183,7 +183,7 @@ const AdPlaceholder = styled(Box)<AdProps>`
 `;
 
 const Ad = forwardRef<HTMLDivElement, AdProps>(
-  // eslint-disable-next-line react/prop-types, no-shadow
+  // eslint-disable-next-line no-shadow
   ({ name, preview, style, color, ...boxProps }, ref) => (
     <AdWrapper
       name={name}
