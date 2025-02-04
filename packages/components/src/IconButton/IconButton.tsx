@@ -256,12 +256,7 @@ export const iconButtonStyles = css`
     `}
 `;
 
-const StyledIconButton = styled(
-  ({ expanded, icon, loading, ...rest }: IconButtonProps) => (
-    // eslint-disable-next-line react/button-has-type
-    <button {...rest} />
-  ),
-)<IconButtonProps>`
+export const StyledIconButton = styled.button<IconButtonProps>`
   ${iconButtonStyles}
 `;
 
@@ -313,7 +308,7 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
   return (
     <StyledIconButton
       href={href}
-      as={href ? 'a' : as}
+      as={as}
       size={size}
       icon={icon}
       expanded={expanded}

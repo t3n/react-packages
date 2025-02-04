@@ -2,12 +2,13 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { border, color, layout, space } from 'styled-system';
 
+import { MaterialAutorenew } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
 import Ad from '../Ad';
 import Box from '../Box';
+import IconButton, { StyledIconButton } from '../IconButton';
 import Image from '../Image';
-import { LegacyHeaderSocialShare } from '../LegacyArticleSocialShare';
 import Logo from '../Logo';
 import UserMenu from '../UserMenu';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
@@ -31,6 +32,7 @@ export interface LegacyDesktopHeaderProps {
   userEmail?: string;
   isPlusUser?: boolean;
   isProMember?: boolean;
+  userLoading?: boolean;
   userMenuItems?: ReactNode[];
 }
 
@@ -171,6 +173,24 @@ const HeaderWrapper = styled(Header)`
   }
 `;
 
+const StyledHeaderIconBox = styled(Box)`
+  ${StyledIconButton} {
+    ${({ theme }) => color({ theme, color: 'text.secondary' })};
+    ${({ theme }) => border({ theme, borderColor: 'text.secondary' })}
+
+    path {
+      fill: ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+    }
+
+    &:hover,
+    &:focus {
+      path {
+        fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+      }
+    }
+  }
+`;
+
 const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   tags,
   tagsLoading,
@@ -181,6 +201,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
   userEmail,
   isPlusUser,
   isProMember,
+  userLoading,
   userMenuItems,
 }) => {
   const [displaySticky, setDisplaySticky] = useState(false);
@@ -236,21 +257,29 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               />
             </a>
           </HeaderCampaign>
-          <Box display="flex" flexDirection="column" flexGrow={1} mt={2}>
+          <Box display="flex" flexDirection="column" flexGrow={1} mt={6}>
             <LegacyT3nNav
               isPlusUser={isPlusUser}
               isProMember={isProMember}
               userEmail={userEmail}
               userMenuItems={userMenuItems}
             />
-            <Box mr={-2}>
-              <LegacyHeaderSocialShare />
-            </Box>
+            <StyledHeaderIconBox display="flex" justifyContent="flex-end">
+              <IconButton
+                as="a"
+                icon={MaterialAutorenew}
+                href="https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp"
+                variant="secondary"
+                size="small"
+                expanded
+                label="Jetzt abonnieren"
+              />
+            </StyledHeaderIconBox>
           </Box>
         </VisualHeader>
 
         <Box display="flex" flexDirection="column">
-          <LegacyMainNav />
+          <LegacyMainNav isProMember={isProMember} userLoading={userLoading} />
           <LegacyTagNav tags={tags} loading={tagsLoading} />
         </Box>
       </HeaderWrapper>
@@ -270,7 +299,11 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
               <T3nLogoSmall />
             </a>
             <StickyNavBox width="100%" position="relative">
-              <LegacyMainNav isSticky />
+              <LegacyMainNav
+                isProMember={isProMember}
+                userLoading={userLoading}
+                isSticky
+              />
               <SearchForm action="/suche" method="get">
                 <SearchInput
                   type="text"

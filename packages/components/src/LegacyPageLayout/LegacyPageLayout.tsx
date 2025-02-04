@@ -15,6 +15,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   userEmail?: string;
   isPlusUser?: boolean;
   isProMember?: boolean;
+  userLoading?: boolean;
   userMenuItems?: ReactNode[];
   children?: ReactNode;
 }
@@ -38,6 +39,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   userEmail,
   isPlusUser,
   isProMember,
+  userLoading,
   userMenuItems,
   children,
 }) => {
@@ -63,6 +65,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
           userEmail={userEmail}
           isPlusUser={isPlusUser}
           isProMember={isProMember}
+          userLoading={userLoading}
           userMenuItems={userMenuItems}
         />
         {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
@@ -78,7 +81,10 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         >
           {children}
         </Box>
-        <LegacyFooter privacyManagerId={privacyManagerId} />
+        <LegacyFooter
+          privacyManagerId={privacyManagerId}
+          isProMember={isProMember}
+        />
       </Wrapper>
     </>
   );

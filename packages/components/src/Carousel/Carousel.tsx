@@ -4,8 +4,15 @@ import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import styled from 'styled-components';
 import { display, layout, space } from 'styled-system';
 
+import {
+  MaterialCheck,
+  MaterialChevronLeft,
+  MaterialChevronRight,
+} from '@t3n/icons';
+
 import Box from '../Box';
 import Button from '../Button';
+import IconButton from '../IconButton';
 
 export interface CarouselProps {
   slidesToShow?: number;
@@ -22,7 +29,9 @@ export interface CarouselProps {
   hideNextButton?: boolean;
   hidePrevButton?: boolean;
   onChange?: (currentIndex: number) => void;
+  isIconButton?: boolean;
   children?: ReactNode;
+  adaptiveHeight?: boolean;
 }
 
 const StyledSlider = styled(SlickSlider)`
@@ -39,6 +48,14 @@ const StyledSlider = styled(SlickSlider)`
         theme,
         m: ['0 8px', 0, 0, '0 1px'],
       })};
+
+    @media (max-width: 429px) {
+      ${({ theme }) =>
+        space({
+          theme,
+          m: ['0 4px', 0, 0, '0 1px'],
+        })};
+    }
   }
 
   > .slick-dots li button {
@@ -68,13 +85,39 @@ const StyledPrevButton = styled(Button)`
   ${({ theme }) => display({ theme, display: ['none', 'block'] })}
 `;
 
+const StyledIconButtonWrapper = styled.div<{ position: 'left' | 'right' }>`
+  position: absolute;
+  bottom: 0;
+  ${({ position }) => (position === 'left' ? 'left: 0;' : 'right: 0;')}
+  z-index: 1;
+`;
+
 const NextButton: React.FC<{
   onClick?: () => void;
   show: boolean;
-  label: string;
+  label?: string;
   customOnClick?: () => void;
-}> = ({ onClick, show = true, label, customOnClick }) => {
+  isIconButton?: boolean;
+  isLastSlide?: boolean;
+}> = ({
+  onClick,
+  show = true,
+  label,
+  customOnClick,
+  isIconButton,
+  isLastSlide,
+}) => {
   if (!show) return null;
+
+  const icon = isLastSlide ? MaterialCheck : MaterialChevronRight;
+
+  if (isIconButton) {
+    return (
+      <StyledIconButtonWrapper position="right">
+        <IconButton onClick={customOnClick || onClick} icon={icon} />
+      </StyledIconButtonWrapper>
+    );
+  }
 
   return (
     <StyledNextButton onClick={customOnClick || onClick}>
@@ -86,10 +129,22 @@ const NextButton: React.FC<{
 const PrevButton: React.FC<{
   onClick?: () => void;
   show: boolean;
-  label: string;
+  label?: string;
   customOnClick?: () => void;
-}> = ({ onClick, show = true, label, customOnClick }) => {
+  isIconButton?: boolean;
+}> = ({ onClick, show = true, label, customOnClick, isIconButton }) => {
   if (!show) return null;
+
+  if (isIconButton) {
+    return (
+      <StyledIconButtonWrapper position="left">
+        <IconButton
+          onClick={customOnClick || onClick}
+          icon={MaterialChevronLeft}
+        />
+      </StyledIconButtonWrapper>
+    );
+  }
 
   return (
     <StyledPrevButton onClick={customOnClick || onClick} variant="secondary">
@@ -112,8 +167,10 @@ const Carousel: React.FC<CarouselProps> = ({
   onPrevClick,
   hideNextButton,
   hidePrevButton,
+  isIconButton,
   onChange,
   children,
+  adaptiveHeight,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slidesAmount = React.Children.count(children);
@@ -123,7 +180,7 @@ const Carousel: React.FC<CarouselProps> = ({
       onChange(currentIndex);
     }
   }, [currentIndex, onChange]);
-
+  const isLastSlide = currentIndex === slidesAmount - slidesToShow;
   return (
     <Box>
       <StyledSlider
@@ -134,6 +191,7 @@ const Carousel: React.FC<CarouselProps> = ({
         autoplaySpeed={autoplaySpeed}
         slidesToShow={slidesToShow}
         slidesToScroll={slidesToScroll}
+        adaptiveHeight={adaptiveHeight}
         nextArrow={
           <NextButton
             show={
@@ -141,6 +199,8 @@ const Carousel: React.FC<CarouselProps> = ({
                 ? !hideNextButton
                 : currentIndex < slidesAmount - 1 || infinite
             }
+            isLastSlide={isLastSlide}
+            isIconButton={isIconButton}
             label={nextLabel}
             customOnClick={onNextClick}
           />
@@ -152,6 +212,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 ? !hidePrevButton
                 : currentIndex > 0 || infinite
             }
+            isIconButton={isIconButton}
             label={prevLabel}
             customOnClick={onPrevClick}
           />

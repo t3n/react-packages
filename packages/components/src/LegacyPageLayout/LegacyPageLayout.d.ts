@@ -9,6 +9,7 @@ export interface LegacyPageLayoutProps extends LegacyHeaderProps {
     userEmail?: string;
     isPlusUser?: boolean;
     isProMember?: boolean;
+    userLoading?: boolean;
     userMenuItems?: ReactNode[];
     children?: ReactNode;
 }

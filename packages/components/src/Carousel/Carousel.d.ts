@@ -15,7 +15,9 @@ export interface CarouselProps {
     hideNextButton?: boolean;
     hidePrevButton?: boolean;
     onChange?: (currentIndex: number) => void;
+    isIconButton?: boolean;
     children?: ReactNode;
+    adaptiveHeight?: boolean;
 }
 declare const Carousel: React.FC<CarouselProps>;
 export default Carousel;

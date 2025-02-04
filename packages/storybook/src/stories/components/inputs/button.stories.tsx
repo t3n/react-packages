@@ -57,8 +57,42 @@ export const inverse: Story = {
   ],
 };
 
+export const secondaryInverse: Story = {
+  args: {
+    variant: 'secondary' as ButtonVariant,
+    color: 'inverse' as ButtonColorVariant,
+  },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="inverse">
+          <StoryComp />
+        </Section>
+      );
+    },
+    storyContainerContentDecorator,
+  ],
+};
+
 export const highlight: Story = {
   args: { color: 'highlight' as ButtonColorVariant },
+  decorators: [
+    (StoryComp) => {
+      return (
+        <Section variant="highlight">
+          <StoryComp />
+        </Section>
+      );
+    },
+    storyContainerContentDecorator,
+  ],
+};
+
+export const secondaryHighlight: Story = {
+  args: {
+    variant: 'secondary' as ButtonVariant,
+    color: 'highlight' as ButtonColorVariant,
+  },
   decorators: [
     (StoryComp) => {
       return (

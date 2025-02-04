@@ -8,3 +8,5 @@ export declare const infinite: Story;
 export declare const autoplay: Story;
 export declare const responsive: Story;
 export declare const sliderInModal: Story;
+export declare const carouselWithChevronButtons: Story;
+export declare const sliderWithChevronButtonsInModal: Story;

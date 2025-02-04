@@ -11,6 +11,7 @@ export interface LegacyHeaderProps {
     userEmail?: string;
     isPlusUser?: boolean;
     isProMember?: boolean;
+    userLoading?: boolean;
     userMenuItems?: ReactNode[];
 }
 declare const LegacyHeader: React.FC<LegacyHeaderProps>;

@@ -16,6 +16,7 @@ export interface LegacyHeaderProps {
   userEmail?: string;
   isPlusUser?: boolean;
   isProMember?: boolean;
+  userLoading?: boolean;
   userMenuItems?: ReactNode[];
 }
 
@@ -30,6 +31,7 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
   userEmail,
   isPlusUser,
   isProMember,
+  userLoading,
   userMenuItems,
 }) => {
   return (
@@ -54,6 +56,7 @@ const LegacyHeader: React.FC<LegacyHeaderProps> = ({
           userEmail={userEmail}
           isPlusUser={isPlusUser}
           isProMember={isProMember}
+          userLoading={userLoading}
           userMenuItems={userMenuItems}
         />
       </Box>

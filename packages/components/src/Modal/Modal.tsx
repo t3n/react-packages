@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear } from '@t3n/icons';
-import { theme } from '@t3n/theme';
 
 import Box from '../Box';
 import Card from '../Card';
@@ -13,6 +12,7 @@ import Icon from '../Icon';
 export interface ModalProps extends WidthProps {
   headline: string;
   headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  alwaysCentered?: boolean;
   wide?: boolean;
   onClose: () => void;
   children?: ReactNode;
@@ -29,6 +29,10 @@ const ModalWrapper = styled(Box)`
   width: 100%;
   height: 100%;
   z-index: 200;
+
+  @media (max-height: 668px) {
+    z-index: 1001;
+  }
 `;
 
 const ModalBackdrop = styled.div`
@@ -69,14 +73,7 @@ const StyledIconContainer = styled(Box)`
   position: absolute;
   top: 10px;
   right: 10px;
-  border-radius: 50%;
-  fill: ${theme.colors.text.primary};
-
-  &:hover {
-    cursor: pointer;
-    background: ${theme.colors.brand.red};
-    fill: ${theme.colors.text.inverse};
-  }
+  cursor: pointer;
 `;
 
 const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
@@ -85,7 +82,6 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
       onClick={onClick}
       alignItems="center"
       justifyContent="center"
-      bg="shades.grey232"
       p={1}
       display="flex"
       width="40px"
@@ -100,6 +96,7 @@ const Modal: React.FC<ModalProps> = ({
   headline,
   headlineIcon,
   wide = false,
+  alwaysCentered = false,
   width: widthProp,
   onClose,
   children,
@@ -108,7 +105,7 @@ const Modal: React.FC<ModalProps> = ({
     <ModalWrapper
       display="flex"
       justifyContent="center"
-      alignItems={['flex-end', 'center']}
+      alignItems={alwaysCentered ? 'center' : ['flex-end', 'center']}
     >
       <StyledModal elevate wide={wide} width={widthProp || [1, 2 / 3, 2 / 5]}>
         <CloseIcon onClick={onClose} />

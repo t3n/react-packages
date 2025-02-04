@@ -32,7 +32,6 @@ export interface LegacyMobileNavProps {
 export type MobileNavLinksType = {
   label: string;
   url: string;
-  indicator?: boolean;
   bold?: boolean;
 };
 
@@ -156,63 +155,6 @@ const SearchForm = styled.form`
   ${({ theme }) => space({ theme, p: 3, mt: -1 })};
 `;
 
-const mobileNavLinks: MobileNavLinksType[] = [
-  {
-    label: 'Plus',
-    url: '/plus-artikel',
-    indicator: false,
-  },
-  {
-    label: 'News',
-    url: '/news/',
-    indicator: false,
-  },
-  {
-    label: 'Magazin',
-    url: '/magazin/',
-  },
-  {
-    label: 'Guides',
-    url: '/guides/',
-  },
-  {
-    label: 'Onlinekurse',
-    url: '/online-kurse/',
-  },
-  {
-    label: 'Ratgeber',
-    url: '/ratgeber/',
-  },
-  {
-    label: 'Tests & Tools',
-    url: '/tests-tools/',
-  },
-  {
-    label: 'Podcasts',
-    url: '/podcast/',
-  },
-  {
-    label: 'Quiz',
-    url: '/quiz/',
-  },
-  {
-    label: 'Themen',
-    url: '/tag/',
-  },
-  {
-    label: 'Jobs',
-    url: 'https://jobs.t3n.de',
-  },
-  {
-    label: 'Events',
-    url: '/events/',
-  },
-  {
-    label: 'Shop',
-    url: '/store/',
-  },
-];
-
 const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
   headerCampaignUrl,
   headerCampaignImageMobile,
@@ -221,6 +163,61 @@ const LegacyMobileNav: React.FC<LegacyMobileNavProps> = ({
   isProMember,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const mobileNavLinks: MobileNavLinksType[] = [
+    {
+      label: isProMember ? 'Pro' : 'Plus',
+      url: '/dein-abo',
+    },
+    {
+      label: 'News',
+      url: '/news/',
+    },
+    {
+      label: 'Magazin',
+      url: '/magazin/',
+    },
+    {
+      label: 'Guides',
+      url: '/guides/',
+    },
+    {
+      label: 'Onlinekurse',
+      url: '/online-kurse/',
+    },
+    {
+      label: 'Ratgeber',
+      url: '/ratgeber/',
+    },
+    {
+      label: 'Tests & Tools',
+      url: '/tests-tools/',
+    },
+    {
+      label: 'Podcasts',
+      url: '/podcast/',
+    },
+    {
+      label: 'Quiz',
+      url: '/quiz/',
+    },
+    {
+      label: 'Themen',
+      url: '/tag/',
+    },
+    {
+      label: 'Jobs',
+      url: 'https://jobs.t3n.de',
+    },
+    {
+      label: 'Events',
+      url: '/events/',
+    },
+    {
+      label: 'Shop',
+      url: 'https://shop.t3n.de',
+    },
+  ];
 
   return (
     <Box>
