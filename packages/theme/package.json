@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@t3n/configs": "^0.7.4",
-    "@types/lodash": "^4.17.13",
+    "@types/lodash": "^4.17.15",
     "@types/styled-system": "^5.1.23",
     "@types/styled-system__theme-get": "^5.0.4",
     "styled-system": "^5.1.5"
