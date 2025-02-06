@@ -1,4 +1,4 @@
-FROM node:21.7.3-alpine3.18
+FROM node:22.13.1-bookworm
 
 COPY --chown=1000:1000 . /app
 
