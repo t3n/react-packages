@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import styled from 'styled-components';
 import { border, color, space } from 'styled-system';
 

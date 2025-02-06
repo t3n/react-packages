@@ -2,15 +2,15 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { color } from 'styled-system';
 
+import Ad, { AdName } from '../Ad';
 import Box from '../Box';
-import LegacyAd, { LegacyAdName } from '../LegacyAd';
 import LegacyFooter from '../LegacyFooter';
 import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
 
 export interface LegacyPageLayoutProps extends LegacyHeaderProps {
   privacyManagerId: string;
   overflow?: string;
-  adUnits?: LegacyAdName[];
+  adUnits?: AdName[];
   previewAdUnits?: boolean;
   userEmail?: string;
   isPlusUser?: boolean;
@@ -43,14 +43,14 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   userMenuItems,
   children,
 }) => {
-  const shouldDisplayAdUnit = (name: LegacyAdName) => {
+  const shouldDisplayAdUnit = (name: AdName) => {
     return adUnits?.includes(name) || false;
   };
   return (
     <>
       {shouldDisplayAdUnit('T3N_D_Top') && (
         <Box display={['none', 'none', 'block']}>
-          <LegacyAd name="T3N_D_Top" preview={previewAdUnits} />
+          <Ad name="T3N_D_Top" preview={previewAdUnits} />
         </Box>
       )}
       <Wrapper>
@@ -70,7 +70,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         />
         {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
           <Box display={['block', 'block', 'none']}>
-            <LegacyAd name="T3N_M_Incontent-1" preview={previewAdUnits} />
+            <Ad name="T3N_M_Incontent-1" preview={previewAdUnits} />
           </Box>
         )}
         <Box

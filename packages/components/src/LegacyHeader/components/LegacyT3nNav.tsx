@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { space, typography } from 'styled-system';
@@ -133,9 +132,9 @@ const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
       pb="2px"
       mb={2}
     >
-      {t3nNavLinks.map((link, idx) => (
-        <MainNavItem key={idx}>
-          <HeaderLink href={link.url} title={link.label} key={idx}>
+      {t3nNavLinks.map((link) => (
+        <MainNavItem key={link.label}>
+          <HeaderLink href={link.url} title={link.label} key={link.label}>
             <Box display="flex" justifyContent="between" alignItems="center">
               <Text>
                 {link.label}
@@ -145,11 +144,11 @@ const LegacyT3nNav: React.FC<LegacyT3nNavProps> = ({
           </HeaderLink>
           {link.dropdownLinks && (
             <MainNavDropdown>
-              {link.dropdownLinks.map((dropdownlink, index) => (
+              {link.dropdownLinks.map((dropdownlink) => (
                 <HeaderLink
                   href={dropdownlink.url}
                   title={dropdownlink.label}
-                  key={index}
+                  key={dropdownlink.label}
                 >
                   <Text>{dropdownlink.label}</Text>
                 </HeaderLink>

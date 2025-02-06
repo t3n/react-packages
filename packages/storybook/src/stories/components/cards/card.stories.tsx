@@ -49,16 +49,11 @@ type Story = StoryObj<typeof Card>;
 export const card: Story = {
   args: {
     children: (
-      <>
-        <Heading as="h2" mt={0}>
-          Lorem ipsum dolor sit amet
-        </Heading>
-        <Text my={0}>
-          The Caterpillar and Alice looked at each other for some time in
-          silence: at last the Caterpillar took the hookah out of its mouth, and
-          addressed her in a languid, sleepy voice.
-        </Text>
-      </>
+      <Text my={0}>
+        The Caterpillar and Alice looked at each other for some time in silence:
+        at last the Caterpillar took the hookah out of its mouth, and addressed
+        her in a languid, sleepy voice.
+      </Text>
     ),
   },
 };
@@ -66,16 +61,11 @@ export const card: Story = {
 export const linked: Story = {
   args: {
     children: (
-      <>
-        <Heading as="h2" mt={0}>
-          Lorem ipsum dolor sit amet
-        </Heading>
-        <Text my={0}>
-          The Caterpillar and Alice looked at each other for some time in
-          silence: at last the Caterpillar took the hookah out of its mouth, and
-          addressed her in a languid, sleepy voice.
-        </Text>
-      </>
+      <Text my={0}>
+        The Caterpillar and Alice looked at each other for some time in silence:
+        at last the Caterpillar took the hookah out of its mouth, and addressed
+        her in a languid, sleepy voice.
+      </Text>
     ),
     href: 'https://t3n.de',
   },
@@ -90,9 +80,6 @@ export const header: Story = {
           bg="background.primary"
           image="https://images.unsplash.com/photo-1548594108-b8fc35b9b23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
         />
-        <Heading as="h2" mt={0}>
-          Lorem ipsum dolor sit amet
-        </Heading>
         <Text my={0}>
           The Caterpillar and Alice looked at each other for some time in
           silence: at last the Caterpillar took the hookah out of its mouth, and
@@ -107,16 +94,11 @@ export const padding: Story = {
   args: {
     big: true,
     children: (
-      <>
-        <Heading as="h2" mt={0}>
-          Lorem ipsum dolor sit amet
-        </Heading>
-        <Text my={0}>
-          The Caterpillar and Alice looked at each other for some time in
-          silence: at last the Caterpillar took the hookah out of its mouth, and
-          addressed her in a languid, sleepy voice.
-        </Text>
-      </>
+      <Text my={0}>
+        The Caterpillar and Alice looked at each other for some time in silence:
+        at last the Caterpillar took the hookah out of its mouth, and addressed
+        her in a languid, sleepy voice.
+      </Text>
     ),
   },
 };

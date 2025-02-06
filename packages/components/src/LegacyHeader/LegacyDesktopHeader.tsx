@@ -5,10 +5,10 @@ import { border, color, layout, space } from 'styled-system';
 import { MaterialAutorenew } from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
+import Ad from '../Ad';
 import Box from '../Box';
 import IconButton, { StyledIconButton } from '../IconButton';
 import Image from '../Image';
-import LegacyAd from '../LegacyAd';
 import Logo from '../Logo';
 import UserMenu from '../UserMenu';
 import HeaderCampaign from './components/LegacyHeaderCampaign';
@@ -227,7 +227,7 @@ const LegacyDesktopHeader: React.FC<LegacyDesktopHeaderProps> = ({
 
   return (
     <Box position="relative" ref={headerRef}>
-      {showAds && <LegacyAd name="T3N_D_Right" preview={adsPreview} />}
+      {showAds && <Ad name="T3N_D_Right" preview={adsPreview} />}
       <HeaderWrapper className="tg-header">
         <VisualHeader display="flex" alignItems="center">
           <Box

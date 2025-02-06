@@ -10,7 +10,6 @@ interface FormInputProps {
   type: InputTypes;
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
   const [{ value, name: fieldName, ...rest }, { touched, error }] =
     useField(name);
@@ -38,3 +37,5 @@ export const FormInput = ({ name, label, type = 'text' }: FormInputProps) => {
     </FormGroup>
   );
 };
+
+export default FormInput;

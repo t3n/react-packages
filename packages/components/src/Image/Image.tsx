@@ -83,8 +83,7 @@ const generateFastlySrc = (src: string, imageClass: string) => {
     // Resolve fastly origin for url and return url with optimization class
     // and original url params applied
     return url.toString();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (e) {
+  } catch {
     // Simply return src if we cannot construct an url object from src
     // This might be the case for relative URLs where we don't know how to
     // map them

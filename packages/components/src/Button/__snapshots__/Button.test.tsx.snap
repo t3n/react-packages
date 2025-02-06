@@ -34,7 +34,8 @@ exports[`Button in default state matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -147,7 +148,8 @@ exports[`Button in loading state matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -233,7 +235,8 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -316,7 +319,8 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   border-color: #fff;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -400,7 +404,8 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   border-color: #fff;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -483,7 +488,8 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -566,7 +572,8 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   border-color: #fff;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #2a2a2a;
   border-color: #2a2a2a;
@@ -649,7 +656,8 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   border-color: #fff;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -762,7 +770,8 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;
@@ -848,7 +857,8 @@ exports[`Small Button matches snapshot 1`] = `
   border-color: #2a2a2a;
 }
 
-.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
   color: #fff;
   background-color: #f9423a;
   border-color: #f9423a;

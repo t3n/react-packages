@@ -6,8 +6,36 @@ import { ThemeProps } from '@t3n/theme';
 
 import Box, { BoxProps } from '../Box';
 
+export type AdName =
+  | 'T3N_D_Top'
+  | 'T3N_D_Right'
+  | 'T3N_D_Incontent-1'
+  | 'T3N_D_Incontent-2'
+  | 'T3N_D_Incontent-3'
+  | 'T3N_D_Incontent-4'
+  | 'T3N_D_Incontent-5'
+  | 'T3N_D_Incontent-6'
+  | 'T3N_D_Incontent-7'
+  | 'T3N_D_Incontent-8'
+  | 'T3N_D_Incontent-9'
+  | 'T3N_D_Incontent-10'
+  | 'T3N_D_Incontent-11'
+  | 'T3N_D_Sidebar-1'
+  | 'T3N_D_Sidebar-2'
+  | 'T3N_D_Sidebar-3'
+  | 'T3N_M_Incontent-1'
+  | 'T3N_M_Incontent-2'
+  | 'T3N_M_Incontent-3'
+  | 'T3N_M_Incontent-4'
+  | 'T3N_M_Incontent-5'
+  | 'T3N_M_Incontent-6'
+  | 'T3N_M_Incontent-7'
+  | 'T3N_M_Incontent-8'
+  | 'T3N_M_Incontent-9'
+  | 'T3N_M_Incontent-10'
+  | 'T3N_M_Sticky';
 export interface AdProps extends BoxProps {
-  name: string;
+  name: AdName;
   preview?: boolean;
   style?: React.CSSProperties;
 }
@@ -155,7 +183,7 @@ const AdPlaceholder = styled(Box)<AdProps>`
 `;
 
 const Ad = forwardRef<HTMLDivElement, AdProps>(
-  // eslint-disable-next-line react/prop-types, no-shadow
+  // eslint-disable-next-line no-shadow
   ({ name, preview, style, color, ...boxProps }, ref) => (
     <AdWrapper
       name={name}

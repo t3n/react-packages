@@ -1,7 +1,6 @@
-/* eslint-disable react/require-default-props */
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { color, ColorProps, space } from 'styled-system';
+import { color, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -12,7 +11,6 @@ export interface CardHeaderProps extends ThemeProps {
   as?: 'div' | 'a';
   big?: boolean;
   ratio?: RatioProps['ratio'] | 'auto';
-  bg?: ColorProps['bg'];
   color?: string;
   image?: string;
   children?: ReactNode;
@@ -28,9 +26,8 @@ export const CardHeaderContent = styled.div`
 const CardHeaderContainer = styled.div``;
 
 const CardHeaderComponent = ({
-  big, // eslint-disable-line @typescript-eslint/no-unused-vars
+  big,
   ratio,
-  bg = 'background.secondary', // eslint-disable-line @typescript-eslint/no-unused-vars
   image,
   children,
   ...props
