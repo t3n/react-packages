@@ -2,7 +2,7 @@ version: 2.1
 
 aliases:
   - &workspace_root ~/workspace
-  - &ci_node_image node:21.7.3-alpine3.18
+  - &ci_node_image node:22.13.1-bookworm
 
   - &attach_workspace
     at: *workspace_root
