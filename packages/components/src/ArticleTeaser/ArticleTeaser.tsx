@@ -67,9 +67,7 @@ const ArticleTeaser: React.FC<{
     <>
       <HoverLink href={article.url}>
         <Grid>
-          <GridItem
-            width={smallTeaserImage ? [3 / 4, 3 / 4, 3 / 4, 5 / 6, 7 / 8] : 1}
-          >
+          <GridItem width={smallTeaserImage ? [3 / 4, 3 / 4, 3 / 4, 5 / 6] : 1}>
             {largeTeaserImage && article.imageUrl && (
               <LargeTeaserImage
                 src={article.imageUrl}
@@ -98,7 +96,7 @@ const ArticleTeaser: React.FC<{
             {teaserText && <Text>{article.teaser}</Text>}
           </GridItem>
           {smallTeaserImage && article.imageUrl && (
-            <GridItem width={[1 / 4, 1 / 4, 1 / 4, 1 / 6, 1 / 8]}>
+            <GridItem width={[1 / 4, 1 / 4, 1 / 4, 1 / 6]}>
               <SmallTeaserImage
                 src={article.imageUrl}
                 width={1}
