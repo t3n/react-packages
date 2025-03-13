@@ -160,7 +160,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 title="Mein Abo"
                 mr={2}
                 color="red"
-                label="Mein Account"
+                label="Mein Abo"
               />
             ) : (
               <RoundedButton
