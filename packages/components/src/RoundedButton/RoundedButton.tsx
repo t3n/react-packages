@@ -21,48 +21,56 @@ import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
 import Icon from '../Icon';
 import Loader from '../Loader';
 
-export type IconButtonAsType = 'button' | 'a';
-export type IconButtonVariant = 'primary' | 'secondary';
-export type IconButtonColorVariant = 'default' | 'inverse' | 'highlight';
-export type IconButtonSizeVariant = 'small' | 'regular' | 'big';
+export type RoundedButtonAsType = 'button' | 'a';
+export type RoundedButtonVariant = 'primary' | 'secondary';
+export type RoundedButtonColorVariant =
+  | 'default'
+  | 'inverse'
+  | 'highlight'
+  | 'red';
+export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
 
-export interface IconButtonBaseProps extends MarginProps, WidthProps {
-  size?: IconButtonSizeVariant;
-  variant?: IconButtonVariant;
-  color?: IconButtonColorVariant;
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  label?: string;
+export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
+  size?: RoundedButtonSizeVariant;
+  variant?: RoundedButtonVariant;
+  color?: RoundedButtonColorVariant;
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  label?: ReactNode;
   loading?: boolean;
   expanded?: boolean;
   children?: ReactNode;
 }
 
-export interface IconButtonButtonTypeProps
-  extends IconButtonBaseProps,
+export interface RoundedButtonButtonTypeProps
+  extends RoundedButtonBaseProps,
     Omit<ButtonHTMLAttributes<any>, 'color'> {
   as?: 'button';
 }
 
-export interface IconButtonATypeProps
-  extends IconButtonBaseProps,
+export interface RoundedButtonATypeProps
+  extends RoundedButtonBaseProps,
     Omit<AnchorHTMLAttributes<any>, 'color' | 'type'> {
   as?: 'a';
 }
 
-export type IconButtonProps = IconButtonATypeProps | IconButtonButtonTypeProps;
+export type RoundedButtonProps =
+  | RoundedButtonATypeProps
+  | RoundedButtonButtonTypeProps;
 
-const isATypeProps = (props: IconButtonProps): props is IconButtonATypeProps =>
-  props.as === 'a';
+const isATypeProps = (
+  props: RoundedButtonProps,
+): props is RoundedButtonATypeProps => props.as === 'a';
 
 const buildColorVariants = (
-  variantProp: IconButtonVariant,
+  variantProp: RoundedButtonVariant,
   type: 'default' | 'hover',
   theme: Theme,
 ) => {
-  const allVariants: IconButtonColorVariant[] = [
+  const allVariants: RoundedButtonColorVariant[] = [
     'default',
     'highlight',
     'inverse',
+    'red',
   ];
   const buildConfig: any = {};
 
@@ -89,13 +97,14 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const iconButtonStyles = css`
+export const RoundedButtonStyles = css`
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   border-radius: 30px;
   border: 2px solid;
+  font-weight: 600;
   ${({ theme }) => space({ p: 2, theme })};
   ${width};
   ${margin};
@@ -103,14 +112,14 @@ export const iconButtonStyles = css`
   ${({ theme, size }) =>
     space({ px: size, py: size && size === 'small' ? 2 : 2, theme })}
 
-  ${({ theme, size }: IconButtonProps & ThemeProps) =>
+  ${({ theme, size }: RoundedButtonProps & ThemeProps) =>
     composeTextStyle({
       textStyle:
         size === 'big' ? 'big' : size === 'small' ? 'small' : 'regular',
       theme,
     })};
 
-  ${(props: IconButtonProps) => {
+  ${(props: RoundedButtonProps) => {
     return (!isATypeProps(props) && props.disabled) || props.loading
       ? 'cursor: no-drop'
       : 'cursor: pointer';
@@ -131,7 +140,7 @@ export const iconButtonStyles = css`
   ${({
     theme,
     variant: variantProp = 'primary',
-  }: IconButtonProps & ThemeProps) =>
+  }: RoundedButtonProps & ThemeProps) =>
     variant({
       prop: 'color',
       variants: buildColorVariants(variantProp, 'default', theme),
@@ -141,7 +150,7 @@ export const iconButtonStyles = css`
     ${({
       theme,
       variant: variantProp = 'primary',
-    }: IconButtonProps & ThemeProps) =>
+    }: RoundedButtonProps & ThemeProps) =>
       variant({
         prop: 'color',
         variants: buildColorVariants(variantProp, 'hover', theme),
@@ -170,7 +179,7 @@ export const iconButtonStyles = css`
         theme,
         color: colorProp,
         variant: variantProp = 'primary',
-      }: IconButtonProps & ThemeProps) =>
+      }: RoundedButtonProps & ThemeProps) =>
         systemColor({
           theme,
           bg:
@@ -192,7 +201,7 @@ export const iconButtonStyles = css`
       variant: variantProp,
       color: colorProp,
       theme,
-    }: ThemeProps & IconButtonProps) =>
+    }: ThemeProps & RoundedButtonProps) =>
       `fill: ${
         variantProp === 'secondary'
           ? colorProp === 'highlight' || colorProp === 'inverse'
@@ -213,7 +222,7 @@ export const iconButtonStyles = css`
           color,
           variant: variantProp,
           theme,
-        }: ThemeProps & IconButtonProps) =>
+        }: ThemeProps & RoundedButtonProps) =>
           systemColor({
             theme,
             color:
@@ -256,8 +265,8 @@ export const iconButtonStyles = css`
     `}
 `;
 
-export const StyledIconButton = styled.button<IconButtonProps>`
-  ${iconButtonStyles}
+export const StyledRoundedButton = styled.button<RoundedButtonProps>`
+  ${RoundedButtonStyles}
 `;
 
 const getButtonSize = (
@@ -286,7 +295,7 @@ const getLoaderSize = (
   }
 };
 
-const IconButton: React.FC<IconButtonProps> = (props) => {
+const RoundedButton: React.FC<RoundedButtonProps> = (props) => {
   const {
     children,
     loading,
@@ -296,7 +305,7 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
     color = 'default',
     variant: iconVariant = 'primary',
     as,
-    expanded = false,
+    expanded = !icon,
     ...rest
   } = props;
 
@@ -306,7 +315,7 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
   const disabled = !isATypeProps(props) ? props.disabled : undefined;
 
   return (
-    <StyledIconButton
+    <StyledRoundedButton
       href={href}
       as={as}
       size={size}
@@ -323,17 +332,19 @@ const IconButton: React.FC<IconButtonProps> = (props) => {
         <Loader loaderSize={getLoaderSize(size)} />
       ) : (
         <>
-          <Icon
-            component={icon}
-            mr={2}
-            width={getButtonSize(size)}
-            height={getButtonSize(size)}
-          />
+          {icon && (
+            <Icon
+              component={icon}
+              mr={2}
+              width={getButtonSize(size)}
+              height={getButtonSize(size)}
+            />
+          )}
           {label && <span className="icon-button_text">{label}</span>}
         </>
       )}
-    </StyledIconButton>
+    </StyledRoundedButton>
   );
 };
 
-export default IconButton;
+export default RoundedButton;

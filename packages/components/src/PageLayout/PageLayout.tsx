@@ -1,17 +1,11 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import Content from '../Content';
-import useScrollPosition from '../hooks/useScrollPosition';
 import PageFooter from '../PageFooter';
 import PageHeader, { PageHeaderProps } from '../PageHeader';
 
 export interface PageLayoutProps extends PageHeaderProps {
-  showHeader?: boolean;
-  noContentPadding?: boolean;
-  logoHref?: string;
-  initialTransparent?: boolean;
-  light?: boolean;
   showPrivacySettingsLink?: boolean;
   privacyManagerId?: string;
   headerContent?: JSX.Element;
@@ -35,58 +29,38 @@ const PageLayoutContainer = styled.div`
 `;
 
 const PageLayout: React.FC<PageLayoutProps> = ({
-  privacyManagerId,
-  showHeader = true,
-  logoHref,
-  noContentPadding,
-  headerContent,
-  initialTransparent = false,
-  footerContent,
   showPrivacySettingsLink,
-  light,
+  privacyManagerId,
+  footerContent,
+  pinnedTeaser,
+  tags,
+  ressorts,
+  skills,
+  brands,
+  magazines,
+  headerCampaignUrl,
+  headerCampaignImage,
+  burgerCampaignImage,
+  burgerCampaignUrl,
+  isLoggedIn,
   children,
 }) => {
-  const { y } = useScrollPosition();
-  const [transparentHeader, setTransparentHeader] =
-    useState(initialTransparent);
-
-  useEffect(() => {
-    // if the header is initial transparent we need to track the scroll position
-    if (initialTransparent) {
-      if (y > 20 && transparentHeader) {
-        setTransparentHeader(false);
-      } else if (y < 20 && !transparentHeader) {
-        setTransparentHeader(true);
-      }
-    }
-  }, [initialTransparent, y, transparentHeader]);
-
   return (
     <PageLayoutContainer>
-      {showHeader && (
-        <PageHeader
-          logoHref={logoHref}
-          transparent={transparentHeader}
-          light={light}
-        >
-          {headerContent}
-        </PageHeader>
-      )}
-      {initialTransparent ? (
-        children
-      ) : (
-        <Content
-          wide
-          px={0}
-          pt={
-            // eslint-disable-next-line no-nested-ternary
-            showHeader ? (noContentPadding ? 8 : 9) : noContentPadding ? 0 : 3
-          }
-          pb={noContentPadding ? 0 : 3}
-        >
-          {children}
-        </Content>
-      )}
+      <PageHeader
+        pinnedTeaser={pinnedTeaser}
+        tags={tags}
+        ressorts={ressorts}
+        skills={skills}
+        brands={brands}
+        magazines={magazines}
+        headerCampaignUrl={headerCampaignUrl}
+        headerCampaignImage={headerCampaignImage}
+        burgerCampaignImage={burgerCampaignImage}
+        burgerCampaignUrl={burgerCampaignUrl}
+        isLoggedIn={isLoggedIn}
+      />
+      <Content wide>{children}</Content>
       <PageFooter
         showPrivacySettingsLink={showPrivacySettingsLink}
         privacyManagerId={privacyManagerId}

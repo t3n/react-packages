@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
@@ -42,7 +42,7 @@ const StyledIconBox = styled(Box)<{ collapsed: boolean }>`
 
   ${Icon} {
     transform: ${({ collapsed }) =>
-      collapsed ? 'rotate(180deg)' : 'rotate(0deg)'};
+      collapsed ? 'rotate(0deg)' : 'rotate(180deg)'};
     transition: transform 0.2s ease-in;
   }
 `;
@@ -53,13 +53,7 @@ const Accordion: React.FC<AccordionProps> = ({
   initialOpen,
   ...rest
 }) => {
-  const [collapsed, setCollapsed] = useState(initialOpen || false);
-
-  useEffect(() => {
-    if (typeof initialOpen !== 'undefined') {
-      setCollapsed(initialOpen);
-    }
-  }, [initialOpen]);
+  const [collapsed, setCollapsed] = useState(!initialOpen);
 
   return (
     <StyledAccordion {...rest}>
@@ -87,7 +81,7 @@ const Accordion: React.FC<AccordionProps> = ({
           />
         </StyledIconBox>
       </StyledAccordionHeadBox>
-      {collapsed && (
+      {!collapsed && (
         <Box mt={3} mb={5} pr={[8, 8, 9]} pl={[3, 3, 4]}>
           {children}
         </Box>

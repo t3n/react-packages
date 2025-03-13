@@ -1,84 +1,205 @@
-import React, { ReactNode } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { border, color, compose, space } from 'styled-system';
+import { color, layout, space } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
+import { MaterialMailOutline, T3nLogo } from '@t3n/icons';
 
-import Logo from '../Logo';
+import Box from '../Box';
+import useBodyLock from '../hooks/useBodyLock';
+import Image from '../Image';
+import RoundedButton from '../RoundedButton';
+import BurgerNav from './components/BurgerNav';
+import TagBar from './components/TagBar';
+
+export type PageHeaderLinksType = {
+  label: string;
+  url: string;
+};
+
+export type PageHeaderTeaserImageType = {
+  title: string;
+  url: string;
+  image: string;
+};
 
 export interface PageHeaderProps {
-  transparent?: boolean;
-  light?: boolean;
-  logoHref?: string;
-  children?: ReactNode;
+  pinnedTeaser: PageHeaderLinksType & { isSponsored: boolean };
+  tags: PageHeaderLinksType[];
+  ressorts: PageHeaderLinksType[];
+  skills: PageHeaderLinksType[];
+  brands: PageHeaderTeaserImageType[];
+  magazines: PageHeaderTeaserImageType[];
+  headerCampaignUrl: string;
+  headerCampaignImage: string;
+  burgerCampaignUrl: string;
+  burgerCampaignImage: string;
+  isLoggedIn?: boolean;
 }
 
-const PageHeaderWrapper = styled.div<PageHeaderProps & ThemeProps>`
+const Overlay = styled(Box)<{ isVisible: boolean }>`
   position: fixed;
-  z-index: 20;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  transition: opacity 0.1s linear;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  pointer-events: ${({ isVisible }) => (isVisible ? 'auto' : 'none')};
+
+  ${({ theme }) => color({ theme, bg: 'rgba(0, 0, 0, 0.5)' })}
+`;
+
+const PageHeaderWrapper = styled.div`
+  position: sticky;
+  z-index: 30;
   top: 0;
   left: 0;
   width: 100%;
-  height: 3.5rem;
+
+  ${({ theme }) => space({ theme, px: [3, 3, 3, 3, 8] })}
+  ${({ theme }) => color({ theme, bg: 'background.primary' })}
+`;
+
+const InnerWrapper = styled.div`
+  margin: 0 auto;
+  height: 65px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
-  ${({ theme, light }) =>
-    border({
-      theme,
-      borderBottom: light ? '1px solid' : 'none',
-      borderBottomColor: 'shades.grey232',
-    })}
+  ${({ theme }) => layout({ theme, width: [1, 1, 1, '61.25rem'] })};
+  ${({ theme }) => color({ theme, bg: 'background.primary' })}
 
-  ${({ theme, transparent, light }) =>
-    compose(
-      color,
-      space,
-    )({
-      theme,
-      color: 'text.inverse',
-      bg:
-        // eslint-disable-next-line no-nested-ternary
-        transparent
-          ? 'transparent'
-          : light
-            ? 'brand.white'
-            : 'background.highlight',
-      px: [3, 3, 3, 3, 8],
-    })}
+  > a > svg {
+    display: flex;
 
-  ${Logo} {
-    width: 7.5rem;
-    height: 2.5rem;
+    ${({ theme }) =>
+      layout({
+        theme,
+        width: ['6rem', '6rem', '6rem', '8rem'],
+        height: ['1.875rem', '1.875rem', '1.875rem', '2.5rem'],
+      })};
 
     > path {
-      fill: ${({ theme, light }) =>
-        light ? theme.colors.brand.red : theme.colors.brand.white};
+      fill: ${({ theme }) => theme.colors.brand.red};
     }
   }
 `;
 
+const HeaderCampaign = styled(Box)`
+  overflow: hidden;
+  height: 100%;
+
+  ${({ theme }) =>
+    layout({ theme, display: ['none', 'none', 'none', 'block'] })}
+
+  > a {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+`;
+
+const VisibleOnDesktop = styled.span`
+  ${({ theme }) =>
+    layout({ theme, display: ['none', 'none', 'none', 'inline'] })}
+`;
+
+const HiddenOnMobile = styled.span`
+  ${({ theme }) =>
+    layout({
+      theme,
+      display: ['none', 'inline', 'inline', 'inline', 'inline'],
+    })}
+`;
+
 const PageHeader: React.FC<PageHeaderProps> = ({
-  transparent,
-  light,
-  logoHref,
-  children,
-}) => (
-  <PageHeaderWrapper transparent={transparent} light={light}>
-    {logoHref ? (
-      <a
-        style={{ display: 'flex' }}
-        href={logoHref}
-        aria-label="t3n - digital pioneers"
-      >
-        <Logo />
-      </a>
-    ) : (
-      <Logo />
-    )}
-    {children}
-  </PageHeaderWrapper>
-);
+  pinnedTeaser,
+  tags,
+  ressorts,
+  skills,
+  brands,
+  magazines,
+  headerCampaignUrl,
+  headerCampaignImage,
+  burgerCampaignUrl,
+  burgerCampaignImage,
+  isLoggedIn,
+}) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useBodyLock(isMenuOpen);
+
+  return (
+    <>
+      <Overlay
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        isVisible={isMenuOpen}
+      />
+      <PageHeaderWrapper>
+        <InnerWrapper>
+          <a href="/" aria-label="t3n - digital pioneers">
+            <T3nLogo />
+          </a>
+          {headerCampaignImage && (
+            <HeaderCampaign mr={5}>
+              <a href={headerCampaignUrl} aria-label="Kampagnen-URL">
+                <Image
+                  src={headerCampaignImage}
+                  height={50}
+                  imageHeight={160}
+                  lazy={false}
+                />
+              </a>
+            </HeaderCampaign>
+          )}
+          <Box display="flex" justifyContent="flex-end" alignItems="center">
+            {isLoggedIn ? (
+              <RoundedButton
+                href="/dein-abo"
+                title="Mein Abo"
+                mr={2}
+                color="red"
+                label="Mein Account"
+              />
+            ) : (
+              <RoundedButton
+                href="https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp"
+                title="t3n Abos Landingpage"
+                mr={2}
+                color="red"
+                label={
+                  <>
+                    <VisibleOnDesktop>Jetzt&nbsp;</VisibleOnDesktop>Abo
+                    <HiddenOnMobile>nnieren</HiddenOnMobile>
+                  </>
+                }
+              />
+            )}
+            <RoundedButton
+              icon={MaterialMailOutline}
+              variant="secondary"
+              href="/newsletter"
+              title="Newsletter Abonnieren"
+              mr={2}
+            />
+            <BurgerNav
+              ressorts={ressorts}
+              skills={skills}
+              brands={brands}
+              magazines={magazines}
+              burgerCampaignUrl={burgerCampaignUrl}
+              burgerCampaignImage={burgerCampaignImage}
+              isLoggedIn={isLoggedIn}
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+            />
+          </Box>
+        </InnerWrapper>
+      </PageHeaderWrapper>
+      <TagBar pinnedTeaser={pinnedTeaser} tags={tags} />
+    </>
+  );
+};
 
 export default PageHeader;

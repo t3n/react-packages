@@ -83,6 +83,7 @@ export const buttonStyles = css`
   text-decoration: none;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   ${width};
   ${margin};
 

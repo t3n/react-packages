@@ -20,6 +20,5 @@ export interface LegacyArticleSocialShareProps {
     url: string;
     title: string;
 }
-export declare const LegacyHeaderSocialShare: React.FC;
 declare const LegacyArticleSocialShare: React.FC<LegacyArticleSocialShareProps>;
 export default LegacyArticleSocialShare;

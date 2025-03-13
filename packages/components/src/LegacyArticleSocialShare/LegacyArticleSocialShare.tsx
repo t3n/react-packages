@@ -157,34 +157,11 @@ const SocialIcon = styled(LegacySocialIcon).attrs(
       fill: ${({ network }) => getThemeColor(`social.${network}`)};
     }
 
-    &::last-child {
+    &:last-child {
       margin-right: 0;
     }
   }
 `;
-
-export const LegacyHeaderSocialShare: React.FC = () => (
-  <Box mt="5px" display="flex" justifyContent="flex-end">
-    <SocialIcon url="https://facebook.com/t3nMagazin" network="facebook" />
-    <SocialIcon url="https://instagram.com/t3n_magazin/" network="instagram" />
-    <SocialIcon url="https://twitter.com/t3n" network="twitter" />
-    <SocialIcon
-      url="https://linkedin.com/company/t3n-magazin-yeebase-media-gmbh/"
-      network="linkedin"
-    />
-    <SocialIcon
-      url="https://xing.com/news/pages/t3n-magazin-67"
-      network="xing"
-    />
-    <SocialIcon url="/info/t3n-newsletter/" network="newsletter" />
-    <SocialIcon url="/info/push-notifications/" network="notifications" />
-    <SocialIcon
-      url="/social-media#RSS-Feeds:_Immer_up_to_date"
-      network="rssfeed"
-    />
-    <SocialIcon url="/social-media/" network="socialmedia" />
-  </Box>
-);
 
 const LegacyArticleSocialShare: React.FC<LegacyArticleSocialShareProps> = ({
   url,

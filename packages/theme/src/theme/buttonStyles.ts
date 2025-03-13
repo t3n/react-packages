@@ -14,6 +14,7 @@ export interface ThemeButtonStyles {
     default: ThemeButtonStyle;
     inverse: ThemeButtonStyle;
     highlight: ThemeButtonStyle;
+    red: ThemeButtonStyle;
   };
 }
 
@@ -48,6 +49,18 @@ const buttonStyles = {
         color: 'text.primary',
         bg: 'background.primary',
         borderColor: 'background.primary',
+      },
+      hover: {
+        color: 'text.inverse',
+        bg: 'background.inverse',
+        borderColor: 'background.inverse',
+      },
+    },
+    red: {
+      default: {
+        color: 'text.inverse',
+        bg: 'background.highlight',
+        borderColor: 'background.highlight',
       },
       hover: {
         color: 'text.inverse',

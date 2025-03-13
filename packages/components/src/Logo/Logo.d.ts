@@ -1,7 +1,3 @@
 import React from 'react';
-export type LogoVariant = 'default';
-export interface LogoProps extends React.SVGAttributes<SVGElement> {
-    variant?: LogoVariant;
-}
-declare const Logo: import("styled-components").StyledComponent<({ variant, ...props }: any) => React.JSX.Element, any, LogoProps, never>;
+declare const Logo: import("styled-components").StyledComponent<({ ...props }: any) => React.JSX.Element, any, React.SVGAttributes<SVGElement>, never>;
 export default Logo;
