@@ -77,8 +77,8 @@ const InnerWrapper = styled.div`
     ${({ theme }) =>
       layout({
         theme,
-        width: ['6rem', '6rem', '6rem', '8rem'],
-        height: ['1.875rem', '1.875rem', '1.875rem', '2.5rem'],
+        width: '8rem',
+        height: '2.5rem',
       })};
 
     > path {
@@ -91,8 +91,7 @@ const HeaderCampaign = styled(Box)`
   overflow: hidden;
   height: 100%;
 
-  ${({ theme }) =>
-    layout({ theme, display: ['none', 'none', 'none', 'block'] })}
+  ${({ theme }) => layout({ theme, display: ['none', 'none', 'block'] })}
 
   > a {
     height: 100%;
@@ -102,15 +101,14 @@ const HeaderCampaign = styled(Box)`
 `;
 
 const VisibleOnDesktop = styled.span`
-  ${({ theme }) =>
-    layout({ theme, display: ['none', 'none', 'none', 'inline'] })}
+  ${({ theme }) => layout({ theme, display: ['none', 'inline'] })}
 `;
 
-const HiddenOnMobile = styled.span`
+const VisibleOnMobile = styled.span`
   ${({ theme }) =>
     layout({
       theme,
-      display: ['none', 'inline', 'inline', 'inline', 'inline'],
+      display: ['inline', 'none'],
     })}
 `;
 
@@ -170,8 +168,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 color="red"
                 label={
                   <>
-                    <VisibleOnDesktop>Jetzt&nbsp;</VisibleOnDesktop>Abo
-                    <HiddenOnMobile>nnieren</HiddenOnMobile>
+                    <VisibleOnDesktop>Jetzt abonnieren</VisibleOnDesktop>
+                    <VisibleOnMobile>Abo</VisibleOnMobile>
                   </>
                 }
               />

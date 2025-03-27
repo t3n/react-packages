@@ -23,6 +23,10 @@ const StyledAccordionHeadBox = styled(Box)`
   :focus {
     outline: none;
   }
+
+  h4 {
+    font-size: 1.25rem;
+  }
 `;
 
 const StyledIconBox = styled(Box)<{ collapsed: boolean }>`

@@ -80,14 +80,9 @@ const MenuContainer = styled(Box)<{ isMenuOpen: boolean }>`
     layout({
       theme,
       width: [1, '400px'],
-      height: [
-        'calc(100vh - 65px)',
-        'calc(100vh - 65px)',
-        'calc(100vh - 65px)',
-        'calc(100vh - 113px)',
-      ],
+      height: 'calc(100vh - 113px)',
     })}
-  ${({ theme }) => position({ theme, top: ['65px', '65px', '65px', '113px'] })}
+  ${({ theme }) => position({ theme, top: '113px' })}
   ${({ theme }) =>
     border({
       theme,
@@ -122,6 +117,7 @@ const SubMenuItem = styled.a`
 
 const BurgerHeading = styled(Heading)`
   ${({ theme }) => lineHeight({ theme, lineHeight: '32px' })}
+  font-size: 1.25rem;
 
   > a {
     text-decoration: none;
@@ -235,9 +231,9 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           />
         </a>
         <BurgerAccordion title="Brands" initialOpen>
-          <Grid>
+          <Grid mx={-2}>
             {brands.map((brand) => (
-              <GridItem width={1 / 2} key={brand.title}>
+              <GridItem width={1 / 2} px={2} key={brand.title}>
                 <a href={brand.url} title={brand.title}>
                   <ObjectFitImage
                     src={brand.image}
@@ -256,7 +252,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             News
           </a>
         </BurgerHeading>
-        <BurgerAccordion title="Themen" initialOpen>
+        <BurgerAccordion title="Themen">
           {ressorts.map((link) => (
             <SubMenuItem key={link.label} href={link.url} title={link.label}>
               {link.label}
@@ -264,9 +260,9 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           ))}
         </BurgerAccordion>
         <BurgerAccordion title="Magazine" initialOpen>
-          <Grid>
+          <Grid mx={-2}>
             {magazines.map((magazine) => (
-              <GridItem width={1 / 2} key={magazine.title}>
+              <GridItem width={1 / 2} px={2} key={magazine.title}>
                 <a href={magazine.url} title={magazine.title}>
                   <ObjectFitImage
                     src={magazine.image}

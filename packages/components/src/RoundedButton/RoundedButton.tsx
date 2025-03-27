@@ -197,6 +197,7 @@ export const RoundedButtonStyles = css`
   ${Icon} {
     transition: fill 0.1s ease-in-out;
     margin: 0;
+
     ${({
       variant: variantProp,
       color: colorProp,

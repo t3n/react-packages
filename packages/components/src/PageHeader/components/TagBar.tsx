@@ -18,7 +18,7 @@ interface TagBarProps {
 
 const TagBarWrapper = styled(Box)`
   position: sticky;
-  z-index: 10;
+  z-index: 30;
   top: 65px;
   left: 0;
   width: 100%;
@@ -245,7 +245,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
           isVisible={!isLeftMost}
           onClick={handleScrollLeft}
         >
-          <Icon component={MaterialChevronLeft} fill="background.grey42" />
+          <Icon component={MaterialChevronLeft} fill="shades.grey42" />
         </TagBarButton>
         <TagBarList ref={listRef}>
           <li>
@@ -287,7 +287,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
           isVisible={!isRightMost}
           onClick={handleScrollRight}
         >
-          <Icon component={MaterialChevronRight} fill="background.grey42" />
+          <Icon component={MaterialChevronRight} fill="shades.grey42" />
         </TagBarButton>
       </InnerWrapper>
     </TagBarWrapper>
