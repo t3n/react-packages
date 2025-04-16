@@ -136,12 +136,20 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       />
       <PageHeaderWrapper>
         <InnerWrapper>
-          <a href="/" aria-label="t3n - digital pioneers">
+          <a
+            href="/"
+            aria-label="t3n - digital pioneers"
+            className="t-header__logo"
+          >
             <T3nLogo />
           </a>
           {headerCampaignImage && (
             <HeaderCampaign mr={5}>
-              <a href={headerCampaignUrl} aria-label="Kampagnen-URL">
+              <a
+                href={headerCampaignUrl}
+                aria-label="Kampagnen-URL"
+                className="t-header__campaign"
+              >
                 <Image
                   src={headerCampaignImage}
                   height={50}
@@ -159,11 +167,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 mr={2}
                 color="red"
                 label="Mein Abo"
+                className="t-header__abo-button"
               />
             ) : (
               <RoundedButton
                 href="https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp"
                 title="t3n Abos Landingpage"
+                className="t-header__abo-button"
                 mr={2}
                 color="red"
                 label={
@@ -179,6 +189,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               variant="secondary"
               href="/newsletter"
               title="Newsletter Abonnieren"
+              className="t-header__newsletter-button"
               mr={2}
             />
             <BurgerNav

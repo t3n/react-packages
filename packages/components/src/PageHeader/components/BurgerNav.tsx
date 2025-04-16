@@ -183,6 +183,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
               size="small"
               expanded
               label="Mein Account"
+              className="t-header__account-button"
             />
           ) : (
             <RoundedButton
@@ -193,6 +194,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
               size="small"
               expanded
               label="Anmelden"
+              className="t-header__account-button"
             />
           )}
           <MenuToggle
@@ -221,7 +223,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             />
           </SearchBoxWrapper>
         </form>
-        <a href={burgerCampaignUrl} title="Kampagne">
+        <a
+          href={burgerCampaignUrl}
+          title="Kampagne"
+          className="t-header__burger-campaign"
+        >
           <Image
             src={burgerCampaignImage}
             width={['100%', 334]}
@@ -234,7 +240,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           <Grid mx={-2}>
             {brands.map((brand) => (
               <GridItem width={1 / 2} px={2} key={brand.title}>
-                <a href={brand.url} title={brand.title}>
+                <a
+                  href={brand.url}
+                  title={brand.title}
+                  className="t-header__burger-brand"
+                >
                   <ObjectFitImage
                     src={brand.image}
                     title={brand.title}
@@ -263,7 +273,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           <Grid mx={-2}>
             {magazines.map((magazine) => (
               <GridItem width={1 / 2} px={2} key={magazine.title}>
-                <a href={magazine.url} title={magazine.title}>
+                <a
+                  href={magazine.url}
+                  title={magazine.title}
+                  className="t-header__burger-magazine"
+                >
                   <ObjectFitImage
                     src={magazine.image}
                     title={magazine.title}
