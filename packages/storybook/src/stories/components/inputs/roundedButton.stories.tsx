@@ -73,3 +73,7 @@ export const inverse: Story = {
     storyContainerContentDecorator,
   ],
 };
+
+export const signal: Story = {
+  args: { color: 'signal' },
+};
