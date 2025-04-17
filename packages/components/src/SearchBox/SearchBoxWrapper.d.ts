@@ -1,5 +1,5 @@
 import React from 'react';
-export type SearchBoxVariantType = 'red' | 'light' | 'grey';
+export type SearchBoxVariantType = 'highlight' | 'light' | 'grey';
 type SearchBoxWrapperProps = {
     variantProp: SearchBoxVariantType;
     isLoading: boolean;

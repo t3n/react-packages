@@ -9,7 +9,7 @@ import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
 
 import Loader from '../Loader';
 
-export type SearchBoxVariantType = 'red' | 'light' | 'grey';
+export type SearchBoxVariantType = 'highlight' | 'light' | 'grey';
 
 const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   width: 25px;
@@ -24,7 +24,7 @@ const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   svg {
     ${variant({
       variants: {
-        red: {
+        highlight: {
           fill: 'text.inverse',
         },
         light: {
@@ -52,7 +52,7 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
 
     ${variant({
       variants: {
-        red: {
+        highlight: {
           color: 'text.inverse',
         },
         light: {
@@ -67,7 +67,7 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
     &::placeholder {
       ${variant({
         variants: {
-          red: {
+          highlight: {
             color: 'text.inverse',
           },
           light: {
@@ -94,7 +94,7 @@ const Wrapper = styled.div<
 >`
   ${variant({
     variants: {
-      red: {
+      highlight: {
         color: 'text.primary',
         bg: darken(0.17, t3nTheme.colors.brand.red),
       },
@@ -140,7 +140,7 @@ const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
         {isLoading ? (
           <Loader
             color={
-              variantProp === 'red'
+              variantProp === 'highlight'
                 ? 'background.primary'
                 : 'background.inverse'
             }

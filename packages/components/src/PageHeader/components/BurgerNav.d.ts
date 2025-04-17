@@ -5,11 +5,11 @@ export interface BurgerNavProps {
     skills: PageHeaderLinksType[];
     brands: PageHeaderTeaserImageType[];
     magazines: PageHeaderTeaserImageType[];
-    burgerCampaignUrl: string;
-    burgerCampaignImage: string;
+    campaignUrl: string;
+    campaignImage: string;
     isLoggedIn?: boolean;
     isMenuOpen: boolean;
-    setIsMenuOpen: (isMenuOpen: boolean) => void;
+    onMenuOpenClick: () => void;
 }
 declare const BurgerNav: React.FC<BurgerNavProps>;
 export default BurgerNav;

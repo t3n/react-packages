@@ -22,7 +22,7 @@ import Loader from '../Loader';
 
 export type ButtonAsType = 'button' | 'a';
 export type ButtonVariant = 'primary' | 'secondary';
-export type ButtonColorVariant = 'default' | 'inverse' | 'highlight';
+export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'signal';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 
 // TODO: Fix polymorphic interface
@@ -50,7 +50,12 @@ const buildColorVariants = (
   type: 'default' | 'hover',
   theme: Theme,
 ) => {
-  const allVariants: ButtonColorVariant[] = ['default', 'highlight', 'inverse'];
+  const allVariants: ButtonColorVariant[] = [
+    'default',
+    'highlight',
+    'inverse',
+    'signal',
+  ];
   const buildConfig: any = {};
 
   allVariants.forEach((el) => {

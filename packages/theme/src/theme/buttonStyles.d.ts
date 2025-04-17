@@ -12,7 +12,7 @@ export interface ThemeButtonStyles {
         default: ThemeButtonStyle;
         inverse: ThemeButtonStyle;
         highlight: ThemeButtonStyle;
-        red: ThemeButtonStyle;
+        signal: ThemeButtonStyle;
     };
 }
 declare const buttonStyles: {
@@ -53,7 +53,7 @@ declare const buttonStyles: {
                 borderColor: string;
             };
         };
-        red: {
+        signal: {
             default: {
                 color: string;
                 bg: string;

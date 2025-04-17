@@ -77,7 +77,7 @@ const SuggestionContainer = styled.div`
 
 // eslint-disable-next-line react/function-component-definition
 function SearchBox<S>({
-  variant: variantProp = 'red',
+  variant: variantProp = 'highlight',
   placeholder = 'Suche',
   defaultValue,
   multiSection,

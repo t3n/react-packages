@@ -197,11 +197,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               skills={skills}
               brands={brands}
               magazines={magazines}
-              burgerCampaignUrl={burgerCampaignUrl}
-              burgerCampaignImage={burgerCampaignImage}
+              campaignUrl={burgerCampaignUrl}
+              campaignImage={burgerCampaignImage}
               isLoggedIn={isLoggedIn}
               isMenuOpen={isMenuOpen}
-              setIsMenuOpen={setIsMenuOpen}
+              onMenuOpenClick={() => setIsMenuOpen(!isMenuOpen)}
             />
           </Box>
         </InnerWrapper>

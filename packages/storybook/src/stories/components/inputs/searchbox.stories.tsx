@@ -75,8 +75,8 @@ export const light: Story = {
   args: { variant: 'light' },
 };
 
-export const red: Story = {
-  args: { variant: 'red' },
+export const highlight: Story = {
+  args: { variant: 'highlight' },
 };
 
 export const loading: Story = {

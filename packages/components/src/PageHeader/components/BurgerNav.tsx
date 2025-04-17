@@ -29,11 +29,11 @@ export interface BurgerNavProps {
   skills: PageHeaderLinksType[];
   brands: PageHeaderTeaserImageType[];
   magazines: PageHeaderTeaserImageType[];
-  burgerCampaignUrl: string;
-  burgerCampaignImage: string;
+  campaignUrl: string;
+  campaignImage: string;
   isLoggedIn?: boolean;
   isMenuOpen: boolean;
-  setIsMenuOpen: (isMenuOpen: boolean) => void;
+  onMenuOpenClick: () => void;
 }
 
 const MenuToggleBox = styled(Box)`
@@ -141,11 +141,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   skills,
   brands,
   magazines,
-  burgerCampaignUrl,
-  burgerCampaignImage,
+  campaignUrl,
+  campaignImage,
   isLoggedIn,
   isMenuOpen,
-  setIsMenuOpen,
+  onMenuOpenClick,
 }) => {
   const [term, setTerm] = useState('');
 
@@ -157,14 +157,14 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           fill="#2a2a2a"
           width="2rem"
           component={MaterialMenu}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={onMenuOpenClick}
         />
         <MenuToggle
           doNotDisplayDesktop
           fill="#2a2a2a"
           width="2rem"
           component={isMenuOpen ? MaterialClose : MaterialMenu}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={onMenuOpenClick}
         />
       </MenuToggleBox>
       <MenuContainer isMenuOpen={isMenuOpen}>
@@ -202,7 +202,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             fill="shades.grey42"
             width="2rem"
             component={MaterialClose}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={onMenuOpenClick}
           />
         </Box>
         <form action="/suche" method="get">
@@ -224,17 +224,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </SearchBoxWrapper>
         </form>
         <a
-          href={burgerCampaignUrl}
+          href={campaignUrl}
           title="Kampagne"
           className="t-header__burger-campaign"
         >
-          <Image
-            src={burgerCampaignImage}
-            width={['100%', 334]}
-            lazy
-            mt={3}
-            mb={5}
-          />
+          <Image src={campaignImage} width={['100%', 334]} lazy mt={3} mb={5} />
         </a>
         <BurgerAccordion title="Brands" initialOpen>
           <Grid mx={-2}>

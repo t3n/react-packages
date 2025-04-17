@@ -105,6 +105,10 @@ export const secondaryHighlight: Story = {
   ],
 };
 
+export const signal: Story = {
+  args: { color: 'signal' as ButtonColorVariant },
+};
+
 export const loading: Story = {
   args: { loading: true },
 };
