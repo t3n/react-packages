@@ -162,6 +162,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           <Box display="flex" justifyContent="flex-end" alignItems="center">
             {isLoggedIn ? (
               <RoundedButton
+                as="a"
                 href="/dein-abo"
                 title="Mein Abo"
                 mr={2}
@@ -171,6 +172,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               />
             ) : (
               <RoundedButton
+                as="a"
                 href="https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp"
                 title="t3n Abos Landingpage"
                 className="t-header__abo-button"
@@ -185,6 +187,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               />
             )}
             <RoundedButton
+              as="a"
               icon={MaterialMailOutline}
               variant="secondary"
               href="/newsletter"
