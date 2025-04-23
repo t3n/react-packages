@@ -27,7 +27,7 @@ export type RoundedButtonColorVariant =
   | 'default'
   | 'inverse'
   | 'highlight'
-  | 'signal';
+  | 'accent';
 export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
 
 export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
@@ -70,7 +70,7 @@ const buildColorVariants = (
     'default',
     'highlight',
     'inverse',
-    'signal',
+    'accent',
   ];
   const buildConfig: any = {};
 
@@ -207,7 +207,7 @@ export const RoundedButtonStyles = css`
         variantProp === 'secondary'
           ? colorProp === 'highlight' || colorProp === 'inverse'
             ? theme.colors.text.inverse
-            : colorProp === 'signal'
+            : colorProp === 'accent'
               ? theme.colors.text.highlight
               : theme.colors.text.primary
           : colorProp === 'highlight' || colorProp === 'inverse'

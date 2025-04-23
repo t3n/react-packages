@@ -14,7 +14,7 @@ export interface ThemeButtonStyles {
     default: ThemeButtonStyle;
     inverse: ThemeButtonStyle;
     highlight: ThemeButtonStyle;
-    signal: ThemeButtonStyle;
+    accent: ThemeButtonStyle;
   };
 }
 
@@ -56,7 +56,7 @@ const buttonStyles = {
         borderColor: 'background.inverse',
       },
     },
-    signal: {
+    accent: {
       default: {
         color: 'text.inverse',
         bg: 'background.highlight',

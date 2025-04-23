@@ -166,7 +166,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 href="/dein-abo"
                 title="Mein Abo"
                 mr={2}
-                color="signal"
+                color="accent"
                 label="Mein Abo"
                 className="t-header__abo-button"
               />
@@ -177,7 +177,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 title="t3n Abos Landingpage"
                 className="t-header__abo-button"
                 mr={2}
-                color="signal"
+                color="accent"
                 label={
                   <>
                     <VisibleOnDesktop>Jetzt abonnieren</VisibleOnDesktop>

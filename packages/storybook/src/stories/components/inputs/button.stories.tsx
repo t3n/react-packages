@@ -105,8 +105,8 @@ export const secondaryHighlight: Story = {
   ],
 };
 
-export const signal: Story = {
-  args: { color: 'signal' as ButtonColorVariant },
+export const accent: Story = {
+  args: { color: 'accent' as ButtonColorVariant },
 };
 
 export const loading: Story = {

@@ -74,6 +74,6 @@ export const inverse: Story = {
   ],
 };
 
-export const signal: Story = {
-  args: { color: 'signal' },
+export const accent: Story = {
+  args: { color: 'accent' },
 };

@@ -3,7 +3,7 @@ import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 export type ButtonAsType = 'button' | 'a';
 export type ButtonVariant = 'primary' | 'secondary';
-export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'signal';
+export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 export interface ButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLAttributes<any>, 'type'>, MarginProps, WidthProps {
     variant?: ButtonVariant;

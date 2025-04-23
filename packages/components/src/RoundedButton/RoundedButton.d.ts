@@ -3,7 +3,7 @@ import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 export type RoundedButtonAsType = 'button' | 'a';
 export type RoundedButtonVariant = 'primary' | 'secondary';
-export type RoundedButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'signal';
+export type RoundedButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
 export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
     size?: RoundedButtonSizeVariant;
