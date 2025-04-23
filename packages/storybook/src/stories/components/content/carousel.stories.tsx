@@ -99,7 +99,7 @@ const meta: Meta<typeof Carousel> = {
     nextLabel: 'Nächste',
     prevLabel: 'Zurück',
     speed: 500,
-    isIconButton: false,
+    isRoundedButton: false,
     children: defaultData.map((el) => (
       <Box key={el.id} mb={8} overflow="hidden">
         <Image
@@ -153,7 +153,7 @@ export const carousel: Story = {};
 
 export const carouselWithChevronButtons: Story = {
   args: {
-    isIconButton: true,
+    isRoundedButton: true,
   },
 };
 
@@ -286,7 +286,7 @@ export const sliderWithChevronButtonsInModal: Story = {
                     ? () => setShowOnboardingModal(false)
                     : undefined
                 }
-                isIconButton
+                isRoundedButton
                 hideNextButton={false}
                 nextLabel={
                   currentIndex === defaultData.length - 1

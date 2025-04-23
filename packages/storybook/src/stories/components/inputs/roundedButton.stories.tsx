@@ -2,14 +2,14 @@ import React from 'react';
 import { Story } from '@storybook/addon-docs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { IconButton, Section } from '@t3n/components';
+import { RoundedButton, Section } from '@t3n/components';
 import { MaterialCheck } from '@t3n/icons';
 
 import { storyContainerContentDecorator } from '../../../utils/decorators';
 
-const meta: Meta<typeof IconButton> = {
-  component: IconButton,
-  title: 'Components/Inputs/IconButton',
+const meta: Meta<typeof RoundedButton> = {
+  component: RoundedButton,
+  title: 'Components/Inputs/RoundedButton',
   decorators: [storyContainerContentDecorator],
   parameters: { controls: { sort: 'requiredFirst' } },
   args: {
@@ -22,9 +22,9 @@ const meta: Meta<typeof IconButton> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof IconButton>;
+type Story = StoryObj<typeof RoundedButton>;
 
-export const iconButton: Story = {};
+export const roundedButton: Story = {};
 
 export const expanded: Story = {
   args: { expanded: true },
@@ -72,4 +72,8 @@ export const inverse: Story = {
     },
     storyContainerContentDecorator,
   ],
+};
+
+export const accent: Story = {
+  args: { color: 'accent' },
 };

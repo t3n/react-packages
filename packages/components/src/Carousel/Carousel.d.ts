@@ -15,7 +15,7 @@ export interface CarouselProps {
     hideNextButton?: boolean;
     hidePrevButton?: boolean;
     onChange?: (currentIndex: number) => void;
-    isIconButton?: boolean;
+    isRoundedButton?: boolean;
     children?: ReactNode;
     adaptiveHeight?: boolean;
 }

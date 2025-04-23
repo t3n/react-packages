@@ -19,6 +19,7 @@ exports[`Button in default state matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -133,6 +134,7 @@ exports[`Button in loading state matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -220,6 +222,7 @@ exports[`Primary Button as "default" color variant matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -304,6 +307,7 @@ exports[`Primary Button as "highlight" color variant matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -389,6 +393,7 @@ exports[`Primary Button as "inverse" color variant matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -473,6 +478,7 @@ exports[`Secondary Button as "default" color variant matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -557,6 +563,7 @@ exports[`Secondary Button as "highlight" color variant matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -641,6 +648,7 @@ exports[`Secondary Button as "inverse" color variant matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -755,6 +763,7 @@ exports[`Small Button in loading state matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;
@@ -842,6 +851,7 @@ exports[`Small Button matches snapshot 1`] = `
   -webkit-transition: all 0.05s ease-in-out;
   transition: all 0.05s ease-in-out;
   border: 2px solid;
+  font-weight: 600;
   border-radius: 4px;
   padding-left: 16px;
   padding-right: 16px;

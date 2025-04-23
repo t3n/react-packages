@@ -5,18 +5,14 @@ import { color } from 'styled-system';
 import Ad, { AdName } from '../Ad';
 import Box from '../Box';
 import LegacyFooter from '../LegacyFooter';
-import LegacyHeader, { LegacyHeaderProps } from '../LegacyHeader';
+import PageHeader, { PageHeaderProps } from '../PageHeader';
 
-export interface LegacyPageLayoutProps extends LegacyHeaderProps {
+export interface LegacyPageLayoutProps extends PageHeaderProps {
   privacyManagerId: string;
   overflow?: string;
   adUnits?: AdName[];
   previewAdUnits?: boolean;
-  userEmail?: string;
-  isPlusUser?: boolean;
   isProMember?: boolean;
-  userLoading?: boolean;
-  userMenuItems?: ReactNode[];
   children?: ReactNode;
 }
 
@@ -28,19 +24,21 @@ const Wrapper = styled(Box)`
 
 const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   privacyManagerId,
+  pinnedTeaser,
   tags,
-  tagsLoading,
+  ressorts,
+  skills,
+  brands,
+  magazines,
   headerCampaignUrl,
   headerCampaignImage,
-  headerCampaignImageMobile,
+  burgerCampaignUrl,
+  burgerCampaignImage,
+  isLoggedIn,
   adUnits,
   previewAdUnits,
   overflow,
-  userEmail,
-  isPlusUser,
   isProMember,
-  userLoading,
-  userMenuItems,
   children,
 }) => {
   const shouldDisplayAdUnit = (name: AdName) => {
@@ -54,19 +52,18 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         </Box>
       )}
       <Wrapper>
-        <LegacyHeader
+        <PageHeader
+          pinnedTeaser={pinnedTeaser}
           tags={tags}
-          tagsLoading={tagsLoading}
+          ressorts={ressorts}
+          skills={skills}
+          brands={brands}
+          magazines={magazines}
           headerCampaignUrl={headerCampaignUrl}
           headerCampaignImage={headerCampaignImage}
-          headerCampaignImageMobile={headerCampaignImageMobile}
-          showAds={shouldDisplayAdUnit('T3N_D_Right')}
-          adsPreview={previewAdUnits}
-          userEmail={userEmail}
-          isPlusUser={isPlusUser}
-          isProMember={isProMember}
-          userLoading={userLoading}
-          userMenuItems={userMenuItems}
+          burgerCampaignUrl={burgerCampaignUrl}
+          burgerCampaignImage={burgerCampaignImage}
+          isLoggedIn={isLoggedIn}
         />
         {shouldDisplayAdUnit('T3N_M_Incontent-1') && (
           <Box display={['block', 'block', 'none']}>

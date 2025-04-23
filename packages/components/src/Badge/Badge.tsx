@@ -15,7 +15,7 @@ const background = ({
 }: BadgeProps & ThemeProps) => `
   background-color: ${
     variant === 'light'
-      ? theme.colors.shades.grey232
+      ? theme.colors.shades.grey204
       : theme.colors.background[variant]
   };
 `;

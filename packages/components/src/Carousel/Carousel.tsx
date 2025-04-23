@@ -12,7 +12,7 @@ import {
 
 import Box from '../Box';
 import Button from '../Button';
-import IconButton from '../IconButton';
+import RoundedButton from '../RoundedButton';
 
 export interface CarouselProps {
   slidesToShow?: number;
@@ -29,7 +29,7 @@ export interface CarouselProps {
   hideNextButton?: boolean;
   hidePrevButton?: boolean;
   onChange?: (currentIndex: number) => void;
-  isIconButton?: boolean;
+  isRoundedButton?: boolean;
   children?: ReactNode;
   adaptiveHeight?: boolean;
 }
@@ -85,7 +85,7 @@ const StyledPrevButton = styled(Button)`
   ${({ theme }) => display({ theme, display: ['none', 'block'] })}
 `;
 
-const StyledIconButtonWrapper = styled.div<{ position: 'left' | 'right' }>`
+const StyledRoundedButtonWrapper = styled.div<{ position: 'left' | 'right' }>`
   position: absolute;
   bottom: 0;
   ${({ position }) => (position === 'left' ? 'left: 0;' : 'right: 0;')}
@@ -97,25 +97,25 @@ const NextButton: React.FC<{
   show: boolean;
   label?: string;
   customOnClick?: () => void;
-  isIconButton?: boolean;
+  isRoundedButton?: boolean;
   isLastSlide?: boolean;
 }> = ({
   onClick,
   show = true,
   label,
   customOnClick,
-  isIconButton,
+  isRoundedButton,
   isLastSlide,
 }) => {
   if (!show) return null;
 
   const icon = isLastSlide ? MaterialCheck : MaterialChevronRight;
 
-  if (isIconButton) {
+  if (isRoundedButton) {
     return (
-      <StyledIconButtonWrapper position="right">
-        <IconButton onClick={customOnClick || onClick} icon={icon} />
-      </StyledIconButtonWrapper>
+      <StyledRoundedButtonWrapper position="right">
+        <RoundedButton onClick={customOnClick || onClick} icon={icon} />
+      </StyledRoundedButtonWrapper>
     );
   }
 
@@ -131,18 +131,18 @@ const PrevButton: React.FC<{
   show: boolean;
   label?: string;
   customOnClick?: () => void;
-  isIconButton?: boolean;
-}> = ({ onClick, show = true, label, customOnClick, isIconButton }) => {
+  isRoundedButton?: boolean;
+}> = ({ onClick, show = true, label, customOnClick, isRoundedButton }) => {
   if (!show) return null;
 
-  if (isIconButton) {
+  if (isRoundedButton) {
     return (
-      <StyledIconButtonWrapper position="left">
-        <IconButton
+      <StyledRoundedButtonWrapper position="left">
+        <RoundedButton
           onClick={customOnClick || onClick}
           icon={MaterialChevronLeft}
         />
-      </StyledIconButtonWrapper>
+      </StyledRoundedButtonWrapper>
     );
   }
 
@@ -167,7 +167,7 @@ const Carousel: React.FC<CarouselProps> = ({
   onPrevClick,
   hideNextButton,
   hidePrevButton,
-  isIconButton,
+  isRoundedButton,
   onChange,
   children,
   adaptiveHeight,
@@ -200,7 +200,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 : currentIndex < slidesAmount - 1 || infinite
             }
             isLastSlide={isLastSlide}
-            isIconButton={isIconButton}
+            isRoundedButton={isRoundedButton}
             label={nextLabel}
             customOnClick={onNextClick}
           />
@@ -212,7 +212,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 ? !hidePrevButton
                 : currentIndex > 0 || infinite
             }
-            isIconButton={isIconButton}
+            isRoundedButton={isRoundedButton}
             label={prevLabel}
             customOnClick={onPrevClick}
           />

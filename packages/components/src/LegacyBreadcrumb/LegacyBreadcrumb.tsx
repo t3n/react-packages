@@ -41,7 +41,13 @@ const LegacyBreadcrumbList = styled.ul`
   overflow-x: auto;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   ${({ theme }) => space({ pl: 0, m: 0, pb: 3, pr: 6, theme })}
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const LegacyBreadcrumb: React.FC<{

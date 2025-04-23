@@ -12,6 +12,7 @@ export interface ThemeButtonStyles {
         default: ThemeButtonStyle;
         inverse: ThemeButtonStyle;
         highlight: ThemeButtonStyle;
+        accent: ThemeButtonStyle;
     };
 }
 declare const buttonStyles: {
@@ -41,6 +42,18 @@ declare const buttonStyles: {
             };
         };
         highlight: {
+            default: {
+                color: string;
+                bg: string;
+                borderColor: string;
+            };
+            hover: {
+                color: string;
+                bg: string;
+                borderColor: string;
+            };
+        };
+        accent: {
             default: {
                 color: string;
                 bg: string;

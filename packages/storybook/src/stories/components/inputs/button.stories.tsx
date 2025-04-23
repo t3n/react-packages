@@ -105,6 +105,10 @@ export const secondaryHighlight: Story = {
   ],
 };
 
+export const accent: Story = {
+  args: { color: 'accent' as ButtonColorVariant },
+};
+
 export const loading: Story = {
   args: { loading: true },
 };
