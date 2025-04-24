@@ -15,7 +15,6 @@ const LegacySection: React.FC<{
 }> = ({ variant, anchor, narrow, wide, innerGap, children }) => {
   return (
     <Box
-      mx="-20px"
       mt={anchor ? ['unset', 'unset', -4] : 'unset'}
       pt={anchor ? 4 : 'unset'}
       id={anchor}
