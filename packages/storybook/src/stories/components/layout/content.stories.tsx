@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Content } from '@t3n/components';
 
-import { storyContainerContentDecorator } from '../../../utils/decorators';
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 const meta: Meta<typeof Content> = {
   component: Content,
   title: 'Components/Layout/Content',
-  decorators: [storyContainerContentDecorator],
+  decorators: [storyContainerDecorator],
   parameters: { controls: { sort: 'requiredFirst' } },
   args: {
     children: 'Hello world!',
