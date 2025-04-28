@@ -10,7 +10,6 @@ export type MobileLinkType = {
 }[];
 export interface LegacyMobileFooterProps {
     privacyManagerId: string;
-    isProMember?: boolean;
 }
 declare const LegacyMobileFooter: React.FC<LegacyMobileFooterProps>;
 export default LegacyMobileFooter;
