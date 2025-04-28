@@ -108,7 +108,6 @@ const LegacyExtraSmallText = styled(Text)`
 
 const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
-  isProMember,
 }) => {
   const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
     {
@@ -183,7 +182,7 @@ const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
       label: 't3n',
       links: [
         {
-          label: isProMember ? 'Pro' : 'Plus',
+          label: 'Dein Abo',
           url: '/dein-abo',
         },
         {
@@ -387,7 +386,6 @@ const LegacyDesktopBottom = () => {
 
 const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
   privacyManagerId,
-  isProMember,
 }) => {
   return (
     <LegacyDesktopFooterWrapper>
@@ -397,10 +395,7 @@ const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>
-        <LegacyDesktopLinks
-          privacyManagerId={privacyManagerId}
-          isProMember={isProMember}
-        />
+        <LegacyDesktopLinks privacyManagerId={privacyManagerId} />
       </Box>
       <LegacyDesktopBottom />
     </LegacyDesktopFooterWrapper>

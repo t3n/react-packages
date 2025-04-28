@@ -18,7 +18,6 @@ export type MobileLinkType = {
 
 export interface LegacyMobileFooterProps {
   privacyManagerId: string;
-  isProMember?: boolean;
 }
 
 const FooterLink = styled.a`
@@ -61,11 +60,10 @@ const SmallerText = styled(Text)`
 
 const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
   privacyManagerId,
-  isProMember,
 }) => {
   const legacyMobileLinks: MobileLinkType = [
     {
-      label: isProMember ? 'Pro' : 'Plus',
+      label: 'Dein Abo',
       url: '/dein-abo',
     },
     {
@@ -153,14 +151,10 @@ const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
 
 const LegacyMobileFooter: React.FC<LegacyMobileFooterProps> = ({
   privacyManagerId,
-  isProMember,
 }) => {
   return (
     <>
-      <LegacyMobileLinks
-        privacyManagerId={privacyManagerId}
-        isProMember={isProMember}
-      />
+      <LegacyMobileLinks privacyManagerId={privacyManagerId} />
       <LegacySocialBar isInFooter />
       <SmallerText align="center">
         ©{' '}

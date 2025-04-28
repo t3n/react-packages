@@ -8,8 +8,6 @@ import PageHeader, { PageHeaderProps } from '../PageHeader';
 export interface PageLayoutProps extends PageHeaderProps {
   showPrivacySettingsLink?: boolean;
   privacyManagerId?: string;
-  headerContent?: JSX.Element;
-  footerContent?: JSX.Element;
   children?: ReactNode;
 }
 
@@ -31,7 +29,6 @@ const PageLayoutContainer = styled.div`
 const PageLayout: React.FC<PageLayoutProps> = ({
   showPrivacySettingsLink,
   privacyManagerId,
-  footerContent,
   pinnedTeaser,
   tags,
   ressorts,
@@ -64,9 +61,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       <PageFooter
         showPrivacySettingsLink={showPrivacySettingsLink}
         privacyManagerId={privacyManagerId}
-      >
-        {footerContent}
-      </PageFooter>
+      />
     </PageLayoutContainer>
   );
 };

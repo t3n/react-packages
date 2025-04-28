@@ -1,10 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import styled from 'styled-components';
-import { layout } from 'styled-system';
 
 import {
-  Box,
   LegacyBreadcrumb,
   LegacyBreadcrumbItem,
   LegacyPageLayout,
@@ -163,12 +160,6 @@ const magazines: PageHeaderTeaserImageType[] = [
   },
 ];
 
-const Wrapper = styled(Box)`
-  margin: 0 auto;
-
-  ${({ theme }) => layout({ theme, width: [1, 1, 1, '61.25rem'] })};
-`;
-
 const meta: Meta<typeof LegacyPageLayout> = {
   component: LegacyPageLayout,
   title: 'Legacy/Layout/PageLayout',
@@ -189,12 +180,14 @@ const meta: Meta<typeof LegacyPageLayout> = {
       'https://storage.googleapis.com/t3n-de/static/promo-burger.png',
     isLoggedIn: true,
     children: (
-      <Wrapper>
-        <LegacyBreadcrumb>
-          <LegacyBreadcrumbItem label="Home" href="/" />
-          <LegacyBreadcrumbItem label="News" href="/news/" />
-          <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
-        </LegacyBreadcrumb>
+      <>
+        <LegacySection variant="primary" wide innerGap={-4}>
+          <LegacyBreadcrumb>
+            <LegacyBreadcrumbItem label="Home" href="/" />
+            <LegacyBreadcrumbItem label="News" href="/news/" />
+            <LegacyBreadcrumbItem label="Das hier ist ein wirklich langer Titel eines Artikels um zu demonstrieren, wie die Scrollversion aussieht" />
+          </LegacyBreadcrumb>
+        </LegacySection>
         <LegacySection variant="primary" narrow>
           <Text my={9}>Narrow Dummy LegacySection</Text>
         </LegacySection>
@@ -216,7 +209,7 @@ const meta: Meta<typeof LegacyPageLayout> = {
         <LegacySection variant="primary">
           <Text my={9}>Dummy LegacySection</Text>
         </LegacySection>
-      </Wrapper>
+      </>
     ),
   },
 };
