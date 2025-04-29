@@ -4,7 +4,7 @@ import { darken } from 'polished';
 import styled from 'styled-components';
 import { layout, space, variant, WidthProps } from 'styled-system';
 
-import { MaterialClear, T3nLoupe } from '@t3n/icons';
+import { T3nLoupe } from '@t3n/icons';
 import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
 
 import Loader from '../Loader';
@@ -47,8 +47,8 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
     background-color: transparent;
     border: none;
     width: 100%;
-    line-height: 40px;
-    height: 40px;
+    line-height: 38px;
+    height: 38px;
 
     ${variant({
       variants: {
@@ -121,16 +121,12 @@ const Wrapper = styled.div<
 type SearchBoxWrapperProps = {
   variantProp: SearchBoxVariantType;
   isLoading: boolean;
-  term: string;
-  setTerm: (term: string) => void;
   children: React.ReactNode;
 };
 
 const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
   variantProp,
   isLoading,
-  term,
-  setTerm,
   children,
 }) => {
   return (
@@ -146,10 +142,8 @@ const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
             }
             small
           />
-        ) : !term || term.length === 0 ? (
-          <T3nLoupe />
         ) : (
-          <MaterialClear onClick={() => setTerm('')} />
+          <T3nLoupe type="submit" />
         )}
       </IconWrapper>
     </Wrapper>

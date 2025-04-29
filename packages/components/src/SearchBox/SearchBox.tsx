@@ -138,12 +138,7 @@ function SearchBox<S>({
   };
 
   return (
-    <SearchBoxWrapper
-      variantProp={variantProp}
-      isLoading={isLoading}
-      term={term}
-      setTerm={setTerm}
-    >
+    <SearchBoxWrapper variantProp={variantProp} isLoading={isLoading}>
       {multiSection ? (
         <AutoSuggest<S>
           multiSection
