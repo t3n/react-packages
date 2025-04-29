@@ -13,7 +13,7 @@ export interface PageLayoutProps extends PageHeaderProps {
 
 const PageLayoutContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 

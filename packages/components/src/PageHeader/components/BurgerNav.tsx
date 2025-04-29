@@ -206,12 +206,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           />
         </Box>
         <form action="/suche" method="get">
-          <SearchBoxWrapper
-            variantProp="light"
-            isLoading={false}
-            term={term}
-            setTerm={setTerm}
-          >
+          <SearchBoxWrapper variantProp="light" isLoading={false}>
             <Input
               type="text"
               placeholder="Suche"
