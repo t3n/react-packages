@@ -120,6 +120,7 @@ const Wrapper = styled.div<
 
 const UnstyledButton = styled.button`
   all: unset;
+  cursor: pointer;
 `;
 
 type SearchBoxWrapperProps = {
