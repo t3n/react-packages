@@ -48,10 +48,11 @@ const MenuToggleBox = styled(Box)`
   }
 `;
 
-const MenuToggle = styled(Icon)<{
-  doNotDisplayMobile?: boolean;
-  doNotDisplayDesktop?: boolean;
-}>`
+const MenuToggle = styled(
+  ({ doNotDisplayMobile, doNotDisplayDesktop, ...props }) => (
+    <Icon {...props} />
+  ),
+)`
   cursor: pointer;
 
   ${({ theme, doNotDisplayMobile }) =>
