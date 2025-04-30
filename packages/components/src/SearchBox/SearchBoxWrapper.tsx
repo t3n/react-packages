@@ -118,6 +118,11 @@ const Wrapper = styled.div<
   ${layout}
 `;
 
+const UnstyledButton = styled.button`
+  all: unset;
+  cursor: pointer;
+`;
+
 type SearchBoxWrapperProps = {
   variantProp: SearchBoxVariantType;
   isLoading: boolean;
@@ -143,7 +148,9 @@ const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
             small
           />
         ) : (
-          <T3nLoupe type="submit" />
+          <UnstyledButton type="submit" aria-label="Search">
+            <T3nLoupe />
+          </UnstyledButton>
         )}
       </IconWrapper>
     </Wrapper>
