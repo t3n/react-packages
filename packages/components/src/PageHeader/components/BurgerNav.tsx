@@ -101,6 +101,14 @@ const MenuContainer = styled(Box)<{ isMenuOpen: boolean }>`
   }
 `;
 
+const BurgerButtonBox = styled(Box)`
+  > a {
+    padding: 6px 8px 6px 8px;
+    line-height: 1em;
+    font-size: 0.875rem;
+  }
+`;
+
 const SubMenuItem = styled.a`
   text-decoration: none;
   display: block;
@@ -118,7 +126,7 @@ const SubMenuItem = styled.a`
 
 const BurgerHeading = styled(Heading)`
   ${({ theme }) => lineHeight({ theme, lineHeight: '32px' })}
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 
   > a {
     text-decoration: none;
@@ -169,7 +177,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
         />
       </MenuToggleBox>
       <MenuContainer isMenuOpen={isMenuOpen}>
-        <Box
+        <BurgerButtonBox
           display="flex"
           alignItems="center"
           justifyContent="space-between"
@@ -205,7 +213,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             component={MaterialClose}
             onClick={onMenuOpenClick}
           />
-        </Box>
+        </BurgerButtonBox>
         <form action="/suche" method="get">
           <SearchBoxWrapper variantProp="light" isLoading={false}>
             <Input
@@ -224,7 +232,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           title="Kampagne"
           className="t-header__burger-campaign"
         >
-          <Image src={campaignImage} width={['100%', 334]} lazy mt={3} mb={5} />
+          <Image src={campaignImage} width="100%" lazy mt={3} mb={5} />
         </a>
         <BurgerAccordion title="Brands" initialOpen>
           <Grid mx={-2}>
@@ -248,13 +256,18 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </Grid>
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/news" title="News">
+          <a href="/news" title="News" className="t-header__burger-link">
             News
           </a>
         </BurgerHeading>
         <BurgerAccordion title="Themen">
           {ressorts.map((link) => (
-            <SubMenuItem key={link.label} href={link.url} title={link.label}>
+            <SubMenuItem
+              key={link.label}
+              href={link.url}
+              title={link.label}
+              className="t-header__burger-link"
+            >
               {link.label}
             </SubMenuItem>
           ))}
@@ -282,28 +295,41 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
         </BurgerAccordion>
         <BurgerAccordion title="Skills" initialOpen>
           {skills.map((link) => (
-            <SubMenuItem key={link.label} href={link.url} title={link.label}>
+            <SubMenuItem
+              key={link.label}
+              href={link.url}
+              title={link.label}
+              className="t-header__burger-link"
+            >
               {link.label}
             </SubMenuItem>
           ))}
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/podcast" title="Podcast">
+          <a href="/podcast" title="Podcast" className="t-header__burger-link">
             Podcast
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="shop.t3n.de" title="Shop">
+          <a
+            href="https://shop.t3n.de"
+            title="Shop"
+            className="t-header__burger-link"
+          >
             Shop
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="jobs.t3n.de" title="Jobs">
+          <a
+            href="https://jobs.t3n.de"
+            title="Jobs"
+            className="t-header__burger-link"
+          >
             Jobs
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/events" title="Events">
+          <a href="/events" title="Events" className="t-header__burger-link">
             Events
           </a>
         </BurgerHeading>

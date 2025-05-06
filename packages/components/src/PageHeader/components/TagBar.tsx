@@ -123,7 +123,7 @@ const TagBarList = styled.ul`
   }
 
   li a {
-    ${({ theme }) => typography({ theme, fontSize: 0 })};
+    ${({ theme }) => typography({ theme, fontSize: '0.75rem' })};
   }
 `;
 
@@ -135,8 +135,8 @@ const PinnedTeaserText = styled(Text)`
   flex-shrink: 0;
 
   ${({ theme }) =>
-    layout({ theme, width: ['150px', '200px', '200px', '300px'] })};
-  ${({ theme }) => typography({ theme, fontSize: 0 })};
+    layout({ theme, width: ['250px', '250px', '250px', '300px'] })};
+  ${({ theme }) => typography({ theme, fontSize: '0.75rem' })};
 `;
 
 const VerticalBar = styled.hr`
@@ -276,7 +276,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
             </li>
           ))}
           <li>
-            <Link href="/tags" title="Alle Themen" variant="primary">
+            <Link href="/tag" title="Alle Themen" variant="primary">
               Alle Themen
             </Link>
           </li>

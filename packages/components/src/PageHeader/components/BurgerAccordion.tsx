@@ -25,7 +25,7 @@ const StyledAccordionHeadBox = styled(Box)`
   }
 
   h4 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 `;
 

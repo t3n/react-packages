@@ -77,7 +77,7 @@ const InnerWrapper = styled.div`
     ${({ theme }) =>
       layout({
         theme,
-        width: '8rem',
+        width: ['7rem', '8rem'],
         height: '2.5rem',
       })};
 
@@ -97,6 +97,18 @@ const HeaderCampaign = styled(Box)`
     height: 100%;
     display: flex;
     align-items: flex-end;
+  }
+`;
+
+const HeaderButtonBox = styled(Box)`
+  > a {
+    padding: 7px 8px;
+    line-height: 1em;
+    font-size: 0.875rem;
+  }
+
+  .t-header__newsletter-button {
+    padding: 4px;
   }
 `;
 
@@ -152,14 +164,18 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               >
                 <Image
                   src={headerCampaignImage}
-                  height={50}
+                  height={65}
                   imageHeight={160}
                   lazy={false}
                 />
               </a>
             </HeaderCampaign>
           )}
-          <Box display="flex" justifyContent="flex-end" alignItems="center">
+          <HeaderButtonBox
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="center"
+          >
             {isLoggedIn ? (
               <RoundedButton
                 as="a"
@@ -181,7 +197,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 label={
                   <>
                     <VisibleOnDesktop>Jetzt abonnieren</VisibleOnDesktop>
-                    <VisibleOnMobile>Abo</VisibleOnMobile>
+                    <VisibleOnMobile>Abonnieren</VisibleOnMobile>
                   </>
                 }
               />
@@ -206,7 +222,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               isMenuOpen={isMenuOpen}
               onMenuOpenClick={() => setIsMenuOpen(!isMenuOpen)}
             />
-          </Box>
+          </HeaderButtonBox>
         </InnerWrapper>
       </PageHeaderWrapper>
       <TagBar pinnedTeaser={pinnedTeaser} tags={tags} />
