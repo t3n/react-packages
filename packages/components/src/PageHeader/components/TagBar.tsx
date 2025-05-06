@@ -276,7 +276,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
             </li>
           ))}
           <li>
-            <Link href="/tags" title="Alle Themen" variant="primary">
+            <Link href="/tag" title="Alle Themen" variant="primary">
               Alle Themen
             </Link>
           </li>

@@ -293,12 +293,12 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="shop.t3n.de" title="Shop">
+          <a href="https://shop.t3n.de" title="Shop">
             Shop
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="jobs.t3n.de" title="Jobs">
+          <a href="https://jobs.t3n.de" title="Jobs">
             Jobs
           </a>
         </BurgerHeading>
