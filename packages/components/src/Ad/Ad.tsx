@@ -75,6 +75,9 @@ const AdWrapper = styled(Box)<AdProps>`
           display: flex;
           justify-content: flex-start;
           align-items: flex-start;
+          position: fixed;
+          top: 113px;
+          z-index: 1;
 
           @media screen and (max-width: 1330px) {
             left: 61.25rem;
