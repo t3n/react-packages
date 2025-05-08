@@ -163,6 +163,7 @@ const TagBarButton = styled.button<{
   z-index: 2;
   height: 100%;
   display: flex;
+  align-items: center;
   transition:
     opacity 0.1s linear,
     transform 0.1s linear;
