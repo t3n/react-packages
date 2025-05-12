@@ -39,7 +39,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   headerCampaignImage,
   burgerCampaignImage,
   burgerCampaignUrl,
-  isLoggedIn,
+  hasAbo,
   children,
 }) => {
   return (
@@ -55,7 +55,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         headerCampaignImage={headerCampaignImage}
         burgerCampaignImage={burgerCampaignImage}
         burgerCampaignUrl={burgerCampaignUrl}
-        isLoggedIn={isLoggedIn}
+        hasAbo={hasAbo}
       />
       <Content wide>{children}</Content>
       <PageFooter
