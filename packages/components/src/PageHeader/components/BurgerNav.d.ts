@@ -7,7 +7,7 @@ export interface BurgerNavProps {
     magazines: PageHeaderTeaserImageType[];
     campaignUrl: string;
     campaignImage: string;
-    hasAbo?: boolean;
+    hasSubscription?: boolean;
     isMenuOpen: boolean;
     onMenuOpenClick: () => void;
 }

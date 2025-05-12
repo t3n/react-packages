@@ -36,7 +36,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
   headerCampaignImage,
   burgerCampaignUrl,
   burgerCampaignImage,
-  hasAbo,
+  hasSubscription,
   children,
 }) => {
   return (
@@ -52,7 +52,7 @@ const LegacyPageLayout: React.FC<LegacyPageLayoutProps> = ({
         headerCampaignImage={headerCampaignImage}
         burgerCampaignUrl={burgerCampaignUrl}
         burgerCampaignImage={burgerCampaignImage}
-        hasAbo={hasAbo}
+        hasSubscription={hasSubscription}
       />
       <Content wide>{children}</Content>
       <LegacyFooter privacyManagerId={privacyManagerId} />

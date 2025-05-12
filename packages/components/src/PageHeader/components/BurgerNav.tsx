@@ -31,7 +31,7 @@ export interface BurgerNavProps {
   magazines: PageHeaderTeaserImageType[];
   campaignUrl: string;
   campaignImage: string;
-  hasAbo?: boolean;
+  hasSubscription?: boolean;
   isMenuOpen: boolean;
   onMenuOpenClick: () => void;
 }
@@ -152,7 +152,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   magazines,
   campaignUrl,
   campaignImage,
-  hasAbo,
+  hasSubscription,
   isMenuOpen,
   onMenuOpenClick,
 }) => {
@@ -183,7 +183,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           justifyContent="space-between"
           mb={3}
         >
-          {hasAbo ? (
+          {hasSubscription ? (
             <RoundedButton
               as="a"
               icon={MaterialPerson}

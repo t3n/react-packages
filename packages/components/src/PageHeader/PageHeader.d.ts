@@ -21,7 +21,7 @@ export interface PageHeaderProps {
     headerCampaignImage: string;
     burgerCampaignUrl: string;
     burgerCampaignImage: string;
-    hasAbo?: boolean;
+    hasSubscription?: boolean;
 }
 declare const PageHeader: React.FC<PageHeaderProps>;
 export default PageHeader;
