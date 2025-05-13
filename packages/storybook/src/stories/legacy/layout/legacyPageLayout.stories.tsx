@@ -178,7 +178,7 @@ const meta: Meta<typeof LegacyPageLayout> = {
     burgerCampaignUrl: 'https://t3n.de/burgercampaign',
     burgerCampaignImage:
       'https://storage.googleapis.com/t3n-de/static/promo-burger.png',
-    isLoggedIn: true,
+    hasSubscription: true,
     children: (
       <>
         <LegacySection variant="primary" wide innerGap={-4}>

@@ -33,7 +33,7 @@ export interface PageHeaderProps {
   headerCampaignImage: string;
   burgerCampaignUrl: string;
   burgerCampaignImage: string;
-  isLoggedIn?: boolean;
+  hasSubscription?: boolean;
 }
 
 const Overlay = styled(Box)<{ isVisible: boolean }>`
@@ -135,7 +135,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   headerCampaignImage,
   burgerCampaignUrl,
   burgerCampaignImage,
-  isLoggedIn,
+  hasSubscription,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useBodyLock(isMenuOpen);
@@ -176,7 +176,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             justifyContent="flex-end"
             alignItems="center"
           >
-            {isLoggedIn ? (
+            {hasSubscription ? (
               <RoundedButton
                 as="a"
                 href="/dein-abo"
@@ -218,7 +218,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               magazines={magazines}
               campaignUrl={burgerCampaignUrl}
               campaignImage={burgerCampaignImage}
-              isLoggedIn={isLoggedIn}
+              hasSubscription={hasSubscription}
               isMenuOpen={isMenuOpen}
               onMenuOpenClick={() => setIsMenuOpen(!isMenuOpen)}
             />
