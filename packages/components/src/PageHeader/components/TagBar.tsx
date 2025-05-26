@@ -2,7 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
-import { MaterialChevronLeft, MaterialChevronRight, T3nKeep } from '@t3n/icons';
+import {
+  MaterialChevronLeft,
+  MaterialChevronRight,
+  T3nKeep,
+  T3nPlus,
+} from '@t3n/icons';
 
 import Badge from '../../Badge';
 import Box from '../../Box';
@@ -12,7 +17,10 @@ import Text from '../../Text';
 import { PageHeaderLinksType } from '../PageHeader';
 
 interface TagBarProps {
-  pinnedTeaser: PageHeaderLinksType & { isSponsored: boolean };
+  pinnedTeaser: PageHeaderLinksType & {
+    isSponsored: boolean;
+    isPaidArticle: boolean;
+  };
   tags: PageHeaderLinksType[];
 }
 
@@ -109,7 +117,8 @@ const TagBarList = styled.ul`
     display: none;
   }
 
-  li:not(:last-child) a {
+  li a {
+    ${({ theme }) => typography({ theme, fontSize: '0.75rem' })};
     text-decoration: none;
     background: unset;
 
@@ -121,10 +130,6 @@ const TagBarList = styled.ul`
       ${({ theme }) => color({ theme, color: 'text.highlight' })};
     }
   }
-
-  li a {
-    ${({ theme }) => typography({ theme, fontSize: '0.75rem' })};
-  }
 `;
 
 const PinnedTeaserText = styled(Text)`
@@ -135,7 +140,7 @@ const PinnedTeaserText = styled(Text)`
   flex-shrink: 0;
 
   ${({ theme }) =>
-    layout({ theme, width: ['250px', '250px', '250px', '300px'] })};
+    layout({ theme, maxWidth: ['250px', '250px', '250px', '300px'] })};
   ${({ theme }) => typography({ theme, fontSize: '0.75rem' })};
 `;
 
@@ -256,7 +261,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
               variant="primary"
             >
               <Box display="flex" alignItems="center">
-                <Icon component={T3nKeep} fill="brand.red" />
+                <Icon component={T3nKeep} fill="brand.red" width="20px" />
                 <PinnedTeaserText my={0} mr={pinnedTeaser.isSponsored ? 2 : 0}>
                   {pinnedTeaser.label}
                 </PinnedTeaserText>
@@ -264,6 +269,9 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
                   <div>
                     <Badge variant="light">Anzeige</Badge>
                   </div>
+                )}
+                {pinnedTeaser.isPaidArticle && (
+                  <T3nPlus width="22px" height="18px" />
                 )}
               </Box>
             </Link>
@@ -276,11 +284,6 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
               </Link>
             </li>
           ))}
-          <li>
-            <Link href="/tag" title="Alle Themen" variant="primary">
-              Alle Themen
-            </Link>
-          </li>
         </TagBarList>
         <TagBarButton
           side="right"

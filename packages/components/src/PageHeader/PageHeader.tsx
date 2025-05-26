@@ -23,7 +23,10 @@ export type PageHeaderTeaserImageType = {
 };
 
 export interface PageHeaderProps {
-  pinnedTeaser: PageHeaderLinksType & { isSponsored: boolean };
+  pinnedTeaser: PageHeaderLinksType & {
+    isSponsored: boolean;
+    isPaidArticle: boolean;
+  };
   tags: PageHeaderLinksType[];
   ressorts: PageHeaderLinksType[];
   skills: PageHeaderLinksType[];
@@ -33,6 +36,7 @@ export interface PageHeaderProps {
   headerCampaignImage: string;
   burgerCampaignUrl: string;
   burgerCampaignImage: string;
+  isLoggedIn?: boolean;
   hasSubscription?: boolean;
 }
 
@@ -42,7 +46,7 @@ const Overlay = styled(Box)<{ isVisible: boolean }>`
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 25;
   transition: opacity 0.1s linear;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   pointer-events: ${({ isVisible }) => (isVisible ? 'auto' : 'none')};
@@ -135,6 +139,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   headerCampaignImage,
   burgerCampaignUrl,
   burgerCampaignImage,
+  isLoggedIn,
   hasSubscription,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -206,7 +211,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               as="a"
               icon={MaterialMailOutline}
               variant="secondary"
-              href="/newsletter"
+              href="/info/t3n-newsletter/"
               title="Newsletter Abonnieren"
               className="t-header__newsletter-button"
               mr={2}
@@ -218,7 +223,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               magazines={magazines}
               campaignUrl={burgerCampaignUrl}
               campaignImage={burgerCampaignImage}
-              hasSubscription={hasSubscription}
+              isLoggedIn={isLoggedIn}
               isMenuOpen={isMenuOpen}
               onMenuOpenClick={() => setIsMenuOpen(!isMenuOpen)}
             />

@@ -16,7 +16,7 @@ export type MobileLinkType = {
   onClick?: (e: React.MouseEvent, privacyManagerId?: string) => void;
 }[];
 
-export interface LegacyMobileFooterProps {
+export interface MobileFooterProps {
   privacyManagerId: string;
 }
 
@@ -58,10 +58,8 @@ const SmallerText = styled(Text)`
     })};
 `;
 
-const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
-  privacyManagerId,
-}) => {
-  const legacyMobileLinks: MobileLinkType = [
+const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
+  const mobileLinks: MobileLinkType = [
     {
       label: 'Dein Abo',
       url: '/dein-abo',
@@ -126,7 +124,7 @@ const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
 
   return (
     <MobileLinksWrapper display="grid" flexDirection="column">
-      {legacyMobileLinks.map((link) => (
+      {mobileLinks.map((link) => (
         <FooterLink
           href={link.url}
           title={link.title}
@@ -149,12 +147,10 @@ const LegacyMobileLinks: React.FC<LegacyMobileFooterProps> = ({
   );
 };
 
-const LegacyMobileFooter: React.FC<LegacyMobileFooterProps> = ({
-  privacyManagerId,
-}) => {
+const MobileFooter: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
   return (
     <>
-      <LegacyMobileLinks privacyManagerId={privacyManagerId} />
+      <MobileLinks privacyManagerId={privacyManagerId} />
       <LegacySocialBar isInFooter />
       <SmallerText align="center">
         ©{' '}
@@ -177,4 +173,4 @@ const LegacyMobileFooter: React.FC<LegacyMobileFooterProps> = ({
   );
 };
 
-export default LegacyMobileFooter;
+export default MobileFooter;

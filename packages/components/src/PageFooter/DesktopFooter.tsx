@@ -21,12 +21,12 @@ export type DesktopLinkGroupsType = {
   }[];
 }[];
 
-export interface LegacyDesktopFooterProps {
+export interface DesktopFooterProps {
   privacyManagerId: string;
   isProMember?: boolean;
 }
 
-const LegacyDesktopFooterWrapper = styled(Box)`
+const DesktopFooterWrapper = styled(Box)`
   ${({ theme }) =>
     typography({
       theme,
@@ -101,15 +101,13 @@ const MissonStatement = styled(Text)`
   line-height: 36px;
 `;
 
-const LegacyExtraSmallText = styled(Text)`
+const ExtraSmallText = styled(Text)`
   ${({ theme }) => typography({ theme, fontSize: '12px', lineHeight: '1.5em' })}
   line-height: 1.5em !important;
 `;
 
-const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
-  privacyManagerId,
-}) => {
-  const legacyDesktopLinkGroups: DesktopLinkGroupsType = [
+const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
+  const desktopLinkGroups: DesktopLinkGroupsType = [
     {
       label: 'yeebase media',
       links: [
@@ -248,7 +246,7 @@ const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
 
   return (
     <DesktopLinkWrapper>
-      {legacyDesktopLinkGroups.map((group) => (
+      {desktopLinkGroups.map((group) => (
         <DesktopLinkGroup
           display="flex"
           flexDirection="column"
@@ -283,31 +281,14 @@ const LegacyDesktopLinks: React.FC<LegacyDesktopFooterProps> = ({
   );
 };
 
-const LegacyDesktopBottom = () => {
+const DesktopBottom = () => {
   return (
     <DesktopBottomWrapper my={[2, 4, 6]} mx="10px">
       <Grid>
         <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
           <Box m="10px">
-            <LegacyExtraSmallText my="12px">
-              agof- und IVW-geprüft
-            </LegacyExtraSmallText>
+            <ExtraSmallText my="12px">IVW-geprüft</ExtraSmallText>
             <Box pt="20px" display="flex" alignItems="center">
-              <Box mr="23px">
-                <FooterLink
-                  href="https://www.agof.de"
-                  target="_blank"
-                  title="Die externe Seite im neuen Tab/Fenster öffnen"
-                  rel="noreferrer noopener"
-                >
-                  <Image
-                    src="https://assets.t3n.de/t3n-de/assets/t3n/2018/images/logos/agof-logo.png"
-                    width="80px"
-                    alt="agof"
-                    sizes={80}
-                  />
-                </FooterLink>
-              </Box>
               <FooterLink
                 href="https://www.ivw.de"
                 target="_blank"
@@ -327,9 +308,7 @@ const LegacyDesktopBottom = () => {
         </GridItem>
         <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
           <Box m="10px">
-            <LegacyExtraSmallText my="12px">
-              Ausgezeichnet von kununu
-            </LegacyExtraSmallText>
+            <ExtraSmallText my="12px">Ausgezeichnet von kununu</ExtraSmallText>
             <Box pt="20px">
               <Box mr="20px" display="inline">
                 <FooterLink
@@ -384,22 +363,20 @@ const LegacyDesktopBottom = () => {
   );
 };
 
-const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps> = ({
-  privacyManagerId,
-}) => {
+const DesktopFooter: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
   return (
-    <LegacyDesktopFooterWrapper>
+    <DesktopFooterWrapper>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, 1 / 2]} px="10px" pr="0" mr="10px">
           <MissonStatement mt={0} mr={1} bold>
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>
-        <LegacyDesktopLinks privacyManagerId={privacyManagerId} />
+        <DesktopLinks privacyManagerId={privacyManagerId} />
       </Box>
-      <LegacyDesktopBottom />
-    </LegacyDesktopFooterWrapper>
+      <DesktopBottom />
+    </DesktopFooterWrapper>
   );
 };
 
-export default LegacyDesktopFooter;
+export default DesktopFooter;

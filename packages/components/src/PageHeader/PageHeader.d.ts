@@ -11,6 +11,7 @@ export type PageHeaderTeaserImageType = {
 export interface PageHeaderProps {
     pinnedTeaser: PageHeaderLinksType & {
         isSponsored: boolean;
+        isPaidArticle: boolean;
     };
     tags: PageHeaderLinksType[];
     ressorts: PageHeaderLinksType[];
@@ -21,6 +22,7 @@ export interface PageHeaderProps {
     headerCampaignImage: string;
     burgerCampaignUrl: string;
     burgerCampaignImage: string;
+    isLoggedIn?: boolean;
     hasSubscription?: boolean;
 }
 declare const PageHeader: React.FC<PageHeaderProps>;

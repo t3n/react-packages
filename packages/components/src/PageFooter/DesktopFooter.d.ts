@@ -11,9 +11,9 @@ export type DesktopLinkGroupsType = {
         onClick?: (e: React.MouseEvent, privacyManagerId?: string) => void;
     }[];
 }[];
-export interface LegacyDesktopFooterProps {
+export interface DesktopFooterProps {
     privacyManagerId: string;
     isProMember?: boolean;
 }
-declare const LegacyDesktopFooter: React.FC<LegacyDesktopFooterProps>;
-export default LegacyDesktopFooter;
+declare const DesktopFooter: React.FC<DesktopFooterProps>;
+export default DesktopFooter;

@@ -1,14 +1,25 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Box, FooterLink, PageFooter } from '@t3n/components';
+import { Box, PageFooter } from '@t3n/components';
+
+import { storyContainerDecorator } from '../../../utils/decorators';
 
 const meta: Meta<typeof PageFooter> = {
   component: PageFooter,
-  title: 'Components/Layout/PageFooter',
+  title: 'Components/Layout/Footer',
+  decorators: [
+    (Story) => {
+      return (
+        <Box width="61.25em">
+          <Story />
+        </Box>
+      );
+    },
+    storyContainerDecorator,
+  ],
   parameters: { controls: { sort: 'requiredFirst' } },
   args: {
-    showPrivacySettingsLink: true,
     privacyManagerId: '123456',
   },
 };
@@ -16,17 +27,4 @@ const meta: Meta<typeof PageFooter> = {
 export default meta;
 type Story = StoryObj<typeof PageFooter>;
 
-export const pageFooter: Story = {};
-
-export const extraLinks: Story = {
-  args: {
-    children: (
-      <Box display="flex" flexDirection="column" alignItems="flex-start">
-        <FooterLink href="#">Testlink #1</FooterLink>
-        <FooterLink href="#">Testlink #2</FooterLink>
-        <FooterLink href="#">Testlink #3</FooterLink>
-        <FooterLink href="#">Testlink #4</FooterLink>
-      </Box>
-    ),
-  },
-};
+export const footer: Story = {};

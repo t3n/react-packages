@@ -17,7 +17,8 @@ const pinnedTeaser = {
   label:
     'Cybersecurity: Wie Tabletop-Übungen dein Team auf den Ernstfall vorbereiten',
   url: '/',
-  isSponsored: true,
+  isSponsored: false,
+  isPaidArticle: true,
 };
 
 const tags: PageHeaderLinksType[] = [
@@ -165,7 +166,6 @@ const meta: Meta<typeof PageLayout> = {
   title: 'Components/Layout/PageLayout',
   parameters: { controls: { sort: 'requiredFirst' }, layout: 'fullscreen' },
   args: {
-    showPrivacySettingsLink: true,
     privacyManagerId: '123456',
     pinnedTeaser,
     tags,
