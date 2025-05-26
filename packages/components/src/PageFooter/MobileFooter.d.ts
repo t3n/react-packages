@@ -8,8 +8,8 @@ export type MobileLinkType = {
     rel?: string;
     onClick?: (e: React.MouseEvent, privacyManagerId?: string) => void;
 }[];
-export interface LegacyMobileFooterProps {
+export interface MobileFooterProps {
     privacyManagerId: string;
 }
-declare const LegacyMobileFooter: React.FC<LegacyMobileFooterProps>;
-export default LegacyMobileFooter;
+declare const MobileFooter: React.FC<MobileFooterProps>;
+export default MobileFooter;

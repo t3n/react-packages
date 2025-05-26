@@ -31,7 +31,7 @@ export interface BurgerNavProps {
   magazines: PageHeaderTeaserImageType[];
   campaignUrl: string;
   campaignImage: string;
-  hasSubscription?: boolean;
+  isLoggedIn?: boolean;
   isMenuOpen: boolean;
   onMenuOpenClick: () => void;
 }
@@ -152,7 +152,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   magazines,
   campaignUrl,
   campaignImage,
-  hasSubscription,
+  isLoggedIn,
   isMenuOpen,
   onMenuOpenClick,
 }) => {
@@ -183,7 +183,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           justifyContent="space-between"
           mb={3}
         >
-          {hasSubscription ? (
+          {isLoggedIn ? (
             <RoundedButton
               as="a"
               icon={MaterialPerson}
@@ -198,7 +198,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             <RoundedButton
               as="a"
               icon={MaterialPerson}
-              href="/login"
+              href="/account/login"
               variant="secondary"
               size="small"
               expanded
@@ -256,7 +256,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </Grid>
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/news" title="News" className="t-header__burger-link">
+          <a href="/news/" title="News" className="t-header__burger-link">
             News
           </a>
         </BurgerHeading>

@@ -6,8 +6,7 @@ import PageFooter from '../PageFooter';
 import PageHeader, { PageHeaderProps } from '../PageHeader';
 
 export interface PageLayoutProps extends PageHeaderProps {
-  showPrivacySettingsLink?: boolean;
-  privacyManagerId?: string;
+  privacyManagerId: string;
   children?: ReactNode;
 }
 
@@ -27,7 +26,6 @@ const PageLayoutContainer = styled.div`
 `;
 
 const PageLayout: React.FC<PageLayoutProps> = ({
-  showPrivacySettingsLink,
   privacyManagerId,
   pinnedTeaser,
   tags,
@@ -58,10 +56,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         hasSubscription={hasSubscription}
       />
       <Content wide>{children}</Content>
-      <PageFooter
-        showPrivacySettingsLink={showPrivacySettingsLink}
-        privacyManagerId={privacyManagerId}
-      />
+      <PageFooter privacyManagerId={privacyManagerId} />
     </PageLayoutContainer>
   );
 };
