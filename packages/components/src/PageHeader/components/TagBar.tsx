@@ -262,7 +262,14 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
             >
               <Box display="flex" alignItems="center">
                 <Icon component={T3nKeep} fill="brand.red" width="20px" />
-                <PinnedTeaserText my={0} mr={pinnedTeaser.isSponsored ? 2 : 0}>
+                <PinnedTeaserText
+                  my={0}
+                  mr={
+                    pinnedTeaser.isSponsored || pinnedTeaser.isPaidArticle
+                      ? 2
+                      : 0
+                  }
+                >
                   {pinnedTeaser.label}
                 </PinnedTeaserText>
                 {pinnedTeaser.isSponsored && (
