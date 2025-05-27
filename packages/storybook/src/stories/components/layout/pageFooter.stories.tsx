@@ -7,7 +7,7 @@ import { storyContainerDecorator } from '../../../utils/decorators';
 
 const meta: Meta<typeof PageFooter> = {
   component: PageFooter,
-  title: 'Components/Layout/Footer',
+  title: 'Components/Layout/PageFooter',
   decorators: [
     (Story) => {
       return (
