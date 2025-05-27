@@ -37,6 +37,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   headerCampaignImage,
   burgerCampaignImage,
   burgerCampaignUrl,
+  isLoggedIn,
   hasSubscription,
   children,
 }) => {
@@ -53,6 +54,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         headerCampaignImage={headerCampaignImage}
         burgerCampaignImage={burgerCampaignImage}
         burgerCampaignUrl={burgerCampaignUrl}
+        isLoggedIn={isLoggedIn}
         hasSubscription={hasSubscription}
       />
       <Content wide>{children}</Content>
