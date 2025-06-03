@@ -1,0 +1,5 @@
+echo "🔧 Running Prettier and ESLint..."
+
+npx lint-staged
+
+echo "✅ Linting & formatting complete. Proceeding with commit."

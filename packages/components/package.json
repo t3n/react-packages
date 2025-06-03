@@ -14,7 +14,7 @@
     "framer-motion": "^11.11.11",
     "polished": "^4.3.1",
     "react-autosuggest": "^10.1.0",
-    "react-select": "^5.10.0",
+    "react-select": "^5.10.1",
     "react-slick": "^0.30.3",
     "styled-system": "^5.1.5",
     "use-debounce": "^10.0.4"
@@ -29,8 +29,8 @@
     "test-watch": "jest --watch"
   },
   "devDependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@t3n/configs": "^0.7.4",
     "@t3n/icons": "^0.8.0",
     "@t3n/theme": "^0.8.0",

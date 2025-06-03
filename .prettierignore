@@ -1,4 +1,6 @@
 *.d.ts
+*test.tsx.snap
+*.svg
 dist/
 build/
 storybook-static/
