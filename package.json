@@ -52,6 +52,7 @@
     "eslint-webpack-plugin": "^4.2.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
@@ -74,7 +75,7 @@
   },
   "scripts": {
     "clean": "lerna run clean --parallel  && lerna clean --yes && rm -rf node_modules ",
-    "prepare": "lerna clean --yes",
+    "prepare": "lerna clean --yes && husky /.husky",
     "repair": "lerna repair",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
@@ -99,5 +100,18 @@
     "prettier:format": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
     "prettier:check": "prettier --check 'packages/**/*.{ts,tsx,js,jsx}'",
     "upgrade-interactive": "npm-check-updates --interactive && npm-check-updates --interactive --packageFile packages/components/package.json && npm-check-updates --interactive --packageFile packages/theme/package.json && npm-check-updates --interactive --packageFile packages/storybook/package.json && npm-check-updates --interactive --packageFile packages/configs/package.json && npm-check-updates --interactive --packageFile packages/icons/package.json"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
+    "*.{js,jsx,ts,tsx}": [
+      "eslint './packages/components/src/**'",
+      "eslint './packages/theme/src/**'",
+      "eslint './packages/storybook/src/**'",
+      "eslint './packages/icons/src/**'",
+      "lerna run test --scope @t3n/components --stream",
+      "lerna run test --scope @t3n/theme --stream",
+      "lerna run test --scope @t3n/storybook --stream",
+      "lerna run test --scope @t3n/icons --stream"
+    ]
   }
 }
