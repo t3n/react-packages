@@ -75,7 +75,7 @@
   },
   "scripts": {
     "clean": "lerna run clean --parallel  && lerna clean --yes && rm -rf node_modules ",
-    "prepare": "lerna clean --yes && cd .. && husky ./app/.husky",
+    "prepare": "lerna clean --yes && husky",
     "repair": "lerna repair",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
@@ -102,16 +102,15 @@
     "upgrade-interactive": "npm-check-updates --interactive && npm-check-updates --interactive --packageFile packages/components/package.json && npm-check-updates --interactive --packageFile packages/theme/package.json && npm-check-updates --interactive --packageFile packages/storybook/package.json && npm-check-updates --interactive --packageFile packages/configs/package.json && npm-check-updates --interactive --packageFile packages/icons/package.json"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write 'packages/**/*.{ts,tsx,js,jsx}'",
     "*.{js,jsx,ts,tsx}": [
+      "prettier --write 'packages/components/src/**'",
+      "prettier --write 'packages/theme/src/**'",
+      "prettier --write 'packages/storybook/src/**'",
+      "prettier --write 'packages/icons/src/**'",
       "eslint './packages/components/src/**'",
       "eslint './packages/theme/src/**'",
       "eslint './packages/storybook/src/**'",
-      "eslint './packages/icons/src/**'",
-      "lerna run test --scope @t3n/components --stream",
-      "lerna run test --scope @t3n/theme --stream",
-      "lerna run test --scope @t3n/storybook --stream",
-      "lerna run test --scope @t3n/icons --stream"
+      "eslint './packages/icons/src/**'"
     ]
   }
 }

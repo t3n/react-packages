@@ -1,5 +1,5 @@
 echo "🔧 Running Prettier and ESLint..."
 
-cd app && npx lint-staged
+npx lint-staged
 
 echo "✅ Linting & formatting complete. Proceeding with commit."
