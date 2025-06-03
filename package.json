@@ -75,7 +75,7 @@
   },
   "scripts": {
     "clean": "lerna run clean --parallel  && lerna clean --yes && rm -rf node_modules ",
-    "prepare": "lerna clean --yes && husky /.husky",
+    "prepare": "lerna clean --yes && cd .. && husky ./app/.husky",
     "repair": "lerna repair",
     "start": "lerna run start --parallel",
     "build": "npm run build:theme && npm run build:icons && npm run build:components && npm run build:storybook",
