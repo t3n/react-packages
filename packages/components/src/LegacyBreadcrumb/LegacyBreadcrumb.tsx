@@ -8,7 +8,7 @@ const LegacyBreadcrumbWrapper = styled.nav<{ secondary?: boolean }>`
   height: 28px;
   position: relative;
   ${({ theme }) =>
-    space({ pt: 2, mb: [2, 2, 4], mx: ['16px', '16px', '20px'], theme })}
+    space({ pt: 2, pb: [2, 2, 4], mx: ['16px', '16px', '20px'], theme })}
 
   &:after {
     content: '';
