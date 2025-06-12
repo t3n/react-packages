@@ -200,6 +200,7 @@ const Input = forwardRef(
         hideReset={hideReset}
       >
         <StyledNativeInput
+          aria-label="Input-Feld"
           error={error}
           type={inputType}
           onFocus={handleFocus}

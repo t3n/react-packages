@@ -17,7 +17,7 @@ const Footer = styled(Box)`
   z-index: 24;
 `;
 
-const InnerWrapper = styled.div`
+const InnerWrapper = styled.footer`
   margin: 0 auto;
   display: flex;
   align-items: center;

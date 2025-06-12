@@ -167,6 +167,8 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           width="2rem"
           component={MaterialMenu}
           onClick={onMenuOpenClick}
+          aria-label="Menü öffnen"
+          tabindex="0"
         />
         <MenuToggle
           doNotDisplayDesktop
@@ -174,6 +176,8 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           width="2rem"
           component={isMenuOpen ? MaterialClose : MaterialMenu}
           onClick={onMenuOpenClick}
+          aria-label="Menü öffnen/schließen"
+          tabindex="0"
         />
       </MenuToggleBox>
       <MenuContainer isMenuOpen={isMenuOpen}>
@@ -212,6 +216,8 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             width="2rem"
             component={MaterialClose}
             onClick={onMenuOpenClick}
+            aria-label="Menü öffnen"
+            tabindex="0"
           />
         </BurgerButtonBox>
         <form action="/suche" method="get">
@@ -232,7 +238,14 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           title="Kampagne"
           className="t-header__burger-campaign"
         >
-          <Image src={campaignImage} width="100%" lazy mt={3} mb={5} />
+          <Image
+            src={campaignImage}
+            alt="Kampagnen-Grafik"
+            width="100%"
+            lazy
+            mt={3}
+            mb={5}
+          />
         </a>
         <BurgerAccordion title="Brands" initialOpen>
           <Grid mx={-2}>
@@ -246,6 +259,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
                   <ObjectFitImage
                     src={brand.image}
                     title={brand.title}
+                    alt={`${brand.title} Logo`}
                     width={158}
                     height={121}
                     lazy
@@ -256,7 +270,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </Grid>
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/news/" title="News" className="t-header__burger-link">
+          <a href="/news/" className="t-header__burger-link">
             News
           </a>
         </BurgerHeading>
@@ -265,7 +279,6 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             <SubMenuItem
               key={link.label}
               href={link.url}
-              title={link.label}
               className="t-header__burger-link"
             >
               {link.label}
@@ -284,6 +297,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
                   <ObjectFitImage
                     src={magazine.image}
                     title={magazine.title}
+                    alt={`${magazine.title} Magazin Cover`}
                     width={115}
                     height={162}
                     lazy
@@ -298,7 +312,6 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             <SubMenuItem
               key={link.label}
               href={link.url}
-              title={link.label}
               className="t-header__burger-link"
             >
               {link.label}
@@ -306,30 +319,22 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           ))}
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/podcast" title="Podcast" className="t-header__burger-link">
+          <a href="/podcast" className="t-header__burger-link">
             Podcast
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a
-            href="https://shop.t3n.de"
-            title="Shop"
-            className="t-header__burger-link"
-          >
+          <a href="https://shop.t3n.de" className="t-header__burger-link">
             Shop
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a
-            href="https://jobs.t3n.de"
-            title="Jobs"
-            className="t-header__burger-link"
-          >
+          <a href="https://jobs.t3n.de" className="t-header__burger-link">
             Jobs
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/events" title="Events" className="t-header__burger-link">
+          <a href="/events" className="t-header__burger-link">
             Events
           </a>
         </BurgerHeading>

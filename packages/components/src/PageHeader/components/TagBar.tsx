@@ -286,7 +286,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
           <VerticalBar />
           {tags.map((tag) => (
             <li key={tag.label}>
-              <Link href={tag.url} title={tag.label} variant="primary" mr={4}>
+              <Link href={tag.url} variant="primary" mr={4}>
                 {tag.label}
               </Link>
             </li>

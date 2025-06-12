@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { space, variant as styledVariant } from 'styled-system';
 
@@ -32,9 +32,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
   opacity: 0;
 `;
 
-const StyledCheckbox = styled(Box)<
-  Omit<CheckboxProps, 'name' | 'value'> & { focused?: boolean }
->`
+const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
   width: 1rem;
@@ -44,7 +42,7 @@ const StyledCheckbox = styled(Box)<
   pointer-events: none;
   ${({ theme }) => space({ mr: 2, theme })}
 
-  ${({ checked, disabled, feedbackColor, focused }) =>
+  ${({ checked, disabled, feedbackColor }) =>
     styledVariant({
       variants: {
         light: {
@@ -59,13 +57,11 @@ const StyledCheckbox = styled(Box)<
           border: '1px solid',
           borderColor: feedbackColor
             ? `feedback.${feedbackColor}`
-            : focused
-              ? 'shades.grey42'
-              : checked && disabled
-                ? 'shades.grey95'
-                : checked
-                  ? 'shades.grey42'
-                  : 'shades.grey95',
+            : checked && disabled
+              ? 'shades.grey95'
+              : checked
+                ? 'shades.grey42'
+                : 'shades.grey95',
         },
         dark: {
           bg:
@@ -79,16 +75,29 @@ const StyledCheckbox = styled(Box)<
           border: '1px solid',
           borderColor: feedbackColor
             ? `feedback.${feedbackColor}`
-            : focused
-              ? 'shades.white'
-              : checked && disabled
-                ? 'shades.grey95'
-                : checked
-                  ? 'shades.white'
-                  : 'shades.grey204',
+            : checked && disabled
+              ? 'shades.grey95'
+              : checked
+                ? 'shades.white'
+                : 'shades.grey204',
         },
       },
     })}
+
+    &:focus {
+    ${styledVariant({
+      variants: {
+        light: {
+          border: '2px solid',
+          borderColor: 'shades.grey42',
+        },
+        dark: {
+          border: '2px solid',
+          borderColor: 'shades.white',
+        },
+      },
+    })}
+  }
 `;
 
 const StyledIcon = styled.span<
@@ -136,6 +145,21 @@ const StyledLabel = styled.label<
         },
       },
     })}
+
+  &:focus > div {
+    ${styledVariant({
+      variants: {
+        light: {
+          border: '2px solid',
+          borderColor: 'shades.grey42',
+        },
+        dark: {
+          border: '2px solid',
+          borderColor: 'shades.white',
+        },
+      },
+    })}
+  }
 `;
 
 const PlainCheckbox = ({
@@ -147,15 +171,12 @@ const PlainCheckbox = ({
   variant: variantProp,
   value,
 }: CheckboxProps) => {
-  const [hasFocus, setHasFocus] = useState(false);
-
   return (
     <StyledCheckbox
       variant={variantProp}
       checked={checked}
       disabled={disabled}
       feedbackColor={feedbackColor}
-      focused={hasFocus}
     >
       <HiddenCheckbox
         checked={checked}
@@ -163,8 +184,6 @@ const PlainCheckbox = ({
         disabled={disabled}
         name={name}
         value={value}
-        onFocus={() => setHasFocus(true)}
-        onBlur={() => setHasFocus(false)}
       />
       <StyledIcon
         variant={variantProp}
