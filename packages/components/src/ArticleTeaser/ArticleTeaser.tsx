@@ -71,6 +71,7 @@ const ArticleTeaser: React.FC<{
             {largeTeaserImage && article.imageUrl && (
               <LargeTeaserImage
                 src={article.imageUrl}
+                alt={article.title}
                 width={1}
                 height="auto"
                 optimizationClass="teaser-full"
@@ -99,6 +100,7 @@ const ArticleTeaser: React.FC<{
             <GridItem width={[1 / 4, 1 / 4, 1 / 4, 1 / 6]}>
               <SmallTeaserImage
                 src={article.imageUrl}
+                alt={article.title}
                 width={1}
                 height="auto"
                 optimizationClass="avatar-large"
