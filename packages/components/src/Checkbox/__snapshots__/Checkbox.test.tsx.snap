@@ -25,6 +25,11 @@ exports[`Checkbox has feedback styles 1`] = `
   border-color: #f9423a;
 }
 
+.c1:focus {
+  border: 2px solid;
+  border-color: #2a2a2a;
+}
+
 .c4 {
   display: inline-block;
   position: relative;
@@ -38,6 +43,11 @@ exports[`Checkbox has feedback styles 1`] = `
   background-color: #fff;
   border: 1px solid;
   border-color: #56FEFF;
+}
+
+.c4:focus {
+  border: 2px solid;
+  border-color: #2a2a2a;
 }
 
 .c6 {
@@ -55,6 +65,11 @@ exports[`Checkbox has feedback styles 1`] = `
   border-color: #ffef4f;
 }
 
+.c6:focus {
+  border: 2px solid;
+  border-color: #2a2a2a;
+}
+
 .c8 {
   display: inline-block;
   position: relative;
@@ -68,6 +83,11 @@ exports[`Checkbox has feedback styles 1`] = `
   background-color: #fff;
   border: 1px solid;
   border-color: #3DFF9F;
+}
+
+.c8:focus {
+  border: 2px solid;
+  border-color: #2a2a2a;
 }
 
 .c11 {
@@ -85,6 +105,11 @@ exports[`Checkbox has feedback styles 1`] = `
   border-color: #f9423a;
 }
 
+.c11:focus {
+  border: 2px solid;
+  border-color: #fff;
+}
+
 .c12 {
   display: inline-block;
   position: relative;
@@ -98,6 +123,11 @@ exports[`Checkbox has feedback styles 1`] = `
   background-color: shades.grey44;
   border: 1px solid;
   border-color: #56FEFF;
+}
+
+.c12:focus {
+  border: 2px solid;
+  border-color: #fff;
 }
 
 .c13 {
@@ -115,6 +145,11 @@ exports[`Checkbox has feedback styles 1`] = `
   border-color: #ffef4f;
 }
 
+.c13:focus {
+  border: 2px solid;
+  border-color: #fff;
+}
+
 .c14 {
   display: inline-block;
   position: relative;
@@ -128,6 +163,11 @@ exports[`Checkbox has feedback styles 1`] = `
   background-color: shades.grey44;
   border: 1px solid;
   border-color: #3DFF9F;
+}
+
+.c14:focus {
+  border: 2px solid;
+  border-color: #fff;
 }
 
 .c3 {
@@ -215,6 +255,11 @@ exports[`Checkbox has feedback styles 1`] = `
   color: black;
 }
 
+.c0:focus > div {
+  border: 2px solid;
+  border-color: #2a2a2a;
+}
+
 .c10 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -226,6 +271,11 @@ exports[`Checkbox has feedback styles 1`] = `
   align-items: center;
   cursor: pointer;
   color: white;
+}
+
+.c10:focus > div {
+  border: 2px solid;
+  border-color: #fff;
 }
 
 <div>
