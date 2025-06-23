@@ -84,7 +84,6 @@ const Accordion: React.FC<AccordionProps> = ({
   title,
   isOpen,
   onToggle,
-  // initialOpen, // not used anymore
 }) => {
   const collapsed = !isOpen;
   const contentRef = useRef<HTMLDivElement>(null);
