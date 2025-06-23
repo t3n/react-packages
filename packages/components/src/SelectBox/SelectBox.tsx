@@ -66,7 +66,7 @@ const getCustomStyles = (error: boolean, theme: Theme & DefaultTheme) => ({
       ...provided,
       color: theme.colors.text.primary,
       backgroundColor: theme.colors.background.primary,
-      boxShadow: 0,
+      boxShadow: state.isFocused ? `0 0 0 2px ${theme.colors.brand.black}` : 0,
       borderRadius: theme.border.radii[1],
       borderColor: error
         ? theme.colors.feedback.error
