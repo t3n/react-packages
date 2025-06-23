@@ -49,8 +49,19 @@ const MenuToggleBox = styled(Box)`
 `;
 
 const MenuToggle = styled(
-  ({ doNotDisplayMobile, doNotDisplayDesktop, ...props }) => (
-    <Icon {...props} />
+  ({ doNotDisplayMobile, doNotDisplayDesktop, onClick, ...props }) => (
+    <Icon
+      {...props}
+      tabIndex={0}
+      role="button"
+      onClick={onClick}
+      onKeyDown={(e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.(e as any);
+        }
+      }}
+    />
   ),
 )`
   cursor: pointer;
@@ -157,6 +168,24 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   onMenuOpenClick,
 }) => {
   const [term, setTerm] = useState('');
+  const tabbable = isMenuOpen;
+
+  // Track open state for each accordion
+  const [openAccordions, setOpenAccordions] = useState<{
+    [key: string]: boolean;
+  }>({
+    Brands: true,
+    Themen: false,
+    Magazine: true,
+    Skills: true,
+  });
+
+  const handleAccordionToggle = (key: string) => {
+    setOpenAccordions((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   return (
     <Box>
@@ -168,7 +197,6 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           component={MaterialMenu}
           onClick={onMenuOpenClick}
           aria-label="Menü öffnen"
-          tabindex="0"
         />
         <MenuToggle
           doNotDisplayDesktop
@@ -177,7 +205,6 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           component={isMenuOpen ? MaterialClose : MaterialMenu}
           onClick={onMenuOpenClick}
           aria-label="Menü öffnen/schließen"
-          tabindex="0"
         />
       </MenuToggleBox>
       <MenuContainer isMenuOpen={isMenuOpen}>
@@ -197,6 +224,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
               expanded
               label="Mein Account"
               className="t-header__account-button"
+              tabIndex={tabbable ? 0 : -1}
             />
           ) : (
             <RoundedButton
@@ -208,6 +236,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
               expanded
               label="Anmelden"
               className="t-header__account-button"
+              tabIndex={tabbable ? 0 : -1}
             />
           )}
           <MenuToggle
@@ -217,7 +246,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             component={MaterialClose}
             onClick={onMenuOpenClick}
             aria-label="Menü öffnen"
-            tabindex="0"
+            tabIndex={tabbable ? 0 : -1}
           />
         </BurgerButtonBox>
         <form action="/suche" method="get">
@@ -230,6 +259,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
               hideReset
               value={term}
               onChange={(e) => setTerm(e.target.value)}
+              tabIndex={tabbable ? 0 : -1}
             />
           </SearchBoxWrapper>
         </form>
@@ -237,6 +267,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           href={campaignUrl}
           title="Kampagne"
           className="t-header__burger-campaign"
+          tabIndex={tabbable ? 0 : -1}
         >
           <Image
             src={campaignImage}
@@ -247,7 +278,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             mb={5}
           />
         </a>
-        <BurgerAccordion title="Brands" initialOpen>
+        <BurgerAccordion
+          title="Brands"
+          isOpen={openAccordions.Brands}
+          onToggle={() => handleAccordionToggle('Brands')}
+        >
           <Grid mx={-2}>
             {brands.map((brand) => (
               <GridItem width={1 / 2} px={2} key={brand.title}>
@@ -255,6 +290,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
                   href={brand.url}
                   title={brand.title}
                   className="t-header__burger-brand"
+                  tabIndex={tabbable && openAccordions.Brands ? 0 : -1}
                 >
                   <ObjectFitImage
                     src={brand.image}
@@ -270,22 +306,35 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </Grid>
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/news/" className="t-header__burger-link">
+          <a
+            href="/news/"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
             News
           </a>
         </BurgerHeading>
-        <BurgerAccordion title="Themen">
+        <BurgerAccordion
+          title="Themen"
+          isOpen={openAccordions.Themen}
+          onToggle={() => handleAccordionToggle('Themen')}
+        >
           {ressorts.map((link) => (
             <SubMenuItem
               key={link.label}
               href={link.url}
               className="t-header__burger-link"
+              tabIndex={tabbable && openAccordions.Themen ? 0 : -1}
             >
               {link.label}
             </SubMenuItem>
           ))}
         </BurgerAccordion>
-        <BurgerAccordion title="Magazine" initialOpen>
+        <BurgerAccordion
+          title="Magazine"
+          isOpen={openAccordions.Magazine}
+          onToggle={() => handleAccordionToggle('Magazine')}
+        >
           <Grid mx={-2}>
             {magazines.map((magazine) => (
               <GridItem width={1 / 2} px={2} key={magazine.title}>
@@ -293,6 +342,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
                   href={magazine.url}
                   title={magazine.title}
                   className="t-header__burger-magazine"
+                  tabIndex={tabbable && openAccordions.Magazine ? 0 : -1}
                 >
                   <ObjectFitImage
                     src={magazine.image}
@@ -307,34 +357,55 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             ))}
           </Grid>
         </BurgerAccordion>
-        <BurgerAccordion title="Skills" initialOpen>
+        <BurgerAccordion
+          title="Skills"
+          isOpen={openAccordions.Skills}
+          onToggle={() => handleAccordionToggle('Skills')}
+        >
           {skills.map((link) => (
             <SubMenuItem
               key={link.label}
               href={link.url}
               className="t-header__burger-link"
+              tabIndex={tabbable && openAccordions.Skills ? 0 : -1}
             >
               {link.label}
             </SubMenuItem>
           ))}
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/podcast" className="t-header__burger-link">
+          <a
+            href="/podcast"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
             Podcast
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="https://shop.t3n.de" className="t-header__burger-link">
+          <a
+            href="https://shop.t3n.de"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
             Shop
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="https://jobs.t3n.de" className="t-header__burger-link">
+          <a
+            href="https://jobs.t3n.de"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
             Jobs
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a href="/events" className="t-header__burger-link">
+          <a
+            href="/events"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
             Events
           </a>
         </BurgerHeading>

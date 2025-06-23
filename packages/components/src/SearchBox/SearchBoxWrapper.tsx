@@ -121,6 +121,10 @@ const Wrapper = styled.div<
 const UnstyledButton = styled.button`
   all: unset;
   cursor: pointer;
+
+  &:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
 `;
 
 type SearchBoxWrapperProps = {

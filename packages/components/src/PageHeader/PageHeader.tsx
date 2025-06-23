@@ -101,6 +101,11 @@ const HeaderCampaign = styled(Box)`
     height: 100%;
     display: flex;
     align-items: flex-end;
+
+    &:focus {
+      outline: -webkit-focus-ring-color auto 5px;
+      margin: 0 5px;
+    }
   }
 `;
 
