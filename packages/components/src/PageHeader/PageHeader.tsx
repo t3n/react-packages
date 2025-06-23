@@ -103,7 +103,7 @@ const HeaderCampaign = styled(Box)`
     align-items: flex-end;
 
     &:focus {
-      outline: -webkit-focus-ring-color auto 5px;
+      outline: ${({ theme }) => theme.colors.brand.black} auto 5px;
       margin: 0 5px;
     }
   }

@@ -83,8 +83,7 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
     ${({ theme }) => composeTextStyle({ textStyle: 'regular', theme })};
 
     &:focus {
-      border-color: #2a2a2a;
-      outline: 0;
+      outline: ${({ theme }) => theme.colors.brand.black} auto 5px;
     }
   }
 `;
@@ -123,7 +122,7 @@ const UnstyledButton = styled.button`
   cursor: pointer;
 
   &:focus {
-    outline: -webkit-focus-ring-color auto 5px;
+    outline: ${({ theme }) => theme.colors.brand.black} auto 5px;
   }
 `;
 
