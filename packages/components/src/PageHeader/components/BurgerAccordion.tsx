@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { MarginProps } from 'styled-system';
 
@@ -10,7 +10,8 @@ import Icon from '../../Icon';
 
 export interface AccordionProps extends MarginProps {
   title: string;
-  initialOpen?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
   children?: ReactNode;
 }
 
@@ -19,10 +20,6 @@ const StyledAccordionHeadBox = styled(Box)`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-
-  :focus {
-    outline: none;
-  }
 
   h4 {
     font-size: 1.125rem;
@@ -85,11 +82,11 @@ const StyledAccordionContent = styled(Box)<{ collapsed: boolean }>`
 const Accordion: React.FC<AccordionProps> = ({
   children,
   title,
-  initialOpen,
+  isOpen,
+  onToggle,
 }) => {
-  const [collapsed, setCollapsed] = useState(!initialOpen);
-
-  const contentRef = React.useRef<HTMLDivElement>(null);
+  const collapsed = !isOpen;
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -99,12 +96,20 @@ const Accordion: React.FC<AccordionProps> = ({
     }
   }, [collapsed]);
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onToggle?.();
+    }
+  };
+
   return (
     <Box mb={5}>
       <StyledAccordionHeadBox
-        onClick={() => setCollapsed(!collapsed)}
+        onClick={onToggle}
         role="button"
         tabIndex={0}
+        onKeyDown={handleKeyDown}
       >
         <Heading as="h4" styleAs="h4" m={0}>
           {title}

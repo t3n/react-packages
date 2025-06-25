@@ -54,7 +54,7 @@ const Overlay = styled(Box)<{ isVisible: boolean }>`
   ${({ theme }) => color({ theme, bg: 'rgba(0, 0, 0, 0.5)' })}
 `;
 
-const PageHeaderWrapper = styled.div`
+const PageHeaderWrapper = styled.nav`
   position: sticky;
   z-index: 30;
   top: 0;
@@ -101,6 +101,11 @@ const HeaderCampaign = styled(Box)`
     height: 100%;
     display: flex;
     align-items: flex-end;
+
+    &:focus {
+      outline: ${({ theme }) => theme.colors.brand.black} auto 5px;
+      margin: 0 5px;
+    }
   }
 `;
 
@@ -169,6 +174,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               >
                 <Image
                   src={headerCampaignImage}
+                  alt="Header Kampagnen-Grafik"
                   height={65}
                   imageHeight={160}
                   lazy={false}
@@ -185,7 +191,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               <RoundedButton
                 as="a"
                 href="/dein-abo"
-                title="Mein Abo"
+                title="Abo Benefit Seite"
                 mr={2}
                 color="accent"
                 label="Mein Abo"
