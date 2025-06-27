@@ -120,6 +120,13 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
       label: 'Impressum',
       url: '/impressum/',
     },
+    {
+      label: 'Barrierefreiheitserklärung',
+      url: 'https://shop.t3n.de/pages/barrierefreiheitserklaerung',
+      title: 'Die externe Seite im neuen Tab/Fenster öffnen',
+      target: '_blank',
+      rel: 'noreferrer noopener',
+    },
   ];
 
   return (
