@@ -250,6 +250,7 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
           title="Nach links scrollen"
           isVisible={!isLeftMost}
           onClick={handleScrollLeft}
+          tabIndex={-1}
         >
           <Icon component={MaterialChevronLeft} fill="shades.grey42" />
         </TagBarButton>

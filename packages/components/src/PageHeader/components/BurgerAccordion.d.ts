@@ -5,6 +5,7 @@ export interface AccordionProps extends MarginProps {
     isOpen: boolean;
     onToggle: () => void;
     children?: ReactNode;
+    tabbable?: boolean;
 }
 declare const Accordion: React.FC<AccordionProps>;
 export default Accordion;

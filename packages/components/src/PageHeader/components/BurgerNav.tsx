@@ -52,7 +52,6 @@ const MenuToggle = styled(
   ({ doNotDisplayMobile, doNotDisplayDesktop, onClick, ...props }) => (
     <Icon
       {...props}
-      tabIndex={0}
       role="button"
       onClick={onClick}
       onKeyDown={(e: React.KeyboardEvent) => {
@@ -197,6 +196,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           component={MaterialMenu}
           onClick={onMenuOpenClick}
           aria-label="Menü öffnen"
+          tabIndex={0}
         />
         <MenuToggle
           doNotDisplayDesktop
@@ -207,7 +207,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           aria-label="Menü öffnen/schließen"
         />
       </MenuToggleBox>
-      <MenuContainer isMenuOpen={isMenuOpen}>
+      <MenuContainer isMenuOpen={isMenuOpen} tabIndex={-1}>
         <BurgerButtonBox
           display="flex"
           alignItems="center"
@@ -245,12 +245,16 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             width="2rem"
             component={MaterialClose}
             onClick={onMenuOpenClick}
-            aria-label="Menü öffnen"
+            aria-label="Menü schließen"
             tabIndex={tabbable ? 0 : -1}
           />
         </BurgerButtonBox>
         <form action="/suche" method="get">
-          <SearchBoxWrapper variantProp="light" isLoading={false}>
+          <SearchBoxWrapper
+            variantProp="light"
+            isLoading={false}
+            tabbable={tabbable}
+          >
             <Input
               type="text"
               placeholder="Suche"
@@ -282,6 +286,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           title="Brands"
           isOpen={openAccordions.Brands}
           onToggle={() => handleAccordionToggle('Brands')}
+          tabbable={tabbable}
         >
           <Grid mx={-2}>
             {brands.map((brand) => (
@@ -318,6 +323,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           title="Themen"
           isOpen={openAccordions.Themen}
           onToggle={() => handleAccordionToggle('Themen')}
+          tabbable={tabbable}
         >
           {ressorts.map((link) => (
             <SubMenuItem
@@ -334,6 +340,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           title="Magazine"
           isOpen={openAccordions.Magazine}
           onToggle={() => handleAccordionToggle('Magazine')}
+          tabbable={tabbable}
         >
           <Grid mx={-2}>
             {magazines.map((magazine) => (
@@ -361,6 +368,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           title="Skills"
           isOpen={openAccordions.Skills}
           onToggle={() => handleAccordionToggle('Skills')}
+          tabbable={tabbable}
         >
           {skills.map((link) => (
             <SubMenuItem

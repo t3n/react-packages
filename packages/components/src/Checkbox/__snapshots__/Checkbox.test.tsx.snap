@@ -284,6 +284,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c1"
+      tabindex="0"
     >
       <input
         checked=""
@@ -313,6 +314,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c4"
+      tabindex="0"
     >
       <input
         checked=""
@@ -342,6 +344,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c6"
+      tabindex="0"
     >
       <input
         checked=""
@@ -371,6 +374,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c8"
+      tabindex="0"
     >
       <input
         checked=""
@@ -400,6 +404,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c11"
+      tabindex="0"
     >
       <input
         checked=""
@@ -429,6 +434,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c12"
+      tabindex="0"
     >
       <input
         checked=""
@@ -458,6 +464,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c13"
+      tabindex="0"
     >
       <input
         checked=""
@@ -487,6 +494,7 @@ exports[`Checkbox has feedback styles 1`] = `
   >
     <div
       class="c14"
+      tabindex="0"
     >
       <input
         checked=""
