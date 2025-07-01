@@ -130,11 +130,13 @@ type SearchBoxWrapperProps = {
   variantProp: SearchBoxVariantType;
   isLoading: boolean;
   children: React.ReactNode;
+  tabbable?: boolean;
 };
 
 const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
   variantProp,
   isLoading,
+  tabbable,
   children,
 }) => {
   return (
@@ -151,7 +153,11 @@ const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
             small
           />
         ) : (
-          <UnstyledButton type="submit" aria-label="Search">
+          <UnstyledButton
+            type="submit"
+            aria-label="Search"
+            tabIndex={tabbable ? 0 : -1}
+          >
             <T3nLoupe />
           </UnstyledButton>
         )}

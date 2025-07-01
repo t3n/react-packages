@@ -177,6 +177,7 @@ const PlainCheckbox = ({
       checked={checked}
       disabled={disabled}
       feedbackColor={feedbackColor}
+      tabIndex={0}
     >
       <HiddenCheckbox
         checked={checked}

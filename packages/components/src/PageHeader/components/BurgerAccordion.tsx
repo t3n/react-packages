@@ -13,6 +13,7 @@ export interface AccordionProps extends MarginProps {
   isOpen: boolean;
   onToggle: () => void;
   children?: ReactNode;
+  tabbable?: boolean;
 }
 
 const StyledAccordionHeadBox = styled(Box)`
@@ -84,6 +85,7 @@ const Accordion: React.FC<AccordionProps> = ({
   title,
   isOpen,
   onToggle,
+  tabbable,
 }) => {
   const collapsed = !isOpen;
   const contentRef = useRef<HTMLDivElement>(null);
@@ -108,7 +110,7 @@ const Accordion: React.FC<AccordionProps> = ({
       <StyledAccordionHeadBox
         onClick={onToggle}
         role="button"
-        tabIndex={0}
+        tabIndex={tabbable ? 0 : -1}
         onKeyDown={handleKeyDown}
       >
         <Heading as="h4" styleAs="h4" m={0}>
