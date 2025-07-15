@@ -1,14 +1,11 @@
 ## Changes
+
 * ...
 
-## Screenshots
-(if necessary)
-
 ## Checklist
-- [ ] JIRA-Ticket ist verlinkt
-- [ ] Codestyle-Kriterien sind erfüllt
-- [ ] Code Review hat stattgefunden
-- [ ] Tests (wenn sinnvoll) sind geschrieben
-- [ ] Code ist dokumentiert sofern erforderlich
-  
-Resolves TECHNIK-
+
+- [ ] Akzeptanzkriterien sind erfüllt
+- [ ] Tests sind geschrieben
+- [ ] Code ist dokumentiert
+- [ ] A11y-Aspekte wurden berücksichtigt sofern erforderlich
+- [ ] UX/UI review hat vor dem PR stattgefunden sofern erforderlich
