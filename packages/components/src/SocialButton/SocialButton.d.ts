@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-export type SocialNetworkType = 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube';
+export type SocialNetworkType = 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube';
 export interface SocialButtonProps {
     network: SocialNetworkType;
     $textBefore?: string;
