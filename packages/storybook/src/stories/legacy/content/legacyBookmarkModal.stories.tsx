@@ -10,10 +10,7 @@ const meta: Meta<typeof LegacyBookmarkModal> = {
   title: 'Legacy/Content/Bookmark-Modal',
   decorators: [storyContainerContentDecorator],
   parameters: { controls: { sort: 'requiredFirst' } },
-  args: {
-    pocketLink: 'https://t3n.de',
-  },
-  render: function Render(args) {
+  render: function Render() {
     const [modalOpen, setModalOpen] = useState(true);
 
     return (
@@ -22,7 +19,7 @@ const meta: Meta<typeof LegacyBookmarkModal> = {
           Merkliste Modal anzeigen
         </Button>
         {modalOpen && (
-          <LegacyBookmarkModal {...args} onClose={() => setModalOpen(false)} />
+          <LegacyBookmarkModal onClose={() => setModalOpen(false)} />
         )}
       </Box>
     );

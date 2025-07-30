@@ -111,7 +111,6 @@ export const github = '#24292e';
 export const google = '#d44132';
 export const instagram = '#d448c5';
 export const linkedin = '#008cc9';
-export const pocket = '#ec4259';
 export const podcast = red;
 export const slack = '#611f69';
 export const twitter = '#000000';
@@ -132,7 +131,6 @@ export type ThemeSocialColor =
   | 'google'
   | 'instagram'
   | 'linkedin'
-  | 'pocket'
   | 'podcast'
   | 'slack'
   | 'twitter'
@@ -153,7 +151,6 @@ export interface ThemeSocialColors {
   google: string;
   instagram: string;
   linkedin: string;
-  pocket: string;
   podcast: string;
   slack: string;
   twitter: string;
@@ -175,7 +172,6 @@ export const socialColors = {
   google,
   instagram,
   linkedin,
-  pocket,
   podcast,
   slack,
   twitter,
