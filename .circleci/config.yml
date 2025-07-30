@@ -86,7 +86,7 @@ jobs:
   docker_build_and_push:
     working_directory: *workspace_root
     docker:
-      - image: google/cloud-sdk
+      - image: google/cloud-sdk:528.0.0
     resource_class: large
     steps:
       - attach_workspace: *attach_workspace
