@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-export type SocialNetworkType = 'facebook' | 'flipboard' | 'linkedin' | 'pocket' | 'twitter' | 'xing' | 'instagram' | 'newsletter' | 'notifications' | 'rssfeed' | 'socialmedia';
+export type SocialNetworkType = 'facebook' | 'flipboard' | 'linkedin' | 'twitter' | 'xing' | 'instagram' | 'newsletter' | 'notifications' | 'rssfeed' | 'socialmedia';
 export interface SocialIconProps {
     network: SocialNetworkType;
     url: string;

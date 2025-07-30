@@ -78,7 +78,6 @@ export declare const github = "#24292e";
 export declare const google = "#d44132";
 export declare const instagram = "#d448c5";
 export declare const linkedin = "#008cc9";
-export declare const pocket = "#ec4259";
 export declare const podcast = "#f9423a";
 export declare const slack = "#611f69";
 export declare const twitter = "#000000";
@@ -89,7 +88,7 @@ export declare const rssfeed = "#f90";
 export declare const socialmedia = "#2a2a2a";
 export declare const newsletter = "#2a2a2a";
 export declare const notifications = "#2a2a2a";
-export type ThemeSocialColor = 'comment' | 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'pocket' | 'podcast' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube' | 'rssfeed' | 'socialmedia' | 'newsletter' | 'notifications';
+export type ThemeSocialColor = 'comment' | 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'podcast' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube' | 'rssfeed' | 'socialmedia' | 'newsletter' | 'notifications';
 export interface ThemeSocialColors {
     comment: string;
     email: string;
@@ -99,7 +98,6 @@ export interface ThemeSocialColors {
     google: string;
     instagram: string;
     linkedin: string;
-    pocket: string;
     podcast: string;
     slack: string;
     twitter: string;
@@ -120,7 +118,6 @@ export declare const socialColors: {
     google: string;
     instagram: string;
     linkedin: string;
-    pocket: string;
     podcast: string;
     slack: string;
     twitter: string;
@@ -193,7 +190,6 @@ declare const colors: {
         google: string;
         instagram: string;
         linkedin: string;
-        pocket: string;
         podcast: string;
         slack: string;
         twitter: string;
