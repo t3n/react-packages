@@ -5,10 +5,8 @@ import { MaterialBookmarkBorder } from '@t3n/icons';
 
 import Box from '../Box';
 import Button from '../Button';
-import Divider from '../Divider';
 import Link from '../Link';
 import Modal from '../Modal';
-import SocialButton from '../SocialButton';
 import Text from '../Text';
 
 export interface LegacyBookmarkModalProps {
