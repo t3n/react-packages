@@ -10,7 +10,6 @@ import {
   SocialFlipboard,
   SocialInstagram,
   SocialLinkedin,
-  SocialPocket,
   SocialTwitter,
   SocialXing,
 } from '@t3n/icons';
@@ -23,7 +22,6 @@ export type SocialNetworkType =
   | 'facebook'
   | 'flipboard'
   | 'linkedin'
-  | 'pocket'
   | 'twitter'
   | 'xing'
   | 'instagram'
@@ -82,10 +80,6 @@ const LegacySocialConfig: SocialNetworksProps = {
     name: 'Linkedin',
     icon: SocialLinkedin,
     iconScale: 0.9,
-  },
-  pocket: {
-    name: 'Pocket',
-    icon: SocialPocket,
   },
   twitter: {
     name: 'Twitter',
@@ -168,10 +162,6 @@ const LegacyArticleSocialShare: React.FC<LegacyArticleSocialShareProps> = ({
   title,
 }) => (
   <Box mt={3}>
-    <SocialIcon
-      url={`https://getpocket.com/edit.php?url=${url}?utm_source=pocket&utm_medium=social&utm_campaign=social-buttons`}
-      network="pocket"
-    />
     <SocialIcon
       url={`https://share.flipboard.com/bookmarklet/popout?v=2&title=${title}&url=${url}?utm_source=flipboard.com&utm_medium=social&utm_campaign=social-buttons`}
       network="flipboard"

@@ -10,7 +10,6 @@ import {
   SocialGoogle,
   SocialInstagram,
   SocialLinkedin,
-  SocialPocket,
   SocialSlack,
   SocialTwitter,
   SocialWhatsapp,
@@ -30,7 +29,6 @@ export type SocialNetworkType =
   | 'google'
   | 'instagram'
   | 'linkedin'
-  | 'pocket'
   | 'slack'
   | 'twitter'
   | 'whatsapp'
@@ -82,10 +80,6 @@ export const socialNetworksConfig: SocialNetworksProps = {
     name: 'Linkedin',
     icon: SocialLinkedin,
     iconScale: 0.8,
-  },
-  pocket: {
-    name: 'Pocket',
-    icon: SocialPocket,
   },
   slack: {
     name: 'Slack',

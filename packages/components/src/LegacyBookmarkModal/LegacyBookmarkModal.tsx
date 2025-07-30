@@ -5,14 +5,11 @@ import { MaterialBookmarkBorder } from '@t3n/icons';
 
 import Box from '../Box';
 import Button from '../Button';
-import Divider from '../Divider';
 import Link from '../Link';
 import Modal from '../Modal';
-import SocialButton from '../SocialButton';
 import Text from '../Text';
 
 export interface LegacyBookmarkModalProps {
-  pocketLink: string;
   onClose: () => void;
 }
 
@@ -28,7 +25,6 @@ const OverflowModalWrapper = styled(Box)`
 `;
 
 const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps> = ({
-  pocketLink,
   onClose,
 }) => {
   return (
@@ -55,13 +51,6 @@ const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps> = ({
             Hier anmelden
           </Link>
         </Text>
-        <Divider variant="primary">oder</Divider>
-        <SocialButton
-          id="bookmark-pocket-button"
-          href={pocketLink}
-          network="pocket"
-          $alternativeText="Artikel in Pocket speichern"
-        />
       </Modal>
     </OverflowModalWrapper>
   );
