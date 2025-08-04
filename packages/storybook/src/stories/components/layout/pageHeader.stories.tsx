@@ -11,6 +11,7 @@ const pinnedTeaser = {
     'Cybersecurity: Wie Tabletop-Übungen dein Team auf den Ernstfall vorbereiten',
   url: '/',
   isSponsored: true,
+  isPaidArticle: false,
 };
 
 const tags: PageHeaderLinksType[] = [
@@ -143,13 +144,14 @@ const magazines: PageHeaderTeaserImageType[] = [
   {
     title: 't3n Magazin Aktuelle Ausgabe',
     url: 'https://shop.t3n.de/collections/t3n-magazin',
-    image: 'https://storage.googleapis.com/t3n-media/t3n-magazin-preview.png',
+    image:
+      'https://storage.googleapis.com/cms-red/cms-red/t3n_neu_4a9dc17210/t3n_neu_4a9dc17210.png',
   },
   {
     title: 'MIT Technology Review Magazin Aktuelle Ausgabe',
     url: 'https://shop.heise.de/magazine/mit-technology-review/',
     image:
-      'https://storage.googleapis.com/t3n-media/mit-tr-magazine-cover-1.png',
+      'https://storage.googleapis.com/cms-red/cms-red/TR_Cover_04_25_9fddbf5ab7/TR_Cover_04_25_9fddbf5ab7.png',
   },
 ];
 
@@ -166,7 +168,7 @@ const meta: Meta<typeof PageHeader> = {
     magazines,
     headerCampaignUrl: 'https://t3n.de/headercampaign',
     headerCampaignImage:
-      'https://storage.googleapis.com/t3n-media/t3n-headercampaign-mobile.png',
+      'https://storage.googleapis.com/cms-red/cms-red/10_t3n_Headergrafik_Magazinumstellung_A_2x_1_4724f60c72/10_t3n_Headergrafik_Magazinumstellung_A_2x_1_4724f60c72.png',
     burgerCampaignUrl: 'https://t3n.de/burgercampaign',
     burgerCampaignImage:
       'https://storage.googleapis.com/t3n-de/static/promo-burger.png',
