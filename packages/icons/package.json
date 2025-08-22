@@ -30,7 +30,7 @@
     "@types/react": "^18.3.12",
     "chalk": "^5.4.1",
     "fs-extra": "^11.3.0",
-    "material-design-icons": "^3.0.1",
+    "@material-design-icons/svg": "^0.14.15",
     "react": "^18.3.1"
   },
   "sideEffects": false,
