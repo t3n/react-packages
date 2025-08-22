@@ -16,6 +16,7 @@ interface MaterialIconsConfig {
     [key: string]: string;
   };
   ignoreFolders: string[];
+  defaultStyle: string;
 }
 
 interface IconComponent {
@@ -41,7 +42,7 @@ const MATERIAL_COMPONENTS_FOLDER_PATH = path.join(
 );
 const MATERIAL_ICONS_FOLDER_PATH = path.resolve(
   __dirname,
-  '../../../../node_modules/material-design-icons',
+  '../../../../node_modules/@material-design-icons/svg',
 );
 const INDEX_FILE_PATH = path.join(COMPONENTS_FOLDER_PATH, 'index.ts');
 
@@ -73,12 +74,20 @@ const readDirectoryContents = async (dir: string): Promise<FolderContents> => {
 
 const getPathEnd = (filePath: string) => (filePath.match(/[^/]+$/) || [''])[0];
 
-const generateComponentName = (fileName: string) =>
-  getPathEnd(fileName)
+const generateComponentName = (fileName: string) => {
+  let componentName = getPathEnd(fileName)
     .replace('.svg', '')
     .split(/[^A-Za-z0-9äöüß]+/)
     .map((word) => capitalizeString(word))
     .join('');
+
+  // Handle component names that start with numbers by prefixing with 'Icon'
+  if (/^\d/.test(componentName)) {
+    componentName = `Icon${componentName}`;
+  }
+
+  return componentName;
+};
 
 const filterFilesBySvg = (files: string[]) =>
   files.filter((file) => /\.svg$/.test(file));
@@ -157,67 +166,74 @@ const generateIconComponents = async (
 };
 
 const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
-  const { dirs } = await readDirectoryContents(MATERIAL_ICONS_FOLDER_PATH);
-
-  const categoryNames = dirs
-    .filter(
-      (dirPath) =>
-        !(materialIconsConfig as MaterialIconsConfig).ignoreFolders.filter(
-          (categoryName) => dirPath.indexOf(categoryName) > -1,
-        ).length,
-    )
-    .map((dirPath) => getPathEnd(dirPath));
-
-  const categoryFiles = await Promise.all(
-    categoryNames.map(async (categoryName) => {
-      const { files } = await readDirectoryContents(
-        path.resolve(
-          MATERIAL_ICONS_FOLDER_PATH,
-          categoryName,
-          'svg/production',
-        ),
-      );
-
-      return files.filter((filePath) => /24px\.svg$/.test(filePath));
-    }),
-  );
-  const svgFiles = categoryFiles.reduce(
-    (allFiles, files) => [...allFiles, ...files],
-    [],
+  // Use the configured default style (e.g., 'filled') to maintain backward compatibility
+  const defaultStyle =
+    (materialIconsConfig as MaterialIconsConfig).defaultStyle || 'filled';
+  const styleFolderPath = path.resolve(
+    MATERIAL_ICONS_FOLDER_PATH,
+    defaultStyle,
   );
 
-  return Promise.all(
+  console.log(`Using Material Icons style: ${defaultStyle}`);
+
+  const { files } = await readDirectoryContents(styleFolderPath);
+  const svgFiles = files.filter((filePath) => /\.svg$/.test(filePath));
+
+  console.log(`Found ${svgFiles.length} Material Icons to process`);
+
+  // Keep track of seen component names to avoid duplicates
+  const seenComponents = new Set<string>();
+
+  const components = await Promise.all(
     svgFiles.map(async (svgPath) => {
-      const svg = await fs.readFile(svgPath, 'utf8');
-      const componentName = [
-        generateComponentName(svgPath).replace('Ic', '').replace('24px', ''),
-      ].map(
-        (name) =>
-          (materialIconsConfig as MaterialIconsConfig).renameRules[name] ||
-          name,
-      )[0];
+      try {
+        const svg = await fs.readFile(svgPath, 'utf8');
+        const fileName = getPathEnd(svgPath).replace('.svg', '');
+        const baseComponentName = generateComponentName(fileName);
 
-      console.log(
-        `Generating ${chalk.black.bgWhite(
-          componentName,
-        )} component from Material Icons`,
-      );
+        // Apply rename rules if any exist
+        const componentName =
+          (materialIconsConfig as MaterialIconsConfig).renameRules[
+            baseComponentName
+          ] || baseComponentName;
 
-      const categoryName = svgPath.split('/').reverse()[3];
-      const reactComponent = await svgToReactComponent(svg, componentName);
-      const fileDest = path.join(
-        MATERIAL_COMPONENTS_FOLDER_PATH,
-        categoryName,
-        `${componentName}.tsx`,
-      );
+        // Skip duplicates to prevent case sensitivity issues
+        if (seenComponents.has(componentName.toLowerCase())) {
+          console.log(`Skipping duplicate component: ${componentName}`);
+          return null;
+        }
+        seenComponents.add(componentName.toLowerCase());
 
-      return {
-        name: componentName,
-        path: fileDest,
-        reactComponent,
-      };
+        console.log(
+          `Generating ${chalk.black.bgWhite(
+            componentName,
+          )} component from Material Icons`,
+        );
+
+        const reactComponent = await svgToReactComponent(svg, componentName);
+
+        // Store components directly in the material folder (no subfolders) to maintain compatibility
+        const fileDest = path.join(
+          MATERIAL_COMPONENTS_FOLDER_PATH,
+          `${componentName}.tsx`,
+        );
+
+        return {
+          name: componentName,
+          path: fileDest,
+          reactComponent,
+        };
+      } catch (error) {
+        console.error(`Error processing ${svgPath}:`, error);
+        return null;
+      }
     }),
   );
+
+  // Filter out any failed components
+  return components.filter(
+    (component) => component !== null,
+  ) as IconComponent[];
 };
 
 const writeComponents = async (components: IconComponents) => {
