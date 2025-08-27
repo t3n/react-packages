@@ -200,7 +200,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             ) : (
               <RoundedButton
                 as="a"
-                href="https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp"
+                href="https://l.t3n.de/abos/"
                 title="t3n Abos Landingpage"
                 className="t-header__abo-button"
                 mr={2}
