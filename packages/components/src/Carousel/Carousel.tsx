@@ -32,6 +32,9 @@ export interface CarouselProps {
   isRoundedButton?: boolean;
   children?: ReactNode;
   adaptiveHeight?: boolean;
+  fade?: boolean;
+  arrowsPosition?: 'bottom' | 'middle';
+  arrowsInset?: [number, number];
 }
 
 const StyledSlider = styled(SlickSlider)`
@@ -70,26 +73,62 @@ const StyledSlider = styled(SlickSlider)`
   }
 `;
 
-const StyledNextButton = styled(Button)`
+const StyledNextButton = styled(Button)<{
+  $pos: 'bottom' | 'middle';
+  $insetDesktop: number;
+  $insetNarrow: number;
+}>`
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: ${({ $insetDesktop }) => `${$insetDesktop}px`};
+  ${({ $pos }) =>
+    $pos === 'middle' ? `top: 50%; transform: translateY(-50%);` : `bottom: 0;`}
   ${({ theme }) => display({ theme, display: ['none', 'block'] })}
+
+  @media (max-width: 950px) {
+    right: ${({ $insetNarrow }) => `${$insetNarrow}px`};
+  }
 `;
 
-const StyledPrevButton = styled(Button)`
+const StyledPrevButton = styled(Button)<{
+  $pos: 'bottom' | 'middle';
+  $insetDesktop: number;
+  $insetNarrow: number;
+}>`
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: ${({ $insetDesktop }) => `${$insetDesktop}px`};
+  ${({ $pos }) =>
+    $pos === 'middle' ? `top: 50%; transform: translateY(-50%);` : `bottom: 0;`}
   z-index: 1;
   ${({ theme }) => display({ theme, display: ['none', 'block'] })}
+
+  @media (max-width: 950px) {
+    left: ${({ $insetNarrow }) => `${$insetNarrow}px`};
+  }
 `;
 
-const StyledRoundedButtonWrapper = styled.div<{ position: 'left' | 'right' }>`
+const StyledRoundedButtonWrapper = styled.div<{
+  position: 'left' | 'right';
+  $pos: 'bottom' | 'middle';
+  $insetDesktop: number;
+  $insetNarrow: number;
+}>`
   position: absolute;
-  bottom: 0;
-  ${({ position }) => (position === 'left' ? 'left: 0;' : 'right: 0;')}
   z-index: 1;
+
+  ${({ position, $insetDesktop }) =>
+    position === 'left'
+      ? `left: ${$insetDesktop}px;`
+      : `right: ${$insetDesktop}px;`}
+
+  ${({ $pos }) =>
+    $pos === 'middle' ? `top: 50%; transform: translateY(-50%);` : `bottom: 0;`}
+
+  @media (max-width: 950px) {
+    ${({ position, $insetNarrow }) =>
+      position === 'left'
+        ? `left: ${$insetNarrow}px;`
+        : `right: ${$insetNarrow}px;`}
+  }
 `;
 
 const NextButton: React.FC<{
@@ -99,6 +138,9 @@ const NextButton: React.FC<{
   customOnClick?: () => void;
   isRoundedButton?: boolean;
   isLastSlide?: boolean;
+  arrowsPosition: 'bottom' | 'middle';
+  insetDesktop: number;
+  insetNarrow: number;
 }> = ({
   onClick,
   show = true,
@@ -106,21 +148,33 @@ const NextButton: React.FC<{
   customOnClick,
   isRoundedButton,
   isLastSlide,
+  arrowsPosition,
+  insetDesktop,
+  insetNarrow,
 }) => {
   if (!show) return null;
-
   const icon = isLastSlide ? MaterialCheck : MaterialChevronRight;
 
   if (isRoundedButton) {
     return (
-      <StyledRoundedButtonWrapper position="right">
+      <StyledRoundedButtonWrapper
+        position="right"
+        $pos={arrowsPosition}
+        $insetDesktop={insetDesktop}
+        $insetNarrow={insetNarrow}
+      >
         <RoundedButton onClick={customOnClick || onClick} icon={icon} />
       </StyledRoundedButtonWrapper>
     );
   }
 
   return (
-    <StyledNextButton onClick={customOnClick || onClick}>
+    <StyledNextButton
+      onClick={customOnClick || onClick}
+      $pos={arrowsPosition}
+      $insetDesktop={insetDesktop}
+      $insetNarrow={insetNarrow}
+    >
       {label}
     </StyledNextButton>
   );
@@ -132,12 +186,29 @@ const PrevButton: React.FC<{
   label?: string;
   customOnClick?: () => void;
   isRoundedButton?: boolean;
-}> = ({ onClick, show = true, label, customOnClick, isRoundedButton }) => {
+  arrowsPosition: 'bottom' | 'middle';
+  insetDesktop: number;
+  insetNarrow: number;
+}> = ({
+  onClick,
+  show = true,
+  label,
+  customOnClick,
+  isRoundedButton,
+  arrowsPosition,
+  insetDesktop,
+  insetNarrow,
+}) => {
   if (!show) return null;
 
   if (isRoundedButton) {
     return (
-      <StyledRoundedButtonWrapper position="left">
+      <StyledRoundedButtonWrapper
+        position="left"
+        $pos={arrowsPosition}
+        $insetDesktop={insetDesktop}
+        $insetNarrow={insetNarrow}
+      >
         <RoundedButton
           onClick={customOnClick || onClick}
           icon={MaterialChevronLeft}
@@ -147,7 +218,13 @@ const PrevButton: React.FC<{
   }
 
   return (
-    <StyledPrevButton onClick={customOnClick || onClick} variant="secondary">
+    <StyledPrevButton
+      onClick={customOnClick || onClick}
+      variant="secondary"
+      $pos={arrowsPosition}
+      $insetDesktop={insetDesktop}
+      $insetNarrow={insetNarrow}
+    >
       {label}
     </StyledPrevButton>
   );
@@ -171,16 +248,19 @@ const Carousel: React.FC<CarouselProps> = ({
   onChange,
   children,
   adaptiveHeight,
+  fade = false,
+  arrowsPosition = 'bottom',
+  arrowsInset,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slidesAmount = React.Children.count(children);
-
+  const [insetDesktop, insetNarrow] = arrowsInset ?? [0, 0];
   useEffect(() => {
-    if (onChange) {
-      onChange(currentIndex);
-    }
+    onChange?.(currentIndex);
   }, [currentIndex, onChange]);
+
   const isLastSlide = currentIndex === slidesAmount - slidesToShow;
+
   return (
     <Box>
       <StyledSlider
@@ -192,6 +272,7 @@ const Carousel: React.FC<CarouselProps> = ({
         slidesToShow={slidesToShow}
         slidesToScroll={slidesToScroll}
         adaptiveHeight={adaptiveHeight}
+        fade={fade && slidesToShow === 1}
         nextArrow={
           <NextButton
             show={
@@ -203,6 +284,9 @@ const Carousel: React.FC<CarouselProps> = ({
             isRoundedButton={isRoundedButton}
             label={nextLabel}
             customOnClick={onNextClick}
+            arrowsPosition={arrowsPosition}
+            insetDesktop={insetDesktop}
+            insetNarrow={insetNarrow}
           />
         }
         prevArrow={
@@ -215,9 +299,12 @@ const Carousel: React.FC<CarouselProps> = ({
             isRoundedButton={isRoundedButton}
             label={prevLabel}
             customOnClick={onPrevClick}
+            arrowsPosition={arrowsPosition}
+            insetDesktop={insetDesktop}
+            insetNarrow={insetNarrow}
           />
         }
-        beforeChange={(prev, next) => setCurrentIndex(next)}
+        beforeChange={(_prev, next) => setCurrentIndex(next)}
         responsive={responsive}
       >
         {children}

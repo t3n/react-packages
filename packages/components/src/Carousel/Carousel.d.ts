@@ -18,6 +18,9 @@ export interface CarouselProps {
     isRoundedButton?: boolean;
     children?: ReactNode;
     adaptiveHeight?: boolean;
+    fade?: boolean;
+    arrowsPosition?: 'bottom' | 'middle';
+    arrowsInset?: [number, number];
 }
 declare const Carousel: React.FC<CarouselProps>;
 export default Carousel;
