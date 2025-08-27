@@ -66,7 +66,7 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
     },
     {
       label: 'Jetzt abonnieren',
-      url: 'https://l.t3n.de/abos/?utm_source=t3n&utm_medium=startseite-button&utm_campaign=t3n-abo-lp',
+      url: 'https://l.t3n.de/abos/',
     },
     {
       label: 'Team',
