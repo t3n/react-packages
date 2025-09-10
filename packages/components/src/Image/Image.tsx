@@ -11,6 +11,9 @@ import {
 
 import { Theme } from '@t3n/theme';
 
+import useComponentsConfiguration, {
+  CdnComponentsConfiguration,
+} from '../hooks/useComponentsConfiguration';
 import useInViewport from '../hooks/useInViewport';
 
 export interface OptimizationClassMapping {
@@ -39,6 +42,9 @@ export interface ImageProps
   imageHeight?: number;
 }
 
+export const transparentPlaceholderImageDataUrl =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+
 export const defaultOptimizationClassMapping: OptimizationClassMapping = {
   '240': 'responsive-extrasmall',
   '420': 'responsive-small',
@@ -48,40 +54,36 @@ export const defaultOptimizationClassMapping: OptimizationClassMapping = {
   '1620': 'responsive-extralarge',
 };
 
-const fastlyHostnameMapping = {
-  'storage.googleapis.com': 'assets.t3n.de',
-  't3n.de': 'images.t3n.de',
+export const testIsFastlyUrl = (
+  url: string,
+  cdnConfiguration: CdnComponentsConfiguration,
+) => {
+  try {
+    const parsedUrl = new URL(url);
+
+    return (
+      parsedUrl.hostname === cdnConfiguration.hostname ||
+      !!cdnConfiguration.originHostnames.find((o) => parsedUrl.hostname === o)
+    );
+  } catch {
+    return false;
+  }
 };
 
 // Try to resolve fastly url from image src
-const generateFastlySrc = (src: string, imageClass: string) => {
+export const generateFastlySrc = (
+  src: string,
+  imageClass: string,
+  cdnConfiguration: CdnComponentsConfiguration,
+) => {
   try {
+    if (!testIsFastlyUrl(src, cdnConfiguration)) return src;
+
     const url = new URL(src);
-    const urlParams = url.searchParams;
 
-    const fastlyOrigins = Object.keys(fastlyHostnameMapping);
-    const fastlyDestinations = Object.values(fastlyHostnameMapping);
+    url.hostname = cdnConfiguration.hostname;
+    url.searchParams.set('class', imageClass);
 
-    // If already is a fastly url, simply apply optimization class name
-    // and reapply all possible url params
-    if (fastlyDestinations.find((destination) => src.includes(destination))) {
-      urlParams.set('class', imageClass);
-      return url.toString();
-    }
-
-    const origin = fastlyOrigins.find((destination) =>
-      src.includes(destination),
-    );
-
-    // If it's not a fastly compatible url, simply return the original src
-    if (!origin) return src;
-
-    const index = fastlyOrigins.indexOf(origin);
-    const destination = fastlyDestinations[index];
-    url.host = destination;
-    urlParams.set('class', imageClass);
-    // Resolve fastly origin for url and return url with optimization class
-    // and original url params applied
     return url.toString();
   } catch {
     // Simply return src if we cannot construct an url object from src
@@ -93,32 +95,80 @@ const generateFastlySrc = (src: string, imageClass: string) => {
 
 // Takes a raw src and a fastly image optimization class mapping and
 // automatically generates srcSet for responsive images
-const generateSrcSet = (
+export const generateSrcSet = (
   src: string,
   optimizationClassMapping: OptimizationClassMapping,
-): string =>
-  // Keys from class mapping always describe the size of the optimized image
-  //
-  // Take keys and transform output for each size
-  Object.keys(optimizationClassMapping)
-    .map((k) => {
-      const key = Number(k);
+  cdnConfiguration: CdnComponentsConfiguration,
+): string | undefined => {
+  if (!testIsFastlyUrl(src, cdnConfiguration)) return undefined;
 
-      if (`${key}` !== k)
-        throw new Error('Key must be a string that contains only numbers!');
+  /**
+   * Keys from class mapping always describe the size of the optimized image
+   *
+   * Take keys and transform output for each size
+   */
+  return (
+    Object.keys(optimizationClassMapping)
+      .map((k) => {
+        const key = Number(k);
 
-      return key;
-    })
-    // We need to make sure the array is sorted from smallest size to largest
-    .sort((a, b) => a - b)
-    .map((w) => {
-      // Get value for size from class mapping
-      const optimizationClassName = optimizationClassMapping[w.toString()];
+        if (`${key}` !== k)
+          throw new Error('Key must be a string that contains only numbers!');
 
-      // Return value that looks like 'http://t3n.de/image?class=optimized 640w'
-      return `${generateFastlySrc(src, optimizationClassName)} ${w}w`;
-    })
-    .join(', ');
+        return key;
+      })
+      // We need to make sure the array is sorted from smallest size to largest
+      .sort((a, b) => a - b)
+      .map((w) => {
+        // Get value for size from class mapping
+        const optimizationClassName = optimizationClassMapping[w.toString()];
+
+        // Return value that looks like 'http://t3n.de/image?class=optimized 640w'
+        return `${generateFastlySrc(src, optimizationClassName, cdnConfiguration)} ${w}w`;
+      })
+      .join(', ')
+  );
+};
+
+export const generatePlaceholderSrc = (
+  src: string,
+  cdnConfiguration: CdnComponentsConfiguration,
+) => {
+  // Use transparent image as placeholder if image can't be served via fastly
+
+  return testIsFastlyUrl(src, cdnConfiguration)
+    ? generateFastlySrc(src, 'blur', cdnConfiguration)
+    : transparentPlaceholderImageDataUrl;
+};
+
+export const generateSizesAttribute = (
+  sizes: ImageProps['sizes'],
+  theme: Theme,
+) => {
+  /**
+   * If sizes is passed as array via props, resolve entries based on breakpoints
+   * from theme and construct valid html sizes attribute value
+   */
+
+  if (Array.isArray(sizes)) {
+    return sizes
+      .map((size, i) => {
+        const parsedSize = typeof size === 'number' ? `${size}px` : size;
+
+        if (i < 1) return parsedSize;
+
+        const breakpoint = theme.breakpoints[i - 1];
+
+        return `(min-width: ${breakpoint}) ${parsedSize}`;
+      })
+      .reverse()
+      .join(', ');
+  }
+
+  if (typeof sizes === 'number') return `${sizes}px`;
+
+  return sizes;
+};
 
 const NativeImage = styled.img<
   Omit<ImageProps, 'sizes' | 'width' | 'height'> & {
@@ -147,6 +197,7 @@ const Image: React.FC<ImageProps> = ({
   imageHeight,
   ...props
 }) => {
+  const { cdn: cdnConfiguration } = useComponentsConfiguration();
   const [initialized, setInitialized] = useState(false);
   const [imageNode, setImageNode] = useState<HTMLImageElement | null>(null);
   const { wasInViewport } = useInViewport(imageNode);
@@ -161,50 +212,28 @@ const Image: React.FC<ImageProps> = ({
   }, []);
 
   // Resolve url and translate to fastly url if possible
-  const defaultSrc = generateFastlySrc(src, optimizationClass);
-  const isFastlyImage = src !== defaultSrc;
+  const defaultSrc = generateFastlySrc(
+    src,
+    optimizationClass,
+    cdnConfiguration,
+  );
 
-  // Use transparent image as placeholder if image can't be served via fastly
-  const placeholderSrc = isFastlyImage
-    ? `${defaultSrc}?class=blur`
-    : 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+  const placeholderSrc = generatePlaceholderSrc(src, cdnConfiguration);
 
-  // If image comes from fastly, resolve srcSet based on classMapping
-  const mappedSrcSet = isFastlyImage
-    ? generateSrcSet(src, classMapping)
-    : undefined;
+  const mappedSrcSet = generateSrcSet(src, classMapping, cdnConfiguration);
+
+  const imgSizes = generateSizesAttribute(sizes, theme);
 
   const showPlaceholder =
     (lazy && placeholder && !wasInViewport) ||
     (!lazy && placeholder && !initialized);
-
-  // If sizes is passed as array via props, resolve entries based on breakpoints
-  // from theme and construct valid html sizes attribute value
-  //
-  // eslint-disable-next-line no-nested-ternary
-  const imgSizes = Array.isArray(sizes)
-    ? sizes
-        .map((size, i) => {
-          const parsedSize = typeof size === 'number' ? `${size}px` : size;
-
-          if (i < 1) return parsedSize;
-
-          const breakpoint = theme.breakpoints[i - 1];
-
-          return `(min-width: ${breakpoint}) ${parsedSize}`;
-        })
-        .reverse()
-        .join(', ')
-    : typeof sizes === 'number'
-      ? `${sizes}px`
-      : sizes;
 
   return (
     <NativeImage
       ref={getImageNode}
       src={showPlaceholder ? placeholderSrc : defaultSrc}
       data-src={defaultSrc}
-      srcSet={!sizes || showPlaceholder ? undefined : srcSet || mappedSrcSet}
+      srcSet={!sizes || showPlaceholder ? undefined : mappedSrcSet || srcSet}
       sizes={showPlaceholder ? undefined : imgSizes}
       width={imageWidth}
       height={imageHeight}
