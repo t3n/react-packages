@@ -19,7 +19,7 @@ const meta: Meta<typeof ArticleTeaser> = {
       url: 'https://t3n.de/news/vergleiche-in-der-arbeitswelt-wenn-uns-der-blick-nach-links-und-rechts-umtreibt-1671375/',
       readingTime: 3,
       imageUrl:
-        'https://images.t3n.de/news/wp-content/uploads/2025/02/Zwei-Maenner-bei-der-Arbeit.jpg',
+        'https://cdn.t3n.de/news/wp-content/uploads/2025/02/Zwei-Maenner-bei-der-Arbeit.jpg',
       isPaywallArticle: true,
       isTRArticle: true,
       teaser:
@@ -35,17 +35,9 @@ export default meta;
 type Story = StoryObj<typeof ArticleTeaser>;
 
 export const SmallTeaserImage: Story = {
-  args: {
-    largeTeaserImage: false,
-    smallTeaserImage: true,
-    teaserText: true,
-  },
+  args: { largeTeaserImage: false, smallTeaserImage: true, teaserText: true },
 };
 
 export const LargeTeaserImage: Story = {
-  args: {
-    largeTeaserImage: true,
-    smallTeaserImage: false,
-    teaserText: true,
-  },
+  args: { largeTeaserImage: true, smallTeaserImage: false, teaserText: true },
 };

@@ -13,7 +13,7 @@ const meta: Meta<typeof Image> = {
   decorators: [storyContainerContentDecorator],
   parameters: { controls: { sort: 'requiredFirst' } },
   args: {
-    src: 'https://t3n.de/news/wp-content/uploads/2021/11/shutterstock-1453899434-Internationale-Raumstation-ISS.jpg',
+    src: 'https://cdn.t3n.de/news/wp-content/uploads/2024/05/shutterstock_2092487500.jpg?class=hero',
     width: '80%',
     height: 'auto',
     imageWidth: 1100,
