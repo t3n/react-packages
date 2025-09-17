@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import type { Preview } from '@storybook/react';
 
-import { GlobalStyle } from '@t3n/components';
+import { GlobalStyle, ComponentsConfigurationProvider } from '@t3n/components';
 import { theme } from '@t3n/theme';
 
 import viewports from './viewports';
@@ -30,11 +30,24 @@ const preview: Preview = {
   decorators: [
     (Story) => {
       return (
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <StorybookGlobalStyle />
-          <Story />
-        </ThemeProvider>
+        <ComponentsConfigurationProvider
+          configuration={{
+            cdn: {
+              hostname: 'cdn.t3n.de',
+              originHostnames: [
+                'storage.googleapis.com',
+                'images.t3n.de',
+                'assets.t3n.de',
+              ],
+            },
+          }}
+        >
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <StorybookGlobalStyle />
+            <Story />
+          </ThemeProvider>
+        </ComponentsConfigurationProvider>
       );
     },
   ],

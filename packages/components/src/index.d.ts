@@ -22,6 +22,7 @@ export { default as GlobalStyle } from './GlobalStyle';
 export { default as Grid } from './Grid';
 export { default as GridItem } from './GridItem';
 export { H1, H2, H3, H4, H5, H6, default as Heading } from './Heading';
+export { ComponentsConfigurationProvider, default as useComponentsConfiguration, } from './hooks/useComponentsConfiguration';
 export { default as Icon } from './Icon';
 export { default as Image } from './Image';
 export { default as Input } from './Input';

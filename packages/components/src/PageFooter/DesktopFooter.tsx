@@ -5,6 +5,7 @@ import { border, color, layout, space, typography } from 'styled-system';
 import Box from '../Box';
 import Grid from '../Grid';
 import GridItem from '../GridItem';
+import useComponentsConfiguration from '../hooks/useComponentsConfiguration';
 import Image from '../Image';
 import Text from '../Text';
 
@@ -27,11 +28,7 @@ export interface DesktopFooterProps {
 }
 
 const DesktopFooterWrapper = styled(Box)`
-  ${({ theme }) =>
-    typography({
-      theme,
-      fontSize: '12px',
-    })};
+  ${({ theme }) => typography({ theme, fontSize: '12px' })};
 `;
 
 const LinkGroup = styled(Text)`
@@ -70,11 +67,7 @@ const DesktopLinkGroup = styled(GridItem)`
       borderStyle: 'solid',
       borderLeftWidth: 1,
     })};
-  ${({ theme }) =>
-    space({
-      theme,
-      mx: 0,
-    })}
+  ${({ theme }) => space({ theme, mx: 0 })}
 
   &:first-child {
     border: none;
@@ -111,18 +104,9 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
     {
       label: 'yeebase media',
       links: [
-        {
-          label: 'Über t3n',
-          url: '/ueber-t3n/',
-        },
-        {
-          label: 'Team',
-          url: '/team',
-        },
-        {
-          label: 'Jobs bei t3n',
-          url: '/jobs-bei-t3n/',
-        },
+        { label: 'Über t3n', url: '/ueber-t3n/' },
+        { label: 'Team', url: '/team' },
+        { label: 'Jobs bei t3n', url: '/jobs-bei-t3n/' },
         {
           label: 't3n Backstage Blog',
           title: 'Die externe Seite im neuen Tab/Fenster öffnen',
@@ -130,14 +114,8 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
           target: '_blank',
           rel: 'noreferrer noopener',
         },
-        {
-          label: 'Mediadaten',
-          url: '/mediadaten/de/',
-        },
-        {
-          label: 'Datenschutz',
-          url: '/datenschutz/',
-        },
+        { label: 'Mediadaten', url: '/mediadaten/de/' },
+        { label: 'Datenschutz', url: '/datenschutz/' },
         {
           label: 'Cookies & Tracking',
           url: '#',
@@ -154,26 +132,11 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
           target: '_blank',
           rel: 'noreferrer noopener',
         },
-        {
-          label: 'Abo kündigen',
-          url: '/abo-kuendigen/',
-        },
-        {
-          label: 'Kontakt',
-          url: '/kontakt/',
-        },
-        {
-          label: 'AGB',
-          url: '/agb/',
-        },
-        {
-          label: 'Widerrufsbelehrung',
-          url: '/agb/#widerrufsbelehrung',
-        },
-        {
-          label: 'Impressum',
-          url: '/impressum/',
-        },
+        { label: 'Abo kündigen', url: '/abo-kuendigen/' },
+        { label: 'Kontakt', url: '/kontakt/' },
+        { label: 'AGB', url: '/agb/' },
+        { label: 'Widerrufsbelehrung', url: '/agb/#widerrufsbelehrung' },
+        { label: 'Impressum', url: '/impressum/' },
         {
           label: 'Barrierefreiheitserklärung',
           url: 'https://shop.t3n.de/pages/barrierefreiheitserklaerung',
@@ -186,67 +149,28 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
     {
       label: 't3n',
       links: [
-        {
-          label: 'Dein Abo',
-          url: '/dein-abo',
-        },
+        { label: 'Dein Abo', url: '/dein-abo' },
         {
           label: 'Jetzt abonnieren',
           url: 'https://l.t3n.de/abos/',
         },
-        {
-          label: 'News',
-          url: '/news/',
-        },
-        {
-          label: 'Magazin',
-          url: '/magazin/',
-        },
-        {
-          label: 'Podcasts',
-          url: '/podcast/',
-        },
-        {
-          label: 'Themen',
-          url: '/tag/',
-        },
-        {
-          label: 'Jobs',
-          url: 'https://jobs.t3n.de',
-        },
-        {
-          label: 'Events',
-          url: '/events/',
-        },
-        {
-          label: 'Shop',
-          url: 'https://shop.t3n.de',
-        },
-        {
-          label: 'Newsletter',
-          url: '/info/t3n-newsletter/',
-        },
-        {
-          label: 'Newsarchiv',
-          url: '/archive/',
-        },
-        {
-          label: 'BrandHubs',
-          url: '/brandhub/',
-        },
+        { label: 'News', url: '/news/' },
+        { label: 'Magazin', url: '/magazin/' },
+        { label: 'Podcasts', url: '/podcast/' },
+        { label: 'Themen', url: '/tag/' },
+        { label: 'Jobs', url: 'https://jobs.t3n.de' },
+        { label: 'Events', url: '/events/' },
+        { label: 'Shop', url: 'https://shop.t3n.de' },
+        { label: 'Newsletter', url: '/info/t3n-newsletter/' },
+        { label: 'Newsarchiv', url: '/archive/' },
+        { label: 'BrandHubs', url: '/brandhub/' },
       ],
     },
     {
       label: 'RSS-Feeds',
       links: [
-        {
-          label: 'Aktuelle News',
-          url: '/rss.xml',
-        },
-        {
-          label: 'Die neuesten Artikel',
-          url: '/sitemap_news.xml',
-        },
+        { label: 'Aktuelle News', url: '/rss.xml' },
+        { label: 'Die neuesten Artikel', url: '/sitemap_news.xml' },
       ],
     },
   ];
@@ -289,6 +213,8 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
 };
 
 const DesktopBottom = () => {
+  const { cdn } = useComponentsConfiguration();
+
   return (
     <DesktopBottomWrapper my={[2, 4, 6]} mx="10px">
       <Grid>
@@ -303,7 +229,7 @@ const DesktopBottom = () => {
                 rel="noreferrer noopener"
               >
                 <Image
-                  src="https://assets.t3n.de/t3n-de/assets/t3n/2018/images/logos/ivw.png"
+                  src={`https://${cdn.hostname}/global/images/logos/ivw.png`}
                   width="50px"
                   height="50px"
                   alt="IVW"
@@ -325,7 +251,7 @@ const DesktopBottom = () => {
                   title="Die externe Seite im neuen Tab/Fenster öffnen"
                 >
                   <Image
-                    src="https://assets.t3n.de/t3n-de/assets/t3n/2018/images/logos/kununu-top-company.png"
+                    src={`https://${cdn.hostname}/global/images/logos/kununu-top-company.png`}
                     width="87px"
                     alt="kununu Top Company"
                     sizes={87}
@@ -339,7 +265,7 @@ const DesktopBottom = () => {
                 title="Die externe Seite im neuen Tab/Fenster öffnen"
               >
                 <Image
-                  src="https://assets.t3n.de/t3n-de/assets/t3n/2018/images/logos/kununu-open-company.png"
+                  src={`https://${cdn.hostname}/global/images/logos/kununu-open-company.png`}
                   width="87px"
                   alt="kununu Open Company"
                   sizes={87}
