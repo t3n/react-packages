@@ -163,7 +163,7 @@ const BurgerHeading = styled(Heading)`
 `;
 
 const ObjectFitImage = styled(Image)`
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const BurgerNav: React.FC<BurgerNavProps> = ({
@@ -380,6 +380,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
                     width={115}
                     height={162}
                     lazy
+                    style={{ height: '160px' }}
                   />
                 </a>
               </GridItem>
