@@ -53,12 +53,14 @@ const brands: PageHeaderTeaserImageType[] = [
   {
     title: 't3n',
     url: '/',
-    image: 'https://cdn.t3n.de/js-frontend/static/t3n-logo-burger.png',
+    image:
+      'https://cdn.t3n.de/strapi/brand_t3n_c6be354431/brand_t3n_c6be354431.png',
   },
   {
     title: 'MIT Technology Review',
     url: '/technology-review/',
-    image: 'https://cdn.t3n.de/js-frontend/static/tr-logo-burger.png',
+    image:
+      'https://cdn.t3n.de/strapi/brand_tr_a59fcf5a31/brand_tr_a59fcf5a31.png',
   },
 ];
 
@@ -93,7 +95,7 @@ const meta: Meta<typeof PageHeader> = {
       'https://cdn.t3n.de/strapi/10_t3n_Headergrafik_Magazinumstellung_A_2x_1_4724f60c72/10_t3n_Headergrafik_Magazinumstellung_A_2x_1_4724f60c72.png',
     burgerCampaignUrl: 'https://t3n.de/burgercampaign',
     burgerCampaignImage:
-      'https://cdn.t3n.de/js-frontend/static/promo-burger.png',
+      'https://cdn.t3n.de/strapi/t3n_Onlinekurs_Burger_Menue_Midjourney_Co_f501cf1ce9/t3n_Onlinekurs_Burger_Menue_Midjourney_Co_f501cf1ce9.png',
   },
 };
 

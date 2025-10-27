@@ -9,7 +9,12 @@ import {
   space,
 } from 'styled-system';
 
-import { MaterialClose, MaterialMenu, MaterialPerson } from '@t3n/icons';
+import {
+  MaterialClose,
+  MaterialMenu,
+  MaterialPerson,
+  T3nPlus,
+} from '@t3n/icons';
 import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
@@ -141,6 +146,8 @@ const BurgerHeading = styled(Heading)`
   > a {
     text-decoration: none;
     ${({ theme }) => color({ theme, color: 'text.primary' })}
+    display: flex;
+    align-items: center;
 
     &:hover,
     :focus {
@@ -148,11 +155,15 @@ const BurgerHeading = styled(Heading)`
 
       ${({ theme }: ThemeProps) => color({ theme, color: 'text.highlight' })}
     }
+
+    > svg {
+      margin-right: 8px;
+    }
   }
 `;
 
 const ObjectFitImage = styled(Image)`
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 const BurgerNav: React.FC<BurgerNavProps> = ({
@@ -173,10 +184,10 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   const [openAccordions, setOpenAccordions] = useState<{
     [key: string]: boolean;
   }>({
-    Brands: true,
+    Brands: false,
     Themen: false,
     Magazine: true,
-    Skills: true,
+    Skills: false,
   });
 
   const handleAccordionToggle = (key: string) => {
@@ -282,41 +293,22 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
             mb={5}
           />
         </a>
-        <BurgerAccordion
-          title="Brands"
-          isOpen={openAccordions.Brands}
-          onToggle={() => handleAccordionToggle('Brands')}
-          tabbable={tabbable}
-        >
-          <Grid mx={-2}>
-            {brands.map((brand) => (
-              <GridItem width={1 / 2} px={2} key={brand.title}>
-                <a
-                  href={brand.url}
-                  title={brand.title}
-                  className="t-header__burger-brand"
-                  tabIndex={tabbable && openAccordions.Brands ? 0 : -1}
-                >
-                  <ObjectFitImage
-                    src={brand.image}
-                    title={brand.title}
-                    alt={`${brand.title} Logo`}
-                    width={158}
-                    height={121}
-                    lazy
-                  />
-                </a>
-              </GridItem>
-            ))}
-          </Grid>
-        </BurgerAccordion>
+        <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
+          <a
+            href="/dein-abo/"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
+            <T3nPlus /> Plus-Artikel
+          </a>
+        </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
             href="/news/"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >
-            News
+            Newsticker
           </a>
         </BurgerHeading>
         <BurgerAccordion
@@ -337,6 +329,35 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           ))}
         </BurgerAccordion>
         <BurgerAccordion
+          title="Brands"
+          isOpen={openAccordions.Brands}
+          onToggle={() => handleAccordionToggle('Brands')}
+          tabbable={tabbable}
+        >
+          <Grid mx={-2}>
+            {brands.map((brand) => (
+              <GridItem width={1 / 2} px={2} key={brand.title}>
+                <a
+                  href={brand.url}
+                  title={brand.title}
+                  className="t-header__burger-brand"
+                  tabIndex={tabbable && openAccordions.Brands ? 0 : -1}
+                >
+                  <ObjectFitImage
+                    src={brand.image}
+                    title={brand.title}
+                    optimizationClass="issue"
+                    alt={`${brand.title} Logo`}
+                    width={158}
+                    height={121}
+                    lazy
+                  />
+                </a>
+              </GridItem>
+            ))}
+          </Grid>
+        </BurgerAccordion>
+        <BurgerAccordion
           title="Magazine"
           isOpen={openAccordions.Magazine}
           onToggle={() => handleAccordionToggle('Magazine')}
@@ -355,9 +376,11 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
                     src={magazine.image}
                     title={magazine.title}
                     alt={`${magazine.title} Magazin Cover`}
+                    optimizationClass="issue-small"
                     width={115}
                     height={162}
                     lazy
+                    style={{ height: '160px' }}
                   />
                 </a>
               </GridItem>
@@ -383,20 +406,29 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
         </BurgerAccordion>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
-            href="/podcast"
-            className="t-header__burger-link"
-            tabIndex={tabbable ? 0 : -1}
-          >
-            Podcast
-          </a>
-        </BurgerHeading>
-        <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
-          <a
             href="https://shop.t3n.de"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >
             Shop
+          </a>
+        </BurgerHeading>
+        <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
+          <a
+            href="/picks"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
+            Pioneers Picks
+          </a>
+        </BurgerHeading>
+        <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
+          <a
+            href="/podcast"
+            className="t-header__burger-link"
+            tabIndex={tabbable ? 0 : -1}
+          >
+            Podcast
           </a>
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>

@@ -175,6 +175,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                 <Image
                   src={headerCampaignImage}
                   alt="Header Kampagnen-Grafik"
+                  optimizationClass="responsive-small"
                   height={65}
                   imageHeight={160}
                   lazy={false}
