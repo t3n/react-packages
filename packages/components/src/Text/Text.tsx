@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import {
   color,
@@ -52,10 +52,15 @@ export const textStyle = css<TextProps>`
   ${align}
 `;
 
-const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
-  as: as || (inline ? 'span' : 'p'),
-}))<TextProps>`
+const StyledText = styled.p.withConfig({
+  shouldForwardProp: (prop) =>
+    !['bold', 'italic', 'inline', 'small', 'secondary', 'align'].includes(prop),
+})<TextProps>`
   ${textStyle}
 `;
+
+const Text: React.FC<TextProps> = ({ inline, as, ...props }) => (
+  <StyledText as={as || (inline ? 'span' : 'p')} {...props} />
+);
 
 export default Text;

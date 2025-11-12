@@ -301,7 +301,7 @@ const DesktopFooter: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
     <DesktopFooterWrapper>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, 1 / 2]} px="10px" pr="0" mr="10px">
-          <MissonStatement mt={0} mr={1} bold lang="en">
+          <MissonStatement mt={0} mr={1} bold>
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>

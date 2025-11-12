@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import {
   border,
   color,
-  color as styledColor,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
   space,
   TextColorProps,
 } from 'styled-system';
@@ -24,14 +26,21 @@ export interface AvatarImageProps {
   children?: ReactNode;
 }
 
-export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
+export interface AvatarProps
+  extends Omit<AvatarImageProps, 'className'>,
+    Omit<LayoutProps, 'size'>,
+    FlexboxProps,
+    ColorProps {
   label?: string;
   textColor?: TextColorProps['color'];
 }
 
-const AvatarPlaceholder = styled((props) => (
-  <Placeholder as="span" {...props} />
-))`
+const AvatarPlaceholder = styled(Placeholder)
+  .withConfig({
+    shouldForwardProp: (prop) =>
+      !['label', 'textColor'].includes(prop as string),
+  })
+  .attrs({ as: 'span' })<AvatarProps>`
   ${({ theme }) =>
     border({
       theme,
@@ -42,7 +51,12 @@ const AvatarPlaceholder = styled((props) => (
     })};
 `;
 
-const DefaultAvatar = styled((props) => <Box as="span" {...props} />)`
+const DefaultAvatar = styled(Box)
+  .withConfig({
+    shouldForwardProp: (prop) =>
+      !['label', 'textColor'].includes(prop as string),
+  })
+  .attrs({ as: 'span' })<AvatarProps>`
   ${({ theme }) =>
     border({
       theme,
@@ -60,7 +74,7 @@ const DefaultAvatar = styled((props) => <Box as="span" {...props} />)`
     })};
 `;
 
-const StyledText = styled((props) => <Text {...props} />)`
+const StyledText = styled((props: any) => <Text {...props} />)`
   user-select: none;
   text-transform: uppercase;
 `;
@@ -137,7 +151,7 @@ const StyledAvatar = styled.span`
 
 const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
   ${({ theme }) => space({ pl: 2, theme })}
-  ${({ textColor, theme }) => styledColor({ color: textColor, theme })}
+  ${({ textColor, theme }) => color({ color: textColor, theme })}
 `;
 
 const Avatar: React.FC<AvatarProps> = ({

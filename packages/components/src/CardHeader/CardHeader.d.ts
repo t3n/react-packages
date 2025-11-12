@@ -9,6 +9,6 @@ export interface CardHeaderProps extends ThemeProps {
     image?: string;
     children?: ReactNode;
 }
-export declare const CardHeaderContent: import("styled-components").StyledComponent<"div", any, {}, never>;
-declare const CardHeader: import("styled-components").StyledComponent<({ big, ratio, image, children, ...props }: CardHeaderProps) => React.JSX.Element, any, CardHeaderProps, never>;
+export declare const CardHeaderContent: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+declare const CardHeader: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<CardHeaderProps, CardHeaderProps>> & string & Omit<({ big, ratio, image, children, ...props }: CardHeaderProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export default CardHeader;

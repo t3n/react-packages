@@ -35,7 +35,9 @@ const StyledAccordionHeadBox = styled(Box)`
   }
 `;
 
-const StyledIconBox = styled(Box)<{ collapsed: boolean }>`
+const StyledIconBox = styled(Box).withConfig({
+  shouldForwardProp: (prop) => prop !== 'collapsed',
+})<{ collapsed: boolean }>`
   border-radius: 50%;
   height: 2rem;
   width: 2rem;

@@ -32,7 +32,10 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
   opacity: 0;
 `;
 
-const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
+const StyledCheckbox = styled(Box).withConfig({
+  shouldForwardProp: (prop) =>
+    !['checked', 'disabled', 'feedbackColor'].includes(prop),
+})<Omit<CheckboxProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
   width: 1rem;
@@ -100,9 +103,10 @@ const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   }
 `;
 
-const StyledIcon = styled.span<
-  Omit<CheckboxProps, 'name' | 'value'> & ThemeProps
->`
+const StyledIcon = styled.span.withConfig({
+  shouldForwardProp: (prop) =>
+    !['checked', 'disabled', 'feedbackColor'].includes(prop),
+})<Omit<CheckboxProps, 'name' | 'value'> & ThemeProps>`
   position: absolute;
   top: -1px;
   left: -1px;

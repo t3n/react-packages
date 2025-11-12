@@ -4,5 +4,5 @@ type BackgroundColor = ThemeBackgroundColor | ThemeBackgroundColor[];
 export interface GlobalStyleProps extends ThemeProps {
     variant?: BackgroundColor;
 }
-declare const GlobalStyle: import("styled-components").GlobalStyleComponent<GlobalStyleProps, import("styled-components").DefaultTheme>;
+declare const GlobalStyle: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & GlobalStyleProps>;
 export default GlobalStyle;

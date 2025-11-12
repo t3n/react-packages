@@ -135,6 +135,13 @@ const socialButtonStyle = css<SocialButtonProps>`
   }
 `;
 
+const StyledSocialButton = styled(Button).withConfig({
+  shouldForwardProp: (prop) =>
+    !['network', '$textBefore', '$alternativeText'].includes(prop as string),
+})<SocialButtonProps>`
+  ${socialButtonStyle}
+`;
+
 const mapSocialButtonAttributes = ({
   network,
   $textBefore,
@@ -148,10 +155,13 @@ const mapSocialButtonAttributes = ({
     }`,
 });
 
-const SocialButton = styled(Button).attrs(
-  mapSocialButtonAttributes,
-)<SocialButtonProps>`
-  ${socialButtonStyle}
-`;
+const SocialButton: React.FC<SocialButtonProps> = (props) => {
+  const { iconLeft, children } = mapSocialButtonAttributes(props);
+  return (
+    <StyledSocialButton iconLeft={iconLeft} {...props}>
+      {children}
+    </StyledSocialButton>
+  );
+};
 
 export default SocialButton;

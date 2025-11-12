@@ -21,7 +21,7 @@ export const renderWithTheme = (
   const mergedTheme = { ...originalTheme, ...theme };
 
   const Wrapper: React.FC<{ children?: ReactNode }> = ({ children }) => (
-    <ThemeProvider theme={mergedTheme}>{children}</ThemeProvider>
+    <ThemeProvider theme={mergedTheme as any}>{children}</ThemeProvider>
   );
 
   return render(ui, { wrapper: Wrapper, ...options });

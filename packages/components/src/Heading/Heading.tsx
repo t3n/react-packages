@@ -31,7 +31,9 @@ const align = ({ align: alignProp, theme }: HeadingProps & ThemeProps) =>
 const textColor = ({ color: colorProp, theme }: HeadingProps & ThemeProps) =>
   color({ color: colorProp, theme });
 
-const Heading = styled.h1<HeadingProps>`
+const Heading = styled.h1.withConfig({
+  shouldForwardProp: (prop) => !['styleAs', 'align'].includes(prop),
+})<HeadingProps>`
   ${font}
   ${space}
   ${size}

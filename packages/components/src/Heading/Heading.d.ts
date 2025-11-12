@@ -8,7 +8,7 @@ export interface HeadingProps extends SpaceProps, SizeProps {
     align?: TextAlignProps['textAlign'];
     children?: ReactNode;
 }
-declare const Heading: import("styled-components").StyledComponent<"h1", any, HeadingProps, never>;
+declare const Heading: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>, HeadingProps>> & string;
 export declare const H1: React.FC<HeadingProps>;
 export declare const H2: React.FC<HeadingProps>;
 export declare const H3: React.FC<HeadingProps>;

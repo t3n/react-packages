@@ -50,7 +50,7 @@ const StyledInput = styled.div<InputProps>`
   ${styledWidth};
 `;
 
-const border = css`
+const border = css<StyledNativeInputProps & ThemeProps>`
   border: 1px solid
     ${({
       isFocused,
@@ -67,9 +67,10 @@ const border = css`
             : theme.colors.shades.grey95};
 `;
 
-const StyledNativeInput = styled.input.attrs(() => ({
-  noValidate: true,
-}))<StyledNativeInputProps>`
+const StyledNativeInput = styled.input.withConfig({
+  shouldForwardProp: (prop) =>
+    !['isFocused', 'error', 'disabled', 'hideReset'].includes(prop),
+})<StyledNativeInputProps & ThemeProps>`
   width: 100%;
   height: 40px;
   font-family: ${({ theme }) => theme.fonts.default};
@@ -78,6 +79,7 @@ const StyledNativeInput = styled.input.attrs(() => ({
   color: ${getThemeColor('text.primary')};
   background-color: ${getThemeColor('background.primary')};
   border-radius: ${(props) => props.theme.border.radii[1]};
+  ${border};
   outline: 0;
   ${border}
   ${({ theme, hideReset }) => space({ theme, pl: 2, pr: hideReset ? 2 : 6 })};

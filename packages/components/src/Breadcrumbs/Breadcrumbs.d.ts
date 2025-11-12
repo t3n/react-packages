@@ -8,7 +8,7 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
         href: string;
     }) => JSX.Element;
 }
-export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => React.JSX.Element, any, {}, never>;
+export declare const BreadcrumbsItem: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<BreadcrumbsItemProps, never>> & string & Omit<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 declare const Breadcrumbs: React.FC<{
     children?: ReactNode;
 }>;

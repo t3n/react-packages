@@ -22,7 +22,7 @@ export interface RoundedButtonATypeProps extends RoundedButtonBaseProps, Omit<An
     as?: 'a';
 }
 export type RoundedButtonProps = RoundedButtonATypeProps | RoundedButtonButtonTypeProps;
-export declare const RoundedButtonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & RoundedButtonProps, any>>;
-export declare const StyledRoundedButton: import("styled-components").StyledComponent<"button", any, RoundedButtonProps, never>;
+export declare const RoundedButtonStyles: import("styled-components").RuleSet<RoundedButtonProps & ThemeProps>;
+export declare const StyledRoundedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, RoundedButtonProps & ThemeProps>> & string;
 declare const RoundedButton: React.FC<RoundedButtonProps>;
 export default RoundedButton;

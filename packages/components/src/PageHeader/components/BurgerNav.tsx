@@ -53,8 +53,19 @@ const MenuToggleBox = styled(Box)`
   }
 `;
 
+interface MenuToggleProps {
+  doNotDisplayMobile?: boolean;
+  doNotDisplayDesktop?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+}
+
 const MenuToggle = styled(
-  ({ doNotDisplayMobile, doNotDisplayDesktop, onClick, ...props }) => (
+  ({
+    doNotDisplayMobile,
+    doNotDisplayDesktop,
+    onClick,
+    ...props
+  }: MenuToggleProps & any) => (
     <Icon
       {...props}
       role="button"

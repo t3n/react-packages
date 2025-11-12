@@ -4,31 +4,15 @@ exports[`Big Card matches snapshot 1`] = `
 .c0 {
   display: block;
   background-color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   height: auto;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-box-pack: stretch;
-  -webkit-justify-content: stretch;
-  -ms-flex-pack: stretch;
   justify-content: stretch;
-  -webkit-text-decoration: none;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: box-shadow 0.15s ease-out, -webkit-transform 0.15s ease-out;
-  -webkit-transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
-  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
   position: relative;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
@@ -38,23 +22,24 @@ exports[`Big Card matches snapshot 1`] = `
   margin-bottom: 16px;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c0 {
     padding: 48px;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
 
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
 
 }
 
 <div
   class="c0"
   color="text.primary"
+  mb="3"
   width="1"
 >
   Big card
@@ -65,31 +50,15 @@ exports[`Dashed Card matches snapshot 1`] = `
 .c0 {
   display: block;
   background-color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   height: auto;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-box-pack: stretch;
-  -webkit-justify-content: stretch;
-  -ms-flex-pack: stretch;
   justify-content: stretch;
-  -webkit-text-decoration: none;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: box-shadow 0.15s ease-out, -webkit-transform 0.15s ease-out;
-  -webkit-transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
-  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
   position: relative;
   border: 2px dashed #e8e8e8;
   border-radius: 4px;
@@ -99,19 +68,20 @@ exports[`Dashed Card matches snapshot 1`] = `
   margin-bottom: 16px;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c0 {
     padding: 24px;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
 
 }
 
 <div
   class="c0"
   color="text.primary"
+  mb="3"
   width="1"
 >
   Dashed card
@@ -122,31 +92,15 @@ exports[`Default Card matches snapshot 1`] = `
 .c0 {
   display: block;
   background-color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   height: auto;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-box-pack: stretch;
-  -webkit-justify-content: stretch;
-  -ms-flex-pack: stretch;
   justify-content: stretch;
-  -webkit-text-decoration: none;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: box-shadow 0.15s ease-out, -webkit-transform 0.15s ease-out;
-  -webkit-transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
-  transition: box-shadow 0.15s ease-out, transform 0.15s ease-out;
+  transition: box-shadow 0.15s ease-out,transform 0.15s ease-out;
   position: relative;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
@@ -156,19 +110,20 @@ exports[`Default Card matches snapshot 1`] = `
   margin-bottom: 16px;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c0 {
     padding: 24px;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
 
 }
 
 <div
   class="c0"
   color="text.primary"
+  mb="3"
   width="1"
 >
   Default Card

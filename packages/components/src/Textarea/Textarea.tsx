@@ -65,7 +65,7 @@ const StyledTextarea = styled.div<TextareaProps>`
 const padding = ({ theme }: ThemeProps) =>
   space({ pl: 2, pr: 6, pt: 1, pb: 1, theme });
 
-const border = css`
+const border = css<StyledNativeTextareaProps & ThemeProps>`
   border: 1px solid
     ${({
       isFocused,
@@ -82,9 +82,10 @@ const border = css`
             : theme.colors.shades.grey95};
 `;
 
-const StyledNativeTextarea = styled.textarea.attrs(() => ({
-  noValidate: true,
-}))<StyledNativeTextareaProps>`
+const StyledNativeTextarea = styled.textarea.withConfig({
+  shouldForwardProp: (prop) =>
+    !['isFocused', 'error', 'disabled', 'rows'].includes(prop),
+})<StyledNativeTextareaProps & ThemeProps>`
   width: 100%;
   min-height: ${({ rows }: StyledNativeTextareaProps) =>
     rows ? `${rows * 30}px` : '120px'};

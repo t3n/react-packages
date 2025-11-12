@@ -14,7 +14,9 @@ export interface AlertProps extends SpaceProps {
   children?: ReactNode;
 }
 
-const AlertBox = styled(Box)<{ status: AlertStatus }>`
+const AlertBox = styled(Box).withConfig({
+  shouldForwardProp: (prop) => prop !== 'status',
+})<{ status: AlertStatus }>`
   border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
 
   ${variant({

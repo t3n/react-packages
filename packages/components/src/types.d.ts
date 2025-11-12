@@ -14,3 +14,11 @@ declare module '*.svg' {
   const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
   export default ReactComponent;
 }
+
+// styled-components v6 Theme Declaration
+import 'styled-components';
+import { Theme } from '@t3n/theme';
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
+}

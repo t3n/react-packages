@@ -60,7 +60,7 @@ const StyledSliderLabel = styled.button<LabelProps>`
   white-space: nowrap;
   ${({ theme }) => space({ theme, mb: 4 })}
 
-  ${Text} {
+  p, span {
     transition: all 0.15s ease-in-out;
   }
 `;

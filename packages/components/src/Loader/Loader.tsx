@@ -14,9 +14,9 @@ export interface LoaderProps extends MarginProps {
   color?: BackgroundColorProps['bg'];
 }
 
-const LoaderWrapper = styled.span<
-  LoaderProps & { bg: BackgroundColorProps['bg'] }
->`
+const LoaderWrapper = styled.span.withConfig({
+  shouldForwardProp: (prop) => !['small', 'loaderSize', 'bg'].includes(prop),
+})<LoaderProps & { bg: BackgroundColorProps['bg'] }>`
   display: inline-flex;
   text-align: center;
   ${space}

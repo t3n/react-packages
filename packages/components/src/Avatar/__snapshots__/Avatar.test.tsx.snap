@@ -2,15 +2,9 @@
 
 exports[`Avatar matches snapshot and renders label 1`] = `
 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   height: 40px;
   width: 40px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -36,21 +30,12 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 }
 
 .c4 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   text-transform: uppercase;
 }
 
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -63,12 +48,12 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 >
   <span
     class="c1 c2"
-    display="flex"
-    height="40px"
-    width="40px"
   >
     <p
       class="c3 c4"
+      mx="auto"
+      my="0"
+      p="1"
     >
       a
     </p>
@@ -83,15 +68,9 @@ exports[`Avatar matches snapshot and renders label 1`] = `
 
 exports[`Avatar renders without label 1`] = `
 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   height: 40px;
   width: 40px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -117,21 +96,12 @@ exports[`Avatar renders without label 1`] = `
 }
 
 .c4 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   text-transform: uppercase;
 }
 
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -140,12 +110,12 @@ exports[`Avatar renders without label 1`] = `
 >
   <span
     class="c1 c2"
-    display="flex"
-    height="40px"
-    width="40px"
   >
     <p
       class="c3 c4"
+      mx="auto"
+      my="0"
+      p="1"
     >
       a
     </p>
