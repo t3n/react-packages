@@ -36,7 +36,7 @@ const SecondaryLabel = styled(Text)`
   line-height: normal;
 `;
 
-const FormGroup: React.FC<FormGroupProps> = ({
+const FormGroup = ({
   label,
   labelSecondary,
   labelEndContent,
@@ -44,7 +44,7 @@ const FormGroup: React.FC<FormGroupProps> = ({
   children,
   my = 4,
   ...props
-}) => (
+}: FormGroupProps) => (
   <StyledFormGroup my={my} {...props}>
     <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>

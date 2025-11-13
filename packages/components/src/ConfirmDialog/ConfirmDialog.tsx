@@ -22,7 +22,7 @@ const StyledButtonBox = styled(Box)`
   }
 `;
 
-const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
+const ConfirmDialog = ({
   headline,
   onConfirm,
   onClose,
@@ -32,7 +32,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   wide: modalPropWide,
   width: modalPropWidth,
   children,
-}) => {
+}: ConfirmDialogProps) => {
   return (
     <Modal
       headline={headline}

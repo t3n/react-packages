@@ -8,7 +8,7 @@ const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(true);
   const [fontSize, setFontSize] = useState(16);
 
-  const theme: Theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) as Theme;
 
   const mobileBreakpoint = parseInt(theme.breakpoints[1], 10) * fontSize;
 

@@ -2,13 +2,7 @@
 
 exports[`Tag Variants matches snapshot 1`] = `
 .c0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -29,13 +23,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c1 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -56,13 +44,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c2 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -83,13 +65,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c3 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -110,13 +86,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -137,13 +107,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c5 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -164,13 +128,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c6 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -191,13 +149,7 @@ exports[`Tag Variants matches snapshot 1`] = `
 }
 
 .c7 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
   font-family: -apple-system,system-UI,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -217,49 +169,49 @@ exports[`Tag Variants matches snapshot 1`] = `
   fill: #fff;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c0 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c0 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c1 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c1 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c2 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c2 {
     line-height: 1.666em;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c3 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c3 {
     line-height: 1.666em;
   }

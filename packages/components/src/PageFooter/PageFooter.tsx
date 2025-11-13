@@ -26,7 +26,7 @@ const InnerWrapper = styled.footer`
   ${({ theme }) => layout({ theme, width: [1, 1, 1, '61.25rem'] })};
 `;
 
-const PageFooter: React.FC<PageFooterProps> = ({ privacyManagerId }) => {
+const PageFooter = ({ privacyManagerId }: PageFooterProps) => {
   return (
     <Footer
       className="tg-footer"

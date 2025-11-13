@@ -33,6 +33,6 @@ const StyledBadge = styled.span<BadgeProps>`
   ${background};
 `;
 
-const Badge: React.FC<BadgeProps> = (props) => <StyledBadge {...props} />;
+const Badge = (props: BadgeProps) => <StyledBadge {...props} />;
 
 export default Badge;

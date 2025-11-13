@@ -9,7 +9,7 @@ import Icon from '../Icon';
 import { Tooltip, TooltipContainer } from '../LegacyBookmark';
 
 export interface LegacyBigRoundButtonProps extends MarginProps {
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   url: string;
   tooltipText: string;
   rel?: string;
@@ -47,13 +47,13 @@ const BigRoundButton = styled(Button)`
   }
 `;
 
-const LegacyBigRoundButton: React.FC<LegacyBigRoundButtonProps> = ({
+const LegacyBigRoundButton = ({
   icon,
   url,
   tooltipText,
   rel,
   ...marginProps
-}) => {
+}: LegacyBigRoundButtonProps) => {
   return (
     <TooltipContainer
       display="inline-block"

@@ -19,7 +19,7 @@ const Container = styled(Box)`
     })}
 `;
 
-const ListBox: React.FC<LayoutWithChildrenProps> = ({ children, ...rest }) => {
+const ListBox = ({ children, ...rest }: LayoutWithChildrenProps) => {
   return (
     <Container {...rest} p={[3, 3, 5, 5]}>
       {children}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
 export type VisualSectionVariants = 'primary' | 'highlight';
 export interface VisualSectionProps {
@@ -7,5 +7,8 @@ export interface VisualSectionProps {
     wide?: boolean;
     children?: ReactNode;
 }
-declare const VisualSection: React.FC<VisualSectionProps>;
+declare const VisualSection: {
+    ({ variant, innerGap, wide, children, }: VisualSectionProps): import("react/jsx-runtime").JSX.Element;
+    displayName: string;
+};
 export default VisualSection;

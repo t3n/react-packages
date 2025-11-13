@@ -26,9 +26,10 @@ export const defaultComponentsConfiguration: ComponentsConfiguration = {
 export const ComponentsConfigurationContext =
   createContext<ComponentsConfiguration>(defaultComponentsConfiguration);
 
-export const ComponentsConfigurationProvider: React.FC<
-  ComponentsConfigurationProviderProps
-> = ({ children, configuration }) => {
+export const ComponentsConfigurationProvider = ({
+  children,
+  configuration,
+}: ComponentsConfigurationProviderProps) => {
   return (
     <ComponentsConfigurationContext.Provider value={configuration}>
       {children}

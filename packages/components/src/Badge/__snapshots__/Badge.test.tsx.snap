@@ -16,6 +16,7 @@ exports[`Badge matches snapshot 1`] = `
 
 <span
   class="c0"
+  variant="highlight"
 >
   text
 </span>
