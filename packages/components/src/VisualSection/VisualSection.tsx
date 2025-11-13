@@ -31,12 +31,12 @@ const VisualSectionOuter = styled.div<VisualSectionProps>`
       : theme.colors.text.primary};
 `;
 
-const VisualSection: React.FC<VisualSectionProps> = ({
+const VisualSection = ({
   variant,
   innerGap = 6,
   wide = true,
   children,
-}) => (
+}: VisualSectionProps) => (
   <VisualSectionOuter variant={variant} innerGap={innerGap}>
     <Content wide={wide}>{children}</Content>
   </VisualSectionOuter>

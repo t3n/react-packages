@@ -137,7 +137,7 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
-const Textarea = forwardRef(
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       disabled,
@@ -160,7 +160,7 @@ const Textarea = forwardRef(
     const [value, setValue] = useState(defaultValue || '');
     const [focused, setFocused] = useState(isFocused || false);
 
-    useImperativeHandle(ref, () => textareaRef.current);
+    useImperativeHandle(ref, () => textareaRef.current!);
 
     const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
       e.stopPropagation();

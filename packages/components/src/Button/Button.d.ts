@@ -9,12 +9,12 @@ export interface ButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLA
     variant?: ButtonVariant;
     color?: ButtonColorVariant;
     size?: ButtonSizeVariant;
-    iconLeft?: React.FC<React.SVGProps<SVGSVGElement>>;
-    iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
+    iconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     loading?: boolean;
     as?: ButtonAsType;
     children?: ReactNode;
 }
 export declare const buttonStyles: import("styled-components").RuleSet<ButtonProps & ThemeProps>;
-declare const Button: React.FC<ButtonProps>;
+declare const Button: ({ children, loading, iconLeft, iconRight, size, color, variant, href, as, onClick, disabled, ...rest }: ButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default Button;

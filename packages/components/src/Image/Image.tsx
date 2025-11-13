@@ -183,7 +183,7 @@ const NativeImage = styled.img<
   ${space}
 `;
 
-const Image: React.FC<ImageProps> = ({
+const Image = ({
   placeholder = true,
   lazy = true,
   optimizationClass = 'default',
@@ -196,7 +196,7 @@ const Image: React.FC<ImageProps> = ({
   imageWidth,
   imageHeight,
   ...props
-}) => {
+}: ImageProps) => {
   const { cdn: cdnConfiguration } = useComponentsConfiguration();
   const [initialized, setInitialized] = useState(false);
   const [imageNode, setImageNode] = useState<HTMLImageElement | null>(null);

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type JSX } from 'react';
 import { LinkProps } from '../Link';
 export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
     href?: string;
@@ -8,8 +8,9 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
         href: string;
     }) => JSX.Element;
 }
-export declare const BreadcrumbsItem: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<BreadcrumbsItemProps, never>> & string & Omit<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
-declare const Breadcrumbs: React.FC<{
-    children?: ReactNode;
-}>;
+export interface BreadcrumbsProps {
+    children: React.ReactNode;
+}
+export declare const BreadcrumbsItem: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<BreadcrumbsItemProps, never>> & string & Omit<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => import("react/jsx-runtime").JSX.Element, keyof React.Component<any, {}, any>>;
+declare const Breadcrumbs: ({ children }: BreadcrumbsProps) => import("react/jsx-runtime").JSX.Element;
 export default Breadcrumbs;

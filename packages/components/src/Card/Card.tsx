@@ -119,10 +119,7 @@ const StyledLinkCard = styled.a.withConfig({
   }
 `;
 
-const Card: React.FC<CardProps> = React.forwardRef<
-  HTMLAnchorElement | HTMLDivElement,
-  CardProps
->(
+const Card = React.forwardRef<HTMLAnchorElement | HTMLDivElement, CardProps>(
   (
     {
       href,

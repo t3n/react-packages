@@ -1,4 +1,3 @@
-import React from 'react';
 import { PageHeaderLinksType, PageHeaderTeaserImageType } from '../PageHeader';
 export interface BurgerNavProps {
     ressorts: PageHeaderLinksType[];
@@ -11,5 +10,5 @@ export interface BurgerNavProps {
     isMenuOpen: boolean;
     onMenuOpenClick: () => void;
 }
-declare const BurgerNav: React.FC<BurgerNavProps>;
+declare const BurgerNav: ({ ressorts, skills, brands, magazines, campaignUrl, campaignImage, isLoggedIn, isMenuOpen, onMenuOpenClick, }: BurgerNavProps) => import("react/jsx-runtime").JSX.Element;
 export default BurgerNav;

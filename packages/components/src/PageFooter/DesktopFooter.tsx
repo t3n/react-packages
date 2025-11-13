@@ -24,7 +24,6 @@ export type DesktopLinkGroupsType = {
 
 export interface DesktopFooterProps {
   privacyManagerId: string;
-  isProMember?: boolean;
 }
 
 const DesktopFooterWrapper = styled(Box)`
@@ -99,7 +98,7 @@ const ExtraSmallText = styled(Text)`
   line-height: 1.5em !important;
 `;
 
-const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
+const DesktopLinks = ({ privacyManagerId }: DesktopFooterProps) => {
   const desktopLinkGroups: DesktopLinkGroupsType = [
     {
       label: 'yeebase media',
@@ -296,7 +295,7 @@ const DesktopBottom = () => {
   );
 };
 
-const DesktopFooter: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
+const DesktopFooter = ({ privacyManagerId }: DesktopFooterProps) => {
   return (
     <DesktopFooterWrapper>
       <Box display="flex" m="10px">

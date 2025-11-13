@@ -1,6 +1,5 @@
-import React from 'react';
 export interface LegacyBookmarkModalProps {
     onClose: () => void;
 }
-declare const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps>;
+declare const LegacyBookmarkModal: ({ onClose }: LegacyBookmarkModalProps) => import("react/jsx-runtime").JSX.Element;
 export default LegacyBookmarkModal;

@@ -88,10 +88,7 @@ const BookmarkContainer = styled(Box)<{
   }
 `;
 
-const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
-  onClick,
-  isBookmarked,
-}) => {
+const LegacyBookmark = ({ onClick, isBookmarked }: LegacyBookmarkProps) => {
   const [isBookmarkedClick, setIsBookmarkedClick] = useState(false);
 
   return (

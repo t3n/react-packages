@@ -5,14 +5,21 @@ import { SpaceProps } from 'styled-system';
 import Box from '../Box';
 import Section, { SectionVariants } from '../Section';
 
-const LegacySection: React.FC<{
+const LegacySection = ({
+  variant,
+  anchor,
+  narrow,
+  wide,
+  innerGap,
+  children,
+}: {
   variant?: SectionVariants;
   anchor?: string;
   narrow?: boolean;
   wide?: boolean;
   innerGap?: SpaceProps['py'];
   children?: ReactNode;
-}> = ({ variant, anchor, narrow, wide, innerGap, children }) => {
+}) => {
   return (
     <Box
       mt={anchor ? ['unset', 'unset', -4] : 'unset'}

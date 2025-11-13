@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type JSX } from 'react';
 import styled from 'styled-components';
 import { color, space } from 'styled-system';
 
@@ -29,7 +29,7 @@ export type SocialLinkType = {
   target?: string;
 }[];
 
-const OldFacebookIcon: React.FC = () => (
+const OldFacebookIcon = () => (
   <svg
     viewBox="0 0 24 24"
     fill="#5f5f5f"
@@ -114,10 +114,7 @@ const legacySocialLinks: SocialLinkType = [
   },
 ];
 
-const LegacySocialBar: React.FC<LegacySocialBarProps> = ({
-  className,
-  isInFooter,
-}) => (
+const LegacySocialBar = ({ className, isInFooter }: LegacySocialBarProps) => (
   <Box
     display="flex"
     justifyContent={isInFooter ? 'center' : 'flex-end'}

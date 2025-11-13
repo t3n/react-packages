@@ -98,7 +98,7 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
   const formatted = await eslint.lintText(
     component.replace(
       `const ${componentName}`,
-      `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`,
+      `const ${componentName}: React.ComponentType<React.SVGProps<SVGSVGElement>>`,
     ),
   );
 

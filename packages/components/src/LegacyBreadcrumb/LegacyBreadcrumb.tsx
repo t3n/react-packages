@@ -50,10 +50,13 @@ const LegacyBreadcrumbList = styled.ul`
   }
 `;
 
-const LegacyBreadcrumb: React.FC<{
+const LegacyBreadcrumb = ({
+  secondary,
+  children,
+}: {
   secondary?: boolean;
   children?: ReactNode;
-}> = ({ secondary, children }) => {
+}) => {
   if (secondary) {
     return (
       <Box mx="-20px" bg="background.secondary">

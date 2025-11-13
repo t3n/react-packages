@@ -216,7 +216,7 @@ const StyledUserLabel = styled.p`
   text-overflow: ellipsis;
 `;
 
-const UserMenu: React.FC<UserMenuProps> = ({
+const UserMenu = ({
   active = false,
   userEmail,
   isProMember = false,
@@ -228,7 +228,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   readingListLink = '/account/merkliste',
   accountLink = '/account/edit',
   light,
-}) => {
+}: UserMenuProps) => {
   return userEmail ? (
     <UserMenuWrapper light={light} tabIndex={0}>
       {active ? (

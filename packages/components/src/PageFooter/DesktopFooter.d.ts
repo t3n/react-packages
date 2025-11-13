@@ -15,5 +15,5 @@ export interface DesktopFooterProps {
     privacyManagerId: string;
     isProMember?: boolean;
 }
-declare const DesktopFooter: React.FC<DesktopFooterProps>;
+declare const DesktopFooter: ({ privacyManagerId }: DesktopFooterProps) => import("react/jsx-runtime").JSX.Element;
 export default DesktopFooter;

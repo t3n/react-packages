@@ -34,7 +34,7 @@ export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
   size?: RoundedButtonSizeVariant;
   variant?: RoundedButtonVariant;
   color?: RoundedButtonColorVariant;
-  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label?: ReactNode;
   loading?: boolean;
   expanded?: boolean;
@@ -301,7 +301,7 @@ const getLoaderSize = (
   }
 };
 
-const RoundedButton: React.FC<RoundedButtonProps> = (props) => {
+const RoundedButton = (props: RoundedButtonProps) => {
   const {
     children,
     loading,

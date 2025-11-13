@@ -10,13 +10,13 @@ export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
   children?: ReactNode;
 }
 
-const TitleCard: React.FC<TitleCardProps> = ({
+const TitleCard = ({
   children,
   title,
   titleAs,
   centerTitle,
   ...props
-}) => {
+}: TitleCardProps) => {
   return (
     <Card {...props}>
       <Heading

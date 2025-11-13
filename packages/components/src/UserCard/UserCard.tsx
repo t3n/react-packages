@@ -52,11 +52,6 @@ export type UserCardProps = {
   children?: ReactNode;
 };
 
-export type SocialLinksProps = {
-  links: SocialLink[];
-  cardLinked?: boolean;
-};
-
 const StyledCard = styled(Card)`
   position: relative;
   height: 100%;
@@ -122,7 +117,7 @@ const SocialLinksBox = styled(Box)`
   }
 `;
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
+const SocialLinks = ({ links }: { links: SocialLink[] }) => {
   return (
     <SocialLinksBox mt={2} display="flex">
       {links.map((link) => (
@@ -144,9 +139,12 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   );
 };
 
-const CompactUserCard: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>
-> = ({ user, link, optimizeAvatar, children }) => {
+const CompactUserCard = ({
+  user,
+  link,
+  optimizeAvatar,
+  children,
+}: Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
       {!link?.fullCard && link?.url ? (
@@ -176,9 +174,12 @@ const CompactUserCard: React.FC<
   );
 };
 
-const DefaultUserCard: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>
-> = ({ user, link, optimizeAvatar, children }) => {
+const DefaultUserCard = ({
+  user,
+  link,
+  optimizeAvatar,
+  children,
+}: Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>) => {
   return (
     <Box display={['unset', 'flex']} m="0 auto">
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
@@ -212,9 +213,11 @@ const DefaultUserCard: React.FC<
   );
 };
 
-const UserCardContent: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'secondary'>
-> = ({ user, link, secondary }) => {
+const UserCardContent = ({
+  user,
+  link,
+  secondary,
+}: Pick<UserCardProps, 'user' | 'link' | 'secondary'>) => {
   return (
     <>
       <Text bold mt={0} mb={0}>
@@ -270,14 +273,14 @@ const UserCardContent: React.FC<
   );
 };
 
-const UserCard: React.FC<UserCardProps> = ({
+const UserCard = ({
   user,
   optimizeAvatar,
   link,
   compact,
   secondary,
   children,
-}) => {
+}: UserCardProps) => {
   return (
     <StyledCard href={link?.fullCard && link?.url ? link.url : undefined}>
       {compact ? (

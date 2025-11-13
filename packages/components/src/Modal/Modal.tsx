@@ -11,7 +11,7 @@ import Icon from '../Icon';
 
 export interface ModalProps extends WidthProps {
   headline: string;
-  headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  headlineIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   alwaysCentered?: boolean;
   wide?: boolean;
   onClose: () => void;
@@ -76,7 +76,7 @@ const StyledIconContainer = styled(Box)`
   cursor: pointer;
 `;
 
-const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
+const CloseIcon = ({ onClick }: { onClick: () => void }) => {
   return (
     <StyledIconContainer
       onClick={onClick}
@@ -92,7 +92,7 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   );
 };
 
-const Modal: React.FC<ModalProps> = ({
+const Modal = ({
   headline,
   headlineIcon,
   wide = false,
@@ -100,7 +100,7 @@ const Modal: React.FC<ModalProps> = ({
   width: widthProp,
   onClose,
   children,
-}) => {
+}: ModalProps) => {
   return (
     <ModalWrapper
       display="flex"

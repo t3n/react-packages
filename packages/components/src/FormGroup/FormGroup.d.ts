@@ -7,5 +7,5 @@ export interface FormGroupProps extends React.LabelHTMLAttributes<HTMLLabelEleme
     errorMessage?: string;
     children?: ReactNode;
 }
-declare const FormGroup: React.FC<FormGroupProps>;
+declare const FormGroup: ({ label, labelSecondary, labelEndContent, errorMessage, children, my, ...props }: FormGroupProps) => import("react/jsx-runtime").JSX.Element;
 export default FormGroup;

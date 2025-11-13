@@ -58,7 +58,7 @@ const SmallerText = styled(Text)`
     })};
 `;
 
-const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
+const MobileLinks = ({ privacyManagerId }: MobileFooterProps) => {
   const mobileLinks: MobileLinkType = [
     {
       label: 'Dein Abo',
@@ -154,7 +154,7 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
   );
 };
 
-const MobileFooter: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
+const MobileFooter = ({ privacyManagerId }: MobileFooterProps) => {
   return (
     <>
       <MobileLinks privacyManagerId={privacyManagerId} />

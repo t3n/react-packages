@@ -3,13 +3,13 @@ import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { RadioButton, Section } from '@t3n/components';
-import { RadioButtonProps, VariantType } from '@t3n/components/src/RadioButton';
+import { VariantType } from '@t3n/components/src/RadioButton';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
 import { storyContainerDecorator } from '../../../utils/decorators';
 
 const meta: Meta<typeof RadioButton> = {
-  component: RadioButton as React.FC<RadioButtonProps>,
+  component: RadioButton,
   title: 'Components/Inputs/RadioButton',
   decorators: [storyContainerDecorator],
   parameters: { controls: { sort: 'requiredFirst' } },

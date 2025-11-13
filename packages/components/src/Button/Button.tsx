@@ -36,8 +36,8 @@ export interface ButtonProps
   color?: ButtonColorVariant;
   size?: ButtonSizeVariant;
 
-  iconLeft?: React.FC<React.SVGProps<SVGSVGElement>>;
-  iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
   loading?: boolean;
   as?: ButtonAsType;
@@ -197,7 +197,7 @@ const StyledButton = styled(
   ${buttonStyles}
 `;
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   loading,
   iconLeft,
@@ -210,7 +210,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled,
   ...rest
-}) => (
+}: ButtonProps) => (
   <StyledButton
     href={href}
     as={href ? 'a' : as}

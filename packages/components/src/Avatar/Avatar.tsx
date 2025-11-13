@@ -154,12 +154,7 @@ const AvatarLabel = styled.span<Pick<AvatarProps, 'textColor'>>`
   ${({ textColor, theme }) => color({ color: textColor, theme })}
 `;
 
-const Avatar: React.FC<AvatarProps> = ({
-  label = '',
-  textColor,
-  children,
-  ...rest
-}) => (
+const Avatar = ({ label = '', textColor, children, ...rest }: AvatarProps) => (
   <StyledAvatar>
     <StyledAvatarImage {...rest} />
     {label && label.length > 0 && (

@@ -3,8 +3,8 @@ import { MarginProps, WidthProps } from 'styled-system';
 export type DividerVariants = 'primary' | 'inverse';
 export interface DividerProps extends WidthProps, MarginProps {
     variant?: DividerVariants;
-    iconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
+    iconComponent?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     children?: ReactNode;
 }
-declare const Divider: React.FC<DividerProps>;
+declare const Divider: ({ children, variant: variantProp, iconComponent, my, ...rest }: DividerProps) => import("react/jsx-runtime").JSX.Element;
 export default Divider;

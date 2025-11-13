@@ -119,7 +119,7 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
-const Input = forwardRef(
+const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       disabled,
@@ -144,7 +144,7 @@ const Input = forwardRef(
     const [focused, setFocused] = useState(isFocused || false);
     const [revealPassword, setRevealPassword] = useState(false);
 
-    useImperativeHandle(ref, () => inputRef.current);
+    useImperativeHandle(ref, () => inputRef.current!);
 
     const inputType = type === 'password' && revealPassword ? 'text' : type;
     const displayValue =

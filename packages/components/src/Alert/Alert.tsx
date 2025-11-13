@@ -41,7 +41,7 @@ const AlertBox = styled(Box).withConfig({
   ${space};
 `;
 
-export const AlertText: React.FC<{ children?: ReactNode }> = ({ children }) => {
+export const AlertText = ({ children }: { children: React.ReactNode }) => {
   return (
     <Text m={0} width="100%">
       {children}
@@ -49,7 +49,7 @@ export const AlertText: React.FC<{ children?: ReactNode }> = ({ children }) => {
   );
 };
 
-const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
+const Alert = ({ status, children, ...rest }: AlertProps) => {
   return (
     <AlertBox
       display="flex"

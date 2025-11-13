@@ -9,7 +9,7 @@ export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
     size?: RoundedButtonSizeVariant;
     variant?: RoundedButtonVariant;
     color?: RoundedButtonColorVariant;
-    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     label?: ReactNode;
     loading?: boolean;
     expanded?: boolean;
@@ -24,5 +24,5 @@ export interface RoundedButtonATypeProps extends RoundedButtonBaseProps, Omit<An
 export type RoundedButtonProps = RoundedButtonATypeProps | RoundedButtonButtonTypeProps;
 export declare const RoundedButtonStyles: import("styled-components").RuleSet<RoundedButtonProps & ThemeProps>;
 export declare const StyledRoundedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, RoundedButtonProps & ThemeProps>> & string;
-declare const RoundedButton: React.FC<RoundedButtonProps>;
+declare const RoundedButton: (props: RoundedButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default RoundedButton;

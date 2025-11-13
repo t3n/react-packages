@@ -177,7 +177,7 @@ const ObjectFitImage = styled(Image)`
   object-fit: cover;
 `;
 
-const BurgerNav: React.FC<BurgerNavProps> = ({
+const BurgerNav = ({
   ressorts,
   skills,
   brands,
@@ -187,7 +187,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   isLoggedIn,
   isMenuOpen,
   onMenuOpenClick,
-}) => {
+}: BurgerNavProps) => {
   const [term, setTerm] = useState('');
   const tabbable = isMenuOpen;
 

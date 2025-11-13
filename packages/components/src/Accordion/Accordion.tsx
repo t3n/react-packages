@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { type JSX, ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
@@ -49,12 +49,12 @@ const StyledIconBox = styled(Box).withConfig({
   }
 `;
 
-const Accordion: React.FC<AccordionProps> = ({
+const Accordion = ({
   children,
   title,
-  initialOpen,
+  initialOpen = false,
   ...rest
-}) => {
+}: AccordionProps) => {
   const [collapsed, setCollapsed] = useState(!initialOpen);
 
   return (

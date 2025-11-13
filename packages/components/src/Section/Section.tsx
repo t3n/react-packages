@@ -35,13 +35,13 @@ const SectionOuter = styled.div<SectionProps>`
     space({ py: innerGap, theme })}
 `;
 
-const Section: React.FC<SectionProps> = ({
+const Section = ({
   variant,
   wide,
   small,
   children,
   innerGap = 6,
-}) => (
+}: SectionProps) => (
   <SectionOuter variant={variant} innerGap={innerGap}>
     <Content wide={wide} small={small}>
       {children}

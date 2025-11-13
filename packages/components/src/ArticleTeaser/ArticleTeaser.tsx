@@ -48,20 +48,20 @@ const SmallTeaserImage = styled(Image)`
   `}
 `;
 
-const ArticleTeaser: React.FC<{
-  article: ArticleProps;
-  teaserText?: boolean;
-  largeTeaserImage?: boolean;
-  smallTeaserImage?: boolean;
-  isBookmarked: boolean;
-  handleBookmarkClick: () => void;
-}> = ({
+const ArticleTeaser = ({
   article,
   teaserText,
   largeTeaserImage,
   smallTeaserImage,
   isBookmarked,
   handleBookmarkClick,
+}: {
+  article: ArticleProps;
+  teaserText?: boolean;
+  largeTeaserImage?: boolean;
+  smallTeaserImage?: boolean;
+  isBookmarked: boolean;
+  handleBookmarkClick: () => void;
 }) => {
   return (
     <>

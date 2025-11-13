@@ -127,7 +127,7 @@ const SliderLabels = ({
   </>
 );
 
-const Slider: React.FC<SliderProps> = ({
+const Slider = ({
   name,
   min = 0,
   max,
@@ -135,7 +135,7 @@ const Slider: React.FC<SliderProps> = ({
   value = 0,
   labels = [],
   onChange,
-}) => {
+}: SliderProps) => {
   const [initialized, setInitialized] = useState(false);
   const [stepWidth, setStepWidth] = useState(0);
 

@@ -1,4 +1,3 @@
-import React from 'react';
 export type ArticleProps = {
     identifier: string;
     type: string;
@@ -11,12 +10,12 @@ export type ArticleProps = {
     isPaywallArticle?: boolean;
     isTRArticle?: boolean;
 };
-declare const ArticleTeaser: React.FC<{
+declare const ArticleTeaser: ({ article, teaserText, largeTeaserImage, smallTeaserImage, isBookmarked, handleBookmarkClick, }: {
     article: ArticleProps;
     teaserText?: boolean;
     largeTeaserImage?: boolean;
     smallTeaserImage?: boolean;
     isBookmarked: boolean;
     handleBookmarkClick: () => void;
-}>;
+}) => import("react/jsx-runtime").JSX.Element;
 export default ArticleTeaser;

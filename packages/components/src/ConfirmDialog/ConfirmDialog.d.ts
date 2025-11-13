@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { ModalProps } from '../Modal';
 export interface ConfirmDialogProps extends ModalProps {
     onConfirm: () => void;
@@ -7,5 +7,5 @@ export interface ConfirmDialogProps extends ModalProps {
     loading?: boolean;
     children?: ReactNode;
 }
-declare const ConfirmDialog: React.FC<ConfirmDialogProps>;
+declare const ConfirmDialog: ({ headline, onConfirm, onClose, buttonLabel, buttonDisabled, loading, wide: modalPropWide, width: modalPropWidth, children, }: ConfirmDialogProps) => import("react/jsx-runtime").JSX.Element;
 export default ConfirmDialog;

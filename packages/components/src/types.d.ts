@@ -11,8 +11,17 @@ declare module '*.md' {
 
 declare module '*.svg' {
   import React = require('react');
-  const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
+  const ReactComponent: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   export default ReactComponent;
+}
+
+// React 19 JSX module declaration
+declare module 'react/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      [key: string]: any;
+    }
+  }
 }
 
 // styled-components v6 Theme Declaration

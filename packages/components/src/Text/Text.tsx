@@ -59,7 +59,7 @@ const StyledText = styled.p.withConfig({
   ${textStyle}
 `;
 
-const Text: React.FC<TextProps> = ({ inline, as, ...props }) => (
+const Text = ({ inline, as, ...props }: TextProps) => (
   <StyledText as={as || (inline ? 'span' : 'p')} {...props} />
 );
 

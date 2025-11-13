@@ -173,7 +173,7 @@ const PlainSwitch = ({
   );
 };
 
-const Switch: React.FC<SwitchProps> = ({
+const Switch = ({
   checked,
   readOnly,
   onChange,
@@ -184,7 +184,7 @@ const Switch: React.FC<SwitchProps> = ({
   value,
   width: widthProp,
   ...marginProps
-}) => {
+}: SwitchProps) => {
   return (
     <StyledLabel
       variant={variantProp}

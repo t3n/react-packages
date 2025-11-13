@@ -45,7 +45,7 @@ export interface SocialButtonProps {
 export interface SocialNetworksProps {
   [key: string]: {
     name: string;
-    icon: React.FC<React.SVGProps<SVGSVGElement>>;
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     iconScale?: number;
   };
 }
@@ -155,7 +155,7 @@ const mapSocialButtonAttributes = ({
     }`,
 });
 
-const SocialButton: React.FC<SocialButtonProps> = (props) => {
+const SocialButton = (props: SocialButtonProps) => {
   const { iconLeft, children } = mapSocialButtonAttributes(props);
   return (
     <StyledSocialButton iconLeft={iconLeft} {...props}>

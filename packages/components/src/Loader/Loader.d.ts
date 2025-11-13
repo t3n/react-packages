@@ -5,5 +5,5 @@ export interface LoaderProps extends MarginProps {
     loaderSize?: string;
     color?: BackgroundColorProps['bg'];
 }
-declare const Loader: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<LoaderProps, never>> & string & Omit<({ small, loaderSize, color: bg, ...marginProps }: LoaderProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
+declare const Loader: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<LoaderProps, never>> & string & Omit<({ small, loaderSize, color: bg, ...marginProps }: LoaderProps) => import("react/jsx-runtime").JSX.Element, keyof React.Component<any, {}, any>>;
 export default Loader;

@@ -56,10 +56,7 @@ const LegacyBreadcrumbLink = styled.li`
   }
 `;
 
-const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps> = ({
-  href,
-  label,
-}) => {
+const LegacyBreadcrumbItem = ({ href, label }: LegacyBreadcrumbItemProps) => {
   return (
     <LegacyBreadcrumbLink>
       {href ? (

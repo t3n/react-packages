@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type JSX } from 'react';
 import styled from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
@@ -17,6 +17,10 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
     props: React.AnchorHTMLAttributes<HTMLAnchorElement> &
       Pick<LinkProps, 'variant' | 'children'> & { href: string },
   ) => JSX.Element;
+}
+
+interface BreadcrumbsProps {
+  children: React.ReactNode;
 }
 
 export const BreadcrumbsItem = styled(
@@ -82,7 +86,7 @@ const BreadcrumbsList = styled.ul`
   flex-wrap: wrap;
 `;
 
-const Breadcrumbs: React.FC<{ children?: ReactNode }> = ({ children }) => {
+const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
   return (
     <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>

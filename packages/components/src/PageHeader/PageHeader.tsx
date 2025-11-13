@@ -133,7 +133,7 @@ const VisibleOnMobile = styled.span`
     })}
 `;
 
-const PageHeader: React.FC<PageHeaderProps> = ({
+const PageHeader = ({
   pinnedTeaser,
   tags,
   ressorts,
@@ -146,7 +146,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   burgerCampaignImage,
   isLoggedIn,
   hasSubscription,
-}) => {
+}: PageHeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useBodyLock(isMenuOpen);
 

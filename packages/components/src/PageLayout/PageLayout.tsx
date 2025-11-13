@@ -25,7 +25,7 @@ const PageLayoutContainer = styled.div`
   }
 `;
 
-const PageLayout: React.FC<PageLayoutProps> = ({
+const PageLayout = ({
   privacyManagerId,
   pinnedTeaser,
   tags,
@@ -40,7 +40,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   isLoggedIn,
   hasSubscription,
   children,
-}) => {
+}: PageLayoutProps) => {
   return (
     <PageLayoutContainer>
       <PageHeader

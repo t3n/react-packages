@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type JSX, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { color, margin, MarginProps, padding, variant } from 'styled-system';
 
@@ -112,7 +112,7 @@ const StyledTag = styled.div.withConfig({
     `}
 `;
 
-const Tag: React.FC<TagProps> = ({
+const Tag = ({
   children,
   link,
   colorVariant,
@@ -120,7 +120,7 @@ const Tag: React.FC<TagProps> = ({
   icon,
   small,
   ...rest
-}) => (
+}: TagProps) => (
   <StyledTag
     as={link ? 'a' : 'div'}
     link={link}

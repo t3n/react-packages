@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { type JSX } from 'react';
 import Select, {
   components,
   GroupBase,

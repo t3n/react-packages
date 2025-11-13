@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { type JSX, useState } from 'react';
 import styled from 'styled-components';
 import { layout, margin } from 'styled-system';
 
@@ -41,13 +41,13 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
   }
 `;
 
-const TagList: React.FC<TagListProps> = ({
+const TagList = ({
   initialCollapsed = true,
   collapseAfter,
   small = false,
   colorVariant = 'secondary',
   tags,
-}) => {
+}: TagListProps) => {
   const [collapsed, setCollapsed] = useState<boolean>(!!initialCollapsed);
 
   if (tags.length <= collapseAfter) {

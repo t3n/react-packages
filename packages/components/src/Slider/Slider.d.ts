@@ -1,4 +1,3 @@
-import React from 'react';
 export interface SliderProps {
     name: string;
     min?: number;
@@ -8,5 +7,5 @@ export interface SliderProps {
     labels?: string[];
     onChange: (value: number) => void;
 }
-declare const Slider: React.FC<SliderProps>;
+declare const Slider: ({ name, min, max, step, value, labels, onChange, }: SliderProps) => import("react/jsx-runtime").JSX.Element;
 export default Slider;

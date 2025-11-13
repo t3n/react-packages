@@ -1,8 +1,7 @@
-import React from 'react';
 import { ArticleProps } from './ArticleTeaser';
-declare const Metabar: React.FC<{
+declare const Metabar: ({ article, isBookmarked, handleBookmarkClick, }: {
     article: ArticleProps;
     isBookmarked: boolean;
     handleBookmarkClick: () => void;
-}>;
+}) => import("react/jsx-runtime").JSX.Element;
 export default Metabar;

@@ -9,10 +9,10 @@ export interface SocialButtonProps {
 export interface SocialNetworksProps {
     [key: string]: {
         name: string;
-        icon: React.FC<React.SVGProps<SVGSVGElement>>;
+        icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
         iconScale?: number;
     };
 }
 export declare const socialNetworksConfig: SocialNetworksProps;
-declare const SocialButton: React.FC<SocialButtonProps>;
+declare const SocialButton: (props: SocialButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default SocialButton;
