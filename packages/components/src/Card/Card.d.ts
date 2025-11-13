@@ -12,5 +12,5 @@ export interface CardProps extends MarginProps, React.HTMLAttributes<HTMLAnchorE
     color?: string;
     width?: SizeProps['size'];
 }
-declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLAnchorElement | HTMLDivElement>>;
+declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement | HTMLAnchorElement>>;
 export default Card;
