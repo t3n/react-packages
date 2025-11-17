@@ -56,3 +56,19 @@ export const withLabelAndPlaceholder: Story = {
     placeholder: 'name@example.com',
   },
 };
+
+export const withLabelAndError: Story = {
+  args: {
+    label: 'Email address',
+    placeholder: 'name@example.com',
+    error: true,
+  },
+};
+
+export const withLabelAndDisabled: Story = {
+  args: {
+    label: 'Email address',
+    placeholder: 'name@example.com',
+    disabled: true,
+  },
+};
