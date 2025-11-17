@@ -49,12 +49,13 @@ const StyledInputWrapper = styled.div<WidthProps>`
   ${styledWidth};
 `;
 
-const StyledLabel = styled.label`
+const StyledLabel = styled.label<{ error?: boolean }>`
   display: block;
   font-family: ${({ theme }) => theme.fonts.default};
   font-size: 0.875rem;
   font-weight: 500;
-  color: ${getThemeColor('text.primary')};
+  color: ${({ theme, error }) =>
+    error ? theme.colors.feedback.error : theme.colors.text.primary};
   margin-bottom: ${({ theme }) => theme.space[1]}px;
 `;
 
