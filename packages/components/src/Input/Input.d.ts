@@ -10,6 +10,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
     error?: boolean;
     className?: string;
     hideReset?: boolean;
+    label?: string;
 }
 declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
 export default Input;

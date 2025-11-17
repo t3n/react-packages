@@ -45,3 +45,14 @@ export const withValue: Story = {
 export const withPlaceholder: Story = {
   args: { placeholder: 'Placeholder' },
 };
+
+export const withLabel: Story = {
+  args: { label: 'Email address' },
+};
+
+export const withLabelAndPlaceholder: Story = {
+  args: {
+    label: 'Email address',
+    placeholder: 'name@example.com',
+  },
+};

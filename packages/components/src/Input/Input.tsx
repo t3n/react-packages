@@ -2,6 +2,7 @@
 import React, {
   forwardRef,
   useEffect,
+  useId,
   useImperativeHandle,
   useRef,
   useState,
@@ -37,17 +38,31 @@ export interface InputProps
   error?: boolean;
   className?: string;
   hideReset?: boolean;
+  label?: string;
 }
 
 interface StyledNativeInputProps extends InputProps {
   isFocused: boolean;
 }
 
+const StyledInputWrapper = styled.div<WidthProps>`
+  ${styledWidth};
+`;
+
+const StyledLabel = styled.label`
+  display: block;
+  font-family: ${({ theme }) => theme.fonts.default};
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: ${getThemeColor('text.primary')};
+  margin-bottom: ${({ theme }) => theme.space[1]}px;
+`;
+
 const StyledInput = styled.div<InputProps>`
   position: relative;
   display: flex;
   align-items: center;
-  ${styledWidth};
+  width: 100%;
 `;
 
 const border = css`
@@ -133,6 +148,7 @@ const Input = forwardRef(
       value: controlledValue,
       defaultValue,
       hideReset = false,
+      label,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement | null>,
@@ -141,6 +157,8 @@ const Input = forwardRef(
     const [value, setValue] = useState(defaultValue || '');
     const [focused, setFocused] = useState(isFocused || false);
     const [revealPassword, setRevealPassword] = useState(false);
+    const generatedId = useId();
+    const inputId = props.id || generatedId;
 
     useImperativeHandle(ref, () => inputRef.current);
 
@@ -191,16 +209,18 @@ const Input = forwardRef(
       }
     }, [focused, type]);
 
-    return (
+    const inputElement = (
       <StyledInput
         disabled={disabled}
-        width={width}
         className={className}
         isFocused={focused}
         hideReset={hideReset}
       >
         <StyledNativeInput
-          aria-label={props['aria-label'] || `${inputType} Feld`}
+          id={inputId}
+          aria-label={
+            label ? undefined : props['aria-label'] || `${inputType} Feld`
+          }
           error={error}
           type={inputType}
           onFocus={handleFocus}
@@ -235,6 +255,13 @@ const Input = forwardRef(
           )
         ) : null}
       </StyledInput>
+    );
+
+    return (
+      <StyledInputWrapper width={width}>
+        {label && <StyledLabel htmlFor={inputId}>{label}</StyledLabel>}
+        {inputElement}
+      </StyledInputWrapper>
     );
   },
 );
