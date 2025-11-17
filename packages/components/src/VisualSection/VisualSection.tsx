@@ -7,7 +7,7 @@ import { ThemeProps } from '@t3n/theme';
 import Content from '../Content';
 import backgroundSVGData from './backgroundSVGData';
 
-export type VisualSectionVariants = 'primary' | 'highlight';
+export type VisualSectionVariants = 'primary' | 'highlight' | 'inverse';
 
 export interface VisualSectionProps {
   variant: VisualSectionVariants;
@@ -26,7 +26,7 @@ const VisualSectionOuter = styled.div<VisualSectionProps>`
     space({ py: innerGap, theme })};
 
   color: ${({ variant, theme }: VisualSectionProps & ThemeProps) =>
-    variant && variant === 'highlight'
+    variant && (variant === 'highlight' || variant === 'inverse')
       ? theme.colors.shades.white
       : theme.colors.text.primary};
 `;
