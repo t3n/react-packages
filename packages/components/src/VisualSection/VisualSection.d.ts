@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
-export type VisualSectionVariants = 'primary' | 'highlight';
+export type VisualSectionVariants = 'primary' | 'highlight' | 'inverse';
 export interface VisualSectionProps {
     variant: VisualSectionVariants;
     innerGap?: SpaceProps['py'];
