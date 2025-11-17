@@ -49,7 +49,7 @@ const StyledInputWrapper = styled.div<WidthProps>`
   ${styledWidth};
 `;
 
-const StyledLabel = styled.label<{ error?: boolean }>`
+const StyledLabel = styled.label<{ error?: boolean; disabled?: boolean }>`
   display: block;
   font-family: ${({ theme }) => theme.fonts.default};
   font-size: 0.875rem;
@@ -57,6 +57,7 @@ const StyledLabel = styled.label<{ error?: boolean }>`
   color: ${({ theme, error }) =>
     error ? theme.colors.feedback.error : theme.colors.text.primary};
   margin-bottom: ${({ theme }) => theme.space[1]}px;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
 
 const StyledInput = styled.div<InputProps>`
@@ -260,7 +261,11 @@ const Input = forwardRef(
 
     return (
       <StyledInputWrapper width={width}>
-        {label && <StyledLabel htmlFor={inputId}>{label}</StyledLabel>}
+        {label && (
+          <StyledLabel htmlFor={inputId} disabled={disabled} error={error}>
+            {label}
+          </StyledLabel>
+        )}
         {inputElement}
       </StyledInputWrapper>
     );
