@@ -80,13 +80,13 @@ const StyledAccordionContent = styled(Box)<{ collapsed: boolean }>`
   }
 `;
 
-const Accordion: React.FC<AccordionProps> = ({
+const Accordion = ({
   children,
   title,
   isOpen,
   onToggle,
   tabbable,
-}) => {
+}: AccordionProps) => {
   const collapsed = !isOpen;
   const contentRef = useRef<HTMLDivElement>(null);
 

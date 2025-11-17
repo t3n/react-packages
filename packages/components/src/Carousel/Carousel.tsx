@@ -92,20 +92,20 @@ const StyledRoundedButtonWrapper = styled.div<{ position: 'left' | 'right' }>`
   z-index: 1;
 `;
 
-const NextButton: React.FC<{
-  onClick?: () => void;
-  show: boolean;
-  label?: string;
-  customOnClick?: () => void;
-  isRoundedButton?: boolean;
-  isLastSlide?: boolean;
-}> = ({
+const NextButton = ({
   onClick,
   show = true,
   label,
   customOnClick,
   isRoundedButton,
   isLastSlide,
+}: {
+  onClick?: () => void;
+  show: boolean;
+  label?: string;
+  customOnClick?: () => void;
+  isRoundedButton?: boolean;
+  isLastSlide?: boolean;
 }) => {
   if (!show) return null;
 
@@ -126,13 +126,19 @@ const NextButton: React.FC<{
   );
 };
 
-const PrevButton: React.FC<{
+const PrevButton = ({
+  onClick,
+  show = true,
+  label,
+  customOnClick,
+  isRoundedButton,
+}: {
   onClick?: () => void;
   show: boolean;
   label?: string;
   customOnClick?: () => void;
   isRoundedButton?: boolean;
-}> = ({ onClick, show = true, label, customOnClick, isRoundedButton }) => {
+}) => {
   if (!show) return null;
 
   if (isRoundedButton) {
@@ -153,7 +159,7 @@ const PrevButton: React.FC<{
   );
 };
 
-const Carousel: React.FC<CarouselProps> = ({
+const Carousel = ({
   slidesToShow = 1,
   slidesToScroll = 1,
   responsive,
@@ -171,7 +177,7 @@ const Carousel: React.FC<CarouselProps> = ({
   onChange,
   children,
   adaptiveHeight,
-}) => {
+}: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slidesAmount = React.Children.count(children);
 

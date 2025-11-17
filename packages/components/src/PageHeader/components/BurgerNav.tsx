@@ -53,8 +53,19 @@ const MenuToggleBox = styled(Box)`
   }
 `;
 
+interface MenuToggleProps {
+  doNotDisplayMobile?: boolean;
+  doNotDisplayDesktop?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+}
+
 const MenuToggle = styled(
-  ({ doNotDisplayMobile, doNotDisplayDesktop, onClick, ...props }) => (
+  ({
+    doNotDisplayMobile,
+    doNotDisplayDesktop,
+    onClick,
+    ...props
+  }: MenuToggleProps & any) => (
     <Icon
       {...props}
       role="button"
@@ -166,7 +177,7 @@ const ObjectFitImage = styled(Image)`
   object-fit: cover;
 `;
 
-const BurgerNav: React.FC<BurgerNavProps> = ({
+const BurgerNav = ({
   ressorts,
   skills,
   brands,
@@ -176,7 +187,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   isLoggedIn,
   isMenuOpen,
   onMenuOpenClick,
-}) => {
+}: BurgerNavProps) => {
   const [term, setTerm] = useState('');
   const tabbable = isMenuOpen;
 

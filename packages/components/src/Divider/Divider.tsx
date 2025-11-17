@@ -13,7 +13,7 @@ export type DividerVariants = 'primary' | 'inverse';
 
 export interface DividerProps extends WidthProps, MarginProps {
   variant?: DividerVariants;
-  iconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconComponent?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   children?: ReactNode;
 }
 
@@ -54,13 +54,13 @@ const StyledIcon = styled(Icon)<Pick<DividerProps, 'variant'>>`
     })};
 `;
 
-const Divider: React.FC<DividerProps> = ({
+const Divider = ({
   children,
   variant: variantProp = 'primary',
   iconComponent,
   my = 3,
   ...rest
-}) => (
+}: DividerProps) => (
   <StyledBox
     display="flex"
     alignItems="center"

@@ -19,11 +19,15 @@ const FlexText = styled(Text)`
   align-items: center;
 `;
 
-const Metabar: React.FC<{
+const Metabar = ({
+  article,
+  isBookmarked,
+  handleBookmarkClick,
+}: {
   article: ArticleProps;
   isBookmarked: boolean;
   handleBookmarkClick: () => void;
-}> = ({ article, isBookmarked, handleBookmarkClick }) => {
+}) => {
   return (
     <Box
       pt={2}

@@ -95,11 +95,21 @@ const cardStyles = css<CardProps>`
   }
 `;
 
-const StyledCard = styled.div<CardProps>`
+const StyledCard = styled.div.withConfig({
+  shouldForwardProp: (prop) =>
+    !['rounded', 'big', 'dashed', 'elevate', 'splitted', 'stretch'].includes(
+      prop,
+    ),
+})<CardProps>`
   ${cardStyles}
 `;
 
-const StyledLinkCard = styled.a<CardProps>`
+const StyledLinkCard = styled.a.withConfig({
+  shouldForwardProp: (prop) =>
+    !['rounded', 'big', 'dashed', 'elevate', 'splitted', 'stretch'].includes(
+      prop,
+    ),
+})<CardProps>`
   ${cardStyles}
 
   &:hover {
@@ -109,10 +119,7 @@ const StyledLinkCard = styled.a<CardProps>`
   }
 `;
 
-const Card: React.FC<CardProps> = React.forwardRef<
-  HTMLAnchorElement | HTMLDivElement,
-  CardProps
->(
+const Card = React.forwardRef<HTMLAnchorElement | HTMLDivElement, CardProps>(
   (
     {
       href,

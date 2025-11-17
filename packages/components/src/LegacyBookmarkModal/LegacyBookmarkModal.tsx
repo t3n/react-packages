@@ -24,9 +24,7 @@ const OverflowModalWrapper = styled(Box)`
   }
 `;
 
-const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps> = ({
-  onClose,
-}) => {
+const LegacyBookmarkModal = ({ onClose }: LegacyBookmarkModalProps) => {
   return (
     <OverflowModalWrapper>
       <Modal

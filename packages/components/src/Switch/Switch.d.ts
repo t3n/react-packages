@@ -13,5 +13,5 @@ export interface SwitchProps extends MarginProps, WidthProps {
     readOnly?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-declare const Switch: React.FC<SwitchProps>;
+declare const Switch: ({ checked, readOnly, onChange, label, disabled, variant: variantProp, name, value, width: widthProp, ...marginProps }: SwitchProps) => import("react/jsx-runtime").JSX.Element;
 export default Switch;

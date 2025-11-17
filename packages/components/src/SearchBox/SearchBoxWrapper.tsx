@@ -133,12 +133,12 @@ type SearchBoxWrapperProps = {
   tabbable?: boolean;
 };
 
-const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
+const SearchBoxWrapper = ({
   variantProp,
   isLoading,
   tabbable,
   children,
-}) => {
+}: SearchBoxWrapperProps) => {
   return (
     <Wrapper variant={variantProp}>
       <InputWrapper variant={variantProp}>{children}</InputWrapper>

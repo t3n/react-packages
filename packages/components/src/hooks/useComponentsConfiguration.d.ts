@@ -12,6 +12,6 @@ export type ComponentsConfigurationProviderProps = {
 };
 export declare const defaultComponentsConfiguration: ComponentsConfiguration;
 export declare const ComponentsConfigurationContext: React.Context<ComponentsConfiguration>;
-export declare const ComponentsConfigurationProvider: React.FC<ComponentsConfigurationProviderProps>;
+export declare const ComponentsConfigurationProvider: ({ children, configuration, }: ComponentsConfigurationProviderProps) => import("react/jsx-runtime").JSX.Element;
 declare const useComponentsConfiguration: () => ComponentsConfiguration;
 export default useComponentsConfiguration;

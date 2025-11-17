@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { SpaceProps } from 'styled-system';
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 export interface SectionProps {
@@ -8,5 +8,8 @@ export interface SectionProps {
     innerGap?: SpaceProps['py'];
     children?: ReactNode;
 }
-declare const Section: React.FC<SectionProps>;
+declare const Section: {
+    ({ variant, wide, small, children, innerGap, }: SectionProps): import("react/jsx-runtime").JSX.Element;
+    displayName: string;
+};
 export default Section;

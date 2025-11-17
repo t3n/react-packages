@@ -28,7 +28,7 @@ const TRBadgeWrapper = styled.span`
   white-space: nowrap;
 `;
 
-const TRBadge: React.FC = () => {
+const TRBadge = () => {
   return <TRBadgeWrapper>MIT Technology Review</TRBadgeWrapper>;
 };
 
