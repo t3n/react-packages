@@ -152,7 +152,7 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
         { label: 'Dein Abo', url: '/dein-abo' },
         {
           label: 'Jetzt abonnieren',
-          url: 'https://l.t3n.de/abos/',
+          url: '/abos/',
         },
         { label: 'News', url: '/news/' },
         { label: 'Magazin', url: '/magazin/' },

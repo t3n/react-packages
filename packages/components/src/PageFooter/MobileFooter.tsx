@@ -66,7 +66,7 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
     },
     {
       label: 'Jetzt abonnieren',
-      url: 'https://l.t3n.de/abos/',
+      url: '/abos/',
     },
     {
       label: 'Team',
