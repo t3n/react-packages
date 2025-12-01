@@ -1,4 +1,4 @@
-import React from 'react';
+import { type JSX } from 'react';
 export interface LegacySocialBarProps {
     className?: string;
     isInFooter?: boolean;
@@ -10,5 +10,5 @@ export type SocialLinkType = {
     rel?: string;
     target?: string;
 }[];
-declare const LegacySocialBar: React.FC<LegacySocialBarProps>;
+declare const LegacySocialBar: ({ className, isInFooter }: LegacySocialBarProps) => import("react/jsx-runtime").JSX.Element;
 export default LegacySocialBar;

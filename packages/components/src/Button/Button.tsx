@@ -36,8 +36,8 @@ export interface ButtonProps
   color?: ButtonColorVariant;
   size?: ButtonSizeVariant;
 
-  iconLeft?: React.FC<React.SVGProps<SVGSVGElement>>;
-  iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
   loading?: boolean;
   as?: ButtonAsType;
@@ -81,7 +81,7 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const buttonStyles = css`
+export const buttonStyles = css<ButtonProps & ThemeProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +172,7 @@ export const buttonStyles = css`
 
   ${({ loading }) =>
     !loading &&
-    css`
+    css<ButtonProps & ThemeProps>`
       &:disabled {
         opacity: 0.6;
 
@@ -190,11 +190,14 @@ export const buttonStyles = css`
 const StyledButton = styled(
   // eslint-disable-next-line react/button-has-type
   ({ loading, ...rest }: ButtonProps) => <button {...rest} />,
-)<ButtonProps>`
+).withConfig({
+  shouldForwardProp: (prop) =>
+    !['size', 'loading', 'variant', 'iconLeft', 'iconRight'].includes(prop),
+})<ButtonProps & ThemeProps>`
   ${buttonStyles}
 `;
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   loading,
   iconLeft,
@@ -207,7 +210,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled,
   ...rest
-}) => (
+}: ButtonProps) => (
   <StyledButton
     href={href}
     as={href ? 'a' : as}

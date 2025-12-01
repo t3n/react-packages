@@ -6,5 +6,5 @@ type SearchBoxWrapperProps = {
     children: React.ReactNode;
     tabbable?: boolean;
 };
-declare const SearchBoxWrapper: React.FC<SearchBoxWrapperProps>;
+declare const SearchBoxWrapper: ({ variantProp, isLoading, tabbable, children, }: SearchBoxWrapperProps) => import("react/jsx-runtime").JSX.Element;
 export default SearchBoxWrapper;

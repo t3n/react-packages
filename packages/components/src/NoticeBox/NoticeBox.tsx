@@ -42,9 +42,7 @@ const StyledNoticeBox = styled(Box)`
   }
 `;
 
-export const NoticeBoxText: React.FC<{ children?: ReactNode }> = ({
-  children,
-}) => {
+export const NoticeBoxText = ({ children }: { children: React.ReactNode }) => {
   return (
     <Text m={0} width="100%">
       {children}
@@ -52,7 +50,7 @@ export const NoticeBoxText: React.FC<{ children?: ReactNode }> = ({
   );
 };
 
-const NoticeBox: React.FC<NoticeBoxProps> = ({ children, ...rest }) => {
+const NoticeBox = ({ children, ...rest }: NoticeBoxProps) => {
   return (
     <StyledNoticeBox display="flex" alignItems="center" p={3} {...rest}>
       {children}

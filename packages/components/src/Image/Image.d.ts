@@ -27,5 +27,5 @@ export declare const generateFastlySrc: (src: string, imageClass: string, cdnCon
 export declare const generateSrcSet: (src: string, optimizationClassMapping: OptimizationClassMapping, cdnConfiguration: CdnComponentsConfiguration) => string | undefined;
 export declare const generatePlaceholderSrc: (src: string, cdnConfiguration: CdnComponentsConfiguration) => string;
 export declare const generateSizesAttribute: (sizes: ImageProps["sizes"], theme: Theme) => string | undefined;
-declare const Image: React.FC<ImageProps>;
+declare const Image: ({ placeholder, lazy, optimizationClass, classMapping, src, srcSet, sizes, width, height, imageWidth, imageHeight, ...props }: ImageProps) => import("react/jsx-runtime").JSX.Element;
 export default Image;

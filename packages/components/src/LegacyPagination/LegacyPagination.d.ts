@@ -1,4 +1,3 @@
-import React from 'react';
 export interface LegacyPaginationProps {
     currentPage: number;
     totalPages: number;
@@ -8,5 +7,5 @@ export interface LegacyPaginationProps {
 export interface LegacyPaginationContainerProps {
     disabled?: boolean;
 }
-declare const LegacyPagination: React.FC<LegacyPaginationProps>;
+declare const LegacyPagination: ({ currentPage, totalPages, maxPageLinks, onClick, }: LegacyPaginationProps) => import("react/jsx-runtime").JSX.Element;
 export default LegacyPagination;

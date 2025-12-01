@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import { TextColorProps } from 'styled-system';
+import { ReactNode } from 'react';
+import { ColorProps, FlexboxProps, LayoutProps, TextColorProps } from 'styled-system';
 export interface AvatarImageProps {
     optimizeSrc?: boolean;
     src?: string;
@@ -9,9 +9,9 @@ export interface AvatarImageProps {
     loading?: boolean;
     children?: ReactNode;
 }
-export interface AvatarProps extends Omit<AvatarImageProps, 'className'> {
+export interface AvatarProps extends Omit<AvatarImageProps, 'className'>, Omit<LayoutProps, 'size'>, FlexboxProps, ColorProps {
     label?: string;
     textColor?: TextColorProps['color'];
 }
-declare const Avatar: React.FC<AvatarProps>;
+declare const Avatar: ({ label, textColor, children, ...rest }: AvatarProps) => import("react/jsx-runtime").JSX.Element;
 export default Avatar;

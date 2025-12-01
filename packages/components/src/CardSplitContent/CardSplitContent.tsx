@@ -25,10 +25,7 @@ const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
   ${size}
 `;
 
-const CardSplitContent: React.FC<CardSplitContentProps> = ({
-  children,
-  variant,
-}) => {
+const CardSplitContent = ({ children, variant }: CardSplitContentProps) => {
   const backgroundColor = variant
     ? `background.${variant}`
     : 'background.primary';

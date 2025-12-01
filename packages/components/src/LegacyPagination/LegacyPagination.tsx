@@ -65,12 +65,12 @@ const LegacyPaginationElipses = () => (
   </Box>
 );
 
-const LegacyPagination: React.FC<LegacyPaginationProps> = ({
+const LegacyPagination = ({
   currentPage,
   totalPages,
   maxPageLinks,
   onClick,
-}) => {
+}: LegacyPaginationProps) => {
   const prevPage = currentPage - 1;
 
   return (
