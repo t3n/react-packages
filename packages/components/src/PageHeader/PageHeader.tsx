@@ -201,7 +201,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             ) : (
               <RoundedButton
                 as="a"
-                href="/abos/"
+                href="/abos"
                 title="t3n Abos Landingpage"
                 className="t-header__abo-button"
                 mr={2}
