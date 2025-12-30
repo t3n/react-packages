@@ -224,7 +224,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   loginLink = '/account/login',
   logoutLink = '/account/logout',
   isPlusUser = false,
-  aboLink = '/account/',
+  aboLink = '/account',
   readingListLink = '/account/merkliste',
   accountLink = '/account/edit',
   light,
