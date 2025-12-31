@@ -5,8 +5,6 @@ import { border, color, layout, space, typography } from 'styled-system';
 import Box from '../Box';
 import Grid from '../Grid';
 import GridItem from '../GridItem';
-import useComponentsConfiguration from '../hooks/useComponentsConfiguration';
-import Image from '../Image';
 import Text from '../Text';
 
 export type DesktopLinkGroupsType = {
@@ -78,25 +76,9 @@ const DesktopLinkGroup = styled(GridItem)`
   }
 `;
 
-const DesktopBottomWrapper = styled(Box)`
-  ${({ theme }) =>
-    border({
-      theme,
-      borderWidth: 0,
-      borderColor: 'shades.grey95',
-      borderStyle: 'solid',
-      borderTopWidth: 1,
-    })};
-`;
-
 const MissonStatement = styled(Text)`
   font-size: 1.625rem;
   line-height: 36px;
-`;
-
-const ExtraSmallText = styled(Text)`
-  ${({ theme }) => typography({ theme, fontSize: '12px', lineHeight: '1.5em' })}
-  line-height: 1.5em !important;
 `;
 
 const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
@@ -213,86 +195,24 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
 };
 
 const DesktopBottom = () => {
-  const { cdn } = useComponentsConfiguration();
-
   return (
-    <DesktopBottomWrapper my={[2, 4, 6]} mx="10px">
-      <Grid>
-        <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
-          <Box m="10px">
-            <ExtraSmallText my="12px">IVW-geprüft</ExtraSmallText>
-            <Box pt="20px" display="flex" alignItems="center">
-              <FooterLink
-                href="https://www.ivw.de"
-                target="_blank"
-                title="Die externe Seite im neuen Tab/Fenster öffnen"
-                rel="noreferrer noopener"
-              >
-                <Image
-                  src={`https://${cdn.hostname}/global/images/logos/ivw.png`}
-                  width="50px"
-                  height="50px"
-                  alt="IVW"
-                  sizes={50}
-                />
-              </FooterLink>
-            </Box>
-          </Box>
-        </GridItem>
-        <GridItem width={[1, 1 / 2]} display="flex" flexDirection="column">
-          <Box m="10px">
-            <ExtraSmallText my="12px">Ausgezeichnet von kununu</ExtraSmallText>
-            <Box pt="20px">
-              <Box mr="20px" display="inline">
-                <FooterLink
-                  href="https://www.kununu.com/de/t3n"
-                  rel="nofollow noopener noreferrer"
-                  target="_blank"
-                  title="Die externe Seite im neuen Tab/Fenster öffnen"
-                >
-                  <Image
-                    src={`https://${cdn.hostname}/global/images/logos/kununu-top-company.png`}
-                    width="87px"
-                    alt="kununu Top Company"
-                    sizes={87}
-                  />
-                </FooterLink>
-              </Box>
-              <FooterLink
-                href="https://www.kununu.com/de/t3n"
-                rel="nofollow noopener noreferrer"
-                target="_blank"
-                title="Die externe Seite im neuen Tab/Fenster öffnen"
-              >
-                <Image
-                  src={`https://${cdn.hostname}/global/images/logos/kununu-open-company.png`}
-                  width="87px"
-                  alt="kununu Open Company"
-                  sizes={87}
-                />
-              </FooterLink>
-            </Box>
-          </Box>
-        </GridItem>
-      </Grid>
-      <Box mt="40px" mb="10px">
-        <Box width={1} height="55px">
-          <FooterLink href="/" className="js-switch-to-mobile">
-            Mobile Seite
-          </FooterLink>{' '}
-          • ©{' '}
-          <FooterLink
-            href="https://yeebase.com/"
-            target="_blank"
-            title="Die externe Seite im neuen Tab/Fenster öffnen"
-            rel="noreferrer noopener"
-          >
-            yeebase media GmbH
-          </FooterLink>{' '}
-          2005 - {new Date().getFullYear()}
-        </Box>
+    <Box mt="40px" mb="10px">
+      <Box width={1} height="55px">
+        <FooterLink href="/" className="js-switch-to-mobile">
+          Mobile Seite
+        </FooterLink>{' '}
+        • ©{' '}
+        <FooterLink
+          href="https://yeebase.com/"
+          target="_blank"
+          title="Die externe Seite im neuen Tab/Fenster öffnen"
+          rel="noreferrer noopener"
+        >
+          yeebase media GmbH
+        </FooterLink>{' '}
+        2005 - {new Date().getFullYear()}
       </Box>
-    </DesktopBottomWrapper>
+    </Box>
   );
 };
 
