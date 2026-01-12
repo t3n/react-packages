@@ -261,7 +261,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 <T3nPlus
                   width="22px"
                   height="18px"
-                  style={{ marginRight: 4 }}
+                  style={{ marginRight: 8 }}
                 />
                 Plus
               </a>
