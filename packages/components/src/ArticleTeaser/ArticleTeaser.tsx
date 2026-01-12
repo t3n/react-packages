@@ -83,7 +83,7 @@ const ArticleTeaser: React.FC<{
                 <T3nPlus
                   width="22px"
                   height="18px"
-                  style={{ marginRight: 4 }}
+                  style={{ marginRight: 8 }}
                 />
               )}
               {article.isTRArticle && <TRBadge />}
