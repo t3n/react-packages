@@ -306,7 +306,7 @@ const BurgerNav = ({
         </a>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
-            href="/dein-abo/"
+            href="/dein-abo"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >

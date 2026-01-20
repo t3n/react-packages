@@ -66,7 +66,7 @@ const MobileLinks = ({ privacyManagerId }: MobileFooterProps) => {
     },
     {
       label: 'Jetzt abonnieren',
-      url: 'https://l.t3n.de/abos/',
+      url: '/abos',
     },
     {
       label: 'Team',
@@ -74,7 +74,7 @@ const MobileLinks = ({ privacyManagerId }: MobileFooterProps) => {
     },
     {
       label: 'Jobs bei t3n',
-      url: '/jobs-bei-t3n/',
+      url: '/jobs-bei-t3n',
     },
     {
       label: 'Mediadaten',
@@ -102,7 +102,7 @@ const MobileLinks = ({ privacyManagerId }: MobileFooterProps) => {
     },
     {
       label: 'Abo kündigen',
-      url: '/abo-kuendigen/',
+      url: '/abo-kuendigen',
     },
     {
       label: 'Kontakt',
