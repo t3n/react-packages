@@ -59,7 +59,9 @@ const meta: Meta<ComponentType<SearchBoxProps<TSuggestion>>> = {
     suggestions: allSuggestions,
     isLoading: false,
     placeholder: 'Suche nach News und mehr',
-    handleSuggestionFetchRequested: () => {},
+    handleSuggestionFetchRequested: () => {
+      /* empty */
+    },
     renderSuggestion: (suggestion: TSuggestion) => (
       <Text>{suggestion.title}</Text>
     ),

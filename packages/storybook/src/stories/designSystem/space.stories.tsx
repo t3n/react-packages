@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import styled, { ThemeConsumer } from 'styled-components';
+import { styled, ThemeConsumer } from 'styled-components';
 import { color, ColorProps, width, WidthProps } from 'styled-system';
 
 import { Grid, GridItem } from '@t3n/components';
@@ -29,17 +29,18 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
 `;
 
+// TODO: Correctly consume typed theme
 export const spaces = () => (
   <ThemeConsumer>
-    {(theme: Theme) => (
+    {(theme) => (
       <Grid>
-        {theme.space.map((s: number, idx: number) => (
+        {(theme as Theme).space.map((s: number, idx: number) => (
           <GridItem width={1} key={s}>
             <Wrapper>
               <SpaceBox
                 width={s}
                 color="shades.white"
-                bg={theme.colors.background.highlight}
+                bg={(theme as Theme).colors.background.highlight}
               />
               {idx} / {s} px
             </Wrapper>

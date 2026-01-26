@@ -1,16 +1,16 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import type { Preview } from '@storybook/react';
-
-import { GlobalStyle, ComponentsConfigurationProvider } from '@t3n/components';
-import { theme } from '@t3n/theme';
-
-import viewports from './viewports';
-import StorybookGlobalStyle from './GlobalStyle';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+import React from 'react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import type { Preview } from '@storybook/react';
+import { ThemeProvider } from 'styled-components';
+
+import { ComponentsConfigurationProvider, GlobalStyle } from '@t3n/components';
+import { theme } from '@t3n/theme';
+
+import StorybookGlobalStyle from './GlobalStyle';
+import viewports from './viewports';
 
 const preview: Preview = {
   parameters: {
@@ -43,7 +43,7 @@ const preview: Preview = {
           }}
         >
           <ThemeProvider theme={theme}>
-            <GlobalStyle />
+            <GlobalStyle theme={theme} />
             <StorybookGlobalStyle />
             <Story />
           </ThemeProvider>
