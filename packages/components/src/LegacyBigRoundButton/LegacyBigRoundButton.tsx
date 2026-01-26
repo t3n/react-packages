@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, layout, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -19,7 +19,7 @@ const MarginTopTooltip = styled(Tooltip)`
   ${({ theme }) => space({ theme, mt: 3 })};
 `;
 
-const BigRoundButton = styled(Button)`
+const BigRoundButton = styled(Button)<ThemeProps>`
   border-radius: 100%;
   border: unset;
   ${({ theme }) => space({ p: '10px', theme })};
@@ -38,11 +38,11 @@ const BigRoundButton = styled(Button)`
 
     > svg,
     > svg > path:first-child {
-      fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse} !important;
+      fill: ${({ theme }) => theme.colors.text.inverse} !important;
     }
 
     > svg > path:nth-child(2) {
-      fill: ${({ theme }: ThemeProps) => theme.colors.text.primary} !important;
+      fill: ${({ theme }) => theme.colors.text.primary} !important;
     }
   }
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import {
   boxShadow as styledBoxShadow,
   color as styledColor,
@@ -13,33 +13,51 @@ import { ThemeProps } from '@t3n/theme';
 
 import CardHeader, { CardHeaderContent } from '../CardHeader';
 
-// TODO: Fix polymorphic interface
-
-export interface CardProps
-  extends MarginProps,
-    React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
+// Base props shared by both variants
+interface BaseCardProps extends MarginProps {
   rounded?: boolean;
   big?: boolean;
   stretch?: boolean;
   elevate?: boolean;
   dashed?: boolean;
   splitted?: boolean;
-  href?: string | false;
-  targetBlank?: boolean;
   color?: string;
   width?: SizeProps['size'];
 }
 
+// Props when Card is an anchor element
+interface CardAsAnchorProps
+  extends
+    BaseCardProps,
+    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof BaseCardProps> {
+  href: string;
+  targetBlank?: boolean;
+}
+
+// Props when Card is a div element
+interface CardAsDivProps
+  extends
+    BaseCardProps,
+    Omit<React.HTMLAttributes<HTMLDivElement>, keyof BaseCardProps> {
+  href?: never;
+  targetBlank?: never;
+}
+
+// Discriminated union type
+export type CardProps = CardAsAnchorProps | CardAsDivProps;
+
 const borderRadius = ({ rounded, theme }: CardProps & ThemeProps) =>
   `border-radius: ${rounded ? theme.border.radii[1] : 0};`;
 
-const padding = ({ big, splitted, theme }: CardProps & ThemeProps) =>
-  // eslint-disable-next-line no-nested-ternary
-  big
-    ? space({ p: [4, 7], theme })
-    : splitted
-      ? space({ p: 0, theme })
-      : space({ p: [3, 4], theme });
+const padding = ({ big, splitted, theme }: CardProps & ThemeProps) => {
+  if (big) {
+    return space({ p: [4, 7], theme });
+  }
+  if (splitted) {
+    return space({ p: 0, theme });
+  }
+  return space({ p: [3, 4], theme });
+};
 
 const cardColor = ({ color: c, theme }: CardProps & ThemeProps) =>
   styledColor({ color: c, theme });
@@ -63,7 +81,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps & ThemeProps) => {
   return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
-const cardStyles = css<CardProps>`
+const cardStyles = css<CardProps & ThemeProps>`
   display: block;
   background-color: white;
   display: flex;
@@ -100,7 +118,7 @@ const StyledCard = styled.div.withConfig({
     !['rounded', 'big', 'dashed', 'elevate', 'splitted', 'stretch'].includes(
       prop,
     ),
-})<CardProps>`
+})<CardProps & ThemeProps>`
   ${cardStyles}
 `;
 
@@ -109,51 +127,52 @@ const StyledLinkCard = styled.a.withConfig({
     !['rounded', 'big', 'dashed', 'elevate', 'splitted', 'stretch'].includes(
       prop,
     ),
-})<CardProps>`
+})<CardProps & ThemeProps>`
   ${cardStyles}
 
   &:hover {
     ${shadow.hover}
-    ${({ href }: CardProps) =>
-      href ? `transform: translate3d(0,-2px, 0);` : ''}
+    ${({ href }) => (href ? `transform: translate3d(0,-2px, 0);` : '')}
   }
 `;
 
-const Card = React.forwardRef<HTMLAnchorElement | HTMLDivElement, CardProps>(
-  (
-    {
-      href,
-      targetBlank,
-      rounded = true,
-      color = 'text.primary',
-      width = 1,
-      mb = 3,
-      ...props
-    },
-    ref,
-  ) =>
-    href ? (
+const Card = ({
+  ref,
+  rounded = true,
+  color = 'text.primary',
+  width = 1,
+  mb = 3,
+  ...props
+}: CardProps & {
+  ref?: React.RefObject<HTMLAnchorElement | HTMLDivElement | null>;
+}) => {
+  const isAnchor = 'href' in props && props.href;
+
+  if (isAnchor) {
+    return (
       <StyledLinkCard
-        href={href}
-        target={targetBlank ? '_blank' : undefined}
+        {...props}
+        target={props.targetBlank ? '_blank' : undefined}
         rounded={rounded}
         color={color}
         width={width}
         mb={mb}
-        {...props}
         ref={ref as React.ForwardedRef<HTMLAnchorElement>}
       />
-    ) : (
-      <StyledCard
-        rounded={rounded}
-        color={color}
-        width={width}
-        mb={mb}
-        {...props}
-        ref={ref as React.ForwardedRef<HTMLDivElement>}
-      />
-    ),
-);
+    );
+  }
+
+  return (
+    <StyledCard
+      {...props}
+      rounded={rounded}
+      color={color}
+      width={width}
+      mb={mb}
+      ref={ref as React.ForwardedRef<HTMLDivElement>}
+    />
+  );
+};
 
 Card.displayName = 'Card';
 

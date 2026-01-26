@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { LabelHTMLAttributes, ReactNode } from 'react';
+import { styled } from 'styled-components';
 import { margin, MarginProps, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -8,7 +8,8 @@ import Box from '../Box';
 import Text from '../Text';
 
 export interface FormGroupProps
-  extends React.LabelHTMLAttributes<HTMLLabelElement>,
+  extends
+    LabelHTMLAttributes<HTMLLabelElement>,
     Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'> {
   label: string;
   labelSecondary?: string;
@@ -17,9 +18,9 @@ export interface FormGroupProps
   children?: ReactNode;
 }
 
-const Label = styled.span`
+const Label = styled.span<ThemeProps>`
   display: inline-block;
-  ${({ theme }: ThemeProps) => space({ mr: 1, theme })};
+  ${({ theme }) => space({ mr: 1, theme })};
 `;
 
 const LabelEnd = styled.span`

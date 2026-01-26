@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, layout, space } from 'styled-system';
 
 import { MaterialMailOutline, T3nLogo } from '@t3n/icons';
+import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import useBodyLock from '../hooks/useBodyLock';
@@ -11,16 +12,16 @@ import RoundedButton from '../RoundedButton';
 import BurgerNav from './components/BurgerNav';
 import TagBar from './components/TagBar';
 
-export type PageHeaderLinksType = {
+export interface PageHeaderLinksType {
   label: string;
   url: string;
-};
+}
 
-export type PageHeaderTeaserImageType = {
+export interface PageHeaderTeaserImageType {
   title: string;
   url: string;
   image: string;
-};
+}
 
 export interface PageHeaderProps {
   pinnedTeaser: PageHeaderLinksType & {
@@ -65,7 +66,7 @@ const PageHeaderWrapper = styled.nav`
   ${({ theme }) => color({ theme, bg: 'background.primary' })}
 `;
 
-const InnerWrapper = styled.div`
+const InnerWrapper = styled.div<ThemeProps>`
   margin: 0 auto;
   height: 65px;
   display: flex;
@@ -91,7 +92,7 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const HeaderCampaign = styled(Box)`
+const HeaderCampaign = styled(Box)<ThemeProps>`
   overflow: hidden;
   height: 100%;
 

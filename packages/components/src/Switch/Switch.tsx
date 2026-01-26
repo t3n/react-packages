@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { MarginProps, space, variant, width, WidthProps } from 'styled-system';
 
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';

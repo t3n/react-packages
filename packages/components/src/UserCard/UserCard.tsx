@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import {
@@ -27,9 +27,12 @@ export type SocialLinkType =
   | 'HOMEPAGE'
   | 'LINKEDIN';
 
-export type SocialLink = { url: string; type: SocialLinkType };
+export interface SocialLink {
+  url: string;
+  type: SocialLinkType;
+}
 
-export type UserCardProps = {
+export interface UserCardProps {
   user: {
     id: number;
     name: string;
@@ -50,26 +53,25 @@ export type UserCardProps = {
   compact: boolean;
   secondary?: boolean;
   children?: ReactNode;
-};
+}
 
-const StyledCard = styled(Card)`
+const StyledCard = styled(Card)<ThemeProps>`
   position: relative;
   height: 100%;
 
-  ${({ theme }: ThemeProps) => space({ pt: [4, 5], theme })};
+  ${({ theme }) => space({ pt: [4, 5], theme })};
 `;
 
-const StyledBadge = styled(Badge)`
+const StyledBadge = styled(Badge)<ThemeProps>`
   position: absolute;
   top: 8px;
   right: 8px;
 `;
 
-const SocialButton = styled(Button)`
+const SocialButton = styled(Button)<ThemeProps>`
   border-radius: 50%;
   border: 0;
-  background-color: ${({ theme }: ThemeProps) =>
-    theme.colors.background.secondary};
+  background-color: ${({ theme }) => theme.colors.background.secondary};
   width: 32px;
   height: 32px;
   align-items: center;
@@ -87,9 +89,8 @@ const SocialButton = styled(Button)`
   }
 `;
 
-const StyledDefaultBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+const StyledDefaultBox = styled(Box)<ThemeProps>`
+  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
     display: grid;
     justify-content: center;
     text-align: center;
@@ -110,9 +111,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const SocialLinksBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+const SocialLinksBox = styled(Box)<ThemeProps>`
+  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
     justify-content: center;
   }
 `;

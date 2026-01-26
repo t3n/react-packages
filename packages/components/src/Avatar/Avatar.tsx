@@ -1,6 +1,5 @@
-/* eslint-disable react/require-default-props */
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   border,
   color,
@@ -27,7 +26,8 @@ export interface AvatarImageProps {
 }
 
 export interface AvatarProps
-  extends Omit<AvatarImageProps, 'className'>,
+  extends
+    Omit<AvatarImageProps, 'className'>,
     Omit<LayoutProps, 'size'>,
     FlexboxProps,
     ColorProps {
@@ -74,7 +74,7 @@ const DefaultAvatar = styled(Box)
     })};
 `;
 
-const StyledText = styled((props: any) => <Text {...props} />)`
+const StyledText = styled((props) => <Text {...props} />)`
   user-select: none;
   text-transform: uppercase;
 `;

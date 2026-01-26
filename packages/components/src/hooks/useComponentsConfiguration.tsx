@@ -1,16 +1,18 @@
-import React, { createContext, ReactNode, useContext } from 'react';
+import React, { createContext, ReactNode, use } from 'react';
 
-export type CdnComponentsConfiguration = {
+export interface CdnComponentsConfiguration {
   hostname: string;
   originHostnames: string[];
-};
+}
 
-export type ComponentsConfiguration = { cdn: CdnComponentsConfiguration };
+export interface ComponentsConfiguration {
+  cdn: CdnComponentsConfiguration;
+}
 
-export type ComponentsConfigurationProviderProps = {
+export interface ComponentsConfigurationProviderProps {
   children: ReactNode;
   configuration: ComponentsConfiguration;
-};
+}
 
 export const defaultComponentsConfiguration: ComponentsConfiguration = {
   cdn: {
@@ -31,13 +33,12 @@ export const ComponentsConfigurationProvider = ({
   configuration,
 }: ComponentsConfigurationProviderProps) => {
   return (
-    <ComponentsConfigurationContext.Provider value={configuration}>
+    <ComponentsConfigurationContext value={configuration}>
       {children}
-    </ComponentsConfigurationContext.Provider>
+    </ComponentsConfigurationContext>
   );
 };
 
-const useComponentsConfiguration = () =>
-  useContext(ComponentsConfigurationContext);
+const useComponentsConfiguration = () => use(ComponentsConfigurationContext);
 
 export default useComponentsConfiguration;

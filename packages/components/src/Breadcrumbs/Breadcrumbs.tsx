@@ -1,5 +1,5 @@
 import React, { type JSX } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -43,7 +43,7 @@ export const BreadcrumbsItem = styled(
       )}
     </li>
   ),
-)`
+)<BreadcrumbsItemProps & ThemeProps>`
   position: relative;
   ${({ theme }) => padding({ theme, pl: 3, pr: 3 })}
   ${({ theme }) => lineHeight({ theme, lineHeight: 3 })}
@@ -60,8 +60,7 @@ export const BreadcrumbsItem = styled(
     margin-bottom: -6px;
     border-top: 0.333rem solid transparent;
     border-bottom: 0.333rem solid transparent;
-    border-left: 0.333rem solid
-      ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+    border-left: 0.333rem solid ${({ theme }) => theme.colors.text.secondary};
   }
 
   &:first-child {

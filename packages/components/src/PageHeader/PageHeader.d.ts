@@ -1,12 +1,12 @@
-export type PageHeaderLinksType = {
+export interface PageHeaderLinksType {
     label: string;
     url: string;
-};
-export type PageHeaderTeaserImageType = {
+}
+export interface PageHeaderTeaserImageType {
     title: string;
     url: string;
     image: string;
-};
+}
 export interface PageHeaderProps {
     pinnedTeaser: PageHeaderLinksType & {
         isSponsored: boolean;

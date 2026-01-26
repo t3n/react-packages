@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, color, space, SpaceProps } from 'styled-system';
+
+import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Text from '../Text';
@@ -9,7 +11,7 @@ export interface NoticeBoxProps extends SpaceProps {
   children?: ReactNode;
 }
 
-const StyledNoticeBox = styled(Box)`
+const StyledNoticeBox = styled(Box)<ThemeProps>`
   ${({ theme }) =>
     border({
       theme,

@@ -1,9 +1,8 @@
 import React, { type JSX, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { layout, margin } from 'styled-system';
 
 import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Tag, { TagColorVariant } from '../Tag';
@@ -30,7 +29,7 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
       height: small ? '1.6rem' : '2.1rem',
     })};
   padding: 0;
-  ${({ theme }: ThemeProps) => margin({ theme, mb: 2 })}
+  ${({ theme }) => margin({ theme, mb: 2 })}
 
   &:hover {
     transform: scale(1.3);
@@ -54,7 +53,7 @@ const TagList = ({
     return (
       <StyledTagList>
         {tags.map((tag, idx) => (
-          // eslint-disable-next-line react/no-array-index-key
+          // eslint-disable-next-line @eslint-react/no-array-index-key
           <Box display="inline-block" key={idx} mb={2}>
             {tag}
           </Box>
@@ -67,7 +66,7 @@ const TagList = ({
     return (
       <StyledTagList>
         {tags.slice(0, collapseAfter).map((tag, idx) => (
-          // eslint-disable-next-line react/no-array-index-key
+          // eslint-disable-next-line @eslint-react/no-array-index-key
           <Box display="inline-block" key={idx} mb={2}>
             {tag}
           </Box>
@@ -87,7 +86,7 @@ const TagList = ({
   return (
     <StyledTagList>
       {tags.map((tag, idx) => (
-        // eslint-disable-next-line react/no-array-index-key
+        // eslint-disable-next-line @eslint-react/no-array-index-key
         <Box display="inline-block" key={idx} mb={2}>
           {tag}
         </Box>

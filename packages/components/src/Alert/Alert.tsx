@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, SpaceProps, variant } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -16,8 +16,8 @@ export interface AlertProps extends SpaceProps {
 
 const AlertBox = styled(Box).withConfig({
   shouldForwardProp: (prop) => prop !== 'status',
-})<{ status: AlertStatus }>`
-  border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
+})<{ status: AlertStatus } & ThemeProps>`
+  border-radius: ${({ theme }) => theme.border.radii[1]};
 
   ${variant({
     prop: 'status',

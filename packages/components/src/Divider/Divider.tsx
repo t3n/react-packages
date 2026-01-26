@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { MarginProps, variant, WidthProps } from 'styled-system';
 
 import { getThemeColor } from '@t3n/theme';

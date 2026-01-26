@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { border, color } from 'styled-system';
 
 import {
@@ -18,7 +18,7 @@ import {
 } from '@t3n/icons';
 import { getThemeColor } from '@t3n/theme';
 
-import Button from '../Button';
+import Button, { ButtonProps } from '../Button';
 import Icon from '../Icon';
 
 export type SocialNetworkType =
@@ -35,20 +35,21 @@ export type SocialNetworkType =
   | 'xing'
   | 'youtube';
 
-export interface SocialButtonProps {
+export type SocialButtonProps = ButtonProps & {
   network: SocialNetworkType;
   $textBefore?: string;
   $alternativeText?: string;
   children?: ReactNode;
-}
+};
 
-export interface SocialNetworksProps {
-  [key: string]: {
+export type SocialNetworksProps = Record<
+  string,
+  {
     name: string;
     icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     iconScale?: number;
-  };
-}
+  }
+>;
 
 export const socialNetworksConfig: SocialNetworksProps = {
   email: {

@@ -8,7 +8,7 @@ import AutoSuggest, {
   SuggestionSelectedEventData,
   SuggestionsFetchRequested,
 } from 'react-autosuggest';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, WidthProps } from 'styled-system';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -41,9 +41,9 @@ export interface SearchBoxProps<S> extends WidthProps {
   children?: ReactNode;
 }
 
-const SuggestionItem = styled.div`
+const SuggestionItem = styled.div<ThemeProps>`
   ${({ theme }) => space({ theme, p: [2, 3] })}
-  color: ${({ theme }: ThemeProps) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.primary};
   border-bottom: 1px solid
     ${({ theme }: ThemeProps) => theme.colors.shades.grey244};
 
@@ -54,9 +54,8 @@ const SuggestionItem = styled.div`
   }
 `;
 
-const SuggestionContainer = styled.div`
-  background-color: ${({ theme }: ThemeProps) =>
-    theme.colors.background.primary};
+const SuggestionContainer = styled.div<ThemeProps>`
+  background-color: ${({ theme }) => theme.colors.background.primary};
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   position: absolute;
   left: 0;
@@ -64,8 +63,7 @@ const SuggestionContainer = styled.div`
   z-index: 200;
 
   .react-autosuggest__suggestion--highlighted {
-    background-color: ${({ theme }: ThemeProps) =>
-      theme.colors.background.secondary};
+    background-color: ${({ theme }) => theme.colors.background.secondary};
   }
 
   ul {
@@ -75,8 +73,7 @@ const SuggestionContainer = styled.div`
   }
 `;
 
-// eslint-disable-next-line react/function-component-definition
-function SearchBox<S>({
+const SearchBox = <S,>({
   variant: variantProp = 'highlight',
   placeholder = 'Suche',
   defaultValue,
@@ -91,7 +88,7 @@ function SearchBox<S>({
   getSuggestionValue,
   handleSuggestionFetchRequested,
   handleSuggestionClearRequested,
-}: SearchBoxProps<S>) {
+}: SearchBoxProps<S>) => {
   const [term, setTerm] = useState(defaultValue || '');
   const debounced = useDebouncedCallback(handleSuggestionFetchRequested, 400);
 
@@ -195,6 +192,6 @@ function SearchBox<S>({
       )}
     </SearchBoxWrapper>
   );
-}
+};
 
 export default SearchBox;

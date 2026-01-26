@@ -1,5 +1,5 @@
 import React, { type JSX, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { color, margin, MarginProps, padding, variant } from 'styled-system';
 
 import { composeTextStyle, Theme } from '@t3n/theme';

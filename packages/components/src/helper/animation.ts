@@ -16,7 +16,7 @@ const backgroundAnimationKeyframes = ({ theme }: ThemeProps) => keyframes`
   }
 `;
 
-const backgroundAnimation = css`
+const backgroundAnimation = css<ThemeProps>`
   animation: ${backgroundAnimationKeyframes} 2s linear infinite;
 `;
 

@@ -1,14 +1,16 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { use, useCallback, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import { Theme } from '@t3n/theme';
+
+// TODO: Fix ESLint set state in use effect issues
 
 // try to avoid using this hook for everything that happens serverside
 const useIsMobile = (): boolean => {
   const [isMobile, setIsMobile] = useState(true);
   const [fontSize, setFontSize] = useState(16);
 
-  const theme = useContext(ThemeContext) as Theme;
+  const theme = use(ThemeContext) as Theme;
 
   const mobileBreakpoint = parseInt(theme.breakpoints[1], 10) * fontSize;
 
@@ -20,7 +22,7 @@ const useIsMobile = (): boolean => {
     }
   }, [mobileBreakpoint]);
 
-  useEffect(() => {
+  if (typeof window !== 'undefined') {
     setFontSize(
       parseInt(
         window
@@ -29,10 +31,10 @@ const useIsMobile = (): boolean => {
         10,
       ),
     );
-  }, []);
+    testIsMobile();
+  }
 
   useEffect(() => {
-    testIsMobile();
     window.addEventListener('resize', testIsMobile);
 
     return () => {

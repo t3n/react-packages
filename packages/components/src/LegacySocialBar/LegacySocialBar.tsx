@@ -1,5 +1,5 @@
 import React, { type JSX } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
 
 import {
@@ -41,7 +41,7 @@ const OldFacebookIcon = () => (
   </svg>
 );
 
-const SocialLink = styled.a`
+const SocialLink = styled.a<ThemeProps>`
   text-decoration: none;
   ${({ theme }) => space({ pl: '12px', theme })}
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
@@ -52,7 +52,7 @@ const SocialLink = styled.a`
 
   > svg:hover,
   > svg:focus {
-    fill: ${({ theme }: ThemeProps) => theme.colors.text.highlight};
+    fill: ${({ theme }) => theme.colors.text.highlight};
     text-decoration: none;
   }
 `;

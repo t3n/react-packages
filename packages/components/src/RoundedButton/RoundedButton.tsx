@@ -4,7 +4,7 @@ import React, {
   ButtonHTMLAttributes,
   ReactNode,
 } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import {
   color as systemColor,
   lineHeight,
@@ -42,13 +42,13 @@ export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
 }
 
 export interface RoundedButtonButtonTypeProps
-  extends RoundedButtonBaseProps,
-    Omit<ButtonHTMLAttributes<any>, 'color'> {
+  extends RoundedButtonBaseProps, Omit<ButtonHTMLAttributes<any>, 'color'> {
   as?: 'button';
 }
 
 export interface RoundedButtonATypeProps
-  extends RoundedButtonBaseProps,
+  extends
+    RoundedButtonBaseProps,
     Omit<AnchorHTMLAttributes<any>, 'color' | 'type'> {
   as?: 'a';
 }
@@ -315,9 +315,7 @@ const RoundedButton = (props: RoundedButtonProps) => {
     ...rest
   } = props;
 
-  // eslint-disable-next-line react/destructuring-assignment
   const href = isATypeProps(props) ? props.href : undefined;
-  // eslint-disable-next-line react/destructuring-assignment
   const disabled = !isATypeProps(props) ? props.disabled : undefined;
 
   return (

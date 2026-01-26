@@ -1,7 +1,6 @@
-import React, { ReactNode, useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-named-default
+import React, { Children, ReactNode, useEffect, useState } from 'react';
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { display, layout, space } from 'styled-system';
 
 import {
@@ -179,7 +178,7 @@ const Carousel = ({
   adaptiveHeight,
 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slidesAmount = React.Children.count(children);
+  const slidesAmount = Children.count(children);
 
   useEffect(() => {
     if (onChange) {

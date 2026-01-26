@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, variant as styledVariant } from 'styled-system';
 
 import { MaterialCheck } from '@t3n/icons';

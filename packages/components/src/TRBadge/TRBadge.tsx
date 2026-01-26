@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
 const TRBadgeWrapper = styled.span`

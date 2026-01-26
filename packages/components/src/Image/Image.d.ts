@@ -2,15 +2,11 @@ import React from 'react';
 import { HeightProps, SpaceProps, WidthProps } from 'styled-system';
 import { Theme } from '@t3n/theme';
 import { CdnComponentsConfiguration } from '../hooks/useComponentsConfiguration';
-export interface OptimizationClassMapping {
-    [key: string]: string;
-}
-export interface FastlyHostnameMapping {
-    [key: string]: string;
-}
+export type OptimizationClassMapping = Record<string, string>;
+export type FastlyHostnameMapping = Record<string, string>;
 export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'placeholder' | 'sizes' | 'width' | 'height'>, SpaceProps {
     src: string;
-    sizes?: string | number | Array<string | number>;
+    sizes?: string | number | (string | number)[];
     placeholder?: boolean;
     lazy?: boolean;
     optimizationClass?: string;

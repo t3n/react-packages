@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import { css, styled } from 'styled-components';
 import { color, lineHeight, space, typography } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -34,13 +34,14 @@ export type AdName =
   | 'T3N_M_Incontent-9'
   | 'T3N_M_Incontent-10'
   | 'T3N_M_Sticky';
+
 export interface AdProps extends BoxProps {
   name: AdName;
   preview?: boolean;
   style?: React.CSSProperties;
 }
 
-const AdWrapper = styled(Box)<AdProps>`
+const AdWrapper = styled(Box)<AdProps & ThemeProps>`
   min-height: calc(250px + 16px);
   position: relative;
   display: flex;
@@ -98,9 +99,9 @@ const AdWrapper = styled(Box)<AdProps>`
 
   ${({ name }) =>
     name.startsWith('T3N_M_Incontent-')
-      ? css`
-          @media screen and (max-width: ${(props: ThemeProps) =>
-              props.theme.breakpoints[0]}) {
+      ? css<ThemeProps>`
+          @media screen and (max-width: ${({ theme }) =>
+              theme.breakpoints[0]}) {
             display: block;
             min-height: 600px !important;
           }
@@ -122,7 +123,7 @@ const AdWrapper = styled(Box)<AdProps>`
   }
 `;
 
-const AdLabel = styled(Box)<AdProps>`
+const AdLabel = styled(Box)<AdProps & ThemeProps>`
   width: 100%;
   letter-spacing: 2px;
   text-align: center;
@@ -141,9 +142,9 @@ const AdLabel = styled(Box)<AdProps>`
 
   ${({ name }) =>
     name.startsWith('T3N_M_Incontent-')
-      ? css`
-          @media screen and (max-width: ${(props: ThemeProps) =>
-              props.theme.breakpoints[0]}) {
+      ? css<ThemeProps>`
+          @media screen and (max-width: ${({ theme }) =>
+              theme.breakpoints[0]}) {
             position: sticky !important;
             top: 58px;
           }
@@ -151,7 +152,7 @@ const AdLabel = styled(Box)<AdProps>`
       : ''}
 `;
 
-const AdPlaceholder = styled(Box)<AdProps>`
+const AdPlaceholder = styled(Box)<AdProps & ThemeProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -176,49 +177,53 @@ const AdPlaceholder = styled(Box)<AdProps>`
 
   ${({ name }) =>
     name.startsWith('T3N_M_Incontent-')
-      ? css`
-          @media screen and (max-width: ${(props: ThemeProps) =>
-              props.theme.breakpoints[0]}) {
+      ? css<ThemeProps>`
+          @media screen and (max-width: ${({ theme }: ThemeProps) =>
+              theme.breakpoints[0]}) {
             min-height: 600px !important;
           }
         `
       : ''}
 `;
 
-const Ad = forwardRef<HTMLDivElement, AdProps>(
-  // eslint-disable-next-line no-shadow
-  ({ name, preview, style, color, ...boxProps }, ref) => (
-    <AdWrapper
-      name={name}
-      style={style}
-      className={`c-ad-container -${name}`}
-      color={color as any}
-      {...boxProps}
-      ref={ref}
+const Ad = ({
+  ref,
+  name,
+  preview,
+  style,
+  color,
+  ...boxProps
+}: AdProps & { ref?: React.RefObject<HTMLDivElement | null> }) => (
+  <AdWrapper
+    name={name}
+    style={style}
+    className={`c-ad-container -${name}`}
+    color={color as any}
+    {...boxProps}
+    ref={ref}
+  >
+    {name !== 'T3N_D_Right' && name !== 'T3N_D_Top' && (
+      <AdLabel id={`${name}-label`} name={name}>
+        Anzeige
+      </AdLabel>
+    )}
+    <Box
+      id={name}
+      className="c-ad"
+      width={1}
+      display="flex"
+      justifyContent={name !== 'T3N_D_Right' ? 'center' : ''}
+      flexDirection="column"
+      alignItems={name !== 'T3N_D_Right' ? 'center' : ''}
     >
-      {name !== 'T3N_D_Right' && name !== 'T3N_D_Top' && (
-        <AdLabel id={`${name}-label`} name={name}>
-          Anzeige
-        </AdLabel>
-      )}
-      <Box
-        id={name}
-        className="c-ad"
-        width={1}
-        display="flex"
-        justifyContent={name !== 'T3N_D_Right' ? 'center' : ''}
-        flexDirection="column"
-        alignItems={name !== 'T3N_D_Right' ? 'center' : ''}
-      >
-        <AdPlaceholder name={name}>
-          {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
-        </AdPlaceholder>
-      </Box>
-      {(name === 'T3N_M_Incontent-2' || name === 'T3N_D_Incontent-3') && (
-        <div id="dspx_scroller" />
-      )}
-    </AdWrapper>
-  ),
+      <AdPlaceholder name={name}>
+        {preview ? `Ad Unit ID: ${name}` : 'Anzeige'}
+      </AdPlaceholder>
+    </Box>
+    {(name === 'T3N_M_Incontent-2' || name === 'T3N_D_Incontent-3') && (
+      <div id="dspx_scroller" />
+    )}
+  </AdWrapper>
 );
 
 export default Ad;

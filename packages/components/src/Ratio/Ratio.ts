@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { BackgroundColorProps, color } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';

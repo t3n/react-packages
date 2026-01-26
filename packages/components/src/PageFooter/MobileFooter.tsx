@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
 import Box from '../Box';
@@ -89,7 +89,7 @@ const MobileLinks = ({ privacyManagerId }: MobileFooterProps) => {
       url: '#',
       onClick: (e, id) => {
         e.preventDefault();
-        // eslint-disable-next-line no-underscore-dangle
+
         (window as any)._sp_.loadPrivacyManagerModal(id);
       },
     },

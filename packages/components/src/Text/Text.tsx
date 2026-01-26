@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import {
   color,
   ColorProps,
@@ -42,7 +42,7 @@ const textColor = ({
 const align = ({ align: alignProp, theme }: TextProps & ThemeProps) =>
   textAlign({ textAlign: alignProp, theme });
 
-export const textStyle = css<TextProps>`
+export const textStyle = css<TextProps & ThemeProps>`
   ${font}
   ${textColor}
   ${fontWeight}
@@ -54,13 +54,29 @@ export const textStyle = css<TextProps>`
 
 const StyledText = styled.p.withConfig({
   shouldForwardProp: (prop) =>
-    !['bold', 'italic', 'inline', 'small', 'secondary', 'align'].includes(prop),
-})<TextProps>`
+    ![
+      'bold',
+      'italic',
+      'inline',
+      'small',
+      'secondary',
+      'align',
+      'color',
+    ].includes(prop),
+})<TextProps & ThemeProps>`
   ${textStyle}
 `;
 
-const Text = ({ inline, as, ...props }: TextProps) => (
-  <StyledText as={as || (inline ? 'span' : 'p')} {...props} />
+const Text = ({ inline, as, color, ...props }: TextProps) => (
+  <StyledText
+    {...props}
+    // We need to cast color to any here. When the as prop is present,
+    // styled-components' polymorphic types try to merge HTMLAttributes
+    // (where color: string) with ColorProps (where color: ResponsiveValue)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    color={color as any}
+    as={as || (inline ? 'span' : 'p')}
+  />
 );
 
 export default Text;

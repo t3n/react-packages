@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   color,
   size,
@@ -33,7 +33,7 @@ const textColor = ({ color: colorProp, theme }: HeadingProps & ThemeProps) =>
 
 const Heading = styled.h1.withConfig({
   shouldForwardProp: (prop) => !['styleAs', 'align'].includes(prop),
-})<HeadingProps>`
+})<HeadingProps & ThemeProps>`
   ${font}
   ${space}
   ${size}

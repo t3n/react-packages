@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { SVGProps } from 'react';
+import { styled } from 'styled-components';
 import {
   ColorProps,
   HeightProps,
@@ -12,14 +12,13 @@ import {
 } from 'styled-system';
 
 export interface BaseIconProps
-  extends React.SVGProps<SVGSVGElement>,
-    MarginProps,
-    PositionProps {
+  extends SVGProps<SVGSVGElement>, MarginProps, PositionProps {
   component: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 export interface IconProps
-  extends Omit<BaseIconProps, 'width' | 'height' | 'fill'>,
+  extends
+    Omit<BaseIconProps, 'width' | 'height' | 'fill'>,
     WidthProps,
     HeightProps {
   fill?: ColorProps['color'];

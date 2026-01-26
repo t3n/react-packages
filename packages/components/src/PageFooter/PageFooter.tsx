@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, layout } from 'styled-system';
 
 import Box from '../Box';

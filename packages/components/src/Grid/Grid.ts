@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   alignItems,
   AlignItemsProps,
@@ -15,10 +15,7 @@ import { ThemeProps } from '@t3n/theme';
 import GridItem from '../GridItem';
 
 export interface GridProps
-  extends JustifyContentProps,
-    AlignItemsProps,
-    HeightProps,
-    SpaceProps {
+  extends JustifyContentProps, AlignItemsProps, HeightProps, SpaceProps {
   vertical?: boolean;
   reverse?: boolean;
   wide?: boolean;
@@ -51,14 +48,14 @@ const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string => {
   return '';
 };
 
-const Grid = styled.div.attrs((props) => ({
+const Grid = styled.div.attrs<GridProps & ThemeProps>((props) => ({
   vertical: false,
   reverse: false,
   wide: false,
   noGap: false,
   justifyContent: 'flex-start',
   ...props,
-}))<GridProps>`
+}))`
   display: flex;
   flex-wrap: wrap;
   ${flexDirection}

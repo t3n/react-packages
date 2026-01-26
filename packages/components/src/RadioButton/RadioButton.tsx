@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, space, variant } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -33,7 +33,9 @@ const HiddenRadioButton = styled.input.attrs({
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
-const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
+const StyledRadioButton = styled(Box)<
+  Omit<RadioButtonProps, 'name' | 'value'> & ThemeProps
+>`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import 'jest-styled-components';
 
 import React, { ReactNode } from 'react';
@@ -11,7 +10,6 @@ interface OptionalTheme {
   theme?: Theme;
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const renderWithTheme = (
   ui: React.ReactElement<any>,
   { theme, ...options }: RenderOptions & OptionalTheme,

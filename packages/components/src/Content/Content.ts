@@ -1,5 +1,5 @@
 import { rem } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   maxWidth as styledMaxWidth,
   padding,
@@ -21,12 +21,12 @@ const maxWidth = ({ wide, small, theme }: ContentProps): string =>
       ? styledMaxWidth({ maxWidth: [rem(770)], theme })
       : styledMaxWidth({ maxWidth: [rem(980)], theme });
 
-const Content = styled.div.attrs((props: ContentProps) => ({
+const Content = styled.div.attrs<ContentProps>((props) => ({
   wide: false,
   small: false,
-  px: props.wide ? [] : ([3] as PaddingProps),
+  px: props.wide ? [] : [3],
   ...props,
-}))<ContentProps>`
+}))`
   width: 100%;
   margin: 0 auto;
   ${maxWidth};

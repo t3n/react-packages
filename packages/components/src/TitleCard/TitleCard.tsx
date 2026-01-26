@@ -18,7 +18,8 @@ const TitleCard = ({
   ...props
 }: TitleCardProps) => {
   return (
-    <Card {...props}>
+    // TODO: fix type casting
+    <Card {...(props as any)}>
       <Heading
         as={titleAs || 'h3'}
         styleAs="h4"

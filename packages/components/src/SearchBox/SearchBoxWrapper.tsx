@@ -1,7 +1,6 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { darken } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { layout, space, variant, WidthProps } from 'styled-system';
 
 import { T3nLoupe } from '@t3n/icons';
@@ -40,7 +39,7 @@ const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   }
 `;
 
-const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
+const InputWrapper = styled.div<{ variant: SearchBoxVariantType } & ThemeProps>`
   flex-grow: 2;
 
   input {
@@ -117,7 +116,7 @@ const Wrapper = styled.div<
   ${layout}
 `;
 
-const UnstyledButton = styled.button`
+const UnstyledButton = styled.button<ThemeProps>`
   all: unset;
   cursor: pointer;
 
@@ -126,12 +125,12 @@ const UnstyledButton = styled.button`
   }
 `;
 
-type SearchBoxWrapperProps = {
+interface SearchBoxWrapperProps {
   variantProp: SearchBoxVariantType;
   isLoading: boolean;
   children: React.ReactNode;
   tabbable?: boolean;
-};
+}
 
 const SearchBoxWrapper = ({
   variantProp,

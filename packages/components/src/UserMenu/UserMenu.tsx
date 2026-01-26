@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   border,
   color,
@@ -34,7 +34,7 @@ export interface UserMenuProps {
   items?: ReactNode[];
 }
 
-const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
+const UserMenuWrapper = styled(Box)<{ light?: boolean } & ThemeProps>`
   position: relative;
   z-index: 1000;
   ${({ theme }) => typography({ theme, fontSize: 0 })};
@@ -72,15 +72,14 @@ const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
           borderLeftWidth: 1,
         })};
 
-      @media screen and (max-width: ${(props: ThemeProps) =>
-          props.theme.breakpoints[0]}) {
+      @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
         top: 44px;
       }
     }
   }
 `;
 
-const UserMenuList = styled.ul`
+const UserMenuList = styled.ul<ThemeProps>`
   display: none;
   right: 0;
   list-style-type: none;
@@ -98,8 +97,7 @@ const UserMenuList = styled.ul`
       borderRadius: '4px',
     })};
 
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
     left: 0;
     right: 0;
     top: 56px;
@@ -307,7 +305,7 @@ const UserMenu = ({
         {!!items?.length &&
           items.map((item, idx) => {
             return (
-              // eslint-disable-next-line react/no-array-index-key
+              // eslint-disable-next-line @eslint-react/no-array-index-key
               <React.Fragment key={idx}>
                 <UserMenuListItem>{item}</UserMenuListItem>
                 <UserMenuListDivider />

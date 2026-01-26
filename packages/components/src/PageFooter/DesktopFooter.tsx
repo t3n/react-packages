@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
 import Box from '../Box';
@@ -102,7 +102,7 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
           url: '#',
           onClick: (e, id) => {
             e.preventDefault();
-            // eslint-disable-next-line no-underscore-dangle
+
             (window as any)._sp_.loadPrivacyManagerModal(id);
           },
         },

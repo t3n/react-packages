@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { layout, LayoutProps } from 'styled-system';
 
 const Center = styled.div<LayoutProps>`

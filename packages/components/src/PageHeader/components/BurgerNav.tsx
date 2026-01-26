@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   border,
   color,
@@ -135,7 +135,7 @@ const BurgerButtonBox = styled(Box)`
   }
 `;
 
-const SubMenuItem = styled.a`
+const SubMenuItem = styled.a<ThemeProps>`
   text-decoration: none;
   display: block;
 
@@ -146,7 +146,7 @@ const SubMenuItem = styled.a`
   :focus {
     cursor: pointer;
 
-    ${({ theme }: ThemeProps) => color({ theme, color: 'text.highlight' })}
+    ${({ theme }) => color({ theme, color: 'text.highlight' })}
   }
 `;
 
@@ -192,14 +192,14 @@ const BurgerNav = ({
   const tabbable = isMenuOpen;
 
   // Track open state for each accordion
-  const [openAccordions, setOpenAccordions] = useState<{
-    [key: string]: boolean;
-  }>({
-    Brands: false,
-    Themen: false,
-    Magazine: true,
-    Skills: false,
-  });
+  const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>(
+    {
+      Brands: false,
+      Themen: false,
+      Magazine: true,
+      Skills: false,
+    },
+  );
 
   const handleAccordionToggle = (key: string) => {
     setOpenAccordions((prev) => ({

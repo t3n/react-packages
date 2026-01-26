@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   color,
   ColorProps,
@@ -13,11 +13,7 @@ import {
 } from 'styled-system';
 
 export interface BoxProps
-  extends SpaceProps,
-    ColorProps,
-    LayoutProps,
-    FlexboxProps,
-    PositionProps {}
+  extends SpaceProps, ColorProps, LayoutProps, FlexboxProps, PositionProps {}
 
 // Liste aller styled-system Props, die nicht an DOM weitergegeben werden sollen
 const styledSystemProps = [

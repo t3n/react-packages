@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import Content from '../Content';
 import PageFooter from '../PageFooter';

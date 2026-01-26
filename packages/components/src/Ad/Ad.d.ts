@@ -6,5 +6,7 @@ export interface AdProps extends BoxProps {
     preview?: boolean;
     style?: React.CSSProperties;
 }
-declare const Ad: React.ForwardRefExoticComponent<AdProps & React.RefAttributes<HTMLDivElement>>;
+declare const Ad: ({ ref, name, preview, style, color, ...boxProps }: AdProps & {
+    ref?: React.RefObject<HTMLDivElement | null>;
+}) => import("react/jsx-runtime").JSX.Element;
 export default Ad;

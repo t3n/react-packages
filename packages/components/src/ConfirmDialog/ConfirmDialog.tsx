@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ThemeProps } from '@t3n/theme';
 
@@ -15,9 +15,8 @@ export interface ConfirmDialogProps extends ModalProps {
   children?: ReactNode;
 }
 
-const StyledButtonBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+const StyledButtonBox = styled(Box)<ThemeProps>`
+  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
     flex-direction: column;
   }
 `;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
 import {

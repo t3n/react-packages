@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, space } from 'styled-system';
 
 import { getColorForBackground, getThemeColor, ThemeProps } from '@t3n/theme';
@@ -20,7 +20,7 @@ const background = ({
   };
 `;
 
-const StyledBadge = styled.span<BadgeProps>`
+const StyledBadge = styled.span<BadgeProps & ThemeProps>`
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;

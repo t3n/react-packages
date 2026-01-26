@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import btoa from 'btoa';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { color, SpaceProps, TextColorProps } from 'styled-system';
 
 import { getThemeColor, hexToRgb, ThemeProps } from '@t3n/theme';
@@ -36,7 +36,7 @@ const underlineColor =
   };
 
 export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
-  Omit<LinkProps, 'children'>
+  Omit<LinkProps, 'children'> & ThemeProps
 >`
   ${({ theme }) => color({ color: linkStyleConfig.default.color, theme })}
   ${({ theme, disabled }) =>
@@ -48,7 +48,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
 
   &:hover {
     ${({ theme }) => color({ color: linkStyleConfig.hover.color, theme })}
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       underline(
         underlineColor(linkStyleConfig.hover.underlineColor)({ theme }),
       )}
@@ -56,7 +56,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
 
   &:focus {
     ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       underline(
         underlineColor(linkStyleConfig.focus.underlineColor)({ theme }),
       )}
@@ -78,7 +78,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
   }
 `;
 
-export const linkStyle = css<LinkProps>`
+export const linkStyle = css<LinkProps & ThemeProps>`
   text-decoration: none;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
@@ -102,10 +102,10 @@ export const linkStyle = css<LinkProps>`
   }}
 `;
 
-const Link = styled.a.attrs((props) => ({
+const Link = styled.a.attrs<LinkProps & ThemeProps>((props) => ({
   variant: 'primary',
   ...props,
-}))<LinkProps>`
+}))`
   ${linkStyle}
 `;
 

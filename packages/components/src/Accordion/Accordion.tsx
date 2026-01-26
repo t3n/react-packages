@@ -1,5 +1,5 @@
 import React, { type JSX, ReactNode, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
 import { MaterialArrowDropDown } from '@t3n/icons';
@@ -15,7 +15,7 @@ export interface AccordionProps extends MarginProps {
   children?: ReactNode;
 }
 
-const StyledAccordion = styled.div<SpaceProps>`
+const StyledAccordion = styled.div<SpaceProps & ThemeProps>`
   border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
   border: 1px solid ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
 

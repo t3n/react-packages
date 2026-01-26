@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import Box from '../Box';

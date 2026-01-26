@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -16,12 +16,10 @@ export interface SectionProps {
   children?: ReactNode;
 }
 
-const SectionOuter = styled.div<SectionProps>`
-  background-color: ${({
-    variant = 'primary',
-    theme,
-  }: SectionProps & ThemeProps) => theme.colors.background[variant]};
-  color: ${({ variant = 'primary', theme }: SectionProps & ThemeProps) => {
+const SectionOuter = styled.div<SectionProps & ThemeProps>`
+  background-color: ${({ variant = 'primary', theme }) =>
+    theme.colors.background[variant]};
+  color: ${({ variant = 'primary', theme }) => {
     switch (variant) {
       case 'inverse':
       case 'highlight':
@@ -31,8 +29,7 @@ const SectionOuter = styled.div<SectionProps>`
         return theme.colors.text.primary;
     }
   }};
-  ${({ innerGap, theme }: SectionProps & ThemeProps) =>
-    space({ py: innerGap, theme })}
+  ${({ innerGap, theme }) => space({ py: innerGap, theme })}
 `;
 
 const Section = ({

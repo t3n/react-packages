@@ -5,16 +5,25 @@ export type ButtonAsType = 'button' | 'a';
 export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
-export interface ButtonProps extends ButtonHTMLAttributes<any>, Omit<AnchorHTMLAttributes<any>, 'type'>, MarginProps, WidthProps {
+interface BaseButtonProps extends MarginProps, WidthProps {
     variant?: ButtonVariant;
     color?: ButtonColorVariant;
     size?: ButtonSizeVariant;
     iconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     loading?: boolean;
-    as?: ButtonAsType;
+    disabled?: boolean;
     children?: ReactNode;
 }
+interface AnchorButtonProps extends BaseButtonProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
+    as?: 'a';
+    href: string;
+}
+interface ButtonButtonProps extends BaseButtonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
+    as?: 'button';
+    href?: never;
+}
+export type ButtonProps = AnchorButtonProps | ButtonButtonProps;
 export declare const buttonStyles: import("styled-components").RuleSet<ButtonProps & ThemeProps>;
-declare const Button: ({ children, loading, iconLeft, iconRight, size, color, variant, href, as, onClick, disabled, ...rest }: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+declare const Button: ({ children, loading, iconLeft, iconRight, size, color, variant, as, onClick, disabled, ...props }: ButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default Button;

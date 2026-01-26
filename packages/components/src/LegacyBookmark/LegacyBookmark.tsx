@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
 import { MaterialBookmark, MaterialBookmarkBorder } from '@t3n/icons';
