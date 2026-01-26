@@ -1,7 +1,5 @@
 interface Theme {
-    textStyles: {
-        [key: string]: any;
-    };
+    textStyles: Record<string, any>;
     [key: string]: any;
 }
 declare const composeTextStyle: ({ textStyle, theme, }: {
