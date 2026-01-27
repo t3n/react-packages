@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { css, styled } from 'styled-components';
 import { WidthProps } from 'styled-system';
 
@@ -9,13 +9,12 @@ import Card from '../Card';
 import Heading, { HeadingProps } from '../Heading';
 import Icon from '../Icon';
 
-export interface ModalProps extends WidthProps {
+export interface ModalProps extends WidthProps, PropsWithChildren {
   headline: string;
   headlineIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   alwaysCentered?: boolean;
   wide?: boolean;
   onClose: () => void;
-  children?: ReactNode;
 }
 
 export interface ModalHeadingProps extends HeadingProps {

@@ -1,7 +1,7 @@
-import { type JSX } from 'react';
+import { ReactElement } from 'react';
 import { TagColorVariant } from '../Tag';
 export interface TagListProps {
-    tags: JSX.Element[];
+    tags: ReactElement[];
     collapseAfter: number;
     small?: boolean;
     colorVariant?: TagColorVariant;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { border, LayoutProps } from 'styled-system';
 
@@ -6,9 +6,7 @@ import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 
-export interface LayoutWithChildrenProps extends LayoutProps {
-  children?: ReactNode;
-}
+export type LayoutWithChildrenProps = PropsWithChildren<LayoutProps>;
 
 const Container = styled(Box)<ThemeProps>`
   ${({ theme }) =>

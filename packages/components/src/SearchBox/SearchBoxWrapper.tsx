@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { darken } from 'polished';
 import { styled } from 'styled-components';
 import { layout, space, variant, WidthProps } from 'styled-system';
@@ -125,10 +125,9 @@ const UnstyledButton = styled.button<ThemeProps>`
   }
 `;
 
-interface SearchBoxWrapperProps {
+interface SearchBoxWrapperProps extends Required<PropsWithChildren> {
   variantProp: SearchBoxVariantType;
   isLoading: boolean;
-  children: React.ReactNode;
   tabbable?: boolean;
 }
 

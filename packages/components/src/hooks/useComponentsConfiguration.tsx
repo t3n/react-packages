@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, use } from 'react';
+import React, { createContext, PropsWithChildren, use } from 'react';
 
 export interface CdnComponentsConfiguration {
   hostname: string;
@@ -9,8 +9,7 @@ export interface ComponentsConfiguration {
   cdn: CdnComponentsConfiguration;
 }
 
-export interface ComponentsConfigurationProviderProps {
-  children: ReactNode;
+export interface ComponentsConfigurationProviderProps extends Required<PropsWithChildren> {
   configuration: ComponentsConfiguration;
 }
 

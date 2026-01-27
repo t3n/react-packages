@@ -1,11 +1,11 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 export type RoundedButtonAsType = 'button' | 'a';
 export type RoundedButtonVariant = 'primary' | 'secondary';
 export type RoundedButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
-export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
+export interface RoundedButtonBaseProps extends MarginProps, WidthProps, PropsWithChildren {
     size?: RoundedButtonSizeVariant;
     variant?: RoundedButtonVariant;
     color?: RoundedButtonColorVariant;
@@ -13,7 +13,6 @@ export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
     label?: ReactNode;
     loading?: boolean;
     expanded?: boolean;
-    children?: ReactNode;
 }
 export interface RoundedButtonButtonTypeProps extends RoundedButtonBaseProps, Omit<ButtonHTMLAttributes<any>, 'color'> {
     as?: 'button';

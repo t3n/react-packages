@@ -1,9 +1,8 @@
-import React from 'react';
+import { PropsWithChildren } from 'react';
 export type SearchBoxVariantType = 'highlight' | 'light' | 'grey';
-interface SearchBoxWrapperProps {
+interface SearchBoxWrapperProps extends Required<PropsWithChildren> {
     variantProp: SearchBoxVariantType;
     isLoading: boolean;
-    children: React.ReactNode;
     tabbable?: boolean;
 }
 declare const SearchBoxWrapper: ({ variantProp, isLoading, tabbable, children, }: SearchBoxWrapperProps) => import("react/jsx-runtime").JSX.Element;

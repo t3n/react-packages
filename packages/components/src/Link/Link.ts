@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import btoa from 'btoa';
 import { css, styled } from 'styled-components';
 import { color, SpaceProps, TextColorProps } from 'styled-system';
@@ -10,11 +10,11 @@ import { TextProps, textStyle } from '../Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 
-export interface LinkProps extends TextColorProps, SpaceProps {
+export interface LinkProps
+  extends TextColorProps, SpaceProps, Required<PropsWithChildren> {
   small?: TextProps['small'];
   disabled?: boolean;
   variant?: LinkVariantType;
-  children: ReactNode;
 }
 
 export type LinkState = 'default' | 'hover' | 'focus' | 'visited';

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React, { PropsWithChildren, useEffect, useRef } from 'react';
 import { css, styled } from 'styled-components';
 import { MarginProps } from 'styled-system';
 
@@ -8,11 +8,10 @@ import Box from '../../Box';
 import Heading from '../../Heading';
 import Icon from '../../Icon';
 
-export interface AccordionProps extends MarginProps {
+export interface AccordionProps extends MarginProps, PropsWithChildren {
   title: string;
   isOpen: boolean;
   onToggle: () => void;
-  children?: ReactNode;
   tabbable?: boolean;
 }
 

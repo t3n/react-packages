@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 export type SocialLinkType = 'TWITTER' | 'GITHUB' | 'XING' | 'HOMEPAGE' | 'LINKEDIN';
 export interface SocialLink {
     url: string;
     type: SocialLinkType;
 }
-export interface UserCardProps {
+export interface UserCardProps extends PropsWithChildren {
     user: {
         id: number;
         name: string;
@@ -24,7 +24,6 @@ export interface UserCardProps {
     };
     compact: boolean;
     secondary?: boolean;
-    children?: ReactNode;
 }
 declare const UserCard: ({ user, optimizeAvatar, link, compact, secondary, children, }: UserCardProps) => import("react/jsx-runtime").JSX.Element;
 export default UserCard;

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { css, styled } from 'styled-components';
 import {
   color,
@@ -13,7 +13,8 @@ import {
 
 import { composeTextStyle, ThemeProps } from '@t3n/theme';
 
-export interface TextProps extends ColorProps, SpaceProps, WidthProps {
+export interface TextProps
+  extends ColorProps, SpaceProps, WidthProps, Required<PropsWithChildren> {
   as?: 'p' | 'span';
   bold?: boolean;
   italic?: boolean;
@@ -21,7 +22,6 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   small?: boolean;
   secondary?: boolean;
   align?: TextAlignProps['textAlign'];
-  children: ReactNode;
 }
 
 const font = ({ small, theme }: TextProps & ThemeProps) =>

@@ -1,12 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { ButtonProps } from '../Button';
 export type SocialNetworkType = 'email' | 'facebook' | 'flipboard' | 'github' | 'google' | 'instagram' | 'linkedin' | 'slack' | 'twitter' | 'whatsapp' | 'xing' | 'youtube';
-export type SocialButtonProps = ButtonProps & {
+export type SocialButtonProps = ButtonProps & PropsWithChildren<{
     network: SocialNetworkType;
     $textBefore?: string;
     $alternativeText?: string;
-    children?: ReactNode;
-};
+}>;
 export type SocialNetworksProps = Record<string, {
     name: string;
     icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;

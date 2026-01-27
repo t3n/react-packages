@@ -1,12 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { border, space } from 'styled-system';
 
 import { getColorForBackground, getThemeColor, ThemeProps } from '@t3n/theme';
 
-export interface BadgeProps {
+export interface BadgeProps extends PropsWithChildren {
   variant: 'inverse' | 'highlight' | 'light';
-  children?: ReactNode;
 }
 
 const background = ({

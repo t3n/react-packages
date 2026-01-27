@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { css, styled } from 'styled-components';
 import { border, color } from 'styled-system';
 
@@ -35,12 +35,12 @@ export type SocialNetworkType =
   | 'xing'
   | 'youtube';
 
-export type SocialButtonProps = ButtonProps & {
-  network: SocialNetworkType;
-  $textBefore?: string;
-  $alternativeText?: string;
-  children?: ReactNode;
-};
+export type SocialButtonProps = ButtonProps &
+  PropsWithChildren<{
+    network: SocialNetworkType;
+    $textBefore?: string;
+    $alternativeText?: string;
+  }>;
 
 export type SocialNetworksProps = Record<
   string,

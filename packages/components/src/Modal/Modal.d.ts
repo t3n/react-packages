@@ -1,13 +1,12 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { WidthProps } from 'styled-system';
 import { HeadingProps } from '../Heading';
-export interface ModalProps extends WidthProps {
+export interface ModalProps extends WidthProps, PropsWithChildren {
     headline: string;
     headlineIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     alwaysCentered?: boolean;
     wide?: boolean;
     onClose: () => void;
-    children?: ReactNode;
 }
 export interface ModalHeadingProps extends HeadingProps {
     headlineIcon: boolean;

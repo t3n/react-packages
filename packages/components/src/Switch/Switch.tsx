@@ -193,7 +193,7 @@ const Switch = ({
       width={widthProp}
       {...marginProps}
     >
-      <Text inline>{label}</Text>
+      {label && <Text inline>{label}</Text>}
       <PlainSwitch
         variant={variantProp}
         checked={checked}

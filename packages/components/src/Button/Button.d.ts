@@ -1,11 +1,11 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { MarginProps, WidthProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 export type ButtonAsType = 'button' | 'a';
 export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
-interface BaseButtonProps extends MarginProps, WidthProps {
+interface BaseButtonProps extends MarginProps, WidthProps, PropsWithChildren {
     variant?: ButtonVariant;
     color?: ButtonColorVariant;
     size?: ButtonSizeVariant;
@@ -13,7 +13,6 @@ interface BaseButtonProps extends MarginProps, WidthProps {
     iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     loading?: boolean;
     disabled?: boolean;
-    children?: ReactNode;
 }
 interface AnchorButtonProps extends BaseButtonProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
     as?: 'a';

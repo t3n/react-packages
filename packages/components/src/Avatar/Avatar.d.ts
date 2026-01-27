@@ -1,13 +1,12 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { ColorProps, FlexboxProps, LayoutProps, TextColorProps } from 'styled-system';
-export interface AvatarImageProps {
+export interface AvatarImageProps extends PropsWithChildren {
     optimizeSrc?: boolean;
     src?: string;
     size?: number;
     className?: string;
     alt?: string;
     loading?: boolean;
-    children?: ReactNode;
 }
 export interface AvatarProps extends Omit<AvatarImageProps, 'className'>, Omit<LayoutProps, 'size'>, FlexboxProps, ColorProps {
     label?: string;

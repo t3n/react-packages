@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Accordion matches snapchot with JSX.Element 1`] = `
+exports[`Accordion matches snapchot with React Element 1`] = `
 .c1 {
   padding: 16px;
 }
@@ -111,7 +111,7 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
       <p
         class="c6"
       >
-        Das hier ist ein JSX.Element
+        Das hier ist ein React Element
       </p>
     </div>
     <div

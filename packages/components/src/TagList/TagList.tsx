@@ -1,4 +1,4 @@
-import React, { type JSX, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { styled } from 'styled-components';
 import { layout, margin } from 'styled-system';
 
@@ -8,7 +8,7 @@ import Box from '../Box';
 import Tag, { TagColorVariant } from '../Tag';
 
 export interface TagListProps {
-  tags: JSX.Element[];
+  tags: ReactElement[];
   collapseAfter: number;
   small?: boolean;
   colorVariant?: TagColorVariant;

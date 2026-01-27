@@ -1,4 +1,4 @@
-import React, { Children, ReactNode, useEffect, useState } from 'react';
+import React, { Children, PropsWithChildren, useEffect, useState } from 'react';
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
 import { styled } from 'styled-components';
 import { display, layout, space } from 'styled-system';
@@ -13,7 +13,7 @@ import Box from '../Box';
 import Button from '../Button';
 import RoundedButton from '../RoundedButton';
 
-export interface CarouselProps {
+export interface CarouselProps extends PropsWithChildren {
   slidesToShow?: number;
   slidesToScroll?: number;
   responsive?: ResponsiveObject[];
@@ -29,7 +29,6 @@ export interface CarouselProps {
   hidePrevButton?: boolean;
   onChange?: (currentIndex: number) => void;
   isRoundedButton?: boolean;
-  children?: ReactNode;
   adaptiveHeight?: boolean;
 }
 

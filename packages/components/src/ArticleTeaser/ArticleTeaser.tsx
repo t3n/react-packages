@@ -95,7 +95,7 @@ const ArticleTeaser = ({
             <Heading as="h2" styleAs="h5" mt={0} mb={0}>
               {article.title}
             </Heading>
-            {teaserText && <Text>{article.teaser}</Text>}
+            {teaserText && article.teaser && <Text>{article.teaser}</Text>}
           </GridItem>
           {smallTeaserImage && article.imageUrl && (
             <GridItem width={[1 / 4, 1 / 4, 1 / 4, 1 / 6]}>

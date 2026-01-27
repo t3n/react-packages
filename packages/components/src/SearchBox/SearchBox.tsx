@@ -1,4 +1,10 @@
-import React, { FormEvent, ReactNode, useEffect, useState } from 'react';
+import React, {
+  FormEvent,
+  PropsWithChildren,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import AutoSuggest, {
   GetSuggestionValue,
   OnSuggestionsClearRequested,
@@ -23,7 +29,7 @@ export interface GroupedSuggestions<S> {
   suggestions: S[];
 }
 
-export interface SearchBoxProps<S> extends WidthProps {
+export interface SearchBoxProps<S> extends WidthProps, PropsWithChildren {
   variant: SearchBoxVariantType;
   placeholder: string;
   isLoading: boolean;
@@ -34,11 +40,10 @@ export interface SearchBoxProps<S> extends WidthProps {
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
   renderSuggestion: RenderSuggestion<S>;
-  renderSuggestionsEmpty?: React.ReactNode;
+  renderSuggestionsEmpty?: ReactNode;
   onSelect: OnSuggestionSelected<S>;
   clearOnSelect?: boolean;
   onSearchTermChange?: (term: string) => void;
-  children?: ReactNode;
 }
 
 const SuggestionItem = styled.div<ThemeProps>`

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 
@@ -8,12 +8,11 @@ import Content from '../Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
-export interface SectionProps {
+export interface SectionProps extends PropsWithChildren {
   variant?: SectionVariants;
   wide?: boolean;
   small?: boolean;
   innerGap?: SpaceProps['py'];
-  children?: ReactNode;
 }
 
 const SectionOuter = styled.div<SectionProps & ThemeProps>`

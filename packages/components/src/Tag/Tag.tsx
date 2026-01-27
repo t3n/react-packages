@@ -1,4 +1,4 @@
-import React, { type JSX, ReactNode } from 'react';
+import React, { PropsWithChildren, ReactElement } from 'react';
 import { css, styled } from 'styled-components';
 import { color, margin, MarginProps, padding, variant } from 'styled-system';
 
@@ -15,13 +15,12 @@ export type TagColorVariant =
   | 'success'
   | 'error';
 
-export interface TagProps extends MarginProps {
+export interface TagProps extends MarginProps, PropsWithChildren {
   colorVariant?: TagColorVariant;
   link?: string;
   small?: boolean;
-  icon?: JSX.Element;
+  icon?: ReactElement;
   onClick?: () => void;
-  children?: ReactNode;
 }
 
 interface StyledTagProps {

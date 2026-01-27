@@ -1,13 +1,12 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 
 import Content from '../Content';
 import PageFooter from '../PageFooter';
 import PageHeader, { PageHeaderProps } from '../PageHeader';
 
-export interface PageLayoutProps extends PageHeaderProps {
+export interface PageLayoutProps extends PageHeaderProps, PropsWithChildren {
   privacyManagerId: string;
-  children?: ReactNode;
 }
 
 const PageLayoutContainer = styled.div`

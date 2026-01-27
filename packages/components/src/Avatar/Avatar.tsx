@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import {
   border,
@@ -15,14 +15,13 @@ import Image from '../Image';
 import Placeholder from '../Placeholder';
 import Text from '../Text';
 
-export interface AvatarImageProps {
+export interface AvatarImageProps extends PropsWithChildren {
   optimizeSrc?: boolean;
   src?: string;
   size?: number;
   className?: string;
   alt?: string;
   loading?: boolean;
-  children?: ReactNode;
 }
 
 export interface AvatarProps

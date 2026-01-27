@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { SpaceProps } from 'styled-system';
 
 import Box from '../Box';
@@ -12,14 +11,13 @@ const LegacySection = ({
   wide,
   innerGap,
   children,
-}: {
+}: PropsWithChildren<{
   variant?: SectionVariants;
   anchor?: string;
   narrow?: boolean;
   wide?: boolean;
   innerGap?: SpaceProps['py'];
-  children?: ReactNode;
-}) => {
+}>) => {
   return (
     <Box
       mt={anchor ? ['unset', 'unset', -4] : 'unset'}

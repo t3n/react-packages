@@ -49,13 +49,13 @@ test('Accoridion can be collapsed', () => {
   expect(queryByText(/content/i)).not.toBeNull();
 });
 
-test('Accordion matches snapchot with JSX.Element', () => {
+test('Accordion matches snapchot with React Element', () => {
   const { container } = renderWithTheme(
     <Accordion
       title={
         <Box display="flex">
           <Icon component={MaterialAddAPhoto} mr={2} />
-          <Text bold>Das hier ist ein JSX.Element</Text>
+          <Text bold>Das hier ist ein React Element</Text>
         </Box>
       }
     >

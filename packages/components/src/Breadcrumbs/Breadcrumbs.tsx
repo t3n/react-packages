@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
@@ -13,15 +13,13 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
   href?: string;
   className?: string;
   label: string;
-  linkComponent?: (
-    props: React.AnchorHTMLAttributes<HTMLAnchorElement> &
-      Pick<LinkProps, 'variant' | 'children'> & { href: string },
-  ) => JSX.Element;
+  linkComponent?: FunctionComponent<
+    React.AnchorHTMLAttributes<HTMLAnchorElement> &
+      Pick<LinkProps, 'variant' | 'children'> & { href: string }
+  >;
 }
 
-interface BreadcrumbsProps {
-  children: React.ReactNode;
-}
+type BreadcrumbsProps = PropsWithChildren;
 
 export const BreadcrumbsItem = styled(
   ({

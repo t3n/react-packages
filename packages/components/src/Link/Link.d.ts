@@ -1,14 +1,13 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { SpaceProps, TextColorProps } from 'styled-system';
 import { ThemeProps } from '@t3n/theme';
 import { LinkStyle } from '@t3n/theme/src/theme/linkStyles';
 import { TextProps } from '../Text';
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
-export interface LinkProps extends TextColorProps, SpaceProps {
+export interface LinkProps extends TextColorProps, SpaceProps, Required<PropsWithChildren> {
     small?: TextProps['small'];
     disabled?: boolean;
     variant?: LinkVariantType;
-    children: ReactNode;
 }
 export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
 export declare const createLinkStyle: (linkStyleConfig: LinkStyle) => import("styled-components").RuleSet<Omit<LinkProps, "children"> & ThemeProps>;

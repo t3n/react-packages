@@ -1,4 +1,4 @@
-import React, { type JSX, ReactNode, useState } from 'react';
+import React, { PropsWithChildren, ReactElement, useState } from 'react';
 import { styled } from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
@@ -9,10 +9,9 @@ import Box from '../Box';
 import Heading from '../Heading';
 import Icon from '../Icon';
 
-export interface AccordionProps extends MarginProps {
-  title: string | JSX.Element;
+export interface AccordionProps extends MarginProps, PropsWithChildren {
+  title: string | ReactElement;
   initialOpen?: boolean;
-  children?: ReactNode;
 }
 
 const StyledAccordion = styled.div<SpaceProps & ThemeProps>`

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import {
   color,
@@ -14,12 +14,11 @@ import { composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface HeadingProps extends SpaceProps, SizeProps {
+export interface HeadingProps extends SpaceProps, SizeProps, PropsWithChildren {
   as?: HeadingElements;
   styleAs?: HeadingElements;
   color?: string;
   align?: TextAlignProps['textAlign'];
-  children?: ReactNode;
 }
 
 const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>

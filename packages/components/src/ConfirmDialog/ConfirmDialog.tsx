@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 
 import { ThemeProps } from '@t3n/theme';
@@ -7,12 +7,11 @@ import Box from '../Box';
 import Button from '../Button';
 import Modal, { ModalProps } from '../Modal';
 
-export interface ConfirmDialogProps extends ModalProps {
+export interface ConfirmDialogProps extends ModalProps, PropsWithChildren {
   onConfirm: () => void;
   buttonLabel: string;
   buttonDisabled?: boolean;
   loading?: boolean;
-  children?: ReactNode;
 }
 
 const StyledButtonBox = styled(Box)<ThemeProps>`

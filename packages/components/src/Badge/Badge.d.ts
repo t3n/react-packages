@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
-export interface BadgeProps {
+import { PropsWithChildren } from 'react';
+export interface BadgeProps extends PropsWithChildren {
     variant: 'inverse' | 'highlight' | 'light';
-    children?: ReactNode;
 }
 declare const Badge: (props: BadgeProps) => import("react/jsx-runtime").JSX.Element;
 export default Badge;

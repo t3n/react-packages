@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { space, SpaceProps, variant } from 'styled-system';
 
@@ -9,9 +9,8 @@ import Text from '../Text';
 
 export type AlertStatus = 'success' | 'notice' | 'warning' | 'error';
 
-export interface AlertProps extends SpaceProps {
+export interface AlertProps extends SpaceProps, PropsWithChildren {
   status: AlertStatus;
-  children?: ReactNode;
 }
 
 const AlertBox = styled(Box).withConfig({
@@ -41,7 +40,7 @@ const AlertBox = styled(Box).withConfig({
   ${space};
 `;
 
-export const AlertText = ({ children }: { children: React.ReactNode }) => {
+export const AlertText = ({ children }: Required<PropsWithChildren>) => {
   return (
     <Text m={0} width="100%">
       {children}

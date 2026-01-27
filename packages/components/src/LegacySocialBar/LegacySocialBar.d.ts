@@ -1,4 +1,4 @@
-import { type JSX } from 'react';
+import { ReactElement } from 'react';
 export interface LegacySocialBarProps {
     className?: string;
     isInFooter?: boolean;
@@ -6,7 +6,7 @@ export interface LegacySocialBarProps {
 export type SocialLinkType = {
     title: string;
     url: string;
-    icon: JSX.Element;
+    icon: ReactElement;
     rel?: string;
     target?: string;
 }[];

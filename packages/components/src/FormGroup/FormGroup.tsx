@@ -1,4 +1,8 @@
-import React, { LabelHTMLAttributes, ReactNode } from 'react';
+import React, {
+  LabelHTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+} from 'react';
 import { styled } from 'styled-components';
 import { margin, MarginProps, space } from 'styled-system';
 
@@ -10,12 +14,12 @@ import Text from '../Text';
 export interface FormGroupProps
   extends
     LabelHTMLAttributes<HTMLLabelElement>,
-    Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'> {
+    Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'>,
+    PropsWithChildren {
   label: string;
   labelSecondary?: string;
   labelEndContent?: ReactNode;
   errorMessage?: string;
-  children?: ReactNode;
 }
 
 const Label = styled.span<ThemeProps>`

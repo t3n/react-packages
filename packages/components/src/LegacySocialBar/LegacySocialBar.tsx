@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import React, { ReactElement } from 'react';
 import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
 
@@ -24,7 +24,7 @@ export interface LegacySocialBarProps {
 export type SocialLinkType = {
   title: string;
   url: string;
-  icon: JSX.Element;
+  icon: ReactElement;
   rel?: string;
   target?: string;
 }[];

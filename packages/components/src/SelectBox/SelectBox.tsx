@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { type JSX } from 'react';
+import React from 'react';
 import Select, {
   components,
   GroupBase,
@@ -235,7 +235,7 @@ const SelectBox = <S,>({
   async,
   loadOptions,
   ...props
-}: SelectBoxProps<S>): JSX.Element => {
+}: SelectBoxProps<S>) => {
   const theme = useTheme();
 
   const commonProps = {

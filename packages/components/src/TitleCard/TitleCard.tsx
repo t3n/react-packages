@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import Card, { CardProps } from '../Card';
 import Heading, { HeadingElements } from '../Heading';
 
-export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
+export interface TitleCardProps
+  extends Omit<CardProps, 'splitted'>, PropsWithChildren {
   title: string;
   titleAs?: HeadingElements;
   centerTitle?: boolean;
-  children?: ReactNode;
 }
 
 const TitleCard = ({

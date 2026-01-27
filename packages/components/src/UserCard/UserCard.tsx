@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { space } from 'styled-system';
 
@@ -32,7 +32,7 @@ export interface SocialLink {
   type: SocialLinkType;
 }
 
-export interface UserCardProps {
+export interface UserCardProps extends PropsWithChildren {
   user: {
     id: number;
     name: string;
@@ -52,7 +52,6 @@ export interface UserCardProps {
   };
   compact: boolean;
   secondary?: boolean;
-  children?: ReactNode;
 }
 
 const StyledCard = styled(Card)<ThemeProps>`
@@ -234,9 +233,11 @@ const UserCardContent = ({
           user.name
         )}
       </Text>
-      <Text mt={1} mb={1} secondary={!!secondary}>
-        {user.position}
-      </Text>
+      {user.position && (
+        <Text mt={1} mb={1} secondary={!!secondary}>
+          {user.position}
+        </Text>
+      )}
       {user.flag && <StyledBadge variant="light">{user.flag}</StyledBadge>}
       {!link?.fullCard && user.email ? (
         <StyledLink
@@ -249,9 +250,11 @@ const UserCardContent = ({
           </Text>
         </StyledLink>
       ) : (
-        <Text mt={2} mb={0} secondary={!!secondary}>
-          {user.email}
-        </Text>
+        user.email && (
+          <Text mt={2} mb={0} secondary={!!secondary}>
+            {user.email}
+          </Text>
+        )
       )}
       {!link?.fullCard && user.phone ? (
         <StyledLink
@@ -262,9 +265,11 @@ const UserCardContent = ({
           </Text>
         </StyledLink>
       ) : (
-        <Text mt={1} mb={0} secondary={!!secondary}>
-          {user.phone}
-        </Text>
+        user.phone && (
+          <Text mt={1} mb={0} secondary={!!secondary}>
+            {user.phone}
+          </Text>
+        )
       )}
       {!link?.fullCard && user.socialLinks.length > 0 && (
         <SocialLinks links={user.socialLinks} />

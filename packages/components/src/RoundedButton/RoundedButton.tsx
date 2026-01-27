@@ -2,6 +2,7 @@
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
+  PropsWithChildren,
   ReactNode,
 } from 'react';
 import { css, styled } from 'styled-components';
@@ -30,7 +31,8 @@ export type RoundedButtonColorVariant =
   | 'accent';
 export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
 
-export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
+export interface RoundedButtonBaseProps
+  extends MarginProps, WidthProps, PropsWithChildren {
   size?: RoundedButtonSizeVariant;
   variant?: RoundedButtonVariant;
   color?: RoundedButtonColorVariant;
@@ -38,7 +40,6 @@ export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
   label?: ReactNode;
   loading?: boolean;
   expanded?: boolean;
-  children?: ReactNode;
 }
 
 export interface RoundedButtonButtonTypeProps

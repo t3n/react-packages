@@ -2,7 +2,7 @@
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-  ReactNode,
+  PropsWithChildren,
 } from 'react';
 import { css, styled } from 'styled-components';
 import {
@@ -25,7 +25,7 @@ export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 
-interface BaseButtonProps extends MarginProps, WidthProps {
+interface BaseButtonProps extends MarginProps, WidthProps, PropsWithChildren {
   variant?: ButtonVariant;
   color?: ButtonColorVariant;
   size?: ButtonSizeVariant;
@@ -35,8 +35,6 @@ interface BaseButtonProps extends MarginProps, WidthProps {
 
   loading?: boolean;
   disabled?: boolean;
-
-  children?: ReactNode;
 }
 
 interface AnchorButtonProps

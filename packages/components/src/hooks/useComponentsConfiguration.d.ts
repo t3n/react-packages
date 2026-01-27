@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 export interface CdnComponentsConfiguration {
     hostname: string;
     originHostnames: string[];
@@ -6,8 +6,7 @@ export interface CdnComponentsConfiguration {
 export interface ComponentsConfiguration {
     cdn: CdnComponentsConfiguration;
 }
-export interface ComponentsConfigurationProviderProps {
-    children: ReactNode;
+export interface ComponentsConfigurationProviderProps extends Required<PropsWithChildren> {
     configuration: ComponentsConfiguration;
 }
 export declare const defaultComponentsConfiguration: ComponentsConfiguration;
