@@ -1,6 +1,5 @@
-import React from 'react';
 export interface PageFooterProps {
     privacyManagerId: string;
 }
-declare const PageFooter: React.FC<PageFooterProps>;
+declare const PageFooter: ({ privacyManagerId }: PageFooterProps) => import("react/jsx-runtime").JSX.Element;
 export default PageFooter;

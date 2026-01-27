@@ -1,2 +1,2 @@
-declare const Punchline: import("styled-components").StyledComponent<"h1", any, import("../Heading").HeadingProps, never>;
+declare const Punchline: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>, "theme" | keyof import("../Heading").HeadingProps> & import("../Heading").HeadingProps & import("@t3n/theme").ThemeProps, never>> & string;
 export default Punchline;

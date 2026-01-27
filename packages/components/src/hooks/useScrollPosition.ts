@@ -12,7 +12,7 @@ function getScrollPosition(): ScrollPosition {
 }
 
 function useScrollPosition(): ScrollPosition {
-  const [position, setScrollPosition] =
+  const [scrollPosition, setScrollPosition] =
     useState<ScrollPosition>(getScrollPosition());
 
   useEffect(() => {
@@ -30,11 +30,9 @@ function useScrollPosition(): ScrollPosition {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }
-
-    return () => {};
   }, []);
 
-  return position;
+  return scrollPosition;
 }
 
 export default useScrollPosition;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { Formik, FormikHelpers, FormikProps } from 'formik';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
 import * as Yup from 'yup';
 
@@ -50,7 +50,6 @@ export const register = () => {
     { setSubmitting }: FormikHelpers<RegisterValues>,
   ) => {
     setTimeout(() => {
-      // eslint-disable-next-line no-alert
       alert(
         `Registrierungs-Formular wurde abgeschickt mit den folgenden Werten:
             ${JSON.stringify(values, null, 2)}`,

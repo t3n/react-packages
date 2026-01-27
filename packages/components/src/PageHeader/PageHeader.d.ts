@@ -1,13 +1,12 @@
-import React from 'react';
-export type PageHeaderLinksType = {
+export interface PageHeaderLinksType {
     label: string;
     url: string;
-};
-export type PageHeaderTeaserImageType = {
+}
+export interface PageHeaderTeaserImageType {
     title: string;
     url: string;
     image: string;
-};
+}
 export interface PageHeaderProps {
     pinnedTeaser: PageHeaderLinksType & {
         isSponsored: boolean;
@@ -25,5 +24,5 @@ export interface PageHeaderProps {
     isLoggedIn?: boolean;
     hasSubscription?: boolean;
 }
-declare const PageHeader: React.FC<PageHeaderProps>;
+declare const PageHeader: ({ pinnedTeaser, tags, ressorts, skills, brands, magazines, headerCampaignUrl, headerCampaignImage, burgerCampaignUrl, burgerCampaignImage, isLoggedIn, hasSubscription, }: PageHeaderProps) => import("react/jsx-runtime").JSX.Element;
 export default PageHeader;

@@ -1,16 +1,17 @@
-import React, { createContext, ReactNode, useContext } from 'react';
+import React, { createContext, PropsWithChildren, use } from 'react';
 
-export type CdnComponentsConfiguration = {
+export interface CdnComponentsConfiguration {
   hostname: string;
   originHostnames: string[];
-};
+}
 
-export type ComponentsConfiguration = { cdn: CdnComponentsConfiguration };
+export interface ComponentsConfiguration {
+  cdn: CdnComponentsConfiguration;
+}
 
-export type ComponentsConfigurationProviderProps = {
-  children: ReactNode;
+export interface ComponentsConfigurationProviderProps extends Required<PropsWithChildren> {
   configuration: ComponentsConfiguration;
-};
+}
 
 export const defaultComponentsConfiguration: ComponentsConfiguration = {
   cdn: {
@@ -26,17 +27,17 @@ export const defaultComponentsConfiguration: ComponentsConfiguration = {
 export const ComponentsConfigurationContext =
   createContext<ComponentsConfiguration>(defaultComponentsConfiguration);
 
-export const ComponentsConfigurationProvider: React.FC<
-  ComponentsConfigurationProviderProps
-> = ({ children, configuration }) => {
+export const ComponentsConfigurationProvider = ({
+  children,
+  configuration,
+}: ComponentsConfigurationProviderProps) => {
   return (
-    <ComponentsConfigurationContext.Provider value={configuration}>
+    <ComponentsConfigurationContext value={configuration}>
       {children}
-    </ComponentsConfigurationContext.Provider>
+    </ComponentsConfigurationContext>
   );
 };
 
-const useComponentsConfiguration = () =>
-  useContext(ComponentsConfigurationContext);
+const useComponentsConfiguration = () => use(ComponentsConfigurationContext);
 
 export default useComponentsConfiguration;

@@ -1,8 +1,9 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import { T3nPlus } from '@t3n/icons';
+import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Grid from '../Grid';
@@ -14,7 +15,7 @@ import Text from '../Text';
 import TRBadge from '../TRBadge';
 import Metabar from './Metabar';
 
-export type ArticleProps = {
+export interface ArticleProps {
   identifier: string;
   type: string;
   date: string;
@@ -25,19 +26,19 @@ export type ArticleProps = {
   readingTime: number;
   isPaywallArticle?: boolean;
   isTRArticle?: boolean;
-};
+}
 
 const UppercaseText = styled(Text)`
   text-transform: uppercase;
   font-size: 12px;
 `;
 
-const LargeTeaserImage = styled(Image)`
+const LargeTeaserImage = styled(Image)<ThemeProps>`
   border-radius: 4px;
   ${({ theme }) => space({ theme, mr: [0, 0, 0, 1] })};
 `;
 
-const SmallTeaserImage = styled(Image)`
+const SmallTeaserImage = styled(Image)<ThemeProps>`
   border-radius: 4px;
   ${({ theme }) => space({ theme, mr: [0, 0, 0, 1] })};
 
@@ -48,20 +49,20 @@ const SmallTeaserImage = styled(Image)`
   `}
 `;
 
-const ArticleTeaser: React.FC<{
-  article: ArticleProps;
-  teaserText?: boolean;
-  largeTeaserImage?: boolean;
-  smallTeaserImage?: boolean;
-  isBookmarked: boolean;
-  handleBookmarkClick: () => void;
-}> = ({
+const ArticleTeaser = ({
   article,
   teaserText,
   largeTeaserImage,
   smallTeaserImage,
   isBookmarked,
   handleBookmarkClick,
+}: {
+  article: ArticleProps;
+  teaserText?: boolean;
+  largeTeaserImage?: boolean;
+  smallTeaserImage?: boolean;
+  isBookmarked: boolean;
+  handleBookmarkClick: () => void;
 }) => {
   return (
     <>
@@ -94,7 +95,7 @@ const ArticleTeaser: React.FC<{
             <Heading as="h2" styleAs="h5" mt={0} mb={0}>
               {article.title}
             </Heading>
-            {teaserText && <Text>{article.teaser}</Text>}
+            {teaserText && article.teaser && <Text>{article.teaser}</Text>}
           </GridItem>
           {smallTeaserImage && article.imageUrl && (
             <GridItem width={[1 / 4, 1 / 4, 1 / 4, 1 / 6]}>

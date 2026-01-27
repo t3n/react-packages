@@ -2,9 +2,10 @@
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
+  PropsWithChildren,
   ReactNode,
 } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import {
   color as systemColor,
   lineHeight,
@@ -30,25 +31,25 @@ export type RoundedButtonColorVariant =
   | 'accent';
 export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
 
-export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
+export interface RoundedButtonBaseProps
+  extends MarginProps, WidthProps, PropsWithChildren {
   size?: RoundedButtonSizeVariant;
   variant?: RoundedButtonVariant;
   color?: RoundedButtonColorVariant;
-  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label?: ReactNode;
   loading?: boolean;
   expanded?: boolean;
-  children?: ReactNode;
 }
 
 export interface RoundedButtonButtonTypeProps
-  extends RoundedButtonBaseProps,
-    Omit<ButtonHTMLAttributes<any>, 'color'> {
+  extends RoundedButtonBaseProps, Omit<ButtonHTMLAttributes<any>, 'color'> {
   as?: 'button';
 }
 
 export interface RoundedButtonATypeProps
-  extends RoundedButtonBaseProps,
+  extends
+    RoundedButtonBaseProps,
     Omit<AnchorHTMLAttributes<any>, 'color' | 'type'> {
   as?: 'a';
 }
@@ -97,7 +98,7 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const RoundedButtonStyles = css`
+export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -218,7 +219,7 @@ export const RoundedButtonStyles = css`
 
   ${({ loading }) =>
     !loading &&
-    css`
+    css<RoundedButtonProps & ThemeProps>`
       &:disabled {
         opacity: 0.6;
         ${({
@@ -237,7 +238,7 @@ export const RoundedButtonStyles = css`
       }
     `}
 
-  ${({ expanded }) => css`
+  ${({ expanded }) => css<RoundedButtonProps & ThemeProps>`
     > .icon-button_text {
       display: inline-block;
       max-width: ${expanded ? '100vw' : 0};
@@ -263,12 +264,15 @@ export const RoundedButtonStyles = css`
 
   ${({ label }) =>
     !label &&
-    css`
+    css<RoundedButtonProps & ThemeProps>`
       transition: all 0.1s;
     `}
 `;
 
-export const StyledRoundedButton = styled.button<RoundedButtonProps>`
+export const StyledRoundedButton = styled.button.withConfig({
+  shouldForwardProp: (prop) =>
+    !['size', 'loading', 'variant', 'expanded', 'label'].includes(prop),
+})<RoundedButtonProps & ThemeProps>`
   ${RoundedButtonStyles}
 `;
 
@@ -298,7 +302,7 @@ const getLoaderSize = (
   }
 };
 
-const RoundedButton: React.FC<RoundedButtonProps> = (props) => {
+const RoundedButton = (props: RoundedButtonProps) => {
   const {
     children,
     loading,
@@ -312,9 +316,7 @@ const RoundedButton: React.FC<RoundedButtonProps> = (props) => {
     ...rest
   } = props;
 
-  // eslint-disable-next-line react/destructuring-assignment
   const href = isATypeProps(props) ? props.href : undefined;
-  // eslint-disable-next-line react/destructuring-assignment
   const disabled = !isATypeProps(props) ? props.disabled : undefined;
 
   return (

@@ -2,9 +2,9 @@
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-  ReactNode,
+  PropsWithChildren,
 } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import {
   lineHeight,
   margin,
@@ -25,25 +25,35 @@ export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 
-// TODO: Fix polymorphic interface
-
-export interface ButtonProps
-  extends ButtonHTMLAttributes<any>,
-    Omit<AnchorHTMLAttributes<any>, 'type'>,
-    MarginProps,
-    WidthProps {
+interface BaseButtonProps extends MarginProps, WidthProps, PropsWithChildren {
   variant?: ButtonVariant;
   color?: ButtonColorVariant;
   size?: ButtonSizeVariant;
 
-  iconLeft?: React.FC<React.SVGProps<SVGSVGElement>>;
-  iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
   loading?: boolean;
-  as?: ButtonAsType;
-
-  children?: ReactNode;
+  disabled?: boolean;
 }
+
+interface AnchorButtonProps
+  extends
+    BaseButtonProps,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
+  as?: 'a';
+  href: string;
+}
+
+interface ButtonButtonProps
+  extends
+    BaseButtonProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
+  as?: 'button';
+  href?: never;
+}
+
+export type ButtonProps = AnchorButtonProps | ButtonButtonProps;
 
 const buildColorVariants = (
   variantProp: ButtonVariant,
@@ -56,7 +66,7 @@ const buildColorVariants = (
     'inverse',
     'accent',
   ];
-  const buildConfig: any = {};
+  const buildConfig: Record<string, Record<string, string>> = {};
 
   allVariants.forEach((el) => {
     buildConfig[el] = {
@@ -81,7 +91,7 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const buttonStyles = css`
+export const buttonStyles = css<ButtonProps & ThemeProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +182,7 @@ export const buttonStyles = css`
 
   ${({ loading }) =>
     !loading &&
-    css`
+    css<ButtonProps & ThemeProps>`
       &:disabled {
         opacity: 0.6;
 
@@ -187,14 +197,14 @@ export const buttonStyles = css`
     `}
 `;
 
-const StyledButton = styled(
-  // eslint-disable-next-line react/button-has-type
-  ({ loading, ...rest }: ButtonProps) => <button {...rest} />,
-)<ButtonProps>`
+const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (prop) =>
+    !['size', 'loading', 'variant', 'iconLeft', 'iconRight'].includes(prop),
+})<ButtonProps & ThemeProps>`
   ${buttonStyles}
 `;
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   loading,
   iconLeft,
@@ -202,46 +212,64 @@ const Button: React.FC<ButtonProps> = ({
   size = 'regular',
   color = 'default',
   variant = 'primary',
-  href,
   as,
   onClick,
   disabled,
-  ...rest
-}) => (
-  <StyledButton
-    href={href}
-    as={href ? 'a' : as}
-    size={size}
-    color={color}
-    variant={variant}
-    loading={loading}
-    disabled={loading || disabled}
-    onClick={(e: any) => !loading && onClick && onClick(e)}
-    {...rest}
-  >
-    {loading ? (
-      <Loader small my={2} />
-    ) : (
-      <>
-        {iconLeft && (
-          <Icon
-            component={iconLeft}
-            mr={2}
-            width={
-              size === 'big' ? '1.5rem' : size === 'small' ? '1rem' : '1.25rem'
+  ...props
+}: ButtonProps) => {
+  const isAnchor = 'href' in props && props.href;
+
+  return (
+    <StyledButton
+      {...props}
+      as={isAnchor ? 'a' : as || 'button'}
+      size={size}
+      color={color}
+      variant={variant}
+      loading={loading}
+      disabled={loading || disabled}
+      onClick={
+        onClick
+          ? (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+              if (!loading) {
+                onClick(e as any);
+              }
             }
-            height={
-              size === 'big' ? '1.5rem' : size === 'small' ? '1rem' : '1.25rem'
-            }
-          />
-        )}
-        {children}
-        {iconRight && (
-          <Icon component={iconRight} ml={2} width="auto" height="1.5rem" />
-        )}
-      </>
-    )}
-  </StyledButton>
-);
+          : undefined
+      }
+    >
+      {loading ? (
+        <Loader small my={2} />
+      ) : (
+        <>
+          {iconLeft && (
+            <Icon
+              component={iconLeft}
+              mr={2}
+              width={
+                size === 'big'
+                  ? '1.5rem'
+                  : size === 'small'
+                    ? '1rem'
+                    : '1.25rem'
+              }
+              height={
+                size === 'big'
+                  ? '1.5rem'
+                  : size === 'small'
+                    ? '1rem'
+                    : '1.25rem'
+              }
+            />
+          )}
+          {children}
+          {iconRight && (
+            <Icon component={iconRight} ml={2} width="auto" height="1.5rem" />
+          )}
+        </>
+      )}
+    </StyledButton>
+  );
+};
 
 export default Button;

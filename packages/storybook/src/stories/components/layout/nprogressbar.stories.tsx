@@ -4,7 +4,7 @@ import { done, inc, start } from 'nprogress';
 
 import { Box, Button, NProgressBarGlobalStyle } from '@t3n/components';
 
-const ButtonGroup: React.FC = () => (
+const ButtonGroup = () => (
   <Box display="flex" mt={3} my={3}>
     <Button variant="secondary" onClick={() => start()} mr={2}>
       Start

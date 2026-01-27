@@ -1,15 +1,11 @@
 import { fontFamily, fontSize, lineHeight } from 'styled-system';
 
 interface Theme {
-  textStyles: {
-    [key: string]: any;
-  };
+  textStyles: Record<string, any>;
   [key: string]: any;
 }
 
-interface System {
-  [key: string]: (...args: any[]) => any;
-}
+type System = Record<string, (...args: any[]) => any>;
 
 const composeTextStyle = ({
   textStyle,

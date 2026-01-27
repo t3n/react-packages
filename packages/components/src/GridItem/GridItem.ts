@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   display,
   DisplayProps,
@@ -13,11 +13,7 @@ import {
 } from 'styled-system';
 
 export interface GridItemProps
-  extends SpaceProps,
-    WidthProps,
-    OrderProps,
-    DisplayProps,
-    FlexboxProps {}
+  extends SpaceProps, WidthProps, OrderProps, DisplayProps, FlexboxProps {}
 
 const GridItem = styled.div.attrs((props) => ({
   width: 1 as WidthProps,

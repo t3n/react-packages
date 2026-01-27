@@ -1,12 +1,11 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { border, space } from 'styled-system';
 
 import { getColorForBackground, getThemeColor, ThemeProps } from '@t3n/theme';
 
-export interface BadgeProps {
+export interface BadgeProps extends PropsWithChildren {
   variant: 'inverse' | 'highlight' | 'light';
-  children?: ReactNode;
 }
 
 const background = ({
@@ -20,7 +19,7 @@ const background = ({
   };
 `;
 
-const StyledBadge = styled.span<BadgeProps>`
+const StyledBadge = styled.span<BadgeProps & ThemeProps>`
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -33,6 +32,6 @@ const StyledBadge = styled.span<BadgeProps>`
   ${background};
 `;
 
-const Badge: React.FC<BadgeProps> = (props) => <StyledBadge {...props} />;
+const Badge = (props: BadgeProps) => <StyledBadge {...props} />;
 
 export default Badge;

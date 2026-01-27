@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, ColorProps, space, SpaceProps } from 'styled-system';
 
 export interface BreakpointProps extends ColorProps, SpaceProps {

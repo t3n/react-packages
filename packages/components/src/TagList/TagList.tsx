@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { ReactElement, useState } from 'react';
+import { styled } from 'styled-components';
 import { layout, margin } from 'styled-system';
 
 import { MaterialArrowBack, MaterialArrowForward } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Tag, { TagColorVariant } from '../Tag';
 
 export interface TagListProps {
-  tags: JSX.Element[];
+  tags: ReactElement[];
   collapseAfter: number;
   small?: boolean;
   colorVariant?: TagColorVariant;
@@ -30,7 +29,7 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
       height: small ? '1.6rem' : '2.1rem',
     })};
   padding: 0;
-  ${({ theme }: ThemeProps) => margin({ theme, mb: 2 })}
+  ${({ theme }) => margin({ theme, mb: 2 })}
 
   &:hover {
     transform: scale(1.3);
@@ -41,20 +40,20 @@ const StyledArrowButton = styled(Tag)<{ small: boolean }>`
   }
 `;
 
-const TagList: React.FC<TagListProps> = ({
+const TagList = ({
   initialCollapsed = true,
   collapseAfter,
   small = false,
   colorVariant = 'secondary',
   tags,
-}) => {
+}: TagListProps) => {
   const [collapsed, setCollapsed] = useState<boolean>(!!initialCollapsed);
 
   if (tags.length <= collapseAfter) {
     return (
       <StyledTagList>
         {tags.map((tag, idx) => (
-          // eslint-disable-next-line react/no-array-index-key
+          // eslint-disable-next-line @eslint-react/no-array-index-key
           <Box display="inline-block" key={idx} mb={2}>
             {tag}
           </Box>
@@ -67,7 +66,7 @@ const TagList: React.FC<TagListProps> = ({
     return (
       <StyledTagList>
         {tags.slice(0, collapseAfter).map((tag, idx) => (
-          // eslint-disable-next-line react/no-array-index-key
+          // eslint-disable-next-line @eslint-react/no-array-index-key
           <Box display="inline-block" key={idx} mb={2}>
             {tag}
           </Box>
@@ -87,7 +86,7 @@ const TagList: React.FC<TagListProps> = ({
   return (
     <StyledTagList>
       {tags.map((tag, idx) => (
-        // eslint-disable-next-line react/no-array-index-key
+        // eslint-disable-next-line @eslint-react/no-array-index-key
         <Box display="inline-block" key={idx} mb={2}>
           {tag}
         </Box>

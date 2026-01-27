@@ -1,14 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Accordion matches snapchot with JSX.Element 1`] = `
+exports[`Accordion matches snapchot with React Element 1`] = `
 .c1 {
   padding: 16px;
 }
 
 .c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -45,22 +42,13 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
 }
 
-.c2:focus {
+.c2 :focus {
   outline: none;
 }
 
@@ -71,33 +59,29 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
 }
 
 .c8 .c4 {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 0.2s ease-in;
-  -webkit-transition: transform 0.2s ease-in;
   transition: transform 0.2s ease-in;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c1 {
     padding: 16px;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c1 {
     padding: 24px;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c6 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c6 {
     line-height: 1.666em;
   }
@@ -113,12 +97,10 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
   >
     <div
       class="c3"
-      display="flex"
     >
       <svg
         class="c4 c5"
         fill="text.primary"
-        theme="[object Object]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -129,7 +111,7 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
       <p
         class="c6"
       >
-        Das hier ist ein JSX.Element
+        Das hier ist ein React Element
       </p>
     </div>
     <div
@@ -138,7 +120,6 @@ exports[`Accordion matches snapchot with JSX.Element 1`] = `
       <svg
         class="c4 c9"
         fill="shades.grey95"
-        theme="[object Object]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -182,22 +163,13 @@ exports[`Accordion matches snapshot 1`] = `
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
 }
 
-.c2:focus {
+.c2 :focus {
   outline: none;
 }
 
@@ -208,74 +180,66 @@ exports[`Accordion matches snapshot 1`] = `
 }
 
 .c5 .c6 {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 0.2s ease-in;
-  -webkit-transition: transform 0.2s ease-in;
   transition: transform 0.2s ease-in;
 }
 
 .c8 .c6 {
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-  -webkit-transition: -webkit-transform 0.2s ease-in;
-  -webkit-transition: transform 0.2s ease-in;
   transition: transform 0.2s ease-in;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c1 {
     padding: 16px;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c1 {
     padding: 24px;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
 
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
 
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c3 {
     font-size: 1.125rem;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c3 {
     font-size: 1.25rem;
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width: 61.25rem) {
   .c3 {
     font-size: 1.25rem;
   }
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c3 {
     line-height: 1.5em;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c3 {
     line-height: 1.333em;
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width: 61.25rem) {
   .c3 {
     line-height: 1.333em;
   }
@@ -291,6 +255,7 @@ exports[`Accordion matches snapshot 1`] = `
   >
     <h3
       class="c3"
+      m="0"
     >
       Some Accordion
     </h3>
@@ -300,7 +265,6 @@ exports[`Accordion matches snapshot 1`] = `
       <svg
         class="c6 c7"
         fill="shades.grey95"
-        theme="[object Object]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >

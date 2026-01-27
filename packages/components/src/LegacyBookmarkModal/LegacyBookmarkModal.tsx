@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { MaterialBookmarkBorder } from '@t3n/icons';
 
@@ -24,9 +24,7 @@ const OverflowModalWrapper = styled(Box)`
   }
 `;
 
-const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps> = ({
-  onClose,
-}) => {
+const LegacyBookmarkModal = ({ onClose }: LegacyBookmarkModalProps) => {
   return (
     <OverflowModalWrapper>
       <Modal

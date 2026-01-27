@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import { MarginProps } from 'styled-system';
-export interface AccordionProps extends MarginProps {
-    title: string | JSX.Element;
+export interface AccordionProps extends MarginProps, PropsWithChildren {
+    title: string | ReactElement;
     initialOpen?: boolean;
-    children?: ReactNode;
 }
-declare const Accordion: React.FC<AccordionProps>;
+declare const Accordion: ({ children, title, initialOpen, ...rest }: AccordionProps) => import("react/jsx-runtime").JSX.Element;
 export default Accordion;

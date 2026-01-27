@@ -1,6 +1,5 @@
-import React, { ReactNode } from 'react';
-declare const LegacyBreadcrumb: React.FC<{
+import { PropsWithChildren } from 'react';
+declare const LegacyBreadcrumb: ({ secondary, children, }: PropsWithChildren<{
     secondary?: boolean;
-    children?: ReactNode;
-}>;
+}>) => import("react/jsx-runtime").JSX.Element;
 export default LegacyBreadcrumb;
