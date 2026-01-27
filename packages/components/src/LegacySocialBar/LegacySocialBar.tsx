@@ -46,7 +46,7 @@ const SocialLink = styled.a<ThemeProps>`
   ${({ theme }) => space({ pl: '12px', theme })}
   ${({ theme }) => color({ theme, color: 'text.secondary' })};
 
-  :last-child {
+  &:last-child {
     ${({ theme }) => space({ pl: 2, theme })}
   }
 
