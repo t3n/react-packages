@@ -49,7 +49,7 @@ const BaseIcon = ({
   <IconComponent width={undefined} height={undefined} {...props} />
 );
 
-const Icon = styled(BaseIcon).attrs((props) => ({
+const Icon = styled(BaseIcon).attrs<any>((props: IconProps) => ({
   fill: 'text.primary',
   width: '1.5rem',
   ...props,

@@ -1,3 +1,2 @@
-import { ThemeProps } from '@t3n/theme';
-declare const backgroundAnimation: import("styled-components").RuleSet<ThemeProps>;
+declare const backgroundAnimation: import("styled-components").RuleSet<object>;
 export default backgroundAnimation;

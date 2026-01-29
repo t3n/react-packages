@@ -8,14 +8,12 @@ import {
   SpaceProps,
 } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import backgroundAnimation from '../helper/animation';
 
 export interface PlaceholderProps
   extends SpaceProps, LayoutProps, BorderRadiusProps {}
 
-const Placeholder = styled.div<PlaceholderProps & ThemeProps>`
+const Placeholder = styled.div<PlaceholderProps>`
   ${backgroundAnimation}
   ${layout};
   ${space};

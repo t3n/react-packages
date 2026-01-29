@@ -15,11 +15,11 @@ import {
 export interface GridItemProps
   extends SpaceProps, WidthProps, OrderProps, DisplayProps, FlexboxProps {}
 
-const GridItem = styled.div.attrs((props) => ({
-  width: 1 as WidthProps,
-  px: [0, 2] as SpaceProps,
+const GridItem = styled.div.attrs<GridItemProps>((props: GridItemProps) => ({
+  width: 1,
+  px: [0, 2],
   ...props,
-}))<GridItemProps>`
+}))`
   ${width}
   ${space}
   ${order}

@@ -1,8 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box from '../Box';
 import Button from '../Button';
 import Modal, { ModalProps } from '../Modal';
@@ -14,8 +12,8 @@ export interface ConfirmDialogProps extends ModalProps, PropsWithChildren {
   loading?: boolean;
 }
 
-const StyledButtonBox = styled(Box)<ThemeProps>`
-  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
+const StyledButtonBox = styled(Box)`
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     flex-direction: column;
   }
 `;

@@ -14,7 +14,7 @@ import {
   MaterialVisibility,
   MaterialVisibilityOff,
 } from '@t3n/icons';
-import { getThemeColor, ThemeProps } from '@t3n/theme';
+import { getThemeColor } from '@t3n/theme';
 
 import Icon from '../Icon';
 
@@ -45,14 +45,9 @@ const StyledInput = styled.div<InputProps>`
   ${styledWidth};
 `;
 
-const border = css<StyledNativeInputProps & ThemeProps>`
+const border = css<StyledNativeInputProps>`
   border: 1px solid
-    ${({
-      isFocused,
-      error,
-      disabled,
-      theme,
-    }: StyledNativeInputProps & ThemeProps) =>
+    ${({ isFocused, error, disabled, theme }) =>
       error
         ? theme.colors.feedback.error
         : disabled
@@ -65,7 +60,7 @@ const border = css<StyledNativeInputProps & ThemeProps>`
 const StyledNativeInput = styled.input.withConfig({
   shouldForwardProp: (prop) =>
     !['isFocused', 'error', 'disabled', 'hideReset'].includes(prop),
-})<StyledNativeInputProps & ThemeProps>`
+})<StyledNativeInputProps>`
   width: 100%;
   height: 40px;
   font-family: ${({ theme }) => theme.fonts.default};
@@ -73,7 +68,7 @@ const StyledNativeInput = styled.input.withConfig({
   line-height: 40px;
   color: ${getThemeColor('text.primary')};
   background-color: ${getThemeColor('background.primary')};
-  border-radius: ${(props) => props.theme.border.radii[1]};
+  border-radius: ${({ theme }) => theme.border.radii[1]};
   ${border};
   outline: 0;
   ${border}

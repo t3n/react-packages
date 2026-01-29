@@ -9,8 +9,6 @@ import { animate, motion, PanInfo, useMotionValue } from 'framer-motion';
 import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Text from '../Text';
 
 export interface SliderProps {
@@ -26,14 +24,14 @@ export interface SliderProps {
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
-const StyledSliderTrack = styled.div<ThemeProps>`
+const StyledSliderTrack = styled.div`
   height: ${({ theme }) => theme.space[2]}px;
   width: 100%;
   position: relative;
   ${({ theme }) => color({ bg: 'background.secondary', theme })}
 `;
 
-const StyledSliderThumb = styled.span<ThemeProps>`
+const StyledSliderThumb = styled.span`
   display: block;
   position: absolute;
   top: 0;
@@ -71,7 +69,7 @@ const StyledSliderLabel = styled.button<LabelProps>`
   }
 `;
 
-const StyledSliderMarker = styled.button<LabelProps & ThemeProps>`
+const StyledSliderMarker = styled.button<LabelProps>`
   margin: 0;
   padding: 0;
   display: block;

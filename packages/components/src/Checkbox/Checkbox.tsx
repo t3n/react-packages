@@ -4,7 +4,6 @@ import { styled } from 'styled-components';
 import { space, variant as styledVariant } from 'styled-system';
 
 import { MaterialCheck } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
 import Box from '../Box';
@@ -106,7 +105,7 @@ const StyledCheckbox = styled(Box).withConfig({
 const StyledIcon = styled.span.withConfig({
   shouldForwardProp: (prop) =>
     !['checked', 'disabled', 'feedbackColor'].includes(prop),
-})<Omit<CheckboxProps, 'name' | 'value'> & ThemeProps>`
+})<Omit<CheckboxProps, 'name' | 'value'>>`
   position: absolute;
   top: -1px;
   left: -1px;

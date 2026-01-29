@@ -2,8 +2,6 @@ import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Content from '../Content';
 import backgroundSVGData from './backgroundSVGData';
 
@@ -15,7 +13,7 @@ export interface VisualSectionProps extends PropsWithChildren {
   wide?: boolean;
 }
 
-const VisualSectionOuter = styled.div<VisualSectionProps & ThemeProps>`
+const VisualSectionOuter = styled.div<VisualSectionProps>`
   background-image: ${`url("data:image/svg+xml;base64,${backgroundSVGData}")`};
   background-size: 2000px;
   background-position: top left;

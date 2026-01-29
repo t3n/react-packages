@@ -2,8 +2,6 @@ import React, { FunctionComponent, PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Link, { LinkProps } from '../Link';
 import Text from '../Text';
 
@@ -41,7 +39,7 @@ export const BreadcrumbsItem = styled(
       )}
     </li>
   ),
-)<BreadcrumbsItemProps & ThemeProps>`
+)<BreadcrumbsItemProps>`
   position: relative;
   ${({ theme }) => padding({ theme, pl: 3, pr: 3 })}
   ${({ theme }) => lineHeight({ theme, lineHeight: 3 })}

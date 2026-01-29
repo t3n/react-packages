@@ -81,7 +81,7 @@ const border = ({ dashed, elevate, href, theme }: CardProps & ThemeProps) => {
   return `border: ${borderWidth} ${style} ${theme.colors.shades.grey232}`;
 };
 
-const cardStyles = css<CardProps & ThemeProps>`
+const cardStyles = css<CardProps>`
   display: block;
   background-color: white;
   display: flex;
@@ -118,7 +118,7 @@ const StyledCard = styled.div.withConfig({
     !['rounded', 'big', 'dashed', 'elevate', 'splitted', 'stretch'].includes(
       prop,
     ),
-})<CardProps & ThemeProps>`
+})<CardProps>`
   ${cardStyles}
 `;
 
@@ -127,7 +127,7 @@ const StyledLinkCard = styled.a.withConfig({
     !['rounded', 'big', 'dashed', 'elevate', 'splitted', 'stretch'].includes(
       prop,
     ),
-})<CardProps & ThemeProps>`
+})<CardProps>`
   ${cardStyles}
 
   &:hover {

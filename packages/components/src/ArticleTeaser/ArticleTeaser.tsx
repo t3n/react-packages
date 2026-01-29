@@ -3,7 +3,6 @@ import { css, styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import { T3nPlus } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Grid from '../Grid';
@@ -33,12 +32,12 @@ const UppercaseText = styled(Text)`
   font-size: 12px;
 `;
 
-const LargeTeaserImage = styled(Image)<ThemeProps>`
+const LargeTeaserImage = styled(Image)`
   border-radius: 4px;
   ${({ theme }) => space({ theme, mr: [0, 0, 0, 1] })};
 `;
 
-const SmallTeaserImage = styled(Image)<ThemeProps>`
+const SmallTeaserImage = styled(Image)`
   border-radius: 4px;
   ${({ theme }) => space({ theme, mr: [0, 0, 0, 1] })};
 

@@ -48,7 +48,7 @@ const itemGap = ({ noGap, wide, theme }: GridProps & ThemeProps): string => {
   return '';
 };
 
-const Grid = styled.div.attrs<GridProps & ThemeProps>((props) => ({
+const Grid = styled.div.attrs<GridProps>((props: GridProps) => ({
   vertical: false,
   reverse: false,
   wide: false,

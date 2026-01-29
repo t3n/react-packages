@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
 import { MaterialArrowDropDown } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Heading from '../Heading';
@@ -14,9 +13,9 @@ export interface AccordionProps extends MarginProps, PropsWithChildren {
   initialOpen?: boolean;
 }
 
-const StyledAccordion = styled.div<SpaceProps & ThemeProps>`
-  border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
-  border: 1px solid ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
+const StyledAccordion = styled.div<SpaceProps>`
+  border-radius: ${({ theme }) => theme.border.radii[1]};
+  border: 1px solid ${({ theme }) => theme.colors.shades.grey232};
 
   ${({ theme }) => color({ theme, bg: 'shades.white' })};
 

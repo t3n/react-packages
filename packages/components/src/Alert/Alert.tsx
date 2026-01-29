@@ -2,8 +2,6 @@ import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { space, SpaceProps, variant } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box from '../Box';
 import Text from '../Text';
 
@@ -15,7 +13,7 @@ export interface AlertProps extends SpaceProps, PropsWithChildren {
 
 const AlertBox = styled(Box).withConfig({
   shouldForwardProp: (prop) => prop !== 'status',
-})<{ status: AlertStatus } & ThemeProps>`
+})<{ status: AlertStatus }>`
   border-radius: ${({ theme }) => theme.border.radii[1]};
 
   ${variant({

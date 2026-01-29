@@ -15,7 +15,7 @@ import {
   WidthProps,
 } from 'styled-system';
 
-import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
+import { composeTextStyle, Theme } from '@t3n/theme';
 
 import Icon from '../Icon';
 import Loader from '../Loader';
@@ -91,7 +91,7 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const buttonStyles = css<ButtonProps & ThemeProps>`
+export const buttonStyles = css<BaseButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -102,16 +102,16 @@ export const buttonStyles = css<ButtonProps & ThemeProps>`
   ${width};
   ${margin};
 
-  ${({ theme }: ThemeProps) => `border-radius: ${theme.border.radii[1]}`};
+  ${({ theme }) => `border-radius: ${theme.border.radii[1]}`};
   ${({ theme, size }) =>
     space({ px: 3, py: size && size === 'small' ? 1 : 2, theme })}
-  ${({ theme, size }: ButtonProps & ThemeProps) =>
+  ${({ theme, size }) =>
     composeTextStyle({
       textStyle: size === 'big' ? 'big' : 'regular',
       theme,
     })};
 
-  ${({ disabled, loading }: ButtonProps) =>
+  ${({ disabled, loading }) =>
     disabled || loading ? 'cursor: no-drop' : 'cursor: pointer'};
 
   /* We have to provide a value for every breakpoint because of specificity
@@ -119,14 +119,14 @@ export const buttonStyles = css<ButtonProps & ThemeProps>`
   ${lineHeight({
     lineHeight: ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
   })}
-  ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
+  ${({ theme, variant: variantProp = 'primary' }) =>
     styledVariant({
       prop: 'color',
       variants: buildColorVariants(variantProp, 'default', theme),
     })}
 
   &:hover:not(:disabled), &:focus:not(:disabled) {
-    ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
+    ${({ theme, variant: variantProp = 'primary' }) =>
       styledVariant({
         prop: 'color',
         variants: buildColorVariants(variantProp, 'hover', theme),
@@ -145,11 +145,7 @@ export const buttonStyles = css<ButtonProps & ThemeProps>`
 
   ${Loader} {
     > div {
-      ${({
-        theme,
-        color: colorProp,
-        variant: variantProp = 'primary',
-      }: ButtonProps & ThemeProps) =>
+      ${({ theme, color: colorProp, variant: variantProp = 'primary' }) =>
         `background-color: ${
           variantProp === 'secondary'
             ? colorProp === 'highlight' || colorProp === 'inverse'
@@ -164,11 +160,7 @@ export const buttonStyles = css<ButtonProps & ThemeProps>`
 
   ${Icon} {
     transition: fill 0.1s ease-in-out;
-    ${({
-      variant: variantProp,
-      color: colorProp,
-      theme,
-    }: ThemeProps & ButtonProps) =>
+    ${({ variant: variantProp, color: colorProp, theme }) =>
       `fill: ${
         variantProp === 'secondary'
           ? colorProp === 'highlight' || colorProp === 'inverse'
@@ -182,11 +174,11 @@ export const buttonStyles = css<ButtonProps & ThemeProps>`
 
   ${({ loading }) =>
     !loading &&
-    css<ButtonProps & ThemeProps>`
+    css<BaseButtonProps>`
       &:disabled {
         opacity: 0.6;
 
-        ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
+        ${({ color, variant: variantProp, theme }) =>
           color &&
           color === 'highlight' &&
           variantProp === 'primary' &&
@@ -197,14 +189,35 @@ export const buttonStyles = css<ButtonProps & ThemeProps>`
     `}
 `;
 
-const StyledButton = styled.button.withConfig({
+const StyledButtonElement = styled.button.withConfig({
   shouldForwardProp: (prop) =>
     !['size', 'loading', 'variant', 'iconLeft', 'iconRight'].includes(prop),
-})<ButtonProps & ThemeProps>`
+})<BaseButtonProps>`
   ${buttonStyles}
 `;
 
-const Button = ({
+const StyledAnchorElement = styled.a.withConfig({
+  shouldForwardProp: (prop) =>
+    !['size', 'loading', 'variant', 'iconLeft', 'iconRight'].includes(prop),
+})<BaseButtonProps>`
+  ${buttonStyles}
+`;
+
+type RestProps = Omit<
+  ButtonProps,
+  keyof BaseButtonProps | 'as' | 'onClick' | 'disabled'
+>;
+
+function isAnchorButtonProps(
+  props: RestProps,
+): props is Omit<
+  AnchorButtonProps,
+  keyof BaseButtonProps | 'as' | 'onClick' | 'disabled'
+> {
+  return 'href' in props && Boolean(props.href);
+}
+
+const Button: React.FC<ButtonProps> = ({
   children,
   loading,
   iconLeft,
@@ -215,29 +228,27 @@ const Button = ({
   as,
   onClick,
   disabled,
-  ...props
-}: ButtonProps) => {
-  const isAnchor = 'href' in props && props.href;
+  ...restProps
+}) => {
+  const isAnchor = isAnchorButtonProps(restProps);
 
-  return (
-    <StyledButton
-      {...props}
-      as={isAnchor ? 'a' : as || 'button'}
-      size={size}
-      color={color}
-      variant={variant}
-      loading={loading}
-      disabled={loading || disabled}
-      onClick={
-        onClick
-          ? (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-              if (!loading) {
-                onClick(e as any);
-              }
-            }
-          : undefined
-      }
-    >
+  const commonProps = {
+    size,
+    color,
+    variant,
+    loading,
+    disabled: loading || disabled,
+    onClick: onClick
+      ? (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+          if (!loading) {
+            onClick(e as any);
+          }
+        }
+      : undefined,
+  };
+
+  const content = (
+    <>
       {loading ? (
         <Loader small my={2} />
       ) : (
@@ -268,7 +279,21 @@ const Button = ({
           )}
         </>
       )}
-    </StyledButton>
+    </>
+  );
+
+  if (isAnchor) {
+    return (
+      <StyledAnchorElement {...restProps} {...commonProps}>
+        {content}
+      </StyledAnchorElement>
+    );
+  }
+
+  return (
+    <StyledButtonElement {...restProps} {...commonProps}>
+      {content}
+    </StyledButtonElement>
   );
 };
 

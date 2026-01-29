@@ -2,14 +2,12 @@ import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { border, color, space, SpaceProps } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box from '../Box';
 import Text from '../Text';
 
 export type NoticeBoxProps = PropsWithChildren<SpaceProps>;
 
-const StyledNoticeBox = styled(Box)<ThemeProps>`
+const StyledNoticeBox = styled(Box)`
   ${({ theme }) =>
     border({
       theme,

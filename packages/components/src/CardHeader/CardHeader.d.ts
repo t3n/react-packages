@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { ThemeProps } from '@t3n/theme';
 import { RatioProps } from '../Ratio';
-export interface CardHeaderProps extends ThemeProps, PropsWithChildren {
+export interface CardHeaderProps extends PropsWithChildren {
     as?: 'div' | 'a';
     big?: boolean;
     ratio?: RatioProps['ratio'] | 'auto';

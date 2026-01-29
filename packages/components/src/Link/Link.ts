@@ -36,7 +36,7 @@ const underlineColor =
   };
 
 export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
-  Omit<LinkProps, 'children'> & ThemeProps
+  Omit<LinkProps, 'children'>
 >`
   ${({ theme }) => color({ color: linkStyleConfig.default.color, theme })}
   ${({ theme, disabled }) =>
@@ -64,13 +64,13 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
 
   &:visited {
     ${({ theme }) => color({ color: linkStyleConfig.visited.color, theme })}
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       underline(
         underlineColor(linkStyleConfig.visited.underlineColor)({ theme }),
       )}
     &:focus {
       ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
-      ${({ theme }: ThemeProps) =>
+      ${({ theme }) =>
         underline(
           underlineColor(linkStyleConfig.focus.underlineColor)({ theme }),
         )}
@@ -78,7 +78,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
   }
 `;
 
-export const linkStyle = css<LinkProps & ThemeProps>`
+export const linkStyle = css<LinkProps>`
   text-decoration: none;
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
@@ -102,7 +102,7 @@ export const linkStyle = css<LinkProps & ThemeProps>`
   }}
 `;
 
-const Link = styled.a.attrs<LinkProps & ThemeProps>((props) => ({
+const Link = styled.a.attrs<LinkProps>((props: LinkProps) => ({
   variant: 'primary',
   ...props,
 }))`

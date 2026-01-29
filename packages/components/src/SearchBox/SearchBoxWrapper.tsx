@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { layout, space, variant, WidthProps } from 'styled-system';
 
 import { T3nLoupe } from '@t3n/icons';
-import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
+import { composeTextStyle, theme as t3nTheme } from '@t3n/theme';
 
 import Loader from '../Loader';
 
@@ -39,7 +39,7 @@ const IconWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   }
 `;
 
-const InputWrapper = styled.div<{ variant: SearchBoxVariantType } & ThemeProps>`
+const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   flex-grow: 2;
 
   input {
@@ -87,9 +87,7 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType } & ThemeProps>`
   }
 `;
 
-const Wrapper = styled.div<
-  { variant: SearchBoxVariantType } & WidthProps & ThemeProps
->`
+const Wrapper = styled.div<{ variant: SearchBoxVariantType } & WidthProps>`
   ${variant({
     variants: {
       highlight: {
@@ -108,7 +106,7 @@ const Wrapper = styled.div<
   })};
 
   position: relative;
-  border-radius: ${({ theme }: ThemeProps) => `${theme.border.radii[1]}`};
+  border-radius: ${({ theme }) => `${theme.border.radii[1]}`};
   display: flex;
   height: 40px;
 
@@ -116,7 +114,7 @@ const Wrapper = styled.div<
   ${layout}
 `;
 
-const UnstyledButton = styled.button<ThemeProps>`
+const UnstyledButton = styled.button`
   all: unset;
   cursor: pointer;
 

@@ -15,7 +15,6 @@ import {
   MaterialPerson,
   T3nPlus,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
 import Grid from '../../Grid';
@@ -135,7 +134,7 @@ const BurgerButtonBox = styled(Box)`
   }
 `;
 
-const SubMenuItem = styled.a<ThemeProps>`
+const SubMenuItem = styled.a`
   text-decoration: none;
   display: block;
 
@@ -164,7 +163,7 @@ const BurgerHeading = styled(Heading)`
     :focus {
       cursor: pointer;
 
-      ${({ theme }: ThemeProps) => color({ theme, color: 'text.highlight' })}
+      ${({ theme }) => color({ theme, color: 'text.highlight' })}
     }
 
     > svg {

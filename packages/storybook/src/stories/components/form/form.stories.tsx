@@ -15,7 +15,6 @@ import {
   Heading,
   Text,
 } from '@t3n/components';
-import { ThemeProps } from '@t3n/theme';
 
 import { FormInput } from '../../../components/FormField';
 import { FormTextarea } from '../../../components/FormTextarea';
@@ -38,7 +37,7 @@ interface RegisterValues {
   passwordConfirm: string;
 }
 
-const DebugValues = styled.pre<ThemeProps>`
+const DebugValues = styled.pre`
   overflow: hidden;
   ${space({ p: 2 })};
   ${color({ bg: '#e8e8e8' })}

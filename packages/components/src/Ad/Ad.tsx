@@ -2,8 +2,6 @@ import React from 'react';
 import { css, styled } from 'styled-components';
 import { color, lineHeight, space, typography } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box, { BoxProps } from '../Box';
 
 export type AdName =
@@ -41,7 +39,7 @@ export interface AdProps extends BoxProps {
   style?: React.CSSProperties;
 }
 
-const AdWrapper = styled(Box)<AdProps & ThemeProps>`
+const AdWrapper = styled(Box)<AdProps>`
   min-height: calc(250px + 16px);
   position: relative;
   display: flex;
@@ -99,7 +97,7 @@ const AdWrapper = styled(Box)<AdProps & ThemeProps>`
 
   ${({ name }) =>
     name.startsWith('T3N_M_Incontent-')
-      ? css<ThemeProps>`
+      ? css`
           @media screen and (max-width: ${({ theme }) =>
               theme.breakpoints[0]}) {
             display: block;
@@ -123,7 +121,7 @@ const AdWrapper = styled(Box)<AdProps & ThemeProps>`
   }
 `;
 
-const AdLabel = styled(Box)<AdProps & ThemeProps>`
+const AdLabel = styled(Box)<AdProps>`
   width: 100%;
   letter-spacing: 2px;
   text-align: center;
@@ -142,7 +140,7 @@ const AdLabel = styled(Box)<AdProps & ThemeProps>`
 
   ${({ name }) =>
     name.startsWith('T3N_M_Incontent-')
-      ? css<ThemeProps>`
+      ? css`
           @media screen and (max-width: ${({ theme }) =>
               theme.breakpoints[0]}) {
             position: sticky !important;
@@ -152,7 +150,7 @@ const AdLabel = styled(Box)<AdProps & ThemeProps>`
       : ''}
 `;
 
-const AdPlaceholder = styled(Box)<AdProps & ThemeProps>`
+const AdPlaceholder = styled(Box)<AdProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -177,8 +175,8 @@ const AdPlaceholder = styled(Box)<AdProps & ThemeProps>`
 
   ${({ name }) =>
     name.startsWith('T3N_M_Incontent-')
-      ? css<ThemeProps>`
-          @media screen and (max-width: ${({ theme }: ThemeProps) =>
+      ? css`
+          @media screen and (max-width: ${({ theme }) =>
               theme.breakpoints[0]}) {
             min-height: 600px !important;
           }
@@ -193,7 +191,7 @@ const Ad = ({
   style,
   color,
   ...boxProps
-}: AdProps & { ref?: React.RefObject<HTMLDivElement | null> }) => (
+}: AdProps & { ref?: React.RefObject<HTMLDivElement> }) => (
   <AdWrapper
     name={name}
     style={style}

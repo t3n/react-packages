@@ -16,7 +16,6 @@ import {
   T3nPlus,
   T3nPro,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box/Box';
 
@@ -34,7 +33,7 @@ export interface UserMenuProps {
   items?: ReactNode[];
 }
 
-const UserMenuWrapper = styled(Box)<{ light?: boolean } & ThemeProps>`
+const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
   position: relative;
   z-index: 1000;
   ${({ theme }) => typography({ theme, fontSize: 0 })};
@@ -72,14 +71,14 @@ const UserMenuWrapper = styled(Box)<{ light?: boolean } & ThemeProps>`
           borderLeftWidth: 1,
         })};
 
-      @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
+      @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
         top: 44px;
       }
     }
   }
 `;
 
-const UserMenuList = styled.ul<ThemeProps>`
+const UserMenuList = styled.ul`
   display: none;
   right: 0;
   list-style-type: none;
@@ -97,7 +96,7 @@ const UserMenuList = styled.ul<ThemeProps>`
       borderRadius: '4px',
     })};
 
-  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     left: 0;
     right: 0;
     top: 56px;

@@ -42,7 +42,7 @@ const textColor = ({
 const align = ({ align: alignProp, theme }: TextProps & ThemeProps) =>
   textAlign({ textAlign: alignProp, theme });
 
-export const textStyle = css<TextProps & ThemeProps>`
+export const textStyle = css<TextProps>`
   ${font}
   ${textColor}
   ${fontWeight}
@@ -63,7 +63,7 @@ const StyledText = styled.p.withConfig({
       'align',
       'color',
     ].includes(prop),
-})<TextProps & ThemeProps>`
+})<TextProps>`
   ${textStyle}
 `;
 

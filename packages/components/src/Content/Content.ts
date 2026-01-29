@@ -8,12 +8,12 @@ import {
 
 import { ThemeProps } from '@t3n/theme';
 
-export interface ContentProps extends ThemeProps, PaddingProps {
+export interface ContentProps extends PaddingProps {
   wide?: boolean;
   small?: boolean;
 }
 
-const maxWidth = ({ wide, small, theme }: ContentProps): string =>
+const maxWidth = ({ wide, small, theme }: ContentProps & ThemeProps): string =>
   // eslint-disable-next-line no-nested-ternary
   wide
     ? 'max-width: 100%'
@@ -21,7 +21,7 @@ const maxWidth = ({ wide, small, theme }: ContentProps): string =>
       ? styledMaxWidth({ maxWidth: [rem(770)], theme })
       : styledMaxWidth({ maxWidth: [rem(980)], theme });
 
-const Content = styled.div.attrs<ContentProps>((props) => ({
+const Content = styled.div.attrs<ContentProps>((props: ContentProps) => ({
   wide: false,
   small: false,
   px: props.wide ? [] : [3],

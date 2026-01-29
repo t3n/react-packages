@@ -17,7 +17,7 @@ import {
   WidthProps,
 } from 'styled-system';
 
-import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
+import { composeTextStyle, Theme } from '@t3n/theme';
 
 import Icon from '../Icon';
 import Loader from '../Loader';
@@ -98,7 +98,7 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
+export const RoundedButtonStyles = css<RoundedButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -113,14 +113,14 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
   ${({ theme, size }) =>
     space({ px: size, py: size && size === 'small' ? 2 : 2, theme })}
 
-  ${({ theme, size }: RoundedButtonProps & ThemeProps) =>
+  ${({ theme, size }) =>
     composeTextStyle({
       textStyle:
         size === 'big' ? 'big' : size === 'small' ? 'small' : 'regular',
       theme,
     })};
 
-  ${(props: RoundedButtonProps) => {
+  ${(props) => {
     return (!isATypeProps(props) && props.disabled) || props.loading
       ? 'cursor: no-drop'
       : 'cursor: pointer';
@@ -138,20 +138,14 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
             : ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
     })}
 
-  ${({
-    theme,
-    variant: variantProp = 'primary',
-  }: RoundedButtonProps & ThemeProps) =>
+  ${({ theme, variant: variantProp = 'primary' }) =>
     variant({
       prop: 'color',
       variants: buildColorVariants(variantProp, 'default', theme),
     })}
 
   &:hover:not(:disabled), &:focus:not(:disabled) {
-    ${({
-      theme,
-      variant: variantProp = 'primary',
-    }: RoundedButtonProps & ThemeProps) =>
+    ${({ theme, variant: variantProp = 'primary' }) =>
       variant({
         prop: 'color',
         variants: buildColorVariants(variantProp, 'hover', theme),
@@ -164,7 +158,7 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
     }
 
     ${Icon} {
-      fill: ${({ theme }: ThemeProps) => theme.colors.text.inverse};
+      fill: ${({ theme }) => theme.colors.text.inverse};
     }
   }
 
@@ -176,11 +170,7 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
     // 0.325rem because of getLoaderSize - 0.65rem in comparison to getButtonSize
     padding: 0.325rem 0;
     > div {
-      ${({
-        theme,
-        color: colorProp,
-        variant: variantProp = 'primary',
-      }: RoundedButtonProps & ThemeProps) =>
+      ${({ theme, color: colorProp, variant: variantProp = 'primary' }) =>
         systemColor({
           theme,
           bg:
@@ -199,11 +189,7 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
     transition: fill 0.1s ease-in-out;
     margin: 0;
 
-    ${({
-      variant: variantProp,
-      color: colorProp,
-      theme,
-    }: ThemeProps & RoundedButtonProps) =>
+    ${({ variant: variantProp, color: colorProp, theme }) =>
       `fill: ${
         variantProp === 'secondary'
           ? colorProp === 'highlight' || colorProp === 'inverse'
@@ -219,14 +205,10 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
 
   ${({ loading }) =>
     !loading &&
-    css<RoundedButtonProps & ThemeProps>`
+    css<RoundedButtonProps>`
       &:disabled {
         opacity: 0.6;
-        ${({
-          color,
-          variant: variantProp,
-          theme,
-        }: ThemeProps & RoundedButtonProps) =>
+        ${({ color, variant: variantProp, theme }) =>
           systemColor({
             theme,
             color:
@@ -238,7 +220,7 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
       }
     `}
 
-  ${({ expanded }) => css<RoundedButtonProps & ThemeProps>`
+  ${({ expanded }) => css`
     > .icon-button_text {
       display: inline-block;
       max-width: ${expanded ? '100vw' : 0};
@@ -264,7 +246,7 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
 
   ${({ label }) =>
     !label &&
-    css<RoundedButtonProps & ThemeProps>`
+    css`
       transition: all 0.1s;
     `}
 `;
@@ -272,7 +254,7 @@ export const RoundedButtonStyles = css<RoundedButtonProps & ThemeProps>`
 export const StyledRoundedButton = styled.button.withConfig({
   shouldForwardProp: (prop) =>
     !['size', 'loading', 'variant', 'expanded', 'label'].includes(prop),
-})<RoundedButtonProps & ThemeProps>`
+})<RoundedButtonProps>`
   ${RoundedButtonStyles}
 `;
 

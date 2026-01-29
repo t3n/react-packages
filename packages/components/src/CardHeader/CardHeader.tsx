@@ -7,7 +7,7 @@ import { ThemeProps } from '@t3n/theme';
 import Image from '../Image';
 import Ratio, { RatioProps } from '../Ratio';
 
-export interface CardHeaderProps extends ThemeProps, PropsWithChildren {
+export interface CardHeaderProps extends PropsWithChildren {
   as?: 'div' | 'a';
   big?: boolean;
   ratio?: RatioProps['ratio'] | 'auto';
@@ -39,7 +39,7 @@ const CardHeaderComponent = ({
   </CardHeaderContainer>
 );
 
-const padding = ({ big, theme }: CardHeaderProps): string =>
+const padding = ({ big, theme }: CardHeaderProps & ThemeProps): string =>
   big ? space({ p: [4, 7], theme }) : space({ 3: 5, theme });
 
 const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`

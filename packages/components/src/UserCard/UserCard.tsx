@@ -10,7 +10,6 @@ import {
   SocialTwitter,
   SocialXing,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Avatar from '../Avatar';
 import Badge from '../Badge';
@@ -54,20 +53,20 @@ export interface UserCardProps extends PropsWithChildren {
   secondary?: boolean;
 }
 
-const StyledCard = styled(Card)<ThemeProps>`
+const StyledCard = styled(Card)`
   position: relative;
   height: 100%;
 
   ${({ theme }) => space({ pt: [4, 5], theme })};
 `;
 
-const StyledBadge = styled(Badge)<ThemeProps>`
+const StyledBadge = styled(Badge)`
   position: absolute;
   top: 8px;
   right: 8px;
 `;
 
-const SocialButton = styled(Button)<ThemeProps>`
+const SocialButton = styled(Button)`
   border-radius: 50%;
   border: 0;
   background-color: ${({ theme }) => theme.colors.background.secondary};
@@ -79,8 +78,7 @@ const SocialButton = styled(Button)<ThemeProps>`
 
   &:hover:not(:disabled) {
     transform: scale(1);
-    background-color: ${({ theme }: ThemeProps) =>
-      theme.colors.background.inverse};
+    background-color: ${({ theme }) => theme.colors.background.inverse};
   }
 
   &:hover > svg {
@@ -88,8 +86,8 @@ const SocialButton = styled(Button)<ThemeProps>`
   }
 `;
 
-const StyledDefaultBox = styled(Box)<ThemeProps>`
-  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
+const StyledDefaultBox = styled(Box)`
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     display: grid;
     justify-content: center;
     text-align: center;
@@ -110,8 +108,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const SocialLinksBox = styled(Box)<ThemeProps>`
-  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
+const SocialLinksBox = styled(Box)`
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     justify-content: center;
   }
 `;

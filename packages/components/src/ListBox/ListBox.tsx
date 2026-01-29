@@ -2,13 +2,11 @@ import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { border, LayoutProps } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box from '../Box';
 
 export type LayoutWithChildrenProps = PropsWithChildren<LayoutProps>;
 
-const Container = styled(Box)<ThemeProps>`
+const Container = styled(Box)`
   ${({ theme }) =>
     border({
       theme,

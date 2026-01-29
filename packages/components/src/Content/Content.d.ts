@@ -1,6 +1,5 @@
 import { PaddingProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
-export interface ContentProps extends ThemeProps, PaddingProps {
+export interface ContentProps extends PaddingProps {
     wide?: boolean;
     small?: boolean;
 }

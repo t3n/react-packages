@@ -2,8 +2,6 @@ import React, { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Content from '../Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
@@ -15,7 +13,7 @@ export interface SectionProps extends PropsWithChildren {
   innerGap?: SpaceProps['py'];
 }
 
-const SectionOuter = styled.div<SectionProps & ThemeProps>`
+const SectionOuter = styled.div<SectionProps>`
   background-color: ${({ variant = 'primary', theme }) =>
     theme.colors.background[variant]};
   color: ${({ variant = 'primary', theme }) => {

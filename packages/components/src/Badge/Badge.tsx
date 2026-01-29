@@ -19,7 +19,7 @@ const background = ({
   };
 `;
 
-const StyledBadge = styled.span<BadgeProps & ThemeProps>`
+const StyledBadge = styled.span<BadgeProps>`
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;

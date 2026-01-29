@@ -30,7 +30,7 @@ interface StyledNativeTextareaProps extends TextareaProps {
   isFocused: boolean;
 }
 
-const color = css<TextareaProps & ThemeProps>`
+const color = css<TextareaProps>`
   color: ${({ isFocused, error, disabled, theme }) => {
     if (error) return theme.colors.feedback.error;
     if (disabled) return theme.colors.shades.grey204;
@@ -39,7 +39,7 @@ const color = css<TextareaProps & ThemeProps>`
   }};
 `;
 
-const StyledTextarea = styled.div<TextareaProps & ThemeProps>`
+const StyledTextarea = styled.div<TextareaProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -50,14 +50,9 @@ const StyledTextarea = styled.div<TextareaProps & ThemeProps>`
 const padding = ({ theme }: ThemeProps) =>
   space({ pl: 2, pr: 6, pt: 1, pb: 1, theme });
 
-const border = css<StyledNativeTextareaProps & ThemeProps>`
+const border = css<StyledNativeTextareaProps>`
   border: 1px solid
-    ${({
-      isFocused,
-      error,
-      disabled,
-      theme,
-    }: StyledNativeTextareaProps & ThemeProps) =>
+    ${({ isFocused, error, disabled, theme }) =>
       error
         ? theme.colors.feedback.error
         : disabled
@@ -70,16 +65,15 @@ const border = css<StyledNativeTextareaProps & ThemeProps>`
 const StyledNativeTextarea = styled.textarea.withConfig({
   shouldForwardProp: (prop) =>
     !['isFocused', 'error', 'disabled', 'rows'].includes(prop),
-})<StyledNativeTextareaProps & ThemeProps>`
+})<StyledNativeTextareaProps>`
   width: 100%;
-  min-height: ${({ rows }: StyledNativeTextareaProps) =>
-    rows ? `${rows * 30}px` : '120px'};
+  min-height: ${({ rows }) => (rows ? `${rows * 30}px` : '120px')};
   font-family: ${({ theme }) => theme.fonts.default};
   font-size: 1rem;
   line-height: 30px;
   color: ${getThemeColor('text.primary')};
   background-color: ${getThemeColor('background.primary')};
-  border-radius: ${(props) => props.theme.border.radii[1]};
+  border-radius: ${({ theme }) => theme.border.radii[1]};
   outline: 0;
   ${border}
   ${padding}

@@ -6,8 +6,6 @@ import React, {
 import { styled } from 'styled-components';
 import { margin, MarginProps, space } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box from '../Box';
 import Text from '../Text';
 
@@ -22,7 +20,7 @@ export interface FormGroupProps
   errorMessage?: string;
 }
 
-const Label = styled.span<ThemeProps>`
+const Label = styled.span`
   display: inline-block;
   ${({ theme }) => space({ mr: 1, theme })};
 `;

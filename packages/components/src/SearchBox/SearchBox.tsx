@@ -18,8 +18,6 @@ import { styled } from 'styled-components';
 import { space, WidthProps } from 'styled-system';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Box from '../Box';
 import Text from '../Text';
 import SearchBoxWrapper, { SearchBoxVariantType } from './SearchBoxWrapper';
@@ -46,20 +44,18 @@ export interface SearchBoxProps<S> extends WidthProps, PropsWithChildren {
   onSearchTermChange?: (term: string) => void;
 }
 
-const SuggestionItem = styled.div<ThemeProps>`
+const SuggestionItem = styled.div`
   ${({ theme }) => space({ theme, p: [2, 3] })}
   color: ${({ theme }) => theme.colors.text.primary};
-  border-bottom: 1px solid
-    ${({ theme }: ThemeProps) => theme.colors.shades.grey244};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.shades.grey244};
 
   &:hover {
     cursor: pointer;
-    background-color: ${({ theme }: ThemeProps) =>
-      theme.colors.background.secondary};
+    background-color: ${({ theme }) => theme.colors.background.secondary};
   }
 `;
 
-const SuggestionContainer = styled.div<ThemeProps>`
+const SuggestionContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background.primary};
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   position: absolute;

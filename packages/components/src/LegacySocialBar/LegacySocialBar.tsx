@@ -12,7 +12,6 @@ import {
   SocialTwitter,
   SocialXing,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 
@@ -41,7 +40,7 @@ const OldFacebookIcon = () => (
   </svg>
 );
 
-const SocialLink = styled.a<ThemeProps>`
+const SocialLink = styled.a`
   text-decoration: none;
   ${({ theme }) => space({ pl: '12px', theme })}
   ${({ theme }) => color({ theme, color: 'text.secondary' })};

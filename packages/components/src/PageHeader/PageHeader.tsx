@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 import { color, layout, space } from 'styled-system';
 
 import { MaterialMailOutline, T3nLogo } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import useBodyLock from '../hooks/useBodyLock';
@@ -66,7 +65,7 @@ const PageHeaderWrapper = styled.nav`
   ${({ theme }) => color({ theme, bg: 'background.primary' })}
 `;
 
-const InnerWrapper = styled.div<ThemeProps>`
+const InnerWrapper = styled.div`
   margin: 0 auto;
   height: 65px;
   display: flex;
@@ -92,7 +91,7 @@ const InnerWrapper = styled.div<ThemeProps>`
   }
 `;
 
-const HeaderCampaign = styled(Box)<ThemeProps>`
+const HeaderCampaign = styled(Box)`
   overflow: hidden;
   height: 100%;
 

@@ -2,8 +2,6 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { color, layout, MarginProps, space } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
-
 import Button from '../Button';
 import Icon from '../Icon';
 import { Tooltip, TooltipContainer } from '../LegacyBookmark';
@@ -19,7 +17,7 @@ const MarginTopTooltip = styled(Tooltip)`
   ${({ theme }) => space({ theme, mt: 3 })};
 `;
 
-const BigRoundButton = styled(Button)<ThemeProps>`
+const BigRoundButton = styled(Button)`
   border-radius: 100%;
   border: unset;
   ${({ theme }) => space({ p: '10px', theme })};
