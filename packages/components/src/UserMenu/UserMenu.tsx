@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   border,
   color,
@@ -16,7 +16,6 @@ import {
   T3nPlus,
   T3nPro,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box/Box';
 
@@ -72,8 +71,7 @@ const UserMenuWrapper = styled(Box)<{ light?: boolean }>`
           borderLeftWidth: 1,
         })};
 
-      @media screen and (max-width: ${(props: ThemeProps) =>
-          props.theme.breakpoints[0]}) {
+      @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
         top: 44px;
       }
     }
@@ -98,8 +96,7 @@ const UserMenuList = styled.ul`
       borderRadius: '4px',
     })};
 
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     left: 0;
     right: 0;
     top: 56px;
@@ -216,7 +213,7 @@ const StyledUserLabel = styled.p`
   text-overflow: ellipsis;
 `;
 
-const UserMenu: React.FC<UserMenuProps> = ({
+const UserMenu = ({
   active = false,
   userEmail,
   isProMember = false,
@@ -228,7 +225,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   readingListLink = '/account/merkliste',
   accountLink = '/account/edit',
   light,
-}) => {
+}: UserMenuProps) => {
   return userEmail ? (
     <UserMenuWrapper light={light} tabIndex={0}>
       {active ? (
@@ -307,7 +304,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         {!!items?.length &&
           items.map((item, idx) => {
             return (
-              // eslint-disable-next-line react/no-array-index-key
+              // eslint-disable-next-line @eslint-react/no-array-index-key
               <React.Fragment key={idx}>
                 <UserMenuListItem>{item}</UserMenuListItem>
                 <UserMenuListDivider />

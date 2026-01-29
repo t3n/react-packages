@@ -1,12 +1,7 @@
 import { PaddingProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
-export interface ContentProps extends ThemeProps, PaddingProps {
+export interface ContentProps extends PaddingProps {
     wide?: boolean;
     small?: boolean;
 }
-declare const Content: import("styled-components").StyledComponent<"div", any, Partial<Omit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> & {
-    ref?: ((instance: HTMLDivElement | null) => void | import("react").DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof import("react").DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | import("react").RefObject<HTMLDivElement> | null | undefined;
-} & ContentProps> & {
-    [others: string]: any;
-} & ContentProps, string | number>;
+declare const Content: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("styled-components/dist/types").Substitute<import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>>, ContentProps>, never>> & string;
 export default Content;

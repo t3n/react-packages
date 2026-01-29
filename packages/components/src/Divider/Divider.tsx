@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { MarginProps, variant, WidthProps } from 'styled-system';
 
 import { getThemeColor } from '@t3n/theme';
@@ -11,10 +11,10 @@ import Text from '../Text';
 
 export type DividerVariants = 'primary' | 'inverse';
 
-export interface DividerProps extends WidthProps, MarginProps {
+export interface DividerProps
+  extends WidthProps, MarginProps, PropsWithChildren {
   variant?: DividerVariants;
-  iconComponent?: React.FC<React.SVGProps<SVGSVGElement>>;
-  children?: ReactNode;
+  iconComponent?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 const StyledBox = styled(Box)<Omit<DividerProps, 'children'>>`
@@ -54,13 +54,13 @@ const StyledIcon = styled(Icon)<Pick<DividerProps, 'variant'>>`
     })};
 `;
 
-const Divider: React.FC<DividerProps> = ({
+const Divider = ({
   children,
   variant: variantProp = 'primary',
   iconComponent,
   my = 3,
   ...rest
-}) => (
+}: DividerProps) => (
   <StyledBox
     display="flex"
     alignItems="center"

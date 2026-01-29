@@ -14,4 +14,4 @@ export const breakpoints = [
   breakpointLarge,
 ];
 
-export default breakpoints.map((bp) => rem(bp));
+export default breakpoints.map((bp) => rem(bp)) as ThemeBreakpoints;

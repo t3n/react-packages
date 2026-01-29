@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { css, styled } from 'styled-components';
 import { border, color } from 'styled-system';
 
 import {
@@ -18,7 +18,7 @@ import {
 } from '@t3n/icons';
 import { getThemeColor } from '@t3n/theme';
 
-import Button from '../Button';
+import Button, { ButtonProps } from '../Button';
 import Icon from '../Icon';
 
 export type SocialNetworkType =
@@ -35,20 +35,21 @@ export type SocialNetworkType =
   | 'xing'
   | 'youtube';
 
-export interface SocialButtonProps {
-  network: SocialNetworkType;
-  $textBefore?: string;
-  $alternativeText?: string;
-  children?: ReactNode;
-}
+export type SocialButtonProps = ButtonProps &
+  PropsWithChildren<{
+    network: SocialNetworkType;
+    $textBefore?: string;
+    $alternativeText?: string;
+  }>;
 
-export interface SocialNetworksProps {
-  [key: string]: {
+export type SocialNetworksProps = Record<
+  string,
+  {
     name: string;
-    icon: React.FC<React.SVGProps<SVGSVGElement>>;
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     iconScale?: number;
-  };
-}
+  }
+>;
 
 export const socialNetworksConfig: SocialNetworksProps = {
   email: {
@@ -135,6 +136,13 @@ const socialButtonStyle = css<SocialButtonProps>`
   }
 `;
 
+const StyledSocialButton = styled(Button).withConfig({
+  shouldForwardProp: (prop) =>
+    !['network', '$textBefore', '$alternativeText'].includes(prop as string),
+})<SocialButtonProps>`
+  ${socialButtonStyle}
+`;
+
 const mapSocialButtonAttributes = ({
   network,
   $textBefore,
@@ -148,10 +156,13 @@ const mapSocialButtonAttributes = ({
     }`,
 });
 
-const SocialButton = styled(Button).attrs(
-  mapSocialButtonAttributes,
-)<SocialButtonProps>`
-  ${socialButtonStyle}
-`;
+const SocialButton = (props: SocialButtonProps) => {
+  const { iconLeft, children } = mapSocialButtonAttributes(props);
+  return (
+    <StyledSocialButton iconLeft={iconLeft} {...props}>
+      {children}
+    </StyledSocialButton>
+  );
+};
 
 export default SocialButton;

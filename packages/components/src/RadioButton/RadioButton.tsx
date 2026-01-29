@@ -1,9 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, space, variant } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
 import Box from '../Box';
@@ -88,7 +87,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
 
   &:focus,
   &:active {
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       border({
         theme,
         border: '1px solid',
@@ -97,9 +96,7 @@ const StyledRadioButton = styled(Box)<Omit<RadioButtonProps, 'name' | 'value'>>`
   }
 `;
 
-const StyledRadioDot = styled.span<
-  Omit<RadioButtonProps, 'name' | 'value'> & ThemeProps
->`
+const StyledRadioDot = styled.span<Omit<RadioButtonProps, 'name' | 'value'>>`
   width: 8px;
   height: 8px;
   border-radius: 50%;

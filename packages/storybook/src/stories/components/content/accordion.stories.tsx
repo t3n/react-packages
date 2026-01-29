@@ -30,13 +30,13 @@ export const initialOpenAccordion: Story = {
   },
 };
 
-export const JSXElementAsTitle: Story = {
+export const ReactElementAsTitle: Story = {
   args: {
     title: (
       <Box display="flex">
         <Icon component={MaterialAddAPhoto} mr={2} />
         <Text my={0} bold>
-          Das hier ist ein JSX.Element
+          Das hier ist ein React Element
         </Text>
       </Box>
     ),

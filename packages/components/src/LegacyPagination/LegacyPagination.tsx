@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
 import { MaterialPlayArrow } from '@t3n/icons';
@@ -65,12 +65,12 @@ const LegacyPaginationElipses = () => (
   </Box>
 );
 
-const LegacyPagination: React.FC<LegacyPaginationProps> = ({
+const LegacyPagination = ({
   currentPage,
   totalPages,
   maxPageLinks,
   onClick,
-}) => {
+}: LegacyPaginationProps) => {
   const prevPage = currentPage - 1;
 
   return (
@@ -106,7 +106,7 @@ const LegacyPagination: React.FC<LegacyPaginationProps> = ({
             }
             return (
               <LegacyPaginationContainer
-                // eslint-disable-next-line react/no-array-index-key
+                // eslint-disable-next-line @eslint-react/no-array-index-key
                 key={i}
                 onClick={() => onClick(currentPage - (maxPageLinks - i))}
               >
@@ -126,7 +126,7 @@ const LegacyPagination: React.FC<LegacyPaginationProps> = ({
 
           return (
             <LegacyPaginationContainer
-              // eslint-disable-next-line react/no-array-index-key
+              // eslint-disable-next-line @eslint-react/no-array-index-key
               key={i}
               onClick={() => onClick(currentPage + (i + 1))}
             >

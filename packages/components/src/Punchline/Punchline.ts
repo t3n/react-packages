@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
 import Heading from '../Heading';

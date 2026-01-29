@@ -1,24 +1,25 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import Card, { CardProps } from '../Card';
 import Heading, { HeadingElements } from '../Heading';
 
-export interface TitleCardProps extends Omit<CardProps, 'splitted'> {
+export interface TitleCardProps
+  extends Omit<CardProps, 'splitted'>, PropsWithChildren {
   title: string;
   titleAs?: HeadingElements;
   centerTitle?: boolean;
-  children?: ReactNode;
 }
 
-const TitleCard: React.FC<TitleCardProps> = ({
+const TitleCard = ({
   children,
   title,
   titleAs,
   centerTitle,
   ...props
-}) => {
+}: TitleCardProps) => {
   return (
-    <Card {...props}>
+    // TODO: fix type casting
+    <Card {...(props as any)}>
       <Heading
         as={titleAs || 'h3'}
         styleAs="h4"

@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import 'jest-styled-components';
 
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
@@ -11,16 +10,15 @@ interface OptionalTheme {
   theme?: Theme;
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const renderWithTheme = (
-  ui: React.ReactElement,
+  ui: ReactElement,
   { theme, ...options }: RenderOptions & OptionalTheme,
 ) => {
   // merge over default theme
 
   const mergedTheme = { ...originalTheme, ...theme };
 
-  const Wrapper: React.FC<{ children?: ReactNode }> = ({ children }) => (
+  const Wrapper = ({ children }: PropsWithChildren) => (
     <ThemeProvider theme={mergedTheme}>{children}</ThemeProvider>
   );
 

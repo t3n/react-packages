@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { css, styled } from 'styled-components';
 import {
   color,
   ColorProps,
@@ -13,7 +13,8 @@ import {
 
 import { composeTextStyle, ThemeProps } from '@t3n/theme';
 
-export interface TextProps extends ColorProps, SpaceProps, WidthProps {
+export interface TextProps
+  extends ColorProps, SpaceProps, WidthProps, Required<PropsWithChildren> {
   as?: 'p' | 'span';
   bold?: boolean;
   italic?: boolean;
@@ -21,7 +22,6 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
   small?: boolean;
   secondary?: boolean;
   align?: TextAlignProps['textAlign'];
-  children: ReactNode;
 }
 
 const font = ({ small, theme }: TextProps & ThemeProps) =>
@@ -52,10 +52,31 @@ export const textStyle = css<TextProps>`
   ${align}
 `;
 
-const Text = styled.p.attrs(({ inline, as }: TextProps) => ({
-  as: as || (inline ? 'span' : 'p'),
-}))<TextProps>`
+const StyledText = styled.p.withConfig({
+  shouldForwardProp: (prop) =>
+    ![
+      'bold',
+      'italic',
+      'inline',
+      'small',
+      'secondary',
+      'align',
+      'color',
+    ].includes(prop),
+})<TextProps>`
   ${textStyle}
 `;
+
+const Text = ({ inline, as, color, ...props }: TextProps) => (
+  <StyledText
+    {...props}
+    // We need to cast color to any here. When the as prop is present,
+    // styled-components' polymorphic types try to merge HTMLAttributes
+    // (where color: string) with ColorProps (where color: ResponsiveValue)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    color={color as any}
+    as={as || (inline ? 'span' : 'p')}
+  />
+);
 
 export default Text;

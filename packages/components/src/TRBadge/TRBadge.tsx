@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
 const TRBadgeWrapper = styled.span`
@@ -28,7 +28,7 @@ const TRBadgeWrapper = styled.span`
   white-space: nowrap;
 `;
 
-const TRBadge: React.FC = () => {
+const TRBadge = () => {
   return <TRBadgeWrapper>MIT Technology Review</TRBadgeWrapper>;
 };
 

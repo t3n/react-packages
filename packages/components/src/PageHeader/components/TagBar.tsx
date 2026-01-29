@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
 import {
@@ -193,7 +193,7 @@ const TagBarButton = styled.button<{
     `}
 `;
 
-const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
+const TagBar = ({ pinnedTeaser, tags }: TagBarProps) => {
   const listRef = useRef<HTMLUListElement>(null);
   const [isLeftMost, setIsLeftMost] = useState(true);
   const [isRightMost, setIsRightMost] = useState(false);
@@ -264,6 +264,8 @@ const TagBar: React.FC<TagBarProps> = ({ pinnedTeaser, tags }) => {
               <Box display="flex" alignItems="center">
                 <Icon component={T3nKeep} fill="brand.red" width="20px" />
                 <PinnedTeaserText
+                  inline
+                  as="span"
                   my={0}
                   mr={
                     pinnedTeaser.isSponsored || pinnedTeaser.isPaidArticle

@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import styled, { useTheme } from 'styled-components';
+import React, { useCallback, useState } from 'react';
+import { styled, useTheme } from 'styled-components';
 import {
   height as styledHeight,
   HeightProps,
@@ -16,22 +16,19 @@ import useComponentsConfiguration, {
 } from '../hooks/useComponentsConfiguration';
 import useInViewport from '../hooks/useInViewport';
 
-export interface OptimizationClassMapping {
-  [key: string]: string;
-}
+export type OptimizationClassMapping = Record<string, string>;
 
-export interface FastlyHostnameMapping {
-  [key: string]: string;
-}
+export type FastlyHostnameMapping = Record<string, string>;
 
 export interface ImageProps
-  extends Omit<
+  extends
+    Omit<
       React.ImgHTMLAttributes<HTMLImageElement>,
       'placeholder' | 'sizes' | 'width' | 'height'
     >,
     SpaceProps {
   src: string;
-  sizes?: string | number | Array<string | number>;
+  sizes?: string | number | (string | number)[];
   placeholder?: boolean;
   lazy?: boolean;
   optimizationClass?: string;
@@ -183,7 +180,7 @@ const NativeImage = styled.img<
   ${space}
 `;
 
-const Image: React.FC<ImageProps> = ({
+const Image = ({
   placeholder = true,
   lazy = true,
   optimizationClass = 'default',
@@ -196,16 +193,16 @@ const Image: React.FC<ImageProps> = ({
   imageWidth,
   imageHeight,
   ...props
-}) => {
+}: ImageProps) => {
   const { cdn: cdnConfiguration } = useComponentsConfiguration();
   const [initialized, setInitialized] = useState(false);
   const [imageNode, setImageNode] = useState<HTMLImageElement | null>(null);
   const { wasInViewport } = useInViewport(imageNode);
   const theme = useTheme() as Theme;
 
-  useEffect(() => {
+  if (!initialized) {
     setInitialized(true);
-  }, []);
+  }
 
   const getImageNode = useCallback((node: HTMLImageElement) => {
     setImageNode(node);

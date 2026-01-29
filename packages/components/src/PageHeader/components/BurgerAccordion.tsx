@@ -1,5 +1,5 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
-import styled, { css } from 'styled-components';
+import React, { PropsWithChildren, useEffect, useRef } from 'react';
+import { css, styled } from 'styled-components';
 import { MarginProps } from 'styled-system';
 
 import { MaterialKeyboardArrowDown } from '@t3n/icons';
@@ -8,11 +8,10 @@ import Box from '../../Box';
 import Heading from '../../Heading';
 import Icon from '../../Icon';
 
-export interface AccordionProps extends MarginProps {
+export interface AccordionProps extends MarginProps, PropsWithChildren {
   title: string;
   isOpen: boolean;
   onToggle: () => void;
-  children?: ReactNode;
   tabbable?: boolean;
 }
 
@@ -80,13 +79,13 @@ const StyledAccordionContent = styled(Box)<{ collapsed: boolean }>`
   }
 `;
 
-const Accordion: React.FC<AccordionProps> = ({
+const Accordion = ({
   children,
   title,
   isOpen,
   onToggle,
   tabbable,
-}) => {
+}: AccordionProps) => {
   const collapsed = !isOpen;
   const contentRef = useRef<HTMLDivElement>(null);
 

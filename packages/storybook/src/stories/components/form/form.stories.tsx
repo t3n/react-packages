@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { Formik, FormikHelpers, FormikProps } from 'formik';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
 import * as Yup from 'yup';
 
@@ -15,7 +15,6 @@ import {
   Heading,
   Text,
 } from '@t3n/components';
-import { ThemeProps } from '@t3n/theme';
 
 import { FormInput } from '../../../components/FormField';
 import { FormTextarea } from '../../../components/FormTextarea';
@@ -38,7 +37,7 @@ interface RegisterValues {
   passwordConfirm: string;
 }
 
-const DebugValues = styled.pre<ThemeProps>`
+const DebugValues = styled.pre`
   overflow: hidden;
   ${space({ p: 2 })};
   ${color({ bg: '#e8e8e8' })}
@@ -50,7 +49,6 @@ export const register = () => {
     { setSubmitting }: FormikHelpers<RegisterValues>,
   ) => {
     setTimeout(() => {
-      // eslint-disable-next-line no-alert
       alert(
         `Registrierungs-Formular wurde abgeschickt mit den folgenden Werten:
             ${JSON.stringify(values, null, 2)}`,

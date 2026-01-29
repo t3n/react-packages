@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, layout, space } from 'styled-system';
 
 import { MaterialMailOutline, T3nLogo } from '@t3n/icons';
@@ -11,16 +11,16 @@ import RoundedButton from '../RoundedButton';
 import BurgerNav from './components/BurgerNav';
 import TagBar from './components/TagBar';
 
-export type PageHeaderLinksType = {
+export interface PageHeaderLinksType {
   label: string;
   url: string;
-};
+}
 
-export type PageHeaderTeaserImageType = {
+export interface PageHeaderTeaserImageType {
   title: string;
   url: string;
   image: string;
-};
+}
 
 export interface PageHeaderProps {
   pinnedTeaser: PageHeaderLinksType & {
@@ -133,7 +133,7 @@ const VisibleOnMobile = styled.span`
     })}
 `;
 
-const PageHeader: React.FC<PageHeaderProps> = ({
+const PageHeader = ({
   pinnedTeaser,
   tags,
   ressorts,
@@ -146,7 +146,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   burgerCampaignImage,
   isLoggedIn,
   hasSubscription,
-}) => {
+}: PageHeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useBodyLock(isMenuOpen);
 

@@ -12,6 +12,6 @@ export interface UserMenuProps {
     light?: boolean;
     items?: ReactNode[];
 }
-export declare const UserMenuListItem: import("styled-components").StyledComponent<"li", any, {}, never>;
-declare const UserMenu: React.FC<UserMenuProps>;
+export declare const UserMenuListItem: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>, never>> & string;
+declare const UserMenu: ({ active, userEmail, isProMember, items, loginLink, logoutLink, isPlusUser, aboLink, readingListLink, accountLink, light, }: UserMenuProps) => import("react/jsx-runtime").JSX.Element;
 export default UserMenu;

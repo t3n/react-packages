@@ -1,13 +1,12 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 
 import Content from '../Content';
 import PageFooter from '../PageFooter';
 import PageHeader, { PageHeaderProps } from '../PageHeader';
 
-export interface PageLayoutProps extends PageHeaderProps {
+export interface PageLayoutProps extends PageHeaderProps, PropsWithChildren {
   privacyManagerId: string;
-  children?: ReactNode;
 }
 
 const PageLayoutContainer = styled.div`
@@ -25,7 +24,7 @@ const PageLayoutContainer = styled.div`
   }
 `;
 
-const PageLayout: React.FC<PageLayoutProps> = ({
+const PageLayout = ({
   privacyManagerId,
   pinnedTeaser,
   tags,
@@ -40,7 +39,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   isLoggedIn,
   hasSubscription,
   children,
-}) => {
+}: PageLayoutProps) => {
   return (
     <PageLayoutContainer>
       <PageHeader

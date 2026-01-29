@@ -11,5 +11,5 @@ export interface RadioButtonProps {
     feedbackColor?: ThemeFeedbackColor;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-declare const RadioButton: ({ checked, onChange, label, disabled, feedbackColor, name, value, variant: variantProp, }: RadioButtonProps) => React.JSX.Element;
+declare const RadioButton: ({ checked, onChange, label, disabled, feedbackColor, name, value, variant: variantProp, }: RadioButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default RadioButton;

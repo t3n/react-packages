@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { ResponsiveObject } from 'react-slick';
-export interface CarouselProps {
+export interface CarouselProps extends PropsWithChildren {
     slidesToShow?: number;
     slidesToScroll?: number;
     responsive?: ResponsiveObject[];
@@ -16,8 +16,7 @@ export interface CarouselProps {
     hidePrevButton?: boolean;
     onChange?: (currentIndex: number) => void;
     isRoundedButton?: boolean;
-    children?: ReactNode;
     adaptiveHeight?: boolean;
 }
-declare const Carousel: React.FC<CarouselProps>;
+declare const Carousel: ({ slidesToShow, slidesToScroll, responsive, speed, infinite, autoplay, autoplaySpeed, prevLabel, nextLabel, onNextClick, onPrevClick, hideNextButton, hidePrevButton, isRoundedButton, onChange, children, adaptiveHeight, }: CarouselProps) => import("react/jsx-runtime").JSX.Element;
 export default Carousel;

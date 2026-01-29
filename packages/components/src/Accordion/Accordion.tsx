@@ -1,23 +1,21 @@
-import React, { ReactNode, useState } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren, ReactElement, useState } from 'react';
+import { styled } from 'styled-components';
 import { color, MarginProps, space, SpaceProps } from 'styled-system';
 
 import { MaterialArrowDropDown } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Heading from '../Heading';
 import Icon from '../Icon';
 
-export interface AccordionProps extends MarginProps {
-  title: string | JSX.Element;
+export interface AccordionProps extends MarginProps, PropsWithChildren {
+  title: string | ReactElement;
   initialOpen?: boolean;
-  children?: ReactNode;
 }
 
 const StyledAccordion = styled.div<SpaceProps>`
-  border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
-  border: 1px solid ${({ theme }: ThemeProps) => theme.colors.shades.grey232};
+  border-radius: ${({ theme }) => theme.border.radii[1]};
+  border: 1px solid ${({ theme }) => theme.colors.shades.grey232};
 
   ${({ theme }) => color({ theme, bg: 'shades.white' })};
 
@@ -35,7 +33,9 @@ const StyledAccordionHeadBox = styled(Box)`
   }
 `;
 
-const StyledIconBox = styled(Box)<{ collapsed: boolean }>`
+const StyledIconBox = styled(Box).withConfig({
+  shouldForwardProp: (prop) => prop !== 'collapsed',
+})<{ collapsed: boolean }>`
   border-radius: 50%;
   height: 2rem;
   width: 2rem;
@@ -47,12 +47,12 @@ const StyledIconBox = styled(Box)<{ collapsed: boolean }>`
   }
 `;
 
-const Accordion: React.FC<AccordionProps> = ({
+const Accordion = ({
   children,
   title,
-  initialOpen,
+  initialOpen = false,
   ...rest
-}) => {
+}: AccordionProps) => {
   const [collapsed, setCollapsed] = useState(!initialOpen);
 
   return (

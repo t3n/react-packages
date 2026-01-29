@@ -1,11 +1,11 @@
-import React from 'react';
+import { ReactElement } from 'react';
 import { TagColorVariant } from '../Tag';
 export interface TagListProps {
-    tags: JSX.Element[];
+    tags: ReactElement[];
     collapseAfter: number;
     small?: boolean;
     colorVariant?: TagColorVariant;
     initialCollapsed?: boolean;
 }
-declare const TagList: React.FC<TagListProps>;
+declare const TagList: ({ initialCollapsed, collapseAfter, small, colorVariant, tags, }: TagListProps) => import("react/jsx-runtime").JSX.Element;
 export default TagList;

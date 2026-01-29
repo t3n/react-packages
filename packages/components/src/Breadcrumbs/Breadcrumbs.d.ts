@@ -1,15 +1,14 @@
-import React, { ReactNode } from 'react';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
 import { LinkProps } from '../Link';
 export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
     href?: string;
     className?: string;
     label: string;
-    linkComponent?: (props: React.AnchorHTMLAttributes<HTMLAnchorElement> & Pick<LinkProps, 'variant' | 'children'> & {
+    linkComponent?: FunctionComponent<React.AnchorHTMLAttributes<HTMLAnchorElement> & Pick<LinkProps, 'variant' | 'children'> & {
         href: string;
-    }) => JSX.Element;
+    }>;
 }
-export declare const BreadcrumbsItem: import("styled-components").StyledComponent<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => React.JSX.Element, any, {}, never>;
-declare const Breadcrumbs: React.FC<{
-    children?: ReactNode;
-}>;
+type BreadcrumbsProps = PropsWithChildren;
+export declare const BreadcrumbsItem: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<BreadcrumbsItemProps, BreadcrumbsItemProps>> & string & Omit<({ href, label, className, variant, linkComponent: LinkComponent, }: BreadcrumbsItemProps) => import("react/jsx-runtime").JSX.Element, keyof React.Component<any, {}, any>>;
+declare const Breadcrumbs: ({ children }: BreadcrumbsProps) => import("react/jsx-runtime").JSX.Element;
 export default Breadcrumbs;

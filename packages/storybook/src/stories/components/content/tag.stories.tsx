@@ -36,7 +36,6 @@ export const linkedTags: Story = {
 export const clickableTags: Story = {
   args: {
     onClick: () => {
-      // eslint-disable-next-line no-alert
       alert('Tag geklickt');
     },
   },

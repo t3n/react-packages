@@ -11,5 +11,5 @@ export type MobileLinkType = {
 export interface MobileFooterProps {
     privacyManagerId: string;
 }
-declare const MobileFooter: React.FC<MobileFooterProps>;
+declare const MobileFooter: ({ privacyManagerId }: MobileFooterProps) => import("react/jsx-runtime").JSX.Element;
 export default MobileFooter;

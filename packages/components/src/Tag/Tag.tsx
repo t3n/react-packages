@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import React, { PropsWithChildren, ReactElement } from 'react';
+import { css, styled } from 'styled-components';
 import { color, margin, MarginProps, padding, variant } from 'styled-system';
 
 import { composeTextStyle, Theme } from '@t3n/theme';
@@ -15,13 +15,12 @@ export type TagColorVariant =
   | 'success'
   | 'error';
 
-export interface TagProps extends MarginProps {
+export interface TagProps extends MarginProps, PropsWithChildren {
   colorVariant?: TagColorVariant;
   link?: string;
   small?: boolean;
-  icon?: JSX.Element;
+  icon?: ReactElement;
   onClick?: () => void;
-  children?: ReactNode;
 }
 
 interface StyledTagProps {
@@ -32,16 +31,17 @@ interface StyledTagProps {
   clickable: boolean;
 }
 
-const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
-  href: props.link ? props.link : undefined,
-}))`
+const StyledTag = styled.div.withConfig({
+  shouldForwardProp: (prop) =>
+    !['variant', 'small', 'clickable', 'link'].includes(prop),
+})<StyledTagProps>`
   display: inline-flex;
   align-items: center;
   border-radius: 30px;
   ${margin};
-  ${({ theme, small }: StyledTagProps) =>
+  ${({ theme, small }) =>
     composeTextStyle({ theme, textStyle: small ? 'small' : 'regular' })}
-  ${({ theme, small }: StyledTagProps) =>
+  ${({ theme, small }) =>
     padding({ theme, px: small ? 2 : 3, py: small ? '2px' : 1 })}
 
   ${variant({
@@ -111,7 +111,7 @@ const StyledTag = styled.div.attrs((props: StyledTagProps) => ({
     `}
 `;
 
-const Tag: React.FC<TagProps> = ({
+const Tag = ({
   children,
   link,
   colorVariant,
@@ -119,7 +119,7 @@ const Tag: React.FC<TagProps> = ({
   icon,
   small,
   ...rest
-}) => (
+}: TagProps) => (
   <StyledTag
     as={link ? 'a' : 'div'}
     link={link}

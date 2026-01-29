@@ -1,28 +1,24 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
-
-import { ThemeProps } from '@t3n/theme';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 
 import Box from '../Box';
 import Button from '../Button';
 import Modal, { ModalProps } from '../Modal';
 
-export interface ConfirmDialogProps extends ModalProps {
+export interface ConfirmDialogProps extends ModalProps, PropsWithChildren {
   onConfirm: () => void;
   buttonLabel: string;
   buttonDisabled?: boolean;
   loading?: boolean;
-  children?: ReactNode;
 }
 
 const StyledButtonBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     flex-direction: column;
   }
 `;
 
-const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
+const ConfirmDialog = ({
   headline,
   onConfirm,
   onClose,
@@ -32,7 +28,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   wide: modalPropWide,
   width: modalPropWidth,
   children,
-}) => {
+}: ConfirmDialogProps) => {
   return (
     <Modal
       headline={headline}

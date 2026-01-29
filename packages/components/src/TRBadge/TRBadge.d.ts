@@ -1,3 +1,2 @@
-import React from 'react';
-declare const TRBadge: React.FC;
+declare const TRBadge: () => import("react/jsx-runtime").JSX.Element;
 export default TRBadge;

@@ -1,21 +1,20 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { space, SpaceProps, variant } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Text from '../Text';
 
 export type AlertStatus = 'success' | 'notice' | 'warning' | 'error';
 
-export interface AlertProps extends SpaceProps {
+export interface AlertProps extends SpaceProps, PropsWithChildren {
   status: AlertStatus;
-  children?: ReactNode;
 }
 
-const AlertBox = styled(Box)<{ status: AlertStatus }>`
-  border-radius: ${({ theme }: ThemeProps) => theme.border.radii[1]};
+const AlertBox = styled(Box).withConfig({
+  shouldForwardProp: (prop) => prop !== 'status',
+})<{ status: AlertStatus }>`
+  border-radius: ${({ theme }) => theme.border.radii[1]};
 
   ${variant({
     prop: 'status',
@@ -39,7 +38,7 @@ const AlertBox = styled(Box)<{ status: AlertStatus }>`
   ${space};
 `;
 
-export const AlertText: React.FC<{ children?: ReactNode }> = ({ children }) => {
+export const AlertText = ({ children }: Required<PropsWithChildren>) => {
   return (
     <Text m={0} width="100%">
       {children}
@@ -47,7 +46,7 @@ export const AlertText: React.FC<{ children?: ReactNode }> = ({ children }) => {
   );
 };
 
-const Alert: React.FC<AlertProps> = ({ status, children, ...rest }) => {
+const Alert = ({ status, children, ...rest }: AlertProps) => {
   return (
     <AlertBox
       display="flex"

@@ -1,7 +1,6 @@
-import React, { ReactNode, useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-named-default
+import React, { Children, PropsWithChildren, useEffect, useState } from 'react';
 import { default as SlickSlider, ResponsiveObject } from 'react-slick';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { display, layout, space } from 'styled-system';
 
 import {
@@ -14,7 +13,7 @@ import Box from '../Box';
 import Button from '../Button';
 import RoundedButton from '../RoundedButton';
 
-export interface CarouselProps {
+export interface CarouselProps extends PropsWithChildren {
   slidesToShow?: number;
   slidesToScroll?: number;
   responsive?: ResponsiveObject[];
@@ -30,7 +29,6 @@ export interface CarouselProps {
   hidePrevButton?: boolean;
   onChange?: (currentIndex: number) => void;
   isRoundedButton?: boolean;
-  children?: ReactNode;
   adaptiveHeight?: boolean;
 }
 
@@ -92,20 +90,20 @@ const StyledRoundedButtonWrapper = styled.div<{ position: 'left' | 'right' }>`
   z-index: 1;
 `;
 
-const NextButton: React.FC<{
-  onClick?: () => void;
-  show: boolean;
-  label?: string;
-  customOnClick?: () => void;
-  isRoundedButton?: boolean;
-  isLastSlide?: boolean;
-}> = ({
+const NextButton = ({
   onClick,
   show = true,
   label,
   customOnClick,
   isRoundedButton,
   isLastSlide,
+}: {
+  onClick?: () => void;
+  show: boolean;
+  label?: string;
+  customOnClick?: () => void;
+  isRoundedButton?: boolean;
+  isLastSlide?: boolean;
 }) => {
   if (!show) return null;
 
@@ -126,13 +124,19 @@ const NextButton: React.FC<{
   );
 };
 
-const PrevButton: React.FC<{
+const PrevButton = ({
+  onClick,
+  show = true,
+  label,
+  customOnClick,
+  isRoundedButton,
+}: {
   onClick?: () => void;
   show: boolean;
   label?: string;
   customOnClick?: () => void;
   isRoundedButton?: boolean;
-}> = ({ onClick, show = true, label, customOnClick, isRoundedButton }) => {
+}) => {
   if (!show) return null;
 
   if (isRoundedButton) {
@@ -153,7 +157,7 @@ const PrevButton: React.FC<{
   );
 };
 
-const Carousel: React.FC<CarouselProps> = ({
+const Carousel = ({
   slidesToShow = 1,
   slidesToScroll = 1,
   responsive,
@@ -171,9 +175,9 @@ const Carousel: React.FC<CarouselProps> = ({
   onChange,
   children,
   adaptiveHeight,
-}) => {
+}: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slidesAmount = React.Children.count(children);
+  const slidesAmount = Children.count(children);
 
   useEffect(() => {
     if (onChange) {

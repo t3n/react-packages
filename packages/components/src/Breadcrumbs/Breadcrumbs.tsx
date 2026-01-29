@@ -1,8 +1,6 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { lineHeight, padding } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
 
 import Link, { LinkProps } from '../Link';
 import Text from '../Text';
@@ -13,11 +11,13 @@ export interface BreadcrumbsItemProps extends Pick<LinkProps, 'variant'> {
   href?: string;
   className?: string;
   label: string;
-  linkComponent?: (
-    props: React.AnchorHTMLAttributes<HTMLAnchorElement> &
-      Pick<LinkProps, 'variant' | 'children'> & { href: string },
-  ) => JSX.Element;
+  linkComponent?: FunctionComponent<
+    React.AnchorHTMLAttributes<HTMLAnchorElement> &
+      Pick<LinkProps, 'variant' | 'children'> & { href: string }
+  >;
 }
+
+type BreadcrumbsProps = PropsWithChildren;
 
 export const BreadcrumbsItem = styled(
   ({
@@ -39,7 +39,7 @@ export const BreadcrumbsItem = styled(
       )}
     </li>
   ),
-)`
+)<BreadcrumbsItemProps>`
   position: relative;
   ${({ theme }) => padding({ theme, pl: 3, pr: 3 })}
   ${({ theme }) => lineHeight({ theme, lineHeight: 3 })}
@@ -56,8 +56,7 @@ export const BreadcrumbsItem = styled(
     margin-bottom: -6px;
     border-top: 0.333rem solid transparent;
     border-bottom: 0.333rem solid transparent;
-    border-left: 0.333rem solid
-      ${({ theme }: ThemeProps) => theme.colors.text.secondary};
+    border-left: 0.333rem solid ${({ theme }) => theme.colors.text.secondary};
   }
 
   &:first-child {
@@ -82,7 +81,7 @@ const BreadcrumbsList = styled.ul`
   flex-wrap: wrap;
 `;
 
-const Breadcrumbs: React.FC<{ children?: ReactNode }> = ({ children }) => {
+const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
   return (
     <nav aria-label="Breadcrumb">
       <BreadcrumbsList>{children}</BreadcrumbsList>

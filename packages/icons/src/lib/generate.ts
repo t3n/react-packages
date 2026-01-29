@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import-x/no-named-as-default-member */
 import { transform } from '@svgr/core';
 import chalk from 'chalk';
 import { ESLint } from 'eslint';
@@ -12,9 +11,7 @@ import template from './template';
 const eslint = new ESLint({ fix: true });
 
 interface MaterialIconsConfig {
-  renameRules: {
-    [key: string]: string;
-  };
+  renameRules: Record<string, string>;
   ignoreFolders: string[];
 }
 
@@ -24,9 +21,7 @@ interface IconComponent {
   reactComponent: string;
 }
 
-interface IconComponents {
-  [any: string]: IconComponent;
-}
+type IconComponents = Record<string, IconComponent>;
 
 interface FolderContents {
   dirs: string[];
@@ -98,7 +93,7 @@ const svgToReactComponent = async (svg: string, componentName: string) => {
   const formatted = await eslint.lintText(
     component.replace(
       `const ${componentName}`,
-      `const ${componentName}: React.FC<React.SVGProps<SVGSVGElement>>`,
+      `const ${componentName}: React.ComponentType<React.SVGProps<SVGSVGElement>>`,
     ),
   );
 
@@ -117,6 +112,7 @@ const generateIconComponents = async (
     svgFiles.map(async (svgPath) => {
       const componentName = generateComponentName(svgPath);
 
+      // eslint-disable-next-line no-console
       console.log(
         `Generating ${chalk.black.bgWhite(
           componentName,
@@ -197,6 +193,7 @@ const generateMaterialIconComponents = async (): Promise<IconComponent[]> => {
           name,
       )[0];
 
+      // eslint-disable-next-line no-console
       console.log(
         `Generating ${chalk.black.bgWhite(
           componentName,
@@ -278,6 +275,7 @@ const generate = async () => {
       const prefixedComponentName = getPrefixedComponentName(component);
 
       if (components[prefixedComponentName])
+        // eslint-disable-next-line no-console
         console.warn(
           `${chalk.black.bgYellow('Warning:')} Component ${chalk.black.bgWhite(
             prefixedComponentName,
@@ -290,8 +288,10 @@ const generate = async () => {
     await writeComponents(components);
     await createIndexFile(components);
 
+    // eslint-disable-next-line no-console
     console.log(chalk.green('Finished generating icon components!'));
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
   }
 };

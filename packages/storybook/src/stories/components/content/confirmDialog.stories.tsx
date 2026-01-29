@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-alert */
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 

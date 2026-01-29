@@ -1,12 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
-import styled, { css } from 'styled-components';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { css, styled } from 'styled-components';
 import {
   position,
   size,
@@ -22,10 +16,8 @@ import Icon from '../Icon';
 import Text from '../Text';
 
 export interface TextareaProps
-  extends Omit<
-      React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-      'width' | 'value'
-    >,
+  extends
+    Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'width' | 'value'>,
     WidthProps {
   onReset?: () => void;
   isFocused?: boolean;
@@ -38,20 +30,13 @@ interface StyledNativeTextareaProps extends TextareaProps {
   isFocused: boolean;
 }
 
-const color = css`
-  color: ${({
-    isFocused,
-    error,
-    disabled,
-    theme,
-  }: TextareaProps & ThemeProps) =>
-    error
-      ? theme.colors.feedback.error
-      : disabled
-        ? theme.colors.shades.grey204
-        : isFocused
-          ? theme.colors.shades.grey42
-          : theme.colors.shades.grey95};
+const color = css<TextareaProps>`
+  color: ${({ isFocused, error, disabled, theme }) => {
+    if (error) return theme.colors.feedback.error;
+    if (disabled) return theme.colors.shades.grey204;
+    if (isFocused) return theme.colors.shades.grey42;
+    return theme.colors.shades.grey95;
+  }};
 `;
 
 const StyledTextarea = styled.div<TextareaProps>`
@@ -65,14 +50,9 @@ const StyledTextarea = styled.div<TextareaProps>`
 const padding = ({ theme }: ThemeProps) =>
   space({ pl: 2, pr: 6, pt: 1, pb: 1, theme });
 
-const border = css`
+const border = css<StyledNativeTextareaProps>`
   border: 1px solid
-    ${({
-      isFocused,
-      error,
-      disabled,
-      theme,
-    }: StyledNativeTextareaProps & ThemeProps) =>
+    ${({ isFocused, error, disabled, theme }) =>
       error
         ? theme.colors.feedback.error
         : disabled
@@ -82,18 +62,18 @@ const border = css`
             : theme.colors.shades.grey95};
 `;
 
-const StyledNativeTextarea = styled.textarea.attrs(() => ({
-  noValidate: true,
-}))<StyledNativeTextareaProps>`
+const StyledNativeTextarea = styled.textarea.withConfig({
+  shouldForwardProp: (prop) =>
+    !['isFocused', 'error', 'disabled', 'rows'].includes(prop),
+})<StyledNativeTextareaProps>`
   width: 100%;
-  min-height: ${({ rows }: StyledNativeTextareaProps) =>
-    rows ? `${rows * 30}px` : '120px'};
+  min-height: ${({ rows }) => (rows ? `${rows * 30}px` : '120px')};
   font-family: ${({ theme }) => theme.fonts.default};
   font-size: 1rem;
   line-height: 30px;
   color: ${getThemeColor('text.primary')};
   background-color: ${getThemeColor('background.primary')};
-  border-radius: ${(props) => props.theme.border.radii[1]};
+  border-radius: ${({ theme }) => theme.border.radii[1]};
   outline: 0;
   ${border}
   ${padding}
@@ -136,104 +116,100 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
-const Textarea = forwardRef(
-  (
-    {
-      disabled,
-      error,
-      width = '100%',
-      rows,
-      className,
-      onFocus,
-      onBlur,
-      onChange,
-      onReset,
-      isFocused = false,
-      defaultValue,
-      maxLength,
-      ...props
-    }: TextareaProps,
-    ref: React.Ref<HTMLTextAreaElement | null>,
-  ) => {
-    const textareaRef = useRef<HTMLTextAreaElement>(null);
-    const [value, setValue] = useState(defaultValue || '');
-    const [focused, setFocused] = useState(isFocused || false);
+const Textarea = ({
+  ref,
+  disabled,
+  error,
+  width = '100%',
+  rows,
+  className,
+  onFocus,
+  onBlur,
+  onChange,
+  onReset,
+  isFocused = false,
+  defaultValue,
+  maxLength,
+  ...props
+}: TextareaProps & { ref?: React.RefObject<HTMLTextAreaElement | null> }) => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [value, setValue] = useState(defaultValue || '');
+  const [focused, setFocused] = useState(isFocused || false);
 
-    useImperativeHandle(ref, () => textareaRef.current);
+  useImperativeHandle(ref, () => textareaRef.current!);
 
-    const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-      e.stopPropagation();
-      setFocused(true);
-      if (onFocus) onFocus(e);
-    };
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    e.stopPropagation();
+    setFocused(true);
+    if (onFocus) onFocus(e);
+  };
 
-    const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-      e.stopPropagation();
-      setFocused(false);
-      if (onBlur) onBlur(e);
-    };
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    e.stopPropagation();
+    setFocused(false);
+    if (onBlur) onBlur(e);
+  };
 
-    const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      e.stopPropagation();
-      setValue(e.target.value);
-      if (onChange) onChange(e);
-    };
+  const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.stopPropagation();
+    setValue(e.target.value);
+    if (onChange) onChange(e);
+  };
 
-    const handleReset = () => {
-      setValue('');
-      if (textareaRef !== null && textareaRef.current !== null) {
-        textareaRef.current.focus();
-      }
-      if (onReset) onReset();
-    };
+  const handleReset = () => {
+    setValue('');
+    if (textareaRef !== null && textareaRef.current !== null) {
+      textareaRef.current.focus();
+    }
+    if (onReset) onReset();
+  };
 
-    useEffect(() => {
-      if (focused && textareaRef !== null && textareaRef.current !== null) {
-        textareaRef.current.focus();
-        textareaRef.current.selectionStart = textareaRef.current.value.length;
-      }
-    }, [focused]);
+  useEffect(() => {
+    if (focused && textareaRef !== null && textareaRef.current !== null) {
+      textareaRef.current.focus();
+      textareaRef.current.selectionStart = textareaRef.current.value.length;
+    }
+  }, [focused]);
 
-    return (
-      <StyledTextarea
-        disabled={disabled}
-        width={width}
-        rows={rows}
+  return (
+    <StyledTextarea
+      disabled={disabled}
+      width={width}
+      rows={rows}
+      error={error}
+      className={className}
+      isFocused={focused}
+    >
+      <StyledNativeTextarea
         error={error}
-        className={className}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleOnChange}
         isFocused={focused}
-      >
-        <StyledNativeTextarea
-          error={error}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleOnChange}
-          isFocused={focused}
-          disabled={disabled}
-          value={value}
-          ref={textareaRef}
-          maxLength={maxLength}
-          rows={rows}
-          {...props}
-        />
-        {value.length > 0 && !disabled ? (
-          <Button tabIndex={-1} onClick={handleReset}>
-            <Icon
-              component={MaterialClear}
-              width="1.5rem"
-              height="1.5rem"
-              fill={focused ? 'text.primary' : 'shades.grey204'}
-            />
-          </Button>
-        ) : null}
-        {typeof maxLength !== 'undefined' && maxLength >= 1 && (
-          <StyledText>
-            {value.length} / {maxLength}
-          </StyledText>
-        )}
-      </StyledTextarea>
-    );
-  },
-);
+        disabled={disabled}
+        value={value}
+        ref={textareaRef}
+        maxLength={maxLength}
+        rows={rows}
+        {...props}
+      />
+      {value.length > 0 && !disabled ? (
+        <Button tabIndex={-1} onClick={handleReset}>
+          <Icon
+            component={MaterialClear}
+            width="1.5rem"
+            height="1.5rem"
+            fill={focused ? 'text.primary' : 'shades.grey204'}
+          />
+        </Button>
+      ) : null}
+      {typeof maxLength !== 'undefined' && maxLength >= 1 && (
+        <StyledText>
+          {value.length} / {maxLength}
+        </StyledText>
+      )}
+    </StyledTextarea>
+  );
+};
 
 export default Textarea;

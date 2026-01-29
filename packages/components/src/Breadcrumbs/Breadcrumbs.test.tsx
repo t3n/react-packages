@@ -59,7 +59,6 @@ test('BreadcrumbsItems without href prop provided render as span element', () =>
 });
 
 test('BreadcrumbsItems render custom link component if provided through props', () => {
-  // eslint-disable-next-line react/require-default-props
   const CustomLink = ({ href, title }: { href: string; title?: string }) => (
     <a href={href} title={title} style={{ color: 'red' }}>
       {title}

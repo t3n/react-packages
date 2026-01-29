@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, lineHeight, padding, typography } from 'styled-system';
 
 interface LegacyBreadcrumbItemProps {
@@ -56,10 +56,7 @@ const LegacyBreadcrumbLink = styled.li`
   }
 `;
 
-const LegacyBreadcrumbItem: React.FC<LegacyBreadcrumbItemProps> = ({
-  href,
-  label,
-}) => {
+const LegacyBreadcrumbItem = ({ href, label }: LegacyBreadcrumbItemProps) => {
   return (
     <LegacyBreadcrumbLink>
       {href ? (

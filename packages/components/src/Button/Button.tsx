@@ -2,9 +2,9 @@
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-  ReactNode,
+  PropsWithChildren,
 } from 'react';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import {
   lineHeight,
   margin,
@@ -15,7 +15,7 @@ import {
   WidthProps,
 } from 'styled-system';
 
-import { composeTextStyle, Theme, ThemeProps } from '@t3n/theme';
+import { composeTextStyle, Theme } from '@t3n/theme';
 
 import Icon from '../Icon';
 import Loader from '../Loader';
@@ -25,25 +25,35 @@ export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type ButtonSizeVariant = 'small' | 'regular' | 'big';
 
-// TODO: Fix polymorphic interface
-
-export interface ButtonProps
-  extends ButtonHTMLAttributes<any>,
-    Omit<AnchorHTMLAttributes<any>, 'type'>,
-    MarginProps,
-    WidthProps {
+interface BaseButtonProps extends MarginProps, WidthProps, PropsWithChildren {
   variant?: ButtonVariant;
   color?: ButtonColorVariant;
   size?: ButtonSizeVariant;
 
-  iconLeft?: React.FC<React.SVGProps<SVGSVGElement>>;
-  iconRight?: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
   loading?: boolean;
-  as?: ButtonAsType;
-
-  children?: ReactNode;
+  disabled?: boolean;
 }
+
+interface AnchorButtonProps
+  extends
+    BaseButtonProps,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
+  as?: 'a';
+  href: string;
+}
+
+interface ButtonButtonProps
+  extends
+    BaseButtonProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
+  as?: 'button';
+  href?: never;
+}
+
+export type ButtonProps = AnchorButtonProps | ButtonButtonProps;
 
 const buildColorVariants = (
   variantProp: ButtonVariant,
@@ -56,7 +66,7 @@ const buildColorVariants = (
     'inverse',
     'accent',
   ];
-  const buildConfig: any = {};
+  const buildConfig: Record<string, Record<string, string>> = {};
 
   allVariants.forEach((el) => {
     buildConfig[el] = {
@@ -81,7 +91,7 @@ const buildColorVariants = (
   return buildConfig;
 };
 
-export const buttonStyles = css`
+export const buttonStyles = css<BaseButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -92,16 +102,16 @@ export const buttonStyles = css`
   ${width};
   ${margin};
 
-  ${({ theme }: ThemeProps) => `border-radius: ${theme.border.radii[1]}`};
+  ${({ theme }) => `border-radius: ${theme.border.radii[1]}`};
   ${({ theme, size }) =>
     space({ px: 3, py: size && size === 'small' ? 1 : 2, theme })}
-  ${({ theme, size }: ButtonProps & ThemeProps) =>
+  ${({ theme, size }) =>
     composeTextStyle({
       textStyle: size === 'big' ? 'big' : 'regular',
       theme,
     })};
 
-  ${({ disabled, loading }: ButtonProps) =>
+  ${({ disabled, loading }) =>
     disabled || loading ? 'cursor: no-drop' : 'cursor: pointer'};
 
   /* We have to provide a value for every breakpoint because of specificity
@@ -109,14 +119,14 @@ export const buttonStyles = css`
   ${lineHeight({
     lineHeight: ['1.25rem', '1.25rem', '1.25rem', '1.25rem'],
   })}
-  ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
+  ${({ theme, variant: variantProp = 'primary' }) =>
     styledVariant({
       prop: 'color',
       variants: buildColorVariants(variantProp, 'default', theme),
     })}
 
   &:hover:not(:disabled), &:focus:not(:disabled) {
-    ${({ theme, variant: variantProp = 'primary' }: ButtonProps & ThemeProps) =>
+    ${({ theme, variant: variantProp = 'primary' }) =>
       styledVariant({
         prop: 'color',
         variants: buildColorVariants(variantProp, 'hover', theme),
@@ -135,11 +145,7 @@ export const buttonStyles = css`
 
   ${Loader} {
     > div {
-      ${({
-        theme,
-        color: colorProp,
-        variant: variantProp = 'primary',
-      }: ButtonProps & ThemeProps) =>
+      ${({ theme, color: colorProp, variant: variantProp = 'primary' }) =>
         `background-color: ${
           variantProp === 'secondary'
             ? colorProp === 'highlight' || colorProp === 'inverse'
@@ -154,11 +160,7 @@ export const buttonStyles = css`
 
   ${Icon} {
     transition: fill 0.1s ease-in-out;
-    ${({
-      variant: variantProp,
-      color: colorProp,
-      theme,
-    }: ThemeProps & ButtonProps) =>
+    ${({ variant: variantProp, color: colorProp, theme }) =>
       `fill: ${
         variantProp === 'secondary'
           ? colorProp === 'highlight' || colorProp === 'inverse'
@@ -172,11 +174,11 @@ export const buttonStyles = css`
 
   ${({ loading }) =>
     !loading &&
-    css`
+    css<BaseButtonProps>`
       &:disabled {
         opacity: 0.6;
 
-        ${({ color, variant: variantProp, theme }: ThemeProps & ButtonProps) =>
+        ${({ color, variant: variantProp, theme }) =>
           color &&
           color === 'highlight' &&
           variantProp === 'primary' &&
@@ -187,12 +189,33 @@ export const buttonStyles = css`
     `}
 `;
 
-const StyledButton = styled(
-  // eslint-disable-next-line react/button-has-type
-  ({ loading, ...rest }: ButtonProps) => <button {...rest} />,
-)<ButtonProps>`
+const StyledButtonElement = styled.button.withConfig({
+  shouldForwardProp: (prop) =>
+    !['size', 'loading', 'variant', 'iconLeft', 'iconRight'].includes(prop),
+})<BaseButtonProps>`
   ${buttonStyles}
 `;
+
+const StyledAnchorElement = styled.a.withConfig({
+  shouldForwardProp: (prop) =>
+    !['size', 'loading', 'variant', 'iconLeft', 'iconRight'].includes(prop),
+})<BaseButtonProps>`
+  ${buttonStyles}
+`;
+
+type RestProps = Omit<
+  ButtonProps,
+  keyof BaseButtonProps | 'as' | 'onClick' | 'disabled'
+>;
+
+function isAnchorButtonProps(
+  props: RestProps,
+): props is Omit<
+  AnchorButtonProps,
+  keyof BaseButtonProps | 'as' | 'onClick' | 'disabled'
+> {
+  return 'href' in props && Boolean(props.href);
+}
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -202,46 +225,76 @@ const Button: React.FC<ButtonProps> = ({
   size = 'regular',
   color = 'default',
   variant = 'primary',
-  href,
   as,
   onClick,
   disabled,
-  ...rest
-}) => (
-  <StyledButton
-    href={href}
-    as={href ? 'a' : as}
-    size={size}
-    color={color}
-    variant={variant}
-    loading={loading}
-    disabled={loading || disabled}
-    onClick={(e: any) => !loading && onClick && onClick(e)}
-    {...rest}
-  >
-    {loading ? (
-      <Loader small my={2} />
-    ) : (
-      <>
-        {iconLeft && (
-          <Icon
-            component={iconLeft}
-            mr={2}
-            width={
-              size === 'big' ? '1.5rem' : size === 'small' ? '1rem' : '1.25rem'
-            }
-            height={
-              size === 'big' ? '1.5rem' : size === 'small' ? '1rem' : '1.25rem'
-            }
-          />
-        )}
-        {children}
-        {iconRight && (
-          <Icon component={iconRight} ml={2} width="auto" height="1.5rem" />
-        )}
-      </>
-    )}
-  </StyledButton>
-);
+  ...restProps
+}) => {
+  const isAnchor = isAnchorButtonProps(restProps);
+
+  const commonProps = {
+    size,
+    color,
+    variant,
+    loading,
+    disabled: loading || disabled,
+    onClick: onClick
+      ? (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+          if (!loading) {
+            onClick(e as any);
+          }
+        }
+      : undefined,
+  };
+
+  const content = (
+    <>
+      {loading ? (
+        <Loader small my={2} />
+      ) : (
+        <>
+          {iconLeft && (
+            <Icon
+              component={iconLeft}
+              mr={2}
+              width={
+                size === 'big'
+                  ? '1.5rem'
+                  : size === 'small'
+                    ? '1rem'
+                    : '1.25rem'
+              }
+              height={
+                size === 'big'
+                  ? '1.5rem'
+                  : size === 'small'
+                    ? '1rem'
+                    : '1.25rem'
+              }
+            />
+          )}
+          {children}
+          {iconRight && (
+            <Icon component={iconRight} ml={2} width="auto" height="1.5rem" />
+          )}
+        </>
+      )}
+    </>
+  );
+
+  if (isAnchor) {
+    return (
+      <StyledAnchorElement {...restProps} {...commonProps}>
+        {content}
+      </StyledAnchorElement>
+    );
+  }
+
+  return (
+    <StyledButtonElement {...restProps} {...commonProps}>
+      {content}
+    </StyledButtonElement>
+  );
+};
 
 export default Button;

@@ -11,5 +11,5 @@ export interface CheckboxProps {
     feedbackColor?: ThemeFeedbackColor;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor, name, value, variant, }: CheckboxProps) => React.JSX.Element;
+declare const Checkbox: ({ checked, onChange, label, disabled, feedbackColor, name, value, variant, }: CheckboxProps) => import("react/jsx-runtime").JSX.Element;
 export default Checkbox;

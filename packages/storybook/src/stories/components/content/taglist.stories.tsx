@@ -25,7 +25,7 @@ const meta: Meta<typeof TagList> = {
     collapseAfter: 5,
     initialCollapsed: true,
     tags: tagValues.map((label) => (
-      <Tag colorVariant="secondary" mr={2}>
+      <Tag key={label} colorVariant="secondary" mr={2}>
         {label}
       </Tag>
     )),
@@ -41,7 +41,7 @@ export const smallTagList: Story = {
   args: {
     small: true,
     tags: tagValues.map((label) => (
-      <Tag colorVariant="secondary" small mr={2}>
+      <Tag key={label} colorVariant="secondary" small mr={2}>
         {label}
       </Tag>
     )),

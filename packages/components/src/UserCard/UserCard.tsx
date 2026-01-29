@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import {
@@ -10,7 +10,6 @@ import {
   SocialTwitter,
   SocialXing,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Avatar from '../Avatar';
 import Badge from '../Badge';
@@ -27,9 +26,12 @@ export type SocialLinkType =
   | 'HOMEPAGE'
   | 'LINKEDIN';
 
-export type SocialLink = { url: string; type: SocialLinkType };
+export interface SocialLink {
+  url: string;
+  type: SocialLinkType;
+}
 
-export type UserCardProps = {
+export interface UserCardProps extends PropsWithChildren {
   user: {
     id: number;
     name: string;
@@ -49,19 +51,13 @@ export type UserCardProps = {
   };
   compact: boolean;
   secondary?: boolean;
-  children?: ReactNode;
-};
-
-export type SocialLinksProps = {
-  links: SocialLink[];
-  cardLinked?: boolean;
-};
+}
 
 const StyledCard = styled(Card)`
   position: relative;
   height: 100%;
 
-  ${({ theme }: ThemeProps) => space({ pt: [4, 5], theme })};
+  ${({ theme }) => space({ pt: [4, 5], theme })};
 `;
 
 const StyledBadge = styled(Badge)`
@@ -73,8 +69,7 @@ const StyledBadge = styled(Badge)`
 const SocialButton = styled(Button)`
   border-radius: 50%;
   border: 0;
-  background-color: ${({ theme }: ThemeProps) =>
-    theme.colors.background.secondary};
+  background-color: ${({ theme }) => theme.colors.background.secondary};
   width: 32px;
   height: 32px;
   align-items: center;
@@ -83,8 +78,7 @@ const SocialButton = styled(Button)`
 
   &:hover:not(:disabled) {
     transform: scale(1);
-    background-color: ${({ theme }: ThemeProps) =>
-      theme.colors.background.inverse};
+    background-color: ${({ theme }) => theme.colors.background.inverse};
   }
 
   &:hover > svg {
@@ -93,8 +87,7 @@ const SocialButton = styled(Button)`
 `;
 
 const StyledDefaultBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     display: grid;
     justify-content: center;
     text-align: center;
@@ -116,13 +109,12 @@ const StyledLink = styled(Link)`
 `;
 
 const SocialLinksBox = styled(Box)`
-  @media screen and (max-width: ${(props: ThemeProps) =>
-      props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints[0]}) {
     justify-content: center;
   }
 `;
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
+const SocialLinks = ({ links }: { links: SocialLink[] }) => {
   return (
     <SocialLinksBox mt={2} display="flex">
       {links.map((link) => (
@@ -144,9 +136,12 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
   );
 };
 
-const CompactUserCard: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>
-> = ({ user, link, optimizeAvatar, children }) => {
+const CompactUserCard = ({
+  user,
+  link,
+  optimizeAvatar,
+  children,
+}: Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>) => {
   return (
     <StyledCompactBox display="flex" alignItems="center" flexDirection="column">
       {!link?.fullCard && link?.url ? (
@@ -176,9 +171,12 @@ const CompactUserCard: React.FC<
   );
 };
 
-const DefaultUserCard: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>
-> = ({ user, link, optimizeAvatar, children }) => {
+const DefaultUserCard = ({
+  user,
+  link,
+  optimizeAvatar,
+  children,
+}: Pick<UserCardProps, 'user' | 'link' | 'optimizeAvatar' | 'children'>) => {
   return (
     <Box display={['unset', 'flex']} m="0 auto">
       <Box display="flex" flexDirection="column" mr={[0, 3]}>
@@ -212,9 +210,11 @@ const DefaultUserCard: React.FC<
   );
 };
 
-const UserCardContent: React.FC<
-  Pick<UserCardProps, 'user' | 'link' | 'secondary'>
-> = ({ user, link, secondary }) => {
+const UserCardContent = ({
+  user,
+  link,
+  secondary,
+}: Pick<UserCardProps, 'user' | 'link' | 'secondary'>) => {
   return (
     <>
       <Text bold mt={0} mb={0}>
@@ -231,9 +231,11 @@ const UserCardContent: React.FC<
           user.name
         )}
       </Text>
-      <Text mt={1} mb={1} secondary={!!secondary}>
-        {user.position}
-      </Text>
+      {user.position && (
+        <Text mt={1} mb={1} secondary={!!secondary}>
+          {user.position}
+        </Text>
+      )}
       {user.flag && <StyledBadge variant="light">{user.flag}</StyledBadge>}
       {!link?.fullCard && user.email ? (
         <StyledLink
@@ -246,9 +248,11 @@ const UserCardContent: React.FC<
           </Text>
         </StyledLink>
       ) : (
-        <Text mt={2} mb={0} secondary={!!secondary}>
-          {user.email}
-        </Text>
+        user.email && (
+          <Text mt={2} mb={0} secondary={!!secondary}>
+            {user.email}
+          </Text>
+        )
       )}
       {!link?.fullCard && user.phone ? (
         <StyledLink
@@ -259,9 +263,11 @@ const UserCardContent: React.FC<
           </Text>
         </StyledLink>
       ) : (
-        <Text mt={1} mb={0} secondary={!!secondary}>
-          {user.phone}
-        </Text>
+        user.phone && (
+          <Text mt={1} mb={0} secondary={!!secondary}>
+            {user.phone}
+          </Text>
+        )
       )}
       {!link?.fullCard && user.socialLinks.length > 0 && (
         <SocialLinks links={user.socialLinks} />
@@ -270,14 +276,14 @@ const UserCardContent: React.FC<
   );
 };
 
-const UserCard: React.FC<UserCardProps> = ({
+const UserCard = ({
   user,
   optimizeAvatar,
   link,
   compact,
   secondary,
   children,
-}) => {
+}: UserCardProps) => {
   return (
     <StyledCard href={link?.fullCard && link?.url ? link.url : undefined}>
       {compact ? (

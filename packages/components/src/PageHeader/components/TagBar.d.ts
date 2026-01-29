@@ -1,4 +1,3 @@
-import React from 'react';
 import { PageHeaderLinksType } from '../PageHeader';
 interface TagBarProps {
     pinnedTeaser: PageHeaderLinksType & {
@@ -7,5 +6,5 @@ interface TagBarProps {
     };
     tags: PageHeaderLinksType[];
 }
-declare const TagBar: React.FC<TagBarProps>;
+declare const TagBar: ({ pinnedTeaser, tags }: TagBarProps) => import("react/jsx-runtime").JSX.Element;
 export default TagBar;

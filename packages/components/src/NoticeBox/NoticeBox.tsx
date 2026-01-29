@@ -1,13 +1,11 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { border, color, space, SpaceProps } from 'styled-system';
 
 import Box from '../Box';
 import Text from '../Text';
 
-export interface NoticeBoxProps extends SpaceProps {
-  children?: ReactNode;
-}
+export type NoticeBoxProps = PropsWithChildren<SpaceProps>;
 
 const StyledNoticeBox = styled(Box)`
   ${({ theme }) =>
@@ -42,9 +40,7 @@ const StyledNoticeBox = styled(Box)`
   }
 `;
 
-export const NoticeBoxText: React.FC<{ children?: ReactNode }> = ({
-  children,
-}) => {
+export const NoticeBoxText = ({ children }: Required<PropsWithChildren>) => {
   return (
     <Text m={0} width="100%">
       {children}
@@ -52,7 +48,7 @@ export const NoticeBoxText: React.FC<{ children?: ReactNode }> = ({
   );
 };
 
-const NoticeBox: React.FC<NoticeBoxProps> = ({ children, ...rest }) => {
+const NoticeBox = ({ children, ...rest }: NoticeBoxProps) => {
   return (
     <StyledNoticeBox display="flex" alignItems="center" p={3} {...rest}>
       {children}

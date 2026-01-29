@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import {
   color,
   ColorProps,
@@ -13,9 +13,8 @@ import {
 
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
-export interface CardSplitContentProps {
+export interface CardSplitContentProps extends PropsWithChildren {
   variant?: ThemeBackgroundColor;
-  children?: ReactNode;
 }
 
 const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
@@ -25,10 +24,7 @@ const Wrapper = styled.div<SpaceProps | LayoutProps | ColorProps | WidthProps>`
   ${size}
 `;
 
-const CardSplitContent: React.FC<CardSplitContentProps> = ({
-  children,
-  variant,
-}) => {
+const CardSplitContent = ({ children, variant }: CardSplitContentProps) => {
   const backgroundColor = variant
     ? `background.${variant}`
     : 'background.primary';

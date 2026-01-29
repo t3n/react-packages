@@ -11,5 +11,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
     className?: string;
     hideReset?: boolean;
 }
-declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
+declare const Input: ({ ref, disabled, type, error, width, className, onFocus, onBlur, onChange, onReset, isFocused, value: controlledValue, defaultValue, hideReset, ...props }: InputProps & {
+    ref?: React.RefObject<HTMLInputElement | null>;
+}) => import("react/jsx-runtime").JSX.Element;
 export default Input;

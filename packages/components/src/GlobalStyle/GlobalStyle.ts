@@ -1,12 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import { variant } from 'styled-system';
 
-import { ThemeProps } from '@t3n/theme';
 import { ThemeBackgroundColor } from '@t3n/theme/src/theme/colors/colors';
 
 type BackgroundColor = ThemeBackgroundColor | ThemeBackgroundColor[];
 
-export interface GlobalStyleProps extends ThemeProps {
+export interface GlobalStyleProps {
   variant?: BackgroundColor;
 }
 

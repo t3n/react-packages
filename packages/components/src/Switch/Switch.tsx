@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { MarginProps, space, variant, width, WidthProps } from 'styled-system';
 
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
@@ -173,7 +173,7 @@ const PlainSwitch = ({
   );
 };
 
-const Switch: React.FC<SwitchProps> = ({
+const Switch = ({
   checked,
   readOnly,
   onChange,
@@ -184,7 +184,7 @@ const Switch: React.FC<SwitchProps> = ({
   value,
   width: widthProp,
   ...marginProps
-}) => {
+}: SwitchProps) => {
   return (
     <StyledLabel
       variant={variantProp}
@@ -193,7 +193,7 @@ const Switch: React.FC<SwitchProps> = ({
       width={widthProp}
       {...marginProps}
     >
-      <Text inline>{label}</Text>
+      {label && <Text inline>{label}</Text>}
       <PlainSwitch
         variant={variantProp}
         checked={checked}
