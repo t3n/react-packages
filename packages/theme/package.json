@@ -30,7 +30,7 @@
     "styled-system": "^5.1.5"
   },
   "peerDependencies": {
-    "styled-system": ">=5.1.2"
+    "styled-system": ">=5.1.0"
   },
   "sideEffects": false,
   "publishConfig": {
