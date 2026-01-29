@@ -49,21 +49,13 @@
   "peerDependencies": {
     "@emotion/react": ">=11",
     "@emotion/styled": ">=11",
-    "@t3n/icons": ">=0.8.0-0",
-    "@t3n/theme": ">=0.9.0-0",
+    "@t3n/icons": "*",
+    "@t3n/theme": "*",
     "moment": ">=2.0",
     "react": ">=19.0",
     "react-dom": ">=19.0",
     "slick-carousel": ">=1.8",
     "styled-components": ">=6"
-  },
-  "peerDependenciesMeta": {
-    "@t3n/icons": {
-      "optional": true
-    },
-    "@t3n/theme": {
-      "optional": true
-    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
