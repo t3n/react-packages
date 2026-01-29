@@ -57,6 +57,14 @@
     "slick-carousel": ">=1.8",
     "styled-components": ">=6"
   },
+  "peerDependenciesMeta": {
+    "@t3n/icons": {
+      "optional": true
+    },
+    "@t3n/theme": {
+      "optional": true
+    }
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
