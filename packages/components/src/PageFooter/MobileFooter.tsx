@@ -62,19 +62,19 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
   const mobileLinks: MobileLinkType = [
     {
       label: 'Dein Abo',
-      url: '/dein-abo',
+      url: '/dein-abo/',
     },
     {
       label: 'Jetzt abonnieren',
-      url: '/abos',
+      url: '/abos/',
     },
     {
       label: 'Team',
-      url: '/team',
+      url: '/team/',
     },
     {
       label: 'Jobs bei t3n',
-      url: '/jobs-bei-t3n',
+      url: '/jobs-bei-t3n/',
     },
     {
       label: 'Mediadaten',
@@ -102,7 +102,7 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
     },
     {
       label: 'Abo kündigen',
-      url: '/abo-kuendigen',
+      url: '/abo-kuendigen/',
     },
     {
       label: 'Kontakt',
