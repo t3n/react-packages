@@ -64,7 +64,7 @@ const brands: PageHeaderTeaserImageType[] = [
   },
   {
     title: 'MIT Technology Review',
-    url: '/technology-review/',
+    url: '/technology-review',
     image: 'https://cdn.t3n.de/js-frontend/static/tr-logo-burger.png',
   },
 ];
