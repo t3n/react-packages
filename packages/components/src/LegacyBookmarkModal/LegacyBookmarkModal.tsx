@@ -38,7 +38,7 @@ const LegacyBookmarkModal: React.FC<LegacyBookmarkModalProps> = ({
           Bitte melde dich an, um diesen Artikel in deiner persönlichen
           Merkliste auf t3n zu speichern.
         </Text>
-        <Button href="/" id="bookmark-register-button">
+        <Button href="/account/register/" id="bookmark-register-button">
           Jetzt registrieren und merken
         </Button>
         <Text small mb={2}>
