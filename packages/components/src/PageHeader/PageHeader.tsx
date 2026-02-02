@@ -191,7 +191,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             {hasSubscription ? (
               <RoundedButton
                 as="a"
-                href="/dein-abo/"
+                href="/dein-abo"
                 title="Abo Benefit Seite"
                 mr={2}
                 color="accent"
@@ -201,7 +201,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             ) : (
               <RoundedButton
                 as="a"
-                href="/abos/"
+                href="/abos"
                 title="t3n Abos Landingpage"
                 className="t-header__abo-button"
                 mr={2}
