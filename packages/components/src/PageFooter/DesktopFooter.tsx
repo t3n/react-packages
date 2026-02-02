@@ -87,8 +87,8 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
       label: 'yeebase media',
       links: [
         { label: 'Über t3n', url: '/ueber-t3n/' },
-        { label: 'Team', url: '/team' },
-        { label: 'Jobs bei t3n', url: '/jobs-bei-t3n' },
+        { label: 'Team', url: '/team/' },
+        { label: 'Jobs bei t3n', url: '/jobs-bei-t3n/' },
         {
           label: 't3n Backstage Blog',
           title: 'Die externe Seite im neuen Tab/Fenster öffnen',
@@ -114,7 +114,7 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
           target: '_blank',
           rel: 'noreferrer noopener',
         },
-        { label: 'Abo kündigen', url: '/abo-kuendigen' },
+        { label: 'Abo kündigen', url: '/abo-kuendigen/' },
         { label: 'Kontakt', url: '/kontakt/' },
         { label: 'AGB', url: '/agb/' },
         { label: 'Widerrufsbelehrung', url: '/agb/#widerrufsbelehrung' },
@@ -131,21 +131,21 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
     {
       label: 't3n',
       links: [
-        { label: 'Dein Abo', url: '/dein-abo' },
+        { label: 'Dein Abo', url: '/dein-abo/' },
         {
           label: 'Jetzt abonnieren',
-          url: '/abos',
+          url: '/abos/',
         },
         { label: 'News', url: '/news/' },
         { label: 'Magazin', url: '/magazin/' },
-        { label: 'Podcasts', url: '/podcast' },
+        { label: 'Podcasts', url: '/podcast/' },
         { label: 'Themen', url: '/tag/' },
         { label: 'Jobs', url: 'https://jobs.t3n.de' },
-        { label: 'Events', url: '/events' },
+        { label: 'Events', url: '/events/' },
         { label: 'Shop', url: 'https://shop.t3n.de' },
         { label: 'Newsletter', url: '/info/t3n-newsletter/' },
         { label: 'Newsarchiv', url: '/archive/' },
-        { label: 'BrandHubs', url: '/brandhub' },
+        { label: 'BrandHubs', url: '/brandhub/' },
       ],
     },
     {

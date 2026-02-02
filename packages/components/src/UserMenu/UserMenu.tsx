@@ -221,12 +221,12 @@ const UserMenu: React.FC<UserMenuProps> = ({
   userEmail,
   isProMember = false,
   items,
-  loginLink = '/account/login',
-  logoutLink = '/account/logout',
+  loginLink = '/account/login/',
+  logoutLink = '/account/logout/',
   isPlusUser = false,
-  aboLink = '/account',
-  readingListLink = '/account/merkliste',
-  accountLink = '/account/edit',
+  aboLink = '/account/',
+  readingListLink = '/account/merkliste/',
+  accountLink = '/account/edit/',
   light,
 }) => {
   return userEmail ? (

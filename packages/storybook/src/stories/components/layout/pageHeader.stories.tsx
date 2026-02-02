@@ -58,7 +58,7 @@ const brands: PageHeaderTeaserImageType[] = [
   },
   {
     title: 'MIT Technology Review',
-    url: '/technology-review',
+    url: '/technology-review/',
     image:
       'https://cdn.t3n.de/strapi/brand_tr_a59fcf5a31/brand_tr_a59fcf5a31.png',
   },
