@@ -390,7 +390,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
         <BurgerAccordion
           title="t3n PRO"
           isOpen={openAccordions.Skills}
-          onToggle={() => handleAccordionToggle('t3n PRO')}
+          onToggle={() => handleAccordionToggle('Skills')}
           tabbable={tabbable}
         >
           {skills.map((link) => (
