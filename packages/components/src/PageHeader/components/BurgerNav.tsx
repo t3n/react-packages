@@ -388,7 +388,7 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
           </Grid>
         </BurgerAccordion>
         <BurgerAccordion
-          title="Skills"
+          title="t3n PRO"
           isOpen={openAccordions.Skills}
           onToggle={() => handleAccordionToggle('Skills')}
           tabbable={tabbable}
