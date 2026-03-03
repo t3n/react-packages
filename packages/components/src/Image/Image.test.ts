@@ -11,7 +11,7 @@ import {
 
 const cdnConfiguration = {
   hostname: 'cdn.t3n.de',
-  originHostnames: ['storage.googleapis.com', 'images.t3n.de', 'assets.t3n.de'],
+  originHostnames: ['storage.googleapis.com'],
 };
 
 describe('testIsFastlyUrl', () => {
@@ -19,18 +19,6 @@ describe('testIsFastlyUrl', () => {
     expect(
       testIsFastlyUrl(
         'https://storage.googleapis.com/bucket/path/example.jpg',
-        cdnConfiguration,
-      ),
-    ).toBe(true);
-    expect(
-      testIsFastlyUrl(
-        'https://images.t3n.de/bucket/path/example.jpg',
-        cdnConfiguration,
-      ),
-    ).toBe(true);
-    expect(
-      testIsFastlyUrl(
-        'https://assets.t3n.de/bucket/path/example.jpg',
         cdnConfiguration,
       ),
     ).toBe(true);
@@ -67,22 +55,6 @@ describe('generateFastlySrc', () => {
         cdnConfiguration,
       ),
     ).toBe('https://cdn.t3n.de/bucket/path/example.jpg?class=default');
-    expect(
-      generateFastlySrc(
-        'https://images.t3n.de/bucket/path/example.jpg',
-        'responsive-medium',
-        cdnConfiguration,
-      ),
-    ).toBe(
-      'https://cdn.t3n.de/bucket/path/example.jpg?class=responsive-medium',
-    );
-    expect(
-      generateFastlySrc(
-        'https://assets.t3n.de/bucket/path/example.jpg',
-        'responsive-large',
-        cdnConfiguration,
-      ),
-    ).toBe('https://cdn.t3n.de/bucket/path/example.jpg?class=responsive-large');
     expect(
       generateFastlySrc(
         'https://cdn.t3n.de/bucket/path/example.jpg',
