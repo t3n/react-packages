@@ -4,5 +4,5 @@ export declare const breakpointMedium = 980;
 export declare const breakpointLarge = 1440;
 export type ThemeBreakpoints = [string, string, string, string];
 export declare const breakpoints: number[];
-declare const _default: string[];
+declare const _default: ThemeBreakpoints;
 export default _default;

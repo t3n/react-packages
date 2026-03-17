@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 import { border, color, space, typography } from 'styled-system';
 
 import { MaterialBookmark, MaterialBookmarkBorder } from '@t3n/icons';
@@ -88,10 +88,7 @@ const BookmarkContainer = styled(Box)<{
   }
 `;
 
-const LegacyBookmark: React.FC<LegacyBookmarkProps> = ({
-  onClick,
-  isBookmarked,
-}) => {
+const LegacyBookmark = ({ onClick, isBookmarked }: LegacyBookmarkProps) => {
   const [isBookmarkedClick, setIsBookmarkedClick] = useState(false);
 
   return (

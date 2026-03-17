@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space, typography } from 'styled-system';
 
 import Box from '../Box';
@@ -58,7 +58,7 @@ const SmallerText = styled(Text)`
     })};
 `;
 
-const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
+const MobileLinks = ({ privacyManagerId }: MobileFooterProps) => {
   const mobileLinks: MobileLinkType = [
     {
       label: 'Dein Abo',
@@ -89,7 +89,7 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
       url: '#',
       onClick: (e, id) => {
         e.preventDefault();
-        // eslint-disable-next-line no-underscore-dangle
+
         (window as any)._sp_.loadPrivacyManagerModal(id);
       },
     },
@@ -154,7 +154,7 @@ const MobileLinks: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
   );
 };
 
-const MobileFooter: React.FC<MobileFooterProps> = ({ privacyManagerId }) => {
+const MobileFooter = ({ privacyManagerId }: MobileFooterProps) => {
   return (
     <>
       <MobileLinks privacyManagerId={privacyManagerId} />

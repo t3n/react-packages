@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
 
 import { ThemeProps } from '@t3n/theme';
@@ -7,13 +7,12 @@ import { ThemeProps } from '@t3n/theme';
 import Image from '../Image';
 import Ratio, { RatioProps } from '../Ratio';
 
-export interface CardHeaderProps extends ThemeProps {
+export interface CardHeaderProps extends PropsWithChildren {
   as?: 'div' | 'a';
   big?: boolean;
   ratio?: RatioProps['ratio'] | 'auto';
   color?: string;
   image?: string;
-  children?: ReactNode;
 }
 
 export const CardHeaderContent = styled.div`
@@ -40,7 +39,7 @@ const CardHeaderComponent = ({
   </CardHeaderContainer>
 );
 
-const padding = ({ big, theme }: CardHeaderProps): string =>
+const padding = ({ big, theme }: CardHeaderProps & ThemeProps): string =>
   big ? space({ p: [4, 7], theme }) : space({ 3: 5, theme });
 
 const CardHeader = styled(CardHeaderComponent)<CardHeaderProps>`

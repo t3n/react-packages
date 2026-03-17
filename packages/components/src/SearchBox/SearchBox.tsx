@@ -1,4 +1,10 @@
-import React, { FormEvent, ReactNode, useEffect, useState } from 'react';
+import React, {
+  FormEvent,
+  PropsWithChildren,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import AutoSuggest, {
   GetSuggestionValue,
   OnSuggestionsClearRequested,
@@ -8,11 +14,9 @@ import AutoSuggest, {
   SuggestionSelectedEventData,
   SuggestionsFetchRequested,
 } from 'react-autosuggest';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, WidthProps } from 'styled-system';
 import { useDebouncedCallback } from 'use-debounce';
-
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Text from '../Text';
@@ -23,7 +27,7 @@ export interface GroupedSuggestions<S> {
   suggestions: S[];
 }
 
-export interface SearchBoxProps<S> extends WidthProps {
+export interface SearchBoxProps<S> extends WidthProps, PropsWithChildren {
   variant: SearchBoxVariantType;
   placeholder: string;
   isLoading: boolean;
@@ -34,29 +38,25 @@ export interface SearchBoxProps<S> extends WidthProps {
   handleSuggestionFetchRequested: SuggestionsFetchRequested;
   handleSuggestionClearRequested: OnSuggestionsClearRequested;
   renderSuggestion: RenderSuggestion<S>;
-  renderSuggestionsEmpty?: React.ReactNode;
+  renderSuggestionsEmpty?: ReactNode;
   onSelect: OnSuggestionSelected<S>;
   clearOnSelect?: boolean;
   onSearchTermChange?: (term: string) => void;
-  children?: ReactNode;
 }
 
 const SuggestionItem = styled.div`
   ${({ theme }) => space({ theme, p: [2, 3] })}
-  color: ${({ theme }: ThemeProps) => theme.colors.text.primary};
-  border-bottom: 1px solid
-    ${({ theme }: ThemeProps) => theme.colors.shades.grey244};
+  color: ${({ theme }) => theme.colors.text.primary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.shades.grey244};
 
   &:hover {
     cursor: pointer;
-    background-color: ${({ theme }: ThemeProps) =>
-      theme.colors.background.secondary};
+    background-color: ${({ theme }) => theme.colors.background.secondary};
   }
 `;
 
 const SuggestionContainer = styled.div`
-  background-color: ${({ theme }: ThemeProps) =>
-    theme.colors.background.primary};
+  background-color: ${({ theme }) => theme.colors.background.primary};
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   position: absolute;
   left: 0;
@@ -64,8 +64,7 @@ const SuggestionContainer = styled.div`
   z-index: 200;
 
   .react-autosuggest__suggestion--highlighted {
-    background-color: ${({ theme }: ThemeProps) =>
-      theme.colors.background.secondary};
+    background-color: ${({ theme }) => theme.colors.background.secondary};
   }
 
   ul {
@@ -75,8 +74,7 @@ const SuggestionContainer = styled.div`
   }
 `;
 
-// eslint-disable-next-line react/function-component-definition
-function SearchBox<S>({
+const SearchBox = <S,>({
   variant: variantProp = 'highlight',
   placeholder = 'Suche',
   defaultValue,
@@ -91,7 +89,7 @@ function SearchBox<S>({
   getSuggestionValue,
   handleSuggestionFetchRequested,
   handleSuggestionClearRequested,
-}: SearchBoxProps<S>) {
+}: SearchBoxProps<S>) => {
   const [term, setTerm] = useState(defaultValue || '');
   const debounced = useDebouncedCallback(handleSuggestionFetchRequested, 400);
 
@@ -195,6 +193,6 @@ function SearchBox<S>({
       )}
     </SearchBoxWrapper>
   );
-}
+};
 
 export default SearchBox;

@@ -165,7 +165,6 @@ const ClearIndicator = (props: any) => {
 };
 
 const createDropdownIndicator =
-  // eslint-disable-next-line react/function-component-definition
   (error: boolean, theme: Theme & DefaultTheme) => (props: any) => {
     return (
       <components.DropdownIndicator {...props}>
@@ -176,11 +175,9 @@ const createDropdownIndicator =
           fill={
             error
               ? theme.colors.feedback.error
-              : // eslint-disable-next-line react/destructuring-assignment
-                props.isDisabled
+              : props.isDisabled
                 ? theme.colors.shades.grey204
-                : // eslint-disable-next-line react/destructuring-assignment
-                  props.isFocused
+                : props.isFocused
                   ? theme.colors.shades.grey42
                   : theme.colors.shades.grey95
           }
@@ -238,7 +235,7 @@ const SelectBox = <S,>({
   async,
   loadOptions,
   ...props
-}: SelectBoxProps<S>): JSX.Element => {
+}: SelectBoxProps<S>) => {
   const theme = useTheme();
 
   const commonProps = {
@@ -252,8 +249,6 @@ const SelectBox = <S,>({
     isLoading: loading,
     isMulti: multiSelect,
     placeholder,
-    // TODO: Fix lint issue
-    // eslint-disable-next-line react/no-unstable-nested-components
     formatGroupLabel: ({ label }: GroupBase<S>) => (
       <GroupLabel label={label || ''} />
     ),
@@ -283,8 +278,6 @@ const SelectBox = <S,>({
     return (
       <CreatableSelect
         {...commonProps}
-        // TODO: Fix lint issue
-        // eslint-disable-next-line react/no-unstable-nested-components
         formatCreateLabel={(label) => <CreateLabel label={label} />}
       />
     );

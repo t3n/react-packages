@@ -1,9 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { animate, motion, PanInfo, useMotionValue } from 'framer-motion';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { color, space } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
 
 import Text from '../Text';
 
@@ -21,7 +25,7 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
 const StyledSliderTrack = styled.div`
-  height: ${({ theme }: ThemeProps) => theme.space[2]}px;
+  height: ${({ theme }) => theme.space[2]}px;
   width: 100%;
   position: relative;
   ${({ theme }) => color({ bg: 'background.secondary', theme })}
@@ -38,8 +42,8 @@ const StyledSliderThumb = styled.span`
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   transform: translate(-50%, -50%);
-  width: ${({ theme }: ThemeProps) => theme.space[5]}px;
-  height: ${({ theme }: ThemeProps) => theme.space[5]}px;
+  width: ${({ theme }) => theme.space[5]}px;
+  height: ${({ theme }) => theme.space[5]}px;
   ${({ theme }) => color({ bg: 'text.highlight', theme })}
 `;
 
@@ -60,7 +64,7 @@ const StyledSliderLabel = styled.button<LabelProps>`
   white-space: nowrap;
   ${({ theme }) => space({ theme, mb: 4 })}
 
-  ${Text} {
+  p, span {
     transition: all 0.15s ease-in-out;
   }
 `;
@@ -69,8 +73,8 @@ const StyledSliderMarker = styled.button<LabelProps>`
   margin: 0;
   padding: 0;
   display: block;
-  width: ${({ theme }: ThemeProps) => theme.space[4]}px;
-  height: ${({ theme }: ThemeProps) => theme.space[4]}px;
+  width: ${({ theme }) => theme.space[4]}px;
+  height: ${({ theme }) => theme.space[4]}px;
   position: absolute;
   top: 50%;
   left: ${({ x }) => x}%;
@@ -110,7 +114,7 @@ const SliderLabels = ({
       const isActive = value === i * ((max - min) / (labels.length - 1)) + min;
 
       return (
-        <React.Fragment key={label}>
+        <Fragment key={label}>
           <StyledSliderMarker x={x} onClick={() => onPress(i)} />
           <StyledSliderLabel x={x} onClick={() => onPress(i)}>
             <Text
@@ -121,13 +125,13 @@ const SliderLabels = ({
               {label}
             </Text>
           </StyledSliderLabel>
-        </React.Fragment>
+        </Fragment>
       );
     })}
   </>
 );
 
-const Slider: React.FC<SliderProps> = ({
+const Slider = ({
   name,
   min = 0,
   max,
@@ -135,7 +139,7 @@ const Slider: React.FC<SliderProps> = ({
   value = 0,
   labels = [],
   onChange,
-}) => {
+}: SliderProps) => {
   const [initialized, setInitialized] = useState(false);
   const [stepWidth, setStepWidth] = useState(0);
 
@@ -165,11 +169,17 @@ const Slider: React.FC<SliderProps> = ({
 
     if (nextStepWidth !== stepWidth) shouldAnimateRef.current = false;
 
+    // TODO: Fix lint issue
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setStepWidth(nextStepWidth);
   }, [max, min, step, stepWidth]);
 
   useEffect(() => {
-    if (!initialized) setInitialized(true);
+    if (!initialized) {
+      // TODO: Fix lint issue
+      // eslint-disable-next-line react-hooks/set-state-in-effect, @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+      setInitialized(true);
+    }
 
     updateStepWidth();
 

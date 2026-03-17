@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { css, styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import Box from '../Box';
@@ -50,10 +50,12 @@ const LegacyBreadcrumbList = styled.ul`
   }
 `;
 
-const LegacyBreadcrumb: React.FC<{
+const LegacyBreadcrumb = ({
+  secondary,
+  children,
+}: PropsWithChildren<{
   secondary?: boolean;
-  children?: ReactNode;
-}> = ({ secondary, children }) => {
+}>) => {
   if (secondary) {
     return (
       <Box mx="-20px" bg="background.secondary">

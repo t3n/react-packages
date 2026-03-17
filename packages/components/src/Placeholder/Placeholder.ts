@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   borderRadius,
   BorderRadiusProps,
@@ -11,9 +11,7 @@ import {
 import backgroundAnimation from '../helper/animation';
 
 export interface PlaceholderProps
-  extends SpaceProps,
-    LayoutProps,
-    BorderRadiusProps {}
+  extends SpaceProps, LayoutProps, BorderRadiusProps {}
 
 const Placeholder = styled.div<PlaceholderProps>`
   ${backgroundAnimation}

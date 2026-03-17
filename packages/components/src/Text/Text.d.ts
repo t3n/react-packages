@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { ColorProps, SpaceProps, TextAlignProps, WidthProps } from 'styled-system';
-export interface TextProps extends ColorProps, SpaceProps, WidthProps {
+export interface TextProps extends ColorProps, SpaceProps, WidthProps, Required<PropsWithChildren> {
     as?: 'p' | 'span';
     bold?: boolean;
     italic?: boolean;
@@ -8,10 +8,7 @@ export interface TextProps extends ColorProps, SpaceProps, WidthProps {
     small?: boolean;
     secondary?: boolean;
     align?: TextAlignProps['textAlign'];
-    children: ReactNode;
 }
-export declare const textStyle: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<TextProps, any>>;
-declare const Text: import("styled-components").StyledComponent<"p", any, {
-    as: "p" | "span";
-} & TextProps, "as">;
+export declare const textStyle: import("styled-components").RuleSet<TextProps>;
+declare const Text: ({ inline, as, color, ...props }: TextProps) => import("react/jsx-runtime").JSX.Element;
 export default Text;

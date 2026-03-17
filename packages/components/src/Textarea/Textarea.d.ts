@@ -7,5 +7,7 @@ export interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTex
     error?: boolean;
     className?: string;
 }
-declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
+declare const Textarea: ({ ref, disabled, error, width, rows, className, onFocus, onBlur, onChange, onReset, isFocused, defaultValue, maxLength, ...props }: TextareaProps & {
+    ref?: React.RefObject<HTMLTextAreaElement | null>;
+}) => import("react/jsx-runtime").JSX.Element;
 export default Textarea;

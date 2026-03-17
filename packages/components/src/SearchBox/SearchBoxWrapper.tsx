@@ -1,11 +1,10 @@
-/* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { darken } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { layout, space, variant, WidthProps } from 'styled-system';
 
 import { T3nLoupe } from '@t3n/icons';
-import { composeTextStyle, theme as t3nTheme, ThemeProps } from '@t3n/theme';
+import { composeTextStyle, theme as t3nTheme } from '@t3n/theme';
 
 import Loader from '../Loader';
 
@@ -88,9 +87,7 @@ const InputWrapper = styled.div<{ variant: SearchBoxVariantType }>`
   }
 `;
 
-const Wrapper = styled.div<
-  { variant: SearchBoxVariantType } & WidthProps & ThemeProps
->`
+const Wrapper = styled.div<{ variant: SearchBoxVariantType } & WidthProps>`
   ${variant({
     variants: {
       highlight: {
@@ -109,7 +106,7 @@ const Wrapper = styled.div<
   })};
 
   position: relative;
-  border-radius: ${({ theme }: ThemeProps) => `${theme.border.radii[1]}`};
+  border-radius: ${({ theme }) => `${theme.border.radii[1]}`};
   display: flex;
   height: 40px;
 
@@ -126,19 +123,18 @@ const UnstyledButton = styled.button`
   }
 `;
 
-type SearchBoxWrapperProps = {
+interface SearchBoxWrapperProps extends Required<PropsWithChildren> {
   variantProp: SearchBoxVariantType;
   isLoading: boolean;
-  children: React.ReactNode;
   tabbable?: boolean;
-};
+}
 
-const SearchBoxWrapper: React.FC<SearchBoxWrapperProps> = ({
+const SearchBoxWrapper = ({
   variantProp,
   isLoading,
   tabbable,
   children,
-}) => {
+}: SearchBoxWrapperProps) => {
   return (
     <Wrapper variant={variantProp}>
       <InputWrapper variant={variantProp}>{children}</InputWrapper>

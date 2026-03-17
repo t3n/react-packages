@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import {
   color,
   size,
@@ -14,12 +14,11 @@ import { composeTextStyle, ThemeProps } from '@t3n/theme';
 
 export type HeadingElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface HeadingProps extends SpaceProps, SizeProps {
+export interface HeadingProps extends SpaceProps, SizeProps, PropsWithChildren {
   as?: HeadingElements;
   styleAs?: HeadingElements;
   color?: string;
   align?: TextAlignProps['textAlign'];
-  children?: ReactNode;
 }
 
 const font = ({ as, styleAs, theme }: HeadingProps & ThemeProps) =>
@@ -31,7 +30,9 @@ const align = ({ align: alignProp, theme }: HeadingProps & ThemeProps) =>
 const textColor = ({ color: colorProp, theme }: HeadingProps & ThemeProps) =>
   color({ color: colorProp, theme });
 
-const Heading = styled.h1<HeadingProps>`
+const Heading = styled.h1.withConfig({
+  shouldForwardProp: (prop) => !['styleAs', 'align'].includes(prop),
+})<HeadingProps>`
   ${font}
   ${space}
   ${size}
@@ -41,22 +42,22 @@ const Heading = styled.h1<HeadingProps>`
 
 Heading.displayName = 'Heading';
 
-export const H1: React.FC<HeadingProps> = ({ as, ...props }) => (
+export const H1 = ({ ...props }: Omit<HeadingProps, 'as'>) => (
   <Heading as="h1" {...props} />
 );
-export const H2: React.FC<HeadingProps> = ({ as, ...props }) => (
+export const H2 = ({ ...props }: Omit<HeadingProps, 'as'>) => (
   <Heading as="h2" {...props} />
 );
-export const H3: React.FC<HeadingProps> = ({ as, ...props }) => (
+export const H3 = ({ ...props }: Omit<HeadingProps, 'as'>) => (
   <Heading as="h3" {...props} />
 );
-export const H4: React.FC<HeadingProps> = ({ as, ...props }) => (
+export const H4 = ({ ...props }: Omit<HeadingProps, 'as'>) => (
   <Heading as="h4" {...props} />
 );
-export const H5: React.FC<HeadingProps> = ({ as, ...props }) => (
+export const H5 = ({ ...props }: Omit<HeadingProps, 'as'>) => (
   <Heading as="h5" {...props} />
 );
-export const H6: React.FC<HeadingProps> = ({ as, ...props }) => (
+export const H6 = ({ ...props }: Omit<HeadingProps, 'as'>) => (
   <Heading as="h6" {...props} />
 );
 

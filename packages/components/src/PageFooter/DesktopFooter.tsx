@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { border, color, layout, space, typography } from 'styled-system';
 
 import Box from '../Box';
@@ -22,7 +22,6 @@ export type DesktopLinkGroupsType = {
 
 export interface DesktopFooterProps {
   privacyManagerId: string;
-  isProMember?: boolean;
 }
 
 const DesktopFooterWrapper = styled(Box)`
@@ -103,7 +102,7 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
           url: '#',
           onClick: (e, id) => {
             e.preventDefault();
-            // eslint-disable-next-line no-underscore-dangle
+
             (window as any)._sp_.loadPrivacyManagerModal(id);
           },
         },
@@ -216,12 +215,12 @@ const DesktopBottom = () => {
   );
 };
 
-const DesktopFooter: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
+const DesktopFooter = ({ privacyManagerId }: DesktopFooterProps) => {
   return (
     <DesktopFooterWrapper>
       <Box display="flex" m="10px">
         <GridItem width={[1, 1, 1, 1 / 2]} px="10px" pr="0" mr="10px">
-          <MissonStatement mt={0} mr={1} bold lang="en">
+          <MissonStatement mt={0} mr={1} bold>
             Spreading knowledge &amp; future optimism.
           </MissonStatement>
         </GridItem>

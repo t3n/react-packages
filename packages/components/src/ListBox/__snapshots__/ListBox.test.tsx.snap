@@ -12,19 +12,19 @@ exports[`ListBox Status matches Snapshot 1`] = `
   border-radius: 4px;
 }
 
-@media screen and (min-width:30rem) {
+@media screen and (min-width: 30rem) {
   .c0 {
     padding: 16px;
   }
 }
 
-@media screen and (min-width:48rem) {
+@media screen and (min-width: 48rem) {
   .c0 {
     padding: 32px;
   }
 }
 
-@media screen and (min-width:61.25rem) {
+@media screen and (min-width: 61.25rem) {
   .c0 {
     padding: 32px;
   }

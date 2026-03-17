@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, SpaceProps, typography } from 'styled-system';
 
 import { Heading, ListBox } from '@t3n/components';

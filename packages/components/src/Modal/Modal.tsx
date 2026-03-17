@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { css, styled } from 'styled-components';
 import { WidthProps } from 'styled-system';
 
 import { MaterialClear } from '@t3n/icons';
@@ -9,13 +9,12 @@ import Card from '../Card';
 import Heading, { HeadingProps } from '../Heading';
 import Icon from '../Icon';
 
-export interface ModalProps extends WidthProps {
+export interface ModalProps extends WidthProps, PropsWithChildren {
   headline: string;
-  headlineIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  headlineIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   alwaysCentered?: boolean;
   wide?: boolean;
   onClose: () => void;
-  children?: ReactNode;
 }
 
 export interface ModalHeadingProps extends HeadingProps {
@@ -76,7 +75,7 @@ const StyledIconContainer = styled(Box)`
   cursor: pointer;
 `;
 
-const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
+const CloseIcon = ({ onClick }: { onClick: () => void }) => {
   return (
     <StyledIconContainer
       onClick={onClick}
@@ -92,7 +91,7 @@ const CloseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   );
 };
 
-const Modal: React.FC<ModalProps> = ({
+const Modal = ({
   headline,
   headlineIcon,
   wide = false,
@@ -100,7 +99,7 @@ const Modal: React.FC<ModalProps> = ({
   width: widthProp,
   onClose,
   children,
-}) => {
+}: ModalProps) => {
   return (
     <ModalWrapper
       display="flex"

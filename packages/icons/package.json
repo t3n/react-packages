@@ -1,6 +1,6 @@
 {
   "name": "@t3n/icons",
-  "version": "0.8.5",
+  "version": "0.8.6-prerelease-35e00137b9.0",
   "description": "t3n.de react icons",
   "repository": {
     "type": "git",
@@ -17,21 +17,21 @@
     "generate": "ts-node-dev -P tsconfig.node.json --files src/lib/generate.ts"
   },
   "peerDependencies": {
-    "react": ">=16.8"
+    "react": ">=19.0"
   },
   "devDependencies": {
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@svgr/plugin-prettier": "^8.1.0",
     "@svgr/plugin-svgo": "^8.1.0",
-    "@t3n/configs": "^0.7.4",
+    "@t3n/configs": "^0.7.5-prerelease-35e00137b9.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.13.1",
-    "@types/react": "^18.3.12",
+    "@types/react": "^19.0.0",
     "chalk": "^5.6.2",
     "fs-extra": "^11.3.2",
     "material-design-icons": "^3.0.1",
-    "react": "^18.3.1"
+    "react": "^19.2.0"
   },
   "sideEffects": false,
   "publishConfig": {

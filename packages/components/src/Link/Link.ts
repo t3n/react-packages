@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import btoa from 'btoa';
-import styled, { css } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { color, SpaceProps, TextColorProps } from 'styled-system';
 
 import { getThemeColor, hexToRgb, ThemeProps } from '@t3n/theme';
@@ -10,11 +10,11 @@ import { TextProps, textStyle } from '../Text';
 
 export type LinkVariantType = 'primary' | 'secondary' | 'highlight' | 'inverse';
 
-export interface LinkProps extends TextColorProps, SpaceProps {
+export interface LinkProps
+  extends TextColorProps, SpaceProps, Required<PropsWithChildren> {
   small?: TextProps['small'];
   disabled?: boolean;
   variant?: LinkVariantType;
-  children: ReactNode;
 }
 
 export type LinkState = 'default' | 'hover' | 'focus' | 'visited';
@@ -48,7 +48,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
 
   &:hover {
     ${({ theme }) => color({ color: linkStyleConfig.hover.color, theme })}
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       underline(
         underlineColor(linkStyleConfig.hover.underlineColor)({ theme }),
       )}
@@ -56,7 +56,7 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
 
   &:focus {
     ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       underline(
         underlineColor(linkStyleConfig.focus.underlineColor)({ theme }),
       )}
@@ -64,13 +64,13 @@ export const createLinkStyle = (linkStyleConfig: LinkStyle) => css<
 
   &:visited {
     ${({ theme }) => color({ color: linkStyleConfig.visited.color, theme })}
-    ${({ theme }: ThemeProps) =>
+    ${({ theme }) =>
       underline(
         underlineColor(linkStyleConfig.visited.underlineColor)({ theme }),
       )}
     &:focus {
       ${({ theme }) => color({ color: linkStyleConfig.focus.color, theme })}
-      ${({ theme }: ThemeProps) =>
+      ${({ theme }) =>
         underline(
           underlineColor(linkStyleConfig.focus.underlineColor)({ theme }),
         )}
@@ -102,10 +102,10 @@ export const linkStyle = css<LinkProps>`
   }}
 `;
 
-const Link = styled.a.attrs((props) => ({
+const Link = styled.a.attrs<LinkProps>((props: LinkProps) => ({
   variant: 'primary',
   ...props,
-}))<LinkProps>`
+}))`
   ${linkStyle}
 `;
 

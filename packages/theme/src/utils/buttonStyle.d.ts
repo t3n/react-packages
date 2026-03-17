@@ -1,5 +1,7 @@
 /// <reference types="react" />
+import type { JSX } from "react";
 import { StyledComponent } from 'styled-components';
+
 import { ThemeProps } from '../index';
 interface ButtonProps extends ThemeProps {
     secondary?: boolean;

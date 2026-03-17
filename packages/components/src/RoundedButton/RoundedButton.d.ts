@@ -1,19 +1,17 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import { MarginProps, WidthProps } from 'styled-system';
-import { ThemeProps } from '@t3n/theme';
 export type RoundedButtonAsType = 'button' | 'a';
 export type RoundedButtonVariant = 'primary' | 'secondary';
 export type RoundedButtonColorVariant = 'default' | 'inverse' | 'highlight' | 'accent';
 export type RoundedButtonSizeVariant = 'small' | 'regular' | 'big';
-export interface RoundedButtonBaseProps extends MarginProps, WidthProps {
+export interface RoundedButtonBaseProps extends MarginProps, WidthProps, PropsWithChildren {
     size?: RoundedButtonSizeVariant;
     variant?: RoundedButtonVariant;
     color?: RoundedButtonColorVariant;
-    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     label?: ReactNode;
     loading?: boolean;
     expanded?: boolean;
-    children?: ReactNode;
 }
 export interface RoundedButtonButtonTypeProps extends RoundedButtonBaseProps, Omit<ButtonHTMLAttributes<any>, 'color'> {
     as?: 'button';
@@ -22,7 +20,7 @@ export interface RoundedButtonATypeProps extends RoundedButtonBaseProps, Omit<An
     as?: 'a';
 }
 export type RoundedButtonProps = RoundedButtonATypeProps | RoundedButtonButtonTypeProps;
-export declare const RoundedButtonStyles: import("styled-components").FlattenInterpolation<import("styled-components").ThemedStyledProps<ThemeProps & RoundedButtonProps, any>>;
-export declare const StyledRoundedButton: import("styled-components").StyledComponent<"button", any, RoundedButtonProps, never>;
-declare const RoundedButton: React.FC<RoundedButtonProps>;
+export declare const RoundedButtonStyles: import("styled-components").RuleSet<RoundedButtonProps>;
+export declare const StyledRoundedButton: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, RoundedButtonProps>> & string;
+declare const RoundedButton: (props: RoundedButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default RoundedButton;

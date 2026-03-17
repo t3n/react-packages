@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-require-imports */
 const webpack = require('webpack');
 const { resolve } = require('path');

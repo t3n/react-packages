@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import {
   border,
   color,
@@ -15,7 +15,6 @@ import {
   MaterialPerson,
   T3nPlus,
 } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../../Box';
 import Grid from '../../Grid';
@@ -53,8 +52,19 @@ const MenuToggleBox = styled(Box)`
   }
 `;
 
+interface MenuToggleProps {
+  doNotDisplayMobile?: boolean;
+  doNotDisplayDesktop?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+}
+
 const MenuToggle = styled(
-  ({ doNotDisplayMobile, doNotDisplayDesktop, onClick, ...props }) => (
+  ({
+    doNotDisplayMobile,
+    doNotDisplayDesktop,
+    onClick,
+    ...props
+  }: MenuToggleProps & any) => (
     <Icon
       {...props}
       role="button"
@@ -135,7 +145,7 @@ const SubMenuItem = styled.a`
   :focus {
     cursor: pointer;
 
-    ${({ theme }: ThemeProps) => color({ theme, color: 'text.highlight' })}
+    ${({ theme }) => color({ theme, color: 'text.highlight' })}
   }
 `;
 
@@ -153,7 +163,7 @@ const BurgerHeading = styled(Heading)`
     :focus {
       cursor: pointer;
 
-      ${({ theme }: ThemeProps) => color({ theme, color: 'text.highlight' })}
+      ${({ theme }) => color({ theme, color: 'text.highlight' })}
     }
 
     > svg {
@@ -166,7 +176,7 @@ const ObjectFitImage = styled(Image)`
   object-fit: cover;
 `;
 
-const BurgerNav: React.FC<BurgerNavProps> = ({
+const BurgerNav = ({
   ressorts,
   skills,
   brands,
@@ -176,19 +186,19 @@ const BurgerNav: React.FC<BurgerNavProps> = ({
   isLoggedIn,
   isMenuOpen,
   onMenuOpenClick,
-}) => {
+}: BurgerNavProps) => {
   const [term, setTerm] = useState('');
   const tabbable = isMenuOpen;
 
   // Track open state for each accordion
-  const [openAccordions, setOpenAccordions] = useState<{
-    [key: string]: boolean;
-  }>({
-    Brands: false,
-    Themen: false,
-    Magazine: true,
-    Skills: false,
-  });
+  const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>(
+    {
+      Brands: false,
+      Themen: false,
+      Magazine: true,
+      Skills: false,
+    },
+  );
 
   const handleAccordionToggle = (key: string) => {
     setOpenAccordions((prev) => ({

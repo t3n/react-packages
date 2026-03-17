@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 
@@ -13,7 +12,7 @@ test('TagList matches snapshot', () => {
     <TagList
       collapseAfter={2}
       tags={tagLabels.map((tag) => (
-        <Tag>{tag}</Tag>
+        <Tag key={tag}>{tag}</Tag>
       ))}
     />,
     {},
@@ -29,7 +28,7 @@ test('TagList has no toggle if there are not enough items', () => {
     <TagList
       collapseAfter={3}
       tags={tagLabels.map((tag) => (
-        <Tag>{tag}</Tag>
+        <Tag key={tag}>{tag}</Tag>
       ))}
     />,
     {},
@@ -45,7 +44,7 @@ test('TagList will collapse tags', () => {
     <TagList
       collapseAfter={2}
       tags={tagLabels.map((tag) => (
-        <Tag>{tag}</Tag>
+        <Tag key={tag}>{tag}</Tag>
       ))}
     />,
     {},

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space } from 'styled-system';
 
 import { MaterialAccessTime } from '@t3n/icons';
@@ -19,11 +19,15 @@ const FlexText = styled(Text)`
   align-items: center;
 `;
 
-const Metabar: React.FC<{
+const Metabar = ({
+  article,
+  isBookmarked,
+  handleBookmarkClick,
+}: {
   article: ArticleProps;
   isBookmarked: boolean;
   handleBookmarkClick: () => void;
-}> = ({ article, isBookmarked, handleBookmarkClick }) => {
+}) => {
   return (
     <Box
       pt={2}

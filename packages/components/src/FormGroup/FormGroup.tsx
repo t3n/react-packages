@@ -1,25 +1,28 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, {
+  LabelHTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+} from 'react';
+import { styled } from 'styled-components';
 import { margin, MarginProps, space } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
 
 import Box from '../Box';
 import Text from '../Text';
 
 export interface FormGroupProps
-  extends React.LabelHTMLAttributes<HTMLLabelElement>,
-    Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'> {
+  extends
+    LabelHTMLAttributes<HTMLLabelElement>,
+    Pick<MarginProps, 'marginTop' | 'marginBottom' | 'mt' | 'mb' | 'my'>,
+    PropsWithChildren {
   label: string;
   labelSecondary?: string;
   labelEndContent?: ReactNode;
   errorMessage?: string;
-  children?: ReactNode;
 }
 
 const Label = styled.span`
   display: inline-block;
-  ${({ theme }: ThemeProps) => space({ mr: 1, theme })};
+  ${({ theme }) => space({ mr: 1, theme })};
 `;
 
 const LabelEnd = styled.span`
@@ -36,7 +39,7 @@ const SecondaryLabel = styled(Text)`
   line-height: normal;
 `;
 
-const FormGroup: React.FC<FormGroupProps> = ({
+const FormGroup = ({
   label,
   labelSecondary,
   labelEndContent,
@@ -44,7 +47,7 @@ const FormGroup: React.FC<FormGroupProps> = ({
   children,
   my = 4,
   ...props
-}) => (
+}: FormGroupProps) => (
   <StyledFormGroup my={my} {...props}>
     <Box width={1} display="flex" mb={1}>
       <Label>{label}</Label>

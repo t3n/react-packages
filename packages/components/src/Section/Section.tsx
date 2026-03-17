@@ -1,27 +1,22 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PropsWithChildren } from 'react';
+import { styled } from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
-
-import { ThemeProps } from '@t3n/theme';
 
 import Content from '../Content';
 
 export type SectionVariants = 'primary' | 'secondary' | 'inverse' | 'highlight';
 
-export interface SectionProps {
+export interface SectionProps extends PropsWithChildren {
   variant?: SectionVariants;
   wide?: boolean;
   small?: boolean;
   innerGap?: SpaceProps['py'];
-  children?: ReactNode;
 }
 
 const SectionOuter = styled.div<SectionProps>`
-  background-color: ${({
-    variant = 'primary',
-    theme,
-  }: SectionProps & ThemeProps) => theme.colors.background[variant]};
-  color: ${({ variant = 'primary', theme }: SectionProps & ThemeProps) => {
+  background-color: ${({ variant = 'primary', theme }) =>
+    theme.colors.background[variant]};
+  color: ${({ variant = 'primary', theme }) => {
     switch (variant) {
       case 'inverse':
       case 'highlight':
@@ -31,17 +26,16 @@ const SectionOuter = styled.div<SectionProps>`
         return theme.colors.text.primary;
     }
   }};
-  ${({ innerGap, theme }: SectionProps & ThemeProps) =>
-    space({ py: innerGap, theme })}
+  ${({ innerGap, theme }) => space({ py: innerGap, theme })}
 `;
 
-const Section: React.FC<SectionProps> = ({
+const Section = ({
   variant,
   wide,
   small,
   children,
   innerGap = 6,
-}) => (
+}: SectionProps) => (
   <SectionOuter variant={variant} innerGap={innerGap}>
     <Content wide={wide} small={small}>
       {children}

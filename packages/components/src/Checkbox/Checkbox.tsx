@@ -1,10 +1,9 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { space, variant as styledVariant } from 'styled-system';
 
 import { MaterialCheck } from '@t3n/icons';
-import { ThemeProps } from '@t3n/theme';
 import { ThemeFeedbackColor } from '@t3n/theme/src/theme/colors/colors';
 
 import Box from '../Box';
@@ -32,7 +31,10 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<CheckboxProps>`
   opacity: 0;
 `;
 
-const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
+const StyledCheckbox = styled(Box).withConfig({
+  shouldForwardProp: (prop) =>
+    !['checked', 'disabled', 'feedbackColor'].includes(prop),
+})<Omit<CheckboxProps, 'name' | 'value'>>`
   display: inline-block;
   position: relative;
   width: 1rem;
@@ -100,9 +102,10 @@ const StyledCheckbox = styled(Box)<Omit<CheckboxProps, 'name' | 'value'>>`
   }
 `;
 
-const StyledIcon = styled.span<
-  Omit<CheckboxProps, 'name' | 'value'> & ThemeProps
->`
+const StyledIcon = styled.span.withConfig({
+  shouldForwardProp: (prop) =>
+    !['checked', 'disabled', 'feedbackColor'].includes(prop),
+})<Omit<CheckboxProps, 'name' | 'value'>>`
   position: absolute;
   top: -1px;
   left: -1px;

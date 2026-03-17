@@ -1,14 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { ThemeProps } from '@t3n/theme';
 import {
   ThemeBrandColor,
   ThemeShadeColor,
 } from '@t3n/theme/src/theme/colors/colors';
 
-const NProgressBarGlobalStyle = createGlobalStyle<
-  { barColor?: ThemeShadeColor | ThemeBrandColor } & ThemeProps
->`
+const NProgressBarGlobalStyle = createGlobalStyle<{
+  barColor?: ThemeShadeColor | ThemeBrandColor;
+}>`
   #nprogress {
     pointer-events: none;
   }
