@@ -34,11 +34,7 @@ const preview: Preview = {
           configuration={{
             cdn: {
               hostname: 'cdn.t3n.de',
-              originHostnames: [
-                'storage.googleapis.com',
-                'images.t3n.de',
-                'assets.t3n.de',
-              ],
+              originHostnames: ['storage.googleapis.com'],
             },
           }}
         >

@@ -239,7 +239,7 @@ const BurgerNav = ({
             <RoundedButton
               as="a"
               icon={MaterialPerson}
-              href="/account"
+              href="/account/"
               variant="secondary"
               size="small"
               expanded
@@ -251,7 +251,7 @@ const BurgerNav = ({
             <RoundedButton
               as="a"
               icon={MaterialPerson}
-              href="/account/login"
+              href="/account/login/"
               variant="secondary"
               size="small"
               expanded
@@ -270,7 +270,7 @@ const BurgerNav = ({
             tabIndex={tabbable ? 0 : -1}
           />
         </BurgerButtonBox>
-        <form action="/suche" method="get">
+        <form action="/suche/" method="get">
           <SearchBoxWrapper
             variantProp="light"
             isLoading={false}
@@ -305,7 +305,7 @@ const BurgerNav = ({
         </a>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
-            href="/dein-abo"
+            href="/dein-abo/"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >
@@ -398,7 +398,7 @@ const BurgerNav = ({
           </Grid>
         </BurgerAccordion>
         <BurgerAccordion
-          title="Skills"
+          title="t3n PRO"
           isOpen={openAccordions.Skills}
           onToggle={() => handleAccordionToggle('Skills')}
           tabbable={tabbable}
@@ -425,7 +425,7 @@ const BurgerNav = ({
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
-            href="/picks"
+            href="/picks/"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >
@@ -434,7 +434,7 @@ const BurgerNav = ({
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
-            href="/podcast"
+            href="/podcast/"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >
@@ -452,7 +452,7 @@ const BurgerNav = ({
         </BurgerHeading>
         <BurgerHeading as="h4" styleAs="h4" mt={0} mb={5}>
           <a
-            href="/events"
+            href="/events/"
             className="t-header__burger-link"
             tabIndex={tabbable ? 0 : -1}
           >
