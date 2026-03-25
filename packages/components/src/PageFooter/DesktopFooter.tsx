@@ -104,7 +104,7 @@ const DesktopLinks: React.FC<DesktopFooterProps> = ({ privacyManagerId }) => {
           onClick: (e, id) => {
             e.preventDefault();
             // eslint-disable-next-line no-underscore-dangle
-            (window as any)._sp_.loadPrivacyManagerModal(id);
+            (window as any)._sp_.gdpr.loadPrivacyManagerModal(id);
           },
         },
         {
