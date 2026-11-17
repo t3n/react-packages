@@ -1,3 +1,7 @@
+> [!WARNING]
+> **This repository is deprecated and no longer maintained.**
+> The packages `@t3n/components`, `@t3n/icons`, `@t3n/theme`, `@t3n/configs` and `@t3n/storybook` are not developed any further and receive no updates.
+
 # Table of Contents
 
 - [Introduction](#introduction)
